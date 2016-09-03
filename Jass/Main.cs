@@ -3,9 +3,16 @@ using System;
 namespace Jass {
 	class MainClass {
 		public static void Main (string[] args) {
+			Core.RegisterClass(typeof(Jass.String));
+
+			string file = "Scripts\\CreditsBlizzard.pld";
+
 			if (args.Length>0) {
-				string file = args[0];
-				Console.WriteLine(file);
+				file = args[0];
+			}
+
+			using (JassReader reader = new JassReader()) {
+				reader.Read(file);
 			}
 		}
 	}

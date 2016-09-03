@@ -37,9 +37,14 @@
   <ItemGroup>
     <Compile Include="Main.cs" />
     <Compile Include="AssemblyInfo.cs" />
+    <Compile Include="Classes\String.cs" />
+    <Compile Include="Classes\IClass.cs" />
+    <Compile Include="Reader\JassReader.cs" />
+    <Compile Include="Reader\Core.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <ItemGroup>
-    <Folder Include="Objects\" />
+    <Folder Include="Classes\" />
+    <Folder Include="Reader\" />
   </ItemGroup>
 </Project>

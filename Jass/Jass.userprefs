@@ -1,9 +1,10 @@
 ﻿<Properties>
   <MonoDevelop.Ide.CustomExecutionModes />
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug|x86" PreferredExecutionTarget="MonoDevelop.Default" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Main.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="JassReader.cs">
     <Files>
-      <File FileName="Main.cs" Line="6" Column="33" />
+      <File FileName="Main.cs" Line="8" Column="5" />
+      <File FileName="JassReader.cs" Line="25" Column="4" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
@@ -15,7 +16,7 @@
       <Data Name="Debug" Id="0ab76852-a5a6-45c2-887d-84ea59820784" ModeId="Default" PromptForParameters="True">
         <CommandData>
           <Item Key="MonoDevelop.Ide.Execution.CustomArgsCustomizer">
-            <Value Arguments="Data/common.j" ctype="CustomArgsExecutionModeData">
+            <Value Arguments="Scripts\common.j" ctype="CustomArgsExecutionModeData">
               <EnvironmentVariables />
             </Value>
           </Item>
