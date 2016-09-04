@@ -4,7 +4,7 @@ using System.IO;
 namespace Jass {
 	class MainClass {
 		public static void Main (string[] args) {
-			Core.RegisterClass(typeof(FunctionStart), FunctionStart.InstanceOf);
+			Core.RegisterParser(typeof(FunctionStart), FunctionStart.InstanceOf);
 
 			string file = "Scripts\\CreditsBlizzard.pld";
 

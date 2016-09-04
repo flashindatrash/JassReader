@@ -46,7 +46,8 @@
     <Compile Include="Utils\Log.cs" />
     <Compile Include="Utils\Core.cs" />
     <Compile Include="Reader\IParser.cs" />
-    <Compile Include="Reader\LineStruct.cs" />
+    <Compile Include="Classes\JassVoid.cs" />
+    <Compile Include="Structures\LineParser.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <ItemGroup>
@@ -54,5 +55,7 @@
     <Folder Include="Reader\" />
     <Folder Include="Extends\" />
     <Folder Include="Utils\" />
+    <Folder Include="Classes\" />
+    <Folder Include="Structures\" />
   </ItemGroup>
 </Project>

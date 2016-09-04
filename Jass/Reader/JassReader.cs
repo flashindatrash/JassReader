@@ -38,11 +38,11 @@ namespace Jass
 			{
 				string line = lines[i].Trim();
 				IParser instance = null;
-				foreach (LineStruct structure in Core.Classes)
+				foreach (LineParser parser in Core.Parsers)
 				{
-					if (structure.instanceOf.IsMatch(line))
+					if (parser.instanceOf.IsMatch(line))
 					{
-						instance = (IParser)Activator.CreateInstance(structure.type);
+						instance = (IParser)Activator.CreateInstance(parser.type);
 						break;
 					}
 				}
