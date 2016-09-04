@@ -1,27 +1,17 @@
-﻿<Properties>
-  <MonoDevelop.Ide.CustomExecutionModes />
-  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug|x86" PreferredExecutionTarget="MonoDevelop.Default" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="JassReader.cs">
-    <Files>
-      <File FileName="Main.cs" Line="8" Column="5" />
-      <File FileName="JassReader.cs" Line="25" Column="4" />
-    </Files>
-  </MonoDevelop.Ide.Workbench>
+﻿<Properties StartupItem="Jass.csproj">
+  <MonoDevelop.Ide.ItemProperties.Jass PreferredExecutionTarget="MonoDevelop.Default" />
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug|x86" />
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
     <BreakpointStore />
   </MonoDevelop.Ide.DebuggingService.Breakpoints>
-  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
-  <MonoDevelop.Ide.ItemProperties.Jass>
-    <MonoDevelop.Ide.CustomExecutionModes>
-      <Data Name="Debug" Id="0ab76852-a5a6-45c2-887d-84ea59820784" ModeId="Default" PromptForParameters="True">
-        <CommandData>
-          <Item Key="MonoDevelop.Ide.Execution.CustomArgsCustomizer">
-            <Value Arguments="Scripts\common.j" ctype="CustomArgsExecutionModeData">
-              <EnvironmentVariables />
-            </Value>
-          </Item>
-        </CommandData>
-      </Data>
-    </MonoDevelop.Ide.CustomExecutionModes>
-  </MonoDevelop.Ide.ItemProperties.Jass>
+  <MonoDevelop.Ide.Workbench ActiveDocument="Main.cs">
+    <Files>
+      <File FileName="Main.cs" Line="3" Column="1" />
+      <File FileName="AssemblyInfo.cs" Line="20" Column="27" />
+      <File FileName="Reader\JassReader.cs" Line="1" Column="1" />
+      <File FileName="..\..\..\..\..\..\Windows\Microsoft.NET\Framework\v4.0.30319\Microsoft.Common.targets" Line="979" Column="81" />
+    </Files>
+  </MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.CustomExecutionModes />
 </Properties>

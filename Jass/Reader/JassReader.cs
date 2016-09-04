@@ -15,29 +15,69 @@ namespace Jass {
 
 	public class JassReader : IDisposable {
 
+		private int _index;
+		private string _content;
+
+		public int Length {
+			get { return _content.Length; }
+		}
+
+		//contructor
 		public JassReader() {
 		
 		}
 
+		//destructor
+		~JassReader() {
+			Dispose(false);
+		}
+
+		//read file
 		public void Read(string file) {
-			Console.WriteLine(string.Format("Read file: {0}", file));
-			string result = null;
+			Log.Add(string.Format("Read file: {0}", file), ConsoleColor.Blue);
 			try {
-				result = File.ReadAllText(file);
+				_content = File.ReadAllText(file);
 			} catch (Exception exp) {
-				Console.WriteLine(string.Format("File not exist {0}\n{1}", file, exp.Message));
+				Log.Add(exp.Message, ConsoleColor.Red);
 			}
-			if (result!=null) {
-				Parse(result);
+
+			if (_content!=null) {
+				Parse();
 			}
 		}
+
+		//переместить точку чтения
+		private int Seek(int offset) {
+			_index += offset;
+			return _index;
+		}
+
+		//parsing
+		private void Parse() {
+			Log.Add(_content, ConsoleColor.White);
+		}
+
+		/*
+		 * IDisposable
+		 */
+		private bool disposed = false;
 
 		public void Dispose() {
-
+			Dispose(true);
+			//подавляем финализацию
+			GC.SuppressFinalize(this);
 		}
 
-		private void Parse(string file) {
-
+		protected virtual void Dispose(bool disposing) {
+			if (!disposed) {
+				if (disposing) {
+					// Освобождаем управляемые ресурсы
+					_index = 0;
+					_content = null;
+				}
+				// освобождаем неуправляемые объекты
+				disposed = true;
+			}
 		}
 
 	}
