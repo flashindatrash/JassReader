@@ -38,16 +38,21 @@
   <ItemGroup>
     <Compile Include="Main.cs" />
     <Compile Include="AssemblyInfo.cs" />
-    <Compile Include="Classes\String.cs" />
-    <Compile Include="Classes\IClass.cs" />
     <Compile Include="Reader\JassReader.cs" />
-    <Compile Include="Reader\Core.cs" />
-    <Compile Include="Log.cs" />
-    <Compile Include="Classes\Function.cs" />
+    <Compile Include="Lines\FunctionStart.cs" />
+    <Compile Include="Reader\JassException.cs" />
+    <Compile Include="Extends\StringExtend.cs" />
+    <Compile Include="Reader\ResultFormat.cs" />
+    <Compile Include="Utils\Log.cs" />
+    <Compile Include="Utils\Core.cs" />
+    <Compile Include="Reader\IParser.cs" />
+    <Compile Include="Reader\LineStruct.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <ItemGroup>
-    <Folder Include="Classes\" />
+    <Folder Include="Lines\" />
     <Folder Include="Reader\" />
+    <Folder Include="Extends\" />
+    <Folder Include="Utils\" />
   </ItemGroup>
 </Project>

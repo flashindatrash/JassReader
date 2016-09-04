@@ -1,10 +1,10 @@
 using System;
+using System.IO;
 
 namespace Jass {
 	class MainClass {
 		public static void Main (string[] args) {
-			Core.RegisterClass(typeof(Jass.Function));
-			Core.RegisterClass(typeof(Jass.String));
+			Core.RegisterClass(typeof(FunctionStart), FunctionStart.InstanceOf);
 
 			string file = "Scripts\\CreditsBlizzard.pld";
 
@@ -13,7 +13,11 @@ namespace Jass {
 			}
 
 			using (JassReader reader = new JassReader()) {
-				reader.Read(file);
+				Log.Add(string.Format("Read file: {0}", file), ConsoleColor.Blue);
+
+				reader.Parse(File.ReadAllText(file));
+
+				Log.Add(reader.ToString(ResultFormat.CSharp), ConsoleColor.Yellow);
 			}
 
 		}
