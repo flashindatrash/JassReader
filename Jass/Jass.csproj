@@ -39,7 +39,7 @@
     <Compile Include="Main.cs" />
     <Compile Include="AssemblyInfo.cs" />
     <Compile Include="Reader\JassReader.cs" />
-    <Compile Include="Lines\FunctionStart.cs" />
+    <Compile Include="Parsers\FunctionStart.cs" />
     <Compile Include="Reader\JassException.cs" />
     <Compile Include="Extends\StringExtend.cs" />
     <Compile Include="Reader\ResultFormat.cs" />
@@ -51,7 +51,7 @@
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <ItemGroup>
-    <Folder Include="Lines\" />
+    <Folder Include="Parsers\" />
     <Folder Include="Reader\" />
     <Folder Include="Extends\" />
     <Folder Include="Utils\" />
