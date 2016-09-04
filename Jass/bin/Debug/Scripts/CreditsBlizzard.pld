@@ -16,5 +16,3 @@ function PreloadFiles takes nothing returns nothing
 	call PreloadEnd( 1.0 )
 
 endfunction
-
-native  SetMissionAvailable     takes integer campaignNumber, integer missionNumber, boolean available returns integer
