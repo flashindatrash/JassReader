@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.Text.RegularExpressions;
 
 namespace Jass
 {
@@ -32,15 +33,20 @@ namespace Jass
 		public void Parse(string text)
 		{
 			
-			string[] lines = text.GetLines();
+			string[] lines = text.SplitLines();
 			_result = new List<IParser>();
 			for (int i = 0; i < lines.Length; i++)
 			{
 				string line = lines[i].Trim();
+				if (String.IsNullOrEmpty(line))
+				{
+					continue;
+				}
+
 				IParser instance = null;
 				foreach (LineParser parser in Core.Parsers)
 				{
-					if (parser.instanceOf.IsMatch(line))
+					if (Regex.IsMatch(line, parser.pattern))
 					{
 						instance = (IParser)Activator.CreateInstance(parser.type);
 						break;
@@ -57,12 +63,12 @@ namespace Jass
 			}
 		}
 
-		public string ToString(ResultFormat format)
+		public override string ToString()
 		{
 			string o = "";
 			foreach (IParser line in _result)
 			{
-				o += line.ToString(format) + "\n";
+				o += line + "\n";
 			}
 			return o;
 		}

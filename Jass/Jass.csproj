@@ -4,13 +4,14 @@
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">x86</Platform>
     <ProductVersion>10.0.0</ProductVersion>
-	<SchemaVersion>2.0</SchemaVersion>
+    <SchemaVersion>2.0</SchemaVersion>
     <ProjectGuid>{19797A75-3112-47CE-912F-C5C955A7D007}</ProjectGuid>
     <OutputType>Exe</OutputType>
     <RootNamespace>Jass</RootNamespace>
     <AssemblyName>Jass</AssemblyName>
     <StartupObject>Jass.MainClass</StartupObject>
     <UseMSBuildEngine>false</UseMSBuildEngine>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|x86' ">
     <DebugSymbols>True</DebugSymbols>
@@ -21,7 +22,7 @@
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
     <PlatformTarget>x86</PlatformTarget>
-    <Externalconsole>true</Externalconsole>
+    <Externalconsole>True</Externalconsole>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|x86' ">
     <DebugType>none</DebugType>
@@ -39,15 +40,18 @@
     <Compile Include="Main.cs" />
     <Compile Include="AssemblyInfo.cs" />
     <Compile Include="Reader\JassReader.cs" />
-    <Compile Include="Parsers\FunctionStart.cs" />
     <Compile Include="Reader\JassException.cs" />
     <Compile Include="Extends\StringExtend.cs" />
-    <Compile Include="Reader\ResultFormat.cs" />
     <Compile Include="Utils\Log.cs" />
     <Compile Include="Utils\Core.cs" />
     <Compile Include="Reader\IParser.cs" />
-    <Compile Include="Classes\JassVoid.cs" />
     <Compile Include="Structures\LineParser.cs" />
+    <Compile Include="Parsers\Call.cs" />
+    <Compile Include="Parsers\Function.cs" />
+    <Compile Include="Parsers\EndFunction.cs" />
+    <Compile Include="Parsers\Args.cs" />
+    <Compile Include="Parsers\Takes.cs" />
+    <Compile Include="Parsers\Class.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <ItemGroup>
@@ -55,7 +59,6 @@
     <Folder Include="Reader\" />
     <Folder Include="Extends\" />
     <Folder Include="Utils\" />
-    <Folder Include="Classes\" />
     <Folder Include="Structures\" />
   </ItemGroup>
 </Project>

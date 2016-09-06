@@ -1,15 +1,15 @@
 ﻿using System;
-using System.Text.RegularExpressions;
+
 namespace Jass
 {
 	public struct LineParser
 	{
 		public Type type;
-		public Regex instanceOf;
-		public LineParser(Type type, Regex instanceOf)
+		public string pattern;
+		public LineParser(Type type, string pattern)
 		{
 			this.type = type;
-			this.instanceOf = instanceOf;
+			this.pattern = pattern;
 		}
 	}
 }
