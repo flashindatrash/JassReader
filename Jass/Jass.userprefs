@@ -1,8 +1,0 @@
-﻿<Properties StartupItem="Jass.csproj">
-  <MonoDevelop.Ide.ItemProperties.Jass PreferredExecutionTarget="MonoDevelop.Default" />
-  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
-  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
-  <MonoDevelop.Ide.DebuggingService.Breakpoints />
-  <MonoDevelop.Ide.Workbench />
-  <MonoDevelop.Ide.CustomExecutionModes />
-</Properties>
