@@ -1,0 +1,2 @@
+C:\Users\v.proskurin\Documents\Projects\jass\Jass\bin\Release\Jass.exe
+C:\Users\v.proskurin\Documents\Projects\jass\Jass\obj\x86\Release\Jass.exe

@@ -5,21 +5,21 @@ namespace Jass
 {
 	public class Call : IParser
 	{
-		public static readonly string Pattern = @"^call\s+(?<name>[\w_]+)\s*\(\s*(?<args>[^\)|\s+\)]*)\s*\)";
+		public const string Pattern = @"^call\s+(?<name>" + Name.Pattern + @")\s*\(\s*(?<args>" + Args.Pattern + @")\s*\)";
 
-		private string name;
-		private Args args = new Args();
+		private readonly Name name = new Name();
+		private readonly Args args = new Args();
 
 		public void Parse(string text)
 		{
 			Match match = Regex.Match(text, Pattern);
-			name = match.Groups["name"].Value;
+			name.Parse(match.Groups["name"].Value);
 			args.Parse(match.Groups["args"].Value);
 		}
 		
 		public override string ToString()
 		{
-			return name + " (" + args + ");";
+			return name + "(" + args + ");";
 		}
 
 	}

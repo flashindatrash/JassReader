@@ -5,16 +5,23 @@ namespace Jass {
 			Core.RegisterParser(typeof(Function), Function.Pattern);
 			Core.RegisterParser(typeof(Call), Call.Pattern);
 			Core.RegisterParser(typeof(EndFunction), EndFunction.Pattern);
+			Core.RegisterParser(typeof(EndIf), EndIf.Pattern);
+			Core.RegisterParser(typeof(Return), Return.Pattern);
 
 			//Register Class
 			Core.RegisterClass(ClassType.nothing, "void");
+			Core.RegisterClass(ClassType.integer, "int");
 
-			//Get file
-			string file = "Scripts\\CreditsBlizzard.pld";
+			//Parse arguments
+			string file = "Scripts\\h02_purple.ai";
+			string template = "Templates\\SimpleClass.tpl";
 
-			if (args.Length>0) {
-				file = args[0];
-			}
+			if (args.Length>0) file = args[0];
+			if (args.Length > 1) template = args[1];
+
+			//Create writer
+			var writer = new JassWriter();
+			writer.SetTemplate(System.IO.File.ReadAllText(template));
 
 			//Read file
 			using (JassReader reader = new JassReader()) {
@@ -22,7 +29,7 @@ namespace Jass {
 
 				reader.Parse(System.IO.File.ReadAllText(file));
 
-				Log.Add(reader.ToString(), System.ConsoleColor.Yellow);
+				writer.Write(file, reader);
 			}
 
 		}

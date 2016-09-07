@@ -1,17 +1,8 @@
 ﻿<Properties StartupItem="Jass.csproj">
   <MonoDevelop.Ide.ItemProperties.Jass PreferredExecutionTarget="MonoDevelop.Default" />
-  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug|x86" />
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
   <MonoDevelop.Ide.DebuggingService.PinnedWatches />
-  <MonoDevelop.Ide.DebuggingService.Breakpoints>
-    <BreakpointStore />
-  </MonoDevelop.Ide.DebuggingService.Breakpoints>
-  <MonoDevelop.Ide.Workbench ActiveDocument="Main.cs">
-    <Files>
-      <File FileName="Main.cs" Line="3" Column="1" />
-      <File FileName="AssemblyInfo.cs" Line="20" Column="27" />
-      <File FileName="Reader\JassReader.cs" Line="1" Column="1" />
-      <File FileName="..\..\..\..\..\..\Windows\Microsoft.NET\Framework\v4.0.30319\Microsoft.Common.targets" Line="979" Column="81" />
-    </Files>
-  </MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.DebuggingService.Breakpoints />
+  <MonoDevelop.Ide.Workbench />
   <MonoDevelop.Ide.CustomExecutionModes />
 </Properties>

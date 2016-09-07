@@ -1,0 +1,12 @@
+C:\Users\v.proskurin\Documents\Projects\jass\Jass\bin\Debug\Jass.exe
+C:\Users\v.proskurin\Documents\Projects\jass\Jass\bin\Debug\Jass.pdb
+C:\Users\v.proskurin\Documents\Projects\jass\Jass\obj\x86\Debug\Jass.csprojResolveAssemblyReference.cache
+C:\Users\v.proskurin\Documents\Projects\jass\Jass\obj\x86\Debug\Jass.exe
+C:\Users\v.proskurin\Documents\Projects\jass\Jass\obj\x86\Debug\Jass.pdb
+C:\Users\v.proskurin\Documents\Projects\jass\Jass\bin\Debug\mscorlib.dll
+C:\Users\v.proskurin\Documents\Projects\jass\Jass\bin\Debug\ru\mscorlib.resources.dll
+C:\Users\v.proskurin\Documents\Projects\jass\Jass\bin\Debug\normidna.nlp
+C:\Users\v.proskurin\Documents\Projects\jass\Jass\bin\Debug\normnfc.nlp
+C:\Users\v.proskurin\Documents\Projects\jass\Jass\bin\Debug\normnfd.nlp
+C:\Users\v.proskurin\Documents\Projects\jass\Jass\bin\Debug\normnfkc.nlp
+C:\Users\v.proskurin\Documents\Projects\jass\Jass\bin\Debug\normnfkd.nlp

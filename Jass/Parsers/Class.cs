@@ -5,11 +5,14 @@ namespace Jass
 {
 	public enum ClassType
 	{
-		nothing
+		nothing,
+		integer
 	}
 
 	public class Class : IParser
 	{
+
+		public const string Pattern = @"nothing|[\w_]+";
 
 		public bool isNothing
 		{

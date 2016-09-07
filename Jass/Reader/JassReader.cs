@@ -32,19 +32,28 @@ namespace Jass
 		 */
 		public void Parse(string text)
 		{
-			
 			string[] lines = text.SplitLines();
 			_result = new List<IParser>();
 			for (int i = 0; i < lines.Length; i++)
 			{
 				string line = lines[i].Trim();
+
+				//check comments
+				if (Regex.IsMatch(line, Comment.Pattern))
+				{
+					var comment = new Comment();
+					comment.Parse(line);
+					_result.Add(comment);
+					line = comment.left;
+				}
+
 				if (String.IsNullOrEmpty(line))
 				{
 					continue;
 				}
 
 				IParser instance = null;
-				foreach (LineParser parser in Core.Parsers)
+				foreach (LineData parser in Core.Parsers)
 				{
 					if (Regex.IsMatch(line, parser.pattern))
 					{

@@ -45,20 +45,19 @@
     <Compile Include="Utils\Log.cs" />
     <Compile Include="Utils\Core.cs" />
     <Compile Include="Reader\IParser.cs" />
-    <Compile Include="Structures\LineParser.cs" />
+    <Compile Include="Structures\LineData.cs" />
     <Compile Include="Parsers\Call.cs" />
     <Compile Include="Parsers\Function.cs" />
     <Compile Include="Parsers\EndFunction.cs" />
     <Compile Include="Parsers\Args.cs" />
     <Compile Include="Parsers\Takes.cs" />
     <Compile Include="Parsers\Class.cs" />
+    <Compile Include="Parsers\Var.cs" />
+    <Compile Include="Parsers\Name.cs" />
+    <Compile Include="Parsers\Comment.cs" />
+    <Compile Include="Parsers\Return.cs" />
+    <Compile Include="Parsers\EndIf.cs" />
+    <Compile Include="Reader\JassWriter.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
-  <ItemGroup>
-    <Folder Include="Parsers\" />
-    <Folder Include="Reader\" />
-    <Folder Include="Extends\" />
-    <Folder Include="Utils\" />
-    <Folder Include="Structures\" />
-  </ItemGroup>
 </Project>
