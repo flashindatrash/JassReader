@@ -16,7 +16,3 @@ function PreloadFiles takes nothing returns nothing
 	call PreloadEnd( 1.0 )
 
 endfunction
-
-native SetUnitUserData              takes unit whichUnit, integer data returns nothing
-
-constant native Player              takes integer number returns player

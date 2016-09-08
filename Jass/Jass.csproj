@@ -58,6 +58,12 @@
     <Compile Include="Parsers\Return.cs" />
     <Compile Include="Parsers\EndIf.cs" />
     <Compile Include="Reader\JassWriter.cs" />
+    <Compile Include="Parsers\IfThen.cs" />
+    <Compile Include="Parsers\Predicate.cs" />
+    <Compile Include="Parsers\Else.cs" />
+    <Compile Include="Parsers\Set.cs" />
+    <Compile Include="Parsers\Eval.cs" />
+    <Compile Include="Test.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
 </Project>

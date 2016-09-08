@@ -6,14 +6,18 @@ namespace Jass {
 			Core.RegisterParser(typeof(Call), Call.Pattern);
 			Core.RegisterParser(typeof(EndFunction), EndFunction.Pattern);
 			Core.RegisterParser(typeof(EndIf), EndIf.Pattern);
+			Core.RegisterParser(typeof(IfThen), IfThen.Pattern);
+			Core.RegisterParser(typeof(Else), Else.Pattern);
 			Core.RegisterParser(typeof(Return), Return.Pattern);
+			Core.RegisterParser(typeof(Set), Set.Pattern);
 
 			//Register Class
 			Core.RegisterClass(ClassType.nothing, "void");
 			Core.RegisterClass(ClassType.integer, "int");
+			Core.RegisterClass(ClassType.boolean, "bool");
 
 			//Parse arguments
-			string file = "Scripts\\h02_purple.ai";
+			string file = "Scripts\\Cheats.j";
 			string template = "Templates\\SimpleClass.tpl";
 
 			if (args.Length>0) file = args[0];

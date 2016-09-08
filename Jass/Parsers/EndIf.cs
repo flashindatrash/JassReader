@@ -5,7 +5,7 @@ namespace Jass
 {
 	public class EndIf : IParser
 	{
-		public const string Pattern = @"^endif";
+		public const string Pattern = @"^endif\r?$";
 
 		public void Parse(string text)
 		{

@@ -1,22 +1,23 @@
-using System;
+﻿using System;
 using System.Text.RegularExpressions;
 
 namespace Jass
 {
-	public class Args : IParser
+	public class Eval : IParser
 	{
 		public const string Pattern = @".*";
 
-		private string args;
+		private string eval;
 
 		public void Parse(string text)
 		{
-			args = text.Trim();
+			eval = text;
 		}
-		
+
 		public override string ToString()
 		{
-			return args;
+			return eval;
 		}
 	}
 }
+

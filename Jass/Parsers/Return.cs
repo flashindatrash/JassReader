@@ -5,7 +5,7 @@ namespace Jass
 {
 	public class Return : IParser
 	{
-		public const string Pattern = @"^return\s+(?<returns>.*)";
+		public const string Pattern = @"^return\s+(?<returns>.*)\r?$";
 
 		private string returns;
 

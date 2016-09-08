@@ -5,7 +5,7 @@ namespace Jass
 {
 	public class Call : IParser
 	{
-		public const string Pattern = @"^call\s+(?<name>" + Name.Pattern + @")\s*\(\s*(?<args>" + Args.Pattern + @")\s*\)";
+		public const string Pattern = @"^call\s+(?<name>" + Name.Pattern + @")\s*\(\s*(?<args>" + Args.Pattern + @")\s*\)\r?$";
 
 		private readonly Name name = new Name();
 		private readonly Args args = new Args();

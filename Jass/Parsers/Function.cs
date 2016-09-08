@@ -7,7 +7,7 @@ namespace Jass
 	public class Function : IParser
 	{
 
-		public const string Pattern = @"^(?:(?<constant>constant)\s+)*(?<attr>function|native)\s+(?<name>" + Name.Pattern + @")\s+takes\s+(?<takes>" + Takes.Pattern + @")\s+returns\s+(?<returns>" + Class.Pattern + @")";
+		public const string Pattern = @"^(?:(?<constant>constant)\s+)*(?<attr>function|native)\s+(?<name>" + Name.Pattern + @")\s+takes\s+(?<takes>" + Takes.Pattern + @")\s+returns\s+(?<returns>" + Class.Pattern + @")\r?$";
 
 		private string constant;
 		private string attr;

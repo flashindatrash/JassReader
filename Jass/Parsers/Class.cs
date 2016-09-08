@@ -6,7 +6,8 @@ namespace Jass
 	public enum ClassType
 	{
 		nothing,
-		integer
+		integer,
+		boolean
 	}
 
 	public class Class : IParser

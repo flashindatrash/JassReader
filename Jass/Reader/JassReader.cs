@@ -70,6 +70,8 @@ namespace Jass
 					Log.Add(string.Format("Unknown line: {0}", line), ConsoleColor.DarkRed);
 				}
 			}
+
+			Log.Add(string.Format("Completed: {0}%", Math.Round((decimal)_result.Count/lines.Length*100)), ConsoleColor.Green);
 		}
 
 		public override string ToString()
