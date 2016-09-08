@@ -17,10 +17,10 @@ namespace Jass {
 			Core.RegisterClass(ClassType.boolean, "bool");
 
 			//Parse arguments
-			string file = "Scripts\\Cheats.j";
+			string file = "Scripts\\common.ai";
 			string template = "Templates\\SimpleClass.tpl";
 
-			if (args.Length>0) file = args[0];
+			if (args.Length > 0) file = args[0];
 			if (args.Length > 1) template = args[1];
 
 			//Create writer
@@ -33,7 +33,7 @@ namespace Jass {
 
 				reader.Parse(System.IO.File.ReadAllText(file));
 
-				writer.Write(file, reader);
+				//writer.Write(file, reader);
 			}
 
 		}
