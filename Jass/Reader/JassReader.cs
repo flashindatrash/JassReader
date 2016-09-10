@@ -89,9 +89,9 @@ namespace Jass
 						line.Comment = comment.Comment;
 					}
 
-					if (Settings.SourceToComment)
+					if (Settings.Debug)
 					{
-						line.Comment = " //" + text;
+						line.Comment = "//" + text;
 					}
 
 					totalRead++;
