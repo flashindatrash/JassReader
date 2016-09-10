@@ -5,12 +5,15 @@ using System.Text.RegularExpressions;
 namespace Jass
 {
 
-	public class JassReader : IDisposable, IParser
+	public class JassReader : IDisposable
 	{
 
-		private List<IParser> _result;
+		public static List<JassLine> globals = new List<JassLine>();
+		public static List<JassLine> native = new List<JassLine>();
 
-		public string content
+		public List<JassLine> result = new List<JassLine>();
+
+		public string file
 		{
 			set; get;
 		}
@@ -27,61 +30,86 @@ namespace Jass
 			Dispose(false);
 		}
 
-		/*
-		 * IParser
-		 */
-		public void Parse(string text)
+
+		public void Read(string path)
 		{
-			string[] lines = text.SplitLines();
-			_result = new List<IParser>();
-			for (int i = 0; i < lines.Length; i++)
-			{
-				string line = lines[i].Trim();
-
-				//check comments
-				if (Regex.IsMatch(line, Comment.Pattern))
-				{
-					var comment = new Comment();
-					comment.Parse(line);
-					_result.Add(comment);
-					line = comment.left;
-				}
-
-				if (String.IsNullOrEmpty(line))
-				{
-					continue;
-				}
-
-				IParser instance = null;
-				foreach (LineData parser in Core.Parsers)
-				{
-					if (Regex.IsMatch(line, parser.pattern))
-					{
-						instance = (IParser)Activator.CreateInstance(parser.type);
-						break;
-					}
-				}
-				if (instance != null)
-				{
-					instance.Parse(line);
-					_result.Add(instance);
-				}
-				else {
-					Log.Add(string.Format("Unknown line: {0}", line), ConsoleColor.DarkRed);
-				}
-			}
-
-			Log.Add(string.Format("Completed: {0}%", Math.Round((decimal)_result.Count/lines.Length*100)), ConsoleColor.Green);
+			file = path;
+			Log.Add(string.Format("Read file: {0}", file), ConsoleColor.Blue);
+			Parse(File.Get(file));
 		}
 
-		public override string ToString()
+		private void Parse(string input)
 		{
-			string o = "";
-			foreach (IParser line in _result)
+			string[] lines = input.SplitLines();
+			int totalRead = 0;
+			bool globalSection = false;
+			for (int i = 0; i < lines.Length; i++)
 			{
-				o += line + "\n";
+				string text = lines[i].Trim();
+
+				Comment comment = null;
+				JassLine line = null;
+
+				//если присутстсвует комментарий, а если до него находиться код, то переопределим text
+				if (Regex.IsMatch(text, Comment.Pattern))
+				{
+					comment = new Comment();
+					comment.Parse(text);
+					text = comment.line;
+				}
+
+				if (String.IsNullOrEmpty(text) && comment!=null)
+				{
+					line = comment;
+				}
+				else
+				{
+					foreach (LineData parser in Core.Parsers)
+					{
+						if (Regex.IsMatch(text, parser.pattern))
+						{
+							line = (JassLine)Activator.CreateInstance(parser.type);
+							((IParser)line).Parse(text);
+							break;
+						}
+					}
+				}
+
+				if (line != null)
+				{
+					if (comment != null)
+					{
+						line.Comment = comment.Comment;
+					}
+
+					totalRead++;
+
+					//определим глобальную секцию
+					if (line is Globals) globalSection = true;
+					else if (line is EndGlobals) globalSection = false;
+
+					if (line is Function && ((Function)line).isNative)
+					{
+						//добавить в нативный список функций
+						native.Add(line);
+					}
+					else if (globalSection)
+					{
+						//добавить в глоабльный список
+						globals.Add(line);
+					}
+					else
+					{
+						//добавить в текущий класс
+						result.Add(line);
+					}
+				}
+				else {
+					Log.Add(string.Format("Unknown line: {0}", text), ConsoleColor.DarkRed);
+				}
 			}
-			return o;
+
+			Log.Add(string.Format("Completed: {0}%", Math.Round((decimal)totalRead/lines.Length*100)), ConsoleColor.Green);
 		}
 
 		/*
@@ -103,7 +131,7 @@ namespace Jass
 				if (disposing)
 				{
 					// Освобождаем управляемые ресурсы
-					_result = null;
+					result = null;
 				}
 				// освобождаем неуправляемые объекты
 				disposed = true;
