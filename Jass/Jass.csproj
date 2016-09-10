@@ -81,6 +81,7 @@
     <Compile Include="Parsers\EndLoop.cs" />
     <Compile Include="Parsers\ExitWhen.cs" />
     <Compile Include="Reader\Interfaces\ISkeep.cs" />
+    <Compile Include="Structures\ClassInfo.cs" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Reader\Interfaces\" />

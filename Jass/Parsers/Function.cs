@@ -27,7 +27,17 @@ namespace Jass
 
 		public string callEngine
 		{
-			get { return Settings.EngineClass + ".Test();"; }
+			get {
+				if (Settings.Debug)
+				{
+					if (returns.IsNothing) return "";
+					else {
+						return "return " + returns.DefaultValue + ";";
+					}
+				}
+
+				return Settings.EngineClass + ".Test();"; 
+			}
 		}
 
 		public void Parse(string text)

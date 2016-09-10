@@ -7,7 +7,8 @@ namespace Jass
 	{
 		nothing,
 		integer,
-		boolean
+		boolean,
+		unit
 	}
 
 	public class Class : IParser
@@ -15,27 +16,36 @@ namespace Jass
 
 		public const string Pattern = @"nothing|[\w_]+";
 
-		public bool isNothing
+		public bool IsNothing
 		{
 			get
 			{
-				return jname == ClassType.nothing.ToString();
+				return name == ClassType.nothing.ToString();
 			}
 		}
 
-		private string jname, name;
+		public string DefaultValue
+		{
+			get
+			{
+				return info.DefaultValue;
+			}
+		}
+
+		private string name;
+		private ClassInfo info;
 		
 		public void Parse(string text)
 		{
-			jname = name = text;
-			if (Core.ClassAssociation.ContainsKey(jname)) {
-				name = Core.ClassAssociation[jname];
+			name = text;
+			if (Core.ClassAssociation.ContainsKey(name)) {
+				info = Core.ClassAssociation[name];
 			}
 		}
 		
 		public override string ToString()
 		{
-			return name;
+			return info.Name ?? name;
 		}
 	}
 }

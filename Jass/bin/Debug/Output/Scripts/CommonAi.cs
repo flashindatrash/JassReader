@@ -12,11 +12,11 @@ namespace Jass {
 		//
 		//
 		//
-		private player PlayerEx(int slot) {//function PlayerEx takes integer slot returns player
+		private player PlayerEx() {//function PlayerEx takes integer slot returns player
 			return Player(slot-1);//return Player(slot-1)
 		}//endfunction
 		//
-		private void Trace(string message) {//function Trace takes string message returns nothing
+		private void Trace() {//function Trace takes string message returns nothing
 			if (trace_on) {//if trace_on then
 				DisplayText(GetAiPlayer(),message);//call DisplayText(GetAiPlayer(),message)
 			}//endif
@@ -87,7 +87,7 @@ namespace Jass {
 		private void SetZepNextWave() {//function SetZepNextWave takes nothing returns nothing
 			zep_next_wave = true;//set zep_next_wave = true
 		}//endfunction
-		private void SuicideSleep(int seconds) {//function SuicideSleep takes integer seconds returns nothing
+		private void SuicideSleep() {//function SuicideSleep takes integer seconds returns nothing
 			sleep_seconds = sleep_seconds - seconds;//set sleep_seconds = sleep_seconds - seconds
 			while (true) {//loop
 				if (seconds <= 0) { break; }//exitwhen seconds <= 0
@@ -131,15 +131,15 @@ namespace Jass {
 			return cmd;//return cmd
 		}//endfunction
 		//
-		private void SetWoodPeons(int count) {//function SetWoodPeons takes integer count returns nothing
+		private void SetWoodPeons() {//function SetWoodPeons takes integer count returns nothing
 			campaign_wood_peons = count;//set campaign_wood_peons = count
 		}//endfunction
 		//
-		private void SetGoldPeons(int count) {//function SetGoldPeons takes integer count returns nothing
+		private void SetGoldPeons() {//function SetGoldPeons takes integer count returns nothing
 			campaign_gold_peons = count;//set campaign_gold_peons = count
 		}//endfunction
 		//
-		private void SetHarvestLumber(bool harvest) {//function SetHarvestLumber takes boolean harvest returns nothing
+		private void SetHarvestLumber() {//function SetHarvestLumber takes boolean harvest returns nothing
 			if (harvest) {//if harvest then
 				campaign_wood_peons = 3;//set campaign_wood_peons = 3
 			} else {//else
@@ -147,19 +147,19 @@ namespace Jass {
 			}//endif
 		}//endfunction
 		//
-		private void SetFormGroupTimeouts(bool state) {//function SetFormGroupTimeouts takes boolean state returns nothing
+		private void SetFormGroupTimeouts() {//function SetFormGroupTimeouts takes boolean state returns nothing
 			form_group_timeouts = state;//set form_group_timeouts = state
 		}//endfunction
 		//
-		private void DoCampaignFarms(bool state) {//function DoCampaignFarms takes boolean state returns nothing
+		private void DoCampaignFarms() {//function DoCampaignFarms takes boolean state returns nothing
 			do_campaign_farms = state;//set do_campaign_farms = state
 		}//endfunction
 		//
-		private unit GetMinorCreep() {//function GetMinorCreep takes nothing returns unit
+		private int GetMinorCreep() {//function GetMinorCreep takes nothing returns unit
 			return GetCreepCamp(0,9,false);//return GetCreepCamp(0,9,false)
 		}//endfunction
 		//
-		private unit GetMajorCreep() {//function GetMajorCreep takes nothing returns unit
+		private int GetMajorCreep() {//function GetMajorCreep takes nothing returns unit
 			return GetCreepCamp(10,100,allow_air_creeps);//return GetCreepCamp(10,100,allow_air_creeps)
 		}//endfunction
 		//
@@ -206,7 +206,7 @@ namespace Jass {
 			}//endif
 		}//endfunction
 		//
-		private void StartTownBuilder(code func) {//function StartTownBuilder takes code func returns nothing
+		private void StartTownBuilder() {//function StartTownBuilder takes code func returns nothing
 			StartThread(func);//call StartThread(func)
 		}//endfunction
 		//
@@ -287,7 +287,7 @@ namespace Jass {
 			return SetUpgrade(upgid);//return SetUpgrade(upgid)
 		}//endfunction
 		//
-		private void BuildFactory(int unitid) {//function BuildFactory takes integer unitid returns nothing
+		private void BuildFactory() {//function BuildFactory takes integer unitid returns nothing
 			if (GetGold() > 1000 && GetWood() > 500) {//if GetGold() > 1000 and GetWood() > 500 then
 				SetBuildUnit(2, unitid);//call SetBuildUnit( 2, unitid )
 			} else {//else
@@ -295,7 +295,7 @@ namespace Jass {
 			}//endif
 		}//endfunction
 		//
-		private bool HallsCompleted(int unitid) {//function HallsCompleted takes integer unitid returns boolean
+		private bool HallsCompleted() {//function HallsCompleted takes integer unitid returns boolean
 			return GetUnitCount(unitid) == GetUnitCountDone(unitid);//return GetUnitCount(unitid) == GetUnitCountDone(unitid)
 		}//endfunction
 		//
@@ -363,11 +363,11 @@ namespace Jass {
 			return have_qty;//return have_qty
 		}//endfunction
 		//
-		private int TownCountDone(int base) {//function TownCountDone takes integer base returns integer
+		private int TownCountDone() {//function TownCountDone takes integer base returns integer
 			return TownCountEx(base,true,-1);//return TownCountEx(base,true,-1)
 		}//endfunction
 		//
-		private int TownCount(int base) {//function TownCount takes integer base returns integer
+		private int TownCount() {//function TownCount takes integer base returns integer
 			return TownCountEx(base,false,-1);//return TownCountEx(base,false,-1)
 		}//endfunction
 		//
@@ -490,7 +490,7 @@ namespace Jass {
 		private bool StartExpansion(int qty, int hall) {//function StartExpansion takes integer qty, integer hall returns boolean
 			int count;//local integer count
 			int town;//local integer town
-			unit peon;//local unit    peon
+			int peon;//local unit    peon
 			int gold_cost;//local integer gold_cost
 			count = TownCount(hall);//set count = TownCount(hall)
 			if (count >= qty) {//if count >= qty then
@@ -563,11 +563,11 @@ namespace Jass {
 			StartThread(function BuildLoop);//call StartThread(function BuildLoop)
 		}//endfunction
 		//
-		private void SetInitialWave(int seconds) {//function SetInitialWave takes integer seconds returns nothing
+		private void SetInitialWave() {//function SetInitialWave takes integer seconds returns nothing
 			sleep_seconds = seconds;//set sleep_seconds = seconds
 		}//endfunction
 		//
-		private void AddSleepSeconds(int seconds) {//function AddSleepSeconds takes integer seconds returns nothing
+		private void AddSleepSeconds() {//function AddSleepSeconds takes integer seconds returns nothing
 			sleep_seconds = sleep_seconds + seconds;//set sleep_seconds = sleep_seconds + seconds
 		}//endfunction
 		//
@@ -583,7 +583,7 @@ namespace Jass {
 			SleepForever();//call SleepForever()
 		}//endfunction
 		//
-		private void ConvertNeeds(int unitid) {//function ConvertNeeds takes integer unitid returns nothing
+		private void ConvertNeeds() {//function ConvertNeeds takes integer unitid returns nothing
 			if (GetUnitCount(unitid) < 1) {//if GetUnitCount(unitid) < 1 then
 				StartUnit(1,unitid,-1);//call StartUnit(1,unitid,-1)
 			}//endif
@@ -654,7 +654,7 @@ namespace Jass {
 			}//endloop
 		}//endfunction
 		//
-		private void SetMeleeGroup(int unitid) {//function SetMeleeGroup takes integer unitid returns nothing
+		private void SetMeleeGroup() {//function SetMeleeGroup takes integer unitid returns nothing
 			if (unitid == hero_id) {//if unitid == hero_id then
 				SetAssaultGroup(1,9,unitid);//call SetAssaultGroup(1,9,unitid)
 			} else {//else
@@ -751,7 +751,7 @@ namespace Jass {
 			}//endloop
 		}//endfunction
 		//
-		private int WavePrepare(int unitid) {//function WavePrepare takes integer unitid returns integer
+		private int WavePrepare() {//function WavePrepare takes integer unitid returns integer
 			return GetUnitBuildTime(unitid);//return GetUnitBuildTime(unitid)
 		}//endfunction
 		//
@@ -776,7 +776,7 @@ namespace Jass {
 			return largest;//return largest
 		}//endfunction
 		//
-		private bool PrepSuicideOnPlayer(int seconds) {//function PrepSuicideOnPlayer takes integer seconds returns boolean
+		private bool PrepSuicideOnPlayer() {//function PrepSuicideOnPlayer takes integer seconds returns boolean
 			int wave_prep = PrepTime();//local integer wave_prep   = PrepTime()
 			int save_length;//local integer save_length
 			save_length = harass_length;//set save_length = harass_length
@@ -964,7 +964,7 @@ namespace Jass {
 			}//endif
 		}//endfunction
 		//
-		private void SuicideUnitA(int unitid) {//function SuicideUnitA takes integer unitid returns nothing
+		private void SuicideUnitA() {//function SuicideUnitA takes integer unitid returns nothing
 			if (unitid != 0) {//if unitid != 0 then
 				SuicideUnit(1,unitid);//call SuicideUnit(1,unitid)
 			}//endif
@@ -1051,7 +1051,7 @@ namespace Jass {
 			}//endloop
 		}//endfunction
 		//
-		private void CommonSleepUntilTargetDead(unit target, bool reform) {//function CommonSleepUntilTargetDead takes unit target, boolean reform returns nothing
+		private void CommonSleepUntilTargetDead(int target, bool reform) {//function CommonSleepUntilTargetDead takes unit target, boolean reform returns nothing
 			while (true) {//loop
 				if (CaptainRetreating()) { break; }//exitwhen CaptainRetreating()
 				if (CaptainReadinessHP() <= 40) { break; }//exitwhen CaptainReadinessHP() <= 40
@@ -1072,16 +1072,16 @@ namespace Jass {
 			}//endloop
 		}//endfunction
 		//
-		private void SleepUntilTargetDead(unit target) {//function SleepUntilTargetDead takes unit target returns nothing
+		private void SleepUntilTargetDead() {//function SleepUntilTargetDead takes unit target returns nothing
 			CommonSleepUntilTargetDead(target,false);//call CommonSleepUntilTargetDead(target,false)
 		}//endfunction
 		//
-		private void ReformUntilTargetDead(unit target) {//function ReformUntilTargetDead takes unit target returns nothing
+		private void ReformUntilTargetDead() {//function ReformUntilTargetDead takes unit target returns nothing
 			Trace("ReformUntilTargetDead\n");//debug call Trace("ReformUntilTargetDead\n")
 			CommonSleepUntilTargetDead(target,true);//call CommonSleepUntilTargetDead(target,true)
 		}//endfunction
 		//
-		private void AttackMoveKillA(unit target) {//function AttackMoveKillA takes unit target returns nothing
+		private void AttackMoveKillA() {//function AttackMoveKillA takes unit target returns nothing
 			if (target == null) {//if target == null then
 				SuicideSleep(3);//call SuicideSleep(3)
 				return;//return
@@ -1093,28 +1093,28 @@ namespace Jass {
 		}//endfunction
 		//
 		private void MinorCreepAttack() {//function MinorCreepAttack takes nothing returns nothing
-			unit target = GetMinorCreep();//local unit target = GetMinorCreep()
+			int target = GetMinorCreep();//local unit target = GetMinorCreep()
 			SetAllianceTarget(target);//call SetAllianceTarget(target)
 			FormGroup(3, true);//call FormGroup(3, true)
 			AttackMoveKillA(target);//call AttackMoveKillA(target)
 		}//endfunction
 		//
 		private void MajorCreepAttack() {//function MajorCreepAttack takes nothing returns nothing
-			unit target = GetMajorCreep();//local unit target = GetMajorCreep()
+			int target = GetMajorCreep();//local unit target = GetMajorCreep()
 			SetAllianceTarget(target);//call SetAllianceTarget(target)
 			FormGroup(3,true);//call FormGroup(3,true)
 			AttackMoveKillA(target);//call AttackMoveKillA(target)
 		}//endfunction
 		//
 		private void CreepAttackEx() {//function CreepAttackEx takes nothing returns nothing
-			unit target = GetCreepCamp(min_creeps,max_creeps,allow_air_creeps);//local unit target = GetCreepCamp(min_creeps,max_creeps,allow_air_creeps)
+			int target = GetCreepCamp(min_creeps,max_creeps,allow_air_creeps);//local unit target = GetCreepCamp(min_creeps,max_creeps,allow_air_creeps)
 			SetAllianceTarget(target);//call SetAllianceTarget(target)
 			FormGroup(3,true);//call FormGroup(3,true)
 			AttackMoveKillA(target);//call AttackMoveKillA(target)
 		}//endfunction
 		//
 		private void AnyPlayerAttack() {//function AnyPlayerAttack takes nothing returns nothing
-			unit hall;//local unit hall
+			int hall;//local unit hall
 			hall = GetEnemyExpansion();//set hall = GetEnemyExpansion()
 			if (hall == null) {//if hall == null then
 				StartGetEnemyBase();//call StartGetEnemyBase()
@@ -1130,7 +1130,7 @@ namespace Jass {
 		}//endfunction
 		//
 		private void ExpansionAttack() {//function ExpansionAttack takes nothing returns nothing
-			unit creep = GetExpansionFoe();//local unit creep = GetExpansionFoe()
+			int creep = GetExpansionFoe();//local unit creep = GetExpansionFoe()
 			int x;//local integer x
 			FormGroup(3, true);//call FormGroup(3, true)
 			if (creep == null) {//if creep == null then
@@ -1156,7 +1156,7 @@ namespace Jass {
 		//
 		//
 		//
-		private int GetAllyCount(player whichPlayer) {//function GetAllyCount takes player whichPlayer returns integer
+		private int GetAllyCount() {//function GetAllyCount takes player whichPlayer returns integer
 			int playerIndex = 0;//local integer    playerIndex = 0
 			int count = 0;//local integer    count = 0
 			player indexPlayer;//local player     indexPlayer
@@ -1182,10 +1182,10 @@ namespace Jass {
 		private void SingleMeleeAttack(bool needs_exp, bool has_siege, bool major_ok, bool air_units) {//function SingleMeleeAttack takes boolean needs_exp, boolean has_siege, boolean major_ok, boolean air_units returns nothing
 			bool can_siege;//local boolean   can_siege
 			real daytime;//local real      daytime
-			unit hall;//local unit      hall
-			unit mega;//local unit      mega
-			unit creep;//local unit      creep
-			unit common;//local unit      common
+			int hall;//local unit      hall
+			int mega;//local unit      mega
+			int creep;//local unit      creep
+			int common;//local unit      common
 			int minimum;//local integer   minimum
 			bool allies;//local boolean   allies
 			Trace("===SingleMeleeAttack===\n");//call Trace("===SingleMeleeAttack===\n")
@@ -1316,7 +1316,7 @@ namespace Jass {
 			return FoodCap() - FoodUsed();//return FoodCap() - FoodUsed()
 		}//endfunction
 		//
-		private int FoodAvail(int base) {//function FoodAvail takes integer base returns integer
+		private int FoodAvail() {//function FoodAvail takes integer base returns integer
 			return GetFoodMade(racial_farm) * TownCount(racial_farm) + GetFoodMade(base) * TownCount(base);//return GetFoodMade(racial_farm) * TownCount(racial_farm) + GetFoodMade(base) * TownCount(base)
 		}//endfunction
 		//
@@ -1434,7 +1434,7 @@ namespace Jass {
 		}//endfunction
 		//
 		private void UnsummonAll() {//function UnsummonAll takes nothing returns nothing
-			unit bldg;//local unit bldg
+			int bldg;//local unit bldg
 			while (true) {//loop
 				bldg = GetBuilding(ai_player);//set bldg = GetBuilding(ai_player)
 				if (bldg==null) { break; }//exitwhen bldg==null
@@ -1507,7 +1507,7 @@ namespace Jass {
 		//
 		//
 		//
-		private int PickMeleeHero(race raceid) {//function PickMeleeHero takes race raceid returns integer
+		private int PickMeleeHero() {//function PickMeleeHero takes race raceid returns integer
 			int first;//local integer first
 			int second;//local integer second
 			int third;//local integer third

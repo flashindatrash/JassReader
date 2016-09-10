@@ -15,10 +15,10 @@ namespace Jass
 			Parsers.Add(new LineData(type, pattern));
 		}
 
-		public static Dictionary<string, string> ClassAssociation = new Dictionary<string, string>();
+		public static Dictionary<string, ClassInfo> ClassAssociation = new Dictionary<string, ClassInfo>();
 
-		public static void RegisterClass(ClassType type, string name) {
-			ClassAssociation[type.ToString()] = name;
+		public static void RegisterClass(ClassType type, ClassInfo info) {
+			ClassAssociation[type.ToString()] = info;
 		}
 
 	}

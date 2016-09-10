@@ -19,9 +19,10 @@ namespace Jass {
 			Core.RegisterParser(typeof(Declaration), Declaration.Pattern);
 
 			//Register Class
-			Core.RegisterClass(ClassType.nothing, "void");
-			Core.RegisterClass(ClassType.integer, "int");
-			Core.RegisterClass(ClassType.boolean, "bool");
+			Core.RegisterClass(ClassType.nothing, new ClassInfo("void"));
+			Core.RegisterClass(ClassType.integer, new ClassInfo("int", "0"));
+			Core.RegisterClass(ClassType.boolean, new ClassInfo("bool", "false"));
+			Core.RegisterClass(ClassType.unit, new ClassInfo("int", "0")); //delete
 
 			using (JassWriter writer = new JassWriter())
 			{
