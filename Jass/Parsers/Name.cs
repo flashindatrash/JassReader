@@ -3,7 +3,7 @@ namespace Jass
 {
 	public class Name : IParser
 	{
-		public const string Pattern = @"[\w_]+";
+		public const string Pattern = @"[\w\d_]+";
 
 		private string name;
 
