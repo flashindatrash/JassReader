@@ -80,6 +80,7 @@
     <Compile Include="Parsers\Loop.cs" />
     <Compile Include="Parsers\EndLoop.cs" />
     <Compile Include="Parsers\ExitWhen.cs" />
+    <Compile Include="Reader\Interfaces\ISkeep.cs" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Reader\Interfaces\" />

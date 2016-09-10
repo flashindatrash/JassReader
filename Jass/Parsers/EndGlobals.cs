@@ -1,6 +1,6 @@
 ﻿namespace Jass
 {
-	public class EndGlobals : JassLine, IParser
+	public class EndGlobals : JassLine, IParser, ISkeep
 	{
 		public const string Pattern = @"^endglobals\r?$";
 

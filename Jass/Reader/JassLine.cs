@@ -7,11 +7,6 @@ namespace Jass
 		{
 			set; get;
 		}
-
-		public string Source
-		{
-			set; get;
-		}
 	}
 }
 

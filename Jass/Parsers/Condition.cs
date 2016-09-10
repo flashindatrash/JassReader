@@ -7,18 +7,19 @@ namespace Jass
 	{
 		public const string Pattern = @".*";
 
-		private string predicate;
+		private string condition;
 
 		public void Parse(string text)
 		{
-			predicate = text;
-			predicate = predicate.Replace("or", "||");
-			predicate = predicate.Replace("and", "&&");
+			condition = text;
+			condition = condition.Replace(" or ", " || ");
+			condition = condition.Replace(" and ", " && ");
+			condition = condition.Replace("not ", "!");
 		}
 
 		public override string ToString()
 		{
-			return predicate;
+			return condition;
 		}
 	}
 }

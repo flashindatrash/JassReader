@@ -89,6 +89,11 @@ namespace Jass
 						line.Comment = comment.Comment;
 					}
 
+					if (Settings.SourceToComment)
+					{
+						line.Comment = " //" + text;
+					}
+
 					totalRead++;
 
 					//определим глобальную секцию
@@ -101,6 +106,9 @@ namespace Jass
 						globalSection = false;
 					}
 
+					if (line is ISkeep)
+						continue;
+					
 					if (line is Function && ((Function)line).isNative)
 					{
 						//добавить в нативный список функций

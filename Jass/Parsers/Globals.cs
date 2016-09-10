@@ -1,6 +1,6 @@
 ﻿namespace Jass
 {
-	public class Globals : JassLine, IParser
+	public class Globals : JassLine, IParser, ISkeep
 	{
 		public const string Pattern = @"^globals\r?$";
 

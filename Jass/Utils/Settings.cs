@@ -34,6 +34,10 @@ namespace Jass
 			get { return ConfigurationManager.AppSettings["extension"]; }
 		}
 
+		public static bool SourceToComment
+		{
+			get { return ConfigurationManager.AppSettings["sourceToComment"]=="true"; }
+		}
 	}
 }
 
