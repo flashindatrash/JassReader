@@ -34,9 +34,14 @@ namespace Jass
 			get { return ConfigurationManager.AppSettings["extension"]; }
 		}
 
-		public static bool SourceToComment
+		public static bool Debug
 		{
-			get { return ConfigurationManager.AppSettings["sourceToComment"]=="true"; }
+			get { return ConfigurationManager.AppSettings["debug"]=="true"; }
+		}
+
+		public static string EngineClass
+		{
+			get { return ConfigurationManager.AppSettings["engine.class"]; }
 		}
 	}
 }

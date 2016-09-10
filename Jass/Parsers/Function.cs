@@ -25,6 +25,11 @@ namespace Jass
 			get { return attr == "native"; }
 		}
 
+		public string callEngine
+		{
+			get { return Settings.EngineClass + ".Test();"; }
+		}
+
 		public void Parse(string text)
 		{
 			Match match = Regex.Match(text, Pattern);
@@ -37,7 +42,9 @@ namespace Jass
 
 		public override string ToString()
 		{
-			return "private " + returns + " " + name + "(" + takes + ")" + (!isNative ? " {" : ";");
+			string modifier = isNative ? "public" : "private";
+			string stat = (isNative || isConstant) ? " static" : "";
+			return modifier + stat + " " + returns + " " + name + "(" + takes + ") " + (isNative ? "{ " + callEngine + " }" : "{");
 		}
 
 		public int tabAfter
