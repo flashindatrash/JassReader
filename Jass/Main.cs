@@ -11,6 +11,9 @@ namespace Jass {
 			Core.RegisterParser(typeof(IfThen), IfThen.Pattern);
 			Core.RegisterParser(typeof(Else), Else.Pattern);
 			Core.RegisterParser(typeof(Return), Return.Pattern);
+			Core.RegisterParser(typeof(Loop), Loop.Pattern);
+			Core.RegisterParser(typeof(EndLoop), EndLoop.Pattern);
+			Core.RegisterParser(typeof(ExitWhen), ExitWhen.Pattern);
 			Core.RegisterParser(typeof(Set), Set.Pattern);
 			Core.RegisterParser(typeof(SetArray), SetArray.Pattern);
 			Core.RegisterParser(typeof(Declaration), Declaration.Pattern);
@@ -26,12 +29,13 @@ namespace Jass {
 
 				using (JassReader reader = new JassReader())
 				{
-					string file = Settings.InputFolder + "Scripts\\common.ai";
+					reader.Read("Scripts\\common.ai");
 
-					reader.Read(file);
-
-					writer.Write(reader, File.Get(Settings.ClassTemplate));
+					writer.CreateFile(new JassFormatter(reader.result, reader.file, Settings.ClassTemplate));
 				}
+
+				writer.CreateFile(new JassFormatter(JassReader.globals, "Globals", Settings.GlobalsTemplate));
+				writer.CreateFile(new JassFormatter(JassReader.native, "Api", Settings.ApiTemplate));
 			}
 		}
 	}

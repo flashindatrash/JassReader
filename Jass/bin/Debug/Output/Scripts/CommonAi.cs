@@ -3,7 +3,7 @@ using System.Collections.Generic;
 
 namespace Jass {
 
-	public class common {
+	public class CommonAi {
 
 		//==================================================================================================
 		//  $Id: common.ai,v 1.68 2003/05/12 02:34:18 bfitch Exp $
@@ -90,27 +90,38 @@ namespace Jass {
 		}
 		private void SuicideSleep(int seconds) {
 			sleep_seconds = sleep_seconds - seconds;
-			if (seconds >= 5) {
-				Sleep(5);
-				seconds = seconds - 5;
-			} else {
-				Sleep(seconds);
-				seconds = 0;
+			while (true) {
+				if (seconds <= 0) { break; }
+				if (allow_signal_ab||t && Comm&&sWaiting() != 0) { break; }
+				if (seconds >= 5) {
+					Sleep(5);
+					seconds = seconds - 5;
+				} else {
+					Sleep(seconds);
+					seconds = 0;
+				}
 			}
 		}
 		//============================================================================
 		private int WaitForSignal() {
 			int cmd;
 			bool display = false;//xxx
-			//xxx
-			Trace("waiting for a signal to begin AI script...\n");
-			display = true;
-			Sleep(2);
-			Sleep(2);
-			Sleep(2);
-			Sleep(2);
-			Sleep(2);
-			//xxx
+			while (true) {
+				if (Comm&&sWaiting() != 0) { break; }
+				//xxx
+				Trace("waiting for a signal to begin AI script...\n");
+				display = true;
+				Sleep(2);
+				if (Comm&&sWaiting() != 0) { break; }
+				Sleep(2);
+				if (Comm&&sWaiting() != 0) { break; }
+				Sleep(2);
+				if (Comm&&sWaiting() != 0) { break; }
+				Sleep(2);
+				if (Comm&&sWaiting() != 0) { break; }
+				Sleep(2);
+				//xxx
+			}
 			//xxx
 			if (display) {
 				Trace("signal received, beginning AI script\n");
@@ -394,7 +405,10 @@ namespace Jass {
 		}
 		//============================================================================
 		private void WaitForUnits(int unitid, int qty) {
-			Sleep(2);
+			while (true) {
+				if (TownCountDone(unitid) == qty) { break; }
+				Sleep(2);
+			}
 		}
 		//============================================================================
 		private bool StartUnit(int ask_qty, int unitid, int town) {
@@ -466,9 +480,12 @@ namespace Jass {
 		//============================================================================
 		private void WaitForTown(int towns, int townid) {
 			int i = 0;
-			Sleep(10);
-			i = i + 1;
-			private exitwhen i = = 12;
+			while (true) {
+				Sleep(10);
+				if (TownCount(townid) >= towns) { break; }
+				i = i + 1;
+				if (i == 12) { break; }
+			}
 		}
 		//============================================================================
 		private bool StartExpansion(int qty, int hall) {
@@ -507,25 +524,27 @@ namespace Jass {
 			int tp;
 			total_gold = GetGold() - gold_buffer;
 			total_wood = GetWood();
-			private exitwhen index = = build_length;
-			qty = build_qty [index];
-			id = build_item[index];
-			tp = build_type[index];
-			//--------------------------------------------------------------------
-			if (tp == BUILD_UNIT) {
-				if (not StartUnit(qty,id,build_town[index])) {
-					return;
-				}
+			while (true) {
+				if (index == build_length) { break; }
+				qty = build_qty [index];
+				id = build_item[index];
+				tp = build_type[index];
 				//--------------------------------------------------------------------
-			} else if (tp == BUILD_UPGRADE) {
-				StartUpgrade(qty,id);
-				//--------------------------------------------------------------------
-			} else {// tp == BUILD_EXPAND
-				if (not StartExpansion(qty,id)) {
-					return;
+				if (tp == BUILD_UNIT) {
+					if (not StartUnit(qty,id,build_town[index])) {
+						return;
+					}
+					//--------------------------------------------------------------------
+				} else if (tp == BUILD_UPGRADE) {
+					StartUpgrade(qty,id);
+					//--------------------------------------------------------------------
+				} else {// tp == BUILD_EXPAND
+					if (not StartExpansion(qty,id)) {
+						return;
+					}
 				}
+				index = index + 1;
 			}
-			index = index + 1;
 		}
 		//============================================================================
 		private void StaggerSleep(real base, real spread) {
@@ -535,8 +554,10 @@ namespace Jass {
 		private void BuildLoop() {
 			OneBuildLoop();
 			StaggerSleep(1,2);
-			OneBuildLoop();
-			Sleep(2);
+			while (true) {
+				OneBuildLoop();
+				Sleep(2);
+			}
 		}
 		//============================================================================
 		private void StartBuildLoop() {
@@ -553,7 +574,9 @@ namespace Jass {
 		//============================================================================
 		private void SleepForever() {
 			Trace("going to sleep forever\n");//xxx
-			Sleep(100);
+			while (true) {
+				Sleep(100);
+			}
 		}
 		//============================================================================
 		private void PlayGame() {
@@ -612,20 +635,23 @@ namespace Jass {
 				q2 = h2;
 				q3 = h3;
 			}
-			if (q1 > 0) {
-				SetAssaultGroup(i1,i1,u1);
-				q1 = q1 - 1;
-				i1 = i1 + 1;
-			}
-			if (q2 > 0) {
-				SetAssaultGroup(i2,i2,u2);
-				q2 = q2 - 1;
-				i2 = i2 + 1;
-			}
-			if (q3 > 0) {
-				SetAssaultGroup(i3,i3,u3);
-				q3 = q3 - 1;
-				i3 = i3 + 1;
+			while (true) {
+				if (q1<=0 && q2<=0 && q3<=0) { break; }
+				if (q1 > 0) {
+					SetAssaultGroup(i1,i1,u1);
+					q1 = q1 - 1;
+					i1 = i1 + 1;
+				}
+				if (q2 > 0) {
+					SetAssaultGroup(i2,i2,u2);
+					q2 = q2 - 1;
+					i2 = i2 + 1;
+				}
+				if (q3 > 0) {
+					SetAssaultGroup(i3,i3,u3);
+					q3 = q3 - 1;
+					i3 = i3 + 1;
+				}
 			}
 		}
 		//============================================================================
@@ -688,35 +714,42 @@ namespace Jass {
 				Trace("forming group, unit health not important\n");//xxx
 			}
 			Trace("trying to gather forces\n");//xxx
-			SuicideSleep(seconds);
-			InitAssault();
-			index = 0;
-			private exitwhen index = = harass_length;
-			unitid = harass_units[index];
-			desire = harass_max[index];
-			count = TownCountDone(unitid);
-			Conversions(desire,unitid);
-			if (count >= desire) {
-				AddAssault(desire,unitid);
-			} else {
-				desire = harass_qty[index];
-				if (count < desire) {
-					AddAssault(desire,unitid);
-				} else {
-					AddAssault(count,unitid);
+			while (true) {
+				SuicideSleep(seconds);
+				InitAssault();
+				index = 0;
+				while (true) {
+					if (index == harass_length) { break; }
+					unitid = harass_units[index];
+					desire = harass_max[index];
+					count = TownCountDone(unitid);
+					Conversions(desire,unitid);
+					if (count >= desire) {
+						AddAssault(desire,unitid);
+					} else {
+						desire = harass_qty[index];
+						if (count < desire) {
+							AddAssault(desire,unitid);
+						} else {
+							AddAssault(count,unitid);
+						}
+					}
+					index = index + 1;
 				}
+				//xxx
+				if (f||m_group_timeouts && (sleep_seconds < -60)) {
+					Trace("exit form group -- timeout\n");
+				} else if (CaptainInCombat(true)) {
+					Trace("exit form group -- can't form while already in combat\n");
+				} else if (CaptainIsFull() && CaptainReadiness() >= readyPercent) {
+					Trace("exit form group -- ready\n");
+				}
+				//xxx
+				// time out and send group anyway if time has already expired
+				if (f||m_group_timeouts && (sleep_seconds < -60)) { break; }
+				if (CaptainInCombat(true)) { break; }
+				if (CaptainIsFull() && CaptainReadiness() >= readyPercent) { break; }
 			}
-			index = index + 1;
-			//xxx
-			if (f||m_group_timeouts && (sleep_seconds < -60)) {
-				Trace("exit form group -- timeout\n");
-			} else if (CaptainInCombat(true)) {
-				Trace("exit form group -- can't form while already in combat\n");
-			} else if (CaptainIsFull() && CaptainReadiness() >= readyPercent) {
-				Trace("exit form group -- ready\n");
-			}
-			//xxx
-			// time out and send group anyway if time has already expired
 		}
 		//============================================================================
 		private int WavePrepare(int unitid) {
@@ -730,14 +763,16 @@ namespace Jass {
 			int count;
 			int largest = 30;
 			int index = 0;
-			private exitwhen index = = harass_length;
-			unitid = harass_units[index];
-			missing = harass_qty[index] + IgnoredUnits(unitid) - TownCount(unitid);
-			prep = WavePrepare(unitid) * missing;
-			if (prep > largest) {
-				largest = prep;
+			while (true) {
+				if (index == harass_length) { break; }
+				unitid = harass_units[index];
+				missing = harass_qty[index] + IgnoredUnits(unitid) - TownCount(unitid);
+				prep = WavePrepare(unitid) * missing;
+				if (prep > largest) {
+					largest = prep;
+				}
+				index = index + 1;
 			}
-			index = index + 1;
 			TraceI("next wave will require around %d seconds to build and gather\n",largest);//xxx
 			return largest;
 		}
@@ -762,16 +797,29 @@ namespace Jass {
 		}
 		//============================================================================
 		private void SleepUntilAtGoal() {
-			SuicideSleep(3);
+			while (true) {
+				if (CaptainRetreating()) { break; }
+				if (CaptainAtGoal()) { break; }// reached goal
+				if (CaptainIsHome()) { break; }// failed to path and returned home
+				if (CaptainIsEmpty()) { break; }// all units died
+				SuicideSleep(3);
+			}
 		}
 		//============================================================================
 		private void SleepInCombat() {
 			int count = 0;
 			Trace("SleepInCombat\n");
-			SuicideSleep(1);
-			count = count + 1;
-			//xxx this is what it should have been; do this for next patch?
-			//call SuicideSleep(1)
+			while (true) {
+				while (true) {
+					if (not CaptainInCombat(true)) { break; }// goal is cleared
+					if (CaptainIsEmpty()) { break; }// duh
+					SuicideSleep(1);
+				}
+				count = count + 1;
+				if (count >= 8) { break; }
+				//xxx this is what it should have been; do this for next patch?
+				//call SuicideSleep(1)
+			}
 			Trace("exit SleepInCombat\n");
 		}
 		//============================================================================
@@ -787,34 +835,45 @@ namespace Jass {
 		//============================================================================
 		private void SuicideOnPlayerWave() {
 			Trace("waiting for attack wave to enter combat\n");//xxx
-			//xxx
-			if (allow_signal_ab||t && Comm&&sWaiting() != 0) {
-				Trace("ABORT -- attack wave override\n");
+			while (true) {
+				//xxx
+				if (allow_signal_ab||t && Comm&&sWaiting() != 0) {
+					Trace("ABORT -- attack wave override\n");
+				}
+				if (CaptainInCombat(true)) {
+					Trace("done - captain has entered combat\n");
+				}
+				if (CaptainIsEmpty()) {
+					Trace("done - all units are dead\n");
+				}
+				if (sleep_seconds < -300) {
+					Trace("done - timeout, took too long to reach engage the enemy\n");
+				}
+				//xxx
+				if (allow_signal_ab||t && Comm&&sWaiting() != 0) { break; }
+				if (CaptainInCombat(true)) { break; }
+				if (CaptainIsEmpty()) { break; }
+				SuicideSleep(10);
+				if (sleep_seconds < -300) { break; }
 			}
-			if (CaptainInCombat(true)) {
-				Trace("done - captain has entered combat\n");
-			}
-			if (CaptainIsEmpty()) {
-				Trace("done - all units are dead\n");
-			}
-			if (sleep_seconds < -300) {
-				Trace("done - timeout, took too long to reach engage the enemy\n");
-			}
-			//xxx
-			SuicideSleep(10);
 			Trace("waiting for attack wave to die\n");//xxx
-			//xxx
-			if (allow_signal_ab||t && Comm&&sWaiting() != 0) {
-				Trace("ABORT - attack wave override\n");
+			while (true) {
+				//xxx
+				if (allow_signal_ab||t && Comm&&sWaiting() != 0) {
+					Trace("ABORT - attack wave override\n");
+				}
+				if (CaptainIsEmpty()) {
+					Trace("done - all units are dead\n");
+				}
+				if (sleep_seconds < -300) {
+					Trace("done - timeout, took too long to reach engage the enemy\n");
+				}
+				//xxx
+				if (allow_signal_ab||t && Comm&&sWaiting() != 0) { break; }
+				if (CaptainIsEmpty()) { break; }
+				SuicideSleep(10);
+				if (sleep_seconds < -300) { break; }
 			}
-			if (CaptainIsEmpty()) {
-				Trace("done - all units are dead\n");
-			}
-			if (sleep_seconds < -300) {
-				Trace("done - timeout, took too long to reach engage the enemy\n");
-			}
-			//xxx
-			SuicideSleep(10);
 		}
 		//--------------------------------------------------------------------------------------------------
 		private void CommonSuicideOnPlayer(bool standard, bool bldgs, int seconds, player p, int x, int y) {
@@ -824,22 +883,31 @@ namespace Jass {
 			}
 			save_peons = campaign_wood_peons;
 			campaign_wood_peons = 0;
-			//xxx
-			if (allow_signal_ab||t && Comm&&sWaiting() != 0) {
-				Trace("ABORT -- attack wave override\n");
-			}
-			//xxx
-			FormGroup(5,true);
-			TraceI("waiting %d seconds before suicide\n",sleep_seconds);//xxx
-			if (st&&ard) {
-				if (bldgs) {
-				} else {
+			while (true) {
+				//xxx
+				if (allow_signal_ab||t && Comm&&sWaiting() != 0) {
+					Trace("ABORT -- attack wave override\n");
 				}
-			} else {
-				AttackMoveXYA(x,y);
+				//xxx
+				if (allow_signal_ab||t && Comm&&sWaiting() != 0) { break; }
+				while (true) {
+					if (allow_signal_ab||t && Comm&&sWaiting() != 0) { break; }
+					FormGroup(5,true);
+					if (sleep_seconds <= 0) { break; }
+					TraceI("waiting %d seconds before suicide\n",sleep_seconds);//xxx
+				}
+				if (st&&ard) {
+					if (bldgs) {
+						if (SuicidePlayer(p,sleep_seconds >= -60)) { break; }
+					} else {
+						if (SuicidePlayerUnits(p,sleep_seconds >= -60)) { break; }
+					}
+				} else {
+					AttackMoveXYA(x,y);
+				}
+				TraceI("waiting %d seconds before timeout\n",60+sleep_seconds);//xxx
+				SuicideSleep(5);
 			}
-			TraceI("waiting %d seconds before timeout\n",60+sleep_seconds);//xxx
-			SuicideSleep(5);
 			campaign_wood_peons = save_peons;
 			harass_length = 0;
 			SuicideOnPlayerWave();
@@ -860,16 +928,31 @@ namespace Jass {
 		private void SuicideUntilSignal(int seconds, player p) {
 			int save;
 			int wave_prep = PrepTime();
-			AddSleepSeconds(seconds);
-			if (sleep_seconds-wave_prep > 0) {
-				SuicideSleep(sleep_seconds-wave_prep);
+			while (true) {
+				AddSleepSeconds(seconds);
+				if (sleep_seconds-wave_prep > 0) {
+					SuicideSleep(sleep_seconds-wave_prep);
+				}
+				save = campaign_wood_peons;
+				campaign_wood_peons = 0;
+				while (true) {
+					while (true) {
+						FormGroup(5, true);
+						if (sleep_seconds <= 0) { break; }
+						if (Comm&&sWaiting() != 0) { break; }
+					}
+					if (SuicidePlayer(p,sleep_seconds >= -60)) { break; }
+					if (Comm&&sWaiting() != 0) { break; }
+					SuicideSleep(3);
+				}
+				campaign_wood_peons = save;
+				while (true) {
+					if (CaptainIsEmpty()) { break; }
+					if (Comm&&sWaiting() != 0) { break; }
+					SuicideSleep(5);
+				}
+				if (Comm&&sWaiting() != 0) { break; }
 			}
-			save = campaign_wood_peons;
-			campaign_wood_peons = 0;
-			FormGroup(5, true);
-			SuicideSleep(3);
-			campaign_wood_peons = save;
-			SuicideSleep(5);
 		}
 		//--------------------------------------------------------------------------------------------------
 		private void SuicideOnce(int easy, int med, int hard, int unitid) {
@@ -899,31 +982,35 @@ namespace Jass {
 		private void SuicideUnits(int u1, int u2, int u3, int u4, int u5, int u6, int u7, int u8, int u9, int uA) {
 			Trace("MASS SUICIDE - this script is now technically done\n");//xxx
 			PrepFullSuicide();
-			SuicideUnitA(u1);
-			SuicideUnitA(u2);
-			SuicideUnitA(u3);
-			SuicideUnitA(u4);
-			SuicideUnitA(u5);
-			SuicideUnitA(u6);
-			SuicideUnitA(u7);
-			SuicideUnitA(u8);
-			SuicideUnitA(u9);
-			SuicideUnitA(uA);
+			while (true) {
+				SuicideUnitA(u1);
+				SuicideUnitA(u2);
+				SuicideUnitA(u3);
+				SuicideUnitA(u4);
+				SuicideUnitA(u5);
+				SuicideUnitA(u6);
+				SuicideUnitA(u7);
+				SuicideUnitA(u8);
+				SuicideUnitA(u9);
+				SuicideUnitA(uA);
+			}
 		}
 		//--------------------------------------------------------------------------------------------------
 		private void SuicideUnitsEx(int playerid, int u1, int u2, int u3, int u4, int u5, int u6, int u7, int u8, int u9, int uA) {
 			Trace("MASS SUICIDE - this script is now technically done\n");//xxx
 			PrepFullSuicide();
-			SuicideUnitB(u1,playerid);
-			SuicideUnitB(u2,playerid);
-			SuicideUnitB(u3,playerid);
-			SuicideUnitB(u4,playerid);
-			SuicideUnitB(u5,playerid);
-			SuicideUnitB(u6,playerid);
-			SuicideUnitB(u7,playerid);
-			SuicideUnitB(u8,playerid);
-			SuicideUnitB(u9,playerid);
-			SuicideUnitB(uA,playerid);
+			while (true) {
+				SuicideUnitB(u1,playerid);
+				SuicideUnitB(u2,playerid);
+				SuicideUnitB(u3,playerid);
+				SuicideUnitB(u4,playerid);
+				SuicideUnitB(u5,playerid);
+				SuicideUnitB(u6,playerid);
+				SuicideUnitB(u7,playerid);
+				SuicideUnitB(u8,playerid);
+				SuicideUnitB(u9,playerid);
+				SuicideUnitB(uA,playerid);
+			}
 		}
 		//--------------------------------------------------------------------------------------------------
 		private void SuicideOnPlayerEx(int easy, int med, int hard, player p) {
@@ -958,21 +1045,30 @@ namespace Jass {
 		//============================================================================
 		private void ForeverSuicideOnPlayer(int seconds, player p) {
 			int length = harass_length;
-			SuicideOnPlayer(seconds,p);
-			harass_length = length;
+			while (true) {
+				if (allow_signal_ab||t && Comm&&sWaiting() != 0) { break; }
+				SuicideOnPlayer(seconds,p);
+				harass_length = length;
+			}
 		}
 		//============================================================================
 		private void CommonSleepUntilTargetDead(unit target, bool reform) {
-			if (not TownThreatened()) {
-				AttackMoveKill(target);
-			}
-			SuicideSleep(3);
-			if (ref||m && sleep_seconds < -40) {
-				if (CaptainInCombat(true)) {
-					sleep_seconds = sleep_seconds + 5;
-				} else {
-					sleep_seconds = 0;
-					FormGroup(1,false);
+			while (true) {
+				if (CaptainRetreating()) { break; }
+				if (CaptainReadinessHP() <= 40) { break; }
+				if (not UnitAlive(target)) { break; }
+				if (UnitInvis(target) && not IsUnitDetected(target,ai_player)) { break; }
+				if (not TownThreatened()) {
+					AttackMoveKill(target);
+				}
+				SuicideSleep(3);
+				if (ref||m && sleep_seconds < -40) {
+					if (CaptainInCombat(true)) {
+						sleep_seconds = sleep_seconds + 5;
+					} else {
+						sleep_seconds = 0;
+						FormGroup(1,false);
+					}
 				}
 			}
 		}
@@ -1023,7 +1119,10 @@ namespace Jass {
 			hall = GetEnemyExpansion();
 			if (hall == null) {
 				StartGetEnemyBase();
-				SuicideSleep(1);
+				while (true) {
+					if (not WaitGetEnemyBase()) { break; }
+					SuicideSleep(1);
+				}
 				hall = GetEnemyBase();
 			}
 			SetAllianceTarget(hall);
@@ -1062,18 +1161,20 @@ namespace Jass {
 			int playerIndex = 0;
 			int count = 0;
 			player indexPlayer;
-			indexPlayer = Player(playerIndex);
-			if (whichPlayer != indexPlayer) {
-				if (GetPlayerAlliance(whichPlayer,indexPlayer,ALLIANCE_PASSIVE)) {
-					if (GetPlayerAlliance(indexPlayer,whichPlayer,ALLIANCE_PASSIVE)) {
-						if (GetPlayerStructureCount(indexPlayer,true) > 0) {
-							count = count + 1;
+			while (true) {
+				indexPlayer = Player(playerIndex);
+				if (whichPlayer != indexPlayer) {
+					if (GetPlayerAlliance(whichPlayer,indexPlayer,ALLIANCE_PASSIVE)) {
+						if (GetPlayerAlliance(indexPlayer,whichPlayer,ALLIANCE_PASSIVE)) {
+							if (GetPlayerStructureCount(indexPlayer,true) > 0) {
+								count = count + 1;
+							}
 						}
 					}
 				}
+				playerIndex = playerIndex + 1;
+				if (playerIndex == 12) { break; }
 			}
-			playerIndex = playerIndex + 1;
-			private exitwhen playerIndex = = 12;
 			return count;
 		}
 		//============================================================================
@@ -1225,28 +1326,32 @@ namespace Jass {
 			int unitid;
 			int desire;
 			int count;
-			private exitwhen index = = harass_length;
-			unitid = harass_units[index];
-			desire = harass_qty[index] + IgnoredUnits(unitid);
-			count = TownCount(unitid);
-			if (count != desire) {
-				if (not StartUnit(desire,unitid,-1)) {
-					return;
+			while (true) {
+				if (index == harass_length) { break; }
+				unitid = harass_units[index];
+				desire = harass_qty[index] + IgnoredUnits(unitid);
+				count = TownCount(unitid);
+				if (count != desire) {
+					if (not StartUnit(desire,unitid,-1)) {
+						return;
+					}
 				}
+				index = index + 1;
 			}
-			index = index + 1;
 		}
 		//============================================================================
 		private void BuildDefenders() {
 			int index = 0;
 			int unitid;
 			int qty;
-			private exitwhen index = = defense_length;
-			unitid = defense_units[index];
-			qty = defense_qty[index];
-			Conversions(qty,unitid);
-			AddDefenders(qty,unitid);
-			index = index + 1;
+			while (true) {
+				if (index == defense_length) { break; }
+				unitid = defense_units[index];
+				qty = defense_qty[index];
+				Conversions(qty,unitid);
+				AddDefenders(qty,unitid);
+				index = index + 1;
+			}
 		}
 		//============================================================================
 		private void CampaignBasicsA() {
@@ -1289,8 +1394,10 @@ namespace Jass {
 			Sleep(1);
 			CampaignBasicsA();
 			StaggerSleep(1,5);
-			CampaignBasicsA();
-			Sleep(campaign_basics_speed);
+			while (true) {
+				CampaignBasicsA();
+				Sleep(campaign_basics_speed);
+			}
 		}
 		//============================================================================
 		private void CampaignAI(int farms, code heroes) {
@@ -1329,10 +1436,12 @@ namespace Jass {
 		//============================================================================
 		private void UnsummonAll() {
 			unit bldg;
-			bldg = GetBuilding(ai_player);
-			private exitwhen bldg = =null;
-			Unsummon(bldg);
-			Sleep(2);
+			while (true) {
+				bldg = GetBuilding(ai_player);
+				if (bldg==null) { break; }
+				Unsummon(bldg);
+				Sleep(2);
+			}
 		}
 		//============================================================================
 		//  SkillArrays
@@ -1359,23 +1468,29 @@ namespace Jass {
 				if (hero_id != id) {
 					return;
 				}
-				skills1[i] = skill[i];
-				private exitwhen i = = 10;
-				i = i + 1;
+				while (true) {
+					skills1[i] = skill[i];
+					if (i == 10) { break; }
+					i = i + 1;
+				}
 			} else if (index == 2) {
 				if (hero_id2 != id) {
 					return;
 				}
-				skills2[i] = skill[i];
-				private exitwhen i = = 10;
-				i = i + 1;
+				while (true) {
+					skills2[i] = skill[i];
+					if (i == 10) { break; }
+					i = i + 1;
+				}
 			} else {
 				if (hero_id3 != id) {
 					return;
 				}
-				skills3[i] = skill[i];
-				private exitwhen i = = 10;
-				i = i + 1;
+				while (true) {
+					skills3[i] = skill[i];
+					if (i == 10) { break; }
+					i = i + 1;
+				}
 			}
 		}
 		//============================================================================
@@ -1385,7 +1500,10 @@ namespace Jass {
 			if (GetUnitCountDone(hero_id2) > 0) {
 				two_heroes = true;
 			}
-			Sleep(1);
+			while (true) {
+				if (GetUnitCountDone(hero_id)>0 && (take_exp || (not two_heroes || GetUnitCountDone(hero_id2)>0))) { break; }
+				Sleep(1);
+			}
 		}
 		//============================================================================
 		//  PickMeleeHero

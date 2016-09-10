@@ -35,7 +35,7 @@ namespace Jass
 		{
 			file = path;
 			Log.Add(string.Format("Read file: {0}", file), ConsoleColor.Blue);
-			Parse(File.Get(file));
+			Parse(File.Get(System.IO.Path.Combine(Settings.InputFolder, file)));
 		}
 
 		private void Parse(string input)
@@ -58,9 +58,16 @@ namespace Jass
 					text = comment.line;
 				}
 
-				if (String.IsNullOrEmpty(text) && comment!=null)
+				if (String.IsNullOrEmpty(text))
 				{
-					line = comment;
+					if (comment != null)
+					{
+						line = comment;
+					}
+					else
+					{
+						continue;
+					}
 				}
 				else
 				{
@@ -85,8 +92,14 @@ namespace Jass
 					totalRead++;
 
 					//определим глобальную секцию
-					if (line is Globals) globalSection = true;
-					else if (line is EndGlobals) globalSection = false;
+					if (line is Globals)
+					{
+						globalSection = true;
+					}
+					else if (line is EndGlobals)
+					{
+						globalSection = false;
+					}
 
 					if (line is Function && ((Function)line).isNative)
 					{

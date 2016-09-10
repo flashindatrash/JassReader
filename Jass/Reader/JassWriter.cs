@@ -1,21 +1,20 @@
 ﻿using System;
 using System.IO;
 using System.Text;
-using System.Text.RegularExpressions;
+using System.Collections.Generic;
 
 namespace Jass
 {
 	public class JassWriter : IDisposable
 	{
 
-		private const string RegCode = @"\n(?<tabs>[\t]*)\{code\}";
 
-		private DirectoryInfo _directory;
+		private DirectoryInfo _outputFolder;
 
 		//constructor
 		public JassWriter()
 		{
-			_directory = new DirectoryInfo(Settings.OutputFolder);
+			_outputFolder = new DirectoryInfo(Settings.OutputFolder);
 		}
 
 		//destructor
@@ -26,74 +25,14 @@ namespace Jass
 
 		public void ClearFolder()
 		{
-			_directory.Clear();
+			_outputFolder.Clear();
 		}
 
-		public void Write(JassReader reader, string template)
+		public void CreateFile(JassFormatter file)
 		{
-			string output = template;
+			string path = Path.Combine(_outputFolder.ToString(), file.Path);
 
-			if (!Regex.IsMatch(output, RegCode))
-			{
-				Log.Add("Cannot find {code} in template", ConsoleColor.Red);
-				return;
-			}
-
-			//определим количество табов перед кодом
-			Match matchCode = Regex.Match(output, RegCode);
-			int tabs = matchCode.Groups["tabs"].Length;
-
-			string filename = Path.GetFileNameWithoutExtension(reader.file);
-			string code = Format(reader, tabs);
-
-			output = output.Replace("{name}", filename);
-			output = output.Replace("{code}", code);
-
-			CreateFile(filename, output);
-		}
-
-		private string Format(JassReader reader, int tabs)
-		{
-			string output = "";
-			int currentTabs = 0;
-			bool firstLine = true;
-			foreach (JassLine line in reader.result)
-			{
-				if (line is ITabBefore)
-				{
-					currentTabs -= ((ITabBefore)line).tabBefore;
-				}
-
-				output += Tab(currentTabs) + line.ToString() + line.Comment + "\n";
-
-				if (firstLine)
-				{
-					currentTabs = tabs;
-					firstLine = false;
-				}
-
-				if (line is ITabAfter)
-				{
-					currentTabs += ((ITabAfter)line).tabAfter;
-				}
-			}
-
-			return output;
-		}
-
-		private string Tab(int count)
-		{
-			string output = "";
-			for (int i = 0; i < count; i++)
-			{
-				output += "\t";
-			}
-			return output;
-		}
-
-		private void CreateFile(string filename, string output)
-		{
-			string path = Path.Combine(_directory.ToString(), filename + ".cs");
+			Directory.CreateDirectory(Path.GetDirectoryName(path));
 
 			try
 			{
@@ -106,7 +45,7 @@ namespace Jass
 				// Create the file.
 				using (FileStream fs = System.IO.File.Create(path))
 				{
-					Byte[] info = new UTF8Encoding().GetBytes(output);
+					Byte[] info = new UTF8Encoding().GetBytes(file.Out);
 					fs.Write(info, 0, info.Length);
 				}
 			}
@@ -136,7 +75,7 @@ namespace Jass
 				if (disposing)
 				{
 					// Освобождаем управляемые ресурсы
-					_directory = null;
+					_outputFolder = null;
 				}
 				// освобождаем неуправляемые объекты
 				disposed = true;

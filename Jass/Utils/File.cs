@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 
 namespace Jass
 {
@@ -23,6 +24,16 @@ namespace Jass
 				}
 			}
 			return _templates[path];
+		}
+
+		public static string GenerateName(string file)
+		{
+			string output = "";
+			foreach (string part in Path.GetFileName(file).SplitDot())
+			{
+				output += part.FirstUpper();
+			}
+			return Path.Combine(Path.GetDirectoryName(file), output + Settings.Extension);
 		}
 
 	}

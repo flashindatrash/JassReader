@@ -29,6 +29,11 @@ namespace Jass
 			get { return ConfigurationManager.AppSettings["class.tpl"]; }
 		}
 
+		public static string Extension
+		{
+			get { return ConfigurationManager.AppSettings["extension"]; }
+		}
+
 	}
 }
 

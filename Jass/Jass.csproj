@@ -76,6 +76,10 @@
     <Compile Include="Utils\File.cs" />
     <Compile Include="Extends\DirectoryInfoExtend.cs" />
     <Compile Include="Reader\JassLine.cs" />
+    <Compile Include="Reader\JassFormatter.cs" />
+    <Compile Include="Parsers\Loop.cs" />
+    <Compile Include="Parsers\EndLoop.cs" />
+    <Compile Include="Parsers\ExitWhen.cs" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Reader\Interfaces\" />

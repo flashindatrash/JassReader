@@ -12,6 +12,17 @@ namespace Jass
 		{
 			return str.Split(new string[] { "," }, System.StringSplitOptions.RemoveEmptyEntries);
 		}
+
+		public static string[] SplitDot(this string str)
+		{
+			return str.Split(new string[] { "." }, System.StringSplitOptions.RemoveEmptyEntries);
+		}
+
+		public static string FirstUpper(this string str)
+		{
+			return str.Substring(0, 1).ToUpper() + str.Substring(1, str.Length - 1);
+		}
+
 	}
 }
 
