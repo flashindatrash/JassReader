@@ -7,12 +7,11 @@ namespace Jass
 	public static class Core
 	{
 
-		public static List<LineData> Parsers = new List<LineData>();
+		public static List<LineInfo> Parsers = new List<LineInfo>();
 
-		public static void RegisterParser(Type type, string pattern)
+		public static void RegisterParser(LineInfo info)
 		{
-			Console.WriteLine(string.Format("Register Class: {0}", type.ToString()));
-			Parsers.Add(new LineData(type, pattern));
+			Parsers.Add(info);
 		}
 
 		public static Dictionary<string, ClassInfo> ClassAssociation = new Dictionary<string, ClassInfo>();

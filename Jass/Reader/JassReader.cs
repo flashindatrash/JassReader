@@ -71,7 +71,7 @@ namespace Jass
 				}
 				else
 				{
-					foreach (LineData parser in Core.Parsers)
+					foreach (LineInfo parser in Core.Parsers)
 					{
 						if (Regex.IsMatch(text, parser.pattern))
 						{

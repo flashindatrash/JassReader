@@ -45,7 +45,7 @@
     <Compile Include="Extends\StringExtend.cs" />
     <Compile Include="Utils\Log.cs" />
     <Compile Include="Utils\Core.cs" />
-    <Compile Include="Structures\LineData.cs" />
+    <Compile Include="Structures\LineInfo.cs" />
     <Compile Include="Parsers\Call.cs" />
     <Compile Include="Parsers\Function.cs" />
     <Compile Include="Parsers\EndFunction.cs" />

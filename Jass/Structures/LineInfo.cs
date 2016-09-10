@@ -2,11 +2,11 @@
 
 namespace Jass
 {
-	public struct LineData
+	public struct LineInfo
 	{
 		public Type type;
 		public string pattern;
-		public LineData(Type type, string pattern)
+		public LineInfo(Type type, string pattern)
 		{
 			this.type = type;
 			this.pattern = pattern;
