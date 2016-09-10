@@ -4,7 +4,7 @@ using System.Text.RegularExpressions;
 namespace Jass
 {
 
-	public class Function : IParser
+	public class Function : JassLine, IParser, ITabAfter
 	{
 
 		public const string Pattern = @"^(?:(?<constant>constant)\s+)*(?<attr>function|native)\s+(?<name>" + Name.Pattern + @")\s+takes\s+(?<takes>" + Takes.Pattern + @")\s+returns\s+(?<returns>" + Class.Pattern + @")\r?$";
@@ -17,18 +17,12 @@ namespace Jass
 
 		public bool isConstant
 		{
-			get
-			{
-				return !String.IsNullOrEmpty(constant);
-			}
+			get { return !String.IsNullOrEmpty(constant); }
 		}
 
 		public bool isNative
 		{
-			get
-			{
-				return attr == "native";
-			}
+			get { return attr == "native"; }
 		}
 
 		public void Parse(string text)
@@ -44,6 +38,11 @@ namespace Jass
 		public override string ToString()
 		{
 			return "private " + returns + " " + name + "(" + takes + ")" + (!isNative ? " {" : ";");
+		}
+
+		public int tabAfter
+		{
+			get { return isNative ? 0 : 1; }
 		}
 
 	}
