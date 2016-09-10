@@ -2,6 +2,8 @@ namespace Jass {
 	class MainClass {
 		public static void Main (string[] args) {
 			//Register Parser
+			Core.RegisterParser(typeof(Globals), Globals.Pattern);
+			Core.RegisterParser(typeof(EndGlobals), EndGlobals.Pattern);
 			Core.RegisterParser(typeof(Function), Function.Pattern);
 			Core.RegisterParser(typeof(Call), Call.Pattern);
 			Core.RegisterParser(typeof(EndFunction), EndFunction.Pattern);
@@ -10,32 +12,27 @@ namespace Jass {
 			Core.RegisterParser(typeof(Else), Else.Pattern);
 			Core.RegisterParser(typeof(Return), Return.Pattern);
 			Core.RegisterParser(typeof(Set), Set.Pattern);
+			Core.RegisterParser(typeof(SetArray), SetArray.Pattern);
+			Core.RegisterParser(typeof(Declaration), Declaration.Pattern);
 
 			//Register Class
 			Core.RegisterClass(ClassType.nothing, "void");
 			Core.RegisterClass(ClassType.integer, "int");
 			Core.RegisterClass(ClassType.boolean, "bool");
 
-			//Parse arguments
-			string file = "Scripts\\common.ai";
-			string template = "Templates\\SimpleClass.tpl";
+			using (JassWriter writer = new JassWriter())
+			{
+				writer.ClearFolder();
 
-			if (args.Length > 0) file = args[0];
-			if (args.Length > 1) template = args[1];
+				using (JassReader reader = new JassReader())
+				{
+					string file = Settings.InputFolder + "Scripts\\common.ai";
 
-			//Create writer
-			var writer = new JassWriter();
-			writer.SetTemplate(System.IO.File.ReadAllText(template));
+					reader.Read(file);
 
-			//Read file
-			using (JassReader reader = new JassReader()) {
-				Log.Add(string.Format("Read file: {0}", file), System.ConsoleColor.Blue);
-
-				reader.Parse(System.IO.File.ReadAllText(file));
-
-				//writer.Write(file, reader);
+					writer.Write(reader, File.Get(Settings.ClassTemplate));
+				}
 			}
-
 		}
 	}
 }

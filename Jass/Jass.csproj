@@ -35,6 +35,7 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
+    <Reference Include="System.Configuration" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Main.cs" />
@@ -44,7 +45,6 @@
     <Compile Include="Extends\StringExtend.cs" />
     <Compile Include="Utils\Log.cs" />
     <Compile Include="Utils\Core.cs" />
-    <Compile Include="Reader\IParser.cs" />
     <Compile Include="Structures\LineData.cs" />
     <Compile Include="Parsers\Call.cs" />
     <Compile Include="Parsers\Function.cs" />
@@ -64,6 +64,24 @@
     <Compile Include="Parsers\Set.cs" />
     <Compile Include="Parsers\Eval.cs" />
     <Compile Include="Test.cs" />
+    <Compile Include="Parsers\SetArray.cs" />
+    <Compile Include="Parsers\NameArray.cs" />
+    <Compile Include="Parsers\Declaration.cs" />
+    <Compile Include="Reader\Interfaces\IParser.cs" />
+    <Compile Include="Reader\Interfaces\ITabAfter.cs" />
+    <Compile Include="Reader\Interfaces\ITabBefore.cs" />
+    <Compile Include="Parsers\Globals.cs" />
+    <Compile Include="Parsers\EndGlobals.cs" />
+    <Compile Include="Utils\Settings.cs" />
+    <Compile Include="Utils\File.cs" />
+    <Compile Include="Extends\DirectoryInfoExtend.cs" />
+    <Compile Include="Reader\JassLine.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Reader\Interfaces\" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="app.config" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
 </Project>
