@@ -1,58 +1,145 @@
 ﻿using System;
 using System.IO;
 using System.Text;
+using System.Text.RegularExpressions;
 
 namespace Jass
 {
-	public class JassWriter
+	public class JassWriter : IDisposable
 	{
 
-		private const string Dir = "Out\\";
-		private const string Extension = "cs";
+		private const string RegCode = @"\n(?<tabs>[\t]*)\{code\}";
 
-		private string _template;
+		private DirectoryInfo _directory;
 
+		//constructor
 		public JassWriter()
 		{
+			_directory = new DirectoryInfo(Settings.OutputFolder);
 		}
 
-		public void SetTemplate(string template)
+		//destructor
+		~JassWriter()
 		{
-			_template = template;
+			Dispose(false);
 		}
 
-		public void Write(string file, IParser reader)
+		public void ClearFolder()
 		{
-			string output = _template;
-			string code = reader.ToString();
-			string filename = Path.GetFileNameWithoutExtension(file);
+			_directory.Clear();
+		}
+
+		public void Write(JassReader reader, string template)
+		{
+			string output = template;
+
+			if (!Regex.IsMatch(output, RegCode))
+			{
+				Log.Add("Cannot find {code} in template", ConsoleColor.Red);
+				return;
+			}
+
+			//определим количество табов перед кодом
+			Match matchCode = Regex.Match(output, RegCode);
+			int tabs = matchCode.Groups["tabs"].Length;
+
+			string filename = Path.GetFileNameWithoutExtension(reader.file);
+			string code = Format(reader, tabs);
 
 			output = output.Replace("{name}", filename);
 			output = output.Replace("{code}", code);
 
-			Log.Add(code, ConsoleColor.Yellow);
+			CreateFile(filename, output);
+		}
 
-			string path = Path.Combine(Dir, filename + "." + Extension);
+		private string Format(JassReader reader, int tabs)
+		{
+			string output = "";
+			int currentTabs = 0;
+			bool firstLine = true;
+			foreach (JassLine line in reader.result)
+			{
+				if (line is ITabBefore)
+				{
+					currentTabs -= ((ITabBefore)line).tabBefore;
+				}
+
+				output += Tab(currentTabs) + line.ToString() + line.Comment + "\n";
+
+				if (firstLine)
+				{
+					currentTabs = tabs;
+					firstLine = false;
+				}
+
+				if (line is ITabAfter)
+				{
+					currentTabs += ((ITabAfter)line).tabAfter;
+				}
+			}
+
+			return output;
+		}
+
+		private string Tab(int count)
+		{
+			string output = "";
+			for (int i = 0; i < count; i++)
+			{
+				output += "\t";
+			}
+			return output;
+		}
+
+		private void CreateFile(string filename, string output)
+		{
+			string path = Path.Combine(_directory.ToString(), filename + ".cs");
 
 			try
 			{
 				// Delete the file if it exists.
-				if (File.Exists(path))
+				if (System.IO.File.Exists(path))
 				{
-					File.Delete(path);
+					System.IO.File.Delete(path);
 				}
 
 				// Create the file.
-				using (FileStream fs = File.Create(path))
+				using (FileStream fs = System.IO.File.Create(path))
 				{
-					Byte[] info = new UTF8Encoding(true).GetBytes(output);
+					Byte[] info = new UTF8Encoding().GetBytes(output);
 					fs.Write(info, 0, info.Length);
 				}
 			}
 
 			catch (Exception ex)
 			{
-				Console.WriteLine(ex.ToString());
+				Log.Add(ex.ToString(), ConsoleColor.Red);
+			}
+		}
+
+		/*
+		 * IDisposable
+		 */
+		private bool disposed = false;
+
+		public void Dispose()
+		{
+			Dispose(true);
+			//подавляем финализацию
+			GC.SuppressFinalize(this);
+		}
+
+		protected virtual void Dispose(bool disposing)
+		{
+			if (!disposed)
+			{
+				if (disposing)
+				{
+					// Освобождаем управляемые ресурсы
+					_directory = null;
+				}
+				// освобождаем неуправляемые объекты
+				disposed = true;
 			}
 		}
 	}
