@@ -3,7 +3,7 @@ using System.Text.RegularExpressions;
 
 namespace Jass
 {
-	public class Set : IParser
+	public class Set : JassLine, IParser
 	{
 		public const string Pattern = @"^set\s+(?<name>" + Name.Pattern + @")\s*=\s*(?<eval>" + Eval.Pattern + @")\r?$";
 

@@ -3,7 +3,7 @@ using System.Text.RegularExpressions;
 
 namespace Jass
 {
-	public class EndFunction : IParser
+	public class EndFunction : JassLine, IParser, ITabBefore
 	{
 		public const string Pattern = @"^endfunction\r?$";
 
@@ -16,6 +16,12 @@ namespace Jass
 		{
 			return "}";
 		}
+
+		public int tabBefore
+		{
+			get { return 1; }
+		}
+
 	}
 }
 

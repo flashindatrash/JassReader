@@ -3,7 +3,7 @@ using System.Text.RegularExpressions;
 
 namespace Jass
 {
-	public class Else : IParser
+	public class Else : JassLine, IParser, ITabBefore, ITabAfter
 	{
 		public const string Pattern = @"^else\r?$";
 
@@ -17,6 +17,15 @@ namespace Jass
 			return "} else {";
 		}
 
+		public int tabBefore
+		{
+			get { return 1; }
+		}
+
+		public int tabAfter
+		{
+			get { return 1; }
+		}
 	}
 }
 

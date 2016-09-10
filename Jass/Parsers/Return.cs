@@ -3,9 +3,9 @@ using System.Text.RegularExpressions;
 
 namespace Jass
 {
-	public class Return : IParser
+	public class Return : JassLine, IParser
 	{
-		public const string Pattern = @"^return\s+(?<returns>.*)\r?$";
+		public const string Pattern = @"^return\s*(?<returns>.*)\r?$";
 
 		private string returns;
 
@@ -17,7 +17,7 @@ namespace Jass
 
 		public override string ToString()
 		{
-			return "return " + returns + ";";
+			return "return" + (returns.Length>0 ? " " + returns : "") + ";";
 		}
 	}
 }

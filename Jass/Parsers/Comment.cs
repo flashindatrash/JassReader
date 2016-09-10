@@ -3,31 +3,22 @@ using System.Text.RegularExpressions;
 
 namespace Jass
 {
-	public class Comment : IParser
+	public class Comment : JassLine, IParser
 	{
 		public const string Pattern = @"^(?<line>.*)(?<comment>//.*)";
 
-		private string line; //все что угодно может быть до коммента, находится здесь
-		private string comment;
-
-		public string left
-		{
-			get
-			{
-				return line;
-			}
-		}
+		public string line; //все что угодно может быть до коммента, находится здесь
 
 		public void Parse(string text)
 		{
 			Match match = Regex.Match(text, Pattern);
-			line = match.Groups["line"].Value;
-			comment = match.Groups["comment"].Value;
+			line = match.Groups["line"].Value.Trim();
+			Comment = match.Groups["comment"].Value;
 		}
 
 		public override string ToString()
 		{
-			return comment;
+			return "";
 		}
 	}
 }

@@ -3,7 +3,7 @@ using System.Text.RegularExpressions;
 
 namespace Jass
 {
-	public class EndIf : IParser
+	public class EndIf : JassLine, IParser, ITabBefore
 	{
 		public const string Pattern = @"^endif\r?$";
 
@@ -15,6 +15,11 @@ namespace Jass
 		public override string ToString()
 		{
 			return "}";
+		}
+
+		public int tabBefore
+		{
+			get { return 1; }
 		}
 	}
 }
