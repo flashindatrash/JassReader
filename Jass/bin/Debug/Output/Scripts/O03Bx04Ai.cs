@@ -10,7 +10,7 @@ namespace Jass {
 		//
 		public static int user = 7;//integer user = 7
 		private void main() {//function main takes nothing returns nothing
-			CampaignAI(BURROW,null);//call CampaignAI(BURROW,null)
+			CampaignAI(CommonAi.BURROW, null);//call CampaignAI(BURROW,null)
 			PrepFullSuicide();//call PrepFullSuicide()
 			while (true) {//loop
 				while (true) {//loop
@@ -18,11 +18,11 @@ namespace Jass {
 					user = GetLastCommand();//set user = GetLastCommand()
 					PopLastCommand();//call PopLastCommand()
 				}//endloop
-				SuicideUnitB(GRUNT,user);//call SuicideUnitB(GRUNT,user)
-				SuicideUnitB(SHAMAN,user);//call SuicideUnitB(SHAMAN,user)
-				SuicideUnitB(RAIDER,user);//call SuicideUnitB(RAIDER,user)
-				SuicideUnitB(KODO_BEAST,user);//call SuicideUnitB(KODO_BEAST,user)
-				SuicideUnitB(CATAPULT,user);//call SuicideUnitB(CATAPULT,user)
+				SuicideUnitB(CommonAi.GRUNT, U08_tealAi.user);//call SuicideUnitB(GRUNT,user)
+				SuicideUnitB(CommonAi.SHAMAN, U08_tealAi.user);//call SuicideUnitB(SHAMAN,user)
+				SuicideUnitB(CommonAi.RAIDER, U08_tealAi.user);//call SuicideUnitB(RAIDER,user)
+				SuicideUnitB(CommonAi.KODO_BEAST, U08_tealAi.user);//call SuicideUnitB(KODO_BEAST,user)
+				SuicideUnitB(CommonAi.CATAPULT, U08_tealAi.user);//call SuicideUnitB(CATAPULT,user)
 			}//endloop
 		}//endfunction
 

@@ -148,24 +148,24 @@ namespace Jass {
 			//
 			//
 			//
-			set_attack_group(0,   3,   0,   0, BUCKET_COUATL);//call set_attack_group(  0,   3,   0,   0, BUCKET_COUATL      )
+			set_attack_group(0, 3, 0, 0, U08x02Ai.BUCKET_COUATL);//call set_attack_group(  0,   3,   0,   0, BUCKET_COUATL      )
 			//
-			set_attack_group(0,   3,   1,   1, BUCKET_SNAP_DRAGON);//call set_attack_group(  0,   3,   1,   1, BUCKET_SNAP_DRAGON )
-			set_attack_group(0,   1,   2,   2, BUCKET_REAVER);//call set_attack_group(  0,   1,   2,   2, BUCKET_REAVER      )
-			set_attack_group(2,   3,   1,   1, BUCKET_MYRMIDON);//call set_attack_group(  2,   3,   1,   1, BUCKET_MYRMIDON    )
-			set_attack_group(2,   3,   0,   1, BUCKET_ROYAL);//call set_attack_group(  2,   3,   0,   1, BUCKET_ROYAL       )
-			set_attack_group(0,   3,   1,   1, BUCKET_SIREN);//call set_attack_group(  0,   3,   1,   1, BUCKET_SIREN       )
-			set_attack_group(0,   3,   1,   1, BUCKET_SNAP_DRAGON);//call set_attack_group(  0,   3,   1,   1, BUCKET_SNAP_DRAGON )
-			set_attack_group(0,   1,   2,   2, BUCKET_REAVER);//call set_attack_group(  0,   1,   2,   2, BUCKET_REAVER      )
-			set_attack_group(2,   3,   1,   1, BUCKET_MYRMIDON);//call set_attack_group(  2,   3,   1,   1, BUCKET_MYRMIDON    )
-			set_attack_group(3,   3,   1,   0, BUCKET_ROYAL);//call set_attack_group(  3,   3,   1,   0, BUCKET_ROYAL       )
-			set_attack_group(0,   3,   2,   2, BUCKET_SNAP_DRAGON);//call set_attack_group(  0,   3,   2,   2, BUCKET_SNAP_DRAGON )
-			set_attack_group(0,   3,   2,   2, BUCKET_SIREN);//call set_attack_group(  0,   3,   2,   2, BUCKET_SIREN       )
-			set_attack_group(0,   3,   2,   2, BUCKET_TURTLE);//call set_attack_group(  0,   3,   2,   2, BUCKET_TURTLE      )
-			set_attack_group(0,   3,   2,   2, BUCKET_MYRMIDON);//call set_attack_group(  0,   3,   2,   2, BUCKET_MYRMIDON    )
-			set_attack_group(0,   3,   3,   3, BUCKET_SNAP_DRAGON);//call set_attack_group(  0,   3,   3,   3, BUCKET_SNAP_DRAGON )
+			set_attack_group(0, 3, 1, 1, U08x02Ai.BUCKET_SNAP_DRAGON);//call set_attack_group(  0,   3,   1,   1, BUCKET_SNAP_DRAGON )
+			set_attack_group(0, 1, 2, 2, U08x02Ai.BUCKET_REAVER);//call set_attack_group(  0,   1,   2,   2, BUCKET_REAVER      )
+			set_attack_group(2, 3, 1, 1, U08x02Ai.BUCKET_MYRMIDON);//call set_attack_group(  2,   3,   1,   1, BUCKET_MYRMIDON    )
+			set_attack_group(2, 3, 0, 1, U08x02Ai.BUCKET_ROYAL);//call set_attack_group(  2,   3,   0,   1, BUCKET_ROYAL       )
+			set_attack_group(0, 3, 1, 1, U08x02Ai.BUCKET_SIREN);//call set_attack_group(  0,   3,   1,   1, BUCKET_SIREN       )
+			set_attack_group(0, 3, 1, 1, U08x02Ai.BUCKET_SNAP_DRAGON);//call set_attack_group(  0,   3,   1,   1, BUCKET_SNAP_DRAGON )
+			set_attack_group(0, 1, 2, 2, U08x02Ai.BUCKET_REAVER);//call set_attack_group(  0,   1,   2,   2, BUCKET_REAVER      )
+			set_attack_group(2, 3, 1, 1, U08x02Ai.BUCKET_MYRMIDON);//call set_attack_group(  2,   3,   1,   1, BUCKET_MYRMIDON    )
+			set_attack_group(3, 3, 1, 0, U08x02Ai.BUCKET_ROYAL);//call set_attack_group(  3,   3,   1,   0, BUCKET_ROYAL       )
+			set_attack_group(0, 3, 2, 2, U08x02Ai.BUCKET_SNAP_DRAGON);//call set_attack_group(  0,   3,   2,   2, BUCKET_SNAP_DRAGON )
+			set_attack_group(0, 3, 2, 2, U08x02Ai.BUCKET_SIREN);//call set_attack_group(  0,   3,   2,   2, BUCKET_SIREN       )
+			set_attack_group(0, 3, 2, 2, U08x02Ai.BUCKET_TURTLE);//call set_attack_group(  0,   3,   2,   2, BUCKET_TURTLE      )
+			set_attack_group(0, 3, 2, 2, U08x02Ai.BUCKET_MYRMIDON);//call set_attack_group(  0,   3,   2,   2, BUCKET_MYRMIDON    )
+			set_attack_group(0, 3, 3, 3, U08x02Ai.BUCKET_SNAP_DRAGON);//call set_attack_group(  0,   3,   3,   3, BUCKET_SNAP_DRAGON )
 			//
-			set_attack_group(0,   3,  99,  99, BUCKET_MYRMIDON);//call set_attack_group(  0,   3,  99,  99, BUCKET_MYRMIDON    )
+			set_attack_group(0, 3, 99, 99, U08x02Ai.BUCKET_MYRMIDON);//call set_attack_group(  0,   3,  99,  99, BUCKET_MYRMIDON    )
 		}//endfunction
 		//
 		//
@@ -219,7 +219,7 @@ namespace Jass {
 				data = GetLastData();//set data = GetLastData()
 				PopLastCommand();//call PopLastCommand()
 				startup = startup + 1;//set startup = startup + 1
-				TraceIII("COMMAND[%d] (%d,%d)\n",startup,cmd,data);//call TraceIII("COMMAND[%d] (%d,%d)\n",startup,cmd,data)
+				TraceIII("COMMAND[%d] (%d, %d)\n", U08x02Ai.startup, cmd, data);//call TraceIII("COMMAND[%d] (%d,%d)\n",startup,cmd,data)
 				//
 				if (cmd == SET_TOWN_1_X) {//if cmd == SET_TOWN_1_X then
 					//
@@ -255,12 +255,12 @@ namespace Jass {
 					//
 				} else if (cmd == PEONS_LOST) {//elseif cmd == PEONS_LOST then
 					//
-					TraceI("PEONS_LOST %d\n",data);//call TraceI("PEONS_LOST %d\n",data)
+					TraceI("PEONS_LOST %d\n", data);//call TraceI("PEONS_LOST %d\n",data)
 					peons_lost[data] = true;//set peons_lost[data]   = true
 					//
 				} else if (cmd == SLOT_LOST) {//elseif cmd == SLOT_LOST then
 					//
-					TraceI("SLOT_LOST %d\n",data);//call TraceI("SLOT_LOST %d\n",data)
+					TraceI("SLOT_LOST %d\n", data);//call TraceI("SLOT_LOST %d\n",data)
 					slot_owned[data] = false;//set slot_owned[data] = false
 					if (next_slot == -1) {//if next_slot == -1 then
 						next_slot = data;//set next_slot = data
@@ -268,7 +268,7 @@ namespace Jass {
 					//
 				} else if (cmd == SLOT_GAINED) {//elseif cmd == SLOT_GAINED then
 					//
-					TraceI("SLOT_GAINED %d\n",data);//call TraceI("SLOT_GAINED %d\n",data)
+					TraceI("SLOT_GAINED %d\n", data);//call TraceI("SLOT_GAINED %d\n",data)
 					slot_owned[data] = true;//set slot_owned[data] = true
 					peons_lost[data] = false;//set peons_lost[data] = false
 					stepped_on = false;//set stepped_on       = false
@@ -290,8 +290,8 @@ namespace Jass {
 						sleep_seconds = 1;//set sleep_seconds = 1
 					}//endif
 				}//endif
-				TraceI("Arthas has %d slots\n",slots_controlled(ARTHAS_CONTROL));//call TraceI("Arthas has %d slots\n",slots_controlled(ARTHAS_CONTROL))
-				TraceI("Illidan has %d slots\n",slots_controlled(ILLIDAN_CONTROL));//call TraceI("Illidan has %d slots\n",slots_controlled(ILLIDAN_CONTROL))
+				TraceI("Arthas has %d slots\n", slots_controlled(ARTHAS_CONTROL));//call TraceI("Arthas has %d slots\n",slots_controlled(ARTHAS_CONTROL))
+				TraceI("Illidan has %d slots\n", slots_controlled(ILLIDAN_CONTROL));//call TraceI("Illidan has %d slots\n",slots_controlled(ILLIDAN_CONTROL))
 			}//endloop
 		}//endfunction
 		//
@@ -322,7 +322,7 @@ namespace Jass {
 				if (peons_lost[i]) {//if peons_lost[i] then
 					debug1 = debug1 + 1;//set debug1 = debug1 + 1
 				}//endif
-				TraceIII("slot[%d] owned/lost=%02d control=%d\n",i,debug1,slot_control[i]);//call TraceIII("slot[%d] owned/lost=%02d control=%d\n",i,debug1,slot_control[i])
+				TraceIII("slot[%d] owned/lost=%02d control=%d\n", i, debug1, slot_control[i]);//call TraceIII("slot[%d] owned/lost=%02d control=%d\n",i,debug1,slot_control[i])
 				i = i + 1;//set i = i + 1
 				if (i > 4) { break; }//exitwhen i > 4
 			}//endloop
@@ -403,13 +403,13 @@ namespace Jass {
 		private void attack_move(int dx, int dy) {//function attack_move takes integer dx, integer dy returns nothing
 			if (CaptainIsEmpty() || Illidan_count(true) < 1) {//if CaptainIsEmpty() or Illidan_count(true) < 1 then
 				if (CaptainIsEmpty()) {//if CaptainIsEmpty() then
-					TraceI("SKIP attack_move [empty=1, Illidan=%d]\n",Illidan_count(true));//call TraceI("SKIP attack_move [empty=1, Illidan=%d]\n",Illidan_count(true))
+					TraceI("SKIP attack_move [empty=1, Illidan=%d]\n", Illidan_count(true));//call TraceI("SKIP attack_move [empty=1, Illidan=%d]\n",Illidan_count(true))
 				} else {//else
-					TraceI("SKIP attack_move [empty=0, Illidan=%d]\n",Illidan_count(true));//call TraceI("SKIP attack_move [empty=0, Illidan=%d]\n",Illidan_count(true))
+					TraceI("SKIP attack_move [empty=0, Illidan=%d]\n", Illidan_count(true));//call TraceI("SKIP attack_move [empty=0, Illidan=%d]\n",Illidan_count(true))
 				}//endif
 				return;//return
 			}//endif
-			TraceII("attack_move( %d, %d )\n",dx,dy);//call TraceII("attack_move( %d, %d )\n",dx,dy)
+			TraceII("attack_move( %d, %d )\n", dx, dy);//call TraceII("attack_move( %d, %d )\n",dx,dy)
 			AttackMoveXY(town_x[next_slot]+dx, town_y[next_slot]+dy);//call AttackMoveXY( town_x[next_slot]+dx, town_y[next_slot]+dy )
 			Sleep(5);//call Sleep(5)
 			SleepUntilAtGoal();//call SleepUntilAtGoal()
@@ -437,7 +437,7 @@ namespace Jass {
 			} else {//else
 				attack_delay = NOT_POSSIBLE;//set attack_delay = NOT_POSSIBLE
 			}//endif
-			TraceI("set_attack_rate = %d seconds\n",attack_delay);//call TraceI("set_attack_rate = %d seconds\n",attack_delay)
+			TraceI("set_attack_rate = %d seconds\n", U08x02Ai.attack_delay);//call TraceI("set_attack_rate = %d seconds\n",attack_delay)
 		}//endfunction
 		//
 		//
@@ -449,7 +449,7 @@ namespace Jass {
 			int dy;//local integer dy
 			int i;//local integer i
 			if (normal_attack) {//if normal_attack then
-				TraceI("Illidan_attack: normal attack (in %d seconds)\n",attack_delay);//call TraceI("Illidan_attack: normal attack (in %d seconds)\n",attack_delay)
+				TraceI("Illidan_attack: normal attack (in %d seconds)\n", U08x02Ai.attack_delay);//call TraceI("Illidan_attack: normal attack (in %d seconds)\n",attack_delay)
 				sleep_seconds = attack_delay;//set sleep_seconds = attack_delay
 			} else {//else
 				Trace("Illidan_attack: QUICK attack\n");//call Trace("Illidan_attack: QUICK attack\n")
@@ -462,13 +462,13 @@ namespace Jass {
 			}//endloop
 			Trace("Illidan_attack: Illidan ready to attack, form group\n");//call Trace("Illidan_attack: Illidan ready to attack, form group\n")
 			while (true) {//loop
-				FormGroup(1,false);//call FormGroup(1,false)
+				FormGroup(1, false);//call FormGroup(1,false)
 				if (sleep_seconds < 1) { break; }//exitwhen sleep_seconds < 1
-				TraceI("Illidan_attack: exit in %d seconds\n",sleep_seconds);//call TraceI("Illidan_attack: exit in %d seconds\n",sleep_seconds)
+				TraceI("Illidan_attack: exit in %d seconds\n", CommonAi.sleep_seconds);//call TraceI("Illidan_attack: exit in %d seconds\n",sleep_seconds)
 				SuicideSleep(5);//call SuicideSleep(5)
 				if (Illidan_count(true) < 1) {//if Illidan_count(true) < 1 then
-					TraceI("Illidan dead, suspend Illidan_attack for %d seconds\n",sleep_seconds);//call TraceI("Illidan dead, suspend Illidan_attack for %d seconds\n",sleep_seconds)
-					Sleep(sleep_seconds);//call Sleep(sleep_seconds)
+					TraceI("Illidan dead, suspend Illidan_attack for %d seconds\n", CommonAi.sleep_seconds);//call TraceI("Illidan dead, suspend Illidan_attack for %d seconds\n",sleep_seconds)
+					Sleep(CommonAi.sleep_seconds);//call Sleep(sleep_seconds)
 					return;//return
 				}//endif
 			}//endloop
@@ -476,18 +476,18 @@ namespace Jass {
 				first_attack = false;//set first_attack = false
 			} else {//else
 				pick_next_slot();//call pick_next_slot()
-				TraceI("Illidan_attack: next_slot = %d\n",next_slot);//call TraceI("Illidan_attack: next_slot = %d\n",next_slot)
+				TraceI("Illidan_attack: next_slot = %d\n", U08x02Ai.next_slot);//call TraceI("Illidan_attack: next_slot = %d\n",next_slot)
 			}//endif
 			last_x = town_x[next_slot];//set last_x = town_x[next_slot]
 			last_y = town_y[next_slot];//set last_y = town_y[next_slot]
-			SetCaptainHome(ATTACK_CAPTAIN,last_x,last_y);//call SetCaptainHome(ATTACK_CAPTAIN,last_x,last_y)
-			attack_move(0,0);//call attack_move(0,0)
-			attack_move(+OFFSET_X,+OFFSET_Y);//call attack_move(+OFFSET_X,+OFFSET_Y)
-			attack_move(+OFFSET_X,-OFFSET_Y);//call attack_move(+OFFSET_X,-OFFSET_Y)
-			attack_move(-OFFSET_X,-OFFSET_Y);//call attack_move(-OFFSET_X,-OFFSET_Y)
-			attack_move(-OFFSET_X,+OFFSET_Y);//call attack_move(-OFFSET_X,+OFFSET_Y)
-			attack_move(+OFFSET_X,+OFFSET_Y);//call attack_move(+OFFSET_X,+OFFSET_Y)
-			attack_move(0,0);//call attack_move(0,0)
+			SetCaptainHome(CommonAi.ATTACK_CAPTAIN, last_x, last_y);//call SetCaptainHome(ATTACK_CAPTAIN,last_x,last_y)
+			attack_move(0, 0);//call attack_move(0,0)
+			attack_move(+OFFSET_X, +OFFSET_Y);//call attack_move(+OFFSET_X,+OFFSET_Y)
+			attack_move(+OFFSET_X, -OFFSET_Y);//call attack_move(+OFFSET_X,-OFFSET_Y)
+			attack_move(-OFFSET_X, -OFFSET_Y);//call attack_move(-OFFSET_X,-OFFSET_Y)
+			attack_move(-OFFSET_X, +OFFSET_Y);//call attack_move(-OFFSET_X,+OFFSET_Y)
+			attack_move(+OFFSET_X, +OFFSET_Y);//call attack_move(+OFFSET_X,+OFFSET_Y)
+			attack_move(0, 0);//call attack_move(0,0)
 			if (next_slot == 1) {//if next_slot == 1 then
 				dx = 0;//set dx = 0
 				dy = +1000;//set dy = +1000
@@ -515,8 +515,8 @@ namespace Jass {
 		//
 		//
 		private void send_captain_home() {//function send_captain_home takes nothing returns nothing
-			SetCaptainHome(ATTACK_CAPTAIN,ILLIDAN_TOWN_X,ILLIDAN_TOWN_Y);//call SetCaptainHome(ATTACK_CAPTAIN,ILLIDAN_TOWN_X,ILLIDAN_TOWN_Y)
-			TeleportCaptain(ILLIDAN_TOWN_X,ILLIDAN_TOWN_Y);//call TeleportCaptain(ILLIDAN_TOWN_X,ILLIDAN_TOWN_Y)
+			SetCaptainHome(CommonAi.ATTACK_CAPTAIN, U08x02Ai.ILLIDAN_TOWN_X, U08x02Ai.ILLIDAN_TOWN_Y);//call SetCaptainHome(ATTACK_CAPTAIN,ILLIDAN_TOWN_X,ILLIDAN_TOWN_Y)
+			TeleportCaptain(U08x02Ai.ILLIDAN_TOWN_X, U08x02Ai.ILLIDAN_TOWN_Y);//call TeleportCaptain(ILLIDAN_TOWN_X,ILLIDAN_TOWN_Y)
 			ClearCaptainTargets();//call ClearCaptainTargets()
 		}//endfunction
 		//
@@ -549,7 +549,7 @@ namespace Jass {
 				if (CaptainIsEmpty() || CaptainInCombat(true)) { break; }//exitwhen CaptainIsEmpty() or CaptainInCombat(true)
 				Sleep(1);//call Sleep(1)
 				if (timeout - (timeout/5)*5 == 0) {//if timeout - (timeout/5)*5 == 0 then
-					TraceI("timeout in %d seconds\n",M1-timeout);//call TraceI("timeout in %d seconds\n",M1-timeout)
+					TraceI("timeout in %d seconds\n", M1-timeout);//call TraceI("timeout in %d seconds\n",M1-timeout)
 				}//endif
 				timeout = timeout + 1;//set timeout = timeout + 1
 				if (timeout >= M1) { break; }//exitwhen timeout >= M1
@@ -561,7 +561,7 @@ namespace Jass {
 				if (CaptainIsEmpty()) { break; }//exitwhen CaptainIsEmpty()
 				Sleep(1);//call Sleep(1)
 				if (timeout - (timeout/5)*5 == 0) {//if timeout - (timeout/5)*5 == 0 then
-					TraceI("timeout in %d seconds\n",M1-timeout);//call TraceI("timeout in %d seconds\n",M1-timeout)
+					TraceI("timeout in %d seconds\n", M1-timeout);//call TraceI("timeout in %d seconds\n",M1-timeout)
 				}//endif
 				temp = CaptainGroupSize();//set temp = CaptainGroupSize()
 				if (force_size != temp) {//if force_size != temp then
@@ -589,7 +589,7 @@ namespace Jass {
 			int count;//local integer count
 			int use;//local integer use
 			int i;//local integer i
-			TraceI("calculating extra attackers versus %d food\n",R2I(player_food));//call TraceI("calculating extra attackers versus %d food\n",R2I(player_food))
+			TraceI("calculating extra attackers versus %d food\n", R2I(player_food));//call TraceI("calculating extra attackers versus %d food\n",R2I(player_food))
 			//
 			//
 			i = 0;//set i = 0
@@ -619,7 +619,7 @@ namespace Jass {
 				} else {//else
 					use = count;//set use = count
 				}//endif
-				TraceII("add %d of entry %d\n",use,i);//call TraceII("add %d of entry %d\n",use,i)
+				TraceII("add %d of entry %d\n", use, i);//call TraceII("add %d of entry %d\n",use,i)
 				if (use > 0) {//if use > 0 then
 					bucket_qty[idx] = bucket_qty[idx] + use;//set bucket_qty[idx] = bucket_qty[idx] + use
 					Illidan_food = Illidan_food + use * food_each;//set Illidan_food = Illidan_food + use * food_each
@@ -632,9 +632,9 @@ namespace Jass {
 			i = 0;//set i = 0
 			while (true) {//loop
 				count = bucket_qty[i];//set count = bucket_qty[i]
-				TraceII("use %d of bucket %d\n",count,i);//call TraceII("use %d of bucket %d\n",count,i)
+				TraceII("use %d of bucket %d\n", count, i);//call TraceII("use %d of bucket %d\n",count,i)
 				if (count > 0) {//if count > 0 then
-					SetAssaultGroup(count,count,bucket_unitid[i]);//call SetAssaultGroup(count,count,bucket_unitid[i])
+					SetAssaultGroup(count, count, bucket_unitid[i]);//call SetAssaultGroup(count,count,bucket_unitid[i])
 				}//endif
 				i = i + 1;//set i = i + 1
 				if (i >= BUCKET_END) { break; }//exitwhen i >= BUCKET_END
@@ -650,9 +650,9 @@ namespace Jass {
 				if (rebuild_Illidan) { break; }//exitwhen rebuild_Illidan
 				Sleep(1);//call Sleep(1)
 			}//endloop
-			SetAssaultGroup(1,1,ILLIDAN);//call SetAssaultGroup(1,1,ILLIDAN)
+			SetAssaultGroup(1, 1, CommonAi.ILLIDAN);//call SetAssaultGroup(1,1,ILLIDAN)
 			attack_qty[0] = R2I( GetPlayerUnitTypeCount(USER,FROST_WYRM) * dragon_factor );//set attack_qty[0] = R2I( GetPlayerUnitTypeCount(USER,FROST_WYRM) * dragon_factor )
-			TraceI("rebuild_Illidan ok, dragon factor calls for %d couatls\n",attack_qty[0]);//call TraceI("rebuild_Illidan ok, dragon factor calls for %d couatls\n",attack_qty[0])
+			TraceI("rebuild_Illidan ok, dragon factor calls for %d couatls\n", attack_qty[0]);//call TraceI("rebuild_Illidan ok, dragon factor calls for %d couatls\n",attack_qty[0])
 			extra_attackers();//call extra_attackers()
 		}//endfunction
 		//
@@ -670,14 +670,14 @@ namespace Jass {
 		//
 		//
 		private void main() {//function main takes nothing returns nothing
-			CampaignAI(NAGA_CORAL,null);//call CampaignAI(NAGA_CORAL,null)
+			CampaignAI(CommonAi.NAGA_CORAL, null);//call CampaignAI(NAGA_CORAL,null)
 			unit_info();//call unit_info()
 			balance_info();//call balance_info()
-			SetCaptainHome(DEFENSE_CAPTAIN,ILLIDAN_DEF_X,ILLIDAN_DEF_Y);//call SetCaptainHome(DEFENSE_CAPTAIN,ILLIDAN_DEF_X,ILLIDAN_DEF_Y)
+			SetCaptainHome(CommonAi.DEFENSE_CAPTAIN, U08x02Ai.ILLIDAN_DEF_X, U08x02Ai.ILLIDAN_DEF_Y);//call SetCaptainHome(DEFENSE_CAPTAIN,ILLIDAN_DEF_X,ILLIDAN_DEF_Y)
 			DoCampaignFarms(false);//call DoCampaignFarms(false)
 			GroupTimedLife(true);//call GroupTimedLife(true)
 			SetAmphibious();//call SetAmphibious()
-			SetReplacements(9,9,9);//call SetReplacements(9,9,9)
+			SetReplacements(9, 9, 9);//call SetReplacements(9,9,9)
 			SetPeonsRepair(true);//call SetPeonsRepair(true)
 			SetFormGroupTimeouts(false);//call SetFormGroupTimeouts(false)
 			SetHeroesTakeItems(true);//call SetHeroesTakeItems(true)
@@ -688,27 +688,27 @@ namespace Jass {
 			get_start_commands();//call get_start_commands()
 			send_captain_home();//call send_captain_home()
 			attack_delay = 30;//set attack_delay = 30
-			Illidan_attack(NORMAL_ATTACK);//call Illidan_attack(NORMAL_ATTACK)
-			SetBuildUnitEx(1,1,1, NAGA_TEMPLE);//call SetBuildUnitEx( 1,1,1, NAGA_TEMPLE     )
-			SetBuildUnitEx(1,1,1, NAGA_SLAVE);//call SetBuildUnitEx( 1,1,1, NAGA_SLAVE      )
-			SetBuildUnitEx(1,1,1, NAGA_ALTAR);//call SetBuildUnitEx( 1,1,1, NAGA_ALTAR      )
-			SetBuildUnitEx(2,2,2, NAGA_SLAVE);//call SetBuildUnitEx( 2,2,2, NAGA_SLAVE      )
-			SetBuildUnitEx(1,1,1, NAGA_SPAWNING);//call SetBuildUnitEx( 1,1,1, NAGA_SPAWNING   )
-			SetBuildUnitEx(3,3,3, NAGA_SLAVE);//call SetBuildUnitEx( 3,3,3, NAGA_SLAVE      )
-			SetBuildUnitEx(1,1,1, NAGA_SHRINE);//call SetBuildUnitEx( 1,1,1, NAGA_SHRINE     )
-			SetBuildUpgrEx(1,1,1, UPG_SIREN);//call SetBuildUpgrEx( 1,1,1, UPG_SIREN           )
-			SetBuildUpgrEx(1,1,1, UPG_NAGA_ENSNARE);//call SetBuildUpgrEx( 1,1,1, UPG_NAGA_ENSNARE    )
-			SetBuildUpgrEx(1,1,1, UPG_NAGA_ABOLISH);//call SetBuildUpgrEx( 1,1,1, UPG_NAGA_ABOLISH    )
-			SetBuildUpgrEx(2,2,2, UPG_SIREN);//call SetBuildUpgrEx( 2,2,2, UPG_SIREN           )
+			Illidan_attack(U08x02Ai.NORMAL_ATTACK);//call Illidan_attack(NORMAL_ATTACK)
+			SetBuildUnitEx(1, 1, 1, CommonAi.NAGA_TEMPLE);//call SetBuildUnitEx( 1,1,1, NAGA_TEMPLE     )
+			SetBuildUnitEx(1, 1, 1, CommonAi.NAGA_SLAVE);//call SetBuildUnitEx( 1,1,1, NAGA_SLAVE      )
+			SetBuildUnitEx(1, 1, 1, CommonAi.NAGA_ALTAR);//call SetBuildUnitEx( 1,1,1, NAGA_ALTAR      )
+			SetBuildUnitEx(2, 2, 2, CommonAi.NAGA_SLAVE);//call SetBuildUnitEx( 2,2,2, NAGA_SLAVE      )
+			SetBuildUnitEx(1, 1, 1, CommonAi.NAGA_SPAWNING);//call SetBuildUnitEx( 1,1,1, NAGA_SPAWNING   )
+			SetBuildUnitEx(3, 3, 3, CommonAi.NAGA_SLAVE);//call SetBuildUnitEx( 3,3,3, NAGA_SLAVE      )
+			SetBuildUnitEx(1, 1, 1, CommonAi.NAGA_SHRINE);//call SetBuildUnitEx( 1,1,1, NAGA_SHRINE     )
+			SetBuildUpgrEx(1, 1, 1, CommonAi.UPG_SIREN);//call SetBuildUpgrEx( 1,1,1, UPG_SIREN           )
+			SetBuildUpgrEx(1, 1, 1, CommonAi.UPG_NAGA_ENSNARE);//call SetBuildUpgrEx( 1,1,1, UPG_NAGA_ENSNARE    )
+			SetBuildUpgrEx(1, 1, 1, CommonAi.UPG_NAGA_ABOLISH);//call SetBuildUpgrEx( 1,1,1, UPG_NAGA_ABOLISH    )
+			SetBuildUpgrEx(2, 2, 2, CommonAi.UPG_SIREN);//call SetBuildUpgrEx( 2,2,2, UPG_SIREN           )
 			//
 			//
-			CampaignDefenderEx(1,1,1, ILLIDAN);//call CampaignDefenderEx( 1,1,1, ILLIDAN             )
-			CampaignDefenderEx(1,1,1, NAGA_SNAP_DRAGON);//call CampaignDefenderEx( 1,1,1, NAGA_SNAP_DRAGON    )
-			CampaignDefenderEx(1,1,1, NAGA_SIREN);//call CampaignDefenderEx( 1,1,1, NAGA_SIREN          )
-			CampaignDefenderEx(1,1,1, NAGA_MYRMIDON);//call CampaignDefenderEx( 1,1,1, NAGA_MYRMIDON       )
-			CampaignDefenderEx(1,1,1, NAGA_TURTLE);//call CampaignDefenderEx( 1,1,1, NAGA_TURTLE         )
-			CampaignDefenderEx(1,1,1, NAGA_COUATL2);//call CampaignDefenderEx( 1,1,1, NAGA_COUATL2        )
-			CampaignDefenderEx(1,1,1, NAGA_ROYAL);//call CampaignDefenderEx( 1,1,1, NAGA_ROYAL          )
+			CampaignDefenderEx(1, 1, 1, CommonAi.ILLIDAN);//call CampaignDefenderEx( 1,1,1, ILLIDAN             )
+			CampaignDefenderEx(1, 1, 1, CommonAi.NAGA_SNAP_DRAGON);//call CampaignDefenderEx( 1,1,1, NAGA_SNAP_DRAGON    )
+			CampaignDefenderEx(1, 1, 1, CommonAi.NAGA_SIREN);//call CampaignDefenderEx( 1,1,1, NAGA_SIREN          )
+			CampaignDefenderEx(1, 1, 1, CommonAi.NAGA_MYRMIDON);//call CampaignDefenderEx( 1,1,1, NAGA_MYRMIDON       )
+			CampaignDefenderEx(1, 1, 1, CommonAi.NAGA_TURTLE);//call CampaignDefenderEx( 1,1,1, NAGA_TURTLE         )
+			CampaignDefenderEx(1, 1, 1, U08x02Ai.NAGA_COUATL2);//call CampaignDefenderEx( 1,1,1, NAGA_COUATL2        )
+			CampaignDefenderEx(1, 1, 1, CommonAi.NAGA_ROYAL);//call CampaignDefenderEx( 1,1,1, NAGA_ROYAL          )
 			while (true) {//loop
 				if (suicide_mode) {//if suicide_mode then
 					Trace("main loop - suicide mode\n");//call Trace("main loop - suicide mode\n")
@@ -728,9 +728,9 @@ namespace Jass {
 				if ((action_state == PEONS_LOST) || did_suicide || timeout_failure) {//if (action_state == PEONS_LOST) or did_suicide or timeout_failure then
 					did_suicide = false;//set did_suicide = false
 					timeout_failure = false;//set timeout_failure = false
-					Illidan_attack(PEON_ATTACK);//call Illidan_attack(PEON_ATTACK)
+					Illidan_attack(U08x02Ai.PEON_ATTACK);//call Illidan_attack(PEON_ATTACK)
 				} else {//else
-					Illidan_attack(NORMAL_ATTACK);//call Illidan_attack(NORMAL_ATTACK)
+					Illidan_attack(U08x02Ai.NORMAL_ATTACK);//call Illidan_attack(NORMAL_ATTACK)
 				}//endif
 			}//endloop
 		}//endfunction

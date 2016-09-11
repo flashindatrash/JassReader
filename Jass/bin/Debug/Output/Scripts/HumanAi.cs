@@ -134,16 +134,16 @@ namespace Jass {
 			}//endloop
 			InitAssaultGroup();//call InitAssaultGroup()
 			RemoveInjuries();//call RemoveInjuries()
-			SetAssaultGroup(1, 9, hero_id);//call SetAssaultGroup( 1, 9, hero_id     )
-			SetAssaultGroup(0, 9, hero_id2);//call SetAssaultGroup( 0, 9, hero_id2    )
-			SetAssaultGroup(0, 9, FOOTMEN);//call SetAssaultGroup( 0, 9, FOOTMEN     )
-			SetAssaultGroup(0, 9, KNIGHT);//call SetAssaultGroup( 0, 9, KNIGHT      )
-			SetAssaultGroup(0, 9, RIFLEMEN);//call SetAssaultGroup( 0, 9, RIFLEMEN    )
-			SetAssaultGroup(0, 9, PRIEST);//call SetAssaultGroup( 0, 9, PRIEST      )
-			SetAssaultGroup(0, 9, SORCERESS);//call SetAssaultGroup( 0, 9, SORCERESS   )
-			SetAssaultGroup(0, 9, GRYPHON);//call SetAssaultGroup( 0, 9, GRYPHON     )
-			SetAssaultGroup(0, 9, COPTER);//call SetAssaultGroup( 0, 9, COPTER      )
-			SetAssaultGroup(0, 9, MORTAR);//call SetAssaultGroup( 0, 9, MORTAR      )
+			SetAssaultGroup(1, 9, CommonAi.hero_id);//call SetAssaultGroup( 1, 9, hero_id     )
+			SetAssaultGroup(0, 9, CommonAi.hero_id2);//call SetAssaultGroup( 0, 9, hero_id2    )
+			SetAssaultGroup(0, 9, CommonAi.FOOTMEN);//call SetAssaultGroup( 0, 9, FOOTMEN     )
+			SetAssaultGroup(0, 9, CommonAi.KNIGHT);//call SetAssaultGroup( 0, 9, KNIGHT      )
+			SetAssaultGroup(0, 9, CommonAi.RIFLEMEN);//call SetAssaultGroup( 0, 9, RIFLEMEN    )
+			SetAssaultGroup(0, 9, CommonAi.PRIEST);//call SetAssaultGroup( 0, 9, PRIEST      )
+			SetAssaultGroup(0, 9, CommonAi.SORCERESS);//call SetAssaultGroup( 0, 9, SORCERESS   )
+			SetAssaultGroup(0, 9, CommonAi.GRYPHON);//call SetAssaultGroup( 0, 9, GRYPHON     )
+			SetAssaultGroup(0, 9, CommonAi.COPTER);//call SetAssaultGroup( 0, 9, COPTER      )
+			SetAssaultGroup(0, 9, CommonAi.MORTAR);//call SetAssaultGroup( 0, 9, MORTAR      )
 			SetInitialWave(10);//call SetInitialWave(10)
 		}//endfunction
 		//
@@ -158,7 +158,7 @@ namespace Jass {
 				if (GetUnitCountDone(hero_id)>0) { break; }//exitwhen GetUnitCountDone(hero_id)>0
 				Sleep(2);//call Sleep(2)
 			}//endloop
-			StaggerSleep(0,2);//call StaggerSleep(0,2)
+			StaggerSleep(0, 2);//call StaggerSleep(0,2)
 			while (true) {//loop
 				while (true) {//loop
 					if (!CaptainRetreating()) { break; }//exitwhen not CaptainRetreating()
@@ -170,7 +170,7 @@ namespace Jass {
 				has_siege = GetUnitCountDone(MORTAR)>0 || GetUnitCountDone(TANK)>0;//set has_siege        = GetUnitCountDone(MORTAR)>0 or GetUnitCountDone(TANK)>0
 				air_units = GetUnitCountDone(COPTER)>0 || GetUnitCountDone(GRYPHON)>0;//set air_units        = GetUnitCountDone(COPTER)>0 or GetUnitCountDone(GRYPHON)>0
 				allow_air_creeps = air_units || major_ok;//set allow_air_creeps = air_units or major_ok
-				SingleMeleeAttack(needs_exp,has_siege,major_ok,air_units);//call SingleMeleeAttack(needs_exp,has_siege,major_ok,air_units)
+				SingleMeleeAttack(needs_exp, has_siege, major_ok, air_units);//call SingleMeleeAttack(needs_exp,has_siege,major_ok,air_units)
 			}//endloop
 		}//endfunction
 		//
@@ -222,67 +222,67 @@ namespace Jass {
 			//
 			//
 			if (barracks) {//if barracks then
-				SetBuildUpgr(1, UPG_DEFEND);//call SetBuildUpgr( 1, UPG_DEFEND )
+				SetBuildUpgr(1, CommonAi.UPG_DEFEND);//call SetBuildUpgr( 1, UPG_DEFEND )
 				if (workshop) {//if workshop then
-					SetBuildUpgr(1, UPG_GUN_RANGE);//call SetBuildUpgr( 1, UPG_GUN_RANGE )
+					SetBuildUpgr(1, CommonAi.UPG_GUN_RANGE);//call SetBuildUpgr( 1, UPG_GUN_RANGE )
 				}//endif
 				if (knights) {//if knights then
-					SetBuildUpgr(1, UPG_BREEDING);//call SetBuildUpgr( 1, UPG_BREEDING )
+					SetBuildUpgr(1, CommonAi.UPG_BREEDING);//call SetBuildUpgr( 1, UPG_BREEDING )
 				}//endif
 			}//endif
 			//
 			//
 			if (smith) {//if smith then
-				SetBuildUpgr(1, UPG_MELEE);//call SetBuildUpgr( 1, UPG_MELEE   )
-				SetBuildUpgr(1, UPG_ARMOR);//call SetBuildUpgr( 1, UPG_ARMOR   )
-				SetBuildUpgr(1, UPG_RANGED);//call SetBuildUpgr( 1, UPG_RANGED  )
-				SetBuildUpgr(1, UPG_LEATHER);//call SetBuildUpgr( 1, UPG_LEATHER )
+				SetBuildUpgr(1, CommonAi.UPG_MELEE);//call SetBuildUpgr( 1, UPG_MELEE   )
+				SetBuildUpgr(1, CommonAi.UPG_ARMOR);//call SetBuildUpgr( 1, UPG_ARMOR   )
+				SetBuildUpgr(1, CommonAi.UPG_RANGED);//call SetBuildUpgr( 1, UPG_RANGED  )
+				SetBuildUpgr(1, CommonAi.UPG_LEATHER);//call SetBuildUpgr( 1, UPG_LEATHER )
 				if (keep) {//if keep then
-					SetBuildUpgr(2, UPG_MELEE);//call SetBuildUpgr( 2, UPG_MELEE   )
-					SetBuildUpgr(2, UPG_ARMOR);//call SetBuildUpgr( 2, UPG_ARMOR   )
-					SetBuildUpgr(2, UPG_RANGED);//call SetBuildUpgr( 2, UPG_RANGED  )
-					SetBuildUpgr(2, UPG_LEATHER);//call SetBuildUpgr( 2, UPG_LEATHER )
+					SetBuildUpgr(2, CommonAi.UPG_MELEE);//call SetBuildUpgr( 2, UPG_MELEE   )
+					SetBuildUpgr(2, CommonAi.UPG_ARMOR);//call SetBuildUpgr( 2, UPG_ARMOR   )
+					SetBuildUpgr(2, CommonAi.UPG_RANGED);//call SetBuildUpgr( 2, UPG_RANGED  )
+					SetBuildUpgr(2, CommonAi.UPG_LEATHER);//call SetBuildUpgr( 2, UPG_LEATHER )
 					if (castle) {//if castle then
-						SetBuildUpgr(3, UPG_MELEE);//call SetBuildUpgr( 3, UPG_MELEE   )
-						SetBuildUpgr(3, UPG_ARMOR);//call SetBuildUpgr( 3, UPG_ARMOR   )
-						SetBuildUpgr(3, UPG_RANGED);//call SetBuildUpgr( 3, UPG_RANGED  )
-						SetBuildUpgr(3, UPG_LEATHER);//call SetBuildUpgr( 3, UPG_LEATHER )
+						SetBuildUpgr(3, CommonAi.UPG_MELEE);//call SetBuildUpgr( 3, UPG_MELEE   )
+						SetBuildUpgr(3, CommonAi.UPG_ARMOR);//call SetBuildUpgr( 3, UPG_ARMOR   )
+						SetBuildUpgr(3, CommonAi.UPG_RANGED);//call SetBuildUpgr( 3, UPG_RANGED  )
+						SetBuildUpgr(3, CommonAi.UPG_LEATHER);//call SetBuildUpgr( 3, UPG_LEATHER )
 					}//endif
 				}//endif
 			}//endif
 			//
 			//
 			if (sanctum && priests) {//if sanctum and priests then
-				SetBuildUpgr(1, UPG_PRAYING);//call SetBuildUpgr( 1, UPG_PRAYING )
+				SetBuildUpgr(1, CommonAi.UPG_PRAYING);//call SetBuildUpgr( 1, UPG_PRAYING )
 				if (sorcery) {//if sorcery then
-					SetBuildUpgr(1, UPG_SORCERY);//call SetBuildUpgr( 1, UPG_SORCERY )
+					SetBuildUpgr(1, CommonAi.UPG_SORCERY);//call SetBuildUpgr( 1, UPG_SORCERY )
 				}//endif
 				if (castle && priests) {//if castle and priests then
-					SetBuildUpgr(2, UPG_PRAYING);//call SetBuildUpgr( 2, UPG_PRAYING  )
+					SetBuildUpgr(2, CommonAi.UPG_PRAYING);//call SetBuildUpgr( 2, UPG_PRAYING  )
 					if (sorcery) {//if sorcery then
-						SetBuildUpgr(2, UPG_SORCERY);//call SetBuildUpgr( 2, UPG_SORCERY  )
-						SetBuildUpgr(1, UPG_SENTINEL);//call SetBuildUpgr( 1, UPG_SENTINEL )
+						SetBuildUpgr(2, CommonAi.UPG_SORCERY);//call SetBuildUpgr( 2, UPG_SORCERY  )
+						SetBuildUpgr(1, CommonAi.UPG_SENTINEL);//call SetBuildUpgr( 1, UPG_SENTINEL )
 					}//endif
 				}//endif
 			}//endif
 			//
 			//
 			if (mill && keep) {//if mill and keep then
-				SetBuildUpgr(1, UPG_WOOD);//call SetBuildUpgr( 1, UPG_WOOD )
+				SetBuildUpgr(1, CommonAi.UPG_WOOD);//call SetBuildUpgr( 1, UPG_WOOD )
 				if (castle) {//if castle then
-					SetBuildUpgr(2, UPG_WOOD);//call SetBuildUpgr( 2, UPG_WOOD    )
-					SetBuildUpgr(2, UPG_MASONRY);//call SetBuildUpgr( 2, UPG_MASONRY )
+					SetBuildUpgr(2, CommonAi.UPG_WOOD);//call SetBuildUpgr( 2, UPG_WOOD    )
+					SetBuildUpgr(2, CommonAi.UPG_MASONRY);//call SetBuildUpgr( 2, UPG_MASONRY )
 				}//endif
 			}//endif
 			//
 			//
 			if (workshop && C_gyro>0) {//if workshop and C_gyro>0 then
-				SetBuildUpgr(1, UPG_BOMBS);//call SetBuildUpgr( 1, UPG_BOMBS )
+				SetBuildUpgr(1, CommonAi.UPG_BOMBS);//call SetBuildUpgr( 1, UPG_BOMBS )
 			}//endif
 			//
 			//
 			if (aviary && C_gryphon>0) {//if aviary and C_gryphon>0 then
-				SetBuildUpgr(1, UPG_HAMMERS);//call SetBuildUpgr( 1, UPG_HAMMERS )
+				SetBuildUpgr(1, CommonAi.UPG_HAMMERS);//call SetBuildUpgr( 1, UPG_HAMMERS )
 			}//endif
 		}//endfunction
 		//
@@ -306,13 +306,13 @@ namespace Jass {
 				gryphon = max_gryphon;//set gryphon = max_gryphon
 			}//endif
 			if (rifle <= max_rifle) {//if rifle <= max_rifle then
-				SetBuildUnit(rifle,   RIFLEMAN);//call SetBuildUnit( rifle,   RIFLEMAN )
+				SetBuildUnit(DemoAi.rifle, CommonAi.RIFLEMAN);//call SetBuildUnit( rifle,   RIFLEMAN )
 			}//endif
 			if (gyro <= max_gyro) {//if gyro <= max_gyro then
-				SetBuildUnit(gyro,    COPTER);//call SetBuildUnit( gyro,    COPTER   )
+				SetBuildUnit(gyro, CommonAi.COPTER);//call SetBuildUnit( gyro,    COPTER   )
 			}//endif
 			if (gryphon <= max_gryphon) {//if gryphon <= max_gryphon then
-				SetBuildUnit(gryphon, GRYPHON);//call SetBuildUnit( gryphon, GRYPHON  )
+				SetBuildUnit(gryphon, CommonAi.GRYPHON);//call SetBuildUnit( gryphon, GRYPHON  )
 			}//endif
 		}//endfunction
 		//
@@ -326,7 +326,7 @@ namespace Jass {
 				return;//return
 			}//endif
 			if (knights) {//if knights then
-				SetBuildUnit((8 - GetUnitCount(FOOTMAN)) / 2, KNIGHT);//call SetBuildUnit( (8 - GetUnitCount(FOOTMAN)) / 2, KNIGHT )
+				SetBuildUnit((8 - GetUnitCount(FOOTMAN)) / 2, CommonAi.KNIGHT);//call SetBuildUnit( (8 - GetUnitCount(FOOTMAN)) / 2, KNIGHT )
 			}//endif
 			//
 			//
@@ -334,7 +334,7 @@ namespace Jass {
 				return;//return
 			}//endif
 			if (workshop) {//if workshop then
-				SetBuildUnit(2, MORTAR);//call SetBuildUnit( 2, MORTAR )
+				SetBuildUnit(2, CommonAi.MORTAR);//call SetBuildUnit( 2, MORTAR )
 			}//endif
 			//
 			//
@@ -342,22 +342,22 @@ namespace Jass {
 				return;//return
 			}//endif
 			if (sanctum) {//if sanctum then
-				SetBuildUnit(3, PRIEST);//call SetBuildUnit( 3, PRIEST    )
+				SetBuildUnit(3, CommonAi.PRIEST);//call SetBuildUnit( 3, PRIEST    )
 			}//endif
 			if (farms < 12) {//if farms < 12 then
 				return;//return
 			}//endif
 			if (sanctum && GetUpgradeLevel(UPG_SORCERY)>=2) {//if sanctum and GetUpgradeLevel(UPG_SORCERY)>=2 then
-				SetBuildUnit(3, SORCERESS);//call SetBuildUnit( 3, SORCERESS )
+				SetBuildUnit(3, CommonAi.SORCERESS);//call SetBuildUnit( 3, SORCERESS )
 			} else {//else
-				SetBuildUnit(1, SORCERESS);//call SetBuildUnit( 1, SORCERESS )
+				SetBuildUnit(1, CommonAi.SORCERESS);//call SetBuildUnit( 1, SORCERESS )
 			}//endif
 		}//endfunction
 		//
 		//
 		//
 		private void basic_melee(int food) {//function basic_melee takes integer food returns nothing
-			FoodPool(food,  true,FOOTMAN,2,  knights,KNIGHT,4);//call FoodPool( food,  true,FOOTMAN,2,  knights,KNIGHT,4 )
+			FoodPool(food, true, CommonAi.FOOTMAN, 2, HumanAi.knights, CommonAi.KNIGHT, 4);//call FoodPool( food,  true,FOOTMAN,2,  knights,KNIGHT,4 )
 		}//endfunction
 		//
 		//
@@ -366,21 +366,21 @@ namespace Jass {
 			int mines = GetMinesOwned();//local integer mines = GetMinesOwned()
 			InitBuildArray();//call InitBuildArray()
 			init_booleans();//call init_booleans()
-			MeleeTownHall(0, TOWN_HALL);//call MeleeTownHall( 0, TOWN_HALL )
-			MeleeTownHall(1, TOWN_HALL);//call MeleeTownHall( 1, TOWN_HALL )
-			SetBuildUnit(1, TOWN_HALL);//call SetBuildUnit( 1, TOWN_HALL     )
-			SetBuildUnit(6, PEASANT);//call SetBuildUnit( 6, PEASANT       )
-			BuildFactory(BARRACKS);//call BuildFactory(    BARRACKS      )
-			SetBuildUnit(8, PEASANT);//call SetBuildUnit( 8, PEASANT       )
-			SetBuildUnit(1, HOUSE);//call SetBuildUnit( 1, HOUSE         )
-			SetBuildUnit(10, PEASANT);//call SetBuildUnit(10, PEASANT       )
+			MeleeTownHall(0, CommonAi.TOWN_HALL);//call MeleeTownHall( 0, TOWN_HALL )
+			MeleeTownHall(1, CommonAi.TOWN_HALL);//call MeleeTownHall( 1, TOWN_HALL )
+			SetBuildUnit(1, CommonAi.TOWN_HALL);//call SetBuildUnit( 1, TOWN_HALL     )
+			SetBuildUnit(6, CommonAi.PEASANT);//call SetBuildUnit( 6, PEASANT       )
+			BuildFactory(CommonAi.BARRACKS);//call BuildFactory(    BARRACKS      )
+			SetBuildUnit(8, CommonAi.PEASANT);//call SetBuildUnit( 8, PEASANT       )
+			SetBuildUnit(1, CommonAi.HOUSE);//call SetBuildUnit( 1, HOUSE         )
+			SetBuildUnit(10, CommonAi.PEASANT);//call SetBuildUnit(10, PEASANT       )
 			basic_melee(2);//call basic_melee( 2 )
-			SetBuildUnit(1, HUMAN_ALTAR);//call SetBuildUnit( 1, HUMAN_ALTAR   )
-			SetBuildUnit(11, PEASANT);//call SetBuildUnit(11, PEASANT       )
-			SetBuildUnit(2, HOUSE);//call SetBuildUnit( 2, HOUSE         )
+			SetBuildUnit(1, CommonAi.HUMAN_ALTAR);//call SetBuildUnit( 1, HUMAN_ALTAR   )
+			SetBuildUnit(11, CommonAi.PEASANT);//call SetBuildUnit(11, PEASANT       )
+			SetBuildUnit(2, CommonAi.HOUSE);//call SetBuildUnit( 2, HOUSE         )
 			basic_melee(6);//call basic_melee( 6 )
-			SetBuildUnit(1, hero_id);//call SetBuildUnit( 1, hero_id       )
-			SetBuildUnit(3, HOUSE);//call SetBuildUnit( 3, HOUSE         )
+			SetBuildUnit(1, CommonAi.hero_id);//call SetBuildUnit( 1, hero_id       )
+			SetBuildUnit(3, CommonAi.HOUSE);//call SetBuildUnit( 3, HOUSE         )
 			basic_melee(10);//call basic_melee( 10 )
 			if (startup) {//if startup then
 				if (GetUnitCountDone(FOOTMAN)<5) {//if GetUnitCountDone(FOOTMAN)<5 then
@@ -388,47 +388,47 @@ namespace Jass {
 				}//endif
 				startup = false;//set startup = false
 			}//endif
-			SetBuildUpgr(1, UPG_DEFEND);//call SetBuildUpgr( 1, UPG_DEFEND    )
-			SetBuildUnit(1, BLACKSMITH);//call SetBuildUnit( 1, BLACKSMITH    )
-			SetBuildUnit(1, LUMBER_MILL);//call SetBuildUnit( 1, LUMBER_MILL   )
-			SetBuildUnit(4, HOUSE);//call SetBuildUnit( 4, HOUSE         )
+			SetBuildUpgr(1, CommonAi.UPG_DEFEND);//call SetBuildUpgr( 1, UPG_DEFEND    )
+			SetBuildUnit(1, CommonAi.BLACKSMITH);//call SetBuildUnit( 1, BLACKSMITH    )
+			SetBuildUnit(1, CommonAi.LUMBER_MILL);//call SetBuildUnit( 1, LUMBER_MILL   )
+			SetBuildUnit(4, CommonAi.HOUSE);//call SetBuildUnit( 4, HOUSE         )
 			basic_melee(12);//call basic_melee( 12 )
 			basic_ranged(3);//call basic_ranged( 3 )
-			SetBuildUpgr(1, UPG_ARMOR);//call SetBuildUpgr( 1, UPG_ARMOR     )
-			SetBuildUnit(5, HOUSE);//call SetBuildUnit( 5, HOUSE         )
+			SetBuildUpgr(1, CommonAi.UPG_ARMOR);//call SetBuildUpgr( 1, UPG_ARMOR     )
+			SetBuildUnit(5, CommonAi.HOUSE);//call SetBuildUnit( 5, HOUSE         )
 			basic_ranged(6);//call basic_ranged( 6 )
-			SetBuildUnit(1, KEEP);//call SetBuildUnit( 1, KEEP          )
+			SetBuildUnit(1, CommonAi.KEEP);//call SetBuildUnit( 1, KEEP          )
 			basic_ranged(9);//call basic_ranged( 9 )
-			SetBuildUpgr(1, UPG_MELEE);//call SetBuildUpgr( 1, UPG_MELEE     )
+			SetBuildUpgr(1, CommonAi.UPG_MELEE);//call SetBuildUpgr( 1, UPG_MELEE     )
 			basic_ranged(12);//call basic_ranged( 12 )
-			UpgradeAll(WATCH_TOWER, GUARD_TOWER);//call UpgradeAll( WATCH_TOWER, GUARD_TOWER )
-			SetBuildUnit(2, WATCH_TOWER);//call SetBuildUnit( 2, WATCH_TOWER   )
-			SetBuildUpgr(1, UPG_RANGED);//call SetBuildUpgr( 1, UPG_RANGED    )
-			BasicExpansion(mines < 2, TOWN_HALL);//call BasicExpansion( mines < 2, TOWN_HALL )
-			SetBuildUnit(6, HOUSE);//call SetBuildUnit( 6, HOUSE         )
-			GuardSecondary(1, 2, WATCH_TOWER);//call GuardSecondary( 1, 2, WATCH_TOWER )
-			GuardSecondary(2, 2, WATCH_TOWER);//call GuardSecondary( 2, 2, WATCH_TOWER )
-			SetBuildUpgr(1, UPG_LEATHER);//call SetBuildUpgr( 1, UPG_LEATHER   )
-			SetBuildUpgr(1, UPG_WOOD);//call SetBuildUpgr( 1, UPG_WOOD      )
-			SetBuildUnit(1, hero_id2);//call SetBuildUnit( 1, hero_id2      )
+			UpgradeAll(CommonAi.WATCH_TOWER, CommonAi.GUARD_TOWER);//call UpgradeAll( WATCH_TOWER, GUARD_TOWER )
+			SetBuildUnit(2, CommonAi.WATCH_TOWER);//call SetBuildUnit( 2, WATCH_TOWER   )
+			SetBuildUpgr(1, CommonAi.UPG_RANGED);//call SetBuildUpgr( 1, UPG_RANGED    )
+			BasicExpansion(mines < 2, CommonAi.TOWN_HALL);//call BasicExpansion( mines < 2, TOWN_HALL )
+			SetBuildUnit(6, CommonAi.HOUSE);//call SetBuildUnit( 6, HOUSE         )
+			GuardSecondary(1, 2, CommonAi.WATCH_TOWER);//call GuardSecondary( 1, 2, WATCH_TOWER )
+			GuardSecondary(2, 2, CommonAi.WATCH_TOWER);//call GuardSecondary( 2, 2, WATCH_TOWER )
+			SetBuildUpgr(1, CommonAi.UPG_LEATHER);//call SetBuildUpgr( 1, UPG_LEATHER   )
+			SetBuildUpgr(1, CommonAi.UPG_WOOD);//call SetBuildUpgr( 1, UPG_WOOD      )
+			SetBuildUnit(1, CommonAi.hero_id2);//call SetBuildUnit( 1, hero_id2      )
 			if (mines > 1) {//if mines > 1 then
-				SetBuildUnit(14, PEASANT);//call SetBuildUnit( 14, PEASANT  )
+				SetBuildUnit(14, CommonAi.PEASANT);//call SetBuildUnit( 14, PEASANT  )
 			}//endif
 			forces_sequence();//call forces_sequence()
 			upgrade_sequence();//call upgrade_sequence()
-			BuildFactory(WORKSHOP);//call BuildFactory( WORKSHOP )
+			BuildFactory(CommonAi.WORKSHOP);//call BuildFactory( WORKSHOP )
 			if (GetUnitCount(MORTAR)<1) {//if GetUnitCount(MORTAR)<1 then
 				return;//return
 			}//endif
-			BuildFactory(SANCTUM);//call BuildFactory( SANCTUM )
-			SetBuildUnit(1, CASTLE);//call SetBuildUnit( 1, CASTLE        )
-			SetBuildUnit(8, HOUSE);//call SetBuildUnit( 8, HOUSE         )
-			SetBuildUnit(1, AVIARY);//call SetBuildUnit( 1, AVIARY        )
+			BuildFactory(CommonAi.SANCTUM);//call BuildFactory( SANCTUM )
+			SetBuildUnit(1, CommonAi.CASTLE);//call SetBuildUnit( 1, CASTLE        )
+			SetBuildUnit(8, CommonAi.HOUSE);//call SetBuildUnit( 8, HOUSE         )
+			SetBuildUnit(1, CommonAi.AVIARY);//call SetBuildUnit( 1, AVIARY        )
 			if (GetUnitCount(AVIARY)>0 && GetUnitCount(ZEPPELIN)<3) {//if GetUnitCount(AVIARY)>0 and GetUnitCount(ZEPPELIN)<3 then
 				GetZeppelin();//call GetZeppelin()
 			}//endif
-			MeleeTownHall(2, TOWN_HALL);//call MeleeTownHall( 2, TOWN_HALL )
-			BasicExpansion(mines < 3, TOWN_HALL);//call BasicExpansion( mines < 3, TOWN_HALL )
+			MeleeTownHall(2, CommonAi.TOWN_HALL);//call MeleeTownHall( 2, TOWN_HALL )
+			BasicExpansion(mines < 3, CommonAi.TOWN_HALL);//call BasicExpansion( mines < 3, TOWN_HALL )
 		}//endfunction
 		//
 		//
@@ -439,12 +439,12 @@ namespace Jass {
 			while (true) {//loop
 				ClearHarvestAI();//call ClearHarvestAI()
 				T = TownWithMine();//set T = TownWithMine()
-				HarvestGold(T,5);//call HarvestGold(T,5)
-				HarvestWood(0,2);//call HarvestWood(0,2)
+				HarvestGold(T, 5);//call HarvestGold(T,5)
+				HarvestWood(0, 2);//call HarvestWood(0,2)
 				if (TownCountDone(TOWN_HALL)>1) {//if TownCountDone(TOWN_HALL)>1 then
-					HarvestGold(T+1,4);//call HarvestGold(T+1,4)
+					HarvestGold(T+1, 4);//call HarvestGold(T+1,4)
 				}//endif
-				HarvestWood(0,15);//call HarvestWood(0,15)
+				HarvestWood(0, 15);//call HarvestWood(0,15)
 				build_sequence();//call build_sequence()
 				Sleep(3);//call Sleep(3)
 			}//endloop
@@ -454,7 +454,7 @@ namespace Jass {
 		//
 		private void main() {//function main takes nothing returns nothing
 			do_debug_cheats = GetAiPlayer()==1;//set do_debug_cheats = GetAiPlayer()==1
-			PickMeleeHero(RACE_HUMAN);//call PickMeleeHero(RACE_HUMAN)
+			PickMeleeHero(CommonJ.RACE_HUMAN);//call PickMeleeHero(RACE_HUMAN)
 			set_skills();//call set_skills()
 			StandardAI(function SkillArrays, function peon_assignment, function attack_sequence);//call StandardAI(function SkillArrays, function peon_assignment, function attack_sequence)
 			PlayGame();//call PlayGame()

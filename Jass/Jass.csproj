@@ -62,7 +62,6 @@
     <Compile Include="Parsers\Else.cs" />
     <Compile Include="Parsers\Set.cs" />
     <Compile Include="Parsers\Eval.cs" />
-    <Compile Include="Test.cs" />
     <Compile Include="Parsers\SetArray.cs" />
     <Compile Include="Parsers\NameArray.cs" />
     <Compile Include="Parsers\Declaration.cs" />
@@ -85,6 +84,9 @@
     <Compile Include="Reader\Interfaces\IName.cs" />
     <Compile Include="Reader\LinkStorage.cs" />
     <Compile Include="Reader\JassDirectory.cs" />
+    <Compile Include="Parsers\Value.cs" />
+    <Compile Include="Parsers\Debug.cs" />
+    <Compile Include="Parsers\Extends.cs" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Reader\Interfaces\" />

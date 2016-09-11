@@ -16,16 +16,16 @@ namespace Jass {
 		//
 		//
 		private void main() {//function main takes nothing returns nothing
-			CampaignAI(BURROW,null);//call CampaignAI(BURROW,null)
-			SetReplacements(2,2,3);//call SetReplacements(2,2,3)
-			SetCaptainHome(BOTH_CAPTAINS,640,-3222);//call SetCaptainHome(BOTH_CAPTAINS,640,-3222)
+			CampaignAI(CommonAi.BURROW, null);//call CampaignAI(BURROW,null)
+			SetReplacements(2, 2, 3);//call SetReplacements(2,2,3)
+			SetCaptainHome(CommonAi.BOTH_CAPTAINS, 640, -3222);//call SetCaptainHome(BOTH_CAPTAINS,640,-3222)
 			//
-			CampaignDefenderEx(1,1,1, THRALL);//call CampaignDefenderEx( 1,1,1, THRALL        )
+			CampaignDefenderEx(1, 1, 1, CommonAi.THRALL);//call CampaignDefenderEx( 1,1,1, THRALL        )
 			//
 			//
 			//
-			CampaignDefenderEx(2,2,2, SHAMAN);//call CampaignDefenderEx( 2,2,2, SHAMAN        )
-			CampaignDefenderEx(2,2,2, WITCH_DOCTOR);//call CampaignDefenderEx( 2,2,2, WITCH_DOCTOR  )
+			CampaignDefenderEx(2, 2, 2, CommonAi.SHAMAN);//call CampaignDefenderEx( 2,2,2, SHAMAN        )
+			CampaignDefenderEx(2, 2, 2, CommonAi.WITCH_DOCTOR);//call CampaignDefenderEx( 2,2,2, WITCH_DOCTOR  )
 			//
 			//
 			//

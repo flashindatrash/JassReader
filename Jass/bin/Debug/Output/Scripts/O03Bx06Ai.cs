@@ -10,7 +10,7 @@ namespace Jass {
 		//
 		public static int user = 9;//integer user = 9
 		private void main() {//function main takes nothing returns nothing
-			CampaignAI(BURROW,null);//call CampaignAI(BURROW,null)
+			CampaignAI(CommonAi.BURROW, null);//call CampaignAI(BURROW,null)
 			PrepFullSuicide();//call PrepFullSuicide()
 			while (true) {//loop
 				while (true) {//loop
@@ -18,10 +18,10 @@ namespace Jass {
 					user = GetLastCommand();//set user = GetLastCommand()
 					PopLastCommand();//call PopLastCommand()
 				}//endloop
-				SuicideUnitB(GRUNT,user);//call SuicideUnitB(GRUNT,user)
-				SuicideUnitB(SHAMAN,user);//call SuicideUnitB(SHAMAN,user)
-				SuicideUnitB(TAUREN,user);//call SuicideUnitB(TAUREN,user)
-				SuicideUnitB(SPIRIT_WALKER,user);//call SuicideUnitB(SPIRIT_WALKER,user)
+				SuicideUnitB(CommonAi.GRUNT, U08_tealAi.user);//call SuicideUnitB(GRUNT,user)
+				SuicideUnitB(CommonAi.SHAMAN, U08_tealAi.user);//call SuicideUnitB(SHAMAN,user)
+				SuicideUnitB(CommonAi.TAUREN, U08_tealAi.user);//call SuicideUnitB(TAUREN,user)
+				SuicideUnitB(CommonAi.SPIRIT_WALKER, U08_tealAi.user);//call SuicideUnitB(SPIRIT_WALKER,user)
 			}//endloop
 		}//endfunction
 

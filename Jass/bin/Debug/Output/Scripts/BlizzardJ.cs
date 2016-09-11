@@ -576,7 +576,7 @@ namespace Jass {
 		private void BJDebugMsg(string msg) {//function BJDebugMsg takes string msg returns nothing
 			int i = 0;//local integer i = 0
 			while (true) {//loop
-				DisplayTimedTextToPlayer(Player(i),0,0,60,msg);//call DisplayTimedTextToPlayer(Player(i),0,0,60,msg)
+				DisplayTimedTextToPlayer(Player(i), 0, 0, 60, msg);//call DisplayTimedTextToPlayer(Player(i),0,0,60,msg)
 				i = i + 1;//set i = i + 1
 				if (i == bj_MAX_PLAYERS) { break; }//exitwhen i == bj_MAX_PLAYERS
 			}//endloop
@@ -827,7 +827,7 @@ namespace Jass {
 				i = i + 1;//set i = i + 1
 			}//endloop
 			s = s + "(" + I2S(bj_queuedExecTotal) + " total)";//set s = s + "(" + I2S(bj_queuedExecTotal) + " total)"
-			DisplayTimedTextToPlayer(GetLocalPlayer(),0,0,600,s);//call DisplayTimedTextToPlayer(GetLocalPlayer(),0,0,600,s)
+			DisplayTimedTextToPlayer(GetLocalPlayer(), 0, 0, 600, s);//call DisplayTimedTextToPlayer(GetLocalPlayer(),0,0,600,s)
 		}//endfunction
 		//
 		//
@@ -877,7 +877,7 @@ namespace Jass {
 				if (bj_queuedExecTotal == 0) { break; }//exitwhen bj_queuedExecTotal == 0
 				if (TriggerExecuteBJ(bj_queuedExecTriggers[0], bj_queuedExecUseConds[0])) {//if TriggerExecuteBJ(bj_queuedExecTriggers[0], bj_queuedExecUseConds[0]) then
 					//
-					TimerStart(bj_queuedExecTimeoutTimer, bj_QUEUED_TRIGGER_TIMEOUT, false, null);//call TimerStart(bj_queuedExecTimeoutTimer, bj_QUEUED_TRIGGER_TIMEOUT, false, null)
+					TimerStart(BlizzardJ.bj_queuedExecTimeoutTimer, BlizzardJ.bj_QUEUED_TRIGGER_TIMEOUT, false, null);//call TimerStart(bj_queuedExecTimeoutTimer, bj_QUEUED_TRIGGER_TIMEOUT, false, null)
 					return true;//return true
 				}//endif
 				QueuedTriggerRemoveByIndex(0);//call QueuedTriggerRemoveByIndex(0)
@@ -920,7 +920,7 @@ namespace Jass {
 			QueuedTriggerRemoveByIndex(trigIndex);//call QueuedTriggerRemoveByIndex(trigIndex)
 			//
 			if ((trigIndex == 0)) {//if (trigIndex == 0) then
-				PauseTimer(bj_queuedExecTimeoutTimer);//call PauseTimer(bj_queuedExecTimeoutTimer)
+				PauseTimer(BlizzardJ.bj_queuedExecTimeoutTimer);//call PauseTimer(bj_queuedExecTimeoutTimer)
 				QueuedTriggerAttemptExec();//call QueuedTriggerAttemptExec()
 			}//endif
 		}//endfunction
@@ -937,14 +937,14 @@ namespace Jass {
 			//
 			QueuedTriggerRemoveByIndex(0);//call QueuedTriggerRemoveByIndex(0)
 			//
-			PauseTimer(bj_queuedExecTimeoutTimer);//call PauseTimer(bj_queuedExecTimeoutTimer)
+			PauseTimer(BlizzardJ.bj_queuedExecTimeoutTimer);//call PauseTimer(bj_queuedExecTimeoutTimer)
 			QueuedTriggerAttemptExec();//call QueuedTriggerAttemptExec()
 		}//endfunction
 		//
 		//
 		//
 		private void QueuedTriggerClearBJ() {//function QueuedTriggerClearBJ takes nothing returns nothing
-			PauseTimer(bj_queuedExecTimeoutTimer);//call PauseTimer(bj_queuedExecTimeoutTimer)
+			PauseTimer(BlizzardJ.bj_queuedExecTimeoutTimer);//call PauseTimer(bj_queuedExecTimeoutTimer)
 			bj_queuedExecTotal = 0;//set bj_queuedExecTotal = 0
 		}//endfunction
 		//
@@ -999,7 +999,7 @@ namespace Jass {
 					if ((timeRemaining > bj_POLLED_WAIT_SKIP_THRESHOLD)) {//if (timeRemaining > bj_POLLED_WAIT_SKIP_THRESHOLD) then
 						TriggerSleepAction(0.1 * timeRemaining);//call TriggerSleepAction(0.1 * timeRemaining)
 					} else {//else
-						TriggerSleepAction(bj_POLLED_WAIT_INTERVAL);//call TriggerSleepAction(bj_POLLED_WAIT_INTERVAL)
+						TriggerSleepAction(BlizzardJ.bj_POLLED_WAIT_INTERVAL);//call TriggerSleepAction(bj_POLLED_WAIT_INTERVAL)
 					}//endif
 				}//endloop
 				DestroyTimer(t);//call DestroyTimer(t)
@@ -1067,7 +1067,7 @@ namespace Jass {
 		}//endfunction
 		//
 		private void SetTimeOfDay(float whatTime) {//function SetTimeOfDay takes real whatTime returns nothing
-			SetFloatGameState(GAME_STATE_TIME_OF_DAY, whatTime);//call SetFloatGameState(GAME_STATE_TIME_OF_DAY, whatTime)
+			SetFloatGameState(CommonJ.GAME_STATE_TIME_OF_DAY, whatTime);//call SetFloatGameState(GAME_STATE_TIME_OF_DAY, whatTime)
 		}//endfunction
 		//
 		private void SetTimeOfDayScalePercentBJ(float scalePercent) {//function SetTimeOfDayScalePercentBJ takes real scalePercent returns nothing
@@ -1108,13 +1108,13 @@ namespace Jass {
 		private camerasetup GetCurrentCameraSetup() {//function GetCurrentCameraSetup takes nothing returns camerasetup
 			camerasetup theCam = CreateCameraSetup();//local camerasetup theCam = CreateCameraSetup()
 			float duration = 0;//local real duration = 0
-			CameraSetupSetField(theCam, CAMERA_FIELD_TARGET_DISTANCE, GetCameraField(CAMERA_FIELD_TARGET_DISTANCE), duration);//call CameraSetupSetField(theCam, CAMERA_FIELD_TARGET_DISTANCE, GetCameraField(CAMERA_FIELD_TARGET_DISTANCE), duration)
-			CameraSetupSetField(theCam, CAMERA_FIELD_FARZ,            GetCameraField(CAMERA_FIELD_FARZ),            duration);//call CameraSetupSetField(theCam, CAMERA_FIELD_FARZ,            GetCameraField(CAMERA_FIELD_FARZ),            duration)
-			CameraSetupSetField(theCam, CAMERA_FIELD_ZOFFSET,         GetCameraField(CAMERA_FIELD_ZOFFSET),         duration);//call CameraSetupSetField(theCam, CAMERA_FIELD_ZOFFSET,         GetCameraField(CAMERA_FIELD_ZOFFSET),         duration)
-			CameraSetupSetField(theCam, CAMERA_FIELD_ANGLE_OF_ATTACK, bj_RADTODEG * GetCameraField(CAMERA_FIELD_ANGLE_OF_ATTACK), duration);//call CameraSetupSetField(theCam, CAMERA_FIELD_ANGLE_OF_ATTACK, bj_RADTODEG * GetCameraField(CAMERA_FIELD_ANGLE_OF_ATTACK), duration)
-			CameraSetupSetField(theCam, CAMERA_FIELD_FIELD_OF_VIEW,   bj_RADTODEG * GetCameraField(CAMERA_FIELD_FIELD_OF_VIEW),   duration);//call CameraSetupSetField(theCam, CAMERA_FIELD_FIELD_OF_VIEW,   bj_RADTODEG * GetCameraField(CAMERA_FIELD_FIELD_OF_VIEW),   duration)
-			CameraSetupSetField(theCam, CAMERA_FIELD_ROLL,            bj_RADTODEG * GetCameraField(CAMERA_FIELD_ROLL),            duration);//call CameraSetupSetField(theCam, CAMERA_FIELD_ROLL,            bj_RADTODEG * GetCameraField(CAMERA_FIELD_ROLL),            duration)
-			CameraSetupSetField(theCam, CAMERA_FIELD_ROTATION,        bj_RADTODEG * GetCameraField(CAMERA_FIELD_ROTATION),        duration);//call CameraSetupSetField(theCam, CAMERA_FIELD_ROTATION,        bj_RADTODEG * GetCameraField(CAMERA_FIELD_ROTATION),        duration)
+			CameraSetupSetField(theCam, CommonJ.CAMERA_FIELD_TARGET_DISTANCE, GetCameraField(CAMERA_FIELD_TARGET_DISTANCE), duration);//call CameraSetupSetField(theCam, CAMERA_FIELD_TARGET_DISTANCE, GetCameraField(CAMERA_FIELD_TARGET_DISTANCE), duration)
+			CameraSetupSetField(theCam, CommonJ.CAMERA_FIELD_FARZ, GetCameraField(CAMERA_FIELD_FARZ), duration);//call CameraSetupSetField(theCam, CAMERA_FIELD_FARZ,            GetCameraField(CAMERA_FIELD_FARZ),            duration)
+			CameraSetupSetField(theCam, CommonJ.CAMERA_FIELD_ZOFFSET, GetCameraField(CAMERA_FIELD_ZOFFSET), duration);//call CameraSetupSetField(theCam, CAMERA_FIELD_ZOFFSET,         GetCameraField(CAMERA_FIELD_ZOFFSET),         duration)
+			CameraSetupSetField(theCam, CommonJ.CAMERA_FIELD_ANGLE_OF_ATTACK, bj_RADTODEG * GetCameraField(CAMERA_FIELD_ANGLE_OF_ATTACK), duration);//call CameraSetupSetField(theCam, CAMERA_FIELD_ANGLE_OF_ATTACK, bj_RADTODEG * GetCameraField(CAMERA_FIELD_ANGLE_OF_ATTACK), duration)
+			CameraSetupSetField(theCam, CommonJ.CAMERA_FIELD_FIELD_OF_VIEW, bj_RADTODEG * GetCameraField(CAMERA_FIELD_FIELD_OF_VIEW), duration);//call CameraSetupSetField(theCam, CAMERA_FIELD_FIELD_OF_VIEW,   bj_RADTODEG * GetCameraField(CAMERA_FIELD_FIELD_OF_VIEW),   duration)
+			CameraSetupSetField(theCam, CommonJ.CAMERA_FIELD_ROLL, bj_RADTODEG * GetCameraField(CAMERA_FIELD_ROLL), duration);//call CameraSetupSetField(theCam, CAMERA_FIELD_ROLL,            bj_RADTODEG * GetCameraField(CAMERA_FIELD_ROLL),            duration)
+			CameraSetupSetField(theCam, CommonJ.CAMERA_FIELD_ROTATION, bj_RADTODEG * GetCameraField(CAMERA_FIELD_ROTATION), duration);//call CameraSetupSetField(theCam, CAMERA_FIELD_ROTATION,        bj_RADTODEG * GetCameraField(CAMERA_FIELD_ROTATION),        duration)
 			CameraSetupSetDestPosition(theCam, GetCameraTargetPositionX(), GetCameraTargetPositionY(), duration);//call CameraSetupSetDestPosition(theCam, GetCameraTargetPositionX(), GetCameraTargetPositionY(), duration)
 			return theCam;//return theCam
 		}//endfunction
@@ -1255,8 +1255,8 @@ namespace Jass {
 			}//endif
 			if ((GetLocalPlayer() == whichPlayer)) {//if (GetLocalPlayer() == whichPlayer) then
 				//
-				CameraSetTargetNoiseEx(magnitude*2.0, magnitude*Pow(10,richter),true);//call CameraSetTargetNoiseEx(magnitude*2.0, magnitude*Pow(10,richter),true)
-				CameraSetSourceNoiseEx(magnitude*2.0, magnitude*Pow(10,richter),true);//call CameraSetSourceNoiseEx(magnitude*2.0, magnitude*Pow(10,richter),true)
+				CameraSetTargetNoiseEx(magnitude*2.0, magnitude*Pow(10, richter), true);//call CameraSetTargetNoiseEx(magnitude*2.0, magnitude*Pow(10,richter),true)
+				CameraSetSourceNoiseEx(magnitude*2.0, magnitude*Pow(10, richter), true);//call CameraSetSourceNoiseEx(magnitude*2.0, magnitude*Pow(10,richter),true)
 			}//endif
 		}//endfunction
 		//
@@ -1379,7 +1379,7 @@ namespace Jass {
 		}//endfunction
 		//
 		private void CameraSetSmoothingFactorBJ(float factor) {//function CameraSetSmoothingFactorBJ takes real factor returns nothing
-			CameraSetSmoothingFactor(factor);//call CameraSetSmoothingFactor(factor)
+			CameraSetSmoothingFactor(O05_yellowAi.factor);//call CameraSetSmoothingFactor(factor)
 		}//endfunction
 		//
 		private void CameraResetSmoothingFactorBJ() {//function CameraResetSmoothingFactorBJ takes nothing returns nothing
@@ -1582,7 +1582,7 @@ namespace Jass {
 		private void RegisterDestDeathInRegionEnum() {//function RegisterDestDeathInRegionEnum takes nothing returns nothing
 			bj_destInRegionDiesCount = bj_destInRegionDiesCount + 1;//set bj_destInRegionDiesCount = bj_destInRegionDiesCount + 1
 			if ((bj_destInRegionDiesCount <= bj_MAX_DEST_IN_REGION_EVENTS)) {//if (bj_destInRegionDiesCount <= bj_MAX_DEST_IN_REGION_EVENTS) then
-				TriggerRegisterDeathEvent(bj_destInRegionDiesTrig, GetEnumDestructable());//call TriggerRegisterDeathEvent(bj_destInRegionDiesTrig, GetEnumDestructable())
+				TriggerRegisterDeathEvent(BlizzardJ.bj_destInRegionDiesTrig, GetEnumDestructable());//call TriggerRegisterDeathEvent(bj_destInRegionDiesTrig, GetEnumDestructable())
 			}//endif
 		}//endfunction
 		//
@@ -1748,7 +1748,7 @@ namespace Jass {
 		private fogmodifier CreateFogModifierRectBJ(bool enabled, player whichPlayer, fogstate whichFogState, rect r) {//function CreateFogModifierRectBJ takes boolean enabled, player whichPlayer, fogstate whichFogState, rect r returns fogmodifier
 			bj_lastCreatedFogModifier = CreateFogModifierRect(whichPlayer, whichFogState, r, true, false);//set bj_lastCreatedFogModifier = CreateFogModifierRect(whichPlayer, whichFogState, r, true, false)
 			if (enabled) {//if enabled then
-				FogModifierStart(bj_lastCreatedFogModifier);//call FogModifierStart(bj_lastCreatedFogModifier)
+				FogModifierStart(BlizzardJ.bj_lastCreatedFogModifier);//call FogModifierStart(bj_lastCreatedFogModifier)
 			}//endif
 			return bj_lastCreatedFogModifier;//return bj_lastCreatedFogModifier
 		}//endfunction
@@ -1760,7 +1760,7 @@ namespace Jass {
 		private fogmodifier CreateFogModifierRadiusLocBJ(bool enabled, player whichPlayer, fogstate whichFogState, location center, float radius) {//function CreateFogModifierRadiusLocBJ takes boolean enabled, player whichPlayer, fogstate whichFogState, location center, real radius returns fogmodifier
 			bj_lastCreatedFogModifier = CreateFogModifierRadiusLoc(whichPlayer, whichFogState, center, radius, true, false);//set bj_lastCreatedFogModifier = CreateFogModifierRadiusLoc(whichPlayer, whichFogState, center, radius, true, false)
 			if (enabled) {//if enabled then
-				FogModifierStart(bj_lastCreatedFogModifier);//call FogModifierStart(bj_lastCreatedFogModifier)
+				FogModifierStart(BlizzardJ.bj_lastCreatedFogModifier);//call FogModifierStart(bj_lastCreatedFogModifier)
 			}//endif
 			return bj_lastCreatedFogModifier;//return bj_lastCreatedFogModifier
 		}//endfunction
@@ -1976,14 +1976,14 @@ namespace Jass {
 		}//endfunction
 		//
 		private void SetCineModeVolumeGroupsImmediateBJ() {//function SetCineModeVolumeGroupsImmediateBJ takes nothing returns nothing
-			VolumeGroupSetVolume(SOUND_VOLUMEGROUP_UNITMOVEMENT,  bj_CINEMODE_VOLUME_UNITMOVEMENT);//call VolumeGroupSetVolume(SOUND_VOLUMEGROUP_UNITMOVEMENT,  bj_CINEMODE_VOLUME_UNITMOVEMENT)
-			VolumeGroupSetVolume(SOUND_VOLUMEGROUP_UNITSOUNDS,    bj_CINEMODE_VOLUME_UNITSOUNDS);//call VolumeGroupSetVolume(SOUND_VOLUMEGROUP_UNITSOUNDS,    bj_CINEMODE_VOLUME_UNITSOUNDS)
-			VolumeGroupSetVolume(SOUND_VOLUMEGROUP_COMBAT,        bj_CINEMODE_VOLUME_COMBAT);//call VolumeGroupSetVolume(SOUND_VOLUMEGROUP_COMBAT,        bj_CINEMODE_VOLUME_COMBAT)
-			VolumeGroupSetVolume(SOUND_VOLUMEGROUP_SPELLS,        bj_CINEMODE_VOLUME_SPELLS);//call VolumeGroupSetVolume(SOUND_VOLUMEGROUP_SPELLS,        bj_CINEMODE_VOLUME_SPELLS)
-			VolumeGroupSetVolume(SOUND_VOLUMEGROUP_UI,            bj_CINEMODE_VOLUME_UI);//call VolumeGroupSetVolume(SOUND_VOLUMEGROUP_UI,            bj_CINEMODE_VOLUME_UI)
-			VolumeGroupSetVolume(SOUND_VOLUMEGROUP_MUSIC,         bj_CINEMODE_VOLUME_MUSIC);//call VolumeGroupSetVolume(SOUND_VOLUMEGROUP_MUSIC,         bj_CINEMODE_VOLUME_MUSIC)
-			VolumeGroupSetVolume(SOUND_VOLUMEGROUP_AMBIENTSOUNDS, bj_CINEMODE_VOLUME_AMBIENTSOUNDS);//call VolumeGroupSetVolume(SOUND_VOLUMEGROUP_AMBIENTSOUNDS, bj_CINEMODE_VOLUME_AMBIENTSOUNDS)
-			VolumeGroupSetVolume(SOUND_VOLUMEGROUP_FIRE,          bj_CINEMODE_VOLUME_FIRE);//call VolumeGroupSetVolume(SOUND_VOLUMEGROUP_FIRE,          bj_CINEMODE_VOLUME_FIRE)
+			VolumeGroupSetVolume(CommonJ.SOUND_VOLUMEGROUP_UNITMOVEMENT, BlizzardJ.bj_CINEMODE_VOLUME_UNITMOVEMENT);//call VolumeGroupSetVolume(SOUND_VOLUMEGROUP_UNITMOVEMENT,  bj_CINEMODE_VOLUME_UNITMOVEMENT)
+			VolumeGroupSetVolume(CommonJ.SOUND_VOLUMEGROUP_UNITSOUNDS, BlizzardJ.bj_CINEMODE_VOLUME_UNITSOUNDS);//call VolumeGroupSetVolume(SOUND_VOLUMEGROUP_UNITSOUNDS,    bj_CINEMODE_VOLUME_UNITSOUNDS)
+			VolumeGroupSetVolume(CommonJ.SOUND_VOLUMEGROUP_COMBAT, BlizzardJ.bj_CINEMODE_VOLUME_COMBAT);//call VolumeGroupSetVolume(SOUND_VOLUMEGROUP_COMBAT,        bj_CINEMODE_VOLUME_COMBAT)
+			VolumeGroupSetVolume(CommonJ.SOUND_VOLUMEGROUP_SPELLS, BlizzardJ.bj_CINEMODE_VOLUME_SPELLS);//call VolumeGroupSetVolume(SOUND_VOLUMEGROUP_SPELLS,        bj_CINEMODE_VOLUME_SPELLS)
+			VolumeGroupSetVolume(CommonJ.SOUND_VOLUMEGROUP_UI, BlizzardJ.bj_CINEMODE_VOLUME_UI);//call VolumeGroupSetVolume(SOUND_VOLUMEGROUP_UI,            bj_CINEMODE_VOLUME_UI)
+			VolumeGroupSetVolume(CommonJ.SOUND_VOLUMEGROUP_MUSIC, BlizzardJ.bj_CINEMODE_VOLUME_MUSIC);//call VolumeGroupSetVolume(SOUND_VOLUMEGROUP_MUSIC,         bj_CINEMODE_VOLUME_MUSIC)
+			VolumeGroupSetVolume(CommonJ.SOUND_VOLUMEGROUP_AMBIENTSOUNDS, BlizzardJ.bj_CINEMODE_VOLUME_AMBIENTSOUNDS);//call VolumeGroupSetVolume(SOUND_VOLUMEGROUP_AMBIENTSOUNDS, bj_CINEMODE_VOLUME_AMBIENTSOUNDS)
+			VolumeGroupSetVolume(CommonJ.SOUND_VOLUMEGROUP_FIRE, BlizzardJ.bj_CINEMODE_VOLUME_FIRE);//call VolumeGroupSetVolume(SOUND_VOLUMEGROUP_FIRE,          bj_CINEMODE_VOLUME_FIRE)
 		}//endfunction
 		//
 		private void SetCineModeVolumeGroupsBJ() {//function SetCineModeVolumeGroupsBJ takes nothing returns nothing
@@ -1991,19 +1991,19 @@ namespace Jass {
 			if (bj_gameStarted) {//if bj_gameStarted then
 				SetCineModeVolumeGroupsImmediateBJ();//call SetCineModeVolumeGroupsImmediateBJ()
 			} else {//else
-				TimerStart(bj_volumeGroupsTimer, bj_GAME_STARTED_THRESHOLD, false, function SetCineModeVolumeGroupsImmediateBJ);//call TimerStart(bj_volumeGroupsTimer, bj_GAME_STARTED_THRESHOLD, false, function SetCineModeVolumeGroupsImmediateBJ)
+				TimerStart(BlizzardJ.bj_volumeGroupsTimer, BlizzardJ.bj_GAME_STARTED_THRESHOLD, false, function SetCineModeVolumeGroupsImmediateBJ);//call TimerStart(bj_volumeGroupsTimer, bj_GAME_STARTED_THRESHOLD, false, function SetCineModeVolumeGroupsImmediateBJ)
 			}//endif
 		}//endfunction
 		//
 		private void SetSpeechVolumeGroupsImmediateBJ() {//function SetSpeechVolumeGroupsImmediateBJ takes nothing returns nothing
-			VolumeGroupSetVolume(SOUND_VOLUMEGROUP_UNITMOVEMENT,  bj_SPEECH_VOLUME_UNITMOVEMENT);//call VolumeGroupSetVolume(SOUND_VOLUMEGROUP_UNITMOVEMENT,  bj_SPEECH_VOLUME_UNITMOVEMENT)
-			VolumeGroupSetVolume(SOUND_VOLUMEGROUP_UNITSOUNDS,    bj_SPEECH_VOLUME_UNITSOUNDS);//call VolumeGroupSetVolume(SOUND_VOLUMEGROUP_UNITSOUNDS,    bj_SPEECH_VOLUME_UNITSOUNDS)
-			VolumeGroupSetVolume(SOUND_VOLUMEGROUP_COMBAT,        bj_SPEECH_VOLUME_COMBAT);//call VolumeGroupSetVolume(SOUND_VOLUMEGROUP_COMBAT,        bj_SPEECH_VOLUME_COMBAT)
-			VolumeGroupSetVolume(SOUND_VOLUMEGROUP_SPELLS,        bj_SPEECH_VOLUME_SPELLS);//call VolumeGroupSetVolume(SOUND_VOLUMEGROUP_SPELLS,        bj_SPEECH_VOLUME_SPELLS)
-			VolumeGroupSetVolume(SOUND_VOLUMEGROUP_UI,            bj_SPEECH_VOLUME_UI);//call VolumeGroupSetVolume(SOUND_VOLUMEGROUP_UI,            bj_SPEECH_VOLUME_UI)
-			VolumeGroupSetVolume(SOUND_VOLUMEGROUP_MUSIC,         bj_SPEECH_VOLUME_MUSIC);//call VolumeGroupSetVolume(SOUND_VOLUMEGROUP_MUSIC,         bj_SPEECH_VOLUME_MUSIC)
-			VolumeGroupSetVolume(SOUND_VOLUMEGROUP_AMBIENTSOUNDS, bj_SPEECH_VOLUME_AMBIENTSOUNDS);//call VolumeGroupSetVolume(SOUND_VOLUMEGROUP_AMBIENTSOUNDS, bj_SPEECH_VOLUME_AMBIENTSOUNDS)
-			VolumeGroupSetVolume(SOUND_VOLUMEGROUP_FIRE,          bj_SPEECH_VOLUME_FIRE);//call VolumeGroupSetVolume(SOUND_VOLUMEGROUP_FIRE,          bj_SPEECH_VOLUME_FIRE)
+			VolumeGroupSetVolume(CommonJ.SOUND_VOLUMEGROUP_UNITMOVEMENT, BlizzardJ.bj_SPEECH_VOLUME_UNITMOVEMENT);//call VolumeGroupSetVolume(SOUND_VOLUMEGROUP_UNITMOVEMENT,  bj_SPEECH_VOLUME_UNITMOVEMENT)
+			VolumeGroupSetVolume(CommonJ.SOUND_VOLUMEGROUP_UNITSOUNDS, BlizzardJ.bj_SPEECH_VOLUME_UNITSOUNDS);//call VolumeGroupSetVolume(SOUND_VOLUMEGROUP_UNITSOUNDS,    bj_SPEECH_VOLUME_UNITSOUNDS)
+			VolumeGroupSetVolume(CommonJ.SOUND_VOLUMEGROUP_COMBAT, BlizzardJ.bj_SPEECH_VOLUME_COMBAT);//call VolumeGroupSetVolume(SOUND_VOLUMEGROUP_COMBAT,        bj_SPEECH_VOLUME_COMBAT)
+			VolumeGroupSetVolume(CommonJ.SOUND_VOLUMEGROUP_SPELLS, BlizzardJ.bj_SPEECH_VOLUME_SPELLS);//call VolumeGroupSetVolume(SOUND_VOLUMEGROUP_SPELLS,        bj_SPEECH_VOLUME_SPELLS)
+			VolumeGroupSetVolume(CommonJ.SOUND_VOLUMEGROUP_UI, BlizzardJ.bj_SPEECH_VOLUME_UI);//call VolumeGroupSetVolume(SOUND_VOLUMEGROUP_UI,            bj_SPEECH_VOLUME_UI)
+			VolumeGroupSetVolume(CommonJ.SOUND_VOLUMEGROUP_MUSIC, BlizzardJ.bj_SPEECH_VOLUME_MUSIC);//call VolumeGroupSetVolume(SOUND_VOLUMEGROUP_MUSIC,         bj_SPEECH_VOLUME_MUSIC)
+			VolumeGroupSetVolume(CommonJ.SOUND_VOLUMEGROUP_AMBIENTSOUNDS, BlizzardJ.bj_SPEECH_VOLUME_AMBIENTSOUNDS);//call VolumeGroupSetVolume(SOUND_VOLUMEGROUP_AMBIENTSOUNDS, bj_SPEECH_VOLUME_AMBIENTSOUNDS)
+			VolumeGroupSetVolume(CommonJ.SOUND_VOLUMEGROUP_FIRE, BlizzardJ.bj_SPEECH_VOLUME_FIRE);//call VolumeGroupSetVolume(SOUND_VOLUMEGROUP_FIRE,          bj_SPEECH_VOLUME_FIRE)
 		}//endfunction
 		//
 		private void SetSpeechVolumeGroupsBJ() {//function SetSpeechVolumeGroupsBJ takes nothing returns nothing
@@ -2011,7 +2011,7 @@ namespace Jass {
 			if (bj_gameStarted) {//if bj_gameStarted then
 				SetSpeechVolumeGroupsImmediateBJ();//call SetSpeechVolumeGroupsImmediateBJ()
 			} else {//else
-				TimerStart(bj_volumeGroupsTimer, bj_GAME_STARTED_THRESHOLD, false, function SetSpeechVolumeGroupsImmediateBJ);//call TimerStart(bj_volumeGroupsTimer, bj_GAME_STARTED_THRESHOLD, false, function SetSpeechVolumeGroupsImmediateBJ)
+				TimerStart(BlizzardJ.bj_volumeGroupsTimer, BlizzardJ.bj_GAME_STARTED_THRESHOLD, false, function SetSpeechVolumeGroupsImmediateBJ);//call TimerStart(bj_volumeGroupsTimer, bj_GAME_STARTED_THRESHOLD, false, function SetSpeechVolumeGroupsImmediateBJ)
 			}//endif
 		}//endfunction
 		//
@@ -2024,7 +2024,7 @@ namespace Jass {
 			if (bj_gameStarted) {//if bj_gameStarted then
 				VolumeGroupResetImmediateBJ();//call VolumeGroupResetImmediateBJ()
 			} else {//else
-				TimerStart(bj_volumeGroupsTimer, bj_GAME_STARTED_THRESHOLD, false, function VolumeGroupResetImmediateBJ);//call TimerStart(bj_volumeGroupsTimer, bj_GAME_STARTED_THRESHOLD, false, function VolumeGroupResetImmediateBJ)
+				TimerStart(BlizzardJ.bj_volumeGroupsTimer, BlizzardJ.bj_GAME_STARTED_THRESHOLD, false, function VolumeGroupResetImmediateBJ);//call TimerStart(bj_volumeGroupsTimer, bj_GAME_STARTED_THRESHOLD, false, function VolumeGroupResetImmediateBJ)
 			}//endif
 		}//endfunction
 		//
@@ -2088,14 +2088,14 @@ namespace Jass {
 			float ToD;//local real ToD
 			//
 			if ((bj_dayAmbientSound != null)) {//if (bj_dayAmbientSound != null) then
-				StopSound(bj_dayAmbientSound, true, true);//call StopSound(bj_dayAmbientSound, true, true)
+				StopSound(BlizzardJ.bj_dayAmbientSound, true, true);//call StopSound(bj_dayAmbientSound, true, true)
 			}//endif
 			//
 			bj_dayAmbientSound = CreateMIDISound(inLabel, 20, 20);//set bj_dayAmbientSound = CreateMIDISound(inLabel, 20, 20)
 			//
 			ToD = GetTimeOfDay();//set ToD = GetTimeOfDay()
 			if ((ToD >= bj_TOD_DAWN && ToD < bj_TOD_DUSK)) {//if (ToD >= bj_TOD_DAWN and ToD < bj_TOD_DUSK) then
-				StartSound(bj_dayAmbientSound);//call StartSound(bj_dayAmbientSound)
+				StartSound(BlizzardJ.bj_dayAmbientSound);//call StartSound(bj_dayAmbientSound)
 			}//endif
 		}//endfunction
 		//
@@ -2103,14 +2103,14 @@ namespace Jass {
 			float ToD;//local real ToD
 			//
 			if ((bj_nightAmbientSound != null)) {//if (bj_nightAmbientSound != null) then
-				StopSound(bj_nightAmbientSound, true, true);//call StopSound(bj_nightAmbientSound, true, true)
+				StopSound(BlizzardJ.bj_nightAmbientSound, true, true);//call StopSound(bj_nightAmbientSound, true, true)
 			}//endif
 			//
 			bj_nightAmbientSound = CreateMIDISound(inLabel, 20, 20);//set bj_nightAmbientSound = CreateMIDISound(inLabel, 20, 20)
 			//
 			ToD = GetTimeOfDay();//set ToD = GetTimeOfDay()
 			if ((ToD < bj_TOD_DAWN || ToD >= bj_TOD_DUSK)) {//if (ToD < bj_TOD_DAWN or ToD >= bj_TOD_DUSK) then
-				StartSound(bj_nightAmbientSound);//call StartSound(bj_nightAmbientSound)
+				StartSound(BlizzardJ.bj_nightAmbientSound);//call StartSound(bj_nightAmbientSound)
 			}//endif
 		}//endfunction
 		//
@@ -2220,7 +2220,7 @@ namespace Jass {
 			//
 			//
 			bj_lastCreatedItem = CreateItem(itemId, GetUnitX(whichHero), GetUnitY(whichHero));//set bj_lastCreatedItem = CreateItem(itemId, GetUnitX(whichHero), GetUnitY(whichHero))
-			UnitAddItem(whichHero, bj_lastCreatedItem);//call UnitAddItem(whichHero, bj_lastCreatedItem)
+			UnitAddItem(whichHero, BlizzardJ.bj_lastCreatedItem);//call UnitAddItem(whichHero, bj_lastCreatedItem)
 			return bj_lastCreatedItem;//return bj_lastCreatedItem
 		}//endfunction
 		//
@@ -2588,12 +2588,12 @@ namespace Jass {
 		}//endfunction
 		//
 		private group CreateNUnitsAtLoc(int count, int unitId, player whichPlayer, location loc, float face) {//function CreateNUnitsAtLoc takes integer count, integer unitId, player whichPlayer, location loc, real face returns group
-			GroupClear(bj_lastCreatedGroup);//call GroupClear(bj_lastCreatedGroup)
+			GroupClear(BlizzardJ.bj_lastCreatedGroup);//call GroupClear(bj_lastCreatedGroup)
 			while (true) {//loop
 				count = count - 1;//set count = count - 1
 				if (count < 0) { break; }//exitwhen count < 0
 				CreateUnitAtLocSaveLast(whichPlayer, unitId, loc, face);//call CreateUnitAtLocSaveLast(whichPlayer, unitId, loc, face)
-				GroupAddUnit(bj_lastCreatedGroup, bj_lastCreatedUnit);//call GroupAddUnit(bj_lastCreatedGroup, bj_lastCreatedUnit)
+				GroupAddUnit(BlizzardJ.bj_lastCreatedGroup, BlizzardJ.bj_lastCreatedUnit);//call GroupAddUnit(bj_lastCreatedGroup, bj_lastCreatedUnit)
 			}//endloop
 			return bj_lastCreatedGroup;//return bj_lastCreatedGroup
 		}//endfunction
@@ -2603,12 +2603,12 @@ namespace Jass {
 		}//endfunction
 		//
 		private void GetLastCreatedGroupEnum() {//function GetLastCreatedGroupEnum takes nothing returns nothing
-			GroupAddUnit(bj_groupLastCreatedDest, GetEnumUnit());//call GroupAddUnit(bj_groupLastCreatedDest, GetEnumUnit())
+			GroupAddUnit(BlizzardJ.bj_groupLastCreatedDest, GetEnumUnit());//call GroupAddUnit(bj_groupLastCreatedDest, GetEnumUnit())
 		}//endfunction
 		//
 		private group GetLastCreatedGroup() {//function GetLastCreatedGroup takes nothing returns group
 			bj_groupLastCreatedDest = CreateGroup();//set bj_groupLastCreatedDest = CreateGroup()
-			ForGroup(bj_lastCreatedGroup, function GetLastCreatedGroupEnum);//call ForGroup(bj_lastCreatedGroup, function GetLastCreatedGroupEnum)
+			ForGroup(BlizzardJ.bj_lastCreatedGroup, function GetLastCreatedGroupEnum);//call ForGroup(bj_lastCreatedGroup, function GetLastCreatedGroupEnum)
 			return bj_groupLastCreatedDest;//return bj_groupLastCreatedDest
 		}//endfunction
 		//
@@ -2664,7 +2664,7 @@ namespace Jass {
 			bj_suspendDecayFleshGroup = CreateGroup();//set bj_suspendDecayFleshGroup = CreateGroup()
 			ForGroup(fleshGroup, function DelayedSuspendDecayStopAnimEnum);//call ForGroup(fleshGroup, function DelayedSuspendDecayStopAnimEnum)
 			ForGroup(boneGroup, function DelayedSuspendDecayStopAnimEnum);//call ForGroup(boneGroup, function DelayedSuspendDecayStopAnimEnum)
-			TriggerSleepAction(bj_CORPSE_MAX_DEATH_TIME);//call TriggerSleepAction(bj_CORPSE_MAX_DEATH_TIME)
+			TriggerSleepAction(BlizzardJ.bj_CORPSE_MAX_DEATH_TIME);//call TriggerSleepAction(bj_CORPSE_MAX_DEATH_TIME)
 			ForGroup(fleshGroup, function DelayedSuspendDecayFleshEnum);//call ForGroup(fleshGroup, function DelayedSuspendDecayFleshEnum)
 			ForGroup(boneGroup, function DelayedSuspendDecayBoneEnum);//call ForGroup(boneGroup, function DelayedSuspendDecayBoneEnum)
 			TriggerSleepAction(0.05);//call TriggerSleepAction(0.05)
@@ -2675,25 +2675,25 @@ namespace Jass {
 		//
 		private void DelayedSuspendDecayCreate() {//function DelayedSuspendDecayCreate takes nothing returns nothing
 			bj_delayedSuspendDecayTrig = CreateTrigger();//set bj_delayedSuspendDecayTrig = CreateTrigger()
-			TriggerRegisterTimerExpireEvent(bj_delayedSuspendDecayTrig, bj_delayedSuspendDecayTimer);//call TriggerRegisterTimerExpireEvent(bj_delayedSuspendDecayTrig, bj_delayedSuspendDecayTimer)
-			TriggerAddAction(bj_delayedSuspendDecayTrig, function DelayedSuspendDecay);//call TriggerAddAction(bj_delayedSuspendDecayTrig, function DelayedSuspendDecay)
+			TriggerRegisterTimerExpireEvent(BlizzardJ.bj_delayedSuspendDecayTrig, BlizzardJ.bj_delayedSuspendDecayTimer);//call TriggerRegisterTimerExpireEvent(bj_delayedSuspendDecayTrig, bj_delayedSuspendDecayTimer)
+			TriggerAddAction(BlizzardJ.bj_delayedSuspendDecayTrig, function DelayedSuspendDecay);//call TriggerAddAction(bj_delayedSuspendDecayTrig, function DelayedSuspendDecay)
 		}//endfunction
 		//
 		private unit CreatePermanentCorpseLocBJ(int style, int unitid, player whichPlayer, location loc, float facing) {//function CreatePermanentCorpseLocBJ takes integer style, integer unitid, player whichPlayer, location loc, real facing returns unit
 			bj_lastCreatedUnit = CreateCorpse(whichPlayer, unitid, GetLocationX(loc), GetLocationY(loc), facing);//set bj_lastCreatedUnit = CreateCorpse(whichPlayer, unitid, GetLocationX(loc), GetLocationY(loc), facing)
-			SetUnitBlendTime(bj_lastCreatedUnit, 0);//call SetUnitBlendTime(bj_lastCreatedUnit, 0)
+			SetUnitBlendTime(BlizzardJ.bj_lastCreatedUnit, 0);//call SetUnitBlendTime(bj_lastCreatedUnit, 0)
 			if ((style == bj_CORPSETYPE_FLESH)) {//if (style == bj_CORPSETYPE_FLESH) then
-				SetUnitAnimation(bj_lastCreatedUnit, "decay flesh");//call SetUnitAnimation(bj_lastCreatedUnit, "decay flesh")
-				GroupAddUnit(bj_suspendDecayFleshGroup, bj_lastCreatedUnit);//call GroupAddUnit(bj_suspendDecayFleshGroup, bj_lastCreatedUnit)
+				SetUnitAnimation(BlizzardJ.bj_lastCreatedUnit, "decay flesh");//call SetUnitAnimation(bj_lastCreatedUnit, "decay flesh")
+				GroupAddUnit(BlizzardJ.bj_suspendDecayFleshGroup, BlizzardJ.bj_lastCreatedUnit);//call GroupAddUnit(bj_suspendDecayFleshGroup, bj_lastCreatedUnit)
 			} else if ((style == bj_CORPSETYPE_BONE)) {//elseif (style == bj_CORPSETYPE_BONE) then
-				SetUnitAnimation(bj_lastCreatedUnit, "decay bone");//call SetUnitAnimation(bj_lastCreatedUnit, "decay bone")
-				GroupAddUnit(bj_suspendDecayBoneGroup, bj_lastCreatedUnit);//call GroupAddUnit(bj_suspendDecayBoneGroup, bj_lastCreatedUnit)
+				SetUnitAnimation(BlizzardJ.bj_lastCreatedUnit, "decay bone");//call SetUnitAnimation(bj_lastCreatedUnit, "decay bone")
+				GroupAddUnit(BlizzardJ.bj_suspendDecayBoneGroup, BlizzardJ.bj_lastCreatedUnit);//call GroupAddUnit(bj_suspendDecayBoneGroup, bj_lastCreatedUnit)
 			} else {//else
 				//
-				SetUnitAnimation(bj_lastCreatedUnit, "decay bone");//call SetUnitAnimation(bj_lastCreatedUnit, "decay bone")
-				GroupAddUnit(bj_suspendDecayBoneGroup, bj_lastCreatedUnit);//call GroupAddUnit(bj_suspendDecayBoneGroup, bj_lastCreatedUnit)
+				SetUnitAnimation(BlizzardJ.bj_lastCreatedUnit, "decay bone");//call SetUnitAnimation(bj_lastCreatedUnit, "decay bone")
+				GroupAddUnit(BlizzardJ.bj_suspendDecayBoneGroup, BlizzardJ.bj_lastCreatedUnit);//call GroupAddUnit(bj_suspendDecayBoneGroup, bj_lastCreatedUnit)
 			}//endif
-			TimerStart(bj_delayedSuspendDecayTimer, 0.05, false, null);//call TimerStart(bj_delayedSuspendDecayTimer, 0.05, false, null)
+			TimerStart(BlizzardJ.bj_delayedSuspendDecayTimer, 0.05, false, null);//call TimerStart(bj_delayedSuspendDecayTimer, 0.05, false, null)
 			return bj_lastCreatedUnit;//return bj_lastCreatedUnit
 		}//endfunction
 		//
@@ -2779,19 +2779,19 @@ namespace Jass {
 		}//endfunction
 		//
 		private void SetUnitLifeBJ(unit whichUnit, float newValue) {//function SetUnitLifeBJ takes unit whichUnit, real newValue returns nothing
-			SetUnitState(whichUnit, UNIT_STATE_LIFE, RMaxBJ(0,newValue));//call SetUnitState(whichUnit, UNIT_STATE_LIFE, RMaxBJ(0,newValue))
+			SetUnitState(whichUnit, CommonJ.UNIT_STATE_LIFE, RMaxBJ(0, newValue));//call SetUnitState(whichUnit, UNIT_STATE_LIFE, RMaxBJ(0,newValue))
 		}//endfunction
 		//
 		private void SetUnitManaBJ(unit whichUnit, float newValue) {//function SetUnitManaBJ takes unit whichUnit, real newValue returns nothing
-			SetUnitState(whichUnit, UNIT_STATE_MANA, RMaxBJ(0,newValue));//call SetUnitState(whichUnit, UNIT_STATE_MANA, RMaxBJ(0,newValue))
+			SetUnitState(whichUnit, CommonJ.UNIT_STATE_MANA, RMaxBJ(0, newValue));//call SetUnitState(whichUnit, UNIT_STATE_MANA, RMaxBJ(0,newValue))
 		}//endfunction
 		//
 		private void SetUnitLifePercentBJ(unit whichUnit, float percent) {//function SetUnitLifePercentBJ takes unit whichUnit, real percent returns nothing
-			SetUnitState(whichUnit, UNIT_STATE_LIFE, GetUnitState(whichUnit, UNIT_STATE_MAX_LIFE) * RMaxBJ(0,percent) * 0.01);//call SetUnitState(whichUnit, UNIT_STATE_LIFE, GetUnitState(whichUnit, UNIT_STATE_MAX_LIFE) * RMaxBJ(0,percent) * 0.01)
+			SetUnitState(whichUnit, CommonJ.UNIT_STATE_LIFE, GetUnitState(whichUnit, UNIT_STATE_MAX_LIFE) * RMaxBJ(0, percent) * 0.01);//call SetUnitState(whichUnit, UNIT_STATE_LIFE, GetUnitState(whichUnit, UNIT_STATE_MAX_LIFE) * RMaxBJ(0,percent) * 0.01)
 		}//endfunction
 		//
 		private void SetUnitManaPercentBJ(unit whichUnit, float percent) {//function SetUnitManaPercentBJ takes unit whichUnit, real percent returns nothing
-			SetUnitState(whichUnit, UNIT_STATE_MANA, GetUnitState(whichUnit, UNIT_STATE_MAX_MANA) * RMaxBJ(0,percent) * 0.01);//call SetUnitState(whichUnit, UNIT_STATE_MANA, GetUnitState(whichUnit, UNIT_STATE_MAX_MANA) * RMaxBJ(0,percent) * 0.01)
+			SetUnitState(whichUnit, CommonJ.UNIT_STATE_MANA, GetUnitState(whichUnit, UNIT_STATE_MAX_MANA) * RMaxBJ(0, percent) * 0.01);//call SetUnitState(whichUnit, UNIT_STATE_MANA, GetUnitState(whichUnit, UNIT_STATE_MAX_MANA) * RMaxBJ(0,percent) * 0.01)
 		}//endfunction
 		//
 		private bool IsUnitDeadBJ(unit whichUnit) {//function IsUnitDeadBJ takes unit whichUnit returns boolean
@@ -2884,7 +2884,7 @@ namespace Jass {
 			unit goldMine = null;//local unit goldMine = null
 			//
 			g = CreateGroup();//set g = CreateGroup()
-			GroupEnumUnitsInRangeOfLoc(g, loc, 2*bj_CELLWIDTH, filterIssueHauntOrderAtLocBJ);//call GroupEnumUnitsInRangeOfLoc(g, loc, 2*bj_CELLWIDTH, filterIssueHauntOrderAtLocBJ)
+			GroupEnumUnitsInRangeOfLoc(g, loc, 2*bj_CELLWIDTH, BlizzardJ.filterIssueHauntOrderAtLocBJ);//call GroupEnumUnitsInRangeOfLoc(g, loc, 2*bj_CELLWIDTH, filterIssueHauntOrderAtLocBJ)
 			goldMine = FirstOfGroup(g);//set goldMine = FirstOfGroup(g)
 			DestroyGroup(g);//call DestroyGroup(g)
 			//
@@ -2982,7 +2982,7 @@ namespace Jass {
 		}//endfunction
 		//
 		private void EnableCreepSleepBJ(bool enable) {//function EnableCreepSleepBJ takes boolean enable returns nothing
-			SetPlayerState(Player(PLAYER_NEUTRAL_AGGRESSIVE), PLAYER_STATE_NO_CREEP_SLEEP, IntegerTertiaryOp(enable, 0, 1));//call SetPlayerState(Player(PLAYER_NEUTRAL_AGGRESSIVE), PLAYER_STATE_NO_CREEP_SLEEP, IntegerTertiaryOp(enable, 0, 1))
+			SetPlayerState(Player(PLAYER_NEUTRAL_AGGRESSIVE), CommonJ.PLAYER_STATE_NO_CREEP_SLEEP, IntegerTertiaryOp(enable, 0, 1));//call SetPlayerState(Player(PLAYER_NEUTRAL_AGGRESSIVE), PLAYER_STATE_NO_CREEP_SLEEP, IntegerTertiaryOp(enable, 0, 1))
 			//
 			if ((!enable)) {//if (not enable) then
 				WakePlayerUnits(Player(PLAYER_NEUTRAL_AGGRESSIVE));//call WakePlayerUnits(Player(PLAYER_NEUTRAL_AGGRESSIVE))
@@ -2998,7 +2998,7 @@ namespace Jass {
 		}//endfunction
 		//
 		private void PauseAllUnitsBJEnum() {//function PauseAllUnitsBJEnum takes nothing returns nothing
-			PauseUnit(GetEnumUnit(), bj_pauseAllUnitsFlag);//call PauseUnit( GetEnumUnit(), bj_pauseAllUnitsFlag )
+			PauseUnit(GetEnumUnit(), BlizzardJ.bj_pauseAllUnitsFlag);//call PauseUnit( GetEnumUnit(), bj_pauseAllUnitsFlag )
 		}//endfunction
 		//
 		//
@@ -3154,25 +3154,25 @@ namespace Jass {
 				//
 				if ((GetUnitState(oldUnit, UNIT_STATE_MAX_LIFE) > 0)) {//if (GetUnitState(oldUnit, UNIT_STATE_MAX_LIFE) > 0) then
 					oldRatio = GetUnitState(oldUnit, UNIT_STATE_LIFE) / GetUnitState(oldUnit, UNIT_STATE_MAX_LIFE);//set oldRatio = GetUnitState(oldUnit, UNIT_STATE_LIFE) / GetUnitState(oldUnit, UNIT_STATE_MAX_LIFE)
-					SetUnitState(newUnit, UNIT_STATE_LIFE, oldRatio * GetUnitState(newUnit, UNIT_STATE_MAX_LIFE));//call SetUnitState(newUnit, UNIT_STATE_LIFE, oldRatio * GetUnitState(newUnit, UNIT_STATE_MAX_LIFE))
+					SetUnitState(newUnit, CommonJ.UNIT_STATE_LIFE, oldRatio * GetUnitState(newUnit, UNIT_STATE_MAX_LIFE));//call SetUnitState(newUnit, UNIT_STATE_LIFE, oldRatio * GetUnitState(newUnit, UNIT_STATE_MAX_LIFE))
 				}//endif
 				if ((GetUnitState(oldUnit, UNIT_STATE_MAX_MANA) > 0) && (GetUnitState(newUnit, UNIT_STATE_MAX_MANA) > 0)) {//if (GetUnitState(oldUnit, UNIT_STATE_MAX_MANA) > 0) and (GetUnitState(newUnit, UNIT_STATE_MAX_MANA) > 0) then
 					oldRatio = GetUnitState(oldUnit, UNIT_STATE_MANA) / GetUnitState(oldUnit, UNIT_STATE_MAX_MANA);//set oldRatio = GetUnitState(oldUnit, UNIT_STATE_MANA) / GetUnitState(oldUnit, UNIT_STATE_MAX_MANA)
-					SetUnitState(newUnit, UNIT_STATE_MANA, oldRatio * GetUnitState(newUnit, UNIT_STATE_MAX_MANA));//call SetUnitState(newUnit, UNIT_STATE_MANA, oldRatio * GetUnitState(newUnit, UNIT_STATE_MAX_MANA))
+					SetUnitState(newUnit, CommonJ.UNIT_STATE_MANA, oldRatio * GetUnitState(newUnit, UNIT_STATE_MAX_MANA));//call SetUnitState(newUnit, UNIT_STATE_MANA, oldRatio * GetUnitState(newUnit, UNIT_STATE_MAX_MANA))
 				}//endif
 			} else if ((unitStateMethod == bj_UNIT_STATE_METHOD_ABSOLUTE)) {//elseif (unitStateMethod == bj_UNIT_STATE_METHOD_ABSOLUTE) then
 				//
 				//
-				SetUnitState(newUnit, UNIT_STATE_LIFE, GetUnitState(oldUnit, UNIT_STATE_LIFE));//call SetUnitState(newUnit, UNIT_STATE_LIFE, GetUnitState(oldUnit, UNIT_STATE_LIFE))
+				SetUnitState(newUnit, CommonJ.UNIT_STATE_LIFE, GetUnitState(oldUnit, UNIT_STATE_LIFE));//call SetUnitState(newUnit, UNIT_STATE_LIFE, GetUnitState(oldUnit, UNIT_STATE_LIFE))
 				if ((GetUnitState(newUnit, UNIT_STATE_MAX_MANA) > 0)) {//if (GetUnitState(newUnit, UNIT_STATE_MAX_MANA) > 0) then
-					SetUnitState(newUnit, UNIT_STATE_MANA, GetUnitState(oldUnit, UNIT_STATE_MANA));//call SetUnitState(newUnit, UNIT_STATE_MANA, GetUnitState(oldUnit, UNIT_STATE_MANA))
+					SetUnitState(newUnit, CommonJ.UNIT_STATE_MANA, GetUnitState(oldUnit, UNIT_STATE_MANA));//call SetUnitState(newUnit, UNIT_STATE_MANA, GetUnitState(oldUnit, UNIT_STATE_MANA))
 				}//endif
 			} else if ((unitStateMethod == bj_UNIT_STATE_METHOD_DEFAULTS)) {//elseif (unitStateMethod == bj_UNIT_STATE_METHOD_DEFAULTS) then
 				//
 			} else if ((unitStateMethod == bj_UNIT_STATE_METHOD_MAXIMUM)) {//elseif (unitStateMethod == bj_UNIT_STATE_METHOD_MAXIMUM) then
 				//
-				SetUnitState(newUnit, UNIT_STATE_LIFE, GetUnitState(newUnit, UNIT_STATE_MAX_LIFE));//call SetUnitState(newUnit, UNIT_STATE_LIFE, GetUnitState(newUnit, UNIT_STATE_MAX_LIFE))
-				SetUnitState(newUnit, UNIT_STATE_MANA, GetUnitState(newUnit, UNIT_STATE_MAX_MANA));//call SetUnitState(newUnit, UNIT_STATE_MANA, GetUnitState(newUnit, UNIT_STATE_MAX_MANA))
+				SetUnitState(newUnit, CommonJ.UNIT_STATE_LIFE, GetUnitState(newUnit, UNIT_STATE_MAX_LIFE));//call SetUnitState(newUnit, UNIT_STATE_LIFE, GetUnitState(newUnit, UNIT_STATE_MAX_LIFE))
+				SetUnitState(newUnit, CommonJ.UNIT_STATE_MANA, GetUnitState(newUnit, UNIT_STATE_MAX_MANA));//call SetUnitState(newUnit, UNIT_STATE_MANA, GetUnitState(newUnit, UNIT_STATE_MAX_MANA))
 			} else {//else
 				//
 			}//endif
@@ -3336,7 +3336,7 @@ namespace Jass {
 				bj_enumDestructableCenter = loc;//set bj_enumDestructableCenter = loc
 				bj_enumDestructableRadius = radius;//set bj_enumDestructableRadius = radius
 				r = GetRectFromCircleBJ(loc, radius);//set r = GetRectFromCircleBJ(loc, radius)
-				EnumDestructablesInRect(r, filterEnumDestructablesInCircleBJ, actionFunc);//call EnumDestructablesInRect(r, filterEnumDestructablesInCircleBJ, actionFunc)
+				EnumDestructablesInRect(r, BlizzardJ.filterEnumDestructablesInCircleBJ, actionFunc);//call EnumDestructablesInRect(r, filterEnumDestructablesInCircleBJ, actionFunc)
 				RemoveRect(r);//call RemoveRect(r)
 			}//endif
 		}//endfunction
@@ -3629,7 +3629,7 @@ namespace Jass {
 		}//endfunction
 		//
 		private void GroupAddGroupEnum() {//function GroupAddGroupEnum takes nothing returns nothing
-			GroupAddUnit(bj_groupAddGroupDest, GetEnumUnit());//call GroupAddUnit(bj_groupAddGroupDest, GetEnumUnit())
+			GroupAddUnit(BlizzardJ.bj_groupAddGroupDest, GetEnumUnit());//call GroupAddUnit(bj_groupAddGroupDest, GetEnumUnit())
 		}//endfunction
 		//
 		private void GroupAddGroup(group sourceGroup, group destGroup) {//function GroupAddGroup takes group sourceGroup, group destGroup returns nothing
@@ -3646,7 +3646,7 @@ namespace Jass {
 		}//endfunction
 		//
 		private void GroupRemoveGroupEnum() {//function GroupRemoveGroupEnum takes nothing returns nothing
-			GroupRemoveUnit(bj_groupRemoveGroupDest, GetEnumUnit());//call GroupRemoveUnit(bj_groupRemoveGroupDest, GetEnumUnit())
+			GroupRemoveUnit(BlizzardJ.bj_groupRemoveGroupDest, GetEnumUnit());//call GroupRemoveUnit(bj_groupRemoveGroupDest, GetEnumUnit())
 		}//endfunction
 		//
 		private void GroupRemoveGroup(group sourceGroup, group destGroup) {//function GroupRemoveGroup takes group sourceGroup, group destGroup returns nothing
@@ -3745,7 +3745,7 @@ namespace Jass {
 		private group GetUnitsInRectOfPlayer(rect r, player whichPlayer) {//function GetUnitsInRectOfPlayer takes rect r, player whichPlayer returns group
 			group g = CreateGroup();//local group g = CreateGroup()
 			bj_groupEnumOwningPlayer = whichPlayer;//set bj_groupEnumOwningPlayer = whichPlayer
-			GroupEnumUnitsInRect(g, r, filterGetUnitsInRectOfPlayer);//call GroupEnumUnitsInRect(g, r, filterGetUnitsInRectOfPlayer)
+			GroupEnumUnitsInRect(g, r, BlizzardJ.filterGetUnitsInRectOfPlayer);//call GroupEnumUnitsInRect(g, r, filterGetUnitsInRectOfPlayer)
 			return g;//return g
 		}//endfunction
 		//
@@ -3772,7 +3772,7 @@ namespace Jass {
 			while (true) {//loop
 				bj_groupEnumTypeId = unitid;//set bj_groupEnumTypeId = unitid
 				GroupClear(g);//call GroupClear(g)
-				GroupEnumUnitsOfPlayer(g, Player(index), filterGetUnitsOfTypeIdAll);//call GroupEnumUnitsOfPlayer(g, Player(index), filterGetUnitsOfTypeIdAll)
+				GroupEnumUnitsOfPlayer(g, Player(index), BlizzardJ.filterGetUnitsOfTypeIdAll);//call GroupEnumUnitsOfPlayer(g, Player(index), filterGetUnitsOfTypeIdAll)
 				GroupAddGroup(g, result);//call GroupAddGroup(g, result)
 				index = index + 1;//set index = index + 1
 				if (index == bj_MAX_PLAYER_SLOTS) { break; }//exitwhen index == bj_MAX_PLAYER_SLOTS
@@ -3799,7 +3799,7 @@ namespace Jass {
 		private group GetUnitsOfPlayerAndTypeId(player whichPlayer, int unitid) {//function GetUnitsOfPlayerAndTypeId takes player whichPlayer, integer unitid returns group
 			group g = CreateGroup();//local group g = CreateGroup()
 			bj_groupEnumTypeId = unitid;//set bj_groupEnumTypeId = unitid
-			GroupEnumUnitsOfPlayer(g, whichPlayer, filterGetUnitsOfPlayerAndTypeId);//call GroupEnumUnitsOfPlayer(g, whichPlayer, filterGetUnitsOfPlayerAndTypeId)
+			GroupEnumUnitsOfPlayer(g, whichPlayer, BlizzardJ.filterGetUnitsOfPlayerAndTypeId);//call GroupEnumUnitsOfPlayer(g, whichPlayer, filterGetUnitsOfPlayerAndTypeId)
 			return g;//return g
 		}//endfunction
 		//
@@ -3887,7 +3887,7 @@ namespace Jass {
 			if ((bj_randomSubGroupWant > 0)) {//if (bj_randomSubGroupWant > 0) then
 				if ((bj_randomSubGroupWant >= bj_randomSubGroupTotal) || (GetRandomReal(0,1) < bj_randomSubGroupChance)) {//if (bj_randomSubGroupWant >= bj_randomSubGroupTotal) or (GetRandomReal(0,1) < bj_randomSubGroupChance) then
 					//
-					GroupAddUnit(bj_randomSubGroupGroup, GetEnumUnit());//call GroupAddUnit(bj_randomSubGroupGroup, GetEnumUnit())
+					GroupAddUnit(BlizzardJ.bj_randomSubGroupGroup, GetEnumUnit());//call GroupAddUnit(bj_randomSubGroupGroup, GetEnumUnit())
 					bj_randomSubGroupWant = bj_randomSubGroupWant - 1;//set bj_randomSubGroupWant = bj_randomSubGroupWant - 1
 				}//endif
 			}//endif
@@ -3917,7 +3917,7 @@ namespace Jass {
 			int matchedCount;//local integer matchedCount
 			g = CreateGroup();//set g = CreateGroup()
 			bj_livingPlayerUnitsTypeId = unitId;//set bj_livingPlayerUnitsTypeId = unitId
-			GroupEnumUnitsOfPlayer(g, whichPlayer, filterLivingPlayerUnitsOfTypeId);//call GroupEnumUnitsOfPlayer(g, whichPlayer, filterLivingPlayerUnitsOfTypeId)
+			GroupEnumUnitsOfPlayer(g, whichPlayer, BlizzardJ.filterLivingPlayerUnitsOfTypeId);//call GroupEnumUnitsOfPlayer(g, whichPlayer, filterLivingPlayerUnitsOfTypeId)
 			matchedCount = CountUnitsInGroup(g);//set matchedCount = CountUnitsInGroup(g)
 			DestroyGroup(g);//call DestroyGroup(g)
 			return matchedCount;//return matchedCount
@@ -4047,30 +4047,30 @@ namespace Jass {
 		//
 		//
 		private void SetPlayerAllianceStateAllyBJ(player sourcePlayer, player otherPlayer, bool flag) {//function SetPlayerAllianceStateAllyBJ takes player sourcePlayer, player otherPlayer, boolean flag returns nothing
-			SetPlayerAlliance(sourcePlayer, otherPlayer, ALLIANCE_PASSIVE,       flag);//call SetPlayerAlliance(sourcePlayer, otherPlayer, ALLIANCE_PASSIVE,       flag)
-			SetPlayerAlliance(sourcePlayer, otherPlayer, ALLIANCE_HELP_REQUEST,  flag);//call SetPlayerAlliance(sourcePlayer, otherPlayer, ALLIANCE_HELP_REQUEST,  flag)
-			SetPlayerAlliance(sourcePlayer, otherPlayer, ALLIANCE_HELP_RESPONSE, flag);//call SetPlayerAlliance(sourcePlayer, otherPlayer, ALLIANCE_HELP_RESPONSE, flag)
-			SetPlayerAlliance(sourcePlayer, otherPlayer, ALLIANCE_SHARED_XP,     flag);//call SetPlayerAlliance(sourcePlayer, otherPlayer, ALLIANCE_SHARED_XP,     flag)
-			SetPlayerAlliance(sourcePlayer, otherPlayer, ALLIANCE_SHARED_SPELLS, flag);//call SetPlayerAlliance(sourcePlayer, otherPlayer, ALLIANCE_SHARED_SPELLS, flag)
+			SetPlayerAlliance(sourcePlayer, otherPlayer, CommonJ.ALLIANCE_PASSIVE, flag);//call SetPlayerAlliance(sourcePlayer, otherPlayer, ALLIANCE_PASSIVE,       flag)
+			SetPlayerAlliance(sourcePlayer, otherPlayer, CommonJ.ALLIANCE_HELP_REQUEST, flag);//call SetPlayerAlliance(sourcePlayer, otherPlayer, ALLIANCE_HELP_REQUEST,  flag)
+			SetPlayerAlliance(sourcePlayer, otherPlayer, CommonJ.ALLIANCE_HELP_RESPONSE, flag);//call SetPlayerAlliance(sourcePlayer, otherPlayer, ALLIANCE_HELP_RESPONSE, flag)
+			SetPlayerAlliance(sourcePlayer, otherPlayer, CommonJ.ALLIANCE_SHARED_XP, flag);//call SetPlayerAlliance(sourcePlayer, otherPlayer, ALLIANCE_SHARED_XP,     flag)
+			SetPlayerAlliance(sourcePlayer, otherPlayer, CommonJ.ALLIANCE_SHARED_SPELLS, flag);//call SetPlayerAlliance(sourcePlayer, otherPlayer, ALLIANCE_SHARED_SPELLS, flag)
 		}//endfunction
 		//
 		//
 		//
 		private void SetPlayerAllianceStateVisionBJ(player sourcePlayer, player otherPlayer, bool flag) {//function SetPlayerAllianceStateVisionBJ takes player sourcePlayer, player otherPlayer, boolean flag returns nothing
-			SetPlayerAlliance(sourcePlayer, otherPlayer, ALLIANCE_SHARED_VISION, flag);//call SetPlayerAlliance(sourcePlayer, otherPlayer, ALLIANCE_SHARED_VISION, flag)
+			SetPlayerAlliance(sourcePlayer, otherPlayer, CommonJ.ALLIANCE_SHARED_VISION, flag);//call SetPlayerAlliance(sourcePlayer, otherPlayer, ALLIANCE_SHARED_VISION, flag)
 		}//endfunction
 		//
 		//
 		//
 		private void SetPlayerAllianceStateControlBJ(player sourcePlayer, player otherPlayer, bool flag) {//function SetPlayerAllianceStateControlBJ takes player sourcePlayer, player otherPlayer, boolean flag returns nothing
-			SetPlayerAlliance(sourcePlayer, otherPlayer, ALLIANCE_SHARED_CONTROL, flag);//call SetPlayerAlliance(sourcePlayer, otherPlayer, ALLIANCE_SHARED_CONTROL, flag)
+			SetPlayerAlliance(sourcePlayer, otherPlayer, CommonJ.ALLIANCE_SHARED_CONTROL, flag);//call SetPlayerAlliance(sourcePlayer, otherPlayer, ALLIANCE_SHARED_CONTROL, flag)
 		}//endfunction
 		//
 		//
 		//
 		//
 		private void SetPlayerAllianceStateFullControlBJ(player sourcePlayer, player otherPlayer, bool flag) {//function SetPlayerAllianceStateFullControlBJ takes player sourcePlayer, player otherPlayer, boolean flag returns nothing
-			SetPlayerAlliance(sourcePlayer, otherPlayer, ALLIANCE_SHARED_ADVANCED_CONTROL, flag);//call SetPlayerAlliance(sourcePlayer, otherPlayer, ALLIANCE_SHARED_ADVANCED_CONTROL, flag)
+			SetPlayerAlliance(sourcePlayer, otherPlayer, CommonJ.ALLIANCE_SHARED_ADVANCED_CONTROL, flag);//call SetPlayerAlliance(sourcePlayer, otherPlayer, ALLIANCE_SHARED_ADVANCED_CONTROL, flag)
 		}//endfunction
 		//
 		private void SetPlayerAllianceStateBJ(player sourcePlayer, player otherPlayer, int allianceState) {//function SetPlayerAllianceStateBJ takes player sourcePlayer, player otherPlayer, integer allianceState returns nothing
@@ -4113,13 +4113,13 @@ namespace Jass {
 				SetPlayerAllianceStateVisionBJ(sourcePlayer, otherPlayer, false);//call SetPlayerAllianceStateVisionBJ(      sourcePlayer, otherPlayer, false )
 				SetPlayerAllianceStateControlBJ(sourcePlayer, otherPlayer, false);//call SetPlayerAllianceStateControlBJ(     sourcePlayer, otherPlayer, false )
 				SetPlayerAllianceStateFullControlBJ(sourcePlayer, otherPlayer, false);//call SetPlayerAllianceStateFullControlBJ( sourcePlayer, otherPlayer, false )
-				SetPlayerAlliance(sourcePlayer, otherPlayer, ALLIANCE_PASSIVE, true);//call SetPlayerAlliance( sourcePlayer, otherPlayer, ALLIANCE_PASSIVE, true )
+				SetPlayerAlliance(sourcePlayer, otherPlayer, CommonJ.ALLIANCE_PASSIVE, true);//call SetPlayerAlliance( sourcePlayer, otherPlayer, ALLIANCE_PASSIVE, true )
 			} else if (allianceState == bj_ALLIANCE_NEUTRAL_VISION) {//elseif allianceState == bj_ALLIANCE_NEUTRAL_VISION then
 				SetPlayerAllianceStateAllyBJ(sourcePlayer, otherPlayer, false);//call SetPlayerAllianceStateAllyBJ(        sourcePlayer, otherPlayer, false )
 				SetPlayerAllianceStateVisionBJ(sourcePlayer, otherPlayer, true);//call SetPlayerAllianceStateVisionBJ(      sourcePlayer, otherPlayer, true  )
 				SetPlayerAllianceStateControlBJ(sourcePlayer, otherPlayer, false);//call SetPlayerAllianceStateControlBJ(     sourcePlayer, otherPlayer, false )
 				SetPlayerAllianceStateFullControlBJ(sourcePlayer, otherPlayer, false);//call SetPlayerAllianceStateFullControlBJ( sourcePlayer, otherPlayer, false )
-				SetPlayerAlliance(sourcePlayer, otherPlayer, ALLIANCE_PASSIVE, true);//call SetPlayerAlliance( sourcePlayer, otherPlayer, ALLIANCE_PASSIVE, true )
+				SetPlayerAlliance(sourcePlayer, otherPlayer, CommonJ.ALLIANCE_PASSIVE, true);//call SetPlayerAlliance( sourcePlayer, otherPlayer, ALLIANCE_PASSIVE, true )
 			} else {//else
 				//
 			}//endif
@@ -4174,9 +4174,9 @@ namespace Jass {
 				indexPlayer = Player(playerIndex);//set indexPlayer = Player(playerIndex)
 				if ((PlayersAreCoAllied(whichPlayer, indexPlayer) && whichPlayer != indexPlayer)) {//if (PlayersAreCoAllied(whichPlayer, indexPlayer) and whichPlayer != indexPlayer) then
 					if ((GetPlayerController(indexPlayer) == MAP_CONTROL_COMPUTER)) {//if (GetPlayerController(indexPlayer) == MAP_CONTROL_COMPUTER) then
-						SetPlayerAlliance(whichPlayer, indexPlayer, ALLIANCE_SHARED_VISION, true);//call SetPlayerAlliance(whichPlayer, indexPlayer, ALLIANCE_SHARED_VISION, true)
-						SetPlayerAlliance(whichPlayer, indexPlayer, ALLIANCE_SHARED_CONTROL, true);//call SetPlayerAlliance(whichPlayer, indexPlayer, ALLIANCE_SHARED_CONTROL, true)
-						SetPlayerAlliance(whichPlayer, indexPlayer, ALLIANCE_SHARED_ADVANCED_CONTROL, true);//call SetPlayerAlliance(whichPlayer, indexPlayer, ALLIANCE_SHARED_ADVANCED_CONTROL, true)
+						SetPlayerAlliance(whichPlayer, indexPlayer, CommonJ.ALLIANCE_SHARED_VISION, true);//call SetPlayerAlliance(whichPlayer, indexPlayer, ALLIANCE_SHARED_VISION, true)
+						SetPlayerAlliance(whichPlayer, indexPlayer, CommonJ.ALLIANCE_SHARED_CONTROL, true);//call SetPlayerAlliance(whichPlayer, indexPlayer, ALLIANCE_SHARED_CONTROL, true)
+						SetPlayerAlliance(whichPlayer, indexPlayer, CommonJ.ALLIANCE_SHARED_ADVANCED_CONTROL, true);//call SetPlayerAlliance(whichPlayer, indexPlayer, ALLIANCE_SHARED_ADVANCED_CONTROL, true)
 					}//endif
 				}//endif
 				playerIndex = playerIndex + 1;//set playerIndex = playerIndex + 1
@@ -4193,10 +4193,10 @@ namespace Jass {
 			while (true) {//loop
 				indexPlayer = Player(playerIndex);//set indexPlayer = Player(playerIndex)
 				if ((PlayersAreCoAllied(whichPlayer, indexPlayer) && whichPlayer != indexPlayer)) {//if (PlayersAreCoAllied(whichPlayer, indexPlayer) and whichPlayer != indexPlayer) then
-					SetPlayerAlliance(whichPlayer, indexPlayer, ALLIANCE_SHARED_VISION, true);//call SetPlayerAlliance(whichPlayer, indexPlayer, ALLIANCE_SHARED_VISION, true)
-					SetPlayerAlliance(whichPlayer, indexPlayer, ALLIANCE_SHARED_CONTROL, true);//call SetPlayerAlliance(whichPlayer, indexPlayer, ALLIANCE_SHARED_CONTROL, true)
-					SetPlayerAlliance(indexPlayer, whichPlayer, ALLIANCE_SHARED_CONTROL, true);//call SetPlayerAlliance(indexPlayer, whichPlayer, ALLIANCE_SHARED_CONTROL, true)
-					SetPlayerAlliance(whichPlayer, indexPlayer, ALLIANCE_SHARED_ADVANCED_CONTROL, true);//call SetPlayerAlliance(whichPlayer, indexPlayer, ALLIANCE_SHARED_ADVANCED_CONTROL, true)
+					SetPlayerAlliance(whichPlayer, indexPlayer, CommonJ.ALLIANCE_SHARED_VISION, true);//call SetPlayerAlliance(whichPlayer, indexPlayer, ALLIANCE_SHARED_VISION, true)
+					SetPlayerAlliance(whichPlayer, indexPlayer, CommonJ.ALLIANCE_SHARED_CONTROL, true);//call SetPlayerAlliance(whichPlayer, indexPlayer, ALLIANCE_SHARED_CONTROL, true)
+					SetPlayerAlliance(indexPlayer, whichPlayer, CommonJ.ALLIANCE_SHARED_CONTROL, true);//call SetPlayerAlliance(indexPlayer, whichPlayer, ALLIANCE_SHARED_CONTROL, true)
+					SetPlayerAlliance(whichPlayer, indexPlayer, CommonJ.ALLIANCE_SHARED_ADVANCED_CONTROL, true);//call SetPlayerAlliance(whichPlayer, indexPlayer, ALLIANCE_SHARED_ADVANCED_CONTROL, true)
 				}//endif
 				playerIndex = playerIndex + 1;//set playerIndex = playerIndex + 1
 				if (playerIndex == bj_MAX_PLAYERS) { break; }//exitwhen playerIndex == bj_MAX_PLAYERS
@@ -4213,17 +4213,17 @@ namespace Jass {
 			index = 0;//set index = 0
 			while (true) {//loop
 				indexPlayer = Player(index);//set indexPlayer = Player(index)
-				SetPlayerAlliance(neutralVictim, indexPlayer, ALLIANCE_PASSIVE, true);//call SetPlayerAlliance(neutralVictim, indexPlayer, ALLIANCE_PASSIVE, true)
-				SetPlayerAlliance(indexPlayer, neutralVictim, ALLIANCE_PASSIVE, false);//call SetPlayerAlliance(indexPlayer, neutralVictim, ALLIANCE_PASSIVE, false)
+				SetPlayerAlliance(neutralVictim, indexPlayer, CommonJ.ALLIANCE_PASSIVE, true);//call SetPlayerAlliance(neutralVictim, indexPlayer, ALLIANCE_PASSIVE, true)
+				SetPlayerAlliance(indexPlayer, neutralVictim, CommonJ.ALLIANCE_PASSIVE, false);//call SetPlayerAlliance(indexPlayer, neutralVictim, ALLIANCE_PASSIVE, false)
 				index = index + 1;//set index = index + 1
 				if (index == bj_MAX_PLAYERS) { break; }//exitwhen index == bj_MAX_PLAYERS
 			}//endloop
 			//
 			indexPlayer = Player(PLAYER_NEUTRAL_AGGRESSIVE);//set indexPlayer = Player(PLAYER_NEUTRAL_AGGRESSIVE)
-			SetPlayerAlliance(neutralVictim, indexPlayer, ALLIANCE_PASSIVE, true);//call SetPlayerAlliance(neutralVictim, indexPlayer, ALLIANCE_PASSIVE, true)
-			SetPlayerAlliance(indexPlayer, neutralVictim, ALLIANCE_PASSIVE, true);//call SetPlayerAlliance(indexPlayer, neutralVictim, ALLIANCE_PASSIVE, true)
+			SetPlayerAlliance(neutralVictim, indexPlayer, CommonJ.ALLIANCE_PASSIVE, true);//call SetPlayerAlliance(neutralVictim, indexPlayer, ALLIANCE_PASSIVE, true)
+			SetPlayerAlliance(indexPlayer, neutralVictim, CommonJ.ALLIANCE_PASSIVE, true);//call SetPlayerAlliance(indexPlayer, neutralVictim, ALLIANCE_PASSIVE, true)
 			//
-			SetPlayerState(neutralVictim, PLAYER_STATE_GIVES_BOUNTY, 0);//call SetPlayerState(neutralVictim, PLAYER_STATE_GIVES_BOUNTY, 0)
+			SetPlayerState(neutralVictim, CommonJ.PLAYER_STATE_GIVES_BOUNTY, 0);//call SetPlayerState(neutralVictim, PLAYER_STATE_GIVES_BOUNTY, 0)
 		}//endfunction
 		//
 		private void MakeUnitsPassiveForPlayerEnum() {//function MakeUnitsPassiveForPlayerEnum takes nothing returns nothing
@@ -4291,7 +4291,7 @@ namespace Jass {
 			t = CreateTrigger();//set t = CreateTrigger()
 			TriggerRegisterDialogButtonEvent(t, DialogAddQuitButton( d, true, GetLocalizedString( "GAMEOVER_QUIT_GAME" ), GetLocalizedHotkey("GAMEOVER_QUIT_GAME") ));//call TriggerRegisterDialogButtonEvent( t, DialogAddQuitButton( d, true, GetLocalizedString( "GAMEOVER_QUIT_GAME" ), GetLocalizedHotkey("GAMEOVER_QUIT_GAME") ) )
 			DialogDisplay(whichPlayer, d, true);//call DialogDisplay( whichPlayer, d, true )
-			StartSoundForPlayerBJ(whichPlayer, bj_victoryDialogSound);//call StartSoundForPlayerBJ( whichPlayer, bj_victoryDialogSound )
+			StartSoundForPlayerBJ(whichPlayer, BlizzardJ.bj_victoryDialogSound);//call StartSoundForPlayerBJ( whichPlayer, bj_victoryDialogSound )
 		}//endfunction
 		//
 		private void MeleeDefeatDialogBJ(player whichPlayer, bool leftGame) {//function MeleeDefeatDialogBJ takes player whichPlayer, boolean leftGame returns nothing
@@ -4313,7 +4313,7 @@ namespace Jass {
 			t = CreateTrigger();//set t = CreateTrigger()
 			TriggerRegisterDialogButtonEvent(t, DialogAddQuitButton( d, true, GetLocalizedString( "GAMEOVER_QUIT_GAME" ), GetLocalizedHotkey("GAMEOVER_QUIT_GAME") ));//call TriggerRegisterDialogButtonEvent( t, DialogAddQuitButton( d, true, GetLocalizedString( "GAMEOVER_QUIT_GAME" ), GetLocalizedHotkey("GAMEOVER_QUIT_GAME") ) )
 			DialogDisplay(whichPlayer, d, true);//call DialogDisplay( whichPlayer, d, true )
-			StartSoundForPlayerBJ(whichPlayer, bj_defeatDialogSound);//call StartSoundForPlayerBJ( whichPlayer, bj_defeatDialogSound )
+			StartSoundForPlayerBJ(whichPlayer, BlizzardJ.bj_defeatDialogSound);//call StartSoundForPlayerBJ( whichPlayer, bj_defeatDialogSound )
 		}//endfunction
 		//
 		private void GameOverDialogBJ(player whichPlayer, bool leftGame) {//function GameOverDialogBJ takes player whichPlayer, boolean leftGame returns nothing
@@ -4331,7 +4331,7 @@ namespace Jass {
 			t = CreateTrigger();//set t = CreateTrigger()
 			TriggerRegisterDialogButtonEvent(t, DialogAddQuitButton( d, true, GetLocalizedString( "GAMEOVER_OK" ), GetLocalizedHotkey("GAMEOVER_OK") ));//call TriggerRegisterDialogButtonEvent( t, DialogAddQuitButton( d, true, GetLocalizedString( "GAMEOVER_OK" ), GetLocalizedHotkey("GAMEOVER_OK") ) )
 			DialogDisplay(whichPlayer, d, true);//call DialogDisplay( whichPlayer, d, true )
-			StartSoundForPlayerBJ(whichPlayer, bj_defeatDialogSound);//call StartSoundForPlayerBJ( whichPlayer, bj_defeatDialogSound )
+			StartSoundForPlayerBJ(whichPlayer, BlizzardJ.bj_defeatDialogSound);//call StartSoundForPlayerBJ( whichPlayer, bj_defeatDialogSound )
 		}//endfunction
 		//
 		private void RemovePlayerPreserveUnitsBJ(player whichPlayer, playergameresult gameResult, bool leftGame) {//function RemovePlayerPreserveUnitsBJ takes player whichPlayer, playergameresult gameResult, boolean leftGame returns nothing
@@ -4355,9 +4355,9 @@ namespace Jass {
 				SetGameDifficulty(GetDefaultDifficulty());//call SetGameDifficulty(GetDefaultDifficulty())
 			}//endif
 			if ((bj_changeLevelMapName == null)) {//if (bj_changeLevelMapName == null) then
-				EndGame(bj_changeLevelShowScores);//call EndGame( bj_changeLevelShowScores )
+				EndGame(BlizzardJ.bj_changeLevelShowScores);//call EndGame( bj_changeLevelShowScores )
 			} else {//else
-				ChangeLevel(bj_changeLevelMapName, bj_changeLevelShowScores);//call ChangeLevel( bj_changeLevelMapName, bj_changeLevelShowScores )
+				ChangeLevel(BlizzardJ.bj_changeLevelMapName, BlizzardJ.bj_changeLevelShowScores);//call ChangeLevel( bj_changeLevelMapName, bj_changeLevelShowScores )
 			}//endif
 		}//endfunction
 		//
@@ -4367,7 +4367,7 @@ namespace Jass {
 				//
 				SetGameDifficulty(GetDefaultDifficulty());//call SetGameDifficulty(GetDefaultDifficulty())
 			}//endif
-			EndGame(bj_changeLevelShowScores);//call EndGame( bj_changeLevelShowScores )
+			EndGame(BlizzardJ.bj_changeLevelShowScores);//call EndGame( bj_changeLevelShowScores )
 		}//endfunction
 		//
 		private void CustomVictoryDialogBJ(player whichPlayer) {//function CustomVictoryDialogBJ takes player whichPlayer returns nothing
@@ -4388,8 +4388,8 @@ namespace Jass {
 				EnableUserUI(false);//call EnableUserUI(false)
 			}//endif
 			DialogDisplay(whichPlayer, d, true);//call DialogDisplay( whichPlayer, d, true )
-			VolumeGroupSetVolumeForPlayerBJ(whichPlayer, SOUND_VOLUMEGROUP_UI, 1.0);//call VolumeGroupSetVolumeForPlayerBJ( whichPlayer, SOUND_VOLUMEGROUP_UI, 1.0 )
-			StartSoundForPlayerBJ(whichPlayer, bj_victoryDialogSound);//call StartSoundForPlayerBJ( whichPlayer, bj_victoryDialogSound )
+			VolumeGroupSetVolumeForPlayerBJ(whichPlayer, CommonJ.SOUND_VOLUMEGROUP_UI, 1.0);//call VolumeGroupSetVolumeForPlayerBJ( whichPlayer, SOUND_VOLUMEGROUP_UI, 1.0 )
+			StartSoundForPlayerBJ(whichPlayer, BlizzardJ.bj_victoryDialogSound);//call StartSoundForPlayerBJ( whichPlayer, bj_victoryDialogSound )
 		}//endfunction
 		//
 		private void CustomVictorySkipBJ(player whichPlayer) {//function CustomVictorySkipBJ takes player whichPlayer returns nothing
@@ -4399,16 +4399,16 @@ namespace Jass {
 					SetGameDifficulty(GetDefaultDifficulty());//call SetGameDifficulty(GetDefaultDifficulty())
 				}//endif
 				if ((bj_changeLevelMapName == null)) {//if (bj_changeLevelMapName == null) then
-					EndGame(bj_changeLevelShowScores);//call EndGame( bj_changeLevelShowScores )
+					EndGame(BlizzardJ.bj_changeLevelShowScores);//call EndGame( bj_changeLevelShowScores )
 				} else {//else
-					ChangeLevel(bj_changeLevelMapName, bj_changeLevelShowScores);//call ChangeLevel( bj_changeLevelMapName, bj_changeLevelShowScores )
+					ChangeLevel(BlizzardJ.bj_changeLevelMapName, BlizzardJ.bj_changeLevelShowScores);//call ChangeLevel( bj_changeLevelMapName, bj_changeLevelShowScores )
 				}//endif
 			}//endif
 		}//endfunction
 		//
 		private void CustomVictoryBJ(player whichPlayer, bool showDialog, bool showScores) {//function CustomVictoryBJ takes player whichPlayer, boolean showDialog, boolean showScores returns nothing
 			if (AllowVictoryDefeat( PLAYER_GAME_RESULT_VICTORY )) {//if AllowVictoryDefeat( PLAYER_GAME_RESULT_VICTORY ) then
-				RemovePlayer(whichPlayer, PLAYER_GAME_RESULT_VICTORY);//call RemovePlayer( whichPlayer, PLAYER_GAME_RESULT_VICTORY )
+				RemovePlayer(whichPlayer, CommonJ.PLAYER_GAME_RESULT_VICTORY);//call RemovePlayer( whichPlayer, PLAYER_GAME_RESULT_VICTORY )
 				if (!bj_isSinglePlayer) {//if not bj_isSinglePlayer then
 					DisplayTimedTextFromPlayer(whichPlayer, 0, 0, 60, GetLocalizedString( "PLAYER_VICTORIOUS" ));//call DisplayTimedTextFromPlayer(whichPlayer, 0, 0, 60, GetLocalizedString( "PLAYER_VICTORIOUS" ) )
 				}//endif
@@ -4436,9 +4436,9 @@ namespace Jass {
 			if ((diff == MAP_DIFFICULTY_EASY)) {//if (diff == MAP_DIFFICULTY_EASY) then
 				//
 			} else if ((diff == MAP_DIFFICULTY_NORMAL)) {//elseif (diff == MAP_DIFFICULTY_NORMAL) then
-				SetGameDifficulty(MAP_DIFFICULTY_EASY);//call SetGameDifficulty(MAP_DIFFICULTY_EASY)
+				SetGameDifficulty(CommonJ.MAP_DIFFICULTY_EASY);//call SetGameDifficulty(MAP_DIFFICULTY_EASY)
 			} else if ((diff == MAP_DIFFICULTY_HARD)) {//elseif (diff == MAP_DIFFICULTY_HARD) then
-				SetGameDifficulty(MAP_DIFFICULTY_NORMAL);//call SetGameDifficulty(MAP_DIFFICULTY_NORMAL)
+				SetGameDifficulty(CommonJ.MAP_DIFFICULTY_NORMAL);//call SetGameDifficulty(MAP_DIFFICULTY_NORMAL)
 			} else {//else
 				//
 			}//endif
@@ -4487,13 +4487,13 @@ namespace Jass {
 				EnableUserUI(false);//call EnableUserUI(false)
 			}//endif
 			DialogDisplay(whichPlayer, d, true);//call DialogDisplay( whichPlayer, d, true )
-			VolumeGroupSetVolumeForPlayerBJ(whichPlayer, SOUND_VOLUMEGROUP_UI, 1.0);//call VolumeGroupSetVolumeForPlayerBJ( whichPlayer, SOUND_VOLUMEGROUP_UI, 1.0 )
-			StartSoundForPlayerBJ(whichPlayer, bj_defeatDialogSound);//call StartSoundForPlayerBJ( whichPlayer, bj_defeatDialogSound )
+			VolumeGroupSetVolumeForPlayerBJ(whichPlayer, CommonJ.SOUND_VOLUMEGROUP_UI, 1.0);//call VolumeGroupSetVolumeForPlayerBJ( whichPlayer, SOUND_VOLUMEGROUP_UI, 1.0 )
+			StartSoundForPlayerBJ(whichPlayer, BlizzardJ.bj_defeatDialogSound);//call StartSoundForPlayerBJ( whichPlayer, bj_defeatDialogSound )
 		}//endfunction
 		//
 		private void CustomDefeatBJ(player whichPlayer, string message) {//function CustomDefeatBJ takes player whichPlayer, string message returns nothing
 			if (AllowVictoryDefeat( PLAYER_GAME_RESULT_DEFEAT )) {//if AllowVictoryDefeat( PLAYER_GAME_RESULT_DEFEAT ) then
-				RemovePlayer(whichPlayer, PLAYER_GAME_RESULT_DEFEAT);//call RemovePlayer( whichPlayer, PLAYER_GAME_RESULT_DEFEAT )
+				RemovePlayer(whichPlayer, CommonJ.PLAYER_GAME_RESULT_DEFEAT);//call RemovePlayer( whichPlayer, PLAYER_GAME_RESULT_DEFEAT )
 				if (!bj_isSinglePlayer) {//if not bj_isSinglePlayer then
 					DisplayTimedTextFromPlayer(whichPlayer, 0, 0, 60, GetLocalizedString( "PLAYER_DEFEATED" ));//call DisplayTimedTextFromPlayer(whichPlayer, 0, 0, 60, GetLocalizedString( "PLAYER_DEFEATED" ) )
 				}//endif
@@ -4525,12 +4525,12 @@ namespace Jass {
 			bool required = (questType == bj_QUESTTYPE_REQ_DISCOVERED) || (questType == bj_QUESTTYPE_REQ_UNDISCOVERED);//local boolean required   = (questType == bj_QUESTTYPE_REQ_DISCOVERED) or (questType == bj_QUESTTYPE_REQ_UNDISCOVERED)
 			bool discovered = (questType == bj_QUESTTYPE_REQ_DISCOVERED) || (questType == bj_QUESTTYPE_OPT_DISCOVERED);//local boolean discovered = (questType == bj_QUESTTYPE_REQ_DISCOVERED) or (questType == bj_QUESTTYPE_OPT_DISCOVERED)
 			bj_lastCreatedQuest = CreateQuest();//set bj_lastCreatedQuest = CreateQuest()
-			QuestSetTitle(bj_lastCreatedQuest, title);//call QuestSetTitle(bj_lastCreatedQuest, title)
-			QuestSetDescription(bj_lastCreatedQuest, description);//call QuestSetDescription(bj_lastCreatedQuest, description)
-			QuestSetIconPath(bj_lastCreatedQuest, iconPath);//call QuestSetIconPath(bj_lastCreatedQuest, iconPath)
-			QuestSetRequired(bj_lastCreatedQuest, required);//call QuestSetRequired(bj_lastCreatedQuest, required)
-			QuestSetDiscovered(bj_lastCreatedQuest, discovered);//call QuestSetDiscovered(bj_lastCreatedQuest, discovered)
-			QuestSetCompleted(bj_lastCreatedQuest, false);//call QuestSetCompleted(bj_lastCreatedQuest, false)
+			QuestSetTitle(BlizzardJ.bj_lastCreatedQuest, title);//call QuestSetTitle(bj_lastCreatedQuest, title)
+			QuestSetDescription(BlizzardJ.bj_lastCreatedQuest, description);//call QuestSetDescription(bj_lastCreatedQuest, description)
+			QuestSetIconPath(BlizzardJ.bj_lastCreatedQuest, iconPath);//call QuestSetIconPath(bj_lastCreatedQuest, iconPath)
+			QuestSetRequired(BlizzardJ.bj_lastCreatedQuest, required);//call QuestSetRequired(bj_lastCreatedQuest, required)
+			QuestSetDiscovered(BlizzardJ.bj_lastCreatedQuest, discovered);//call QuestSetDiscovered(bj_lastCreatedQuest, discovered)
+			QuestSetCompleted(BlizzardJ.bj_lastCreatedQuest, false);//call QuestSetCompleted(bj_lastCreatedQuest, false)
 			return bj_lastCreatedQuest;//return bj_lastCreatedQuest
 		}//endfunction
 		//
@@ -4568,8 +4568,8 @@ namespace Jass {
 		//
 		private questitem CreateQuestItemBJ(quest whichQuest, string description) {//function CreateQuestItemBJ takes quest whichQuest, string description returns questitem
 			bj_lastCreatedQuestItem = QuestCreateItem(whichQuest);//set bj_lastCreatedQuestItem = QuestCreateItem(whichQuest)
-			QuestItemSetDescription(bj_lastCreatedQuestItem, description);//call QuestItemSetDescription(bj_lastCreatedQuestItem, description)
-			QuestItemSetCompleted(bj_lastCreatedQuestItem, false);//call QuestItemSetCompleted(bj_lastCreatedQuestItem, false)
+			QuestItemSetDescription(BlizzardJ.bj_lastCreatedQuestItem, description);//call QuestItemSetDescription(bj_lastCreatedQuestItem, description)
+			QuestItemSetCompleted(BlizzardJ.bj_lastCreatedQuestItem, false);//call QuestItemSetCompleted(bj_lastCreatedQuestItem, false)
 			return bj_lastCreatedQuestItem;//return bj_lastCreatedQuestItem
 		}//endfunction
 		//
@@ -4587,7 +4587,7 @@ namespace Jass {
 		//
 		private defeatcondition CreateDefeatConditionBJ(string description) {//function CreateDefeatConditionBJ takes string description returns defeatcondition
 			bj_lastCreatedDefeatCondition = CreateDefeatCondition();//set bj_lastCreatedDefeatCondition = CreateDefeatCondition()
-			DefeatConditionSetDescription(bj_lastCreatedDefeatCondition, description);//call DefeatConditionSetDescription(bj_lastCreatedDefeatCondition, description)
+			DefeatConditionSetDescription(BlizzardJ.bj_lastCreatedDefeatCondition, description);//call DefeatConditionSetDescription(bj_lastCreatedDefeatCondition, description)
 			return bj_lastCreatedDefeatCondition;//return bj_lastCreatedDefeatCondition
 		}//endfunction
 		//
@@ -4611,59 +4611,59 @@ namespace Jass {
 			if ((IsPlayerInForce(GetLocalPlayer(), f))) {//if (IsPlayerInForce(GetLocalPlayer(), f)) then
 				//
 				if ((messageType == bj_QUESTMESSAGE_DISCOVERED)) {//if (messageType == bj_QUESTMESSAGE_DISCOVERED) then
-					DisplayTimedTextToPlayer(GetLocalPlayer(), 0, 0, bj_TEXT_DELAY_QUEST, " ");//call DisplayTimedTextToPlayer(GetLocalPlayer(), 0, 0, bj_TEXT_DELAY_QUEST, " ")
-					DisplayTimedTextToPlayer(GetLocalPlayer(), 0, 0, bj_TEXT_DELAY_QUEST, message);//call DisplayTimedTextToPlayer(GetLocalPlayer(), 0, 0, bj_TEXT_DELAY_QUEST, message)
-					StartSound(bj_questDiscoveredSound);//call StartSound(bj_questDiscoveredSound)
+					DisplayTimedTextToPlayer(GetLocalPlayer(), 0, 0, BlizzardJ.bj_TEXT_DELAY_QUEST, " ");//call DisplayTimedTextToPlayer(GetLocalPlayer(), 0, 0, bj_TEXT_DELAY_QUEST, " ")
+					DisplayTimedTextToPlayer(GetLocalPlayer(), 0, 0, BlizzardJ.bj_TEXT_DELAY_QUEST, message);//call DisplayTimedTextToPlayer(GetLocalPlayer(), 0, 0, bj_TEXT_DELAY_QUEST, message)
+					StartSound(BlizzardJ.bj_questDiscoveredSound);//call StartSound(bj_questDiscoveredSound)
 					FlashQuestDialogButton();//call FlashQuestDialogButton()
 				} else if ((messageType == bj_QUESTMESSAGE_UPDATED)) {//elseif (messageType == bj_QUESTMESSAGE_UPDATED) then
-					DisplayTimedTextToPlayer(GetLocalPlayer(), 0, 0, bj_TEXT_DELAY_QUESTUPDATE, " ");//call DisplayTimedTextToPlayer(GetLocalPlayer(), 0, 0, bj_TEXT_DELAY_QUESTUPDATE, " ")
-					DisplayTimedTextToPlayer(GetLocalPlayer(), 0, 0, bj_TEXT_DELAY_QUESTUPDATE, message);//call DisplayTimedTextToPlayer(GetLocalPlayer(), 0, 0, bj_TEXT_DELAY_QUESTUPDATE, message)
-					StartSound(bj_questUpdatedSound);//call StartSound(bj_questUpdatedSound)
+					DisplayTimedTextToPlayer(GetLocalPlayer(), 0, 0, BlizzardJ.bj_TEXT_DELAY_QUESTUPDATE, " ");//call DisplayTimedTextToPlayer(GetLocalPlayer(), 0, 0, bj_TEXT_DELAY_QUESTUPDATE, " ")
+					DisplayTimedTextToPlayer(GetLocalPlayer(), 0, 0, BlizzardJ.bj_TEXT_DELAY_QUESTUPDATE, message);//call DisplayTimedTextToPlayer(GetLocalPlayer(), 0, 0, bj_TEXT_DELAY_QUESTUPDATE, message)
+					StartSound(BlizzardJ.bj_questUpdatedSound);//call StartSound(bj_questUpdatedSound)
 					FlashQuestDialogButton();//call FlashQuestDialogButton()
 				} else if ((messageType == bj_QUESTMESSAGE_COMPLETED)) {//elseif (messageType == bj_QUESTMESSAGE_COMPLETED) then
-					DisplayTimedTextToPlayer(GetLocalPlayer(), 0, 0, bj_TEXT_DELAY_QUESTDONE, " ");//call DisplayTimedTextToPlayer(GetLocalPlayer(), 0, 0, bj_TEXT_DELAY_QUESTDONE, " ")
-					DisplayTimedTextToPlayer(GetLocalPlayer(), 0, 0, bj_TEXT_DELAY_QUESTDONE, message);//call DisplayTimedTextToPlayer(GetLocalPlayer(), 0, 0, bj_TEXT_DELAY_QUESTDONE, message)
-					StartSound(bj_questCompletedSound);//call StartSound(bj_questCompletedSound)
+					DisplayTimedTextToPlayer(GetLocalPlayer(), 0, 0, BlizzardJ.bj_TEXT_DELAY_QUESTDONE, " ");//call DisplayTimedTextToPlayer(GetLocalPlayer(), 0, 0, bj_TEXT_DELAY_QUESTDONE, " ")
+					DisplayTimedTextToPlayer(GetLocalPlayer(), 0, 0, BlizzardJ.bj_TEXT_DELAY_QUESTDONE, message);//call DisplayTimedTextToPlayer(GetLocalPlayer(), 0, 0, bj_TEXT_DELAY_QUESTDONE, message)
+					StartSound(BlizzardJ.bj_questCompletedSound);//call StartSound(bj_questCompletedSound)
 					FlashQuestDialogButton();//call FlashQuestDialogButton()
 				} else if ((messageType == bj_QUESTMESSAGE_FAILED)) {//elseif (messageType == bj_QUESTMESSAGE_FAILED) then
-					DisplayTimedTextToPlayer(GetLocalPlayer(), 0, 0, bj_TEXT_DELAY_QUESTFAILED, " ");//call DisplayTimedTextToPlayer(GetLocalPlayer(), 0, 0, bj_TEXT_DELAY_QUESTFAILED, " ")
-					DisplayTimedTextToPlayer(GetLocalPlayer(), 0, 0, bj_TEXT_DELAY_QUESTFAILED, message);//call DisplayTimedTextToPlayer(GetLocalPlayer(), 0, 0, bj_TEXT_DELAY_QUESTFAILED, message)
-					StartSound(bj_questFailedSound);//call StartSound(bj_questFailedSound)
+					DisplayTimedTextToPlayer(GetLocalPlayer(), 0, 0, BlizzardJ.bj_TEXT_DELAY_QUESTFAILED, " ");//call DisplayTimedTextToPlayer(GetLocalPlayer(), 0, 0, bj_TEXT_DELAY_QUESTFAILED, " ")
+					DisplayTimedTextToPlayer(GetLocalPlayer(), 0, 0, BlizzardJ.bj_TEXT_DELAY_QUESTFAILED, message);//call DisplayTimedTextToPlayer(GetLocalPlayer(), 0, 0, bj_TEXT_DELAY_QUESTFAILED, message)
+					StartSound(BlizzardJ.bj_questFailedSound);//call StartSound(bj_questFailedSound)
 					FlashQuestDialogButton();//call FlashQuestDialogButton()
 				} else if ((messageType == bj_QUESTMESSAGE_REQUIREMENT)) {//elseif (messageType == bj_QUESTMESSAGE_REQUIREMENT) then
-					DisplayTimedTextToPlayer(GetLocalPlayer(), 0, 0, bj_TEXT_DELAY_QUESTREQUIREMENT, message);//call DisplayTimedTextToPlayer(GetLocalPlayer(), 0, 0, bj_TEXT_DELAY_QUESTREQUIREMENT, message)
+					DisplayTimedTextToPlayer(GetLocalPlayer(), 0, 0, BlizzardJ.bj_TEXT_DELAY_QUESTREQUIREMENT, message);//call DisplayTimedTextToPlayer(GetLocalPlayer(), 0, 0, bj_TEXT_DELAY_QUESTREQUIREMENT, message)
 				} else if ((messageType == bj_QUESTMESSAGE_MISSIONFAILED)) {//elseif (messageType == bj_QUESTMESSAGE_MISSIONFAILED) then
-					DisplayTimedTextToPlayer(GetLocalPlayer(), 0, 0, bj_TEXT_DELAY_MISSIONFAILED, " ");//call DisplayTimedTextToPlayer(GetLocalPlayer(), 0, 0, bj_TEXT_DELAY_MISSIONFAILED, " ")
-					DisplayTimedTextToPlayer(GetLocalPlayer(), 0, 0, bj_TEXT_DELAY_MISSIONFAILED, message);//call DisplayTimedTextToPlayer(GetLocalPlayer(), 0, 0, bj_TEXT_DELAY_MISSIONFAILED, message)
-					StartSound(bj_questFailedSound);//call StartSound(bj_questFailedSound)
+					DisplayTimedTextToPlayer(GetLocalPlayer(), 0, 0, BlizzardJ.bj_TEXT_DELAY_MISSIONFAILED, " ");//call DisplayTimedTextToPlayer(GetLocalPlayer(), 0, 0, bj_TEXT_DELAY_MISSIONFAILED, " ")
+					DisplayTimedTextToPlayer(GetLocalPlayer(), 0, 0, BlizzardJ.bj_TEXT_DELAY_MISSIONFAILED, message);//call DisplayTimedTextToPlayer(GetLocalPlayer(), 0, 0, bj_TEXT_DELAY_MISSIONFAILED, message)
+					StartSound(BlizzardJ.bj_questFailedSound);//call StartSound(bj_questFailedSound)
 				} else if ((messageType == bj_QUESTMESSAGE_HINT)) {//elseif (messageType == bj_QUESTMESSAGE_HINT) then
-					DisplayTimedTextToPlayer(GetLocalPlayer(), 0, 0, bj_TEXT_DELAY_HINT, " ");//call DisplayTimedTextToPlayer(GetLocalPlayer(), 0, 0, bj_TEXT_DELAY_HINT, " ")
-					DisplayTimedTextToPlayer(GetLocalPlayer(), 0, 0, bj_TEXT_DELAY_HINT, message);//call DisplayTimedTextToPlayer(GetLocalPlayer(), 0, 0, bj_TEXT_DELAY_HINT, message)
-					StartSound(bj_questHintSound);//call StartSound(bj_questHintSound)
+					DisplayTimedTextToPlayer(GetLocalPlayer(), 0, 0, BlizzardJ.bj_TEXT_DELAY_HINT, " ");//call DisplayTimedTextToPlayer(GetLocalPlayer(), 0, 0, bj_TEXT_DELAY_HINT, " ")
+					DisplayTimedTextToPlayer(GetLocalPlayer(), 0, 0, BlizzardJ.bj_TEXT_DELAY_HINT, message);//call DisplayTimedTextToPlayer(GetLocalPlayer(), 0, 0, bj_TEXT_DELAY_HINT, message)
+					StartSound(BlizzardJ.bj_questHintSound);//call StartSound(bj_questHintSound)
 				} else if ((messageType == bj_QUESTMESSAGE_ALWAYSHINT)) {//elseif (messageType == bj_QUESTMESSAGE_ALWAYSHINT) then
-					DisplayTimedTextToPlayer(GetLocalPlayer(), 0, 0, bj_TEXT_DELAY_ALWAYSHINT, " ");//call DisplayTimedTextToPlayer(GetLocalPlayer(), 0, 0, bj_TEXT_DELAY_ALWAYSHINT, " ")
-					DisplayTimedTextToPlayer(GetLocalPlayer(), 0, 0, bj_TEXT_DELAY_ALWAYSHINT, message);//call DisplayTimedTextToPlayer(GetLocalPlayer(), 0, 0, bj_TEXT_DELAY_ALWAYSHINT, message)
-					StartSound(bj_questHintSound);//call StartSound(bj_questHintSound)
+					DisplayTimedTextToPlayer(GetLocalPlayer(), 0, 0, BlizzardJ.bj_TEXT_DELAY_ALWAYSHINT, " ");//call DisplayTimedTextToPlayer(GetLocalPlayer(), 0, 0, bj_TEXT_DELAY_ALWAYSHINT, " ")
+					DisplayTimedTextToPlayer(GetLocalPlayer(), 0, 0, BlizzardJ.bj_TEXT_DELAY_ALWAYSHINT, message);//call DisplayTimedTextToPlayer(GetLocalPlayer(), 0, 0, bj_TEXT_DELAY_ALWAYSHINT, message)
+					StartSound(BlizzardJ.bj_questHintSound);//call StartSound(bj_questHintSound)
 				} else if ((messageType == bj_QUESTMESSAGE_SECRET)) {//elseif (messageType == bj_QUESTMESSAGE_SECRET) then
-					DisplayTimedTextToPlayer(GetLocalPlayer(), 0, 0, bj_TEXT_DELAY_SECRET, " ");//call DisplayTimedTextToPlayer(GetLocalPlayer(), 0, 0, bj_TEXT_DELAY_SECRET, " ")
-					DisplayTimedTextToPlayer(GetLocalPlayer(), 0, 0, bj_TEXT_DELAY_SECRET, message);//call DisplayTimedTextToPlayer(GetLocalPlayer(), 0, 0, bj_TEXT_DELAY_SECRET, message)
-					StartSound(bj_questSecretSound);//call StartSound(bj_questSecretSound)
+					DisplayTimedTextToPlayer(GetLocalPlayer(), 0, 0, BlizzardJ.bj_TEXT_DELAY_SECRET, " ");//call DisplayTimedTextToPlayer(GetLocalPlayer(), 0, 0, bj_TEXT_DELAY_SECRET, " ")
+					DisplayTimedTextToPlayer(GetLocalPlayer(), 0, 0, BlizzardJ.bj_TEXT_DELAY_SECRET, message);//call DisplayTimedTextToPlayer(GetLocalPlayer(), 0, 0, bj_TEXT_DELAY_SECRET, message)
+					StartSound(BlizzardJ.bj_questSecretSound);//call StartSound(bj_questSecretSound)
 				} else if ((messageType == bj_QUESTMESSAGE_UNITACQUIRED)) {//elseif (messageType == bj_QUESTMESSAGE_UNITACQUIRED) then
-					DisplayTimedTextToPlayer(GetLocalPlayer(), 0, 0, bj_TEXT_DELAY_UNITACQUIRED, " ");//call DisplayTimedTextToPlayer(GetLocalPlayer(), 0, 0, bj_TEXT_DELAY_UNITACQUIRED, " ")
-					DisplayTimedTextToPlayer(GetLocalPlayer(), 0, 0, bj_TEXT_DELAY_UNITACQUIRED, message);//call DisplayTimedTextToPlayer(GetLocalPlayer(), 0, 0, bj_TEXT_DELAY_UNITACQUIRED, message)
-					StartSound(bj_questHintSound);//call StartSound(bj_questHintSound)
+					DisplayTimedTextToPlayer(GetLocalPlayer(), 0, 0, BlizzardJ.bj_TEXT_DELAY_UNITACQUIRED, " ");//call DisplayTimedTextToPlayer(GetLocalPlayer(), 0, 0, bj_TEXT_DELAY_UNITACQUIRED, " ")
+					DisplayTimedTextToPlayer(GetLocalPlayer(), 0, 0, BlizzardJ.bj_TEXT_DELAY_UNITACQUIRED, message);//call DisplayTimedTextToPlayer(GetLocalPlayer(), 0, 0, bj_TEXT_DELAY_UNITACQUIRED, message)
+					StartSound(BlizzardJ.bj_questHintSound);//call StartSound(bj_questHintSound)
 				} else if ((messageType == bj_QUESTMESSAGE_UNITAVAILABLE)) {//elseif (messageType == bj_QUESTMESSAGE_UNITAVAILABLE) then
-					DisplayTimedTextToPlayer(GetLocalPlayer(), 0, 0, bj_TEXT_DELAY_UNITAVAILABLE, " ");//call DisplayTimedTextToPlayer(GetLocalPlayer(), 0, 0, bj_TEXT_DELAY_UNITAVAILABLE, " ")
-					DisplayTimedTextToPlayer(GetLocalPlayer(), 0, 0, bj_TEXT_DELAY_UNITAVAILABLE, message);//call DisplayTimedTextToPlayer(GetLocalPlayer(), 0, 0, bj_TEXT_DELAY_UNITAVAILABLE, message)
-					StartSound(bj_questHintSound);//call StartSound(bj_questHintSound)
+					DisplayTimedTextToPlayer(GetLocalPlayer(), 0, 0, BlizzardJ.bj_TEXT_DELAY_UNITAVAILABLE, " ");//call DisplayTimedTextToPlayer(GetLocalPlayer(), 0, 0, bj_TEXT_DELAY_UNITAVAILABLE, " ")
+					DisplayTimedTextToPlayer(GetLocalPlayer(), 0, 0, BlizzardJ.bj_TEXT_DELAY_UNITAVAILABLE, message);//call DisplayTimedTextToPlayer(GetLocalPlayer(), 0, 0, bj_TEXT_DELAY_UNITAVAILABLE, message)
+					StartSound(BlizzardJ.bj_questHintSound);//call StartSound(bj_questHintSound)
 				} else if ((messageType == bj_QUESTMESSAGE_ITEMACQUIRED)) {//elseif (messageType == bj_QUESTMESSAGE_ITEMACQUIRED) then
-					DisplayTimedTextToPlayer(GetLocalPlayer(), 0, 0, bj_TEXT_DELAY_ITEMACQUIRED, " ");//call DisplayTimedTextToPlayer(GetLocalPlayer(), 0, 0, bj_TEXT_DELAY_ITEMACQUIRED, " ")
-					DisplayTimedTextToPlayer(GetLocalPlayer(), 0, 0, bj_TEXT_DELAY_ITEMACQUIRED, message);//call DisplayTimedTextToPlayer(GetLocalPlayer(), 0, 0, bj_TEXT_DELAY_ITEMACQUIRED, message)
-					StartSound(bj_questItemAcquiredSound);//call StartSound(bj_questItemAcquiredSound)
+					DisplayTimedTextToPlayer(GetLocalPlayer(), 0, 0, BlizzardJ.bj_TEXT_DELAY_ITEMACQUIRED, " ");//call DisplayTimedTextToPlayer(GetLocalPlayer(), 0, 0, bj_TEXT_DELAY_ITEMACQUIRED, " ")
+					DisplayTimedTextToPlayer(GetLocalPlayer(), 0, 0, BlizzardJ.bj_TEXT_DELAY_ITEMACQUIRED, message);//call DisplayTimedTextToPlayer(GetLocalPlayer(), 0, 0, bj_TEXT_DELAY_ITEMACQUIRED, message)
+					StartSound(BlizzardJ.bj_questItemAcquiredSound);//call StartSound(bj_questItemAcquiredSound)
 				} else if ((messageType == bj_QUESTMESSAGE_WARNING)) {//elseif (messageType == bj_QUESTMESSAGE_WARNING) then
-					DisplayTimedTextToPlayer(GetLocalPlayer(), 0, 0, bj_TEXT_DELAY_WARNING, " ");//call DisplayTimedTextToPlayer(GetLocalPlayer(), 0, 0, bj_TEXT_DELAY_WARNING, " ")
-					DisplayTimedTextToPlayer(GetLocalPlayer(), 0, 0, bj_TEXT_DELAY_WARNING, message);//call DisplayTimedTextToPlayer(GetLocalPlayer(), 0, 0, bj_TEXT_DELAY_WARNING, message)
-					StartSound(bj_questWarningSound);//call StartSound(bj_questWarningSound)
+					DisplayTimedTextToPlayer(GetLocalPlayer(), 0, 0, BlizzardJ.bj_TEXT_DELAY_WARNING, " ");//call DisplayTimedTextToPlayer(GetLocalPlayer(), 0, 0, bj_TEXT_DELAY_WARNING, " ")
+					DisplayTimedTextToPlayer(GetLocalPlayer(), 0, 0, BlizzardJ.bj_TEXT_DELAY_WARNING, message);//call DisplayTimedTextToPlayer(GetLocalPlayer(), 0, 0, bj_TEXT_DELAY_WARNING, message)
+					StartSound(BlizzardJ.bj_questWarningSound);//call StartSound(bj_questWarningSound)
 				} else {//else
 					//
 				}//endif
@@ -4683,7 +4683,7 @@ namespace Jass {
 		//
 		private timer CreateTimerBJ(bool periodic, float timeout) {//function CreateTimerBJ takes boolean periodic, real timeout returns timer
 			bj_lastStartedTimer = CreateTimer();//set bj_lastStartedTimer = CreateTimer()
-			TimerStart(bj_lastStartedTimer, timeout, periodic, null);//call TimerStart(bj_lastStartedTimer, timeout, periodic, null)
+			TimerStart(BlizzardJ.bj_lastStartedTimer, timeout, periodic, null);//call TimerStart(bj_lastStartedTimer, timeout, periodic, null)
 			return bj_lastStartedTimer;//return bj_lastStartedTimer
 		}//endfunction
 		//
@@ -4705,8 +4705,8 @@ namespace Jass {
 		//
 		private timerdialog CreateTimerDialogBJ(timer t, string title) {//function CreateTimerDialogBJ takes timer t, string title returns timerdialog
 			bj_lastCreatedTimerDialog = CreateTimerDialog(t);//set bj_lastCreatedTimerDialog = CreateTimerDialog(t)
-			TimerDialogSetTitle(bj_lastCreatedTimerDialog, title);//call TimerDialogSetTitle(bj_lastCreatedTimerDialog, title)
-			TimerDialogDisplay(bj_lastCreatedTimerDialog, true);//call TimerDialogDisplay(bj_lastCreatedTimerDialog, true)
+			TimerDialogSetTitle(BlizzardJ.bj_lastCreatedTimerDialog, title);//call TimerDialogSetTitle(bj_lastCreatedTimerDialog, title)
+			TimerDialogDisplay(BlizzardJ.bj_lastCreatedTimerDialog, true);//call TimerDialogDisplay(bj_lastCreatedTimerDialog, true)
 			return bj_lastCreatedTimerDialog;//return bj_lastCreatedTimerDialog
 		}//endfunction
 		//
@@ -4819,9 +4819,9 @@ namespace Jass {
 		//
 		private leaderboard CreateLeaderboardBJ(force toForce, string label) {//function CreateLeaderboardBJ takes force toForce, string label returns leaderboard
 			bj_lastCreatedLeaderboard = CreateLeaderboard();//set bj_lastCreatedLeaderboard = CreateLeaderboard()
-			LeaderboardSetLabel(bj_lastCreatedLeaderboard, label);//call LeaderboardSetLabel(bj_lastCreatedLeaderboard, label)
-			ForceSetLeaderboardBJ(bj_lastCreatedLeaderboard, toForce);//call ForceSetLeaderboardBJ(bj_lastCreatedLeaderboard, toForce)
-			LeaderboardDisplay(bj_lastCreatedLeaderboard, true);//call LeaderboardDisplay(bj_lastCreatedLeaderboard, true)
+			LeaderboardSetLabel(BlizzardJ.bj_lastCreatedLeaderboard, label);//call LeaderboardSetLabel(bj_lastCreatedLeaderboard, label)
+			ForceSetLeaderboardBJ(BlizzardJ.bj_lastCreatedLeaderboard, toForce);//call ForceSetLeaderboardBJ(bj_lastCreatedLeaderboard, toForce)
+			LeaderboardDisplay(BlizzardJ.bj_lastCreatedLeaderboard, true);//call LeaderboardDisplay(bj_lastCreatedLeaderboard, true)
 			return bj_lastCreatedLeaderboard;//return bj_lastCreatedLeaderboard
 		}//endfunction
 		//
@@ -4904,10 +4904,10 @@ namespace Jass {
 		//
 		private multiboard CreateMultiboardBJ(int cols, int rows, string title) {//function CreateMultiboardBJ takes integer cols, integer rows, string title returns multiboard
 			bj_lastCreatedMultiboard = CreateMultiboard();//set bj_lastCreatedMultiboard = CreateMultiboard()
-			MultiboardSetRowCount(bj_lastCreatedMultiboard, rows);//call MultiboardSetRowCount(bj_lastCreatedMultiboard, rows)
-			MultiboardSetColumnCount(bj_lastCreatedMultiboard, cols);//call MultiboardSetColumnCount(bj_lastCreatedMultiboard, cols)
-			MultiboardSetTitleText(bj_lastCreatedMultiboard, title);//call MultiboardSetTitleText(bj_lastCreatedMultiboard, title)
-			MultiboardDisplay(bj_lastCreatedMultiboard, true);//call MultiboardDisplay(bj_lastCreatedMultiboard, true)
+			MultiboardSetRowCount(BlizzardJ.bj_lastCreatedMultiboard, rows);//call MultiboardSetRowCount(bj_lastCreatedMultiboard, rows)
+			MultiboardSetColumnCount(BlizzardJ.bj_lastCreatedMultiboard, cols);//call MultiboardSetColumnCount(bj_lastCreatedMultiboard, cols)
+			MultiboardSetTitleText(BlizzardJ.bj_lastCreatedMultiboard, title);//call MultiboardSetTitleText(bj_lastCreatedMultiboard, title)
+			MultiboardDisplay(BlizzardJ.bj_lastCreatedMultiboard, true);//call MultiboardDisplay(bj_lastCreatedMultiboard, true)
 			return bj_lastCreatedMultiboard;//return bj_lastCreatedMultiboard
 		}//endfunction
 		//
@@ -5140,17 +5140,17 @@ namespace Jass {
 		//
 		private texttag CreateTextTagLocBJ(string s, location loc, float zOffset, float size, float red, float green, float blue, float transparency) {//function CreateTextTagLocBJ takes string s, location loc, real zOffset, real size, real red, real green, real blue, real transparency returns texttag
 			bj_lastCreatedTextTag = CreateTextTag();//set bj_lastCreatedTextTag = CreateTextTag()
-			SetTextTagTextBJ(bj_lastCreatedTextTag, s, size);//call SetTextTagTextBJ(bj_lastCreatedTextTag, s, size)
-			SetTextTagPosBJ(bj_lastCreatedTextTag, loc, zOffset);//call SetTextTagPosBJ(bj_lastCreatedTextTag, loc, zOffset)
-			SetTextTagColorBJ(bj_lastCreatedTextTag, red, green, blue, transparency);//call SetTextTagColorBJ(bj_lastCreatedTextTag, red, green, blue, transparency)
+			SetTextTagTextBJ(BlizzardJ.bj_lastCreatedTextTag, s, size);//call SetTextTagTextBJ(bj_lastCreatedTextTag, s, size)
+			SetTextTagPosBJ(BlizzardJ.bj_lastCreatedTextTag, loc, zOffset);//call SetTextTagPosBJ(bj_lastCreatedTextTag, loc, zOffset)
+			SetTextTagColorBJ(BlizzardJ.bj_lastCreatedTextTag, red, O08_JainaAi.green, blue, transparency);//call SetTextTagColorBJ(bj_lastCreatedTextTag, red, green, blue, transparency)
 			return bj_lastCreatedTextTag;//return bj_lastCreatedTextTag
 		}//endfunction
 		//
 		private texttag CreateTextTagUnitBJ(string s, unit whichUnit, float zOffset, float size, float red, float green, float blue, float transparency) {//function CreateTextTagUnitBJ takes string s, unit whichUnit, real zOffset, real size, real red, real green, real blue, real transparency returns texttag
 			bj_lastCreatedTextTag = CreateTextTag();//set bj_lastCreatedTextTag = CreateTextTag()
-			SetTextTagTextBJ(bj_lastCreatedTextTag, s, size);//call SetTextTagTextBJ(bj_lastCreatedTextTag, s, size)
-			SetTextTagPosUnitBJ(bj_lastCreatedTextTag, whichUnit, zOffset);//call SetTextTagPosUnitBJ(bj_lastCreatedTextTag, whichUnit, zOffset)
-			SetTextTagColorBJ(bj_lastCreatedTextTag, red, green, blue, transparency);//call SetTextTagColorBJ(bj_lastCreatedTextTag, red, green, blue, transparency)
+			SetTextTagTextBJ(BlizzardJ.bj_lastCreatedTextTag, s, size);//call SetTextTagTextBJ(bj_lastCreatedTextTag, s, size)
+			SetTextTagPosUnitBJ(BlizzardJ.bj_lastCreatedTextTag, whichUnit, zOffset);//call SetTextTagPosUnitBJ(bj_lastCreatedTextTag, whichUnit, zOffset)
+			SetTextTagColorBJ(BlizzardJ.bj_lastCreatedTextTag, red, O08_JainaAi.green, blue, transparency);//call SetTextTagColorBJ(bj_lastCreatedTextTag, red, green, blue, transparency)
 			return bj_lastCreatedTextTag;//return bj_lastCreatedTextTag
 		}//endfunction
 		//
@@ -5258,7 +5258,7 @@ namespace Jass {
 		}//endfunction
 		//
 		private void PingMinimapLocForForceEx(force whichForce, location loc, float duration, int style, float red, float green, float blue) {//function PingMinimapLocForForceEx takes force whichForce, location loc, real duration, integer style, real red, real green, real blue returns nothing
-			PingMinimapForForceEx(whichForce, GetLocationX(loc), GetLocationY(loc), duration, style, red, green, blue);//call PingMinimapForForceEx(whichForce, GetLocationX(loc), GetLocationY(loc), duration, style, red, green, blue)
+			PingMinimapForForceEx(whichForce, GetLocationX(loc), GetLocationY(loc), duration, style, red, O08_JainaAi.green, blue);//call PingMinimapForForceEx(whichForce, GetLocationX(loc), GetLocationY(loc), duration, style, red, green, blue)
 		}//endfunction
 		//
 		private void EnableWorldFogBoundaryBJ(bool enable, force f) {//function EnableWorldFogBoundaryBJ takes boolean enable, force f returns nothing
@@ -5283,7 +5283,7 @@ namespace Jass {
 		//
 		//
 		private void CancelCineSceneBJ() {//function CancelCineSceneBJ takes nothing returns nothing
-			StopSoundBJ(bj_cineSceneLastSound, true);//call StopSoundBJ(bj_cineSceneLastSound, true)
+			StopSoundBJ(BlizzardJ.bj_cineSceneLastSound, true);//call StopSoundBJ(bj_cineSceneLastSound, true)
 			EndCinematicScene();//call EndCinematicScene()
 		}//endfunction
 		//
@@ -5298,11 +5298,11 @@ namespace Jass {
 				bj_cineSceneBeingSkipped = CreateTrigger();//set bj_cineSceneBeingSkipped = CreateTrigger()
 				index = 0;//set index = 0
 				while (true) {//loop
-					TriggerRegisterPlayerEvent(bj_cineSceneBeingSkipped, Player(index), EVENT_PLAYER_END_CINEMATIC);//call TriggerRegisterPlayerEvent(bj_cineSceneBeingSkipped, Player(index), EVENT_PLAYER_END_CINEMATIC)
+					TriggerRegisterPlayerEvent(BlizzardJ.bj_cineSceneBeingSkipped, Player(index), CommonJ.EVENT_PLAYER_END_CINEMATIC);//call TriggerRegisterPlayerEvent(bj_cineSceneBeingSkipped, Player(index), EVENT_PLAYER_END_CINEMATIC)
 					index = index + 1;//set index = index + 1
 					if (index == bj_MAX_PLAYERS) { break; }//exitwhen index == bj_MAX_PLAYERS
 				}//endloop
-				TriggerAddAction(bj_cineSceneBeingSkipped, function CancelCineSceneBJ);//call TriggerAddAction(bj_cineSceneBeingSkipped, function CancelCineSceneBJ)
+				TriggerAddAction(BlizzardJ.bj_cineSceneBeingSkipped, function CancelCineSceneBJ);//call TriggerAddAction(bj_cineSceneBeingSkipped, function CancelCineSceneBJ)
 			}//endif
 		}//endfunction
 		//
@@ -5337,7 +5337,7 @@ namespace Jass {
 				TriggerSleepAction(timeVal);//call TriggerSleepAction(timeVal)
 			} else if ((soundHandle == null)) {//elseif (soundHandle == null) then
 				//
-				TriggerSleepAction(bj_NOTHING_SOUND_DURATION);//call TriggerSleepAction(bj_NOTHING_SOUND_DURATION)
+				TriggerSleepAction(BlizzardJ.bj_NOTHING_SOUND_DURATION);//call TriggerSleepAction(bj_NOTHING_SOUND_DURATION)
 			} else if ((timeType == bj_TIMETYPE_SUB)) {//elseif (timeType == bj_TIMETYPE_SUB) then
 				//
 				//
@@ -5355,7 +5355,7 @@ namespace Jass {
 		private void DoTransmissionBasicsXYBJ(int unitId, playercolor color, float x, float y, sound soundHandle, string unitName, string message, float duration) {//function DoTransmissionBasicsXYBJ takes integer unitId, playercolor color, real x, real y, sound soundHandle, string unitName, string message, real duration returns nothing
 			SetCinematicSceneBJ(soundHandle, unitId, color, unitName, message, duration + bj_TRANSMISSION_PORT_HANGTIME, duration);//call SetCinematicSceneBJ(soundHandle, unitId, color, unitName, message, duration + bj_TRANSMISSION_PORT_HANGTIME, duration)
 			if ((unitId != 0)) {//if (unitId != 0) then
-				PingMinimap(x, y, bj_TRANSMISSION_PING_TIME);//call PingMinimap(x, y, bj_TRANSMISSION_PING_TIME)
+				PingMinimap(x, y, BlizzardJ.bj_TRANSMISSION_PING_TIME);//call PingMinimap(x, y, bj_TRANSMISSION_PING_TIME)
 				//
 			}//endif
 		}//endfunction
@@ -5379,11 +5379,11 @@ namespace Jass {
 				//
 				if ((whichUnit == null)) {//if (whichUnit == null) then
 					//
-					DoTransmissionBasicsXYBJ(0, PLAYER_COLOR_RED, 0, 0, soundHandle, unitName, message, bj_lastTransmissionDuration);//call DoTransmissionBasicsXYBJ(0, PLAYER_COLOR_RED, 0, 0, soundHandle, unitName, message, bj_lastTransmissionDuration)
+					DoTransmissionBasicsXYBJ(0, CommonJ.PLAYER_COLOR_RED, 0, 0, soundHandle, unitName, message, BlizzardJ.bj_lastTransmissionDuration);//call DoTransmissionBasicsXYBJ(0, PLAYER_COLOR_RED, 0, 0, soundHandle, unitName, message, bj_lastTransmissionDuration)
 				} else {//else
-					DoTransmissionBasicsXYBJ(GetUnitTypeId(whichUnit), GetPlayerColor(GetOwningPlayer(whichUnit)), GetUnitX(whichUnit), GetUnitY(whichUnit), soundHandle, unitName, message, bj_lastTransmissionDuration);//call DoTransmissionBasicsXYBJ(GetUnitTypeId(whichUnit), GetPlayerColor(GetOwningPlayer(whichUnit)), GetUnitX(whichUnit), GetUnitY(whichUnit), soundHandle, unitName, message, bj_lastTransmissionDuration)
+					DoTransmissionBasicsXYBJ(GetUnitTypeId(whichUnit), GetPlayerColor(GetOwningPlayer(whichUnit)), GetUnitX(whichUnit), GetUnitY(whichUnit), soundHandle, unitName, message, BlizzardJ.bj_lastTransmissionDuration);//call DoTransmissionBasicsXYBJ(GetUnitTypeId(whichUnit), GetPlayerColor(GetOwningPlayer(whichUnit)), GetUnitX(whichUnit), GetUnitY(whichUnit), soundHandle, unitName, message, bj_lastTransmissionDuration)
 					if ((!IsUnitHidden(whichUnit))) {//if (not IsUnitHidden(whichUnit)) then
-						UnitAddIndicator(whichUnit, bj_TRANSMISSION_IND_RED, bj_TRANSMISSION_IND_BLUE, bj_TRANSMISSION_IND_GREEN, bj_TRANSMISSION_IND_ALPHA);//call UnitAddIndicator(whichUnit, bj_TRANSMISSION_IND_RED, bj_TRANSMISSION_IND_BLUE, bj_TRANSMISSION_IND_GREEN, bj_TRANSMISSION_IND_ALPHA)
+						UnitAddIndicator(whichUnit, BlizzardJ.bj_TRANSMISSION_IND_RED, BlizzardJ.bj_TRANSMISSION_IND_BLUE, BlizzardJ.bj_TRANSMISSION_IND_GREEN, BlizzardJ.bj_TRANSMISSION_IND_ALPHA);//call UnitAddIndicator(whichUnit, bj_TRANSMISSION_IND_RED, bj_TRANSMISSION_IND_BLUE, bj_TRANSMISSION_IND_GREEN, bj_TRANSMISSION_IND_ALPHA)
 					}//endif
 				}//endif
 			}//endif
@@ -5404,7 +5404,7 @@ namespace Jass {
 			bj_lastPlayedSound = soundHandle;//set bj_lastPlayedSound = soundHandle
 			if ((IsPlayerInForce(GetLocalPlayer(), toForce))) {//if (IsPlayerInForce(GetLocalPlayer(), toForce)) then
 				//
-				DoTransmissionBasicsXYBJ(unitId, GetPlayerColor(fromPlayer), GetLocationX(loc), GetLocationY(loc), soundHandle, unitName, message, bj_lastTransmissionDuration);//call DoTransmissionBasicsXYBJ(unitId, GetPlayerColor(fromPlayer), GetLocationX(loc), GetLocationY(loc), soundHandle, unitName, message, bj_lastTransmissionDuration)
+				DoTransmissionBasicsXYBJ(unitId, GetPlayerColor(fromPlayer), GetLocationX(loc), GetLocationY(loc), soundHandle, unitName, message, BlizzardJ.bj_lastTransmissionDuration);//call DoTransmissionBasicsXYBJ(unitId, GetPlayerColor(fromPlayer), GetLocationX(loc), GetLocationY(loc), soundHandle, unitName, message, bj_lastTransmissionDuration)
 			}//endif
 			if (wait && (bj_lastTransmissionDuration > 0)) {//if wait and (bj_lastTransmissionDuration > 0) then
 				//
@@ -5468,8 +5468,8 @@ namespace Jass {
 					SetCineModeVolumeGroupsBJ();//call SetCineModeVolumeGroupsBJ()
 				}//endif
 				//
-				SetGameSpeed(bj_CINEMODE_GAMESPEED);//call SetGameSpeed(bj_CINEMODE_GAMESPEED)
-				SetMapFlag(MAP_LOCK_SPEED, true);//call SetMapFlag(MAP_LOCK_SPEED, true)
+				SetGameSpeed(BlizzardJ.bj_CINEMODE_GAMESPEED);//call SetGameSpeed(bj_CINEMODE_GAMESPEED)
+				SetMapFlag(CommonJ.MAP_LOCK_SPEED, true);//call SetMapFlag(MAP_LOCK_SPEED, true)
 				FogMaskEnable(false);//call FogMaskEnable(false)
 				FogEnable(false);//call FogEnable(false)
 				EnableWorldFogBoundary(false);//call EnableWorldFogBoundary(false)
@@ -5489,18 +5489,18 @@ namespace Jass {
 					CameraResetSmoothingFactorBJ();//call CameraResetSmoothingFactorBJ()
 				}//endif
 				//
-				SetMapFlag(MAP_LOCK_SPEED, false);//call SetMapFlag(MAP_LOCK_SPEED, false)
-				SetGameSpeed(bj_cineModePriorSpeed);//call SetGameSpeed(bj_cineModePriorSpeed)
-				FogMaskEnable(bj_cineModePriorMaskSetting);//call FogMaskEnable(bj_cineModePriorMaskSetting)
-				FogEnable(bj_cineModePriorFogSetting);//call FogEnable(bj_cineModePriorFogSetting)
+				SetMapFlag(CommonJ.MAP_LOCK_SPEED, false);//call SetMapFlag(MAP_LOCK_SPEED, false)
+				SetGameSpeed(BlizzardJ.bj_cineModePriorSpeed);//call SetGameSpeed(bj_cineModePriorSpeed)
+				FogMaskEnable(BlizzardJ.bj_cineModePriorMaskSetting);//call FogMaskEnable(bj_cineModePriorMaskSetting)
+				FogEnable(BlizzardJ.bj_cineModePriorFogSetting);//call FogEnable(bj_cineModePriorFogSetting)
 				EnableWorldFogBoundary(true);//call EnableWorldFogBoundary(true)
-				EnableDawnDusk(bj_cineModePriorDawnDusk);//call EnableDawnDusk(bj_cineModePriorDawnDusk)
-				SetRandomSeed(bj_cineModeSavedSeed);//call SetRandomSeed(bj_cineModeSavedSeed)
+				EnableDawnDusk(BlizzardJ.bj_cineModePriorDawnDusk);//call EnableDawnDusk(bj_cineModePriorDawnDusk)
+				SetRandomSeed(BlizzardJ.bj_cineModeSavedSeed);//call SetRandomSeed(bj_cineModeSavedSeed)
 			}//endif
 		}//endfunction
 		//
 		private void CinematicModeBJ(bool cineMode, force forForce) {//function CinematicModeBJ takes boolean cineMode, force forForce returns nothing
-			CinematicModeExBJ(cineMode, forForce, bj_CINEMODE_INTERFACEFADE);//call CinematicModeExBJ(cineMode, forForce, bj_CINEMODE_INTERFACEFADE)
+			CinematicModeExBJ(cineMode, forForce, BlizzardJ.bj_CINEMODE_INTERFACEFADE);//call CinematicModeExBJ(cineMode, forForce, bj_CINEMODE_INTERFACEFADE)
 		}//endfunction
 		//
 		//
@@ -5520,8 +5520,8 @@ namespace Jass {
 			}//endif
 			EnableUserUI(false);//call EnableUserUI(false)
 			SetCineFilterTexture(tex);//call SetCineFilterTexture(tex)
-			SetCineFilterBlendMode(BLEND_MODE_BLEND);//call SetCineFilterBlendMode(BLEND_MODE_BLEND)
-			SetCineFilterTexMapFlags(TEXMAP_FLAG_NONE);//call SetCineFilterTexMapFlags(TEXMAP_FLAG_NONE)
+			SetCineFilterBlendMode(CommonJ.BLEND_MODE_BLEND);//call SetCineFilterBlendMode(BLEND_MODE_BLEND)
+			SetCineFilterTexMapFlags(CommonJ.TEXMAP_FLAG_NONE);//call SetCineFilterTexMapFlags(TEXMAP_FLAG_NONE)
 			SetCineFilterStartUV(0, 0, 1, 1);//call SetCineFilterStartUV(0, 0, 1, 1)
 			SetCineFilterEndUV(0, 0, 1, 1);//call SetCineFilterEndUV(0, 0, 1, 1)
 			SetCineFilterStartColor(PercentTo255(red), PercentTo255(green), PercentTo255(blue), PercentTo255(100-startTrans));//call SetCineFilterStartColor(PercentTo255(red), PercentTo255(green), PercentTo255(blue), PercentTo255(100-startTrans))
@@ -5531,7 +5531,7 @@ namespace Jass {
 		}//endfunction
 		//
 		private void FinishCinematicFadeBJ() {//function FinishCinematicFadeBJ takes nothing returns nothing
-			DestroyTimer(bj_cineFadeFinishTimer);//call DestroyTimer(bj_cineFadeFinishTimer)
+			DestroyTimer(BlizzardJ.bj_cineFadeFinishTimer);//call DestroyTimer(bj_cineFadeFinishTimer)
 			bj_cineFadeFinishTimer = null;//set bj_cineFadeFinishTimer = null
 			DisplayCineFilter(false);//call DisplayCineFilter(false)
 			EnableUserUI(true);//call EnableUserUI(true)
@@ -5540,13 +5540,13 @@ namespace Jass {
 		private void FinishCinematicFadeAfterBJ(float duration) {//function FinishCinematicFadeAfterBJ takes real duration returns nothing
 			//
 			bj_cineFadeFinishTimer = CreateTimer();//set bj_cineFadeFinishTimer = CreateTimer()
-			TimerStart(bj_cineFadeFinishTimer, duration, false, function FinishCinematicFadeBJ);//call TimerStart(bj_cineFadeFinishTimer, duration, false, function FinishCinematicFadeBJ)
+			TimerStart(BlizzardJ.bj_cineFadeFinishTimer, duration, false, function FinishCinematicFadeBJ);//call TimerStart(bj_cineFadeFinishTimer, duration, false, function FinishCinematicFadeBJ)
 		}//endfunction
 		//
 		private void ContinueCinematicFadeBJ() {//function ContinueCinematicFadeBJ takes nothing returns nothing
-			DestroyTimer(bj_cineFadeContinueTimer);//call DestroyTimer(bj_cineFadeContinueTimer)
+			DestroyTimer(BlizzardJ.bj_cineFadeContinueTimer);//call DestroyTimer(bj_cineFadeContinueTimer)
 			bj_cineFadeContinueTimer = null;//set bj_cineFadeContinueTimer = null
-			CinematicFadeCommonBJ(bj_cineFadeContinueRed, bj_cineFadeContinueGreen, bj_cineFadeContinueBlue, bj_cineFadeContinueDuration, bj_cineFadeContinueTex, bj_cineFadeContinueTrans, 100);//call CinematicFadeCommonBJ(bj_cineFadeContinueRed, bj_cineFadeContinueGreen, bj_cineFadeContinueBlue, bj_cineFadeContinueDuration, bj_cineFadeContinueTex, bj_cineFadeContinueTrans, 100)
+			CinematicFadeCommonBJ(BlizzardJ.bj_cineFadeContinueRed, BlizzardJ.bj_cineFadeContinueGreen, BlizzardJ.bj_cineFadeContinueBlue, BlizzardJ.bj_cineFadeContinueDuration, BlizzardJ.bj_cineFadeContinueTex, BlizzardJ.bj_cineFadeContinueTrans, 100);//call CinematicFadeCommonBJ(bj_cineFadeContinueRed, bj_cineFadeContinueGreen, bj_cineFadeContinueBlue, bj_cineFadeContinueDuration, bj_cineFadeContinueTex, bj_cineFadeContinueTrans, 100)
 		}//endfunction
 		//
 		private void ContinueCinematicFadeAfterBJ(float duration, float red, float green, float blue, float trans, string tex) {//function ContinueCinematicFadeAfterBJ takes real duration, real red, real green, real blue, real trans, string tex returns nothing
@@ -5558,15 +5558,15 @@ namespace Jass {
 			bj_cineFadeContinueTex = tex;//set bj_cineFadeContinueTex = tex
 			//
 			bj_cineFadeContinueTimer = CreateTimer();//set bj_cineFadeContinueTimer = CreateTimer()
-			TimerStart(bj_cineFadeContinueTimer, duration, false, function ContinueCinematicFadeBJ);//call TimerStart(bj_cineFadeContinueTimer, duration, false, function ContinueCinematicFadeBJ)
+			TimerStart(BlizzardJ.bj_cineFadeContinueTimer, duration, false, function ContinueCinematicFadeBJ);//call TimerStart(bj_cineFadeContinueTimer, duration, false, function ContinueCinematicFadeBJ)
 		}//endfunction
 		//
 		private void AbortCinematicFadeBJ() {//function AbortCinematicFadeBJ takes nothing returns nothing
 			if ((bj_cineFadeContinueTimer != null)) {//if (bj_cineFadeContinueTimer != null) then
-				DestroyTimer(bj_cineFadeContinueTimer);//call DestroyTimer(bj_cineFadeContinueTimer)
+				DestroyTimer(BlizzardJ.bj_cineFadeContinueTimer);//call DestroyTimer(bj_cineFadeContinueTimer)
 			}//endif
 			if ((bj_cineFadeFinishTimer != null)) {//if (bj_cineFadeFinishTimer != null) then
-				DestroyTimer(bj_cineFadeFinishTimer);//call DestroyTimer(bj_cineFadeFinishTimer)
+				DestroyTimer(BlizzardJ.bj_cineFadeFinishTimer);//call DestroyTimer(bj_cineFadeFinishTimer)
 			}//endif
 		}//endfunction
 		//
@@ -5574,18 +5574,18 @@ namespace Jass {
 			if ((fadetype == bj_CINEFADETYPE_FADEOUT)) {//if (fadetype == bj_CINEFADETYPE_FADEOUT) then
 				//
 				AbortCinematicFadeBJ();//call AbortCinematicFadeBJ()
-				CinematicFadeCommonBJ(red, green, blue, duration, tex, 100, trans);//call CinematicFadeCommonBJ(red, green, blue, duration, tex, 100, trans)
+				CinematicFadeCommonBJ(red, O08_JainaAi.green, blue, duration, tex, 100, trans);//call CinematicFadeCommonBJ(red, green, blue, duration, tex, 100, trans)
 			} else if ((fadetype == bj_CINEFADETYPE_FADEIN)) {//elseif (fadetype == bj_CINEFADETYPE_FADEIN) then
 				//
 				AbortCinematicFadeBJ();//call AbortCinematicFadeBJ()
-				CinematicFadeCommonBJ(red, green, blue, duration, tex, trans, 100);//call CinematicFadeCommonBJ(red, green, blue, duration, tex, trans, 100)
+				CinematicFadeCommonBJ(red, O08_JainaAi.green, blue, duration, tex, trans, 100);//call CinematicFadeCommonBJ(red, green, blue, duration, tex, trans, 100)
 				FinishCinematicFadeAfterBJ(duration);//call FinishCinematicFadeAfterBJ(duration)
 			} else if ((fadetype == bj_CINEFADETYPE_FADEOUTIN)) {//elseif (fadetype == bj_CINEFADETYPE_FADEOUTIN) then
 				//
 				if ((duration > 0)) {//if (duration > 0) then
 					AbortCinematicFadeBJ();//call AbortCinematicFadeBJ()
-					CinematicFadeCommonBJ(red, green, blue, duration * 0.5, tex, 100, trans);//call CinematicFadeCommonBJ(red, green, blue, duration * 0.5, tex, 100, trans)
-					ContinueCinematicFadeAfterBJ(duration * 0.5, red, green, blue, trans, tex);//call ContinueCinematicFadeAfterBJ(duration * 0.5, red, green, blue, trans, tex)
+					CinematicFadeCommonBJ(red, O08_JainaAi.green, blue, duration * 0.5, tex, 100, trans);//call CinematicFadeCommonBJ(red, green, blue, duration * 0.5, tex, 100, trans)
+					ContinueCinematicFadeAfterBJ(duration * 0.5, red, O08_JainaAi.green, blue, trans, tex);//call ContinueCinematicFadeAfterBJ(duration * 0.5, red, green, blue, trans, tex)
 					FinishCinematicFadeAfterBJ(duration);//call FinishCinematicFadeAfterBJ(duration)
 				}//endif
 			} else {//else
@@ -5597,7 +5597,7 @@ namespace Jass {
 			AbortCinematicFadeBJ();//call AbortCinematicFadeBJ()
 			SetCineFilterTexture(tex);//call SetCineFilterTexture(tex)
 			SetCineFilterBlendMode(bmode);//call SetCineFilterBlendMode(bmode)
-			SetCineFilterTexMapFlags(TEXMAP_FLAG_NONE);//call SetCineFilterTexMapFlags(TEXMAP_FLAG_NONE)
+			SetCineFilterTexMapFlags(CommonJ.TEXMAP_FLAG_NONE);//call SetCineFilterTexMapFlags(TEXMAP_FLAG_NONE)
 			SetCineFilterStartUV(0, 0, 1, 1);//call SetCineFilterStartUV(0, 0, 1, 1)
 			SetCineFilterEndUV(0, 0, 1, 1);//call SetCineFilterEndUV(0, 0, 1, 1)
 			SetCineFilterStartColor(PercentTo255(red0), PercentTo255(green0), PercentTo255(blue0), PercentTo255(100-trans0));//call SetCineFilterStartColor(PercentTo255(red0), PercentTo255(green0), PercentTo255(blue0), PercentTo255(100-trans0))
@@ -5619,18 +5619,18 @@ namespace Jass {
 			if (IsUnitDeadBJ(whichUnit) || (GetOwningPlayer(whichUnit) == rescuer)) {//if IsUnitDeadBJ(whichUnit) or (GetOwningPlayer(whichUnit) == rescuer) then
 				return;//return
 			}//endif
-			StartSound(bj_rescueSound);//call StartSound(bj_rescueSound)
+			StartSound(BlizzardJ.bj_rescueSound);//call StartSound(bj_rescueSound)
 			SetUnitOwner(whichUnit, rescuer, changeColor);//call SetUnitOwner(whichUnit, rescuer, changeColor)
 			UnitAddIndicator(whichUnit, 0, 255, 0, 255);//call UnitAddIndicator(whichUnit, 0, 255, 0, 255)
-			PingMinimapForPlayer(rescuer, GetUnitX(whichUnit), GetUnitY(whichUnit), bj_RESCUE_PING_TIME);//call PingMinimapForPlayer(rescuer, GetUnitX(whichUnit), GetUnitY(whichUnit), bj_RESCUE_PING_TIME)
+			PingMinimapForPlayer(rescuer, GetUnitX(whichUnit), GetUnitY(whichUnit), BlizzardJ.bj_RESCUE_PING_TIME);//call PingMinimapForPlayer(rescuer, GetUnitX(whichUnit), GetUnitY(whichUnit), bj_RESCUE_PING_TIME)
 		}//endfunction
 		//
 		private void TriggerActionUnitRescuedBJ() {//function TriggerActionUnitRescuedBJ takes nothing returns nothing
 			unit theUnit = GetTriggerUnit();//local unit theUnit = GetTriggerUnit()
 			if (IsUnitType(theUnit, UNIT_TYPE_STRUCTURE)) {//if IsUnitType(theUnit, UNIT_TYPE_STRUCTURE) then
-				RescueUnitBJ(theUnit, GetOwningPlayer(GetRescuer()), bj_rescueChangeColorBldg);//call RescueUnitBJ(theUnit, GetOwningPlayer(GetRescuer()), bj_rescueChangeColorBldg)
+				RescueUnitBJ(theUnit, GetOwningPlayer(GetRescuer()), BlizzardJ.bj_rescueChangeColorBldg);//call RescueUnitBJ(theUnit, GetOwningPlayer(GetRescuer()), bj_rescueChangeColorBldg)
 			} else {//else
-				RescueUnitBJ(theUnit, GetOwningPlayer(GetRescuer()), bj_rescueChangeColorUnit);//call RescueUnitBJ(theUnit, GetOwningPlayer(GetRescuer()), bj_rescueChangeColorUnit)
+				RescueUnitBJ(theUnit, GetOwningPlayer(GetRescuer()), BlizzardJ.bj_rescueChangeColorUnit);//call RescueUnitBJ(theUnit, GetOwningPlayer(GetRescuer()), bj_rescueChangeColorUnit)
 			}//endif
 		}//endfunction
 		//
@@ -5644,11 +5644,11 @@ namespace Jass {
 				bj_rescueUnitBehavior = CreateTrigger();//set bj_rescueUnitBehavior = CreateTrigger()
 				index = 0;//set index = 0
 				while (true) {//loop
-					TriggerRegisterPlayerUnitEvent(bj_rescueUnitBehavior, Player(index), EVENT_PLAYER_UNIT_RESCUED, null);//call TriggerRegisterPlayerUnitEvent(bj_rescueUnitBehavior, Player(index), EVENT_PLAYER_UNIT_RESCUED, null)
+					TriggerRegisterPlayerUnitEvent(BlizzardJ.bj_rescueUnitBehavior, Player(index), CommonJ.EVENT_PLAYER_UNIT_RESCUED, null);//call TriggerRegisterPlayerUnitEvent(bj_rescueUnitBehavior, Player(index), EVENT_PLAYER_UNIT_RESCUED, null)
 					index = index + 1;//set index = index + 1
 					if (index == bj_MAX_PLAYER_SLOTS) { break; }//exitwhen index == bj_MAX_PLAYER_SLOTS
 				}//endloop
-				TriggerAddAction(bj_rescueUnitBehavior, function TriggerActionUnitRescuedBJ);//call TriggerAddAction(bj_rescueUnitBehavior, function TriggerActionUnitRescuedBJ)
+				TriggerAddAction(BlizzardJ.bj_rescueUnitBehavior, function TriggerActionUnitRescuedBJ);//call TriggerAddAction(bj_rescueUnitBehavior, function TriggerActionUnitRescuedBJ)
 			}//endif
 		}//endfunction
 		//
@@ -5668,7 +5668,7 @@ namespace Jass {
 		//
 		private void MakeUnitRescuableToForceBJEnum() {//function MakeUnitRescuableToForceBJEnum takes nothing returns nothing
 			TryInitRescuableTriggersBJ();//call TryInitRescuableTriggersBJ()
-			SetUnitRescuable(bj_makeUnitRescuableUnit, GetEnumPlayer(), bj_makeUnitRescuableFlag);//call SetUnitRescuable(bj_makeUnitRescuableUnit, GetEnumPlayer(), bj_makeUnitRescuableFlag)
+			SetUnitRescuable(BlizzardJ.bj_makeUnitRescuableUnit, GetEnumPlayer(), BlizzardJ.bj_makeUnitRescuableFlag);//call SetUnitRescuable(bj_makeUnitRescuableUnit, GetEnumPlayer(), bj_makeUnitRescuableFlag)
 		}//endfunction
 		//
 		private void MakeUnitRescuableToForceBJ(unit whichUnit, bool isRescuable, force whichForce) {//function MakeUnitRescuableToForceBJ takes unit whichUnit, boolean isRescuable, force whichForce returns nothing
@@ -5728,23 +5728,23 @@ namespace Jass {
 		//
 		private void SetCampaignMenuRaceBJ(int campaignNumber) {//function SetCampaignMenuRaceBJ takes integer campaignNumber returns nothing
 			if ((campaignNumber == bj_CAMPAIGN_INDEX_T)) {//if (campaignNumber == bj_CAMPAIGN_INDEX_T) then
-				SetCampaignMenuRace(RACE_OTHER);//call SetCampaignMenuRace(RACE_OTHER)
+				SetCampaignMenuRace(CommonJ.RACE_OTHER);//call SetCampaignMenuRace(RACE_OTHER)
 			} else if ((campaignNumber == bj_CAMPAIGN_INDEX_H)) {//elseif (campaignNumber == bj_CAMPAIGN_INDEX_H) then
-				SetCampaignMenuRace(RACE_HUMAN);//call SetCampaignMenuRace(RACE_HUMAN)
+				SetCampaignMenuRace(CommonJ.RACE_HUMAN);//call SetCampaignMenuRace(RACE_HUMAN)
 			} else if ((campaignNumber == bj_CAMPAIGN_INDEX_U)) {//elseif (campaignNumber == bj_CAMPAIGN_INDEX_U) then
-				SetCampaignMenuRace(RACE_UNDEAD);//call SetCampaignMenuRace(RACE_UNDEAD)
+				SetCampaignMenuRace(CommonJ.RACE_UNDEAD);//call SetCampaignMenuRace(RACE_UNDEAD)
 			} else if ((campaignNumber == bj_CAMPAIGN_INDEX_O)) {//elseif (campaignNumber == bj_CAMPAIGN_INDEX_O) then
-				SetCampaignMenuRace(RACE_ORC);//call SetCampaignMenuRace(RACE_ORC)
+				SetCampaignMenuRace(CommonJ.RACE_ORC);//call SetCampaignMenuRace(RACE_ORC)
 			} else if ((campaignNumber == bj_CAMPAIGN_INDEX_N)) {//elseif (campaignNumber == bj_CAMPAIGN_INDEX_N) then
-				SetCampaignMenuRace(RACE_NIGHTELF);//call SetCampaignMenuRace(RACE_NIGHTELF)
+				SetCampaignMenuRace(CommonJ.RACE_NIGHTELF);//call SetCampaignMenuRace(RACE_NIGHTELF)
 			} else if ((campaignNumber == bj_CAMPAIGN_INDEX_XN)) {//elseif (campaignNumber == bj_CAMPAIGN_INDEX_XN) then
-				SetCampaignMenuRaceEx(bj_CAMPAIGN_OFFSET_XN);//call SetCampaignMenuRaceEx(bj_CAMPAIGN_OFFSET_XN)
+				SetCampaignMenuRaceEx(BlizzardJ.bj_CAMPAIGN_OFFSET_XN);//call SetCampaignMenuRaceEx(bj_CAMPAIGN_OFFSET_XN)
 			} else if ((campaignNumber == bj_CAMPAIGN_INDEX_XH)) {//elseif (campaignNumber == bj_CAMPAIGN_INDEX_XH) then
-				SetCampaignMenuRaceEx(bj_CAMPAIGN_OFFSET_XH);//call SetCampaignMenuRaceEx(bj_CAMPAIGN_OFFSET_XH)
+				SetCampaignMenuRaceEx(BlizzardJ.bj_CAMPAIGN_OFFSET_XH);//call SetCampaignMenuRaceEx(bj_CAMPAIGN_OFFSET_XH)
 			} else if ((campaignNumber == bj_CAMPAIGN_INDEX_XU)) {//elseif (campaignNumber == bj_CAMPAIGN_INDEX_XU) then
-				SetCampaignMenuRaceEx(bj_CAMPAIGN_OFFSET_XU);//call SetCampaignMenuRaceEx(bj_CAMPAIGN_OFFSET_XU)
+				SetCampaignMenuRaceEx(BlizzardJ.bj_CAMPAIGN_OFFSET_XU);//call SetCampaignMenuRaceEx(bj_CAMPAIGN_OFFSET_XU)
 			} else if ((campaignNumber == bj_CAMPAIGN_INDEX_XO)) {//elseif (campaignNumber == bj_CAMPAIGN_INDEX_XO) then
-				SetCampaignMenuRaceEx(bj_CAMPAIGN_OFFSET_XO);//call SetCampaignMenuRaceEx(bj_CAMPAIGN_OFFSET_XO)
+				SetCampaignMenuRaceEx(BlizzardJ.bj_CAMPAIGN_OFFSET_XO);//call SetCampaignMenuRaceEx(bj_CAMPAIGN_OFFSET_XO)
 			} else {//else
 				//
 			}//endif
@@ -5785,37 +5785,37 @@ namespace Jass {
 		//
 		private void SetCinematicAvailableBJ(bool available, int cinematicIndex) {//function SetCinematicAvailableBJ takes boolean available, integer cinematicIndex returns nothing
 			if (( cinematicIndex == bj_CINEMATICINDEX_TOP )) {//if ( cinematicIndex == bj_CINEMATICINDEX_TOP ) then
-				SetOpCinematicAvailable(bj_CAMPAIGN_INDEX_T, available);//call SetOpCinematicAvailable( bj_CAMPAIGN_INDEX_T, available )
+				SetOpCinematicAvailable(BlizzardJ.bj_CAMPAIGN_INDEX_T, available);//call SetOpCinematicAvailable( bj_CAMPAIGN_INDEX_T, available )
 				PlayCinematic("TutorialOp");//call PlayCinematic( "TutorialOp" )
 			} else if ((cinematicIndex == bj_CINEMATICINDEX_HOP)) {//elseif (cinematicIndex == bj_CINEMATICINDEX_HOP) then
-				SetOpCinematicAvailable(bj_CAMPAIGN_INDEX_H, available);//call SetOpCinematicAvailable( bj_CAMPAIGN_INDEX_H, available )
+				SetOpCinematicAvailable(BlizzardJ.bj_CAMPAIGN_INDEX_H, available);//call SetOpCinematicAvailable( bj_CAMPAIGN_INDEX_H, available )
 				PlayCinematic("HumanOp");//call PlayCinematic( "HumanOp" )
 			} else if ((cinematicIndex == bj_CINEMATICINDEX_HED)) {//elseif (cinematicIndex == bj_CINEMATICINDEX_HED) then
-				SetEdCinematicAvailable(bj_CAMPAIGN_INDEX_H, available);//call SetEdCinematicAvailable( bj_CAMPAIGN_INDEX_H, available )
+				SetEdCinematicAvailable(BlizzardJ.bj_CAMPAIGN_INDEX_H, available);//call SetEdCinematicAvailable( bj_CAMPAIGN_INDEX_H, available )
 				PlayCinematic("HumanEd");//call PlayCinematic( "HumanEd" )
 			} else if ((cinematicIndex == bj_CINEMATICINDEX_OOP)) {//elseif (cinematicIndex == bj_CINEMATICINDEX_OOP) then
-				SetOpCinematicAvailable(bj_CAMPAIGN_INDEX_O, available);//call SetOpCinematicAvailable( bj_CAMPAIGN_INDEX_O, available )
+				SetOpCinematicAvailable(BlizzardJ.bj_CAMPAIGN_INDEX_O, available);//call SetOpCinematicAvailable( bj_CAMPAIGN_INDEX_O, available )
 				PlayCinematic("OrcOp");//call PlayCinematic( "OrcOp" )
 			} else if ((cinematicIndex == bj_CINEMATICINDEX_OED)) {//elseif (cinematicIndex == bj_CINEMATICINDEX_OED) then
-				SetEdCinematicAvailable(bj_CAMPAIGN_INDEX_O, available);//call SetEdCinematicAvailable( bj_CAMPAIGN_INDEX_O, available )
+				SetEdCinematicAvailable(BlizzardJ.bj_CAMPAIGN_INDEX_O, available);//call SetEdCinematicAvailable( bj_CAMPAIGN_INDEX_O, available )
 				PlayCinematic("OrcEd");//call PlayCinematic( "OrcEd" )
 			} else if ((cinematicIndex == bj_CINEMATICINDEX_UOP)) {//elseif (cinematicIndex == bj_CINEMATICINDEX_UOP) then
-				SetEdCinematicAvailable(bj_CAMPAIGN_INDEX_U, available);//call SetEdCinematicAvailable( bj_CAMPAIGN_INDEX_U, available )
+				SetEdCinematicAvailable(BlizzardJ.bj_CAMPAIGN_INDEX_U, available);//call SetEdCinematicAvailable( bj_CAMPAIGN_INDEX_U, available )
 				PlayCinematic("UndeadOp");//call PlayCinematic( "UndeadOp" )
 			} else if ((cinematicIndex == bj_CINEMATICINDEX_UED)) {//elseif (cinematicIndex == bj_CINEMATICINDEX_UED) then
-				SetEdCinematicAvailable(bj_CAMPAIGN_INDEX_U, available);//call SetEdCinematicAvailable( bj_CAMPAIGN_INDEX_U, available )
+				SetEdCinematicAvailable(BlizzardJ.bj_CAMPAIGN_INDEX_U, available);//call SetEdCinematicAvailable( bj_CAMPAIGN_INDEX_U, available )
 				PlayCinematic("UndeadEd");//call PlayCinematic( "UndeadEd" )
 			} else if ((cinematicIndex == bj_CINEMATICINDEX_NOP)) {//elseif (cinematicIndex == bj_CINEMATICINDEX_NOP) then
-				SetEdCinematicAvailable(bj_CAMPAIGN_INDEX_N, available);//call SetEdCinematicAvailable( bj_CAMPAIGN_INDEX_N, available )
+				SetEdCinematicAvailable(BlizzardJ.bj_CAMPAIGN_INDEX_N, available);//call SetEdCinematicAvailable( bj_CAMPAIGN_INDEX_N, available )
 				PlayCinematic("NightElfOp");//call PlayCinematic( "NightElfOp" )
 			} else if ((cinematicIndex == bj_CINEMATICINDEX_NED)) {//elseif (cinematicIndex == bj_CINEMATICINDEX_NED) then
-				SetEdCinematicAvailable(bj_CAMPAIGN_INDEX_N, available);//call SetEdCinematicAvailable( bj_CAMPAIGN_INDEX_N, available )
+				SetEdCinematicAvailable(BlizzardJ.bj_CAMPAIGN_INDEX_N, available);//call SetEdCinematicAvailable( bj_CAMPAIGN_INDEX_N, available )
 				PlayCinematic("NightElfEd");//call PlayCinematic( "NightElfEd" )
 			} else if ((cinematicIndex == bj_CINEMATICINDEX_XOP)) {//elseif (cinematicIndex == bj_CINEMATICINDEX_XOP) then
-				SetOpCinematicAvailable(bj_CAMPAIGN_OFFSET_XN, available);//call SetOpCinematicAvailable( bj_CAMPAIGN_OFFSET_XN, available )
+				SetOpCinematicAvailable(BlizzardJ.bj_CAMPAIGN_OFFSET_XN, available);//call SetOpCinematicAvailable( bj_CAMPAIGN_OFFSET_XN, available )
 				PlayCinematic("IntroX");//call PlayCinematic( "IntroX" )
 			} else if ((cinematicIndex == bj_CINEMATICINDEX_XED)) {//elseif (cinematicIndex == bj_CINEMATICINDEX_XED) then
-				SetEdCinematicAvailable(bj_CAMPAIGN_OFFSET_XU, available);//call SetEdCinematicAvailable( bj_CAMPAIGN_OFFSET_XU, available )
+				SetEdCinematicAvailable(BlizzardJ.bj_CAMPAIGN_OFFSET_XU, available);//call SetEdCinematicAvailable( bj_CAMPAIGN_OFFSET_XU, available )
 				PlayCinematic("OutroX");//call PlayCinematic( "OutroX" )
 			} else {//else
 				//
@@ -6387,9 +6387,9 @@ namespace Jass {
 			//
 			if ((delta > 0)) {//if (delta > 0) then
 				if ((whichPlayerState == PLAYER_STATE_RESOURCE_GOLD)) {//if (whichPlayerState == PLAYER_STATE_RESOURCE_GOLD) then
-					AdjustPlayerStateSimpleBJ(whichPlayer, PLAYER_STATE_GOLD_GATHERED, delta);//call AdjustPlayerStateSimpleBJ(whichPlayer, PLAYER_STATE_GOLD_GATHERED, delta)
+					AdjustPlayerStateSimpleBJ(whichPlayer, CommonJ.PLAYER_STATE_GOLD_GATHERED, delta);//call AdjustPlayerStateSimpleBJ(whichPlayer, PLAYER_STATE_GOLD_GATHERED, delta)
 				} else if ((whichPlayerState == PLAYER_STATE_RESOURCE_LUMBER)) {//elseif (whichPlayerState == PLAYER_STATE_RESOURCE_LUMBER) then
-					AdjustPlayerStateSimpleBJ(whichPlayer, PLAYER_STATE_LUMBER_GATHERED, delta);//call AdjustPlayerStateSimpleBJ(whichPlayer, PLAYER_STATE_LUMBER_GATHERED, delta)
+					AdjustPlayerStateSimpleBJ(whichPlayer, CommonJ.PLAYER_STATE_LUMBER_GATHERED, delta);//call AdjustPlayerStateSimpleBJ(whichPlayer, PLAYER_STATE_LUMBER_GATHERED, delta)
 				}//endif
 			}//endif
 			AdjustPlayerStateSimpleBJ(whichPlayer, whichPlayerState, delta);//call AdjustPlayerStateSimpleBJ(whichPlayer, whichPlayerState, delta)
@@ -6472,7 +6472,7 @@ namespace Jass {
 		}//endfunction
 		//
 		private void SetPlayerColorBJEnum() {//function SetPlayerColorBJEnum takes nothing returns nothing
-			SetUnitColor(GetEnumUnit(), bj_setPlayerTargetColor);//call SetUnitColor(GetEnumUnit(), bj_setPlayerTargetColor)
+			SetUnitColor(GetEnumUnit(), BlizzardJ.bj_setPlayerTargetColor);//call SetUnitColor(GetEnumUnit(), bj_setPlayerTargetColor)
 		}//endfunction
 		//
 		private void SetPlayerColorBJ(player whichPlayer, playercolor color, bool changeExisting) {//function SetPlayerColorBJ takes player whichPlayer, playercolor color, boolean changeExisting returns nothing
@@ -6496,11 +6496,11 @@ namespace Jass {
 		}//endfunction
 		//
 		private void LockGameSpeedBJ() {//function LockGameSpeedBJ takes nothing returns nothing
-			SetMapFlag(MAP_LOCK_SPEED, true);//call SetMapFlag(MAP_LOCK_SPEED, true)
+			SetMapFlag(CommonJ.MAP_LOCK_SPEED, true);//call SetMapFlag(MAP_LOCK_SPEED, true)
 		}//endfunction
 		//
 		private void UnlockGameSpeedBJ() {//function UnlockGameSpeedBJ takes nothing returns nothing
-			SetMapFlag(MAP_LOCK_SPEED, false);//call SetMapFlag(MAP_LOCK_SPEED, false)
+			SetMapFlag(CommonJ.MAP_LOCK_SPEED, false);//call SetMapFlag(MAP_LOCK_SPEED, false)
 		}//endfunction
 		//
 		private bool IssueTargetOrderBJ(unit whichUnit, string order, widget targetWidget) {//function IssueTargetOrderBJ takes unit whichUnit, string order, widget targetWidget returns boolean
@@ -6592,7 +6592,7 @@ namespace Jass {
 		//
 		private void MeleeStartingVisibility() {//function MeleeStartingVisibility takes nothing returns nothing
 			//
-			SetFloatGameState(GAME_STATE_TIME_OF_DAY, bj_MELEE_STARTING_TOD);//call SetFloatGameState(GAME_STATE_TIME_OF_DAY, bj_MELEE_STARTING_TOD)
+			SetFloatGameState(CommonJ.GAME_STATE_TIME_OF_DAY, BlizzardJ.bj_MELEE_STARTING_TOD);//call SetFloatGameState(GAME_STATE_TIME_OF_DAY, bj_MELEE_STARTING_TOD)
 			//
 			//
 		}//endfunction
@@ -6621,8 +6621,8 @@ namespace Jass {
 			while (true) {//loop
 				indexPlayer = Player(index);//set indexPlayer = Player(index)
 				if ((GetPlayerSlotState(indexPlayer) == PLAYER_SLOT_STATE_PLAYING)) {//if (GetPlayerSlotState(indexPlayer) == PLAYER_SLOT_STATE_PLAYING) then
-					SetPlayerState(indexPlayer, PLAYER_STATE_RESOURCE_GOLD, startingGold);//call SetPlayerState(indexPlayer, PLAYER_STATE_RESOURCE_GOLD, startingGold)
-					SetPlayerState(indexPlayer, PLAYER_STATE_RESOURCE_LUMBER, startingLumber);//call SetPlayerState(indexPlayer, PLAYER_STATE_RESOURCE_LUMBER, startingLumber)
+					SetPlayerState(indexPlayer, CommonJ.PLAYER_STATE_RESOURCE_GOLD, startingGold);//call SetPlayerState(indexPlayer, PLAYER_STATE_RESOURCE_GOLD, startingGold)
+					SetPlayerState(indexPlayer, CommonJ.PLAYER_STATE_RESOURCE_LUMBER, startingLumber);//call SetPlayerState(indexPlayer, PLAYER_STATE_RESOURCE_LUMBER, startingLumber)
 				}//endif
 				index = index + 1;//set index = index + 1
 				if (index == bj_MAX_PLAYERS) { break; }//exitwhen index == bj_MAX_PLAYERS
@@ -6647,32 +6647,32 @@ namespace Jass {
 			index = 0;//set index = 0
 			while (true) {//loop
 				//
-				SetPlayerMaxHeroesAllowed(bj_MELEE_HERO_LIMIT, Player(index));//call SetPlayerMaxHeroesAllowed(bj_MELEE_HERO_LIMIT, Player(index))
+				SetPlayerMaxHeroesAllowed(BlizzardJ.bj_MELEE_HERO_LIMIT, Player(index));//call SetPlayerMaxHeroesAllowed(bj_MELEE_HERO_LIMIT, Player(index))
 				//
-				ReducePlayerTechMaxAllowed(Player(index), 'Hamg', bj_MELEE_HERO_TYPE_LIMIT);//call ReducePlayerTechMaxAllowed(Player(index), 'Hamg', bj_MELEE_HERO_TYPE_LIMIT)
-				ReducePlayerTechMaxAllowed(Player(index), 'Hmkg', bj_MELEE_HERO_TYPE_LIMIT);//call ReducePlayerTechMaxAllowed(Player(index), 'Hmkg', bj_MELEE_HERO_TYPE_LIMIT)
-				ReducePlayerTechMaxAllowed(Player(index), 'Hpal', bj_MELEE_HERO_TYPE_LIMIT);//call ReducePlayerTechMaxAllowed(Player(index), 'Hpal', bj_MELEE_HERO_TYPE_LIMIT)
-				ReducePlayerTechMaxAllowed(Player(index), 'Hblm', bj_MELEE_HERO_TYPE_LIMIT);//call ReducePlayerTechMaxAllowed(Player(index), 'Hblm', bj_MELEE_HERO_TYPE_LIMIT)
-				ReducePlayerTechMaxAllowed(Player(index), 'Obla', bj_MELEE_HERO_TYPE_LIMIT);//call ReducePlayerTechMaxAllowed(Player(index), 'Obla', bj_MELEE_HERO_TYPE_LIMIT)
-				ReducePlayerTechMaxAllowed(Player(index), 'Ofar', bj_MELEE_HERO_TYPE_LIMIT);//call ReducePlayerTechMaxAllowed(Player(index), 'Ofar', bj_MELEE_HERO_TYPE_LIMIT)
-				ReducePlayerTechMaxAllowed(Player(index), 'Otch', bj_MELEE_HERO_TYPE_LIMIT);//call ReducePlayerTechMaxAllowed(Player(index), 'Otch', bj_MELEE_HERO_TYPE_LIMIT)
-				ReducePlayerTechMaxAllowed(Player(index), 'Oshd', bj_MELEE_HERO_TYPE_LIMIT);//call ReducePlayerTechMaxAllowed(Player(index), 'Oshd', bj_MELEE_HERO_TYPE_LIMIT)
-				ReducePlayerTechMaxAllowed(Player(index), 'Edem', bj_MELEE_HERO_TYPE_LIMIT);//call ReducePlayerTechMaxAllowed(Player(index), 'Edem', bj_MELEE_HERO_TYPE_LIMIT)
-				ReducePlayerTechMaxAllowed(Player(index), 'Ekee', bj_MELEE_HERO_TYPE_LIMIT);//call ReducePlayerTechMaxAllowed(Player(index), 'Ekee', bj_MELEE_HERO_TYPE_LIMIT)
-				ReducePlayerTechMaxAllowed(Player(index), 'Emoo', bj_MELEE_HERO_TYPE_LIMIT);//call ReducePlayerTechMaxAllowed(Player(index), 'Emoo', bj_MELEE_HERO_TYPE_LIMIT)
-				ReducePlayerTechMaxAllowed(Player(index), 'Ewar', bj_MELEE_HERO_TYPE_LIMIT);//call ReducePlayerTechMaxAllowed(Player(index), 'Ewar', bj_MELEE_HERO_TYPE_LIMIT)
-				ReducePlayerTechMaxAllowed(Player(index), 'Udea', bj_MELEE_HERO_TYPE_LIMIT);//call ReducePlayerTechMaxAllowed(Player(index), 'Udea', bj_MELEE_HERO_TYPE_LIMIT)
-				ReducePlayerTechMaxAllowed(Player(index), 'Udre', bj_MELEE_HERO_TYPE_LIMIT);//call ReducePlayerTechMaxAllowed(Player(index), 'Udre', bj_MELEE_HERO_TYPE_LIMIT)
-				ReducePlayerTechMaxAllowed(Player(index), 'Ulic', bj_MELEE_HERO_TYPE_LIMIT);//call ReducePlayerTechMaxAllowed(Player(index), 'Ulic', bj_MELEE_HERO_TYPE_LIMIT)
-				ReducePlayerTechMaxAllowed(Player(index), 'Ucrl', bj_MELEE_HERO_TYPE_LIMIT);//call ReducePlayerTechMaxAllowed(Player(index), 'Ucrl', bj_MELEE_HERO_TYPE_LIMIT)
-				ReducePlayerTechMaxAllowed(Player(index), 'Npbm', bj_MELEE_HERO_TYPE_LIMIT);//call ReducePlayerTechMaxAllowed(Player(index), 'Npbm', bj_MELEE_HERO_TYPE_LIMIT)
-				ReducePlayerTechMaxAllowed(Player(index), 'Nbrn', bj_MELEE_HERO_TYPE_LIMIT);//call ReducePlayerTechMaxAllowed(Player(index), 'Nbrn', bj_MELEE_HERO_TYPE_LIMIT)
-				ReducePlayerTechMaxAllowed(Player(index), 'Nngs', bj_MELEE_HERO_TYPE_LIMIT);//call ReducePlayerTechMaxAllowed(Player(index), 'Nngs', bj_MELEE_HERO_TYPE_LIMIT)
-				ReducePlayerTechMaxAllowed(Player(index), 'Nplh', bj_MELEE_HERO_TYPE_LIMIT);//call ReducePlayerTechMaxAllowed(Player(index), 'Nplh', bj_MELEE_HERO_TYPE_LIMIT)
-				ReducePlayerTechMaxAllowed(Player(index), 'Nbst', bj_MELEE_HERO_TYPE_LIMIT);//call ReducePlayerTechMaxAllowed(Player(index), 'Nbst', bj_MELEE_HERO_TYPE_LIMIT)
-				ReducePlayerTechMaxAllowed(Player(index), 'Nalc', bj_MELEE_HERO_TYPE_LIMIT);//call ReducePlayerTechMaxAllowed(Player(index), 'Nalc', bj_MELEE_HERO_TYPE_LIMIT)
-				ReducePlayerTechMaxAllowed(Player(index), 'Ntin', bj_MELEE_HERO_TYPE_LIMIT);//call ReducePlayerTechMaxAllowed(Player(index), 'Ntin', bj_MELEE_HERO_TYPE_LIMIT)
-				ReducePlayerTechMaxAllowed(Player(index), 'Nfir', bj_MELEE_HERO_TYPE_LIMIT);//call ReducePlayerTechMaxAllowed(Player(index), 'Nfir', bj_MELEE_HERO_TYPE_LIMIT)
+				ReducePlayerTechMaxAllowed(Player(index), 'Hamg', BlizzardJ.bj_MELEE_HERO_TYPE_LIMIT);//call ReducePlayerTechMaxAllowed(Player(index), 'Hamg', bj_MELEE_HERO_TYPE_LIMIT)
+				ReducePlayerTechMaxAllowed(Player(index), 'Hmkg', BlizzardJ.bj_MELEE_HERO_TYPE_LIMIT);//call ReducePlayerTechMaxAllowed(Player(index), 'Hmkg', bj_MELEE_HERO_TYPE_LIMIT)
+				ReducePlayerTechMaxAllowed(Player(index), 'Hpal', BlizzardJ.bj_MELEE_HERO_TYPE_LIMIT);//call ReducePlayerTechMaxAllowed(Player(index), 'Hpal', bj_MELEE_HERO_TYPE_LIMIT)
+				ReducePlayerTechMaxAllowed(Player(index), 'Hblm', BlizzardJ.bj_MELEE_HERO_TYPE_LIMIT);//call ReducePlayerTechMaxAllowed(Player(index), 'Hblm', bj_MELEE_HERO_TYPE_LIMIT)
+				ReducePlayerTechMaxAllowed(Player(index), 'Obla', BlizzardJ.bj_MELEE_HERO_TYPE_LIMIT);//call ReducePlayerTechMaxAllowed(Player(index), 'Obla', bj_MELEE_HERO_TYPE_LIMIT)
+				ReducePlayerTechMaxAllowed(Player(index), 'Ofar', BlizzardJ.bj_MELEE_HERO_TYPE_LIMIT);//call ReducePlayerTechMaxAllowed(Player(index), 'Ofar', bj_MELEE_HERO_TYPE_LIMIT)
+				ReducePlayerTechMaxAllowed(Player(index), 'Otch', BlizzardJ.bj_MELEE_HERO_TYPE_LIMIT);//call ReducePlayerTechMaxAllowed(Player(index), 'Otch', bj_MELEE_HERO_TYPE_LIMIT)
+				ReducePlayerTechMaxAllowed(Player(index), 'Oshd', BlizzardJ.bj_MELEE_HERO_TYPE_LIMIT);//call ReducePlayerTechMaxAllowed(Player(index), 'Oshd', bj_MELEE_HERO_TYPE_LIMIT)
+				ReducePlayerTechMaxAllowed(Player(index), 'Edem', BlizzardJ.bj_MELEE_HERO_TYPE_LIMIT);//call ReducePlayerTechMaxAllowed(Player(index), 'Edem', bj_MELEE_HERO_TYPE_LIMIT)
+				ReducePlayerTechMaxAllowed(Player(index), 'Ekee', BlizzardJ.bj_MELEE_HERO_TYPE_LIMIT);//call ReducePlayerTechMaxAllowed(Player(index), 'Ekee', bj_MELEE_HERO_TYPE_LIMIT)
+				ReducePlayerTechMaxAllowed(Player(index), 'Emoo', BlizzardJ.bj_MELEE_HERO_TYPE_LIMIT);//call ReducePlayerTechMaxAllowed(Player(index), 'Emoo', bj_MELEE_HERO_TYPE_LIMIT)
+				ReducePlayerTechMaxAllowed(Player(index), 'Ewar', BlizzardJ.bj_MELEE_HERO_TYPE_LIMIT);//call ReducePlayerTechMaxAllowed(Player(index), 'Ewar', bj_MELEE_HERO_TYPE_LIMIT)
+				ReducePlayerTechMaxAllowed(Player(index), 'Udea', BlizzardJ.bj_MELEE_HERO_TYPE_LIMIT);//call ReducePlayerTechMaxAllowed(Player(index), 'Udea', bj_MELEE_HERO_TYPE_LIMIT)
+				ReducePlayerTechMaxAllowed(Player(index), 'Udre', BlizzardJ.bj_MELEE_HERO_TYPE_LIMIT);//call ReducePlayerTechMaxAllowed(Player(index), 'Udre', bj_MELEE_HERO_TYPE_LIMIT)
+				ReducePlayerTechMaxAllowed(Player(index), 'Ulic', BlizzardJ.bj_MELEE_HERO_TYPE_LIMIT);//call ReducePlayerTechMaxAllowed(Player(index), 'Ulic', bj_MELEE_HERO_TYPE_LIMIT)
+				ReducePlayerTechMaxAllowed(Player(index), 'Ucrl', BlizzardJ.bj_MELEE_HERO_TYPE_LIMIT);//call ReducePlayerTechMaxAllowed(Player(index), 'Ucrl', bj_MELEE_HERO_TYPE_LIMIT)
+				ReducePlayerTechMaxAllowed(Player(index), 'Npbm', BlizzardJ.bj_MELEE_HERO_TYPE_LIMIT);//call ReducePlayerTechMaxAllowed(Player(index), 'Npbm', bj_MELEE_HERO_TYPE_LIMIT)
+				ReducePlayerTechMaxAllowed(Player(index), 'Nbrn', BlizzardJ.bj_MELEE_HERO_TYPE_LIMIT);//call ReducePlayerTechMaxAllowed(Player(index), 'Nbrn', bj_MELEE_HERO_TYPE_LIMIT)
+				ReducePlayerTechMaxAllowed(Player(index), 'Nngs', BlizzardJ.bj_MELEE_HERO_TYPE_LIMIT);//call ReducePlayerTechMaxAllowed(Player(index), 'Nngs', bj_MELEE_HERO_TYPE_LIMIT)
+				ReducePlayerTechMaxAllowed(Player(index), 'Nplh', BlizzardJ.bj_MELEE_HERO_TYPE_LIMIT);//call ReducePlayerTechMaxAllowed(Player(index), 'Nplh', bj_MELEE_HERO_TYPE_LIMIT)
+				ReducePlayerTechMaxAllowed(Player(index), 'Nbst', BlizzardJ.bj_MELEE_HERO_TYPE_LIMIT);//call ReducePlayerTechMaxAllowed(Player(index), 'Nbst', bj_MELEE_HERO_TYPE_LIMIT)
+				ReducePlayerTechMaxAllowed(Player(index), 'Nalc', BlizzardJ.bj_MELEE_HERO_TYPE_LIMIT);//call ReducePlayerTechMaxAllowed(Player(index), 'Nalc', bj_MELEE_HERO_TYPE_LIMIT)
+				ReducePlayerTechMaxAllowed(Player(index), 'Ntin', BlizzardJ.bj_MELEE_HERO_TYPE_LIMIT);//call ReducePlayerTechMaxAllowed(Player(index), 'Ntin', bj_MELEE_HERO_TYPE_LIMIT)
+				ReducePlayerTechMaxAllowed(Player(index), 'Nfir', BlizzardJ.bj_MELEE_HERO_TYPE_LIMIT);//call ReducePlayerTechMaxAllowed(Player(index), 'Nfir', bj_MELEE_HERO_TYPE_LIMIT)
 				index = index + 1;//set index = index + 1
 				if (index == bj_MAX_PLAYERS) { break; }//exitwhen index == bj_MAX_PLAYERS
 			}//endloop
@@ -6723,7 +6723,7 @@ namespace Jass {
 			index = 0;//set index = 0
 			while (true) {//loop
 				trig = CreateTrigger();//set trig = CreateTrigger()
-				TriggerRegisterPlayerUnitEvent(trig, Player(index), EVENT_PLAYER_UNIT_TRAIN_FINISH, filterMeleeTrainedUnitIsHeroBJ);//call TriggerRegisterPlayerUnitEvent(trig, Player(index), EVENT_PLAYER_UNIT_TRAIN_FINISH, filterMeleeTrainedUnitIsHeroBJ)
+				TriggerRegisterPlayerUnitEvent(trig, Player(index), CommonJ.EVENT_PLAYER_UNIT_TRAIN_FINISH, BlizzardJ.filterMeleeTrainedUnitIsHeroBJ);//call TriggerRegisterPlayerUnitEvent(trig, Player(index), EVENT_PLAYER_UNIT_TRAIN_FINISH, filterMeleeTrainedUnitIsHeroBJ)
 				TriggerAddAction(trig, function MeleeGrantItemsToTrainedHero);//call TriggerAddAction(trig, function MeleeGrantItemsToTrainedHero)
 				index = index + 1;//set index = index + 1
 				if (index == bj_MAX_PLAYERS) { break; }//exitwhen index == bj_MAX_PLAYERS
@@ -6731,7 +6731,7 @@ namespace Jass {
 			//
 			//
 			trig = CreateTrigger();//set trig = CreateTrigger()
-			TriggerRegisterPlayerUnitEvent(trig, Player(PLAYER_NEUTRAL_PASSIVE), EVENT_PLAYER_UNIT_SELL, filterMeleeTrainedUnitIsHeroBJ);//call TriggerRegisterPlayerUnitEvent(trig, Player(PLAYER_NEUTRAL_PASSIVE), EVENT_PLAYER_UNIT_SELL, filterMeleeTrainedUnitIsHeroBJ)
+			TriggerRegisterPlayerUnitEvent(trig, Player(PLAYER_NEUTRAL_PASSIVE), CommonJ.EVENT_PLAYER_UNIT_SELL, BlizzardJ.filterMeleeTrainedUnitIsHeroBJ);//call TriggerRegisterPlayerUnitEvent(trig, Player(PLAYER_NEUTRAL_PASSIVE), EVENT_PLAYER_UNIT_SELL, filterMeleeTrainedUnitIsHeroBJ)
 			TriggerAddAction(trig, function MeleeGrantItemsToHiredHero);//call TriggerAddAction(trig, function MeleeGrantItemsToHiredHero)
 			//
 			//
@@ -6777,7 +6777,7 @@ namespace Jass {
 				if ((GetPlayerSlotState(indexPlayer) == PLAYER_SLOT_STATE_PLAYING)) {//if (GetPlayerSlotState(indexPlayer) == PLAYER_SLOT_STATE_PLAYING) then
 					locX = GetStartLocationX(GetPlayerStartLocation(indexPlayer));//set locX = GetStartLocationX(GetPlayerStartLocation(indexPlayer))
 					locY = GetStartLocationY(GetPlayerStartLocation(indexPlayer));//set locY = GetStartLocationY(GetPlayerStartLocation(indexPlayer))
-					MeleeClearNearbyUnits(locX, locY, bj_MELEE_CLEAR_UNITS_RADIUS);//call MeleeClearNearbyUnits(locX, locY, bj_MELEE_CLEAR_UNITS_RADIUS)
+					MeleeClearNearbyUnits(locX, locY, BlizzardJ.bj_MELEE_CLEAR_UNITS_RADIUS);//call MeleeClearNearbyUnits(locX, locY, bj_MELEE_CLEAR_UNITS_RADIUS)
 				}//endif
 				index = index + 1;//set index = index + 1
 				if (index == bj_MAX_PLAYERS) { break; }//exitwhen index == bj_MAX_PLAYERS
@@ -6899,11 +6899,11 @@ namespace Jass {
 				nearMineLoc = MeleeGetProjectedLoc(GetUnitLoc(nearestMine), startLoc, 320, 0);//set nearMineLoc = MeleeGetProjectedLoc(GetUnitLoc(nearestMine), startLoc, 320, 0)
 				peonX = GetLocationX(nearMineLoc);//set peonX = GetLocationX(nearMineLoc)
 				peonY = GetLocationY(nearMineLoc);//set peonY = GetLocationY(nearMineLoc)
-				CreateUnit(whichPlayer, 'hpea', peonX + 0.00 * unitSpacing, peonY + 1.00 * unitSpacing, bj_UNIT_FACING);//call CreateUnit(whichPlayer, 'hpea', peonX + 0.00 * unitSpacing, peonY + 1.00 * unitSpacing, bj_UNIT_FACING)
-				CreateUnit(whichPlayer, 'hpea', peonX + 1.00 * unitSpacing, peonY + 0.15 * unitSpacing, bj_UNIT_FACING);//call CreateUnit(whichPlayer, 'hpea', peonX + 1.00 * unitSpacing, peonY + 0.15 * unitSpacing, bj_UNIT_FACING)
-				CreateUnit(whichPlayer, 'hpea', peonX - 1.00 * unitSpacing, peonY + 0.15 * unitSpacing, bj_UNIT_FACING);//call CreateUnit(whichPlayer, 'hpea', peonX - 1.00 * unitSpacing, peonY + 0.15 * unitSpacing, bj_UNIT_FACING)
-				CreateUnit(whichPlayer, 'hpea', peonX + 0.60 * unitSpacing, peonY - 1.00 * unitSpacing, bj_UNIT_FACING);//call CreateUnit(whichPlayer, 'hpea', peonX + 0.60 * unitSpacing, peonY - 1.00 * unitSpacing, bj_UNIT_FACING)
-				CreateUnit(whichPlayer, 'hpea', peonX - 0.60 * unitSpacing, peonY - 1.00 * unitSpacing, bj_UNIT_FACING);//call CreateUnit(whichPlayer, 'hpea', peonX - 0.60 * unitSpacing, peonY - 1.00 * unitSpacing, bj_UNIT_FACING)
+				CreateUnit(whichPlayer, 'hpea', peonX + 0.00 * unitSpacing, peonY + 1.00 * unitSpacing, BlizzardJ.bj_UNIT_FACING);//call CreateUnit(whichPlayer, 'hpea', peonX + 0.00 * unitSpacing, peonY + 1.00 * unitSpacing, bj_UNIT_FACING)
+				CreateUnit(whichPlayer, 'hpea', peonX + 1.00 * unitSpacing, peonY + 0.15 * unitSpacing, BlizzardJ.bj_UNIT_FACING);//call CreateUnit(whichPlayer, 'hpea', peonX + 1.00 * unitSpacing, peonY + 0.15 * unitSpacing, bj_UNIT_FACING)
+				CreateUnit(whichPlayer, 'hpea', peonX - 1.00 * unitSpacing, peonY + 0.15 * unitSpacing, BlizzardJ.bj_UNIT_FACING);//call CreateUnit(whichPlayer, 'hpea', peonX - 1.00 * unitSpacing, peonY + 0.15 * unitSpacing, bj_UNIT_FACING)
+				CreateUnit(whichPlayer, 'hpea', peonX + 0.60 * unitSpacing, peonY - 1.00 * unitSpacing, BlizzardJ.bj_UNIT_FACING);//call CreateUnit(whichPlayer, 'hpea', peonX + 0.60 * unitSpacing, peonY - 1.00 * unitSpacing, bj_UNIT_FACING)
+				CreateUnit(whichPlayer, 'hpea', peonX - 0.60 * unitSpacing, peonY - 1.00 * unitSpacing, BlizzardJ.bj_UNIT_FACING);//call CreateUnit(whichPlayer, 'hpea', peonX - 0.60 * unitSpacing, peonY - 1.00 * unitSpacing, bj_UNIT_FACING)
 				//
 				heroLoc = MeleeGetProjectedLoc(GetUnitLoc(nearestMine), startLoc, 384, 45);//set heroLoc = MeleeGetProjectedLoc(GetUnitLoc(nearestMine), startLoc, 384, 45)
 			} else {//else
@@ -6912,11 +6912,11 @@ namespace Jass {
 				//
 				peonX = GetLocationX(startLoc);//set peonX = GetLocationX(startLoc)
 				peonY = GetLocationY(startLoc) - 224.00;//set peonY = GetLocationY(startLoc) - 224.00
-				CreateUnit(whichPlayer, 'hpea', peonX + 2.00 * unitSpacing, peonY + 0.00 * unitSpacing, bj_UNIT_FACING);//call CreateUnit(whichPlayer, 'hpea', peonX + 2.00 * unitSpacing, peonY + 0.00 * unitSpacing, bj_UNIT_FACING)
-				CreateUnit(whichPlayer, 'hpea', peonX + 1.00 * unitSpacing, peonY + 0.00 * unitSpacing, bj_UNIT_FACING);//call CreateUnit(whichPlayer, 'hpea', peonX + 1.00 * unitSpacing, peonY + 0.00 * unitSpacing, bj_UNIT_FACING)
-				CreateUnit(whichPlayer, 'hpea', peonX + 0.00 * unitSpacing, peonY + 0.00 * unitSpacing, bj_UNIT_FACING);//call CreateUnit(whichPlayer, 'hpea', peonX + 0.00 * unitSpacing, peonY + 0.00 * unitSpacing, bj_UNIT_FACING)
-				CreateUnit(whichPlayer, 'hpea', peonX - 1.00 * unitSpacing, peonY + 0.00 * unitSpacing, bj_UNIT_FACING);//call CreateUnit(whichPlayer, 'hpea', peonX - 1.00 * unitSpacing, peonY + 0.00 * unitSpacing, bj_UNIT_FACING)
-				CreateUnit(whichPlayer, 'hpea', peonX - 2.00 * unitSpacing, peonY + 0.00 * unitSpacing, bj_UNIT_FACING);//call CreateUnit(whichPlayer, 'hpea', peonX - 2.00 * unitSpacing, peonY + 0.00 * unitSpacing, bj_UNIT_FACING)
+				CreateUnit(whichPlayer, 'hpea', peonX + 2.00 * unitSpacing, peonY + 0.00 * unitSpacing, BlizzardJ.bj_UNIT_FACING);//call CreateUnit(whichPlayer, 'hpea', peonX + 2.00 * unitSpacing, peonY + 0.00 * unitSpacing, bj_UNIT_FACING)
+				CreateUnit(whichPlayer, 'hpea', peonX + 1.00 * unitSpacing, peonY + 0.00 * unitSpacing, BlizzardJ.bj_UNIT_FACING);//call CreateUnit(whichPlayer, 'hpea', peonX + 1.00 * unitSpacing, peonY + 0.00 * unitSpacing, bj_UNIT_FACING)
+				CreateUnit(whichPlayer, 'hpea', peonX + 0.00 * unitSpacing, peonY + 0.00 * unitSpacing, BlizzardJ.bj_UNIT_FACING);//call CreateUnit(whichPlayer, 'hpea', peonX + 0.00 * unitSpacing, peonY + 0.00 * unitSpacing, bj_UNIT_FACING)
+				CreateUnit(whichPlayer, 'hpea', peonX - 1.00 * unitSpacing, peonY + 0.00 * unitSpacing, BlizzardJ.bj_UNIT_FACING);//call CreateUnit(whichPlayer, 'hpea', peonX - 1.00 * unitSpacing, peonY + 0.00 * unitSpacing, bj_UNIT_FACING)
+				CreateUnit(whichPlayer, 'hpea', peonX - 2.00 * unitSpacing, peonY + 0.00 * unitSpacing, BlizzardJ.bj_UNIT_FACING);//call CreateUnit(whichPlayer, 'hpea', peonX - 2.00 * unitSpacing, peonY + 0.00 * unitSpacing, bj_UNIT_FACING)
 				//
 				heroLoc = Location(peonX, peonY - 2.00 * unitSpacing);//set heroLoc = Location(peonX, peonY - 2.00 * unitSpacing)
 			}//endif
@@ -6930,7 +6930,7 @@ namespace Jass {
 				if (useRandomHero) {//if useRandomHero then
 					MeleeRandomHeroLoc(whichPlayer, 'Hamg', 'Hmkg', 'Hpal', 'Hblm', heroLoc);//call MeleeRandomHeroLoc(whichPlayer, 'Hamg', 'Hmkg', 'Hpal', 'Hblm', heroLoc)
 				} else {//else
-					SetPlayerState(whichPlayer, PLAYER_STATE_RESOURCE_HERO_TOKENS, bj_MELEE_STARTING_HERO_TOKENS);//call SetPlayerState(whichPlayer, PLAYER_STATE_RESOURCE_HERO_TOKENS, bj_MELEE_STARTING_HERO_TOKENS)
+					SetPlayerState(whichPlayer, CommonJ.PLAYER_STATE_RESOURCE_HERO_TOKENS, BlizzardJ.bj_MELEE_STARTING_HERO_TOKENS);//call SetPlayerState(whichPlayer, PLAYER_STATE_RESOURCE_HERO_TOKENS, bj_MELEE_STARTING_HERO_TOKENS)
 				}//endif
 			}//endif
 			if ((doCamera)) {//if (doCamera) then
@@ -6958,29 +6958,29 @@ namespace Jass {
 			nearestMine = MeleeFindNearestMine(startLoc, bj_MELEE_MINE_SEARCH_RADIUS);//set nearestMine = MeleeFindNearestMine(startLoc, bj_MELEE_MINE_SEARCH_RADIUS)
 			if ((nearestMine != null)) {//if (nearestMine != null) then
 				//
-				CreateUnitAtLoc(whichPlayer, 'ogre', startLoc, bj_UNIT_FACING);//call CreateUnitAtLoc(whichPlayer, 'ogre', startLoc, bj_UNIT_FACING)
+				CreateUnitAtLoc(whichPlayer, 'ogre', startLoc, BlizzardJ.bj_UNIT_FACING);//call CreateUnitAtLoc(whichPlayer, 'ogre', startLoc, bj_UNIT_FACING)
 				//
 				nearMineLoc = MeleeGetProjectedLoc(GetUnitLoc(nearestMine), startLoc, 320, 0);//set nearMineLoc = MeleeGetProjectedLoc(GetUnitLoc(nearestMine), startLoc, 320, 0)
 				peonX = GetLocationX(nearMineLoc);//set peonX = GetLocationX(nearMineLoc)
 				peonY = GetLocationY(nearMineLoc);//set peonY = GetLocationY(nearMineLoc)
-				CreateUnit(whichPlayer, 'opeo', peonX + 0.00 * unitSpacing, peonY + 1.00 * unitSpacing, bj_UNIT_FACING);//call CreateUnit(whichPlayer, 'opeo', peonX + 0.00 * unitSpacing, peonY + 1.00 * unitSpacing, bj_UNIT_FACING)
-				CreateUnit(whichPlayer, 'opeo', peonX + 1.00 * unitSpacing, peonY + 0.15 * unitSpacing, bj_UNIT_FACING);//call CreateUnit(whichPlayer, 'opeo', peonX + 1.00 * unitSpacing, peonY + 0.15 * unitSpacing, bj_UNIT_FACING)
-				CreateUnit(whichPlayer, 'opeo', peonX - 1.00 * unitSpacing, peonY + 0.15 * unitSpacing, bj_UNIT_FACING);//call CreateUnit(whichPlayer, 'opeo', peonX - 1.00 * unitSpacing, peonY + 0.15 * unitSpacing, bj_UNIT_FACING)
-				CreateUnit(whichPlayer, 'opeo', peonX + 0.60 * unitSpacing, peonY - 1.00 * unitSpacing, bj_UNIT_FACING);//call CreateUnit(whichPlayer, 'opeo', peonX + 0.60 * unitSpacing, peonY - 1.00 * unitSpacing, bj_UNIT_FACING)
-				CreateUnit(whichPlayer, 'opeo', peonX - 0.60 * unitSpacing, peonY - 1.00 * unitSpacing, bj_UNIT_FACING);//call CreateUnit(whichPlayer, 'opeo', peonX - 0.60 * unitSpacing, peonY - 1.00 * unitSpacing, bj_UNIT_FACING)
+				CreateUnit(whichPlayer, 'opeo', peonX + 0.00 * unitSpacing, peonY + 1.00 * unitSpacing, BlizzardJ.bj_UNIT_FACING);//call CreateUnit(whichPlayer, 'opeo', peonX + 0.00 * unitSpacing, peonY + 1.00 * unitSpacing, bj_UNIT_FACING)
+				CreateUnit(whichPlayer, 'opeo', peonX + 1.00 * unitSpacing, peonY + 0.15 * unitSpacing, BlizzardJ.bj_UNIT_FACING);//call CreateUnit(whichPlayer, 'opeo', peonX + 1.00 * unitSpacing, peonY + 0.15 * unitSpacing, bj_UNIT_FACING)
+				CreateUnit(whichPlayer, 'opeo', peonX - 1.00 * unitSpacing, peonY + 0.15 * unitSpacing, BlizzardJ.bj_UNIT_FACING);//call CreateUnit(whichPlayer, 'opeo', peonX - 1.00 * unitSpacing, peonY + 0.15 * unitSpacing, bj_UNIT_FACING)
+				CreateUnit(whichPlayer, 'opeo', peonX + 0.60 * unitSpacing, peonY - 1.00 * unitSpacing, BlizzardJ.bj_UNIT_FACING);//call CreateUnit(whichPlayer, 'opeo', peonX + 0.60 * unitSpacing, peonY - 1.00 * unitSpacing, bj_UNIT_FACING)
+				CreateUnit(whichPlayer, 'opeo', peonX - 0.60 * unitSpacing, peonY - 1.00 * unitSpacing, BlizzardJ.bj_UNIT_FACING);//call CreateUnit(whichPlayer, 'opeo', peonX - 0.60 * unitSpacing, peonY - 1.00 * unitSpacing, bj_UNIT_FACING)
 				//
 				heroLoc = MeleeGetProjectedLoc(GetUnitLoc(nearestMine), startLoc, 384, 45);//set heroLoc = MeleeGetProjectedLoc(GetUnitLoc(nearestMine), startLoc, 384, 45)
 			} else {//else
 				//
-				CreateUnitAtLoc(whichPlayer, 'ogre', startLoc, bj_UNIT_FACING);//call CreateUnitAtLoc(whichPlayer, 'ogre', startLoc, bj_UNIT_FACING)
+				CreateUnitAtLoc(whichPlayer, 'ogre', startLoc, BlizzardJ.bj_UNIT_FACING);//call CreateUnitAtLoc(whichPlayer, 'ogre', startLoc, bj_UNIT_FACING)
 				//
 				peonX = GetLocationX(startLoc);//set peonX = GetLocationX(startLoc)
 				peonY = GetLocationY(startLoc) - 224.00;//set peonY = GetLocationY(startLoc) - 224.00
-				CreateUnit(whichPlayer, 'opeo', peonX + 2.00 * unitSpacing, peonY + 0.00 * unitSpacing, bj_UNIT_FACING);//call CreateUnit(whichPlayer, 'opeo', peonX + 2.00 * unitSpacing, peonY + 0.00 * unitSpacing, bj_UNIT_FACING)
-				CreateUnit(whichPlayer, 'opeo', peonX + 1.00 * unitSpacing, peonY + 0.00 * unitSpacing, bj_UNIT_FACING);//call CreateUnit(whichPlayer, 'opeo', peonX + 1.00 * unitSpacing, peonY + 0.00 * unitSpacing, bj_UNIT_FACING)
-				CreateUnit(whichPlayer, 'opeo', peonX + 0.00 * unitSpacing, peonY + 0.00 * unitSpacing, bj_UNIT_FACING);//call CreateUnit(whichPlayer, 'opeo', peonX + 0.00 * unitSpacing, peonY + 0.00 * unitSpacing, bj_UNIT_FACING)
-				CreateUnit(whichPlayer, 'opeo', peonX - 1.00 * unitSpacing, peonY + 0.00 * unitSpacing, bj_UNIT_FACING);//call CreateUnit(whichPlayer, 'opeo', peonX - 1.00 * unitSpacing, peonY + 0.00 * unitSpacing, bj_UNIT_FACING)
-				CreateUnit(whichPlayer, 'opeo', peonX - 2.00 * unitSpacing, peonY + 0.00 * unitSpacing, bj_UNIT_FACING);//call CreateUnit(whichPlayer, 'opeo', peonX - 2.00 * unitSpacing, peonY + 0.00 * unitSpacing, bj_UNIT_FACING)
+				CreateUnit(whichPlayer, 'opeo', peonX + 2.00 * unitSpacing, peonY + 0.00 * unitSpacing, BlizzardJ.bj_UNIT_FACING);//call CreateUnit(whichPlayer, 'opeo', peonX + 2.00 * unitSpacing, peonY + 0.00 * unitSpacing, bj_UNIT_FACING)
+				CreateUnit(whichPlayer, 'opeo', peonX + 1.00 * unitSpacing, peonY + 0.00 * unitSpacing, BlizzardJ.bj_UNIT_FACING);//call CreateUnit(whichPlayer, 'opeo', peonX + 1.00 * unitSpacing, peonY + 0.00 * unitSpacing, bj_UNIT_FACING)
+				CreateUnit(whichPlayer, 'opeo', peonX + 0.00 * unitSpacing, peonY + 0.00 * unitSpacing, BlizzardJ.bj_UNIT_FACING);//call CreateUnit(whichPlayer, 'opeo', peonX + 0.00 * unitSpacing, peonY + 0.00 * unitSpacing, bj_UNIT_FACING)
+				CreateUnit(whichPlayer, 'opeo', peonX - 1.00 * unitSpacing, peonY + 0.00 * unitSpacing, BlizzardJ.bj_UNIT_FACING);//call CreateUnit(whichPlayer, 'opeo', peonX - 1.00 * unitSpacing, peonY + 0.00 * unitSpacing, bj_UNIT_FACING)
+				CreateUnit(whichPlayer, 'opeo', peonX - 2.00 * unitSpacing, peonY + 0.00 * unitSpacing, BlizzardJ.bj_UNIT_FACING);//call CreateUnit(whichPlayer, 'opeo', peonX - 2.00 * unitSpacing, peonY + 0.00 * unitSpacing, bj_UNIT_FACING)
 				//
 				heroLoc = Location(peonX, peonY - 2.00 * unitSpacing);//set heroLoc = Location(peonX, peonY - 2.00 * unitSpacing)
 			}//endif
@@ -6990,7 +6990,7 @@ namespace Jass {
 				if (useRandomHero) {//if useRandomHero then
 					MeleeRandomHeroLoc(whichPlayer, 'Obla', 'Ofar', 'Otch', 'Oshd', heroLoc);//call MeleeRandomHeroLoc(whichPlayer, 'Obla', 'Ofar', 'Otch', 'Oshd', heroLoc)
 				} else {//else
-					SetPlayerState(whichPlayer, PLAYER_STATE_RESOURCE_HERO_TOKENS, bj_MELEE_STARTING_HERO_TOKENS);//call SetPlayerState(whichPlayer, PLAYER_STATE_RESOURCE_HERO_TOKENS, bj_MELEE_STARTING_HERO_TOKENS)
+					SetPlayerState(whichPlayer, CommonJ.PLAYER_STATE_RESOURCE_HERO_TOKENS, BlizzardJ.bj_MELEE_STARTING_HERO_TOKENS);//call SetPlayerState(whichPlayer, PLAYER_STATE_RESOURCE_HERO_TOKENS, bj_MELEE_STARTING_HERO_TOKENS)
 				}//endif
 			}//endif
 			if ((doCamera)) {//if (doCamera) then
@@ -7024,7 +7024,7 @@ namespace Jass {
 			nearestMine = MeleeFindNearestMine(startLoc, bj_MELEE_MINE_SEARCH_RADIUS);//set nearestMine = MeleeFindNearestMine(startLoc, bj_MELEE_MINE_SEARCH_RADIUS)
 			if ((nearestMine != null)) {//if (nearestMine != null) then
 				//
-				CreateUnitAtLoc(whichPlayer, 'unpl', startLoc, bj_UNIT_FACING);//call CreateUnitAtLoc(whichPlayer, 'unpl', startLoc, bj_UNIT_FACING)
+				CreateUnitAtLoc(whichPlayer, 'unpl', startLoc, BlizzardJ.bj_UNIT_FACING);//call CreateUnitAtLoc(whichPlayer, 'unpl', startLoc, bj_UNIT_FACING)
 				//
 				nearestMine = BlightGoldMineForPlayerBJ(nearestMine, whichPlayer);//set nearestMine = BlightGoldMineForPlayerBJ(nearestMine, whichPlayer)
 				//
@@ -7036,25 +7036,25 @@ namespace Jass {
 				nearMineLoc = MeleeGetProjectedLoc(GetUnitLoc(nearestMine), startLoc, 320, 0);//set nearMineLoc = MeleeGetProjectedLoc(GetUnitLoc(nearestMine), startLoc, 320, 0)
 				peonX = GetLocationX(nearMineLoc);//set peonX = GetLocationX(nearMineLoc)
 				peonY = GetLocationY(nearMineLoc);//set peonY = GetLocationY(nearMineLoc)
-				CreateUnit(whichPlayer, 'uaco', peonX + 0.00 * unitSpacing, peonY + 0.50 * unitSpacing, bj_UNIT_FACING);//call CreateUnit(whichPlayer, 'uaco', peonX + 0.00 * unitSpacing, peonY + 0.50 * unitSpacing, bj_UNIT_FACING)
-				CreateUnit(whichPlayer, 'uaco', peonX + 0.65 * unitSpacing, peonY - 0.50 * unitSpacing, bj_UNIT_FACING);//call CreateUnit(whichPlayer, 'uaco', peonX + 0.65 * unitSpacing, peonY - 0.50 * unitSpacing, bj_UNIT_FACING)
-				CreateUnit(whichPlayer, 'uaco', peonX - 0.65 * unitSpacing, peonY - 0.50 * unitSpacing, bj_UNIT_FACING);//call CreateUnit(whichPlayer, 'uaco', peonX - 0.65 * unitSpacing, peonY - 0.50 * unitSpacing, bj_UNIT_FACING)
+				CreateUnit(whichPlayer, 'uaco', peonX + 0.00 * unitSpacing, peonY + 0.50 * unitSpacing, BlizzardJ.bj_UNIT_FACING);//call CreateUnit(whichPlayer, 'uaco', peonX + 0.00 * unitSpacing, peonY + 0.50 * unitSpacing, bj_UNIT_FACING)
+				CreateUnit(whichPlayer, 'uaco', peonX + 0.65 * unitSpacing, peonY - 0.50 * unitSpacing, BlizzardJ.bj_UNIT_FACING);//call CreateUnit(whichPlayer, 'uaco', peonX + 0.65 * unitSpacing, peonY - 0.50 * unitSpacing, bj_UNIT_FACING)
+				CreateUnit(whichPlayer, 'uaco', peonX - 0.65 * unitSpacing, peonY - 0.50 * unitSpacing, BlizzardJ.bj_UNIT_FACING);//call CreateUnit(whichPlayer, 'uaco', peonX - 0.65 * unitSpacing, peonY - 0.50 * unitSpacing, bj_UNIT_FACING)
 				//
-				SetBlightLoc(whichPlayer,nearMineLoc, 768, true);//call SetBlightLoc(whichPlayer,nearMineLoc, 768, true)
+				SetBlightLoc(whichPlayer, nearMineLoc, 768, true);//call SetBlightLoc(whichPlayer,nearMineLoc, 768, true)
 				//
 				heroLoc = MeleeGetProjectedLoc(GetUnitLoc(nearestMine), startLoc, 384, 45);//set heroLoc = MeleeGetProjectedLoc(GetUnitLoc(nearestMine), startLoc, 384, 45)
 			} else {//else
 				//
-				CreateUnitAtLoc(whichPlayer, 'unpl', startLoc, bj_UNIT_FACING);//call CreateUnitAtLoc(whichPlayer, 'unpl', startLoc, bj_UNIT_FACING)
+				CreateUnitAtLoc(whichPlayer, 'unpl', startLoc, BlizzardJ.bj_UNIT_FACING);//call CreateUnitAtLoc(whichPlayer, 'unpl', startLoc, bj_UNIT_FACING)
 				//
 				peonX = GetLocationX(startLoc);//set peonX = GetLocationX(startLoc)
 				peonY = GetLocationY(startLoc) - 224.00;//set peonY = GetLocationY(startLoc) - 224.00
-				CreateUnit(whichPlayer, 'uaco', peonX - 1.50 * unitSpacing, peonY + 0.00 * unitSpacing, bj_UNIT_FACING);//call CreateUnit(whichPlayer, 'uaco', peonX - 1.50 * unitSpacing, peonY + 0.00 * unitSpacing, bj_UNIT_FACING)
-				CreateUnit(whichPlayer, 'uaco', peonX - 0.50 * unitSpacing, peonY + 0.00 * unitSpacing, bj_UNIT_FACING);//call CreateUnit(whichPlayer, 'uaco', peonX - 0.50 * unitSpacing, peonY + 0.00 * unitSpacing, bj_UNIT_FACING)
-				CreateUnit(whichPlayer, 'uaco', peonX + 0.50 * unitSpacing, peonY + 0.00 * unitSpacing, bj_UNIT_FACING);//call CreateUnit(whichPlayer, 'uaco', peonX + 0.50 * unitSpacing, peonY + 0.00 * unitSpacing, bj_UNIT_FACING)
-				CreateUnit(whichPlayer, 'ugho', peonX + 1.50 * unitSpacing, peonY + 0.00 * unitSpacing, bj_UNIT_FACING);//call CreateUnit(whichPlayer, 'ugho', peonX + 1.50 * unitSpacing, peonY + 0.00 * unitSpacing, bj_UNIT_FACING)
+				CreateUnit(whichPlayer, 'uaco', peonX - 1.50 * unitSpacing, peonY + 0.00 * unitSpacing, BlizzardJ.bj_UNIT_FACING);//call CreateUnit(whichPlayer, 'uaco', peonX - 1.50 * unitSpacing, peonY + 0.00 * unitSpacing, bj_UNIT_FACING)
+				CreateUnit(whichPlayer, 'uaco', peonX - 0.50 * unitSpacing, peonY + 0.00 * unitSpacing, BlizzardJ.bj_UNIT_FACING);//call CreateUnit(whichPlayer, 'uaco', peonX - 0.50 * unitSpacing, peonY + 0.00 * unitSpacing, bj_UNIT_FACING)
+				CreateUnit(whichPlayer, 'uaco', peonX + 0.50 * unitSpacing, peonY + 0.00 * unitSpacing, BlizzardJ.bj_UNIT_FACING);//call CreateUnit(whichPlayer, 'uaco', peonX + 0.50 * unitSpacing, peonY + 0.00 * unitSpacing, bj_UNIT_FACING)
+				CreateUnit(whichPlayer, 'ugho', peonX + 1.50 * unitSpacing, peonY + 0.00 * unitSpacing, BlizzardJ.bj_UNIT_FACING);//call CreateUnit(whichPlayer, 'ugho', peonX + 1.50 * unitSpacing, peonY + 0.00 * unitSpacing, bj_UNIT_FACING)
 				//
-				SetBlightLoc(whichPlayer,startLoc, 768, true);//call SetBlightLoc(whichPlayer,startLoc, 768, true)
+				SetBlightLoc(whichPlayer, startLoc, 768, true);//call SetBlightLoc(whichPlayer,startLoc, 768, true)
 				//
 				heroLoc = Location(peonX, peonY - 2.00 * unitSpacing);//set heroLoc = Location(peonX, peonY - 2.00 * unitSpacing)
 			}//endif
@@ -7064,7 +7064,7 @@ namespace Jass {
 				if (useRandomHero) {//if useRandomHero then
 					MeleeRandomHeroLoc(whichPlayer, 'Udea', 'Udre', 'Ulic', 'Ucrl', heroLoc);//call MeleeRandomHeroLoc(whichPlayer, 'Udea', 'Udre', 'Ulic', 'Ucrl', heroLoc)
 				} else {//else
-					SetPlayerState(whichPlayer, PLAYER_STATE_RESOURCE_HERO_TOKENS, bj_MELEE_STARTING_HERO_TOKENS);//call SetPlayerState(whichPlayer, PLAYER_STATE_RESOURCE_HERO_TOKENS, bj_MELEE_STARTING_HERO_TOKENS)
+					SetPlayerState(whichPlayer, CommonJ.PLAYER_STATE_RESOURCE_HERO_TOKENS, BlizzardJ.bj_MELEE_STARTING_HERO_TOKENS);//call SetPlayerState(whichPlayer, PLAYER_STATE_RESOURCE_HERO_TOKENS, bj_MELEE_STARTING_HERO_TOKENS)
 				}//endif
 			}//endif
 			if ((doCamera)) {//if (doCamera) then
@@ -7107,24 +7107,24 @@ namespace Jass {
 				wispLoc = MeleeGetLocWithinRect(wispLoc, GetRectFromCircleBJ(GetUnitLoc(nearestMine), minWispDist));//set wispLoc = MeleeGetLocWithinRect(wispLoc, GetRectFromCircleBJ(GetUnitLoc(nearestMine), minWispDist))
 				peonX = GetLocationX(wispLoc);//set peonX = GetLocationX(wispLoc)
 				peonY = GetLocationY(wispLoc);//set peonY = GetLocationY(wispLoc)
-				CreateUnit(whichPlayer, 'ewsp', peonX + 0.00 * unitSpacing, peonY + 1.00 * unitSpacing, bj_UNIT_FACING);//call CreateUnit(whichPlayer, 'ewsp', peonX + 0.00 * unitSpacing, peonY + 1.00 * unitSpacing, bj_UNIT_FACING)
-				CreateUnit(whichPlayer, 'ewsp', peonX + 1.00 * unitSpacing, peonY + 0.15 * unitSpacing, bj_UNIT_FACING);//call CreateUnit(whichPlayer, 'ewsp', peonX + 1.00 * unitSpacing, peonY + 0.15 * unitSpacing, bj_UNIT_FACING)
-				CreateUnit(whichPlayer, 'ewsp', peonX - 1.00 * unitSpacing, peonY + 0.15 * unitSpacing, bj_UNIT_FACING);//call CreateUnit(whichPlayer, 'ewsp', peonX - 1.00 * unitSpacing, peonY + 0.15 * unitSpacing, bj_UNIT_FACING)
-				CreateUnit(whichPlayer, 'ewsp', peonX + 0.58 * unitSpacing, peonY - 1.00 * unitSpacing, bj_UNIT_FACING);//call CreateUnit(whichPlayer, 'ewsp', peonX + 0.58 * unitSpacing, peonY - 1.00 * unitSpacing, bj_UNIT_FACING)
-				CreateUnit(whichPlayer, 'ewsp', peonX - 0.58 * unitSpacing, peonY - 1.00 * unitSpacing, bj_UNIT_FACING);//call CreateUnit(whichPlayer, 'ewsp', peonX - 0.58 * unitSpacing, peonY - 1.00 * unitSpacing, bj_UNIT_FACING)
+				CreateUnit(whichPlayer, 'ewsp', peonX + 0.00 * unitSpacing, peonY + 1.00 * unitSpacing, BlizzardJ.bj_UNIT_FACING);//call CreateUnit(whichPlayer, 'ewsp', peonX + 0.00 * unitSpacing, peonY + 1.00 * unitSpacing, bj_UNIT_FACING)
+				CreateUnit(whichPlayer, 'ewsp', peonX + 1.00 * unitSpacing, peonY + 0.15 * unitSpacing, BlizzardJ.bj_UNIT_FACING);//call CreateUnit(whichPlayer, 'ewsp', peonX + 1.00 * unitSpacing, peonY + 0.15 * unitSpacing, bj_UNIT_FACING)
+				CreateUnit(whichPlayer, 'ewsp', peonX - 1.00 * unitSpacing, peonY + 0.15 * unitSpacing, BlizzardJ.bj_UNIT_FACING);//call CreateUnit(whichPlayer, 'ewsp', peonX - 1.00 * unitSpacing, peonY + 0.15 * unitSpacing, bj_UNIT_FACING)
+				CreateUnit(whichPlayer, 'ewsp', peonX + 0.58 * unitSpacing, peonY - 1.00 * unitSpacing, BlizzardJ.bj_UNIT_FACING);//call CreateUnit(whichPlayer, 'ewsp', peonX + 0.58 * unitSpacing, peonY - 1.00 * unitSpacing, bj_UNIT_FACING)
+				CreateUnit(whichPlayer, 'ewsp', peonX - 0.58 * unitSpacing, peonY - 1.00 * unitSpacing, BlizzardJ.bj_UNIT_FACING);//call CreateUnit(whichPlayer, 'ewsp', peonX - 0.58 * unitSpacing, peonY - 1.00 * unitSpacing, bj_UNIT_FACING)
 				//
 				heroLoc = MeleeGetProjectedLoc(GetUnitLoc(nearestMine), startLoc, 384, 45);//set heroLoc = MeleeGetProjectedLoc(GetUnitLoc(nearestMine), startLoc, 384, 45)
 			} else {//else
 				//
-				CreateUnitAtLoc(whichPlayer, 'etol', startLoc, bj_UNIT_FACING);//call CreateUnitAtLoc(whichPlayer, 'etol', startLoc, bj_UNIT_FACING)
+				CreateUnitAtLoc(whichPlayer, 'etol', startLoc, BlizzardJ.bj_UNIT_FACING);//call CreateUnitAtLoc(whichPlayer, 'etol', startLoc, bj_UNIT_FACING)
 				//
 				peonX = GetLocationX(startLoc);//set peonX = GetLocationX(startLoc)
 				peonY = GetLocationY(startLoc) - 224.00;//set peonY = GetLocationY(startLoc) - 224.00
-				CreateUnit(whichPlayer, 'ewsp', peonX - 2.00 * unitSpacing, peonY + 0.00 * unitSpacing, bj_UNIT_FACING);//call CreateUnit(whichPlayer, 'ewsp', peonX - 2.00 * unitSpacing, peonY + 0.00 * unitSpacing, bj_UNIT_FACING)
-				CreateUnit(whichPlayer, 'ewsp', peonX - 1.00 * unitSpacing, peonY + 0.00 * unitSpacing, bj_UNIT_FACING);//call CreateUnit(whichPlayer, 'ewsp', peonX - 1.00 * unitSpacing, peonY + 0.00 * unitSpacing, bj_UNIT_FACING)
-				CreateUnit(whichPlayer, 'ewsp', peonX + 0.00 * unitSpacing, peonY + 0.00 * unitSpacing, bj_UNIT_FACING);//call CreateUnit(whichPlayer, 'ewsp', peonX + 0.00 * unitSpacing, peonY + 0.00 * unitSpacing, bj_UNIT_FACING)
-				CreateUnit(whichPlayer, 'ewsp', peonX + 1.00 * unitSpacing, peonY + 0.00 * unitSpacing, bj_UNIT_FACING);//call CreateUnit(whichPlayer, 'ewsp', peonX + 1.00 * unitSpacing, peonY + 0.00 * unitSpacing, bj_UNIT_FACING)
-				CreateUnit(whichPlayer, 'ewsp', peonX + 2.00 * unitSpacing, peonY + 0.00 * unitSpacing, bj_UNIT_FACING);//call CreateUnit(whichPlayer, 'ewsp', peonX + 2.00 * unitSpacing, peonY + 0.00 * unitSpacing, bj_UNIT_FACING)
+				CreateUnit(whichPlayer, 'ewsp', peonX - 2.00 * unitSpacing, peonY + 0.00 * unitSpacing, BlizzardJ.bj_UNIT_FACING);//call CreateUnit(whichPlayer, 'ewsp', peonX - 2.00 * unitSpacing, peonY + 0.00 * unitSpacing, bj_UNIT_FACING)
+				CreateUnit(whichPlayer, 'ewsp', peonX - 1.00 * unitSpacing, peonY + 0.00 * unitSpacing, BlizzardJ.bj_UNIT_FACING);//call CreateUnit(whichPlayer, 'ewsp', peonX - 1.00 * unitSpacing, peonY + 0.00 * unitSpacing, bj_UNIT_FACING)
+				CreateUnit(whichPlayer, 'ewsp', peonX + 0.00 * unitSpacing, peonY + 0.00 * unitSpacing, BlizzardJ.bj_UNIT_FACING);//call CreateUnit(whichPlayer, 'ewsp', peonX + 0.00 * unitSpacing, peonY + 0.00 * unitSpacing, bj_UNIT_FACING)
+				CreateUnit(whichPlayer, 'ewsp', peonX + 1.00 * unitSpacing, peonY + 0.00 * unitSpacing, BlizzardJ.bj_UNIT_FACING);//call CreateUnit(whichPlayer, 'ewsp', peonX + 1.00 * unitSpacing, peonY + 0.00 * unitSpacing, bj_UNIT_FACING)
+				CreateUnit(whichPlayer, 'ewsp', peonX + 2.00 * unitSpacing, peonY + 0.00 * unitSpacing, BlizzardJ.bj_UNIT_FACING);//call CreateUnit(whichPlayer, 'ewsp', peonX + 2.00 * unitSpacing, peonY + 0.00 * unitSpacing, bj_UNIT_FACING)
 				//
 				heroLoc = Location(peonX, peonY - 2.00 * unitSpacing);//set heroLoc = Location(peonX, peonY - 2.00 * unitSpacing)
 			}//endif
@@ -7134,7 +7134,7 @@ namespace Jass {
 				if (useRandomHero) {//if useRandomHero then
 					MeleeRandomHeroLoc(whichPlayer, 'Edem', 'Ekee', 'Emoo', 'Ewar', heroLoc);//call MeleeRandomHeroLoc(whichPlayer, 'Edem', 'Ekee', 'Emoo', 'Ewar', heroLoc)
 				} else {//else
-					SetPlayerState(whichPlayer, PLAYER_STATE_RESOURCE_HERO_TOKENS, bj_MELEE_STARTING_HERO_TOKENS);//call SetPlayerState(whichPlayer, PLAYER_STATE_RESOURCE_HERO_TOKENS, bj_MELEE_STARTING_HERO_TOKENS)
+					SetPlayerState(whichPlayer, CommonJ.PLAYER_STATE_RESOURCE_HERO_TOKENS, BlizzardJ.bj_MELEE_STARTING_HERO_TOKENS);//call SetPlayerState(whichPlayer, PLAYER_STATE_RESOURCE_HERO_TOKENS, bj_MELEE_STARTING_HERO_TOKENS)
 				}//endif
 			}//endif
 			if ((doCamera)) {//if (doCamera) then
@@ -7159,7 +7159,7 @@ namespace Jass {
 			}//endloop
 			if ((doHeroes)) {//if (doHeroes) then
 				//
-				SetPlayerState(whichPlayer, PLAYER_STATE_RESOURCE_HERO_TOKENS, bj_MELEE_STARTING_HERO_TOKENS);//call SetPlayerState(whichPlayer, PLAYER_STATE_RESOURCE_HERO_TOKENS, bj_MELEE_STARTING_HERO_TOKENS)
+				SetPlayerState(whichPlayer, CommonJ.PLAYER_STATE_RESOURCE_HERO_TOKENS, BlizzardJ.bj_MELEE_STARTING_HERO_TOKENS);//call SetPlayerState(whichPlayer, PLAYER_STATE_RESOURCE_HERO_TOKENS, bj_MELEE_STARTING_HERO_TOKENS)
 			}//endif
 			if ((doCamera)) {//if (doCamera) then
 				//
@@ -7224,7 +7224,7 @@ namespace Jass {
 			//
 			//
 			if (GetAIDifficulty(num) == AI_DIFFICULTY_NEWBIE) {//if GetAIDifficulty(num) == AI_DIFFICULTY_NEWBIE then
-				StartMeleeAI(num,s1);//call StartMeleeAI(num,s1)
+				StartMeleeAI(num, s1);//call StartMeleeAI(num,s1)
 				return;//return
 			}//endif
 			if (s2 == null) {//if s2 == null then
@@ -7235,11 +7235,11 @@ namespace Jass {
 				pick = GetRandomInt(1,3);//set pick = GetRandomInt(1,3)
 			}//endif
 			if (pick == 1) {//if pick == 1 then
-				StartMeleeAI(num,s1);//call StartMeleeAI(num,s1)
+				StartMeleeAI(num, s1);//call StartMeleeAI(num,s1)
 			} else if (pick == 2) {//elseif pick == 2 then
-				StartMeleeAI(num,s2);//call StartMeleeAI(num,s2)
+				StartMeleeAI(num, s2);//call StartMeleeAI(num,s2)
 			} else {//else
-				StartMeleeAI(num,s3);//call StartMeleeAI(num,s3)
+				StartMeleeAI(num, s3);//call StartMeleeAI(num,s3)
 			}//endif
 		}//endfunction
 		//
@@ -7274,7 +7274,7 @@ namespace Jass {
 			}//endloop
 		}//endfunction
 		private void LockGuardPosition(unit targ) {//function LockGuardPosition takes unit targ returns nothing
-			SetUnitCreepGuard(targ,true);//call SetUnitCreepGuard(targ,true)
+			SetUnitCreepGuard(N07x04Ai.targ, true);//call SetUnitCreepGuard(targ,true)
 		}//endfunction
 		//
 		//
@@ -7383,7 +7383,7 @@ namespace Jass {
 		private void MeleeDoDrawEnum() {//function MeleeDoDrawEnum takes nothing returns nothing
 			player thePlayer = GetEnumPlayer();//local player thePlayer = GetEnumPlayer()
 			CachePlayerHeroData(thePlayer);//call CachePlayerHeroData(thePlayer)
-			RemovePlayerPreserveUnitsBJ(thePlayer, PLAYER_GAME_RESULT_TIE, false);//call RemovePlayerPreserveUnitsBJ(thePlayer, PLAYER_GAME_RESULT_TIE, false)
+			RemovePlayerPreserveUnitsBJ(thePlayer, CommonJ.PLAYER_GAME_RESULT_TIE, false);//call RemovePlayerPreserveUnitsBJ(thePlayer, PLAYER_GAME_RESULT_TIE, false)
 		}//endfunction
 		//
 		//
@@ -7394,7 +7394,7 @@ namespace Jass {
 			if ((!bj_meleeVictoried[playerIndex])) {//if (not bj_meleeVictoried[playerIndex]) then
 				bj_meleeVictoried[playerIndex] = true;//set bj_meleeVictoried[playerIndex] = true
 				CachePlayerHeroData(thePlayer);//call CachePlayerHeroData(thePlayer)
-				RemovePlayerPreserveUnitsBJ(thePlayer, PLAYER_GAME_RESULT_VICTORY, false);//call RemovePlayerPreserveUnitsBJ(thePlayer, PLAYER_GAME_RESULT_VICTORY, false)
+				RemovePlayerPreserveUnitsBJ(thePlayer, CommonJ.PLAYER_GAME_RESULT_VICTORY, false);//call RemovePlayerPreserveUnitsBJ(thePlayer, PLAYER_GAME_RESULT_VICTORY, false)
 			}//endif
 		}//endfunction
 		//
@@ -7402,7 +7402,7 @@ namespace Jass {
 		//
 		private void MeleeDoDefeat(player whichPlayer) {//function MeleeDoDefeat takes player whichPlayer returns nothing
 			bj_meleeDefeated[GetPlayerId(whichPlayer)] = true;//set bj_meleeDefeated[GetPlayerId(whichPlayer)] = true
-			RemovePlayerPreserveUnitsBJ(whichPlayer, PLAYER_GAME_RESULT_DEFEAT, false);//call RemovePlayerPreserveUnitsBJ(whichPlayer, PLAYER_GAME_RESULT_DEFEAT, false)
+			RemovePlayerPreserveUnitsBJ(whichPlayer, CommonJ.PLAYER_GAME_RESULT_DEFEAT, false);//call RemovePlayerPreserveUnitsBJ(whichPlayer, PLAYER_GAME_RESULT_DEFEAT, false)
 		}//endfunction
 		//
 		//
@@ -7422,7 +7422,7 @@ namespace Jass {
 				GameOverDialogBJ(whichPlayer, true);//call GameOverDialogBJ( whichPlayer, true )
 			} else {//else
 				bj_meleeDefeated[GetPlayerId(whichPlayer)] = true;//set bj_meleeDefeated[GetPlayerId(whichPlayer)] = true
-				RemovePlayerPreserveUnitsBJ(whichPlayer, PLAYER_GAME_RESULT_DEFEAT, true);//call RemovePlayerPreserveUnitsBJ(whichPlayer, PLAYER_GAME_RESULT_DEFEAT, true)
+				RemovePlayerPreserveUnitsBJ(whichPlayer, CommonJ.PLAYER_GAME_RESULT_DEFEAT, true);//call RemovePlayerPreserveUnitsBJ(whichPlayer, PLAYER_GAME_RESULT_DEFEAT, true)
 			}//endif
 		}//endfunction
 		//
@@ -7436,7 +7436,7 @@ namespace Jass {
 			while (true) {//loop
 				indexPlayer = Player(playerIndex);//set indexPlayer = Player(playerIndex)
 				if ((IsPlayerObserver(indexPlayer))) {//if (IsPlayerObserver(indexPlayer)) then
-					RemovePlayerPreserveUnitsBJ(indexPlayer, PLAYER_GAME_RESULT_NEUTRAL, false);//call RemovePlayerPreserveUnitsBJ(indexPlayer, PLAYER_GAME_RESULT_NEUTRAL, false)
+					RemovePlayerPreserveUnitsBJ(indexPlayer, CommonJ.PLAYER_GAME_RESULT_NEUTRAL, false);//call RemovePlayerPreserveUnitsBJ(indexPlayer, PLAYER_GAME_RESULT_NEUTRAL, false)
 				}//endif
 				playerIndex = playerIndex + 1;//set playerIndex = playerIndex + 1
 				if (playerIndex == bj_MAX_PLAYERS) { break; }//exitwhen playerIndex == bj_MAX_PLAYERS
@@ -7642,7 +7642,7 @@ namespace Jass {
 				TimerDialogDisplay(bj_crippledTimerWindows[playerIndex], false);//call TimerDialogDisplay(bj_crippledTimerWindows[playerIndex], false)
 			}//endif
 			//
-			DisplayTimedTextToPlayer(GetLocalPlayer(), 0, 0, bj_MELEE_CRIPPLE_MSG_DURATION, MeleeGetCrippledRevealedMessage(exposedPlayer));//call DisplayTimedTextToPlayer(GetLocalPlayer(), 0, 0, bj_MELEE_CRIPPLE_MSG_DURATION, MeleeGetCrippledRevealedMessage(exposedPlayer))
+			DisplayTimedTextToPlayer(GetLocalPlayer(), 0, 0, BlizzardJ.bj_MELEE_CRIPPLE_MSG_DURATION, MeleeGetCrippledRevealedMessage(exposedPlayer));//call DisplayTimedTextToPlayer(GetLocalPlayer(), 0, 0, bj_MELEE_CRIPPLE_MSG_DURATION, MeleeGetCrippledRevealedMessage(exposedPlayer))
 			//
 			MeleeExposePlayer(exposedPlayer, true);//call MeleeExposePlayer(exposedPlayer, true)
 		}//endfunction
@@ -7674,13 +7674,13 @@ namespace Jass {
 				if ((!bj_playerIsCrippled[playerIndex] && isNowCrippled)) {//if (not bj_playerIsCrippled[playerIndex] and isNowCrippled) then
 					//
 					bj_playerIsCrippled[playerIndex] = true;//set bj_playerIsCrippled[playerIndex] = true
-					TimerStart(bj_crippledTimer[playerIndex], bj_MELEE_CRIPPLE_TIMEOUT, false, function MeleeCrippledPlayerTimeout);//call TimerStart(bj_crippledTimer[playerIndex], bj_MELEE_CRIPPLE_TIMEOUT, false, function MeleeCrippledPlayerTimeout)
+					TimerStart(bj_crippledTimer[playerIndex], BlizzardJ.bj_MELEE_CRIPPLE_TIMEOUT, false, function MeleeCrippledPlayerTimeout);//call TimerStart(bj_crippledTimer[playerIndex], bj_MELEE_CRIPPLE_TIMEOUT, false, function MeleeCrippledPlayerTimeout)
 					if ((GetLocalPlayer() == indexPlayer)) {//if (GetLocalPlayer() == indexPlayer) then
 						//
 						//
 						TimerDialogDisplay(bj_crippledTimerWindows[playerIndex], true);//call TimerDialogDisplay(bj_crippledTimerWindows[playerIndex], true)
 						//
-						DisplayTimedTextToPlayer(indexPlayer, 0, 0, bj_MELEE_CRIPPLE_MSG_DURATION, MeleeGetCrippledWarningMessage(indexPlayer));//call DisplayTimedTextToPlayer(indexPlayer, 0, 0, bj_MELEE_CRIPPLE_MSG_DURATION, MeleeGetCrippledWarningMessage(indexPlayer))
+						DisplayTimedTextToPlayer(indexPlayer, 0, 0, BlizzardJ.bj_MELEE_CRIPPLE_MSG_DURATION, MeleeGetCrippledWarningMessage(indexPlayer));//call DisplayTimedTextToPlayer(indexPlayer, 0, 0, bj_MELEE_CRIPPLE_MSG_DURATION, MeleeGetCrippledWarningMessage(indexPlayer))
 					}//endif
 				} else if ((bj_playerIsCrippled[playerIndex] && !isNowCrippled)) {//elseif (bj_playerIsCrippled[playerIndex] and not isNowCrippled) then
 					//
@@ -7693,9 +7693,9 @@ namespace Jass {
 						//
 						if ((MeleeGetAllyStructureCount(indexPlayer) > 0)) {//if (MeleeGetAllyStructureCount(indexPlayer) > 0) then
 							if ((bj_playerIsExposed[playerIndex])) {//if (bj_playerIsExposed[playerIndex]) then
-								DisplayTimedTextToPlayer(indexPlayer, 0, 0, bj_MELEE_CRIPPLE_MSG_DURATION, GetLocalizedString("CRIPPLE_UNREVEALED"));//call DisplayTimedTextToPlayer(indexPlayer, 0, 0, bj_MELEE_CRIPPLE_MSG_DURATION, GetLocalizedString("CRIPPLE_UNREVEALED"))
+								DisplayTimedTextToPlayer(indexPlayer, 0, 0, BlizzardJ.bj_MELEE_CRIPPLE_MSG_DURATION, GetLocalizedString("CRIPPLE_UNREVEALED"));//call DisplayTimedTextToPlayer(indexPlayer, 0, 0, bj_MELEE_CRIPPLE_MSG_DURATION, GetLocalizedString("CRIPPLE_UNREVEALED"))
 							} else {//else
-								DisplayTimedTextToPlayer(indexPlayer, 0, 0, bj_MELEE_CRIPPLE_MSG_DURATION, GetLocalizedString("CRIPPLE_UNCRIPPLED"));//call DisplayTimedTextToPlayer(indexPlayer, 0, 0, bj_MELEE_CRIPPLE_MSG_DURATION, GetLocalizedString("CRIPPLE_UNCRIPPLED"))
+								DisplayTimedTextToPlayer(indexPlayer, 0, 0, BlizzardJ.bj_MELEE_CRIPPLE_MSG_DURATION, GetLocalizedString("CRIPPLE_UNCRIPPLED"));//call DisplayTimedTextToPlayer(indexPlayer, 0, 0, bj_MELEE_CRIPPLE_MSG_DURATION, GetLocalizedString("CRIPPLE_UNCRIPPLED"))
 							}//endif
 						}//endif
 					}//endif
@@ -7770,7 +7770,7 @@ namespace Jass {
 			player thePlayer = GetTriggerPlayer();//local player thePlayer = GetTriggerPlayer()
 			//
 			if ((IsPlayerObserver(thePlayer))) {//if (IsPlayerObserver(thePlayer)) then
-				RemovePlayerPreserveUnitsBJ(thePlayer, PLAYER_GAME_RESULT_NEUTRAL, false);//call RemovePlayerPreserveUnitsBJ(thePlayer, PLAYER_GAME_RESULT_NEUTRAL, false)
+				RemovePlayerPreserveUnitsBJ(thePlayer, CommonJ.PLAYER_GAME_RESULT_NEUTRAL, false);//call RemovePlayerPreserveUnitsBJ(thePlayer, PLAYER_GAME_RESULT_NEUTRAL, false)
 				return;//return
 			}//endif
 			CachePlayerHeroData(thePlayer);//call CachePlayerHeroData(thePlayer)
@@ -7823,8 +7823,8 @@ namespace Jass {
 				MeleeExposeAllPlayers();//call MeleeExposeAllPlayers()
 			}//endif
 			//
-			TimerDialogDisplay(bj_finishSoonTimerDialog, true);//call TimerDialogDisplay(bj_finishSoonTimerDialog, true)
-			TimerDialogSetRealTimeRemaining(bj_finishSoonTimerDialog, timeRemaining);//call TimerDialogSetRealTimeRemaining(bj_finishSoonTimerDialog, timeRemaining)
+			TimerDialogDisplay(BlizzardJ.bj_finishSoonTimerDialog, true);//call TimerDialogDisplay(bj_finishSoonTimerDialog, true)
+			TimerDialogSetRealTimeRemaining(BlizzardJ.bj_finishSoonTimerDialog, timeRemaining);//call TimerDialogSetRealTimeRemaining(bj_finishSoonTimerDialog, timeRemaining)
 		}//endfunction
 		//
 		private bool MeleeWasUserPlayer(player whichPlayer) {//function MeleeWasUserPlayer takes player whichPlayer returns boolean
@@ -7969,11 +7969,11 @@ namespace Jass {
 			bj_finishSoonTimerDialog = CreateTimerDialog(null);//set bj_finishSoonTimerDialog = CreateTimerDialog(null)
 			//
 			trig = CreateTrigger();//set trig = CreateTrigger()
-			TriggerRegisterGameEvent(trig, EVENT_GAME_TOURNAMENT_FINISH_SOON);//call TriggerRegisterGameEvent(trig, EVENT_GAME_TOURNAMENT_FINISH_SOON)
+			TriggerRegisterGameEvent(trig, CommonJ.EVENT_GAME_TOURNAMENT_FINISH_SOON);//call TriggerRegisterGameEvent(trig, EVENT_GAME_TOURNAMENT_FINISH_SOON)
 			TriggerAddAction(trig, function MeleeTriggerTournamentFinishSoon);//call TriggerAddAction(trig, function MeleeTriggerTournamentFinishSoon)
 			//
 			trig = CreateTrigger();//set trig = CreateTrigger()
-			TriggerRegisterGameEvent(trig, EVENT_GAME_TOURNAMENT_FINISH_NOW);//call TriggerRegisterGameEvent(trig, EVENT_GAME_TOURNAMENT_FINISH_NOW)
+			TriggerRegisterGameEvent(trig, CommonJ.EVENT_GAME_TOURNAMENT_FINISH_NOW);//call TriggerRegisterGameEvent(trig, EVENT_GAME_TOURNAMENT_FINISH_NOW)
 			TriggerAddAction(trig, function MeleeTriggerTournamentFinishNow);//call TriggerAddAction(trig, function MeleeTriggerTournamentFinishNow)
 			//
 			index = 0;//set index = 0
@@ -7991,28 +7991,28 @@ namespace Jass {
 					TimerDialogSetTitle(bj_crippledTimerWindows[index], MeleeGetCrippledTimerMessage(indexPlayer));//call TimerDialogSetTitle(bj_crippledTimerWindows[index], MeleeGetCrippledTimerMessage(indexPlayer))
 					//
 					trig = CreateTrigger();//set trig = CreateTrigger()
-					TriggerRegisterPlayerUnitEvent(trig, indexPlayer, EVENT_PLAYER_UNIT_CONSTRUCT_CANCEL, null);//call TriggerRegisterPlayerUnitEvent(trig, indexPlayer, EVENT_PLAYER_UNIT_CONSTRUCT_CANCEL, null)
+					TriggerRegisterPlayerUnitEvent(trig, indexPlayer, CommonJ.EVENT_PLAYER_UNIT_CONSTRUCT_CANCEL, null);//call TriggerRegisterPlayerUnitEvent(trig, indexPlayer, EVENT_PLAYER_UNIT_CONSTRUCT_CANCEL, null)
 					TriggerAddAction(trig, function MeleeTriggerActionConstructCancel);//call TriggerAddAction(trig, function MeleeTriggerActionConstructCancel)
 					//
 					trig = CreateTrigger();//set trig = CreateTrigger()
-					TriggerRegisterPlayerUnitEvent(trig, indexPlayer, EVENT_PLAYER_UNIT_DEATH, null);//call TriggerRegisterPlayerUnitEvent(trig, indexPlayer, EVENT_PLAYER_UNIT_DEATH, null)
+					TriggerRegisterPlayerUnitEvent(trig, indexPlayer, CommonJ.EVENT_PLAYER_UNIT_DEATH, null);//call TriggerRegisterPlayerUnitEvent(trig, indexPlayer, EVENT_PLAYER_UNIT_DEATH, null)
 					TriggerAddAction(trig, function MeleeTriggerActionUnitDeath);//call TriggerAddAction(trig, function MeleeTriggerActionUnitDeath)
 					//
 					trig = CreateTrigger();//set trig = CreateTrigger()
-					TriggerRegisterPlayerUnitEvent(trig, indexPlayer, EVENT_PLAYER_UNIT_CONSTRUCT_START, null);//call TriggerRegisterPlayerUnitEvent(trig, indexPlayer, EVENT_PLAYER_UNIT_CONSTRUCT_START, null)
+					TriggerRegisterPlayerUnitEvent(trig, indexPlayer, CommonJ.EVENT_PLAYER_UNIT_CONSTRUCT_START, null);//call TriggerRegisterPlayerUnitEvent(trig, indexPlayer, EVENT_PLAYER_UNIT_CONSTRUCT_START, null)
 					TriggerAddAction(trig, function MeleeTriggerActionUnitConstructionStart);//call TriggerAddAction(trig, function MeleeTriggerActionUnitConstructionStart)
 					//
 					trig = CreateTrigger();//set trig = CreateTrigger()
-					TriggerRegisterPlayerEvent(trig, indexPlayer, EVENT_PLAYER_DEFEAT);//call TriggerRegisterPlayerEvent(trig, indexPlayer, EVENT_PLAYER_DEFEAT)
+					TriggerRegisterPlayerEvent(trig, indexPlayer, CommonJ.EVENT_PLAYER_DEFEAT);//call TriggerRegisterPlayerEvent(trig, indexPlayer, EVENT_PLAYER_DEFEAT)
 					TriggerAddAction(trig, function MeleeTriggerActionPlayerDefeated);//call TriggerAddAction(trig, function MeleeTriggerActionPlayerDefeated)
 					//
 					trig = CreateTrigger();//set trig = CreateTrigger()
-					TriggerRegisterPlayerEvent(trig, indexPlayer, EVENT_PLAYER_LEAVE);//call TriggerRegisterPlayerEvent(trig, indexPlayer, EVENT_PLAYER_LEAVE)
+					TriggerRegisterPlayerEvent(trig, indexPlayer, CommonJ.EVENT_PLAYER_LEAVE);//call TriggerRegisterPlayerEvent(trig, indexPlayer, EVENT_PLAYER_LEAVE)
 					TriggerAddAction(trig, function MeleeTriggerActionPlayerLeft);//call TriggerAddAction(trig, function MeleeTriggerActionPlayerLeft)
 					//
 					trig = CreateTrigger();//set trig = CreateTrigger()
-					TriggerRegisterPlayerAllianceChange(trig, indexPlayer, ALLIANCE_PASSIVE);//call TriggerRegisterPlayerAllianceChange(trig, indexPlayer, ALLIANCE_PASSIVE)
-					TriggerRegisterPlayerStateEvent(trig, indexPlayer, PLAYER_STATE_ALLIED_VICTORY, EQUAL, 1);//call TriggerRegisterPlayerStateEvent(trig, indexPlayer, PLAYER_STATE_ALLIED_VICTORY, EQUAL, 1)
+					TriggerRegisterPlayerAllianceChange(trig, indexPlayer, CommonJ.ALLIANCE_PASSIVE);//call TriggerRegisterPlayerAllianceChange(trig, indexPlayer, ALLIANCE_PASSIVE)
+					TriggerRegisterPlayerStateEvent(trig, indexPlayer, CommonJ.PLAYER_STATE_ALLIED_VICTORY, CommonJ.EQUAL, 1);//call TriggerRegisterPlayerStateEvent(trig, indexPlayer, PLAYER_STATE_ALLIED_VICTORY, EQUAL, 1)
 					TriggerAddAction(trig, function MeleeTriggerActionAllianceChange);//call TriggerAddAction(trig, function MeleeTriggerActionAllianceChange)
 				} else {//else
 					bj_meleeDefeated[index] = true;//set bj_meleeDefeated[index] = true
@@ -8021,7 +8021,7 @@ namespace Jass {
 					if ((IsPlayerObserver(indexPlayer))) {//if (IsPlayerObserver(indexPlayer)) then
 						//
 						trig = CreateTrigger();//set trig = CreateTrigger()
-						TriggerRegisterPlayerEvent(trig, indexPlayer, EVENT_PLAYER_LEAVE);//call TriggerRegisterPlayerEvent(trig, indexPlayer, EVENT_PLAYER_LEAVE)
+						TriggerRegisterPlayerEvent(trig, indexPlayer, CommonJ.EVENT_PLAYER_LEAVE);//call TriggerRegisterPlayerEvent(trig, indexPlayer, EVENT_PLAYER_LEAVE)
 						TriggerAddAction(trig, function MeleeTriggerActionPlayerLeft);//call TriggerAddAction(trig, function MeleeTriggerActionPlayerLeft)
 					}//endif
 				}//endif
@@ -8087,11 +8087,11 @@ namespace Jass {
 		}//endfunction
 		//
 		private void MeleeInitPlayerSlots() {//function MeleeInitPlayerSlots takes nothing returns nothing
-			TeamInitPlayerSlots(bj_MAX_PLAYERS);//call TeamInitPlayerSlots(bj_MAX_PLAYERS)
+			TeamInitPlayerSlots(BlizzardJ.bj_MAX_PLAYERS);//call TeamInitPlayerSlots(bj_MAX_PLAYERS)
 		}//endfunction
 		//
 		private void FFAInitPlayerSlots() {//function FFAInitPlayerSlots takes nothing returns nothing
-			TeamInitPlayerSlots(bj_MAX_PLAYERS);//call TeamInitPlayerSlots(bj_MAX_PLAYERS)
+			TeamInitPlayerSlots(BlizzardJ.bj_MAX_PLAYERS);//call TeamInitPlayerSlots(bj_MAX_PLAYERS)
 		}//endfunction
 		//
 		private void OneOnOneInitPlayerSlots() {//function OneOnOneInitPlayerSlots takes nothing returns nothing
@@ -8129,13 +8129,13 @@ namespace Jass {
 		//
 		private void SetDNCSoundsDawn() {//function SetDNCSoundsDawn takes nothing returns nothing
 			if (bj_useDawnDuskSounds) {//if bj_useDawnDuskSounds then
-				StartSound(bj_dawnSound);//call StartSound(bj_dawnSound)
+				StartSound(BlizzardJ.bj_dawnSound);//call StartSound(bj_dawnSound)
 			}//endif
 		}//endfunction
 		//
 		private void SetDNCSoundsDusk() {//function SetDNCSoundsDusk takes nothing returns nothing
 			if (bj_useDawnDuskSounds) {//if bj_useDawnDuskSounds then
-				StartSound(bj_duskSound);//call StartSound(bj_duskSound)
+				StartSound(BlizzardJ.bj_duskSound);//call StartSound(bj_duskSound)
 			}//endif
 		}//endfunction
 		//
@@ -8144,8 +8144,8 @@ namespace Jass {
 			if ((ToD >= bj_TOD_DAWN && ToD < bj_TOD_DUSK) && !bj_dncIsDaytime) {//if (ToD >= bj_TOD_DAWN and ToD < bj_TOD_DUSK) and not bj_dncIsDaytime then
 				bj_dncIsDaytime = true;//set bj_dncIsDaytime = true
 				//
-				StopSound(bj_nightAmbientSound, false, true);//call StopSound(bj_nightAmbientSound, false, true)
-				StartSound(bj_dayAmbientSound);//call StartSound(bj_dayAmbientSound)
+				StopSound(BlizzardJ.bj_nightAmbientSound, false, true);//call StopSound(bj_nightAmbientSound, false, true)
+				StartSound(BlizzardJ.bj_dayAmbientSound);//call StartSound(bj_dayAmbientSound)
 			}//endif
 		}//endfunction
 		//
@@ -8154,8 +8154,8 @@ namespace Jass {
 			if ((ToD < bj_TOD_DAWN || ToD >= bj_TOD_DUSK) && bj_dncIsDaytime) {//if (ToD < bj_TOD_DAWN or ToD >= bj_TOD_DUSK) and bj_dncIsDaytime then
 				bj_dncIsDaytime = false;//set bj_dncIsDaytime = false
 				//
-				StopSound(bj_dayAmbientSound, false, true);//call StopSound(bj_dayAmbientSound, false, true)
-				StartSound(bj_nightAmbientSound);//call StartSound(bj_nightAmbientSound)
+				StopSound(BlizzardJ.bj_dayAmbientSound, false, true);//call StopSound(bj_dayAmbientSound, false, true)
+				StartSound(BlizzardJ.bj_nightAmbientSound);//call StartSound(bj_nightAmbientSound)
 			}//endif
 		}//endfunction
 		//
@@ -8165,20 +8165,20 @@ namespace Jass {
 			bj_duskSound = CreateSoundFromLabel("WolfSound", false, false, false, 10000, 10000);//set bj_duskSound = CreateSoundFromLabel("WolfSound", false, false, false, 10000, 10000)
 			//
 			bj_dncSoundsDawn = CreateTrigger();//set bj_dncSoundsDawn = CreateTrigger()
-			TriggerRegisterGameStateEvent(bj_dncSoundsDawn, GAME_STATE_TIME_OF_DAY, EQUAL, bj_TOD_DAWN);//call TriggerRegisterGameStateEvent(bj_dncSoundsDawn, GAME_STATE_TIME_OF_DAY, EQUAL, bj_TOD_DAWN)
-			TriggerAddAction(bj_dncSoundsDawn, function SetDNCSoundsDawn);//call TriggerAddAction(bj_dncSoundsDawn, function SetDNCSoundsDawn)
+			TriggerRegisterGameStateEvent(BlizzardJ.bj_dncSoundsDawn, CommonJ.GAME_STATE_TIME_OF_DAY, CommonJ.EQUAL, BlizzardJ.bj_TOD_DAWN);//call TriggerRegisterGameStateEvent(bj_dncSoundsDawn, GAME_STATE_TIME_OF_DAY, EQUAL, bj_TOD_DAWN)
+			TriggerAddAction(BlizzardJ.bj_dncSoundsDawn, function SetDNCSoundsDawn);//call TriggerAddAction(bj_dncSoundsDawn, function SetDNCSoundsDawn)
 			bj_dncSoundsDusk = CreateTrigger();//set bj_dncSoundsDusk = CreateTrigger()
-			TriggerRegisterGameStateEvent(bj_dncSoundsDusk, GAME_STATE_TIME_OF_DAY, EQUAL, bj_TOD_DUSK);//call TriggerRegisterGameStateEvent(bj_dncSoundsDusk, GAME_STATE_TIME_OF_DAY, EQUAL, bj_TOD_DUSK)
-			TriggerAddAction(bj_dncSoundsDusk, function SetDNCSoundsDusk);//call TriggerAddAction(bj_dncSoundsDusk, function SetDNCSoundsDusk)
+			TriggerRegisterGameStateEvent(BlizzardJ.bj_dncSoundsDusk, CommonJ.GAME_STATE_TIME_OF_DAY, CommonJ.EQUAL, BlizzardJ.bj_TOD_DUSK);//call TriggerRegisterGameStateEvent(bj_dncSoundsDusk, GAME_STATE_TIME_OF_DAY, EQUAL, bj_TOD_DUSK)
+			TriggerAddAction(BlizzardJ.bj_dncSoundsDusk, function SetDNCSoundsDusk);//call TriggerAddAction(bj_dncSoundsDusk, function SetDNCSoundsDusk)
 			//
 			bj_dncSoundsDay = CreateTrigger();//set bj_dncSoundsDay = CreateTrigger()
-			TriggerRegisterGameStateEvent(bj_dncSoundsDay,   GAME_STATE_TIME_OF_DAY, GREATER_THAN_OR_EQUAL, bj_TOD_DAWN);//call TriggerRegisterGameStateEvent(bj_dncSoundsDay,   GAME_STATE_TIME_OF_DAY, GREATER_THAN_OR_EQUAL, bj_TOD_DAWN)
-			TriggerRegisterGameStateEvent(bj_dncSoundsDay,   GAME_STATE_TIME_OF_DAY, LESS_THAN,             bj_TOD_DUSK);//call TriggerRegisterGameStateEvent(bj_dncSoundsDay,   GAME_STATE_TIME_OF_DAY, LESS_THAN,             bj_TOD_DUSK)
-			TriggerAddAction(bj_dncSoundsDay, function SetDNCSoundsDay);//call TriggerAddAction(bj_dncSoundsDay, function SetDNCSoundsDay)
+			TriggerRegisterGameStateEvent(BlizzardJ.bj_dncSoundsDay, CommonJ.GAME_STATE_TIME_OF_DAY, CommonJ.GREATER_THAN_OR_EQUAL, BlizzardJ.bj_TOD_DAWN);//call TriggerRegisterGameStateEvent(bj_dncSoundsDay,   GAME_STATE_TIME_OF_DAY, GREATER_THAN_OR_EQUAL, bj_TOD_DAWN)
+			TriggerRegisterGameStateEvent(BlizzardJ.bj_dncSoundsDay, CommonJ.GAME_STATE_TIME_OF_DAY, CommonJ.LESS_THAN, BlizzardJ.bj_TOD_DUSK);//call TriggerRegisterGameStateEvent(bj_dncSoundsDay,   GAME_STATE_TIME_OF_DAY, LESS_THAN,             bj_TOD_DUSK)
+			TriggerAddAction(BlizzardJ.bj_dncSoundsDay, function SetDNCSoundsDay);//call TriggerAddAction(bj_dncSoundsDay, function SetDNCSoundsDay)
 			bj_dncSoundsNight = CreateTrigger();//set bj_dncSoundsNight = CreateTrigger()
-			TriggerRegisterGameStateEvent(bj_dncSoundsNight, GAME_STATE_TIME_OF_DAY, LESS_THAN,             bj_TOD_DAWN);//call TriggerRegisterGameStateEvent(bj_dncSoundsNight, GAME_STATE_TIME_OF_DAY, LESS_THAN,             bj_TOD_DAWN)
-			TriggerRegisterGameStateEvent(bj_dncSoundsNight, GAME_STATE_TIME_OF_DAY, GREATER_THAN_OR_EQUAL, bj_TOD_DUSK);//call TriggerRegisterGameStateEvent(bj_dncSoundsNight, GAME_STATE_TIME_OF_DAY, GREATER_THAN_OR_EQUAL, bj_TOD_DUSK)
-			TriggerAddAction(bj_dncSoundsNight, function SetDNCSoundsNight);//call TriggerAddAction(bj_dncSoundsNight, function SetDNCSoundsNight)
+			TriggerRegisterGameStateEvent(BlizzardJ.bj_dncSoundsNight, CommonJ.GAME_STATE_TIME_OF_DAY, CommonJ.LESS_THAN, BlizzardJ.bj_TOD_DAWN);//call TriggerRegisterGameStateEvent(bj_dncSoundsNight, GAME_STATE_TIME_OF_DAY, LESS_THAN,             bj_TOD_DAWN)
+			TriggerRegisterGameStateEvent(BlizzardJ.bj_dncSoundsNight, CommonJ.GAME_STATE_TIME_OF_DAY, CommonJ.GREATER_THAN_OR_EQUAL, BlizzardJ.bj_TOD_DUSK);//call TriggerRegisterGameStateEvent(bj_dncSoundsNight, GAME_STATE_TIME_OF_DAY, GREATER_THAN_OR_EQUAL, bj_TOD_DUSK)
+			TriggerAddAction(BlizzardJ.bj_dncSoundsNight, function SetDNCSoundsNight);//call TriggerAddAction(bj_dncSoundsNight, function SetDNCSoundsNight)
 		}//endfunction
 		//
 		private void InitBlizzardGlobals() {//function InitBlizzardGlobals takes nothing returns nothing
@@ -8202,7 +8202,7 @@ namespace Jass {
 				index = index + 1;//set index = index + 1
 			}//endloop
 			bj_FORCE_ALL_PLAYERS = CreateForce();//set bj_FORCE_ALL_PLAYERS = CreateForce()
-			ForceEnumPlayers(bj_FORCE_ALL_PLAYERS, null);//call ForceEnumPlayers(bj_FORCE_ALL_PLAYERS, null)
+			ForceEnumPlayers(BlizzardJ.bj_FORCE_ALL_PLAYERS, null);//call ForceEnumPlayers(bj_FORCE_ALL_PLAYERS, null)
 			//
 			bj_cineModePriorSpeed = GetGameSpeed();//set bj_cineModePriorSpeed = GetGameSpeed()
 			bj_cineModePriorFogSetting = IsFogEnabled();//set bj_cineModePriorFogSetting = IsFogEnabled()
@@ -8253,8 +8253,8 @@ namespace Jass {
 		//
 		private void InitQueuedTriggers() {//function InitQueuedTriggers takes nothing returns nothing
 			bj_queuedExecTimeout = CreateTrigger();//set bj_queuedExecTimeout = CreateTrigger()
-			TriggerRegisterTimerExpireEvent(bj_queuedExecTimeout, bj_queuedExecTimeoutTimer);//call TriggerRegisterTimerExpireEvent(bj_queuedExecTimeout, bj_queuedExecTimeoutTimer)
-			TriggerAddAction(bj_queuedExecTimeout, function QueuedTriggerDoneBJ);//call TriggerAddAction(bj_queuedExecTimeout, function QueuedTriggerDoneBJ)
+			TriggerRegisterTimerExpireEvent(BlizzardJ.bj_queuedExecTimeout, BlizzardJ.bj_queuedExecTimeoutTimer);//call TriggerRegisterTimerExpireEvent(bj_queuedExecTimeout, bj_queuedExecTimeoutTimer)
+			TriggerAddAction(BlizzardJ.bj_queuedExecTimeout, function QueuedTriggerDoneBJ);//call TriggerAddAction(bj_queuedExecTimeout, function QueuedTriggerDoneBJ)
 		}//endfunction
 		//
 		private void InitMapRects() {//function InitMapRects takes nothing returns nothing
@@ -8277,7 +8277,7 @@ namespace Jass {
 					SetPlayerTechMaxAllowed(Player(index), 'otbk', 0);//call SetPlayerTechMaxAllowed(Player(index), 'otbk', 0)
 				}//endif
 				//
-				SetPlayerTechMaxAllowed(Player(index), 'uske', bj_MAX_SKELETONS);//call SetPlayerTechMaxAllowed(Player(index), 'uske', bj_MAX_SKELETONS)
+				SetPlayerTechMaxAllowed(Player(index), 'uske', BlizzardJ.bj_MAX_SKELETONS);//call SetPlayerTechMaxAllowed(Player(index), 'uske', bj_MAX_SKELETONS)
 				index = index + 1;//set index = index + 1
 				if (index == bj_MAX_PLAYERS) { break; }//exitwhen index == bj_MAX_PLAYERS
 			}//endloop
@@ -8374,7 +8374,7 @@ namespace Jass {
 		//
 		private void StartStockUpdates() {//function StartStockUpdates takes nothing returns nothing
 			PerformStockUpdates();//call PerformStockUpdates()
-			TimerStart(bj_stockUpdateTimer, bj_STOCK_RESTOCK_INTERVAL, true, function PerformStockUpdates);//call TimerStart(bj_stockUpdateTimer, bj_STOCK_RESTOCK_INTERVAL, true, function PerformStockUpdates)
+			TimerStart(BlizzardJ.bj_stockUpdateTimer, BlizzardJ.bj_STOCK_RESTOCK_INTERVAL, true, function PerformStockUpdates);//call TimerStart(bj_stockUpdateTimer, bj_STOCK_RESTOCK_INTERVAL, true, function PerformStockUpdates)
 		}//endfunction
 		//
 		private void RemovePurchasedItem() {//function RemovePurchasedItem takes nothing returns nothing
@@ -8393,25 +8393,25 @@ namespace Jass {
 				if (iLevel > bj_MAX_ITEM_LEVEL) { break; }//exitwhen iLevel > bj_MAX_ITEM_LEVEL
 			}//endloop
 			//
-			SetAllItemTypeSlots(bj_MAX_STOCK_ITEM_SLOTS);//call SetAllItemTypeSlots(bj_MAX_STOCK_ITEM_SLOTS)
-			SetAllUnitTypeSlots(bj_MAX_STOCK_UNIT_SLOTS);//call SetAllUnitTypeSlots(bj_MAX_STOCK_UNIT_SLOTS)
+			SetAllItemTypeSlots(BlizzardJ.bj_MAX_STOCK_ITEM_SLOTS);//call SetAllItemTypeSlots(bj_MAX_STOCK_ITEM_SLOTS)
+			SetAllUnitTypeSlots(BlizzardJ.bj_MAX_STOCK_UNIT_SLOTS);//call SetAllUnitTypeSlots(bj_MAX_STOCK_UNIT_SLOTS)
 			//
 			bj_stockUpdateTimer = CreateTimer();//set bj_stockUpdateTimer = CreateTimer()
-			TimerStart(bj_stockUpdateTimer, bj_STOCK_RESTOCK_INITIAL_DELAY, false, function StartStockUpdates);//call TimerStart(bj_stockUpdateTimer, bj_STOCK_RESTOCK_INITIAL_DELAY, false, function StartStockUpdates)
+			TimerStart(BlizzardJ.bj_stockUpdateTimer, BlizzardJ.bj_STOCK_RESTOCK_INITIAL_DELAY, false, function StartStockUpdates);//call TimerStart(bj_stockUpdateTimer, bj_STOCK_RESTOCK_INITIAL_DELAY, false, function StartStockUpdates)
 			//
 			bj_stockItemPurchased = CreateTrigger();//set bj_stockItemPurchased = CreateTrigger()
-			TriggerRegisterPlayerUnitEvent(bj_stockItemPurchased, Player(PLAYER_NEUTRAL_PASSIVE), EVENT_PLAYER_UNIT_SELL_ITEM, null);//call TriggerRegisterPlayerUnitEvent(bj_stockItemPurchased, Player(PLAYER_NEUTRAL_PASSIVE), EVENT_PLAYER_UNIT_SELL_ITEM, null)
-			TriggerAddAction(bj_stockItemPurchased, function RemovePurchasedItem);//call TriggerAddAction(bj_stockItemPurchased, function RemovePurchasedItem)
+			TriggerRegisterPlayerUnitEvent(BlizzardJ.bj_stockItemPurchased, Player(PLAYER_NEUTRAL_PASSIVE), CommonJ.EVENT_PLAYER_UNIT_SELL_ITEM, null);//call TriggerRegisterPlayerUnitEvent(bj_stockItemPurchased, Player(PLAYER_NEUTRAL_PASSIVE), EVENT_PLAYER_UNIT_SELL_ITEM, null)
+			TriggerAddAction(BlizzardJ.bj_stockItemPurchased, function RemovePurchasedItem);//call TriggerAddAction(bj_stockItemPurchased, function RemovePurchasedItem)
 		}//endfunction
 		//
 		private void MarkGameStarted() {//function MarkGameStarted takes nothing returns nothing
 			bj_gameStarted = true;//set bj_gameStarted = true
-			DestroyTimer(bj_gameStartedTimer);//call DestroyTimer(bj_gameStartedTimer)
+			DestroyTimer(BlizzardJ.bj_gameStartedTimer);//call DestroyTimer(bj_gameStartedTimer)
 		}//endfunction
 		//
 		private void DetectGameStarted() {//function DetectGameStarted takes nothing returns nothing
 			bj_gameStartedTimer = CreateTimer();//set bj_gameStartedTimer = CreateTimer()
-			TimerStart(bj_gameStartedTimer, bj_GAME_STARTED_THRESHOLD, false, function MarkGameStarted);//call TimerStart(bj_gameStartedTimer, bj_GAME_STARTED_THRESHOLD, false, function MarkGameStarted)
+			TimerStart(BlizzardJ.bj_gameStartedTimer, BlizzardJ.bj_GAME_STARTED_THRESHOLD, false, function MarkGameStarted);//call TimerStart(bj_gameStartedTimer, bj_GAME_STARTED_THRESHOLD, false, function MarkGameStarted)
 		}//endfunction
 		//
 		private void InitBlizzard() {//function InitBlizzard takes nothing returns nothing

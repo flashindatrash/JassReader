@@ -40,28 +40,27 @@ namespace Jass {
 		//
 		//
 		private void SetDefenders() {//function SetDefenders takes nothing returns nothing
-			CampaignDefender(EASY, 1, GARGOYLE);//call CampaignDefender( EASY, 1, GARGOYLE    )
-			CampaignDefender(EASY, 2, GHOUL);//call CampaignDefender( EASY, 2, GHOUL       )
-			CampaignDefender(EASY, 1, NECRO);//call CampaignDefender( EASY, 1, NECRO       )
+			CampaignDefender(CommonAi.EASY, 1, CommonAi.GARGOYLE);//call CampaignDefender( EASY, 1, GARGOYLE    )
+			CampaignDefender(CommonAi.EASY, 2, CommonAi.GHOUL);//call CampaignDefender( EASY, 2, GHOUL       )
+			CampaignDefender(CommonAi.EASY, 1, CommonAi.NECRO);//call CampaignDefender( EASY, 1, NECRO       )
 		}//endfunction
 		//
 		//
 		//
 		private void main() {//function main takes nothing returns nothing
-			set_cheats();//debug call set_cheats()
-			CampaignAI(ZIGGURAT_1,function hero_levels);//call CampaignAI(ZIGGURAT_1,function hero_levels)
-			SetBuildUnit(1, ACOLYTE);//call SetBuildUnit( 1, ACOLYTE			)
-			SetBuildUnit(1, NECROPOLIS_1);//call SetBuildUnit( 1, NECROPOLIS_1		)
-			SetBuildUnit(1, CRYPT);//call SetBuildUnit( 1, CRYPT				)
-			SetBuildUnit(1, GRAVEYARD);//call SetBuildUnit( 1, GRAVEYARD			)
-			SetBuildUnit(1, UNDEAD_MINE);//call SetBuildUnit( 1, UNDEAD_MINE		)
-			SetBuildUnit(1, NECROPOLIS_2);//call SetBuildUnit( 1, NECROPOLIS_2		)
-			SetBuildUnit(1, UNDEAD_ALTAR);//call SetBuildUnit( 1, UNDEAD_ALTAR      )
-			SetBuildUnit(1, SLAUGHTERHOUSE);//call SetBuildUnit( 1, SLAUGHTERHOUSE	)
-			SetBuildUnit(1, DAMNED_TEMPLE);//call SetBuildUnit( 1, DAMNED_TEMPLE     )
-			SetBuildUnit(1, NECROPOLIS_3);//call SetBuildUnit( 1, NECROPOLIS_3		)
-			SetBuildUnit(1, SAC_PIT);//call SetBuildUnit( 1, SAC_PIT           )
-			SetBuildUnit(5, ACOLYTE);//call SetBuildUnit( 5, ACOLYTE			)
+			CampaignAI(CommonAi.ZIGGURAT_1, function hero_levels);//call CampaignAI(ZIGGURAT_1,function hero_levels)
+			SetBuildUnit(1, CommonAi.ACOLYTE);//call SetBuildUnit( 1, ACOLYTE			)
+			SetBuildUnit(1, CommonAi.NECROPOLIS_1);//call SetBuildUnit( 1, NECROPOLIS_1		)
+			SetBuildUnit(1, CommonAi.CRYPT);//call SetBuildUnit( 1, CRYPT				)
+			SetBuildUnit(1, CommonAi.GRAVEYARD);//call SetBuildUnit( 1, GRAVEYARD			)
+			SetBuildUnit(1, CommonAi.UNDEAD_MINE);//call SetBuildUnit( 1, UNDEAD_MINE		)
+			SetBuildUnit(1, CommonAi.NECROPOLIS_2);//call SetBuildUnit( 1, NECROPOLIS_2		)
+			SetBuildUnit(1, CommonAi.UNDEAD_ALTAR);//call SetBuildUnit( 1, UNDEAD_ALTAR      )
+			SetBuildUnit(1, CommonAi.SLAUGHTERHOUSE);//call SetBuildUnit( 1, SLAUGHTERHOUSE	)
+			SetBuildUnit(1, CommonAi.DAMNED_TEMPLE);//call SetBuildUnit( 1, DAMNED_TEMPLE     )
+			SetBuildUnit(1, CommonAi.NECROPOLIS_3);//call SetBuildUnit( 1, NECROPOLIS_3		)
+			SetBuildUnit(1, CommonAi.SAC_PIT);//call SetBuildUnit( 1, SAC_PIT           )
+			SetBuildUnit(5, CommonAi.ACOLYTE);//call SetBuildUnit( 5, ACOLYTE			)
 			while (true) {//loop
 				SetDefenders();//call SetDefenders()
 				if (CommandsWaiting() != 0) { break; }//exitwhen CommandsWaiting() != 0
@@ -70,45 +69,45 @@ namespace Jass {
 			PopLastCommand();//call PopLastCommand()
 			//
 			InitAssaultGroup();//call InitAssaultGroup()
-			CampaignAttacker(EASY,    4, GHOUL);//call CampaignAttacker( EASY,    4, GHOUL        )
-			CampaignAttacker(EASY,    1, NECRO);//call CampaignAttacker( EASY,    1, NECRO        )
-			SuicideOnPlayer(0,user);//call SuicideOnPlayer(0,user)
+			CampaignAttacker(CommonAi.EASY, 4, CommonAi.GHOUL);//call CampaignAttacker( EASY,    4, GHOUL        )
+			CampaignAttacker(CommonAi.EASY, 1, CommonAi.NECRO);//call CampaignAttacker( EASY,    1, NECRO        )
+			SuicideOnPlayer(0, U08_tealAi.user);//call SuicideOnPlayer(0,user)
 			SetDefenders();//call SetDefenders()
 			//
 			InitAssaultGroup();//call InitAssaultGroup()
-			CampaignAttacker(EASY,    3, GARGOYLE);//call CampaignAttacker( EASY,    3, GARGOYLE     )
-			SuicideOnPlayer(5*60,user);//call SuicideOnPlayer(5*60,user)
+			CampaignAttacker(CommonAi.EASY, 3, CommonAi.GARGOYLE);//call CampaignAttacker( EASY,    3, GARGOYLE     )
+			SuicideOnPlayer(5*60, U08_tealAi.user);//call SuicideOnPlayer(5*60,user)
 			SetDefenders();//call SetDefenders()
 			//
 			InitAssaultGroup();//call InitAssaultGroup()
-			CampaignAttacker(EASY,    4, GHOUL);//call CampaignAttacker( EASY,    4, GHOUL        )
-			CampaignAttacker(EASY,    1, ABOMINATION);//call CampaignAttacker( EASY,    1, ABOMINATION  )
-			CampaignAttacker(EASY,    1, NECRO);//call CampaignAttacker( EASY,    1, NECRO        )
-			CampaignAttacker(EASY,    1, LICH);//call CampaignAttacker( EASY,    1, LICH         )
-			SuicideOnPlayer(4*60,user);//call SuicideOnPlayer(4*60,user)
+			CampaignAttacker(CommonAi.EASY, 4, CommonAi.GHOUL);//call CampaignAttacker( EASY,    4, GHOUL        )
+			CampaignAttacker(CommonAi.EASY, 1, CommonAi.ABOMINATION);//call CampaignAttacker( EASY,    1, ABOMINATION  )
+			CampaignAttacker(CommonAi.EASY, 1, CommonAi.NECRO);//call CampaignAttacker( EASY,    1, NECRO        )
+			CampaignAttacker(CommonAi.EASY, 1, CommonAi.LICH);//call CampaignAttacker( EASY,    1, LICH         )
+			SuicideOnPlayer(4*60, U08_tealAi.user);//call SuicideOnPlayer(4*60,user)
 			SetDefenders();//call SetDefenders()
 			//
 			InitAssaultGroup();//call InitAssaultGroup()
-			CampaignAttacker(EASY,    2, GHOUL);//call CampaignAttacker( EASY,    2, GHOUL        )
-			CampaignAttacker(EASY,    2, ABOMINATION);//call CampaignAttacker( EASY,    2, ABOMINATION  )
-			CampaignAttacker(EASY,    1, NECRO);//call CampaignAttacker( EASY,    1, NECRO        )
-			CampaignAttacker(EASY,    1, MEAT_WAGON);//call CampaignAttacker( EASY,    1, MEAT_WAGON   )
-			CampaignAttacker(EASY,    1, LICH);//call CampaignAttacker( EASY,    1, LICH         )
-			SuicideOnPlayer(5*60,user);//call SuicideOnPlayer(5*60,user)
+			CampaignAttacker(CommonAi.EASY, 2, CommonAi.GHOUL);//call CampaignAttacker( EASY,    2, GHOUL        )
+			CampaignAttacker(CommonAi.EASY, 2, CommonAi.ABOMINATION);//call CampaignAttacker( EASY,    2, ABOMINATION  )
+			CampaignAttacker(CommonAi.EASY, 1, CommonAi.NECRO);//call CampaignAttacker( EASY,    1, NECRO        )
+			CampaignAttacker(CommonAi.EASY, 1, CommonAi.MEAT_WAGON);//call CampaignAttacker( EASY,    1, MEAT_WAGON   )
+			CampaignAttacker(CommonAi.EASY, 1, CommonAi.LICH);//call CampaignAttacker( EASY,    1, LICH         )
+			SuicideOnPlayer(5*60, U08_tealAi.user);//call SuicideOnPlayer(5*60,user)
 			while (true) {//loop
 				SetDefenders();//call SetDefenders()
 				//
 				InitAssaultGroup();//call InitAssaultGroup()
-				CampaignAttacker(EASY,    6, GARGOYLE);//call CampaignAttacker( EASY,    6, GARGOYLE     )
-				SuicideOnPlayer(5*60,user);//call SuicideOnPlayer(5*60,user)
+				CampaignAttacker(CommonAi.EASY, 6, CommonAi.GARGOYLE);//call CampaignAttacker( EASY,    6, GARGOYLE     )
+				SuicideOnPlayer(5*60, U08_tealAi.user);//call SuicideOnPlayer(5*60,user)
 				SetDefenders();//call SetDefenders()
 				//
 				InitAssaultGroup();//call InitAssaultGroup()
-				CampaignAttacker(EASY,    4, ABOMINATION);//call CampaignAttacker( EASY,    4, ABOMINATION  )
-				CampaignAttacker(EASY,    2, NECRO);//call CampaignAttacker( EASY,    2, NECRO        )
-				CampaignAttacker(EASY,    2, MEAT_WAGON);//call CampaignAttacker( EASY,    2, MEAT_WAGON   )
-				CampaignAttacker(EASY,    1, LICH);//call CampaignAttacker( EASY,    1, LICH         )
-				SuicideOnPlayer(4*60,user);//call SuicideOnPlayer(4*60,user)
+				CampaignAttacker(CommonAi.EASY, 4, CommonAi.ABOMINATION);//call CampaignAttacker( EASY,    4, ABOMINATION  )
+				CampaignAttacker(CommonAi.EASY, 2, CommonAi.NECRO);//call CampaignAttacker( EASY,    2, NECRO        )
+				CampaignAttacker(CommonAi.EASY, 2, CommonAi.MEAT_WAGON);//call CampaignAttacker( EASY,    2, MEAT_WAGON   )
+				CampaignAttacker(CommonAi.EASY, 1, CommonAi.LICH);//call CampaignAttacker( EASY,    1, LICH         )
+				SuicideOnPlayer(4*60, U08_tealAi.user);//call SuicideOnPlayer(4*60,user)
 			}//endloop
 		}//endfunction
 

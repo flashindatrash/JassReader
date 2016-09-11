@@ -64,25 +64,25 @@ namespace Jass {
 		private void DebugGimmeEnum() {//function DebugGimmeEnum takes nothing returns nothing
 			player thePlayer = GetEnumPlayer();//local player thePlayer = GetEnumPlayer()
 			DisplayTextToPlayer(thePlayer, 0, 0, "Player "+I2S(GetPlayerId(GetTriggerPlayer())+1)+" cheated: Give 5000 gold and 5000 lumber to all players");//call DisplayTextToPlayer(thePlayer, 0, 0, "Player "+I2S(GetPlayerId(GetTriggerPlayer())+1)+" cheated: Give 5000 gold and 5000 lumber to all players")
-			SetPlayerState(thePlayer, PLAYER_STATE_RESOURCE_GOLD, GetPlayerState(thePlayer, PLAYER_STATE_RESOURCE_GOLD) + 5000);//call SetPlayerState(thePlayer, PLAYER_STATE_RESOURCE_GOLD, GetPlayerState(thePlayer, PLAYER_STATE_RESOURCE_GOLD) + 5000)
-			SetPlayerState(thePlayer, PLAYER_STATE_RESOURCE_LUMBER, GetPlayerState(thePlayer, PLAYER_STATE_RESOURCE_LUMBER) + 5000);//call SetPlayerState(thePlayer, PLAYER_STATE_RESOURCE_LUMBER, GetPlayerState(thePlayer, PLAYER_STATE_RESOURCE_LUMBER) + 5000)
+			SetPlayerState(thePlayer, CommonJ.PLAYER_STATE_RESOURCE_GOLD, GetPlayerState(thePlayer, PLAYER_STATE_RESOURCE_GOLD) + 5000);//call SetPlayerState(thePlayer, PLAYER_STATE_RESOURCE_GOLD, GetPlayerState(thePlayer, PLAYER_STATE_RESOURCE_GOLD) + 5000)
+			SetPlayerState(thePlayer, CommonJ.PLAYER_STATE_RESOURCE_LUMBER, GetPlayerState(thePlayer, PLAYER_STATE_RESOURCE_LUMBER) + 5000);//call SetPlayerState(thePlayer, PLAYER_STATE_RESOURCE_LUMBER, GetPlayerState(thePlayer, PLAYER_STATE_RESOURCE_LUMBER) + 5000)
 		}//endfunction
 		//
 		private void DebugGimme() {//function DebugGimme takes nothing returns nothing
-			ForForce(bj_FORCE_ALL_PLAYERS, function DebugGimmeEnum);//call ForForce(bj_FORCE_ALL_PLAYERS, function DebugGimmeEnum)
+			ForForce(BlizzardJ.bj_FORCE_ALL_PLAYERS, function DebugGimmeEnum);//call ForForce(bj_FORCE_ALL_PLAYERS, function DebugGimmeEnum)
 		}//endfunction
 		//
 		private void DebugDemoEnum() {//function DebugDemoEnum takes nothing returns nothing
 			player thePlayer = GetEnumPlayer();//local player thePlayer = GetEnumPlayer()
-			SetPlayerState(thePlayer, PLAYER_STATE_RESOURCE_GOLD, 0);//call SetPlayerState(thePlayer, PLAYER_STATE_RESOURCE_GOLD, 0)
-			SetPlayerState(thePlayer, PLAYER_STATE_RESOURCE_LUMBER, 0);//call SetPlayerState(thePlayer, PLAYER_STATE_RESOURCE_LUMBER, 0)
+			SetPlayerState(thePlayer, CommonJ.PLAYER_STATE_RESOURCE_GOLD, 0);//call SetPlayerState(thePlayer, PLAYER_STATE_RESOURCE_GOLD, 0)
+			SetPlayerState(thePlayer, CommonJ.PLAYER_STATE_RESOURCE_LUMBER, 0);//call SetPlayerState(thePlayer, PLAYER_STATE_RESOURCE_LUMBER, 0)
 		}//endfunction
 		//
 		private void DebugDemo() {//function DebugDemo takes nothing returns nothing
 			player thePlayer = GetTriggerPlayer();//local player thePlayer = GetTriggerPlayer()
 			int gold = GetRandomInt(750, 1500);//local integer gold = GetRandomInt(750, 1500)
 			int lumber = GetRandomInt(200, 450);//local integer lumber = GetRandomInt(200, 450)
-			ForForce(bj_FORCE_ALL_PLAYERS, function DebugDemoEnum);//call ForForce(bj_FORCE_ALL_PLAYERS, function DebugDemoEnum)
+			ForForce(BlizzardJ.bj_FORCE_ALL_PLAYERS, function DebugDemoEnum);//call ForForce(bj_FORCE_ALL_PLAYERS, function DebugDemoEnum)
 			if ((GetLocalPlayer() == GetTriggerPlayer())) {//if (GetLocalPlayer() == GetTriggerPlayer()) then
 				Cheat("warnings");//call Cheat("warnings")
 				Cheat("fastbuild");//call Cheat("fastbuild")
@@ -194,31 +194,31 @@ namespace Jass {
 			if ((whichField == CAMERA_FIELD_FARZ) && (value <= bj_CAMERA_MIN_FARZ)) {//if (whichField == CAMERA_FIELD_FARZ) and (value <= bj_CAMERA_MIN_FARZ) then
 				return;//return
 			}//endif
-			SetCameraFieldForPlayer(GetTriggerPlayer(), whichField, value, bj_DEBUG_CAMFIELD_SPEED);//call SetCameraFieldForPlayer(GetTriggerPlayer(), whichField, value, bj_DEBUG_CAMFIELD_SPEED)
+			SetCameraFieldForPlayer(GetTriggerPlayer(), whichField, value, CheatsJ.bj_DEBUG_CAMFIELD_SPEED);//call SetCameraFieldForPlayer(GetTriggerPlayer(), whichField, value, bj_DEBUG_CAMFIELD_SPEED)
 		}//endfunction
 		//
 		private void DebugCamDist() {//function DebugCamDist takes nothing returns nothing
-			DebugCamField(CAMERA_FIELD_TARGET_DISTANCE, 7, 1600);//call DebugCamField(CAMERA_FIELD_TARGET_DISTANCE, 7, 1600)
+			DebugCamField(CommonJ.CAMERA_FIELD_TARGET_DISTANCE, 7, 1600);//call DebugCamField(CAMERA_FIELD_TARGET_DISTANCE, 7, 1600)
 		}//endfunction
 		//
 		private void DebugCamFarZ() {//function DebugCamFarZ takes nothing returns nothing
-			DebugCamField(CAMERA_FIELD_FARZ, 7, 4000);//call DebugCamField(CAMERA_FIELD_FARZ, 7, 4000)
+			DebugCamField(CommonJ.CAMERA_FIELD_FARZ, 7, 4000);//call DebugCamField(CAMERA_FIELD_FARZ, 7, 4000)
 		}//endfunction
 		//
 		private void DebugCamFOV() {//function DebugCamFOV takes nothing returns nothing
-			DebugCamField(CAMERA_FIELD_FIELD_OF_VIEW, 6, 65);//call DebugCamField(CAMERA_FIELD_FIELD_OF_VIEW, 6, 65)
+			DebugCamField(CommonJ.CAMERA_FIELD_FIELD_OF_VIEW, 6, 65);//call DebugCamField(CAMERA_FIELD_FIELD_OF_VIEW, 6, 65)
 		}//endfunction
 		//
 		private void DebugCamAOA() {//function DebugCamAOA takes nothing returns nothing
-			DebugCamField(CAMERA_FIELD_ANGLE_OF_ATTACK, 6, 310);//call DebugCamField(CAMERA_FIELD_ANGLE_OF_ATTACK, 6, 310)
+			DebugCamField(CommonJ.CAMERA_FIELD_ANGLE_OF_ATTACK, 6, 310);//call DebugCamField(CAMERA_FIELD_ANGLE_OF_ATTACK, 6, 310)
 		}//endfunction
 		//
 		private void DebugCamRoll() {//function DebugCamRoll takes nothing returns nothing
-			DebugCamField(CAMERA_FIELD_ROLL, 7, 0);//call DebugCamField(CAMERA_FIELD_ROLL, 7, 0)
+			DebugCamField(CommonJ.CAMERA_FIELD_ROLL, 7, 0);//call DebugCamField(CAMERA_FIELD_ROLL, 7, 0)
 		}//endfunction
 		//
 		private void DebugCamRot() {//function DebugCamRot takes nothing returns nothing
-			DebugCamField(CAMERA_FIELD_ROTATION, 6, 90);//call DebugCamField(CAMERA_FIELD_ROTATION, 6, 90)
+			DebugCamField(CommonJ.CAMERA_FIELD_ROTATION, 6, 90);//call DebugCamField(CAMERA_FIELD_ROTATION, 6, 90)
 		}//endfunction
 		//
 		private void DebugCamReset() {//function DebugCamReset takes nothing returns nothing
@@ -294,7 +294,7 @@ namespace Jass {
 			if ((bj_debugGotoUnits != 0)) {//if (bj_debugGotoUnits != 0) then
 				bj_debugGotoUnitX = bj_debugGotoUnitX / bj_debugGotoUnits;//set bj_debugGotoUnitX = bj_debugGotoUnitX / bj_debugGotoUnits
 				bj_debugGotoUnitY = bj_debugGotoUnitY / bj_debugGotoUnits;//set bj_debugGotoUnitY = bj_debugGotoUnitY / bj_debugGotoUnits
-				SetCameraPositionForPlayer(GetTriggerPlayer(), bj_debugGotoUnitX, bj_debugGotoUnitY);//call SetCameraPositionForPlayer(GetTriggerPlayer(), bj_debugGotoUnitX, bj_debugGotoUnitY)
+				SetCameraPositionForPlayer(GetTriggerPlayer(), CheatsJ.bj_debugGotoUnitX, CheatsJ.bj_debugGotoUnitY);//call SetCameraPositionForPlayer(GetTriggerPlayer(), bj_debugGotoUnitX, bj_debugGotoUnitY)
 			}//endif
 		}//endfunction
 		//
@@ -336,68 +336,68 @@ namespace Jass {
 				indexPlayer = Player(index);//set indexPlayer = Player(index)
 				if ((GetPlayerSlotState(indexPlayer) == PLAYER_SLOT_STATE_PLAYING)) {//if (GetPlayerSlotState(indexPlayer) == PLAYER_SLOT_STATE_PLAYING) then
 					bj_debugGimmeTrig = CreateTrigger();//set bj_debugGimmeTrig = CreateTrigger()
-					TriggerRegisterPlayerChatEvent(bj_debugGimmeTrig, indexPlayer, bj_DEBUG_CHAT_GIMME, true);//call TriggerRegisterPlayerChatEvent(bj_debugGimmeTrig, indexPlayer, bj_DEBUG_CHAT_GIMME, true)
-					TriggerAddAction(bj_debugGimmeTrig, function DebugGimme);//call TriggerAddAction(bj_debugGimmeTrig, function DebugGimme)
+					TriggerRegisterPlayerChatEvent(CheatsJ.bj_debugGimmeTrig, indexPlayer, CheatsJ.bj_DEBUG_CHAT_GIMME, true);//call TriggerRegisterPlayerChatEvent(bj_debugGimmeTrig, indexPlayer, bj_DEBUG_CHAT_GIMME, true)
+					TriggerAddAction(CheatsJ.bj_debugGimmeTrig, function DebugGimme);//call TriggerAddAction(bj_debugGimmeTrig, function DebugGimme)
 					bj_debugDemoTrig = CreateTrigger();//set bj_debugDemoTrig = CreateTrigger()
-					TriggerRegisterPlayerChatEvent(bj_debugDemoTrig, indexPlayer, bj_DEBUG_CHAT_DEMO, true);//call TriggerRegisterPlayerChatEvent(bj_debugDemoTrig, indexPlayer, bj_DEBUG_CHAT_DEMO, true)
-					TriggerAddAction(bj_debugDemoTrig, function DebugDemo);//call TriggerAddAction(bj_debugDemoTrig, function DebugDemo)
+					TriggerRegisterPlayerChatEvent(CheatsJ.bj_debugDemoTrig, indexPlayer, CheatsJ.bj_DEBUG_CHAT_DEMO, true);//call TriggerRegisterPlayerChatEvent(bj_debugDemoTrig, indexPlayer, bj_DEBUG_CHAT_DEMO, true)
+					TriggerAddAction(CheatsJ.bj_debugDemoTrig, function DebugDemo);//call TriggerAddAction(bj_debugDemoTrig, function DebugDemo)
 					bj_debugTeleportTrig = CreateTrigger();//set bj_debugTeleportTrig = CreateTrigger()
-					TriggerRegisterPlayerChatEvent(bj_debugTeleportTrig, indexPlayer, bj_DEBUG_CHAT_TELEPORT, true);//call TriggerRegisterPlayerChatEvent(bj_debugTeleportTrig, indexPlayer, bj_DEBUG_CHAT_TELEPORT, true)
-					TriggerAddAction(bj_debugTeleportTrig, function DebugTeleport);//call TriggerAddAction(bj_debugTeleportTrig, function DebugTeleport)
+					TriggerRegisterPlayerChatEvent(CheatsJ.bj_debugTeleportTrig, indexPlayer, CheatsJ.bj_DEBUG_CHAT_TELEPORT, true);//call TriggerRegisterPlayerChatEvent(bj_debugTeleportTrig, indexPlayer, bj_DEBUG_CHAT_TELEPORT, true)
+					TriggerAddAction(CheatsJ.bj_debugTeleportTrig, function DebugTeleport);//call TriggerAddAction(bj_debugTeleportTrig, function DebugTeleport)
 					bj_debugUnitInfoTrig = CreateTrigger();//set bj_debugUnitInfoTrig = CreateTrigger()
-					TriggerRegisterPlayerChatEvent(bj_debugUnitInfoTrig, indexPlayer, bj_DEBUG_CHAT_UNITINFO, true);//call TriggerRegisterPlayerChatEvent(bj_debugUnitInfoTrig, indexPlayer, bj_DEBUG_CHAT_UNITINFO, true)
-					TriggerRegisterPlayerChatEvent(bj_debugUnitInfoTrig, indexPlayer, bj_DEBUG_CHAT_UNITINFO2, true);//call TriggerRegisterPlayerChatEvent(bj_debugUnitInfoTrig, indexPlayer, bj_DEBUG_CHAT_UNITINFO2, true)
-					TriggerAddAction(bj_debugUnitInfoTrig, function DebugUnitInfo);//call TriggerAddAction(bj_debugUnitInfoTrig, function DebugUnitInfo)
+					TriggerRegisterPlayerChatEvent(CheatsJ.bj_debugUnitInfoTrig, indexPlayer, CheatsJ.bj_DEBUG_CHAT_UNITINFO, true);//call TriggerRegisterPlayerChatEvent(bj_debugUnitInfoTrig, indexPlayer, bj_DEBUG_CHAT_UNITINFO, true)
+					TriggerRegisterPlayerChatEvent(CheatsJ.bj_debugUnitInfoTrig, indexPlayer, CheatsJ.bj_DEBUG_CHAT_UNITINFO2, true);//call TriggerRegisterPlayerChatEvent(bj_debugUnitInfoTrig, indexPlayer, bj_DEBUG_CHAT_UNITINFO2, true)
+					TriggerAddAction(CheatsJ.bj_debugUnitInfoTrig, function DebugUnitInfo);//call TriggerAddAction(bj_debugUnitInfoTrig, function DebugUnitInfo)
 					bj_debugCamInfoTrig = CreateTrigger();//set bj_debugCamInfoTrig = CreateTrigger()
-					TriggerRegisterPlayerChatEvent(bj_debugCamInfoTrig, indexPlayer, bj_DEBUG_CHAT_CAMINFO, true);//call TriggerRegisterPlayerChatEvent(bj_debugCamInfoTrig, indexPlayer, bj_DEBUG_CHAT_CAMINFO, true)
-					TriggerRegisterPlayerChatEvent(bj_debugCamInfoTrig, indexPlayer, bj_DEBUG_CHAT_CAMINFO2, true);//call TriggerRegisterPlayerChatEvent(bj_debugCamInfoTrig, indexPlayer, bj_DEBUG_CHAT_CAMINFO2, true)
-					TriggerAddAction(bj_debugCamInfoTrig, function DebugCamInfo);//call TriggerAddAction(bj_debugCamInfoTrig, function DebugCamInfo)
+					TriggerRegisterPlayerChatEvent(CheatsJ.bj_debugCamInfoTrig, indexPlayer, CheatsJ.bj_DEBUG_CHAT_CAMINFO, true);//call TriggerRegisterPlayerChatEvent(bj_debugCamInfoTrig, indexPlayer, bj_DEBUG_CHAT_CAMINFO, true)
+					TriggerRegisterPlayerChatEvent(CheatsJ.bj_debugCamInfoTrig, indexPlayer, CheatsJ.bj_DEBUG_CHAT_CAMINFO2, true);//call TriggerRegisterPlayerChatEvent(bj_debugCamInfoTrig, indexPlayer, bj_DEBUG_CHAT_CAMINFO2, true)
+					TriggerAddAction(CheatsJ.bj_debugCamInfoTrig, function DebugCamInfo);//call TriggerAddAction(bj_debugCamInfoTrig, function DebugCamInfo)
 					bj_debugCamDistTrig = CreateTrigger();//set bj_debugCamDistTrig = CreateTrigger()
-					TriggerRegisterPlayerChatEvent(bj_debugCamDistTrig, indexPlayer, bj_DEBUG_CHAT_CAMDIST, false);//call TriggerRegisterPlayerChatEvent(bj_debugCamDistTrig, indexPlayer, bj_DEBUG_CHAT_CAMDIST, false)
-					TriggerAddAction(bj_debugCamDistTrig, function DebugCamDist);//call TriggerAddAction(bj_debugCamDistTrig, function DebugCamDist)
+					TriggerRegisterPlayerChatEvent(CheatsJ.bj_debugCamDistTrig, indexPlayer, CheatsJ.bj_DEBUG_CHAT_CAMDIST, false);//call TriggerRegisterPlayerChatEvent(bj_debugCamDistTrig, indexPlayer, bj_DEBUG_CHAT_CAMDIST, false)
+					TriggerAddAction(CheatsJ.bj_debugCamDistTrig, function DebugCamDist);//call TriggerAddAction(bj_debugCamDistTrig, function DebugCamDist)
 					bj_debugCamFarzTrig = CreateTrigger();//set bj_debugCamFarzTrig = CreateTrigger()
-					TriggerRegisterPlayerChatEvent(bj_debugCamFarzTrig, indexPlayer, bj_DEBUG_CHAT_CAMFARZ, false);//call TriggerRegisterPlayerChatEvent(bj_debugCamFarzTrig, indexPlayer, bj_DEBUG_CHAT_CAMFARZ, false)
-					TriggerAddAction(bj_debugCamFarzTrig, function DebugCamFarZ);//call TriggerAddAction(bj_debugCamFarzTrig, function DebugCamFarZ)
+					TriggerRegisterPlayerChatEvent(CheatsJ.bj_debugCamFarzTrig, indexPlayer, CheatsJ.bj_DEBUG_CHAT_CAMFARZ, false);//call TriggerRegisterPlayerChatEvent(bj_debugCamFarzTrig, indexPlayer, bj_DEBUG_CHAT_CAMFARZ, false)
+					TriggerAddAction(CheatsJ.bj_debugCamFarzTrig, function DebugCamFarZ);//call TriggerAddAction(bj_debugCamFarzTrig, function DebugCamFarZ)
 					bj_debugCamFovTrig = CreateTrigger();//set bj_debugCamFovTrig = CreateTrigger()
-					TriggerRegisterPlayerChatEvent(bj_debugCamFovTrig, indexPlayer, bj_DEBUG_CHAT_CAMFOV, false);//call TriggerRegisterPlayerChatEvent(bj_debugCamFovTrig, indexPlayer, bj_DEBUG_CHAT_CAMFOV, false)
-					TriggerAddAction(bj_debugCamFovTrig, function DebugCamFOV);//call TriggerAddAction(bj_debugCamFovTrig, function DebugCamFOV)
+					TriggerRegisterPlayerChatEvent(CheatsJ.bj_debugCamFovTrig, indexPlayer, CheatsJ.bj_DEBUG_CHAT_CAMFOV, false);//call TriggerRegisterPlayerChatEvent(bj_debugCamFovTrig, indexPlayer, bj_DEBUG_CHAT_CAMFOV, false)
+					TriggerAddAction(CheatsJ.bj_debugCamFovTrig, function DebugCamFOV);//call TriggerAddAction(bj_debugCamFovTrig, function DebugCamFOV)
 					bj_debugCamAoaTrig = CreateTrigger();//set bj_debugCamAoaTrig = CreateTrigger()
-					TriggerRegisterPlayerChatEvent(bj_debugCamAoaTrig, indexPlayer, bj_DEBUG_CHAT_CAMAOA, false);//call TriggerRegisterPlayerChatEvent(bj_debugCamAoaTrig, indexPlayer, bj_DEBUG_CHAT_CAMAOA, false)
-					TriggerAddAction(bj_debugCamAoaTrig, function DebugCamAOA);//call TriggerAddAction(bj_debugCamAoaTrig, function DebugCamAOA)
+					TriggerRegisterPlayerChatEvent(CheatsJ.bj_debugCamAoaTrig, indexPlayer, CheatsJ.bj_DEBUG_CHAT_CAMAOA, false);//call TriggerRegisterPlayerChatEvent(bj_debugCamAoaTrig, indexPlayer, bj_DEBUG_CHAT_CAMAOA, false)
+					TriggerAddAction(CheatsJ.bj_debugCamAoaTrig, function DebugCamAOA);//call TriggerAddAction(bj_debugCamAoaTrig, function DebugCamAOA)
 					bj_debugCamRollTrig = CreateTrigger();//set bj_debugCamRollTrig = CreateTrigger()
-					TriggerRegisterPlayerChatEvent(bj_debugCamRollTrig, indexPlayer, bj_DEBUG_CHAT_CAMROLL, false);//call TriggerRegisterPlayerChatEvent(bj_debugCamRollTrig, indexPlayer, bj_DEBUG_CHAT_CAMROLL, false)
-					TriggerAddAction(bj_debugCamRollTrig, function DebugCamRoll);//call TriggerAddAction(bj_debugCamRollTrig, function DebugCamRoll)
+					TriggerRegisterPlayerChatEvent(CheatsJ.bj_debugCamRollTrig, indexPlayer, CheatsJ.bj_DEBUG_CHAT_CAMROLL, false);//call TriggerRegisterPlayerChatEvent(bj_debugCamRollTrig, indexPlayer, bj_DEBUG_CHAT_CAMROLL, false)
+					TriggerAddAction(CheatsJ.bj_debugCamRollTrig, function DebugCamRoll);//call TriggerAddAction(bj_debugCamRollTrig, function DebugCamRoll)
 					bj_debugCamRotTrig = CreateTrigger();//set bj_debugCamRotTrig = CreateTrigger()
-					TriggerRegisterPlayerChatEvent(bj_debugCamRotTrig, indexPlayer, bj_DEBUG_CHAT_CAMROT, false);//call TriggerRegisterPlayerChatEvent(bj_debugCamRotTrig, indexPlayer, bj_DEBUG_CHAT_CAMROT, false)
-					TriggerAddAction(bj_debugCamRotTrig, function DebugCamRot);//call TriggerAddAction(bj_debugCamRotTrig, function DebugCamRot)
+					TriggerRegisterPlayerChatEvent(CheatsJ.bj_debugCamRotTrig, indexPlayer, CheatsJ.bj_DEBUG_CHAT_CAMROT, false);//call TriggerRegisterPlayerChatEvent(bj_debugCamRotTrig, indexPlayer, bj_DEBUG_CHAT_CAMROT, false)
+					TriggerAddAction(CheatsJ.bj_debugCamRotTrig, function DebugCamRot);//call TriggerAddAction(bj_debugCamRotTrig, function DebugCamRot)
 					bj_debugCamResetTrig = CreateTrigger();//set bj_debugCamResetTrig = CreateTrigger()
-					TriggerRegisterPlayerChatEvent(bj_debugCamResetTrig, indexPlayer, bj_DEBUG_CHAT_CAMRESET, true);//call TriggerRegisterPlayerChatEvent(bj_debugCamResetTrig, indexPlayer, bj_DEBUG_CHAT_CAMRESET, true)
-					TriggerAddAction(bj_debugCamResetTrig, function DebugCamReset);//call TriggerAddAction(bj_debugCamResetTrig, function DebugCamReset)
+					TriggerRegisterPlayerChatEvent(CheatsJ.bj_debugCamResetTrig, indexPlayer, CheatsJ.bj_DEBUG_CHAT_CAMRESET, true);//call TriggerRegisterPlayerChatEvent(bj_debugCamResetTrig, indexPlayer, bj_DEBUG_CHAT_CAMRESET, true)
+					TriggerAddAction(CheatsJ.bj_debugCamResetTrig, function DebugCamReset);//call TriggerAddAction(bj_debugCamResetTrig, function DebugCamReset)
 					bj_debugRuTrig = CreateTrigger();//set bj_debugRuTrig = CreateTrigger()
-					TriggerRegisterPlayerChatEvent(bj_debugRuTrig, indexPlayer, bj_DEBUG_CHAT_REMOVEUNIT, true);//call TriggerRegisterPlayerChatEvent(bj_debugRuTrig, indexPlayer, bj_DEBUG_CHAT_REMOVEUNIT, true)
-					TriggerAddAction(bj_debugRuTrig, function DebugRemoveUnit);//call TriggerAddAction(bj_debugRuTrig, function DebugRemoveUnit)
+					TriggerRegisterPlayerChatEvent(CheatsJ.bj_debugRuTrig, indexPlayer, CheatsJ.bj_DEBUG_CHAT_REMOVEUNIT, true);//call TriggerRegisterPlayerChatEvent(bj_debugRuTrig, indexPlayer, bj_DEBUG_CHAT_REMOVEUNIT, true)
+					TriggerAddAction(CheatsJ.bj_debugRuTrig, function DebugRemoveUnit);//call TriggerAddAction(bj_debugRuTrig, function DebugRemoveUnit)
 					bj_debugGotoXTrig = CreateTrigger();//set bj_debugGotoXTrig = CreateTrigger()
-					TriggerRegisterPlayerChatEvent(bj_debugGotoXTrig, indexPlayer, bj_DEBUG_CHAT_GOTOX, false);//call TriggerRegisterPlayerChatEvent(bj_debugGotoXTrig, indexPlayer, bj_DEBUG_CHAT_GOTOX, false)
-					TriggerAddAction(bj_debugGotoXTrig, function DebugGotoX);//call TriggerAddAction(bj_debugGotoXTrig, function DebugGotoX)
+					TriggerRegisterPlayerChatEvent(CheatsJ.bj_debugGotoXTrig, indexPlayer, CheatsJ.bj_DEBUG_CHAT_GOTOX, false);//call TriggerRegisterPlayerChatEvent(bj_debugGotoXTrig, indexPlayer, bj_DEBUG_CHAT_GOTOX, false)
+					TriggerAddAction(CheatsJ.bj_debugGotoXTrig, function DebugGotoX);//call TriggerAddAction(bj_debugGotoXTrig, function DebugGotoX)
 					bj_debugGotoYTrig = CreateTrigger();//set bj_debugGotoYTrig = CreateTrigger()
-					TriggerRegisterPlayerChatEvent(bj_debugGotoYTrig, indexPlayer, bj_DEBUG_CHAT_GOTOY, false);//call TriggerRegisterPlayerChatEvent(bj_debugGotoYTrig, indexPlayer, bj_DEBUG_CHAT_GOTOY, false)
-					TriggerAddAction(bj_debugGotoYTrig, function DebugGotoY);//call TriggerAddAction(bj_debugGotoYTrig, function DebugGotoY)
+					TriggerRegisterPlayerChatEvent(CheatsJ.bj_debugGotoYTrig, indexPlayer, CheatsJ.bj_DEBUG_CHAT_GOTOY, false);//call TriggerRegisterPlayerChatEvent(bj_debugGotoYTrig, indexPlayer, bj_DEBUG_CHAT_GOTOY, false)
+					TriggerAddAction(CheatsJ.bj_debugGotoYTrig, function DebugGotoY);//call TriggerAddAction(bj_debugGotoYTrig, function DebugGotoY)
 					bj_debugGotoXYTrig = CreateTrigger();//set bj_debugGotoXYTrig = CreateTrigger()
-					TriggerRegisterPlayerChatEvent(bj_debugGotoXYTrig, indexPlayer, bj_DEBUG_CHAT_GOTOXY, false);//call TriggerRegisterPlayerChatEvent(bj_debugGotoXYTrig, indexPlayer, bj_DEBUG_CHAT_GOTOXY, false)
-					TriggerAddAction(bj_debugGotoXYTrig, function DebugGotoXY);//call TriggerAddAction(bj_debugGotoXYTrig, function DebugGotoXY)
+					TriggerRegisterPlayerChatEvent(CheatsJ.bj_debugGotoXYTrig, indexPlayer, CheatsJ.bj_DEBUG_CHAT_GOTOXY, false);//call TriggerRegisterPlayerChatEvent(bj_debugGotoXYTrig, indexPlayer, bj_DEBUG_CHAT_GOTOXY, false)
+					TriggerAddAction(CheatsJ.bj_debugGotoXYTrig, function DebugGotoXY);//call TriggerAddAction(bj_debugGotoXYTrig, function DebugGotoXY)
 					bj_debugGotoUnitTrig = CreateTrigger();//set bj_debugGotoUnitTrig = CreateTrigger()
-					TriggerRegisterPlayerChatEvent(bj_debugGotoUnitTrig, indexPlayer, bj_DEBUG_CHAT_GOTOUNIT, true);//call TriggerRegisterPlayerChatEvent(bj_debugGotoUnitTrig, indexPlayer, bj_DEBUG_CHAT_GOTOUNIT, true)
-					TriggerAddAction(bj_debugGotoUnitTrig, function DebugGotoUnit);//call TriggerAddAction(bj_debugGotoUnitTrig, function DebugGotoUnit)
+					TriggerRegisterPlayerChatEvent(CheatsJ.bj_debugGotoUnitTrig, indexPlayer, CheatsJ.bj_DEBUG_CHAT_GOTOUNIT, true);//call TriggerRegisterPlayerChatEvent(bj_debugGotoUnitTrig, indexPlayer, bj_DEBUG_CHAT_GOTOUNIT, true)
+					TriggerAddAction(CheatsJ.bj_debugGotoUnitTrig, function DebugGotoUnit);//call TriggerAddAction(bj_debugGotoUnitTrig, function DebugGotoUnit)
 					bj_debugDifficultyTrig = CreateTrigger();//set bj_debugDifficultyTrig = CreateTrigger()
-					TriggerRegisterPlayerChatEvent(bj_debugDifficultyTrig, indexPlayer, bj_DEBUG_CHAT_DIFFICULTY, true);//call TriggerRegisterPlayerChatEvent(bj_debugDifficultyTrig, indexPlayer, bj_DEBUG_CHAT_DIFFICULTY, true)
-					TriggerAddAction(bj_debugDifficultyTrig, function DebugDifficulty);//call TriggerAddAction(bj_debugDifficultyTrig, function DebugDifficulty)
+					TriggerRegisterPlayerChatEvent(CheatsJ.bj_debugDifficultyTrig, indexPlayer, CheatsJ.bj_DEBUG_CHAT_DIFFICULTY, true);//call TriggerRegisterPlayerChatEvent(bj_debugDifficultyTrig, indexPlayer, bj_DEBUG_CHAT_DIFFICULTY, true)
+					TriggerAddAction(CheatsJ.bj_debugDifficultyTrig, function DebugDifficulty);//call TriggerAddAction(bj_debugDifficultyTrig, function DebugDifficulty)
 					bj_debugFingerOfDeathEnabled[index] = false;//set bj_debugFingerOfDeathEnabled[index] = false
 					bj_debugToolOfDeathTrig[index] = CreateTrigger();//set bj_debugToolOfDeathTrig[index] = CreateTrigger()
-					TriggerRegisterPlayerUnitEvent(bj_debugToolOfDeathTrig[index], indexPlayer, EVENT_PLAYER_UNIT_SELECTED, null);//call TriggerRegisterPlayerUnitEvent(bj_debugToolOfDeathTrig[index], indexPlayer, EVENT_PLAYER_UNIT_SELECTED, null)
+					TriggerRegisterPlayerUnitEvent(bj_debugToolOfDeathTrig[index], indexPlayer, CommonJ.EVENT_PLAYER_UNIT_SELECTED, null);//call TriggerRegisterPlayerUnitEvent(bj_debugToolOfDeathTrig[index], indexPlayer, EVENT_PLAYER_UNIT_SELECTED, null)
 					TriggerAddAction(bj_debugToolOfDeathTrig[index], function DebugToolOfDeath);//call TriggerAddAction(bj_debugToolOfDeathTrig[index], function DebugToolOfDeath)
 					DisableTrigger(bj_debugToolOfDeathTrig[index]);//call DisableTrigger(bj_debugToolOfDeathTrig[index])
 					bj_debugFingerOfDeathTrig[index] = CreateTrigger();//set bj_debugFingerOfDeathTrig[index] = CreateTrigger()
-					TriggerRegisterPlayerChatEvent(bj_debugFingerOfDeathTrig[index], indexPlayer, bj_DEBUG_CHAT_FINGEROFDEATH, true);//call TriggerRegisterPlayerChatEvent(bj_debugFingerOfDeathTrig[index], indexPlayer, bj_DEBUG_CHAT_FINGEROFDEATH, true)
+					TriggerRegisterPlayerChatEvent(bj_debugFingerOfDeathTrig[index], indexPlayer, CheatsJ.bj_DEBUG_CHAT_FINGEROFDEATH, true);//call TriggerRegisterPlayerChatEvent(bj_debugFingerOfDeathTrig[index], indexPlayer, bj_DEBUG_CHAT_FINGEROFDEATH, true)
 					TriggerAddAction(bj_debugFingerOfDeathTrig[index], function DebugToggleFingerOfDeath);//call TriggerAddAction(bj_debugFingerOfDeathTrig[index], function DebugToggleFingerOfDeath)
 				}//endif
 				index = index + 1;//set index = index + 1

@@ -32,18 +32,18 @@ namespace Jass {
 		//
 		private void set_build_units(bool fplayer) {//function set_build_units takes boolean fplayer returns nothing
 			if (!fplayer) {//if not fplayer then
-				SetBuildUnit(1, PEON);//call SetBuildUnit( 1, PEON              )
-				SetBuildUnit(1, GREAT_HALL);//call SetBuildUnit( 1, GREAT_HALL        )
-				SetBuildUnit(1, ORC_BARRACKS);//call SetBuildUnit( 1, ORC_BARRACKS      )
-				SetBuildUnit(1, STRONGHOLD);//call SetBuildUnit( 1, STRONGHOLD        )
-				SetBuildUnit(1, ORC_ALTAR);//call SetBuildUnit( 1, ORC_ALTAR         )
-				SetBuildUnit(1, FORGE);//call SetBuildUnit( 1, FORGE             )
-				SetBuildUnit(1, BESTIARY);//call SetBuildUnit( 1, BESTIARY          )
-				SetBuildUnit(7, PEON);//call SetBuildUnit( 7, PEON              )
+				SetBuildUnit(1, CommonAi.PEON);//call SetBuildUnit( 1, PEON              )
+				SetBuildUnit(1, CommonAi.GREAT_HALL);//call SetBuildUnit( 1, GREAT_HALL        )
+				SetBuildUnit(1, CommonAi.ORC_BARRACKS);//call SetBuildUnit( 1, ORC_BARRACKS      )
+				SetBuildUnit(1, CommonAi.STRONGHOLD);//call SetBuildUnit( 1, STRONGHOLD        )
+				SetBuildUnit(1, CommonAi.ORC_ALTAR);//call SetBuildUnit( 1, ORC_ALTAR         )
+				SetBuildUnit(1, CommonAi.FORGE);//call SetBuildUnit( 1, FORGE             )
+				SetBuildUnit(1, CommonAi.BESTIARY);//call SetBuildUnit( 1, BESTIARY          )
+				SetBuildUnit(7, CommonAi.PEON);//call SetBuildUnit( 7, PEON              )
 			} else {//else
-				SetBuildUnit(2, ORC_BARRACKS);//call SetBuildUnit( 2, ORC_BARRACKS		)
-				SetBuildUnit(2, BESTIARY);//call SetBuildUnit( 2, BESTIARY			)
-				SetBuildUnit(4, ORC_WATCH_TOWER);//call SetBuildUnit( 4, ORC_WATCH_TOWER   )
+				SetBuildUnit(2, CommonAi.ORC_BARRACKS);//call SetBuildUnit( 2, ORC_BARRACKS		)
+				SetBuildUnit(2, CommonAi.BESTIARY);//call SetBuildUnit( 2, BESTIARY			)
+				SetBuildUnit(4, CommonAi.ORC_WATCH_TOWER);//call SetBuildUnit( 4, ORC_WATCH_TOWER   )
 			}//endif
 		}//endfunction
 		//
@@ -51,14 +51,14 @@ namespace Jass {
 		//
 		private void set_defenders(bool fplayer) {//function set_defenders takes boolean fplayer returns nothing
 			if (!fplayer) {//if not fplayer then
-				CampaignDefenderEx(1,1,1, GROM);//call CampaignDefenderEx( 1,1,1, GROM		)
-				CampaignDefenderEx(2,2,2, GRUNT);//call CampaignDefenderEx( 2,2,2, GRUNT		)
-				CampaignDefenderEx(2,2,2, HEAD_HUNTER);//call CampaignDefenderEx( 2,2,2, HEAD_HUNTER	)
-				CampaignDefenderEx(4,4,4, RAIDER);//call CampaignDefenderEx( 4,4,4, RAIDER		)
+				CampaignDefenderEx(1, 1, 1, CommonAi.GROM);//call CampaignDefenderEx( 1,1,1, GROM		)
+				CampaignDefenderEx(2, 2, 2, CommonAi.GRUNT);//call CampaignDefenderEx( 2,2,2, GRUNT		)
+				CampaignDefenderEx(2, 2, 2, CommonAi.HEAD_HUNTER);//call CampaignDefenderEx( 2,2,2, HEAD_HUNTER	)
+				CampaignDefenderEx(4, 4, 4, CommonAi.RAIDER);//call CampaignDefenderEx( 4,4,4, RAIDER		)
 			} else {//else
-				CampaignDefenderEx(2,2,2, GRUNT);//call CampaignDefenderEx( 2,2,2, GRUNT		)
-				CampaignDefenderEx(1,1,1, HEAD_HUNTER);//call CampaignDefenderEx( 1,1,1, HEAD_HUNTER	)
-				CampaignDefenderEx(1,1,2, RAIDER);//call CampaignDefenderEx( 1,1,2, RAIDER		)
+				CampaignDefenderEx(2, 2, 2, CommonAi.GRUNT);//call CampaignDefenderEx( 2,2,2, GRUNT		)
+				CampaignDefenderEx(1, 1, 1, CommonAi.HEAD_HUNTER);//call CampaignDefenderEx( 1,1,1, HEAD_HUNTER	)
+				CampaignDefenderEx(1, 1, 2, CommonAi.RAIDER);//call CampaignDefenderEx( 1,1,2, RAIDER		)
 			}//endif
 		}//endfunction
 		//
@@ -68,30 +68,30 @@ namespace Jass {
 			//
 			if (grom_target == USER) {//if grom_target == USER then
 				//
-				CampaignAttackerEx(3,3,4, GRUNT);//call CampaignAttackerEx	( 3,3,4, GRUNT		 )
-				CampaignAttackerEx(3,3,4, HEAD_HUNTER);//call CampaignAttackerEx	( 3,3,4, HEAD_HUNTER )
-				CampaignAttackerEx(1,1,2, CATAPULT);//call CampaignAttackerEx	( 1,1,2, CATAPULT	 )
-				CampaignAttackerEx(2,2,4, RAIDER);//call CampaignAttackerEx	( 2,2,4, RAIDER		 )
-				SuicideOnPlayer(M5,Player(grom_target));//call SuicideOnPlayer(M5,Player(grom_target))
+				CampaignAttackerEx(3, 3, 4, CommonAi.GRUNT);//call CampaignAttackerEx	( 3,3,4, GRUNT		 )
+				CampaignAttackerEx(3, 3, 4, CommonAi.HEAD_HUNTER);//call CampaignAttackerEx	( 3,3,4, HEAD_HUNTER )
+				CampaignAttackerEx(1, 1, 2, CommonAi.CATAPULT);//call CampaignAttackerEx	( 1,1,2, CATAPULT	 )
+				CampaignAttackerEx(2, 2, 4, CommonAi.RAIDER);//call CampaignAttackerEx	( 2,2,4, RAIDER		 )
+				SuicideOnPlayer(CommonAi.M5, Player(grom_target));//call SuicideOnPlayer(M5,Player(grom_target))
 				//
 			} else if (strength == 1) {//elseif strength == 1 then
 				//
-				CampaignAttackerEx(4,4,5, GRUNT);//call CampaignAttackerEx	( 4,4,5, GRUNT		 )
-				SuicideOnPlayer(M5,Player(grom_target));//call SuicideOnPlayer(M5,Player(grom_target))
+				CampaignAttackerEx(4, 4, 5, CommonAi.GRUNT);//call CampaignAttackerEx	( 4,4,5, GRUNT		 )
+				SuicideOnPlayer(CommonAi.M5, Player(grom_target));//call SuicideOnPlayer(M5,Player(grom_target))
 				strength = 2;//set strength = 2
 				//
 			} else if (strength == 2) {//elseif strength == 2 then
 				//
-				CampaignAttackerEx(3,3,4, GRUNT);//call CampaignAttackerEx	( 3,3,4, GRUNT		 )
-				CampaignAttackerEx(2,2,2, HEAD_HUNTER);//call CampaignAttackerEx	( 2,2,2, HEAD_HUNTER )
-				SuicideOnPlayer(M5,Player(grom_target));//call SuicideOnPlayer(M5,Player(grom_target))
+				CampaignAttackerEx(3, 3, 4, CommonAi.GRUNT);//call CampaignAttackerEx	( 3,3,4, GRUNT		 )
+				CampaignAttackerEx(2, 2, 2, CommonAi.HEAD_HUNTER);//call CampaignAttackerEx	( 2,2,2, HEAD_HUNTER )
+				SuicideOnPlayer(CommonAi.M5, Player(grom_target));//call SuicideOnPlayer(M5,Player(grom_target))
 				strength = 3;//set strength = 3
 				//
 			} else {//else
 				//
-				CampaignAttackerEx(3,3,4, RAIDER);//call CampaignAttackerEx	( 3,3,4, RAIDER		 )
-				CampaignAttackerEx(2,2,2, HEAD_HUNTER);//call CampaignAttackerEx	( 2,2,2, HEAD_HUNTER )
-				SuicideOnPlayer(M5,Player(grom_target));//call SuicideOnPlayer(M5,Player(grom_target))
+				CampaignAttackerEx(3, 3, 4, CommonAi.RAIDER);//call CampaignAttackerEx	( 3,3,4, RAIDER		 )
+				CampaignAttackerEx(2, 2, 2, CommonAi.HEAD_HUNTER);//call CampaignAttackerEx	( 2,2,2, HEAD_HUNTER )
+				SuicideOnPlayer(CommonAi.M5, Player(grom_target));//call SuicideOnPlayer(M5,Player(grom_target))
 				strength = 1;//set strength = 1
 			}//endif
 		}//endfunction
@@ -102,21 +102,21 @@ namespace Jass {
 			//
 			if (strength==1) {//if strength==1 then
 				//
-				CampaignAttackerEx(4,4,5, GRUNT);//call CampaignAttackerEx	( 4,4,5, GRUNT       )
-				SuicideOnPlayer(0,Player(grom_target));//call SuicideOnPlayer(0,Player(grom_target))
+				CampaignAttackerEx(4, 4, 5, CommonAi.GRUNT);//call CampaignAttackerEx	( 4,4,5, GRUNT       )
+				SuicideOnPlayer(0, Player(grom_target));//call SuicideOnPlayer(0,Player(grom_target))
 				//
 			} else if (strength==2) {//elseif strength==2 then
 				//
-				CampaignAttackerEx(3,3,4, GRUNT);//call CampaignAttackerEx	( 3,3,4, GRUNT		 )
-				CampaignAttackerEx(3,3,4, HEAD_HUNTER);//call CampaignAttackerEx	( 3,3,4, HEAD_HUNTER )
-				SuicideOnPlayer(M3,Player(grom_target));//call SuicideOnPlayer(M3,Player(grom_target))
+				CampaignAttackerEx(3, 3, 4, CommonAi.GRUNT);//call CampaignAttackerEx	( 3,3,4, GRUNT		 )
+				CampaignAttackerEx(3, 3, 4, CommonAi.HEAD_HUNTER);//call CampaignAttackerEx	( 3,3,4, HEAD_HUNTER )
+				SuicideOnPlayer(CommonAi.M3, Player(grom_target));//call SuicideOnPlayer(M3,Player(grom_target))
 				//
 			} else {//else
 				//
-				CampaignAttackerEx(3,3,4, GRUNT);//call CampaignAttackerEx	( 3,3,4, GRUNT		 )
-				CampaignAttackerEx(3,3,4, HEAD_HUNTER);//call CampaignAttackerEx	( 3,3,4, HEAD_HUNTER )
-				CampaignAttackerEx(3,3,4, RAIDER);//call CampaignAttackerEx	( 3,3,4, RAIDER		 )
-				SuicideOnPlayer(M3,Player(grom_target));//call SuicideOnPlayer(M3,Player(grom_target))
+				CampaignAttackerEx(3, 3, 4, CommonAi.GRUNT);//call CampaignAttackerEx	( 3,3,4, GRUNT		 )
+				CampaignAttackerEx(3, 3, 4, CommonAi.HEAD_HUNTER);//call CampaignAttackerEx	( 3,3,4, HEAD_HUNTER )
+				CampaignAttackerEx(3, 3, 4, CommonAi.RAIDER);//call CampaignAttackerEx	( 3,3,4, RAIDER		 )
+				SuicideOnPlayer(CommonAi.M3, Player(grom_target));//call SuicideOnPlayer(M3,Player(grom_target))
 			}//endif
 		}//endfunction
 		//
@@ -148,7 +148,7 @@ namespace Jass {
 				if (CommandsWaiting() != 0) { break; }//exitwhen CommandsWaiting() != 0
 				Sleep(5);//call Sleep(5)
 			}//endloop
-			TraceI("...first command (%d) received.\n",GetLastCommand());//call TraceI("...first command (%d) received.\n",GetLastCommand())
+			TraceI("...first command (%d) received.\n", GetLastCommand());//call TraceI("...first command (%d) received.\n",GetLastCommand())
 		}//endfunction
 		//
 		//
@@ -157,7 +157,7 @@ namespace Jass {
 			if (grom_target == -1 && alive[target] && needs_agro[target]) {//if grom_target == -1 and alive[target] and needs_agro[target] then
 				grom_target = target;//set grom_target = target
 				needs_agro[target] = false;//set needs_agro[target] = false
-				TraceI("NOTICE: SET NEEDS_AGRO[%d] = FALSE\n",target);//call TraceI("NOTICE: SET NEEDS_AGRO[%d] = FALSE\n",target)
+				TraceI("NOTICE: SET NEEDS_AGRO[%d] = FALSE\n", N07_rainbowAi.target);//call TraceI("NOTICE: SET NEEDS_AGRO[%d] = FALSE\n",target)
 			}//endif
 		}//endfunction
 		//
@@ -173,7 +173,7 @@ namespace Jass {
 				}//endif
 				if (alive[grom_target]) { break; }//exitwhen alive[grom_target]
 			}//endloop
-			TraceI("Grom setting normal attack wave target = %d\n",grom_target);//call TraceI("Grom setting normal attack wave target = %d\n",grom_target)
+			TraceI("Grom setting normal attack wave target = %d\n", O03_gromAi.grom_target);//call TraceI("Grom setting normal attack wave target = %d\n",grom_target)
 		}//endfunction
 		//
 		//
@@ -182,20 +182,20 @@ namespace Jass {
 			if (grom_target != -1) {//if grom_target != -1 then
 				Trace("Grom successful, sleeping for a while\n");//call Trace("Grom successful, sleeping for a while\n")
 				if (difficulty==EASY) {//if difficulty==EASY then
-					Sleep(EASY_AGRO);//call Sleep(EASY_AGRO)
+					Sleep(O03_gromAi.EASY_AGRO);//call Sleep(EASY_AGRO)
 				} else if (difficulty==NORMAL) {//elseif difficulty==NORMAL then
-					Sleep(NORMAL_AGRO);//call Sleep(NORMAL_AGRO)
+					Sleep(O03_gromAi.NORMAL_AGRO);//call Sleep(NORMAL_AGRO)
 				} else {//else
-					Sleep(HARD_AGRO);//call Sleep(HARD_AGRO)
+					Sleep(O03_gromAi.HARD_AGRO);//call Sleep(HARD_AGRO)
 				}//endif
 				grom_target = -1;//set grom_target = -1
 				strength = 1;//set strength    = 1
 			}//endif
-			possible_agro(BLUE);//call possible_agro( BLUE       )
-			possible_agro(GRAY);//call possible_agro( GRAY       )
-			possible_agro(LIGHT_BLUE);//call possible_agro( LIGHT_BLUE )
-			possible_agro(GREEN);//call possible_agro( GREEN      )
-			TraceI("changing agro target to %d\n",grom_target);//call TraceI("changing agro target to %d\n",grom_target)
+			possible_agro(O03_gromAi.BLUE);//call possible_agro( BLUE       )
+			possible_agro(O03_gromAi.GRAY);//call possible_agro( GRAY       )
+			possible_agro(O03_gromAi.LIGHT_BLUE);//call possible_agro( LIGHT_BLUE )
+			possible_agro(O03_gromAi.GREEN);//call possible_agro( GREEN      )
+			TraceI("changing agro target to %d\n", O03_gromAi.grom_target);//call TraceI("changing agro target to %d\n",grom_target)
 		}//endfunction
 		//
 		//
@@ -208,8 +208,8 @@ namespace Jass {
 				cmd = GetLastCommand();//set cmd  = GetLastCommand()
 				data = GetLastData();//set data = GetLastData()
 				PopLastCommand();//call PopLastCommand()
-				TraceI("COMMAND = %d\n",cmd);//call TraceI("COMMAND = %d\n",cmd)
-				TraceI("DATA = %d\n",data);//call TraceI("DATA = %d\n",data)
+				TraceI("COMMAND = %d\n", cmd);//call TraceI("COMMAND = %d\n",cmd)
+				TraceI("DATA = %d\n", data);//call TraceI("DATA = %d\n",data)
 				//
 				if (cmd == GO_AGRO) {//if cmd == GO_AGRO then
 					//
@@ -223,7 +223,7 @@ namespace Jass {
 					//
 				} else if (cmd == PLAYER_DIED) {//elseif cmd == PLAYER_DIED then
 					//
-					TraceI("NOTICE: TOWN %d JUST DIED\n",data);//call TraceI("NOTICE: TOWN %d JUST DIED\n",data)
+					TraceI("NOTICE: TOWN %d JUST DIED\n", data);//call TraceI("NOTICE: TOWN %d JUST DIED\n",data)
 					alive[data] = false;//set alive[data] = false
 					//
 				} else if (cmd == PLAYER_ASS) {//elseif cmd == PLAYER_ASS then
@@ -237,17 +237,17 @@ namespace Jass {
 				} else if (cmd == CLEAR_AGRO) {//elseif cmd == CLEAR_AGRO then
 					//
 					if (data == grom_target) {//if data == grom_target then
-						TraceI("player agro'd Grom's target (%d) first\n",data);//call TraceI("player agro'd Grom's target (%d) first\n",data)
+						TraceI("player agro'd Grom's target (%d) first\n", data);//call TraceI("player agro'd Grom's target (%d) first\n",data)
 						go_agro();//call go_agro()
 					} else {//else
-						TraceI("player agro'd %d (not Grom's current target)\n",data);//call TraceI("player agro'd %d (not Grom's current target)\n",data)
+						TraceI("player agro'd %d (not Grom's current target)\n", data);//call TraceI("player agro'd %d (not Grom's current target)\n",data)
 					}//endif
-					TraceI("NOTICE: SET NEEDS_AGRO[%d] = FALSE\n",data);//call TraceI("NOTICE: SET NEEDS_AGRO[%d] = FALSE\n",data)
+					TraceI("NOTICE: SET NEEDS_AGRO[%d] = FALSE\n", data);//call TraceI("NOTICE: SET NEEDS_AGRO[%d] = FALSE\n",data)
 					needs_agro[data] = false;//set needs_agro[data] = false
 					//
 				} else {//else
 					//
-					TraceI("WARNING: UNKNOWN COMMAND (%d)\n",cmd);//call TraceI("WARNING: UNKNOWN COMMAND (%d)\n",cmd)
+					TraceI("WARNING: UNKNOWN COMMAND (%d)\n", cmd);//call TraceI("WARNING: UNKNOWN COMMAND (%d)\n",cmd)
 				}//endif
 			}//endloop
 		}//endfunction
@@ -263,7 +263,7 @@ namespace Jass {
 					return;//return
 				}//endif
 				InitAssaultGroup();//call InitAssaultGroup()
-				CampaignAttacker(EASY, 1, GROM);//call CampaignAttacker( EASY, 1, GROM )
+				CampaignAttacker(CommonAi.EASY, 1, CommonAi.GROM);//call CampaignAttacker( EASY, 1, GROM )
 				agro_wave();//call agro_wave()
 				strength = strength + 1;//set strength = strength + 1
 			}//endloop
@@ -276,7 +276,7 @@ namespace Jass {
 				process_commands();//call process_commands()
 				next_alive();//call next_alive()
 				InitAssaultGroup();//call InitAssaultGroup()
-				CampaignAttacker(EASY, 1, GROM);//call CampaignAttacker( EASY, 1, GROM )
+				CampaignAttacker(CommonAi.EASY, 1, CommonAi.GROM);//call CampaignAttacker( EASY, 1, GROM )
 				assault_wave();//call assault_wave()
 			}//endloop
 		}//endfunction
@@ -284,7 +284,7 @@ namespace Jass {
 		//
 		//
 		private void main() {//function main takes nothing returns nothing
-			CampaignAI(BURROW,null);//call CampaignAI(BURROW,null)
+			CampaignAI(CommonAi.BURROW, null);//call CampaignAI(BURROW,null)
 			init_arrays();//call init_arrays()
 			set_build_units(false);//call set_build_units(false)
 			set_defenders(false);//call set_defenders(false)

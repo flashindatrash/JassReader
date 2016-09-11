@@ -662,25 +662,25 @@ namespace Jass {
 		//
 		private void Trace(string message) {//function Trace takes string message returns nothing
 			if (trace_on) {//if trace_on then
-				DisplayText(GetAiPlayer(),message);//call DisplayText(GetAiPlayer(),message)
+				DisplayText(GetAiPlayer(), message);//call DisplayText(GetAiPlayer(),message)
 			}//endif
 		}//endfunction
 		//
 		private void TraceI(string message, int val) {//function TraceI takes string message, integer val returns nothing
 			if (trace_on) {//if trace_on then
-				DisplayTextI(GetAiPlayer(),message,val);//call DisplayTextI(GetAiPlayer(),message,val)
+				DisplayTextI(GetAiPlayer(), message, val);//call DisplayTextI(GetAiPlayer(),message,val)
 			}//endif
 		}//endfunction
 		//
 		private void TraceII(string message, int v1, int v2) {//function TraceII takes string message, integer v1, integer v2 returns nothing
 			if (trace_on) {//if trace_on then
-				DisplayTextII(GetAiPlayer(),message,v1,v2);//call DisplayTextII(GetAiPlayer(),message,v1,v2)
+				DisplayTextII(GetAiPlayer(), message, v1, v2);//call DisplayTextII(GetAiPlayer(),message,v1,v2)
 			}//endif
 		}//endfunction
 		//
 		private void TraceIII(string message, int v1, int v2, int v3) {//function TraceIII takes string message, integer v1, integer v2, integer v3 returns nothing
 			if (trace_on) {//if trace_on then
-				DisplayTextIII(GetAiPlayer(),message,v1,v2,v3);//call DisplayTextIII(GetAiPlayer(),message,v1,v2,v3)
+				DisplayTextIII(GetAiPlayer(), message, v1, v2, v3);//call DisplayTextIII(GetAiPlayer(),message,v1,v2,v3)
 			}//endif
 		}//endfunction
 		//
@@ -865,7 +865,7 @@ namespace Jass {
 		}//endfunction
 		//
 		private void SetBuildUnit(int qty, int unitid) {//function SetBuildUnit takes integer qty, integer unitid returns nothing
-			SetBuildAll(BUILD_UNIT,qty,unitid,-1);//call SetBuildAll(BUILD_UNIT,qty,unitid,-1)
+			SetBuildAll(CommonAi.BUILD_UNIT, qty, unitid, -1);//call SetBuildAll(BUILD_UNIT,qty,unitid,-1)
 		}//endfunction
 		//
 		private void SetBuildNext(int qty, int unitid) {//function SetBuildNext takes integer qty, integer unitid returns nothing
@@ -873,45 +873,45 @@ namespace Jass {
 			if (has >= qty) {//if has >= qty then
 				return;//return
 			}//endif
-			SetBuildAll(BUILD_UNIT,GetUnitCountDone(unitid)+1,unitid,-1);//call SetBuildAll(BUILD_UNIT,GetUnitCountDone(unitid)+1,unitid,-1)
+			SetBuildAll(CommonAi.BUILD_UNIT, GetUnitCountDone(unitid)+1, unitid, -1);//call SetBuildAll(BUILD_UNIT,GetUnitCountDone(unitid)+1,unitid,-1)
 		}//endfunction
 		//
 		private void SetBuildUnitEx(int easy, int med, int hard, int unitid) {//function SetBuildUnitEx takes integer easy, integer med, integer hard, integer unitid returns nothing
 			if (difficulty == EASY) {//if difficulty == EASY then
-				SetBuildAll(BUILD_UNIT,easy,unitid,-1);//call SetBuildAll(BUILD_UNIT,easy,unitid,-1)
+				SetBuildAll(CommonAi.BUILD_UNIT, easy, unitid, -1);//call SetBuildAll(BUILD_UNIT,easy,unitid,-1)
 			} else if (difficulty == NORMAL) {//elseif difficulty == NORMAL then
-				SetBuildAll(BUILD_UNIT,med,unitid,-1);//call SetBuildAll(BUILD_UNIT,med,unitid,-1)
+				SetBuildAll(CommonAi.BUILD_UNIT, med, unitid, -1);//call SetBuildAll(BUILD_UNIT,med,unitid,-1)
 			} else {//else
-				SetBuildAll(BUILD_UNIT,hard,unitid,-1);//call SetBuildAll(BUILD_UNIT,hard,unitid,-1)
+				SetBuildAll(CommonAi.BUILD_UNIT, hard, unitid, -1);//call SetBuildAll(BUILD_UNIT,hard,unitid,-1)
 			}//endif
 		}//endfunction
 		//
 		private void SecondaryTown(int town, int qty, int unitid) {//function SecondaryTown takes integer town, integer qty, integer unitid returns nothing
-			SetBuildAll(BUILD_UNIT,qty,unitid,town);//call SetBuildAll(BUILD_UNIT,qty,unitid,town)
+			SetBuildAll(CommonAi.BUILD_UNIT, qty, unitid, town);//call SetBuildAll(BUILD_UNIT,qty,unitid,town)
 		}//endfunction
 		//
 		private void SecTown(int town, int qty, int unitid) {//function SecTown takes integer town, integer qty, integer unitid returns nothing
-			SetBuildAll(BUILD_UNIT,qty,unitid,town);//call SetBuildAll(BUILD_UNIT,qty,unitid,town)
+			SetBuildAll(CommonAi.BUILD_UNIT, qty, unitid, town);//call SetBuildAll(BUILD_UNIT,qty,unitid,town)
 		}//endfunction
 		//
 		private void SetBuildUpgr(int qty, int unitid) {//function SetBuildUpgr takes integer qty, integer unitid returns nothing
 			if (MeleeDifficulty() != MELEE_NEWBIE || qty == 1) {//if MeleeDifficulty() != MELEE_NEWBIE or qty == 1 then
-				SetBuildAll(BUILD_UPGRADE,qty,unitid,-1);//call SetBuildAll(BUILD_UPGRADE,qty,unitid,-1)
+				SetBuildAll(CommonAi.BUILD_UPGRADE, qty, unitid, -1);//call SetBuildAll(BUILD_UPGRADE,qty,unitid,-1)
 			}//endif
 		}//endfunction
 		//
 		private void SetBuildUpgrEx(int easy, int med, int hard, int unitid) {//function SetBuildUpgrEx takes integer easy, integer med, integer hard, integer unitid returns nothing
 			if (difficulty == EASY) {//if difficulty == EASY then
-				SetBuildAll(BUILD_UPGRADE,easy,unitid,-1);//call SetBuildAll(BUILD_UPGRADE,easy,unitid,-1)
+				SetBuildAll(CommonAi.BUILD_UPGRADE, easy, unitid, -1);//call SetBuildAll(BUILD_UPGRADE,easy,unitid,-1)
 			} else if (difficulty == NORMAL) {//elseif difficulty == NORMAL then
-				SetBuildAll(BUILD_UPGRADE,med,unitid,-1);//call SetBuildAll(BUILD_UPGRADE,med,unitid,-1)
+				SetBuildAll(CommonAi.BUILD_UPGRADE, med, unitid, -1);//call SetBuildAll(BUILD_UPGRADE,med,unitid,-1)
 			} else {//else
-				SetBuildAll(BUILD_UPGRADE,hard,unitid,-1);//call SetBuildAll(BUILD_UPGRADE,hard,unitid,-1)
+				SetBuildAll(CommonAi.BUILD_UPGRADE, hard, unitid, -1);//call SetBuildAll(BUILD_UPGRADE,hard,unitid,-1)
 			}//endif
 		}//endfunction
 		//
 		private void SetBuildExpa(int qty, int unitid) {//function SetBuildExpa takes integer qty, integer unitid returns nothing
-			SetBuildAll(BUILD_EXPAND,qty,unitid,-1);//call SetBuildAll(BUILD_EXPAND,qty,unitid,-1)
+			SetBuildAll(CommonAi.BUILD_EXPAND, qty, unitid, -1);//call SetBuildAll(BUILD_EXPAND,qty,unitid,-1)
 		}//endfunction
 		//
 		private bool StartUpgrade(int level, int upgid) {//function StartUpgrade takes integer level, integer upgid returns boolean
@@ -1179,7 +1179,7 @@ namespace Jass {
 					}//endif
 					//
 				} else if (tp == BUILD_UPGRADE) {//elseif tp == BUILD_UPGRADE then
-					StartUpgrade(qty,id);//call StartUpgrade(qty,id)
+					StartUpgrade(qty, id);//call StartUpgrade(qty,id)
 					//
 				} else {//else
 					if (!StartExpansion(qty,id)) {//if not StartExpansion(qty,id) then
@@ -1196,7 +1196,7 @@ namespace Jass {
 		//
 		private void BuildLoop() {//function BuildLoop takes nothing returns nothing
 			OneBuildLoop();//call OneBuildLoop()
-			StaggerSleep(1,2);//call StaggerSleep(1,2)
+			StaggerSleep(1, 2);//call StaggerSleep(1,2)
 			while (true) {//loop
 				OneBuildLoop();//call OneBuildLoop()
 				Sleep(2);//call Sleep(2)
@@ -1229,7 +1229,7 @@ namespace Jass {
 		//
 		private void ConvertNeeds(int unitid) {//function ConvertNeeds takes integer unitid returns nothing
 			if (GetUnitCount(unitid) < 1) {//if GetUnitCount(unitid) < 1 then
-				StartUnit(1,unitid,-1);//call StartUnit(1,unitid,-1)
+				StartUnit(1, unitid, -1);//call StartUnit(1,unitid,-1)
 			}//endif
 		}//endfunction
 		//
@@ -1238,17 +1238,17 @@ namespace Jass {
 				return;//return
 			}//endif
 			if (unitid == HIPPO_RIDER) {//if unitid == HIPPO_RIDER then
-				ConvertNeeds(ARCHER);//call ConvertNeeds(ARCHER)
-				ConvertNeeds(HIPPO);//call ConvertNeeds(HIPPO)
-				MergeUnits(desire,ARCHER,HIPPO,HIPPO_RIDER);//call MergeUnits(desire,ARCHER,HIPPO,HIPPO_RIDER)
+				ConvertNeeds(CommonAi.ARCHER);//call ConvertNeeds(ARCHER)
+				ConvertNeeds(CommonAi.HIPPO);//call ConvertNeeds(HIPPO)
+				MergeUnits(desire, CommonAi.ARCHER, CommonAi.HIPPO, CommonAi.HIPPO_RIDER);//call MergeUnits(desire,ARCHER,HIPPO,HIPPO_RIDER)
 			} else if (unitid == BLK_SPHINX) {//elseif unitid == BLK_SPHINX then
-				ConvertNeeds(OBS_STATUE);//call ConvertNeeds(OBS_STATUE)
-				ConvertUnits(desire,OBS_STATUE);//call ConvertUnits(desire,OBS_STATUE)
+				ConvertNeeds(CommonAi.OBS_STATUE);//call ConvertNeeds(OBS_STATUE)
+				ConvertUnits(desire, CommonAi.OBS_STATUE);//call ConvertUnits(desire,OBS_STATUE)
 			}//endif
 		}//endfunction
 		//
 		private void SetAssaultGroup(int qty, int max, int unitid) {//function SetAssaultGroup takes integer qty, integer max, integer unitid returns nothing
-			Conversions(max,unitid);//call Conversions(max,unitid)
+			Conversions(max, unitid);//call Conversions(max,unitid)
 			if (qty <= 0 && TownCountDone(unitid) == 0) {//if qty <= 0 and TownCountDone(unitid) == 0 then
 				return;//return
 			}//endif
@@ -1281,17 +1281,17 @@ namespace Jass {
 			while (true) {//loop
 				if (q1<=0 && q2<=0 && q3<=0) { break; }//exitwhen q1<=0 and q2<=0 and q3<=0
 				if (q1 > 0) {//if q1 > 0 then
-					SetAssaultGroup(i1,i1,u1);//call SetAssaultGroup(i1,i1,u1)
+					SetAssaultGroup(i1, i1, u1);//call SetAssaultGroup(i1,i1,u1)
 					q1 = q1 - 1;//set q1 = q1 - 1
 					i1 = i1 + 1;//set i1 = i1 + 1
 				}//endif
 				if (q2 > 0) {//if q2 > 0 then
-					SetAssaultGroup(i2,i2,u2);//call SetAssaultGroup(i2,i2,u2)
+					SetAssaultGroup(i2, i2, u2);//call SetAssaultGroup(i2,i2,u2)
 					q2 = q2 - 1;//set q2 = q2 - 1
 					i2 = i2 + 1;//set i2 = i2 + 1
 				}//endif
 				if (q3 > 0) {//if q3 > 0 then
-					SetAssaultGroup(i3,i3,u3);//call SetAssaultGroup(i3,i3,u3)
+					SetAssaultGroup(i3, i3, u3);//call SetAssaultGroup(i3,i3,u3)
 					q3 = q3 - 1;//set q3 = q3 - 1
 					i3 = i3 + 1;//set i3 = i3 + 1
 				}//endif
@@ -1300,9 +1300,9 @@ namespace Jass {
 		//
 		private void SetMeleeGroup(int unitid) {//function SetMeleeGroup takes integer unitid returns nothing
 			if (unitid == hero_id) {//if unitid == hero_id then
-				SetAssaultGroup(1,9,unitid);//call SetAssaultGroup(1,9,unitid)
+				SetAssaultGroup(1, 9, unitid);//call SetAssaultGroup(1,9,unitid)
 			} else {//else
-				SetAssaultGroup((TownCountDone(unitid)*3)/4,20,unitid);//call SetAssaultGroup((TownCountDone(unitid)*3)/4,20,unitid)
+				SetAssaultGroup((TownCountDone(unitid)*3)/4, 20, unitid);//call SetAssaultGroup((TownCountDone(unitid)*3)/4,20,unitid)
 			}//endif
 		}//endfunction
 		//
@@ -1311,34 +1311,34 @@ namespace Jass {
 				defense_qty[defense_length] = qty;//set defense_qty[defense_length] = qty
 				defense_units[defense_length] = unitid;//set defense_units[defense_length] = unitid
 				defense_length = defense_length + 1;//set defense_length = defense_length + 1
-				Conversions(qty,unitid);//call Conversions(qty,unitid)
-				SetBuildUnit(qty,unitid);//call SetBuildUnit(qty,unitid)
+				Conversions(qty, unitid);//call Conversions(qty,unitid)
+				SetBuildUnit(qty, unitid);//call SetBuildUnit(qty,unitid)
 			}//endif
 		}//endfunction
 		//
 		private void CampaignDefenderEx(int easy, int med, int hard, int unitid) {//function CampaignDefenderEx takes integer easy, integer med, integer hard, integer unitid returns nothing
 			if (difficulty == EASY) {//if difficulty == EASY then
-				CampaignDefender(EASY,easy,unitid);//call CampaignDefender(EASY,easy,unitid)
+				CampaignDefender(CommonAi.EASY, easy, unitid);//call CampaignDefender(EASY,easy,unitid)
 			} else if (difficulty == NORMAL) {//elseif difficulty == NORMAL then
-				CampaignDefender(NORMAL,med,unitid);//call CampaignDefender(NORMAL,med,unitid)
+				CampaignDefender(DemoAi.NORMAL, med, unitid);//call CampaignDefender(NORMAL,med,unitid)
 			} else {//else
-				CampaignDefender(HARD,hard,unitid);//call CampaignDefender(HARD,hard,unitid)
+				CampaignDefender(CommonAi.HARD, hard, unitid);//call CampaignDefender(HARD,hard,unitid)
 			}//endif
 		}//endfunction
 		//
 		private void CampaignAttacker(int level, int qty, int unitid) {//function CampaignAttacker takes integer level, integer qty, integer unitid returns nothing
 			if (qty > 0 && difficulty >= level) {//if qty > 0 and difficulty >= level then
-				SetAssaultGroup(qty,qty,unitid);//call SetAssaultGroup(qty,qty,unitid)
+				SetAssaultGroup(qty, qty, unitid);//call SetAssaultGroup(qty,qty,unitid)
 			}//endif
 		}//endfunction
 		//
 		private void CampaignAttackerEx(int easy, int med, int hard, int unitid) {//function CampaignAttackerEx takes integer easy, integer med, integer hard, integer unitid returns nothing
 			if (difficulty == EASY) {//if difficulty == EASY then
-				CampaignAttacker(EASY,easy,unitid);//call CampaignAttacker(EASY,easy,unitid)
+				CampaignAttacker(CommonAi.EASY, easy, unitid);//call CampaignAttacker(EASY,easy,unitid)
 			} else if (difficulty == NORMAL) {//elseif difficulty == NORMAL then
-				CampaignAttacker(NORMAL,med,unitid);//call CampaignAttacker(NORMAL,med,unitid)
+				CampaignAttacker(DemoAi.NORMAL, med, unitid);//call CampaignAttacker(NORMAL,med,unitid)
 			} else {//else
-				CampaignAttacker(HARD,hard,unitid);//call CampaignAttacker(HARD,hard,unitid)
+				CampaignAttacker(CommonAi.HARD, hard, unitid);//call CampaignAttacker(HARD,hard,unitid)
 			}//endif
 		}//endfunction
 		//
@@ -1366,15 +1366,15 @@ namespace Jass {
 					unitid = harass_units[index];//set unitid = harass_units[index]
 					desire = harass_max[index];//set desire = harass_max[index]
 					count = TownCountDone(unitid);//set count  = TownCountDone(unitid)
-					Conversions(desire,unitid);//call Conversions(desire,unitid)
+					Conversions(desire, unitid);//call Conversions(desire,unitid)
 					if (count >= desire) {//if count >= desire then
-						AddAssault(desire,unitid);//call AddAssault(desire,unitid)
+						AddAssault(desire, unitid);//call AddAssault(desire,unitid)
 					} else {//else
 						desire = harass_qty[index];//set desire = harass_qty[index]
 						if (count < desire) {//if count < desire then
-							AddAssault(desire,unitid);//call AddAssault(desire,unitid)
+							AddAssault(desire, unitid);//call AddAssault(desire,unitid)
 						} else {//else
-							AddAssault(count,unitid);//call AddAssault(count,unitid)
+							AddAssault(count, unitid);//call AddAssault(count,unitid)
 						}//endif
 					}//endif
 					index = index + 1;//set index = index + 1
@@ -1416,7 +1416,7 @@ namespace Jass {
 				}//endif
 				index = index + 1;//set index = index + 1
 			}//endloop
-			TraceI("next wave will require around %d seconds to build and gather\n",largest);//call TraceI("next wave will require around %d seconds to build and gather\n",largest)
+			TraceI("next wave will require around %d seconds to build and gather\n", largest);//call TraceI("next wave will require around %d seconds to build and gather\n",largest)
 			return largest;//return largest
 		}//endfunction
 		//
@@ -1427,7 +1427,7 @@ namespace Jass {
 			harass_length = 0;//set harass_length = 0
 			AddSleepSeconds(seconds);//call AddSleepSeconds(seconds)
 			if (sleep_seconds-wave_prep > 0) {//if sleep_seconds-wave_prep > 0 then
-				TraceI("going to sleep for %d seconds before gathering next attack wave\n",sleep_seconds-wave_prep);//call TraceI("going to sleep for %d seconds before gathering next attack wave\n",sleep_seconds-wave_prep)
+				TraceI("going to sleep for %d seconds before gathering next attack wave\n", sleep_seconds-wave_prep);//call TraceI("going to sleep for %d seconds before gathering next attack wave\n",sleep_seconds-wave_prep)
 				SuicideSleep(sleep_seconds-wave_prep);//call SuicideSleep(sleep_seconds-wave_prep)
 			}//endif
 			Trace("preparing suicide attack wave\n");//call Trace("preparing suicide attack wave\n")
@@ -1451,7 +1451,6 @@ namespace Jass {
 		//
 		private void SleepInCombat() {//function SleepInCombat takes nothing returns nothing
 			int count = 0;//local integer count = 0
-			Trace("SleepInCombat\n");//debug call Trace("SleepInCombat\n")
 			while (true) {//loop
 				while (true) {//loop
 					if (!CaptainInCombat(true)) { break; }//exitwhen not CaptainInCombat(true)
@@ -1463,15 +1462,14 @@ namespace Jass {
 				//
 				//
 			}//endloop
-			Trace("exit SleepInCombat\n");//debug call Trace("exit SleepInCombat\n")
 		}//endfunction
 		//
 		private void AttackMoveXYA(int x, int y) {//function AttackMoveXYA takes integer x, integer y returns nothing
 			if (zep_next_wave) {//if zep_next_wave then
-				LoadZepWave(x,y);//call LoadZepWave(x,y)
+				LoadZepWave(x, y);//call LoadZepWave(x,y)
 				zep_next_wave = false;//set zep_next_wave = false
 			}//endif
-			AttackMoveXY(x,y);//call AttackMoveXY(x,y)
+			AttackMoveXY(x, y);//call AttackMoveXY(x,y)
 			SleepUntilAtGoal();//call SleepUntilAtGoal()
 			SleepInCombat();//call SleepInCombat()
 		}//endfunction
@@ -1535,9 +1533,9 @@ namespace Jass {
 				if (allow_signal_abort && CommandsWaiting() != 0) { break; }//exitwhen allow_signal_abort and CommandsWaiting() != 0
 				while (true) {//loop
 					if (allow_signal_abort && CommandsWaiting() != 0) { break; }//exitwhen allow_signal_abort and CommandsWaiting() != 0
-					FormGroup(5,true);//call FormGroup(5,true)
+					FormGroup(5, true);//call FormGroup(5,true)
 					if (sleep_seconds <= 0) { break; }//exitwhen sleep_seconds <= 0
-					TraceI("waiting %d seconds before suicide\n",sleep_seconds);//call TraceI("waiting %d seconds before suicide\n",sleep_seconds)
+					TraceI("waiting %d seconds before suicide\n", CommonAi.sleep_seconds);//call TraceI("waiting %d seconds before suicide\n",sleep_seconds)
 				}//endloop
 				if (standard) {//if standard then
 					if (bldgs) {//if bldgs then
@@ -1546,9 +1544,9 @@ namespace Jass {
 						if (SuicidePlayerUnits(p,sleep_seconds >= -60)) { break; }//exitwhen SuicidePlayerUnits(p,sleep_seconds >= -60)
 					}//endif
 				} else {//else
-					AttackMoveXYA(x,y);//call AttackMoveXYA(x,y)
+					AttackMoveXYA(x, y);//call AttackMoveXYA(x,y)
 				}//endif
-				TraceI("waiting %d seconds before timeout\n",60+sleep_seconds);//call TraceI("waiting %d seconds before timeout\n",60+sleep_seconds)
+				TraceI("waiting %d seconds before timeout\n", 60+sleep_seconds);//call TraceI("waiting %d seconds before timeout\n",60+sleep_seconds)
 				SuicideSleep(5);//call SuicideSleep(5)
 			}//endloop
 			campaign_wood_peons = save_peons;//set campaign_wood_peons = save_peons
@@ -1557,15 +1555,15 @@ namespace Jass {
 		}//endfunction
 		//
 		private void SuicideOnPlayer(int seconds, player p) {//function SuicideOnPlayer takes integer seconds, player p returns nothing
-			CommonSuicideOnPlayer(true,true,seconds,p,0,0);//call CommonSuicideOnPlayer(true,true,seconds,p,0,0)
+			CommonSuicideOnPlayer(true, true, seconds, p, 0, 0);//call CommonSuicideOnPlayer(true,true,seconds,p,0,0)
 		}//endfunction
 		//
 		private void SuicideOnUnits(int seconds, player p) {//function SuicideOnUnits takes integer seconds, player p returns nothing
-			CommonSuicideOnPlayer(true,false,seconds,p,0,0);//call CommonSuicideOnPlayer(true,false,seconds,p,0,0)
+			CommonSuicideOnPlayer(true, false, seconds, p, 0, 0);//call CommonSuicideOnPlayer(true,false,seconds,p,0,0)
 		}//endfunction
 		//
 		private void SuicideOnPoint(int seconds, player p, int x, int y) {//function SuicideOnPoint takes integer seconds, player p, integer x, integer y returns nothing
-			CommonSuicideOnPlayer(false,false,seconds,p,x,y);//call CommonSuicideOnPlayer(false,false,seconds,p,x,y)
+			CommonSuicideOnPlayer(false, false, seconds, p, x, y);//call CommonSuicideOnPlayer(false,false,seconds,p,x,y)
 		}//endfunction
 		//
 		private void SuicideUntilSignal(int seconds, player p) {//function SuicideUntilSignal takes integer seconds, player p returns nothing
@@ -1600,24 +1598,24 @@ namespace Jass {
 		//
 		private void SuicideOnce(int easy, int med, int hard, int unitid) {//function SuicideOnce takes integer easy, integer med, integer hard, integer unitid returns nothing
 			if (difficulty == EASY) {//if difficulty == EASY then
-				SuicideUnit(easy,unitid);//call SuicideUnit(easy,unitid)
+				SuicideUnit(easy, unitid);//call SuicideUnit(easy,unitid)
 			} else if (difficulty == NORMAL) {//elseif difficulty == NORMAL then
-				SuicideUnit(med,unitid);//call SuicideUnit(med,unitid)
+				SuicideUnit(med, unitid);//call SuicideUnit(med,unitid)
 			} else {//else
-				SuicideUnit(hard,unitid);//call SuicideUnit(hard,unitid)
+				SuicideUnit(hard, unitid);//call SuicideUnit(hard,unitid)
 			}//endif
 		}//endfunction
 		//
 		private void SuicideUnitA(int unitid) {//function SuicideUnitA takes integer unitid returns nothing
 			if (unitid != 0) {//if unitid != 0 then
-				SuicideUnit(1,unitid);//call SuicideUnit(1,unitid)
+				SuicideUnit(1, unitid);//call SuicideUnit(1,unitid)
 			}//endif
 			Sleep(0.1);//call Sleep(0.1)
 		}//endfunction
 		//
 		private void SuicideUnitB(int unitid, int playerid) {//function SuicideUnitB takes integer unitid, integer playerid returns nothing
 			if (unitid != 0) {//if unitid != 0 then
-				SuicideUnitEx(1,unitid,playerid);//call SuicideUnitEx(1,unitid,playerid)
+				SuicideUnitEx(1, unitid, playerid);//call SuicideUnitEx(1,unitid,playerid)
 			}//endif
 			Sleep(0.1);//call Sleep(0.1)
 		}//endfunction
@@ -1643,46 +1641,46 @@ namespace Jass {
 			Trace("MASS SUICIDE - this script is now technically done\n");//call Trace("MASS SUICIDE - this script is now technically done\n")
 			PrepFullSuicide();//call PrepFullSuicide()
 			while (true) {//loop
-				SuicideUnitB(u1,playerid);//call SuicideUnitB(u1,playerid)
-				SuicideUnitB(u2,playerid);//call SuicideUnitB(u2,playerid)
-				SuicideUnitB(u3,playerid);//call SuicideUnitB(u3,playerid)
-				SuicideUnitB(u4,playerid);//call SuicideUnitB(u4,playerid)
-				SuicideUnitB(u5,playerid);//call SuicideUnitB(u5,playerid)
-				SuicideUnitB(u6,playerid);//call SuicideUnitB(u6,playerid)
-				SuicideUnitB(u7,playerid);//call SuicideUnitB(u7,playerid)
-				SuicideUnitB(u8,playerid);//call SuicideUnitB(u8,playerid)
-				SuicideUnitB(u9,playerid);//call SuicideUnitB(u9,playerid)
-				SuicideUnitB(uA,playerid);//call SuicideUnitB(uA,playerid)
+				SuicideUnitB(u1, playerid);//call SuicideUnitB(u1,playerid)
+				SuicideUnitB(u2, playerid);//call SuicideUnitB(u2,playerid)
+				SuicideUnitB(u3, playerid);//call SuicideUnitB(u3,playerid)
+				SuicideUnitB(u4, playerid);//call SuicideUnitB(u4,playerid)
+				SuicideUnitB(u5, playerid);//call SuicideUnitB(u5,playerid)
+				SuicideUnitB(u6, playerid);//call SuicideUnitB(u6,playerid)
+				SuicideUnitB(u7, playerid);//call SuicideUnitB(u7,playerid)
+				SuicideUnitB(u8, playerid);//call SuicideUnitB(u8,playerid)
+				SuicideUnitB(u9, playerid);//call SuicideUnitB(u9,playerid)
+				SuicideUnitB(uA, playerid);//call SuicideUnitB(uA,playerid)
 			}//endloop
 		}//endfunction
 		//
 		private void SuicideOnPlayerEx(int easy, int med, int hard, player p) {//function SuicideOnPlayerEx takes integer easy, integer med, integer hard, player p returns nothing
 			if (difficulty == EASY) {//if difficulty == EASY then
-				SuicideOnPlayer(easy,p);//call SuicideOnPlayer(easy,p)
+				SuicideOnPlayer(easy, p);//call SuicideOnPlayer(easy,p)
 			} else if (difficulty == NORMAL) {//elseif difficulty == NORMAL then
-				SuicideOnPlayer(med,p);//call SuicideOnPlayer(med,p)
+				SuicideOnPlayer(med, p);//call SuicideOnPlayer(med,p)
 			} else {//else
-				SuicideOnPlayer(hard,p);//call SuicideOnPlayer(hard,p)
+				SuicideOnPlayer(hard, p);//call SuicideOnPlayer(hard,p)
 			}//endif
 		}//endfunction
 		//
 		private void SuicideOnUnitsEx(int easy, int med, int hard, player p) {//function SuicideOnUnitsEx takes integer easy, integer med, integer hard, player p returns nothing
 			if (difficulty == EASY) {//if difficulty == EASY then
-				SuicideOnUnits(easy,p);//call SuicideOnUnits(easy,p)
+				SuicideOnUnits(easy, p);//call SuicideOnUnits(easy,p)
 			} else if (difficulty == NORMAL) {//elseif difficulty == NORMAL then
-				SuicideOnUnits(med,p);//call SuicideOnUnits(med,p)
+				SuicideOnUnits(med, p);//call SuicideOnUnits(med,p)
 			} else {//else
-				SuicideOnUnits(hard,p);//call SuicideOnUnits(hard,p)
+				SuicideOnUnits(hard, p);//call SuicideOnUnits(hard,p)
 			}//endif
 		}//endfunction
 		//
 		private void SuicideOnPointEx(int easy, int med, int hard, player p, int x, int y) {//function SuicideOnPointEx takes integer easy, integer med, integer hard, player p, integer x, integer y returns nothing
 			if (difficulty == EASY) {//if difficulty == EASY then
-				SuicideOnPoint(easy,p,x,y);//call SuicideOnPoint(easy,p,x,y)
+				SuicideOnPoint(easy, p, x, y);//call SuicideOnPoint(easy,p,x,y)
 			} else if (difficulty == NORMAL) {//elseif difficulty == NORMAL then
-				SuicideOnPoint(med,p,x,y);//call SuicideOnPoint(med,p,x,y)
+				SuicideOnPoint(med, p, x, y);//call SuicideOnPoint(med,p,x,y)
 			} else {//else
-				SuicideOnPoint(hard,p,x,y);//call SuicideOnPoint(hard,p,x,y)
+				SuicideOnPoint(hard, p, x, y);//call SuicideOnPoint(hard,p,x,y)
 			}//endif
 		}//endfunction
 		//
@@ -1690,7 +1688,7 @@ namespace Jass {
 			int length = harass_length;//local integer length = harass_length
 			while (true) {//loop
 				if (allow_signal_abort && CommandsWaiting() != 0) { break; }//exitwhen allow_signal_abort and CommandsWaiting() != 0
-				SuicideOnPlayer(seconds,p);//call SuicideOnPlayer(seconds,p)
+				SuicideOnPlayer(seconds, p);//call SuicideOnPlayer(seconds,p)
 				harass_length = length;//set harass_length = length
 			}//endloop
 		}//endfunction
@@ -1702,7 +1700,7 @@ namespace Jass {
 				if (!UnitAlive(target)) { break; }//exitwhen not UnitAlive(target)
 				if (UnitInvis(target) && !IsUnitDetected(target,ai_player)) { break; }//exitwhen UnitInvis(target) and not IsUnitDetected(target,ai_player)
 				if (!TownThreatened()) {//if not TownThreatened() then
-					AttackMoveKill(target);//call AttackMoveKill(target)
+					AttackMoveKill(N07_rainbowAi.target);//call AttackMoveKill(target)
 				}//endif
 				SuicideSleep(3);//call SuicideSleep(3)
 				if (reform && sleep_seconds < -40) {//if reform and sleep_seconds < -40 then
@@ -1710,19 +1708,18 @@ namespace Jass {
 						sleep_seconds = sleep_seconds + 5;//set sleep_seconds = sleep_seconds + 5
 					} else {//else
 						sleep_seconds = 0;//set sleep_seconds = 0
-						FormGroup(1,false);//call FormGroup(1,false)
+						FormGroup(1, false);//call FormGroup(1,false)
 					}//endif
 				}//endif
 			}//endloop
 		}//endfunction
 		//
 		private void SleepUntilTargetDead(unit target) {//function SleepUntilTargetDead takes unit target returns nothing
-			CommonSleepUntilTargetDead(target,false);//call CommonSleepUntilTargetDead(target,false)
+			CommonSleepUntilTargetDead(N07_rainbowAi.target, false);//call CommonSleepUntilTargetDead(target,false)
 		}//endfunction
 		//
 		private void ReformUntilTargetDead(unit target) {//function ReformUntilTargetDead takes unit target returns nothing
-			Trace("ReformUntilTargetDead\n");//debug call Trace("ReformUntilTargetDead\n")
-			CommonSleepUntilTargetDead(target,true);//call CommonSleepUntilTargetDead(target,true)
+			CommonSleepUntilTargetDead(N07_rainbowAi.target, true);//call CommonSleepUntilTargetDead(target,true)
 		}//endfunction
 		//
 		private void AttackMoveKillA(unit target) {//function AttackMoveKillA takes unit target returns nothing
@@ -1730,31 +1727,30 @@ namespace Jass {
 				SuicideSleep(3);//call SuicideSleep(3)
 				return;//return
 			}//endif
-			Trace("AttackMoveKillA\n");//debug call Trace("AttackMoveKillA\n")
-			AttackMoveKill(target);//call AttackMoveKill(target)
-			ReformUntilTargetDead(target);//call ReformUntilTargetDead(target)
+			AttackMoveKill(N07_rainbowAi.target);//call AttackMoveKill(target)
+			ReformUntilTargetDead(N07_rainbowAi.target);//call ReformUntilTargetDead(target)
 			SleepInCombat();//call SleepInCombat()
 		}//endfunction
 		//
 		private void MinorCreepAttack() {//function MinorCreepAttack takes nothing returns nothing
 			unit target = GetMinorCreep();//local unit target = GetMinorCreep()
-			SetAllianceTarget(target);//call SetAllianceTarget(target)
+			SetAllianceTarget(N07_rainbowAi.target);//call SetAllianceTarget(target)
 			FormGroup(3, true);//call FormGroup(3, true)
-			AttackMoveKillA(target);//call AttackMoveKillA(target)
+			AttackMoveKillA(N07_rainbowAi.target);//call AttackMoveKillA(target)
 		}//endfunction
 		//
 		private void MajorCreepAttack() {//function MajorCreepAttack takes nothing returns nothing
 			unit target = GetMajorCreep();//local unit target = GetMajorCreep()
-			SetAllianceTarget(target);//call SetAllianceTarget(target)
-			FormGroup(3,true);//call FormGroup(3,true)
-			AttackMoveKillA(target);//call AttackMoveKillA(target)
+			SetAllianceTarget(N07_rainbowAi.target);//call SetAllianceTarget(target)
+			FormGroup(3, true);//call FormGroup(3,true)
+			AttackMoveKillA(N07_rainbowAi.target);//call AttackMoveKillA(target)
 		}//endfunction
 		//
 		private void CreepAttackEx() {//function CreepAttackEx takes nothing returns nothing
 			unit target = GetCreepCamp(min_creeps,max_creeps,allow_air_creeps);//local unit target = GetCreepCamp(min_creeps,max_creeps,allow_air_creeps)
-			SetAllianceTarget(target);//call SetAllianceTarget(target)
-			FormGroup(3,true);//call FormGroup(3,true)
-			AttackMoveKillA(target);//call AttackMoveKillA(target)
+			SetAllianceTarget(N07_rainbowAi.target);//call SetAllianceTarget(target)
+			FormGroup(3, true);//call FormGroup(3,true)
+			AttackMoveKillA(N07_rainbowAi.target);//call AttackMoveKillA(target)
 		}//endfunction
 		//
 		private void AnyPlayerAttack() {//function AnyPlayerAttack takes nothing returns nothing
@@ -1769,7 +1765,7 @@ namespace Jass {
 				hall = GetEnemyBase();//set hall = GetEnemyBase()
 			}//endif
 			SetAllianceTarget(hall);//call SetAllianceTarget(hall)
-			FormGroup(3,true);//call FormGroup(3,true)
+			FormGroup(3, true);//call FormGroup(3,true)
 			AttackMoveKillA(hall);//call AttackMoveKillA(hall)
 		}//endfunction
 		//
@@ -1780,7 +1776,7 @@ namespace Jass {
 			if (creep == null) {//if creep == null then
 				x = GetExpansionX();//set x = GetExpansionX()
 				if (x != -1) {//if x != -1 then
-					AttackMoveXYA(x,GetExpansionY());//call AttackMoveXYA(x,GetExpansionY())
+					AttackMoveXYA(x, GetExpansionY());//call AttackMoveXYA(x,GetExpansionY())
 				}//endif
 			} else {//else
 				AttackMoveKillA(creep);//call AttackMoveKillA(creep)
@@ -1790,12 +1786,12 @@ namespace Jass {
 		//
 		//
 		private void AddSiege() {//function AddSiege takes nothing returns nothing
-			SetAssaultGroup(0, 9, SHADE);//call SetAssaultGroup( 0, 9, SHADE       )
-			SetAssaultGroup(0, 9, MEAT_WAGON);//call SetAssaultGroup( 0, 9, MEAT_WAGON  )
-			SetAssaultGroup(0, 9, MORTAR);//call SetAssaultGroup( 0, 9, MORTAR      )
-			SetAssaultGroup(0, 9, TANK);//call SetAssaultGroup( 0, 9, TANK        )
-			SetAssaultGroup(0, 9, BALLISTA);//call SetAssaultGroup( 0, 9, BALLISTA    )
-			SetAssaultGroup(0, 9, CATAPULT);//call SetAssaultGroup( 0, 9, CATAPULT    )
+			SetAssaultGroup(0, 9, CommonAi.SHADE);//call SetAssaultGroup( 0, 9, SHADE       )
+			SetAssaultGroup(0, 9, CommonAi.MEAT_WAGON);//call SetAssaultGroup( 0, 9, MEAT_WAGON  )
+			SetAssaultGroup(0, 9, CommonAi.MORTAR);//call SetAssaultGroup( 0, 9, MORTAR      )
+			SetAssaultGroup(0, 9, CommonAi.TANK);//call SetAssaultGroup( 0, 9, TANK        )
+			SetAssaultGroup(0, 9, CommonAi.BALLISTA);//call SetAssaultGroup( 0, 9, BALLISTA    )
+			SetAssaultGroup(0, 9, CommonAi.CATAPULT);//call SetAssaultGroup( 0, 9, CATAPULT    )
 		}//endfunction
 		//
 		//
@@ -1858,7 +1854,7 @@ namespace Jass {
 					if (GetMegaTarget() != null) {//if GetMegaTarget() != null then
 						AddSiege();//call AddSiege()
 					}//endif
-					FormGroup(3,true);//call FormGroup(3,true)
+					FormGroup(3, true);//call FormGroup(3,true)
 					AttackMoveKillA(common);//call AttackMoveKillA(common)
 					SetAllianceTarget(null);//call SetAllianceTarget(null)
 					return;//return
@@ -1872,7 +1868,7 @@ namespace Jass {
 				if (creep != null) {//if creep != null then
 					Trace("attack exp\n");//call Trace("attack exp\n")
 					SetAllianceTarget(creep);//call SetAllianceTarget(creep)
-					FormGroup(3,true);//call FormGroup(3,true)
+					FormGroup(3, true);//call FormGroup(3,true)
 					AttackMoveKillA(creep);//call AttackMoveKillA(creep)
 					Sleep(20);//call Sleep(20)
 					take_exp = false;//set take_exp = false
@@ -1886,7 +1882,7 @@ namespace Jass {
 				if (mega != null) {//if mega != null then
 					Trace("MEGA TARGET!!!\n");//call Trace("MEGA TARGET!!!\n")
 					AddSiege();//call AddSiege()
-					FormGroup(3,true);//call FormGroup(3,true)
+					FormGroup(3, true);//call FormGroup(3,true)
 					AttackMoveKillA(mega);//call AttackMoveKillA(mega)
 					return;//return
 				}//endif
@@ -1910,7 +1906,7 @@ namespace Jass {
 					exp_seen = 0;//set exp_seen = 0
 					AddSiege();//call AddSiege()
 					SetAllianceTarget(hall);//call SetAllianceTarget(hall)
-					FormGroup(3,true);//call FormGroup(3,true)
+					FormGroup(3, true);//call FormGroup(3,true)
 					AttackMoveKillA(hall);//call AttackMoveKillA(hall)
 					return;//return
 				}//endif
@@ -1927,7 +1923,7 @@ namespace Jass {
 			//
 			//
 			if (min_creeps != -1) {//if min_creeps != -1 then
-				TraceI("custom creep attack %d\n",max_creeps);//call TraceI("custom creep attack %d\n",max_creeps)
+				TraceI("custom creep attack %d\n", CommonAi.max_creeps);//call TraceI("custom creep attack %d\n",max_creeps)
 				CreepAttackEx();//call CreepAttackEx()
 				return;//return
 			}//endif
@@ -1991,8 +1987,8 @@ namespace Jass {
 				if (index == defense_length) { break; }//exitwhen index == defense_length
 				unitid = defense_units[index];//set unitid = defense_units[index]
 				qty = defense_qty[index];//set qty = defense_qty[index]
-				Conversions(qty,unitid);//call Conversions(qty,unitid)
-				AddDefenders(qty,unitid);//call AddDefenders(qty,unitid)
+				Conversions(qty, unitid);//call Conversions(qty,unitid)
+				AddDefenders(qty, unitid);//call AddDefenders(qty,unitid)
 				index = index + 1;//set index = index + 1
 			}//endloop
 		}//endfunction
@@ -2006,22 +2002,22 @@ namespace Jass {
 			} else {//else
 				on_wood = campaign_wood_peons;//set on_wood = campaign_wood_peons
 			}//endif
-			HarvestGold(0,campaign_gold_peons);//call HarvestGold(0,campaign_gold_peons)
-			HarvestWood(0,on_wood);//call HarvestWood(0,on_wood)
+			HarvestGold(0, CommonAi.campaign_gold_peons);//call HarvestGold(0,campaign_gold_peons)
+			HarvestWood(0, on_wood);//call HarvestWood(0,on_wood)
 			if (harvest_town1) {//if harvest_town1 then
-				HarvestGold(1,campaign_gold_peons);//call HarvestGold(1,campaign_gold_peons)
-				HarvestWood(1,on_wood);//call HarvestWood(1,on_wood)
+				HarvestGold(1, CommonAi.campaign_gold_peons);//call HarvestGold(1,campaign_gold_peons)
+				HarvestWood(1, on_wood);//call HarvestWood(1,on_wood)
 			}//endif
 			if (harvest_town2) {//if harvest_town2 then
-				HarvestGold(2,campaign_gold_peons);//call HarvestGold(2,campaign_gold_peons)
-				HarvestWood(2,on_wood);//call HarvestWood(2,on_wood)
+				HarvestGold(2, CommonAi.campaign_gold_peons);//call HarvestGold(2,campaign_gold_peons)
+				HarvestWood(2, on_wood);//call HarvestWood(2,on_wood)
 			}//endif
 			if (harvest_town3) {//if harvest_town3 then
-				HarvestGold(3,campaign_gold_peons);//call HarvestGold(3,campaign_gold_peons)
-				HarvestWood(3,on_wood);//call HarvestWood(3,on_wood)
+				HarvestGold(3, CommonAi.campaign_gold_peons);//call HarvestGold(3,campaign_gold_peons)
+				HarvestWood(3, on_wood);//call HarvestWood(3,on_wood)
 			}//endif
 			if (do_campaign_farms && FoodUsed()+food_each-1 > food_each*(TownCount(racial_farm)+1)) {//if do_campaign_farms and FoodUsed()+food_each-1 > food_each*(TownCount(racial_farm)+1) then
-				StartUnit(TownCount(racial_farm)+1,racial_farm,-1);//call StartUnit(TownCount(racial_farm)+1,racial_farm,-1)
+				StartUnit(TownCount(racial_farm)+1, CommonAi.racial_farm, -1);//call StartUnit(TownCount(racial_farm)+1,racial_farm,-1)
 			}//endif
 			if (build_campaign_attackers) {//if build_campaign_attackers then
 				BuildAttackers();//call BuildAttackers()
@@ -2036,10 +2032,10 @@ namespace Jass {
 		private void CampaignBasics() {//function CampaignBasics takes nothing returns nothing
 			Sleep(1);//call Sleep(1)
 			CampaignBasicsA();//call CampaignBasicsA()
-			StaggerSleep(1,5);//call StaggerSleep(1,5)
+			StaggerSleep(1, 5);//call StaggerSleep(1,5)
 			while (true) {//loop
 				CampaignBasicsA();//call CampaignBasicsA()
-				Sleep(campaign_basics_speed);//call Sleep(campaign_basics_speed)
+				Sleep(CommonAi.campaign_basics_speed);//call Sleep(campaign_basics_speed)
 			}//endloop
 		}//endfunction
 		//

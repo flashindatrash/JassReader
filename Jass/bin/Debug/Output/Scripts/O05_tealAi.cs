@@ -24,11 +24,11 @@ namespace Jass {
 		private void gather_force() {//function gather_force takes nothing returns nothing
 			Trace("Cenarius gather_force\n");//call Trace("Cenarius gather_force\n")
 			InitAssaultGroup();//call InitAssaultGroup()
-			SetAssaultGroup(1,1,CENARIUS);//call SetAssaultGroup( 1,1,CENARIUS       )
-			SetAssaultGroup(2,99,ARCHER);//call SetAssaultGroup( 2,99,ARCHER        )
-			SetAssaultGroup(2,99,HUNTRESS);//call SetAssaultGroup( 2,99,HUNTRESS      )
+			SetAssaultGroup(1, 1, CommonAi.CENARIUS);//call SetAssaultGroup( 1,1,CENARIUS       )
+			SetAssaultGroup(2, 99, CommonAi.ARCHER);//call SetAssaultGroup( 2,99,ARCHER        )
+			SetAssaultGroup(2, 99, CommonAi.HUNTRESS);//call SetAssaultGroup( 2,99,HUNTRESS      )
 			SetInitialWave(1);//call SetInitialWave(1)
-			FormGroup(1,true);//call FormGroup(1,true)
+			FormGroup(1, true);//call FormGroup(1,true)
 			Trace("Cenarius force ready\n");//call Trace("Cenarius force ready\n")
 		}//endfunction
 		//
@@ -41,9 +41,9 @@ namespace Jass {
 			float goal_y = 0;//local real goal_y = 0
 			float home_x = 0;//local real home_x = 0
 			float home_y = 0;//local real home_y = 0
-			CampaignAI(MOON_WELL,null);//call CampaignAI(MOON_WELL,null)
-			SetBuildUnit(2, ARCHER);//call SetBuildUnit( 2, ARCHER    )
-			SetBuildUnit(2, HUNTRESS);//call SetBuildUnit( 2, HUNTRESS  )
+			CampaignAI(CommonAi.MOON_WELL, null);//call CampaignAI(MOON_WELL,null)
+			SetBuildUnit(2, CommonAi.ARCHER);//call SetBuildUnit( 2, ARCHER    )
+			SetBuildUnit(2, CommonAi.HUNTRESS);//call SetBuildUnit( 2, HUNTRESS  )
 			campaign_wood_peons = 0;//set campaign_wood_peons = 0
 			while (true) {//loop
 				while (true) {//loop
@@ -84,14 +84,14 @@ namespace Jass {
 					Trace("Cenarius attack goal\n");//call Trace("Cenarius attack goal\n")
 					gather_force();//call gather_force()
 					Trace("Cenarius home change & attack order\n");//call Trace("Cenarius home change & attack order\n")
-					SetCaptainHome(ATTACK_CAPTAIN, goal_x, goal_y);//call SetCaptainHome(ATTACK_CAPTAIN, goal_x, goal_y)
-					CaptainAttack(goal_x,goal_y);//call CaptainAttack(goal_x,goal_y)
+					SetCaptainHome(CommonAi.ATTACK_CAPTAIN, goal_x, goal_y);//call SetCaptainHome(ATTACK_CAPTAIN, goal_x, goal_y)
+					CaptainAttack(goal_x, goal_y);//call CaptainAttack(goal_x,goal_y)
 					//
 					//
 					//
 				} else if (command==6) {//elseif command==6 then
 					Trace("Cenarius home change & go home order\n");//call Trace("Cenarius home change & go home order\n")
-					SetCaptainHome(ATTACK_CAPTAIN, home_x, home_y);//call SetCaptainHome(ATTACK_CAPTAIN, home_x, home_y)
+					SetCaptainHome(CommonAi.ATTACK_CAPTAIN, home_x, home_y);//call SetCaptainHome(ATTACK_CAPTAIN, home_x, home_y)
 					ClearCaptainTargets();//call ClearCaptainTargets()
 					CaptainGoHome();//call CaptainGoHome()
 				}//endif

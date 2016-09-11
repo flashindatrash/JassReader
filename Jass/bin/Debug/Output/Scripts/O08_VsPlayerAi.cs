@@ -9,9 +9,9 @@ namespace Jass {
 		//
 		//
 		private void main() {//function main takes nothing returns nothing
-			CampaignAI(BURROW,null);//call CampaignAI(BURROW,null)
+			CampaignAI(CommonAi.BURROW, null);//call CampaignAI(BURROW,null)
 			while (true) {//loop
-				SuicideUnitEx(1, INFERNAL, 0);//call SuicideUnitEx( 1, INFERNAL, 0 )
+				SuicideUnitEx(1, CommonAi.INFERNAL, 0);//call SuicideUnitEx( 1, INFERNAL, 0 )
 				Sleep(1);//call Sleep(1)
 			}//endloop
 		}//endfunction

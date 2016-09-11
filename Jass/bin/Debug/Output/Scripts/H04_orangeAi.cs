@@ -22,16 +22,15 @@ namespace Jass {
 		//
 		//
 		private void main() {//function main takes nothing returns nothing
-			do_cheats();//debug call do_cheats()
 			campaign_wood_peons = 1;//set campaign_wood_peons = 1
-			CampaignAI(ZIGGURAT_1,null);//call CampaignAI(ZIGGURAT_1,null)
-			SetBuildUnit(3, ACOLYTE);//call SetBuildUnit( 3, ACOLYTE           )
-			SetBuildUnit(1, NECROPOLIS_1);//call SetBuildUnit( 1, NECROPOLIS_1      )
-			SetBuildUnit(1, UNDEAD_MINE);//call SetBuildUnit( 1, UNDEAD_MINE       )
-			SetBuildUnit(1, ZIGGURAT_1);//call SetBuildUnit( 1, ZIGGURAT_1        )
-			SetBuildUnit(1, ZIGGURAT_2);//call SetBuildUnit( 1, ZIGGURAT_2        )
-			SetBuildUnit(1, CRYPT);//call SetBuildUnit( 1, CRYPT             )
-			CampaignDefender(EASY, 2, GHOUL);//call CampaignDefender (EASY, 2, GHOUL     )
+			CampaignAI(CommonAi.ZIGGURAT_1, null);//call CampaignAI(ZIGGURAT_1,null)
+			SetBuildUnit(3, CommonAi.ACOLYTE);//call SetBuildUnit( 3, ACOLYTE           )
+			SetBuildUnit(1, CommonAi.NECROPOLIS_1);//call SetBuildUnit( 1, NECROPOLIS_1      )
+			SetBuildUnit(1, CommonAi.UNDEAD_MINE);//call SetBuildUnit( 1, UNDEAD_MINE       )
+			SetBuildUnit(1, CommonAi.ZIGGURAT_1);//call SetBuildUnit( 1, ZIGGURAT_1        )
+			SetBuildUnit(1, CommonAi.ZIGGURAT_2);//call SetBuildUnit( 1, ZIGGURAT_2        )
+			SetBuildUnit(1, CommonAi.CRYPT);//call SetBuildUnit( 1, CRYPT             )
+			CampaignDefender(CommonAi.EASY, 2, CommonAi.GHOUL);//call CampaignDefender (EASY, 2, GHOUL     )
 			//
 		}//endfunction
 

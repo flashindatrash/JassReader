@@ -16,9 +16,9 @@ namespace Jass {
 		//
 		//
 		private void main() {//function main takes nothing returns nothing
-			CampaignAI(HOUSE,null);//call CampaignAI(HOUSE,null)
-			SetReplacements(2,2,3);//call SetReplacements(2,2,3)
-			SetCaptainHome(BOTH_CAPTAINS,-2075,5240);//call SetCaptainHome(BOTH_CAPTAINS,-2075,5240)
+			CampaignAI(CommonAi.HOUSE, null);//call CampaignAI(HOUSE,null)
+			SetReplacements(2, 2, 3);//call SetReplacements(2,2,3)
+			SetCaptainHome(CommonAi.BOTH_CAPTAINS, -2075, 5240);//call SetCaptainHome(BOTH_CAPTAINS,-2075,5240)
 			//
 			//
 			//

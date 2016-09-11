@@ -142,15 +142,15 @@ namespace Jass {
 			}//endif
 			InitAssaultGroup();//call InitAssaultGroup()
 			RemoveInjuries();//call RemoveInjuries()
-			SetAssaultGroup(1, 9, hero_id);//call SetAssaultGroup( 1, 9, hero_id         )
-			SetAssaultGroup(0, 9, hero_id2);//call SetAssaultGroup( 0, 9, hero_id2        )
-			SetAssaultGroup(AG,AG, GHOUL);//call SetAssaultGroup(AG,AG, GHOUL           )
-			SetAssaultGroup(0, 9, CRYPT_FIEND);//call SetAssaultGroup( 0, 9, CRYPT_FIEND     )
-			SetAssaultGroup(0, 9, ABOMINATION);//call SetAssaultGroup( 0, 9, ABOMINATION     )
-			SetAssaultGroup(0, 9, NECRO);//call SetAssaultGroup( 0, 9, NECRO           )
-			SetAssaultGroup(0, 9, BANSHEE);//call SetAssaultGroup( 0, 9, BANSHEE         )
-			SetAssaultGroup(0, 9, GARGOYLE);//call SetAssaultGroup( 0, 9, GARGOYLE        )
-			SetAssaultGroup(0, 9, FROST_WYRM);//call SetAssaultGroup( 0, 9, FROST_WYRM      )
+			SetAssaultGroup(1, 9, CommonAi.hero_id);//call SetAssaultGroup( 1, 9, hero_id         )
+			SetAssaultGroup(0, 9, CommonAi.hero_id2);//call SetAssaultGroup( 0, 9, hero_id2        )
+			SetAssaultGroup(UndeadAi.AG, UndeadAi.AG, CommonAi.GHOUL);//call SetAssaultGroup(AG,AG, GHOUL           )
+			SetAssaultGroup(0, 9, CommonAi.CRYPT_FIEND);//call SetAssaultGroup( 0, 9, CRYPT_FIEND     )
+			SetAssaultGroup(0, 9, CommonAi.ABOMINATION);//call SetAssaultGroup( 0, 9, ABOMINATION     )
+			SetAssaultGroup(0, 9, CommonAi.NECRO);//call SetAssaultGroup( 0, 9, NECRO           )
+			SetAssaultGroup(0, 9, CommonAi.BANSHEE);//call SetAssaultGroup( 0, 9, BANSHEE         )
+			SetAssaultGroup(0, 9, CommonAi.GARGOYLE);//call SetAssaultGroup( 0, 9, GARGOYLE        )
+			SetAssaultGroup(0, 9, CommonAi.FROST_WYRM);//call SetAssaultGroup( 0, 9, FROST_WYRM      )
 			SetInitialWave(10);//call SetInitialWave(10)
 		}//endfunction
 		//
@@ -166,7 +166,7 @@ namespace Jass {
 				if (GetUnitCountDone(hero_id)>0) { break; }//exitwhen GetUnitCountDone(hero_id)>0
 				Sleep(2);//call Sleep(2)
 			}//endloop
-			StaggerSleep(0,2);//call StaggerSleep(0,2)
+			StaggerSleep(0, 2);//call StaggerSleep(0,2)
 			while (true) {//loop
 				while (true) {//loop
 					if (!CaptainRetreating()) { break; }//exitwhen not CaptainRetreating()
@@ -179,7 +179,7 @@ namespace Jass {
 				needs_exp = take_exp && major_ok;//set needs_exp        = take_exp and major_ok
 				has_siege = wyrms || GetUnitCountDone(MEAT_WAGON)>0;//set has_siege        = wyrms or GetUnitCountDone(MEAT_WAGON)>0
 				allow_air_creeps = air_units || (major_ok && GetUpgradeLevel(UPG_FIEND_WEB)>0);//set allow_air_creeps = air_units or (major_ok and GetUpgradeLevel(UPG_FIEND_WEB)>0)
-				SingleMeleeAttack(needs_exp,has_siege,major_ok,air_units);//call SingleMeleeAttack(needs_exp,has_siege,major_ok,air_units)
+				SingleMeleeAttack(needs_exp, has_siege, major_ok, air_units);//call SingleMeleeAttack(needs_exp,has_siege,major_ok,air_units)
 			}//endloop
 		}//endfunction
 		//
@@ -187,7 +187,7 @@ namespace Jass {
 		//
 		private void undead_mine(int townid) {//function undead_mine takes integer townid returns nothing
 			if (GetGold() < 1000 && TownHasMine(townid)) {//if GetGold() < 1000 and TownHasMine(townid) then
-				SecondaryTown(townid, 1, UNDEAD_MINE);//call SecondaryTown( townid, 1, UNDEAD_MINE )
+				SecondaryTown(townid, 1, CommonAi.UNDEAD_MINE);//call SecondaryTown( townid, 1, UNDEAD_MINE )
 			}//endif
 		}//endfunction
 		//
@@ -216,11 +216,11 @@ namespace Jass {
 			//
 			//
 			if (grave && halls && GetUnitCount(CRYPT_FIEND)>0) {//if grave and halls and GetUnitCount(CRYPT_FIEND)>0 then
-				SetBuildUpgr(1, UPG_FIEND_WEB);//call SetBuildUpgr( 1, UPG_FIEND_WEB )
+				SetBuildUpgr(1, CommonAi.UPG_FIEND_WEB);//call SetBuildUpgr( 1, UPG_FIEND_WEB )
 				if (citadel) {//if citadel then
-					SetBuildUpgr(1, UPG_GHOUL_FRENZY);//call SetBuildUpgr( 1, UPG_GHOUL_FRENZY )
+					SetBuildUpgr(1, CommonAi.UPG_GHOUL_FRENZY);//call SetBuildUpgr( 1, UPG_GHOUL_FRENZY )
 					if (TownCountDone(GARGOYLE)>0) {//if TownCountDone(GARGOYLE)>0 then
-						SetBuildUpgr(1, UPG_STONE_FORM);//call SetBuildUpgr( 1, UPG_STONE_FORM )
+						SetBuildUpgr(1, CommonAi.UPG_STONE_FORM);//call SetBuildUpgr( 1, UPG_STONE_FORM )
 					}//endif
 				}//endif
 			}//endif
@@ -228,30 +228,30 @@ namespace Jass {
 			//
 			if (grave) {//if grave then
 				if (melee) {//if melee then
-					SetBuildUpgr(1, UPG_UNHOLY_ARMOR);//call SetBuildUpgr( 1, UPG_UNHOLY_ARMOR )
-					SetBuildUpgr(1, UPG_UNHOLY_STR);//call SetBuildUpgr( 1, UPG_UNHOLY_STR   )
+					SetBuildUpgr(1, CommonAi.UPG_UNHOLY_ARMOR);//call SetBuildUpgr( 1, UPG_UNHOLY_ARMOR )
+					SetBuildUpgr(1, CommonAi.UPG_UNHOLY_STR);//call SetBuildUpgr( 1, UPG_UNHOLY_STR   )
 				}//endif
 				if (ranged) {//if ranged then
-					SetBuildUpgr(1, UPG_CR_ATTACK);//call SetBuildUpgr( 1, UPG_CR_ATTACK )
-					SetBuildUpgr(1, UPG_CR_ARMOR);//call SetBuildUpgr( 1, UPG_CR_ARMOR  )
+					SetBuildUpgr(1, CommonAi.UPG_CR_ATTACK);//call SetBuildUpgr( 1, UPG_CR_ATTACK )
+					SetBuildUpgr(1, CommonAi.UPG_CR_ARMOR);//call SetBuildUpgr( 1, UPG_CR_ARMOR  )
 				}//endif
 				if (halls) {//if halls then
 					if (melee) {//if melee then
-						SetBuildUpgr(2, UPG_UNHOLY_ARMOR);//call SetBuildUpgr( 2, UPG_UNHOLY_ARMOR )
-						SetBuildUpgr(2, UPG_UNHOLY_STR);//call SetBuildUpgr( 2, UPG_UNHOLY_STR   )
+						SetBuildUpgr(2, CommonAi.UPG_UNHOLY_ARMOR);//call SetBuildUpgr( 2, UPG_UNHOLY_ARMOR )
+						SetBuildUpgr(2, CommonAi.UPG_UNHOLY_STR);//call SetBuildUpgr( 2, UPG_UNHOLY_STR   )
 					}//endif
 					if (ranged) {//if ranged then
-						SetBuildUpgr(2, UPG_CR_ATTACK);//call SetBuildUpgr( 2, UPG_CR_ATTACK )
-						SetBuildUpgr(2, UPG_CR_ARMOR);//call SetBuildUpgr( 2, UPG_CR_ARMOR  )
+						SetBuildUpgr(2, CommonAi.UPG_CR_ATTACK);//call SetBuildUpgr( 2, UPG_CR_ATTACK )
+						SetBuildUpgr(2, CommonAi.UPG_CR_ARMOR);//call SetBuildUpgr( 2, UPG_CR_ARMOR  )
 					}//endif
 					if (citadel) {//if citadel then
 						if (melee) {//if melee then
-							SetBuildUpgr(3, UPG_UNHOLY_ARMOR);//call SetBuildUpgr( 3, UPG_UNHOLY_ARMOR )
-							SetBuildUpgr(3, UPG_UNHOLY_STR);//call SetBuildUpgr( 3, UPG_UNHOLY_STR   )
+							SetBuildUpgr(3, CommonAi.UPG_UNHOLY_ARMOR);//call SetBuildUpgr( 3, UPG_UNHOLY_ARMOR )
+							SetBuildUpgr(3, CommonAi.UPG_UNHOLY_STR);//call SetBuildUpgr( 3, UPG_UNHOLY_STR   )
 						}//endif
 						if (ranged) {//if ranged then
-							SetBuildUpgr(3, UPG_CR_ATTACK);//call SetBuildUpgr( 3, UPG_CR_ATTACK )
-							SetBuildUpgr(3, UPG_CR_ARMOR);//call SetBuildUpgr( 3, UPG_CR_ARMOR  )
+							SetBuildUpgr(3, CommonAi.UPG_CR_ATTACK);//call SetBuildUpgr( 3, UPG_CR_ATTACK )
+							SetBuildUpgr(3, CommonAi.UPG_CR_ARMOR);//call SetBuildUpgr( 3, UPG_CR_ARMOR  )
 						}//endif
 					}//endif
 				}//endif
@@ -260,28 +260,28 @@ namespace Jass {
 			//
 			if (temple) {//if temple then
 				if (GetUnitCount(NECRO)>=3) {//if GetUnitCount(NECRO)>=3 then
-					SetBuildUpgr(1, UPG_NECROS);//call SetBuildUpgr( 1, UPG_NECROS )
+					SetBuildUpgr(1, CommonAi.UPG_NECROS);//call SetBuildUpgr( 1, UPG_NECROS )
 					if (citadel) {//if citadel then
-						SetBuildUpgr(2, UPG_NECROS);//call SetBuildUpgr( 2, UPG_NECROS )
+						SetBuildUpgr(2, CommonAi.UPG_NECROS);//call SetBuildUpgr( 2, UPG_NECROS )
 					}//endif
-					SetBuildUpgr(1, UPG_SKEL_LIFE);//call SetBuildUpgr( 1, UPG_SKEL_LIFE )
+					SetBuildUpgr(1, CommonAi.UPG_SKEL_LIFE);//call SetBuildUpgr( 1, UPG_SKEL_LIFE )
 				}//endif
 				if (GetUnitCount(BANSHEE)>0) {//if GetUnitCount(BANSHEE)>0 then
-					SetBuildUpgr(1, UPG_BANSHEE);//call SetBuildUpgr( 1, UPG_BANSHEE )
+					SetBuildUpgr(1, CommonAi.UPG_BANSHEE);//call SetBuildUpgr( 1, UPG_BANSHEE )
 					if (citadel) {//if citadel then
-						SetBuildUpgr(2, UPG_BANSHEE);//call SetBuildUpgr( 2, UPG_BANSHEE )
+						SetBuildUpgr(2, CommonAi.UPG_BANSHEE);//call SetBuildUpgr( 2, UPG_BANSHEE )
 					}//endif
 				}//endif
 			}//endif
 			//
 			//
 			if (citadel && slaught && (C_aboms || wagons)) {//if citadel and slaught and (C_aboms or wagons) then
-				SetBuildUpgr(1, UPG_PLAGUE);//call SetBuildUpgr( 1, UPG_PLAGUE )
+				SetBuildUpgr(1, CommonAi.UPG_PLAGUE);//call SetBuildUpgr( 1, UPG_PLAGUE )
 			}//endif
 			//
 			//
 			if (boneyard && GetUnitCount(FROST_WYRM)>0) {//if boneyard and GetUnitCount(FROST_WYRM)>0 then
-				SetBuildUpgr(1, UPG_WYRM_BREATH);//call SetBuildUpgr( 1, UPG_WYRM_BREATH )
+				SetBuildUpgr(1, CommonAi.UPG_WYRM_BREATH);//call SetBuildUpgr( 1, UPG_WYRM_BREATH )
 			}//endif
 		}//endfunction
 		//
@@ -295,7 +295,7 @@ namespace Jass {
 			if (farms < 4) {//if farms < 4 then
 				return;//return
 			}//endif
-			FoodPool(12,  grave,CRYPT_FIEND,3,  grave and citadel,GARGOYLE,2);//call FoodPool( 12,  grave,CRYPT_FIEND,3,  grave and citadel,GARGOYLE,2 )
+			FoodPool(12, UndeadAi.grave, CommonAi.CRYPT_FIEND, 3, grave and citadel, CommonAi.GARGOYLE, 2);//call FoodPool( 12,  grave,CRYPT_FIEND,3,  grave and citadel,GARGOYLE,2 )
 			//
 			//
 			if (farms < 6) {//if farms < 6 then
@@ -304,22 +304,22 @@ namespace Jass {
 			if (sac_pit) {//if sac_pit then
 				//
 			}//endif
-			FoodPool(8,  slaught,MEAT_WAGON,4,  boneyard,FROST_WYRM,7);//call FoodPool( 8,  slaught,MEAT_WAGON,4,  boneyard,FROST_WYRM,7 )
+			FoodPool(8, UndeadAi.slaught, CommonAi.MEAT_WAGON, 4, UndeadAi.boneyard, CommonAi.FROST_WYRM, 7);//call FoodPool( 8,  slaught,MEAT_WAGON,4,  boneyard,FROST_WYRM,7 )
 			//
 			//
 			if (farms < 7) {//if farms < 7 then
 				return;//return
 			}//endif
 			if (banshees) {//if banshees then
-				SetBuildUnit(3, NECRO);//call SetBuildUnit( 3, NECRO     )
-				SetBuildUnit(2, BANSHEE);//call SetBuildUnit( 2, BANSHEE   )
+				SetBuildUnit(3, CommonAi.NECRO);//call SetBuildUnit( 3, NECRO     )
+				SetBuildUnit(2, CommonAi.BANSHEE);//call SetBuildUnit( 2, BANSHEE   )
 			}//endif
 		}//endfunction
 		//
 		//
 		//
 		private void build_melee(int pool) {//function build_melee takes integer pool returns nothing
-			FoodPool(pool,  true,GHOUL,2,  M_aboms,ABOMINATION,4);//call FoodPool( pool,  true,GHOUL,2,  M_aboms,ABOMINATION,4 )
+			FoodPool(pool, true, CommonAi.GHOUL, 2, UndeadAi.M_aboms, CommonAi.ABOMINATION, 4);//call FoodPool( pool,  true,GHOUL,2,  M_aboms,ABOMINATION,4 )
 		}//endfunction
 		//
 		//
@@ -328,52 +328,52 @@ namespace Jass {
 			int mines = GetMinesOwned();//local integer mines = GetMinesOwned()
 			InitBuildArray();//call InitBuildArray()
 			init_booleans();//call init_booleans()
-			MeleeTownHall(0, NECROPOLIS_1);//call MeleeTownHall( 0, NECROPOLIS_1 )
-			SetBuildUnit(1, ACOLYTE);//call SetBuildUnit( 1, ACOLYTE           )
+			MeleeTownHall(0, CommonAi.NECROPOLIS_1);//call MeleeTownHall( 0, NECROPOLIS_1 )
+			SetBuildUnit(1, CommonAi.ACOLYTE);//call SetBuildUnit( 1, ACOLYTE           )
 			undead_mine(0);//call undead_mine(0)
-			SetBuildUnit(4, ACOLYTE);//call SetBuildUnit( 4, ACOLYTE           )
-			BuildFactory(CRYPT);//call BuildFactory(    CRYPT             )
-			SetBuildUnit(5, ACOLYTE);//call SetBuildUnit( 5, ACOLYTE           )
-			SetBuildUnit(1, GHOUL);//call SetBuildUnit( 1, GHOUL             )
-			SetBuildUnit(1, ZIGGURAT_1);//call SetBuildUnit( 1, ZIGGURAT_1        )
-			SetBuildUnit(2, GHOUL);//call SetBuildUnit( 2, GHOUL             )
-			SetBuildUnit(1, UNDEAD_ALTAR);//call SetBuildUnit( 1, UNDEAD_ALTAR      )
-			SetBuildUnit(2, ZIGGURAT_1);//call SetBuildUnit( 2, ZIGGURAT_1        )
+			SetBuildUnit(4, CommonAi.ACOLYTE);//call SetBuildUnit( 4, ACOLYTE           )
+			BuildFactory(CommonAi.CRYPT);//call BuildFactory(    CRYPT             )
+			SetBuildUnit(5, CommonAi.ACOLYTE);//call SetBuildUnit( 5, ACOLYTE           )
+			SetBuildUnit(1, CommonAi.GHOUL);//call SetBuildUnit( 1, GHOUL             )
+			SetBuildUnit(1, CommonAi.ZIGGURAT_1);//call SetBuildUnit( 1, ZIGGURAT_1        )
+			SetBuildUnit(2, CommonAi.GHOUL);//call SetBuildUnit( 2, GHOUL             )
+			SetBuildUnit(1, CommonAi.UNDEAD_ALTAR);//call SetBuildUnit( 1, UNDEAD_ALTAR      )
+			SetBuildUnit(2, CommonAi.ZIGGURAT_1);//call SetBuildUnit( 2, ZIGGURAT_1        )
 			build_melee(8);//call build_melee( 8 )
-			SetBuildUnit(1, hero_id);//call SetBuildUnit( 1, hero_id           )
+			SetBuildUnit(1, CommonAi.hero_id);//call SetBuildUnit( 1, hero_id           )
 			build_melee(12);//call build_melee( 12 )
-			SetBuildUpgr(1, UPG_CANNIBALIZE);//call SetBuildUpgr( 1, UPG_CANNIBALIZE   )
-			SetBuildUnit(1, GRAVEYARD);//call SetBuildUnit( 1, GRAVEYARD         )
+			SetBuildUpgr(1, CommonAi.UPG_CANNIBALIZE);//call SetBuildUpgr( 1, UPG_CANNIBALIZE   )
+			SetBuildUnit(1, CommonAi.GRAVEYARD);//call SetBuildUnit( 1, GRAVEYARD         )
 			build_melee(14);//call build_melee( 14 )
-			SetBuildUnit(3, ZIGGURAT_1);//call SetBuildUnit( 3, ZIGGURAT_1        )
+			SetBuildUnit(3, CommonAi.ZIGGURAT_1);//call SetBuildUnit( 3, ZIGGURAT_1        )
 			build_melee(18);//call build_melee( 18 )
-			SetBuildUpgr(1, UPG_UNHOLY_ARMOR);//call SetBuildUpgr( 1, UPG_UNHOLY_ARMOR  )
+			SetBuildUpgr(1, CommonAi.UPG_UNHOLY_ARMOR);//call SetBuildUpgr( 1, UPG_UNHOLY_ARMOR  )
 			if (!citadel) {//if not citadel then
-				SetBuildUnit(2, CRYPT_FIEND);//call SetBuildUnit( 2, CRYPT_FIEND   )
+				SetBuildUnit(2, CommonAi.CRYPT_FIEND);//call SetBuildUnit( 2, CRYPT_FIEND   )
 			}//endif
-			SetBuildUpgr(1, UPG_UNHOLY_STR);//call SetBuildUpgr( 1, UPG_UNHOLY_STR    )
-			UpgradeAll(NECROPOLIS_1, NECROPOLIS_2);//call UpgradeAll( NECROPOLIS_1, NECROPOLIS_2 )
+			SetBuildUpgr(1, CommonAi.UPG_UNHOLY_STR);//call SetBuildUpgr( 1, UPG_UNHOLY_STR    )
+			UpgradeAll(CommonAi.NECROPOLIS_1, CommonAi.NECROPOLIS_2);//call UpgradeAll( NECROPOLIS_1, NECROPOLIS_2 )
 			forces_sequence();//call forces_sequence()
 			upgrade_sequence();//call upgrade_sequence()
-			SetBuildUnit(4, ZIGGURAT_1);//call SetBuildUnit( 4, ZIGGURAT_1        )
-			SetBuildUnit(1, hero_id2);//call SetBuildUnit( 1, hero_id2          )
+			SetBuildUnit(4, CommonAi.ZIGGURAT_1);//call SetBuildUnit( 4, ZIGGURAT_1        )
+			SetBuildUnit(1, CommonAi.hero_id2);//call SetBuildUnit( 1, hero_id2          )
 			undead_mine(1);//call undead_mine(1)
-			BasicExpansion(mines < 2, UNDEAD_MINE);//call BasicExpansion( mines < 2, UNDEAD_MINE )
-			MeleeTownHall(1, NECROPOLIS_1);//call MeleeTownHall( 1, NECROPOLIS_1     )
+			BasicExpansion(mines < 2, CommonAi.UNDEAD_MINE);//call BasicExpansion( mines < 2, UNDEAD_MINE )
+			MeleeTownHall(1, CommonAi.NECROPOLIS_1);//call MeleeTownHall( 1, NECROPOLIS_1     )
 			if (GetUnitCountDone(UNDEAD_MINE) > 1) {//if GetUnitCountDone(UNDEAD_MINE) > 1 then
-				SetBuildUnit(11, ACOLYTE);//call SetBuildUnit( 11, ACOLYTE      )
+				SetBuildUnit(11, CommonAi.ACOLYTE);//call SetBuildUnit( 11, ACOLYTE      )
 			}//endif
-			UpgradeAll(ZIGGURAT_1, ZIGGURAT_2);//call UpgradeAll( ZIGGURAT_1, ZIGGURAT_2 )
-			GuardSecondary(1, 2, ZIGGURAT_1);//call GuardSecondary( 1, 2, ZIGGURAT_1   )
-			BuildFactory(SLAUGHTERHOUSE);//call BuildFactory(    SLAUGHTERHOUSE    )
-			BuildFactory(DAMNED_TEMPLE);//call BuildFactory(    DAMNED_TEMPLE     )
-			SetBuildUnit(1, NECROPOLIS_3);//call SetBuildUnit( 1, NECROPOLIS_3      )
+			UpgradeAll(CommonAi.ZIGGURAT_1, CommonAi.ZIGGURAT_2);//call UpgradeAll( ZIGGURAT_1, ZIGGURAT_2 )
+			GuardSecondary(1, 2, CommonAi.ZIGGURAT_1);//call GuardSecondary( 1, 2, ZIGGURAT_1   )
+			BuildFactory(CommonAi.SLAUGHTERHOUSE);//call BuildFactory(    SLAUGHTERHOUSE    )
+			BuildFactory(CommonAi.DAMNED_TEMPLE);//call BuildFactory(    DAMNED_TEMPLE     )
+			SetBuildUnit(1, CommonAi.NECROPOLIS_3);//call SetBuildUnit( 1, NECROPOLIS_3      )
 			undead_mine(2);//call undead_mine(2)
-			BasicExpansion(mines < 3, UNDEAD_MINE);//call BasicExpansion( mines < 3, UNDEAD_MINE )
-			MeleeTownHall(2, NECROPOLIS_1);//call MeleeTownHall( 2, NECROPOLIS_1     )
-			GuardSecondary(2, 2, ZIGGURAT_1);//call GuardSecondary( 2, 2, ZIGGURAT_1   )
-			SetBuildUnit(1, SAC_PIT);//call SetBuildUnit( 1, SAC_PIT           )
-			SetBuildUnit(1, BONEYARD);//call SetBuildUnit( 1, BONEYARD          )
+			BasicExpansion(mines < 3, CommonAi.UNDEAD_MINE);//call BasicExpansion( mines < 3, UNDEAD_MINE )
+			MeleeTownHall(2, CommonAi.NECROPOLIS_1);//call MeleeTownHall( 2, NECROPOLIS_1     )
+			GuardSecondary(2, 2, CommonAi.ZIGGURAT_1);//call GuardSecondary( 2, 2, ZIGGURAT_1   )
+			SetBuildUnit(1, CommonAi.SAC_PIT);//call SetBuildUnit( 1, SAC_PIT           )
+			SetBuildUnit(1, CommonAi.BONEYARD);//call SetBuildUnit( 1, BONEYARD          )
 			if (GetUnitCount(BONEYARD)>0 && GetUnitCount(ZEPPELIN)<3) {//if GetUnitCount(BONEYARD)>0 and GetUnitCount(ZEPPELIN)<3 then
 				GetZeppelin();//call GetZeppelin()
 			}//endif
@@ -383,7 +383,7 @@ namespace Jass {
 		//
 		private void harvest_gold(int townid) {//function harvest_gold takes integer townid returns nothing
 			if (TownHasMine(townid)) {//if TownHasMine(townid) then
-				HarvestGold(townid,5);//call HarvestGold(townid,5)
+				HarvestGold(townid, 5);//call HarvestGold(townid,5)
 			}//endif
 		}//endfunction
 		//
@@ -396,7 +396,7 @@ namespace Jass {
 				harvest_gold(1);//call harvest_gold(1)
 				harvest_gold(2);//call harvest_gold(2)
 				harvest_gold(3);//call harvest_gold(3)
-				HarvestWood(0,GetUnitCountDone(GHOUL)-AG);//call HarvestWood(0,GetUnitCountDone(GHOUL)-AG)
+				HarvestWood(0, GetUnitCountDone(GHOUL)-AG);//call HarvestWood(0,GetUnitCountDone(GHOUL)-AG)
 				build_sequence();//call build_sequence()
 				Sleep(3);//call Sleep(3)
 			}//endloop
@@ -406,7 +406,7 @@ namespace Jass {
 		//
 		private void main() {//function main takes nothing returns nothing
 			do_debug_cheats = GetAiPlayer()==1;//set do_debug_cheats = GetAiPlayer()==1
-			PickMeleeHero(RACE_UNDEAD);//call PickMeleeHero(RACE_UNDEAD)
+			PickMeleeHero(CommonJ.RACE_UNDEAD);//call PickMeleeHero(RACE_UNDEAD)
 			set_skills();//call set_skills()
 			StandardAI(function SkillArrays, function peon_assignment, function attack_sequence);//call StandardAI(function SkillArrays, function peon_assignment, function attack_sequence)
 			PlayGame();//call PlayGame()

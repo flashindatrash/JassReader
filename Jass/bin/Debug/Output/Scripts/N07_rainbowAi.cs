@@ -107,70 +107,70 @@ namespace Jass {
 		//
 		//
 		private void setup_waves(int sequence) {//function setup_waves takes integer sequence returns nothing
-			TraceI("***** setup_waves (group %d) *****\n",sequence);//call TraceI("***** setup_waves (group %d) *****\n",sequence)
+			TraceI("***** setup_waves (group %d) *****\n", sequence);//call TraceI("***** setup_waves (group %d) *****\n",sequence)
 			wave_count = 0;//set wave_count = 0
 			//
 			if (sequence == 1) {//if sequence == 1 then
 				//
-				add_wave(0,          BASIC_WAVE1);//call add_wave( 0,          BASIC_WAVE1      )
-				add_wave(0,          BASIC_WAVE2);//call add_wave( 0,          BASIC_WAVE2      )
-				add_wave(0,          ANTIMAGIC_WAVE);//call add_wave( 0,          ANTIMAGIC_WAVE   )
-				add_wave(LICH,       POSSESS_WAVE);//call add_wave( LICH,       POSSESS_WAVE     )
+				add_wave(0, N07_rainbowAi.BASIC_WAVE1);//call add_wave( 0,          BASIC_WAVE1      )
+				add_wave(0, N07_rainbowAi.BASIC_WAVE2);//call add_wave( 0,          BASIC_WAVE2      )
+				add_wave(0, N07_rainbowAi.ANTIMAGIC_WAVE);//call add_wave( 0,          ANTIMAGIC_WAVE   )
+				add_wave(CommonAi.LICH, N07_rainbowAi.POSSESS_WAVE);//call add_wave( LICH,       POSSESS_WAVE     )
 				pit_stop(20, 20);//call pit_stop( 20, 20 )
-				add_wave(0,          ANTI_AIR_WAVE);//call add_wave( 0,          ANTI_AIR_WAVE    )
-				add_wave(0,          AIR_WAVE);//call add_wave( 0,          AIR_WAVE         )
+				add_wave(0, N07_rainbowAi.ANTI_AIR_WAVE);//call add_wave( 0,          ANTI_AIR_WAVE    )
+				add_wave(0, N07_rainbowAi.AIR_WAVE);//call add_wave( 0,          AIR_WAVE         )
 				pit_stop(30, 30);//call pit_stop( 30, 30 )
-				add_wave(DREAD_LORD, ANTIMAGIC_WAVE);//call add_wave( DREAD_LORD, ANTIMAGIC_WAVE   )
-				add_wave(LICH,       POSSESS_WAVE);//call add_wave( LICH,       POSSESS_WAVE     )
+				add_wave(CommonAi.DREAD_LORD, N07_rainbowAi.ANTIMAGIC_WAVE);//call add_wave( DREAD_LORD, ANTIMAGIC_WAVE   )
+				add_wave(CommonAi.LICH, N07_rainbowAi.POSSESS_WAVE);//call add_wave( LICH,       POSSESS_WAVE     )
 				pit_stop(30, 30);//call pit_stop( 30, 30 )
 				loop_waves();//call loop_waves()
-				add_wave(PIT_LORD,   F_U1_WAVE);//call add_wave( PIT_LORD,   F_U1_WAVE        )
+				add_wave(CommonAi.PIT_LORD, N07_rainbowAi.F_U1_WAVE);//call add_wave( PIT_LORD,   F_U1_WAVE        )
 				pit_stop(40, 30);//call pit_stop( 40, 30 )
-				add_wave(DREAD_LORD, F_U2_WAVE);//call add_wave( DREAD_LORD, F_U2_WAVE        )
+				add_wave(CommonAi.DREAD_LORD, N07_rainbowAi.F_U2_WAVE);//call add_wave( DREAD_LORD, F_U2_WAVE        )
 				pit_stop(40, 30);//call pit_stop( 40, 30 )
-				add_wave(PIT_LORD,   F_U3_WAVE);//call add_wave( PIT_LORD,   F_U3_WAVE        )
+				add_wave(CommonAi.PIT_LORD, N07_rainbowAi.F_U3_WAVE);//call add_wave( PIT_LORD,   F_U3_WAVE        )
 				//
 			} else if (sequence == 2) {//elseif sequence == 2 then
 				//
-				add_wave(0,          BASIC_WAVE1);//call add_wave( 0,          BASIC_WAVE1      )
-				add_wave(0,          BASIC_WAVE2);//call add_wave( 0,          BASIC_WAVE2      )
-				add_wave(DREAD_LORD, SIEGE_WAVE);//call add_wave( DREAD_LORD, SIEGE_WAVE       )
-				add_wave(LICH,       SKELETON_WAVE);//call add_wave( LICH,       SKELETON_WAVE    )
+				add_wave(0, N07_rainbowAi.BASIC_WAVE1);//call add_wave( 0,          BASIC_WAVE1      )
+				add_wave(0, N07_rainbowAi.BASIC_WAVE2);//call add_wave( 0,          BASIC_WAVE2      )
+				add_wave(CommonAi.DREAD_LORD, N07_rainbowAi.SIEGE_WAVE);//call add_wave( DREAD_LORD, SIEGE_WAVE       )
+				add_wave(CommonAi.LICH, N07_rainbowAi.SKELETON_WAVE);//call add_wave( LICH,       SKELETON_WAVE    )
 				pit_stop(30, 30);//call pit_stop( 30, 30 )
-				add_wave(0,          ANTI_AIR_WAVE);//call add_wave( 0,          ANTI_AIR_WAVE    )
-				add_wave(0,          AIR_WAVE);//call add_wave( 0,          AIR_WAVE         )
+				add_wave(0, N07_rainbowAi.ANTI_AIR_WAVE);//call add_wave( 0,          ANTI_AIR_WAVE    )
+				add_wave(0, N07_rainbowAi.AIR_WAVE);//call add_wave( 0,          AIR_WAVE         )
 				pit_stop(30, 30);//call pit_stop( 30, 30 )
-				add_wave(LICH,       SKELETON_WAVE);//call add_wave( LICH,       SKELETON_WAVE    )
-				add_wave(DREAD_LORD, SIEGE_WAVE);//call add_wave( DREAD_LORD, SIEGE_WAVE       )
+				add_wave(CommonAi.LICH, N07_rainbowAi.SKELETON_WAVE);//call add_wave( LICH,       SKELETON_WAVE    )
+				add_wave(CommonAi.DREAD_LORD, N07_rainbowAi.SIEGE_WAVE);//call add_wave( DREAD_LORD, SIEGE_WAVE       )
 				pit_stop(60, 30);//call pit_stop( 60, 30 )
 				loop_waves();//call loop_waves()
-				add_wave(PIT_LORD,   F_U1_WAVE);//call add_wave( PIT_LORD,   F_U1_WAVE        )
+				add_wave(CommonAi.PIT_LORD, N07_rainbowAi.F_U1_WAVE);//call add_wave( PIT_LORD,   F_U1_WAVE        )
 				pit_stop(40, 30);//call pit_stop( 40, 30 )
-				add_wave(DREAD_LORD, F_U2_WAVE);//call add_wave( DREAD_LORD, F_U2_WAVE        )
+				add_wave(CommonAi.DREAD_LORD, N07_rainbowAi.F_U2_WAVE);//call add_wave( DREAD_LORD, F_U2_WAVE        )
 				pit_stop(40, 30);//call pit_stop( 40, 30 )
-				add_wave(PIT_LORD,   F_U3_WAVE);//call add_wave( PIT_LORD,   F_U3_WAVE        )
+				add_wave(CommonAi.PIT_LORD, N07_rainbowAi.F_U3_WAVE);//call add_wave( PIT_LORD,   F_U3_WAVE        )
 				//
 			} else {//else
 				//
-				add_wave(0,          BASIC_WAVE1);//call add_wave( 0,          BASIC_WAVE1      )
-				add_wave(0,          BASIC_WAVE2);//call add_wave( 0,          BASIC_WAVE2      )
+				add_wave(0, N07_rainbowAi.BASIC_WAVE1);//call add_wave( 0,          BASIC_WAVE1      )
+				add_wave(0, N07_rainbowAi.BASIC_WAVE2);//call add_wave( 0,          BASIC_WAVE2      )
 				pit_stop(60, 40);//call pit_stop( 60, 40 )
-				add_wave(0,          AIR_WAVE);//call add_wave( 0,          AIR_WAVE         )
-				add_wave(LICH,       SKELETON_WAVE);//call add_wave( LICH,       SKELETON_WAVE    )
+				add_wave(0, N07_rainbowAi.AIR_WAVE);//call add_wave( 0,          AIR_WAVE         )
+				add_wave(CommonAi.LICH, N07_rainbowAi.SKELETON_WAVE);//call add_wave( LICH,       SKELETON_WAVE    )
 				pit_stop(60, 40);//call pit_stop( 60, 40 )
-				add_wave(0,          PLAGUE_WAVE);//call add_wave( 0,          PLAGUE_WAVE      )
-				add_wave(DREAD_LORD, BURNING_WAVE);//call add_wave( DREAD_LORD, BURNING_WAVE     )
+				add_wave(0, N07_rainbowAi.PLAGUE_WAVE);//call add_wave( 0,          PLAGUE_WAVE      )
+				add_wave(CommonAi.DREAD_LORD, N07_rainbowAi.BURNING_WAVE);//call add_wave( DREAD_LORD, BURNING_WAVE     )
 				pit_stop(60, 40);//call pit_stop( 60, 40 )
-				add_wave(0,          ANTIMAGIC_WAVE);//call add_wave( 0,          ANTIMAGIC_WAVE   )
-				add_wave(0,          POSSESS_WAVE);//call add_wave( 0,          POSSESS_WAVE     )
+				add_wave(0, N07_rainbowAi.ANTIMAGIC_WAVE);//call add_wave( 0,          ANTIMAGIC_WAVE   )
+				add_wave(0, N07_rainbowAi.POSSESS_WAVE);//call add_wave( 0,          POSSESS_WAVE     )
 				pit_stop(60, 40);//call pit_stop( 60, 40 )
-				add_wave(DREAD_LORD, SIEGE_WAVE);//call add_wave( DREAD_LORD, SIEGE_WAVE       )
-				add_wave(LICH,       SKELETON_WAVE);//call add_wave( LICH,       SKELETON_WAVE    )
+				add_wave(CommonAi.DREAD_LORD, N07_rainbowAi.SIEGE_WAVE);//call add_wave( DREAD_LORD, SIEGE_WAVE       )
+				add_wave(CommonAi.LICH, N07_rainbowAi.SKELETON_WAVE);//call add_wave( LICH,       SKELETON_WAVE    )
 				pit_stop(60, 40);//call pit_stop( 60, 40 )
 				loop_waves();//call loop_waves()
-				add_wave(PIT_LORD,   F_U1_WAVE);//call add_wave( PIT_LORD,   F_U1_WAVE        )
-				add_wave(DREAD_LORD, F_U2_WAVE);//call add_wave( DREAD_LORD, F_U2_WAVE        )
-				add_wave(PIT_LORD,   F_U3_WAVE);//call add_wave( PIT_LORD,   F_U3_WAVE        )
+				add_wave(CommonAi.PIT_LORD, N07_rainbowAi.F_U1_WAVE);//call add_wave( PIT_LORD,   F_U1_WAVE        )
+				add_wave(CommonAi.DREAD_LORD, N07_rainbowAi.F_U2_WAVE);//call add_wave( DREAD_LORD, F_U2_WAVE        )
+				add_wave(CommonAi.PIT_LORD, N07_rainbowAi.F_U3_WAVE);//call add_wave( PIT_LORD,   F_U3_WAVE        )
 			}//endif
 		}//endfunction
 		//
@@ -210,7 +210,7 @@ namespace Jass {
 		//
 		//
 		private void do_BONUS_LOVE() {//function do_BONUS_LOVE takes nothing returns nothing
-			wave_units(1, 1, MEAT_WAGON);//call wave_units( 1, 1, MEAT_WAGON       )
+			wave_units(1, 1, CommonAi.MEAT_WAGON);//call wave_units( 1, 1, MEAT_WAGON       )
 		}//endfunction
 		//
 		//
@@ -223,120 +223,120 @@ namespace Jass {
 		private void do_EVERY_WAVE_LAST(int heroid) {//function do_EVERY_WAVE_LAST takes integer heroid returns nothing
 			if (heroid != 0) {//if heroid != 0 then
 				wave_units(1, 1, heroid);//call wave_units( 1, 1, heroid       )
-				wave_units(1, 1, BANSHEE);//call wave_units( 1, 1, BANSHEE      )
+				wave_units(1, 1, CommonAi.BANSHEE);//call wave_units( 1, 1, BANSHEE      )
 			}//endif
 		}//endfunction
 		//
 		//
 		//
 		private void do_BASIC_WAVE1() {//function do_BASIC_WAVE1 takes nothing returns nothing
-			wave_units(6,10, GHOULZ);//call wave_units( 6,10, GHOULZ           )
-			wave_units(4, 6, CRYPT_FIEND);//call wave_units( 4, 6, CRYPT_FIEND      )
+			wave_units(6, 10, N07_rainbowAi.GHOULZ);//call wave_units( 6,10, GHOULZ           )
+			wave_units(4, 6, CommonAi.CRYPT_FIEND);//call wave_units( 4, 6, CRYPT_FIEND      )
 		}//endfunction
 		//
 		//
 		//
 		private void do_BASIC_WAVE2() {//function do_BASIC_WAVE2 takes nothing returns nothing
-			wave_units(0, 1, MEAT_WAGON);//call wave_units( 0, 1, MEAT_WAGON       )
-			wave_units(8,12, GHOULZ);//call wave_units( 8,12, GHOULZ           )
-			wave_units(5, 7, CRYPT_FIEND);//call wave_units( 5, 7, CRYPT_FIEND      )
+			wave_units(0, 1, CommonAi.MEAT_WAGON);//call wave_units( 0, 1, MEAT_WAGON       )
+			wave_units(8, 12, N07_rainbowAi.GHOULZ);//call wave_units( 8,12, GHOULZ           )
+			wave_units(5, 7, CommonAi.CRYPT_FIEND);//call wave_units( 5, 7, CRYPT_FIEND      )
 		}//endfunction
 		//
 		//
 		//
 		private void do_POSSESS_WAVE() {//function do_POSSESS_WAVE takes nothing returns nothing
-			wave_units(2, 3, ABOMINATION);//call wave_units( 2, 3, ABOMINATION      )
-			wave_units(8,10, BANSHEE_POSSESS);//call wave_units( 8,10, BANSHEE_POSSESS  )
+			wave_units(2, 3, CommonAi.ABOMINATION);//call wave_units( 2, 3, ABOMINATION      )
+			wave_units(8, 10, N07_rainbowAi.BANSHEE_POSSESS);//call wave_units( 8,10, BANSHEE_POSSESS  )
 		}//endfunction
 		//
 		//
 		//
 		private void do_ANTIMAGIC_WAVE() {//function do_ANTIMAGIC_WAVE takes nothing returns nothing
-			wave_units(0, 1, MEAT_WAGON);//call wave_units( 0, 1, MEAT_WAGON       )
-			wave_units(2, 3, DOOMGUARD);//call wave_units( 2, 3, DOOMGUARD        )
-			wave_units(6, 8, FELLHOUND);//call wave_units( 6, 8, FELLHOUND        )
+			wave_units(0, 1, CommonAi.MEAT_WAGON);//call wave_units( 0, 1, MEAT_WAGON       )
+			wave_units(2, 3, CommonAi.DOOMGUARD);//call wave_units( 2, 3, DOOMGUARD        )
+			wave_units(6, 8, CommonAi.FELLHOUND);//call wave_units( 6, 8, FELLHOUND        )
 		}//endfunction
 		//
 		//
 		//
 		private void do_AIR_WAVE() {//function do_AIR_WAVE takes nothing returns nothing
-			wave_units(6, 8, GARGOYLE);//call wave_units( 6, 8, GARGOYLE         )
-			wave_units(4, 5, FROST_WYRM);//call wave_units( 4, 5, FROST_WYRM       )
+			wave_units(6, 8, CommonAi.GARGOYLE);//call wave_units( 6, 8, GARGOYLE         )
+			wave_units(4, 5, CommonAi.FROST_WYRM);//call wave_units( 4, 5, FROST_WYRM       )
 		}//endfunction
 		//
 		//
 		//
 		private void do_ANTI_AIR_WAVE() {//function do_ANTI_AIR_WAVE takes nothing returns nothing
-			wave_units(1, 2, DOOMGUARD);//call wave_units( 1, 2, DOOMGUARD        )
-			wave_units(5, 7, CRYPT_FIEND);//call wave_units( 5, 7, CRYPT_FIEND      )
-			wave_units(7, 9, GARGOYLE);//call wave_units( 7, 9, GARGOYLE         )
+			wave_units(1, 2, CommonAi.DOOMGUARD);//call wave_units( 1, 2, DOOMGUARD        )
+			wave_units(5, 7, CommonAi.CRYPT_FIEND);//call wave_units( 5, 7, CRYPT_FIEND      )
+			wave_units(7, 9, CommonAi.GARGOYLE);//call wave_units( 7, 9, GARGOYLE         )
 		}//endfunction
 		//
 		//
 		//
 		private void do_SIEGE_WAVE() {//function do_SIEGE_WAVE takes nothing returns nothing
-			wave_units(5, 7, MEAT_WAGON);//call wave_units( 5, 7, MEAT_WAGON       )
-			wave_units(5, 7, ABOMINATION);//call wave_units( 5, 7, ABOMINATION      )
-			wave_units(2, 3, FROST_WYRM);//call wave_units( 2, 3, FROST_WYRM       )
+			wave_units(5, 7, CommonAi.MEAT_WAGON);//call wave_units( 5, 7, MEAT_WAGON       )
+			wave_units(5, 7, CommonAi.ABOMINATION);//call wave_units( 5, 7, ABOMINATION      )
+			wave_units(2, 3, CommonAi.FROST_WYRM);//call wave_units( 2, 3, FROST_WYRM       )
 		}//endfunction
 		//
 		//
 		//
 		private void do_BURNING_WAVE() {//function do_BURNING_WAVE takes nothing returns nothing
-			wave_units(1, 2, DOOMGUARD);//call wave_units( 1, 2, DOOMGUARD        )
-			wave_units(6, 8, BUILD_INFERNAL);//call wave_units( 6, 8, BUILD_INFERNAL   )
+			wave_units(1, 2, CommonAi.DOOMGUARD);//call wave_units( 1, 2, DOOMGUARD        )
+			wave_units(6, 8, N07_rainbowAi.BUILD_INFERNAL);//call wave_units( 6, 8, BUILD_INFERNAL   )
 		}//endfunction
 		//
 		//
 		//
 		private void do_PLAGUE_WAVE() {//function do_PLAGUE_WAVE takes nothing returns nothing
-			wave_units(1, 2, MEAT_WAGON);//call wave_units( 1, 2, MEAT_WAGON       )
-			wave_units(4, 6, GHOULZ);//call wave_units( 4, 6, GHOULZ           )
-			wave_units(5, 7, ABOMINATION);//call wave_units( 5, 7, ABOMINATION      )
-			wave_units(3, 4, NECRO);//call wave_units( 3, 4, NECRO            )
+			wave_units(1, 2, CommonAi.MEAT_WAGON);//call wave_units( 1, 2, MEAT_WAGON       )
+			wave_units(4, 6, N07_rainbowAi.GHOULZ);//call wave_units( 4, 6, GHOULZ           )
+			wave_units(5, 7, CommonAi.ABOMINATION);//call wave_units( 5, 7, ABOMINATION      )
+			wave_units(3, 4, CommonAi.NECRO);//call wave_units( 3, 4, NECRO            )
 		}//endfunction
 		//
 		//
 		//
 		private void do_SKELETON_WAVE() {//function do_SKELETON_WAVE takes nothing returns nothing
-			wave_units(0, 1, MEAT_WAGON);//call wave_units( 0, 1, MEAT_WAGON       )
-			wave_units(4, 6, ABOMINATION);//call wave_units( 4, 6, ABOMINATION      )
-			wave_units(8,10, NECRO);//call wave_units( 8,10, NECRO            )
+			wave_units(0, 1, CommonAi.MEAT_WAGON);//call wave_units( 0, 1, MEAT_WAGON       )
+			wave_units(4, 6, CommonAi.ABOMINATION);//call wave_units( 4, 6, ABOMINATION      )
+			wave_units(8, 10, CommonAi.NECRO);//call wave_units( 8,10, NECRO            )
 		}//endfunction
 		//
 		//
 		//
 		private void do_F_U1_WAVE() {//function do_F_U1_WAVE takes nothing returns nothing
-			wave_units(1, 2, MEAT_WAGON);//call wave_units( 1, 2, MEAT_WAGON       )
-			wave_units(2, 3, DOOMGUARD);//call wave_units( 2, 3, DOOMGUARD        )
-			wave_units(5, 7, FELLHOUND);//call wave_units( 5, 7, FELLHOUND        )
-			wave_units(2, 3, BANSHEE_CURSE);//call wave_units( 2, 3, BANSHEE_CURSE    )
-			wave_units(2, 3, FROST_WYRM);//call wave_units( 2, 3, FROST_WYRM       )
-			wave_units(2, 3, NECRO);//call wave_units( 2, 3, NECRO            )
+			wave_units(1, 2, CommonAi.MEAT_WAGON);//call wave_units( 1, 2, MEAT_WAGON       )
+			wave_units(2, 3, CommonAi.DOOMGUARD);//call wave_units( 2, 3, DOOMGUARD        )
+			wave_units(5, 7, CommonAi.FELLHOUND);//call wave_units( 5, 7, FELLHOUND        )
+			wave_units(2, 3, N07_rainbowAi.BANSHEE_CURSE);//call wave_units( 2, 3, BANSHEE_CURSE    )
+			wave_units(2, 3, CommonAi.FROST_WYRM);//call wave_units( 2, 3, FROST_WYRM       )
+			wave_units(2, 3, CommonAi.NECRO);//call wave_units( 2, 3, NECRO            )
 		}//endfunction
 		//
 		//
 		//
 		private void do_F_U2_WAVE() {//function do_F_U2_WAVE takes nothing returns nothing
-			wave_units(1, 2, MEAT_WAGON);//call wave_units( 1, 2, MEAT_WAGON       )
-			wave_units(2, 3, BUILD_INFERNAL);//call wave_units( 2, 3, BUILD_INFERNAL   )
-			wave_units(3, 5, ABOMINATION);//call wave_units( 3, 5, ABOMINATION      )
-			wave_units(4, 6, CRYPT_FIEND);//call wave_units( 4, 6, CRYPT_FIEND      )
-			wave_units(2, 3, BANSHEE_CURSE);//call wave_units( 2, 3, BANSHEE_CURSE    )
-			wave_units(2, 3, NECRO);//call wave_units( 2, 3, NECRO            )
+			wave_units(1, 2, CommonAi.MEAT_WAGON);//call wave_units( 1, 2, MEAT_WAGON       )
+			wave_units(2, 3, N07_rainbowAi.BUILD_INFERNAL);//call wave_units( 2, 3, BUILD_INFERNAL   )
+			wave_units(3, 5, CommonAi.ABOMINATION);//call wave_units( 3, 5, ABOMINATION      )
+			wave_units(4, 6, CommonAi.CRYPT_FIEND);//call wave_units( 4, 6, CRYPT_FIEND      )
+			wave_units(2, 3, N07_rainbowAi.BANSHEE_CURSE);//call wave_units( 2, 3, BANSHEE_CURSE    )
+			wave_units(2, 3, CommonAi.NECRO);//call wave_units( 2, 3, NECRO            )
 		}//endfunction
 		//
 		//
 		//
 		private void do_F_U3_WAVE() {//function do_F_U3_WAVE takes nothing returns nothing
-			wave_units(2, 3, MEAT_WAGON);//call wave_units( 2, 3, MEAT_WAGON       )
-			wave_units(2, 3, BUILD_INFERNAL);//call wave_units( 2, 3, BUILD_INFERNAL   )
-			wave_units(3, 4, BANSHEE_POSSESS);//call wave_units( 3, 4, BANSHEE_POSSESS  )
-			wave_units(3, 4, DOOMGUARD);//call wave_units( 3, 4, DOOMGUARD        )
-			wave_units(4, 5, FELLHOUND);//call wave_units( 4, 5, FELLHOUND        )
-			wave_units(2, 3, FROST_WYRM);//call wave_units( 2, 3, FROST_WYRM       )
-			wave_units(1, 1, LICH);//call wave_units( 1, 1, LICH             )
-			wave_units(2, 3, NECRO);//call wave_units( 2, 3, NECRO            )
+			wave_units(2, 3, CommonAi.MEAT_WAGON);//call wave_units( 2, 3, MEAT_WAGON       )
+			wave_units(2, 3, N07_rainbowAi.BUILD_INFERNAL);//call wave_units( 2, 3, BUILD_INFERNAL   )
+			wave_units(3, 4, N07_rainbowAi.BANSHEE_POSSESS);//call wave_units( 3, 4, BANSHEE_POSSESS  )
+			wave_units(3, 4, CommonAi.DOOMGUARD);//call wave_units( 3, 4, DOOMGUARD        )
+			wave_units(4, 5, CommonAi.FELLHOUND);//call wave_units( 4, 5, FELLHOUND        )
+			wave_units(2, 3, CommonAi.FROST_WYRM);//call wave_units( 2, 3, FROST_WYRM       )
+			wave_units(1, 1, CommonAi.LICH);//call wave_units( 1, 1, LICH             )
+			wave_units(2, 3, CommonAi.NECRO);//call wave_units( 2, 3, NECRO            )
 		}//endfunction
 		//
 		//
@@ -363,7 +363,7 @@ namespace Jass {
 			} else {//else
 				times = bonus_waves( NORM_ALLOW_TREES, NORM_TREE_FACTOR, NORM_BASE_BONUS, NORM_BONUS_CAP );//set times = bonus_waves( NORM_ALLOW_TREES, NORM_TREE_FACTOR, NORM_BASE_BONUS, NORM_BONUS_CAP )
 			}//endif
-			TraceI("Bonus love = %d\n",times);//call TraceI("Bonus love = %d\n",times)
+			TraceI("Bonus love = %d\n", times);//call TraceI("Bonus love = %d\n",times)
 			while (true) {//loop
 				if (times <= 0) { break; }//exitwhen times <= 0
 				do_BONUS_LOVE();//call do_BONUS_LOVE()
@@ -394,7 +394,7 @@ namespace Jass {
 			index = 0;//set index = 0
 			while (true) {//loop
 				if (index == harass_length) { break; }//exitwhen index == harass_length
-				AddAssault(harass_max[index],harass_units[index]);//call AddAssault(harass_max[index],harass_units[index])
+				AddAssault(harass_max[index], harass_units[index]);//call AddAssault(harass_max[index],harass_units[index])
 				index = index + 1;//set index = index + 1
 			}//endloop
 		}//endfunction
@@ -411,7 +411,7 @@ namespace Jass {
 			index = 0;//set index = 0
 			while (true) {//loop
 				if (index == length) { break; }//exitwhen index == length
-				TraceI("wave cycle %d\n",index+1);//call TraceI("wave cycle %d\n",index+1)
+				TraceI("wave cycle %d\n", index+1);//call TraceI("wave cycle %d\n",index+1)
 				desire = harass_max[index];//set desire = harass_max[index]
 				unitid = harass_units[index];//set unitid = harass_units[index]
 				if (unitid==LICH) {//if unitid==LICH then
@@ -424,7 +424,7 @@ namespace Jass {
 				sleep_seconds = sleep_seconds-2;//set sleep_seconds = sleep_seconds-2
 				count = 0;//set count = 0
 				while (true) {//loop
-					SuicideUnitEx(1,unitid,target);//call SuicideUnitEx(1,unitid,target)
+					SuicideUnitEx(1, unitid, N07_rainbowAi.target);//call SuicideUnitEx(1,unitid,target)
 					Sleep(0.1);//call Sleep(0.1)
 					count = count + 1;//set count = count + 1
 					if (count==20) { break; }//exitwhen count==20
@@ -437,8 +437,8 @@ namespace Jass {
 		//
 		//
 		private void suicide_unit(int unitid) {//function suicide_unit takes integer unitid returns nothing
-			SuicideUnitEx(1,unitid,target);//call SuicideUnitEx(1,unitid,target)
-			SuicideUnitEx(1,SKEL_WARRIOR,target);//call SuicideUnitEx(1,SKEL_WARRIOR,target)
+			SuicideUnitEx(1, unitid, N07_rainbowAi.target);//call SuicideUnitEx(1,unitid,target)
+			SuicideUnitEx(1, CommonAi.SKEL_WARRIOR, N07_rainbowAi.target);//call SuicideUnitEx(1,SKEL_WARRIOR,target)
 			Sleep(0.1);//call Sleep(0.1)
 		}//endfunction
 		//
@@ -446,38 +446,38 @@ namespace Jass {
 		//
 		private void possessions() {//function possessions takes nothing returns nothing
 			sleep_seconds = sleep_seconds - 1;//set sleep_seconds = sleep_seconds - 1
-			suicide_unit(INFERNAL);//call suicide_unit( INFERNAL      )
-			suicide_unit(FOOTMAN);//call suicide_unit( FOOTMAN       )
-			suicide_unit(RIFLEMAN);//call suicide_unit( RIFLEMAN      )
-			suicide_unit(SORCERESS);//call suicide_unit( SORCERESS     )
-			suicide_unit(PRIEST);//call suicide_unit( PRIEST        )
-			suicide_unit(MORTAR);//call suicide_unit( MORTAR        )
-			suicide_unit(ELEMENTAL);//call suicide_unit( ELEMENTAL     )
-			suicide_unit(KNIGHT);//call suicide_unit( KNIGHT        )
-			suicide_unit(GRYPHON);//call suicide_unit( GRYPHON       )
-			suicide_unit(MILITIA);//call suicide_unit( MILITIA       )
+			suicide_unit(CommonAi.INFERNAL);//call suicide_unit( INFERNAL      )
+			suicide_unit(CommonAi.FOOTMAN);//call suicide_unit( FOOTMAN       )
+			suicide_unit(CommonAi.RIFLEMAN);//call suicide_unit( RIFLEMAN      )
+			suicide_unit(CommonAi.SORCERESS);//call suicide_unit( SORCERESS     )
+			suicide_unit(CommonAi.PRIEST);//call suicide_unit( PRIEST        )
+			suicide_unit(CommonAi.MORTAR);//call suicide_unit( MORTAR        )
+			suicide_unit(CommonAi.ELEMENTAL);//call suicide_unit( ELEMENTAL     )
+			suicide_unit(CommonAi.KNIGHT);//call suicide_unit( KNIGHT        )
+			suicide_unit(CommonAi.GRYPHON);//call suicide_unit( GRYPHON       )
+			suicide_unit(CommonAi.MILITIA);//call suicide_unit( MILITIA       )
 			sleep_seconds = sleep_seconds - 1;//set sleep_seconds = sleep_seconds - 1
-			suicide_unit(GRUNT);//call suicide_unit( GRUNT         )
-			suicide_unit(HEAD_HUNTER);//call suicide_unit( HEAD_HUNTER   )
-			suicide_unit(TAUREN);//call suicide_unit( TAUREN        )
-			suicide_unit(WITCH_DOCTOR);//call suicide_unit( WITCH_DOCTOR  )
-			suicide_unit(KODO_BEAST);//call suicide_unit( KODO_BEAST    )
-			suicide_unit(RAIDER);//call suicide_unit( RAIDER        )
-			suicide_unit(SHAMAN);//call suicide_unit( SHAMAN        )
-			suicide_unit(WYVERN);//call suicide_unit( WYVERN        )
-			suicide_unit(SHANDRIS);//call suicide_unit( SHANDRIS      )
-			suicide_unit(ENT);//call suicide_unit( ENT           )
+			suicide_unit(CommonAi.GRUNT);//call suicide_unit( GRUNT         )
+			suicide_unit(CommonAi.HEAD_HUNTER);//call suicide_unit( HEAD_HUNTER   )
+			suicide_unit(CommonAi.TAUREN);//call suicide_unit( TAUREN        )
+			suicide_unit(CommonAi.WITCH_DOCTOR);//call suicide_unit( WITCH_DOCTOR  )
+			suicide_unit(CommonAi.KODO_BEAST);//call suicide_unit( KODO_BEAST    )
+			suicide_unit(CommonAi.RAIDER);//call suicide_unit( RAIDER        )
+			suicide_unit(CommonAi.SHAMAN);//call suicide_unit( SHAMAN        )
+			suicide_unit(CommonAi.WYVERN);//call suicide_unit( WYVERN        )
+			suicide_unit(CommonAi.SHANDRIS);//call suicide_unit( SHANDRIS      )
+			suicide_unit(CommonAi.ENT);//call suicide_unit( ENT           )
 			sleep_seconds = sleep_seconds - 1;//set sleep_seconds = sleep_seconds - 1
-			suicide_unit(ARCHER);//call suicide_unit( ARCHER        )
-			suicide_unit(DRUID_TALON);//call suicide_unit( DRUID_TALON   )
-			suicide_unit(DRUID_TALON_M);//call suicide_unit( DRUID_TALON_M )
-			suicide_unit(DRUID_CLAW);//call suicide_unit( DRUID_CLAW    )
-			suicide_unit(DRUID_CLAW_M);//call suicide_unit( DRUID_CLAW_M  )
-			suicide_unit(DRYAD);//call suicide_unit( DRYAD         )
-			suicide_unit(HIPPO);//call suicide_unit( HIPPO         )
-			suicide_unit(HIPPO_RIDER);//call suicide_unit( HIPPO_RIDER   )
-			suicide_unit(HUNTRESS);//call suicide_unit( HUNTRESS      )
-			suicide_unit(CHIMAERA);//call suicide_unit( CHIMAERA      )
+			suicide_unit(CommonAi.ARCHER);//call suicide_unit( ARCHER        )
+			suicide_unit(CommonAi.DRUID_TALON);//call suicide_unit( DRUID_TALON   )
+			suicide_unit(CommonAi.DRUID_TALON_M);//call suicide_unit( DRUID_TALON_M )
+			suicide_unit(CommonAi.DRUID_CLAW);//call suicide_unit( DRUID_CLAW    )
+			suicide_unit(CommonAi.DRUID_CLAW_M);//call suicide_unit( DRUID_CLAW_M  )
+			suicide_unit(CommonAi.DRYAD);//call suicide_unit( DRYAD         )
+			suicide_unit(CommonAi.HIPPO);//call suicide_unit( HIPPO         )
+			suicide_unit(CommonAi.HIPPO_RIDER);//call suicide_unit( HIPPO_RIDER   )
+			suicide_unit(CommonAi.HUNTRESS);//call suicide_unit( HUNTRESS      )
+			suicide_unit(CommonAi.CHIMAERA);//call suicide_unit( CHIMAERA      )
 		}//endfunction
 		//
 		//
@@ -486,7 +486,7 @@ namespace Jass {
 			if (!send || GetUnitCountDone(heroid) < 1) {//if not send or GetUnitCountDone(heroid) < 1 then
 				return false;//return false
 			}//endif
-			SuicideUnitEx(1, heroid, target);//call SuicideUnitEx( 1, heroid, target )
+			SuicideUnitEx(1, heroid, N07_rainbowAi.target);//call SuicideUnitEx( 1, heroid, target )
 			return true;//return true
 		}//endfunction
 		//
@@ -514,8 +514,8 @@ namespace Jass {
 			while (true) {//loop
 				check_abort();//call check_abort()
 				InitAssaultGroup();//call InitAssaultGroup()
-				TraceI("next wave = %d\n",wave_type[index]);//call TraceI("next wave = %d\n",wave_type[index])
-				TraceI("strength  = %d\n",strength);//call TraceI("strength  = %d\n",strength)
+				TraceI("next wave = %d\n", wave_type[index]);//call TraceI("next wave = %d\n",wave_type[index])
+				TraceI("strength  = %d\n", O03_gromAi.strength);//call TraceI("strength  = %d\n",strength)
 				if (wave_type[index]!=PIT_STOP_WAVE) {//if wave_type[index]!=PIT_STOP_WAVE then
 					do_EVERY_WAVE_FIRST();//call do_EVERY_WAVE_FIRST()
 					if (index >= 2) {//if index >= 2 then
@@ -558,15 +558,15 @@ namespace Jass {
 					do_EVERY_WAVE_LAST(wave_hero[index]);//call do_EVERY_WAVE_LAST(wave_hero[index])
 					if (at_stage1) {//if at_stage1 then
 						at_stage1 = false;//set at_stage1 = false
-						SetCaptainHome(BOTH_CAPTAINS,stage_x2,stage_y2);//call SetCaptainHome(BOTH_CAPTAINS,stage_x2,stage_y2)
+						SetCaptainHome(CommonAi.BOTH_CAPTAINS, N07_rainbowAi.stage_x2, N07_rainbowAi.stage_y2);//call SetCaptainHome(BOTH_CAPTAINS,stage_x2,stage_y2)
 					} else {//else
 						at_stage1 = true;//set at_stage1 = true
-						SetCaptainHome(BOTH_CAPTAINS,stage_x1,stage_y1);//call SetCaptainHome(BOTH_CAPTAINS,stage_x1,stage_y1)
+						SetCaptainHome(CommonAi.BOTH_CAPTAINS, N07_rainbowAi.stage_x1, N07_rainbowAi.stage_y1);//call SetCaptainHome(BOTH_CAPTAINS,stage_x1,stage_y1)
 					}//endif
 				}//endif
 				AddSleepSeconds(wave_sleep[index]);//call AddSleepSeconds(wave_sleep[index])
 				while (true) {//loop
-					TraceI("forming wave (T%+d seconds)\n",-sleep_seconds);//call TraceI("forming wave (T%+d seconds)\n",-sleep_seconds)
+					TraceI("forming wave (T%+d seconds)\n", -sleep_seconds);//call TraceI("forming wave (T%+d seconds)\n",-sleep_seconds)
 					check_abort();//call check_abort()
 					possessions();//call possessions()
 					form_wave();//call form_wave()
@@ -594,21 +594,21 @@ namespace Jass {
 				data = GetLastData();//set data = GetLastData()
 				PopLastCommand();//call PopLastCommand()
 				if (cmd == CMD_SET_X1) {//if cmd == CMD_SET_X1 then
-					TraceI("CMD_SET_X1 (%d)\n",data);//call TraceI("CMD_SET_X1 (%d)\n",data)
+					TraceI("CMD_SET_X1 (%d)\n", data);//call TraceI("CMD_SET_X1 (%d)\n",data)
 					stage_x1 = data;//set stage_x1 = data
 				} else if (cmd == CMD_SET_Y1) {//elseif cmd == CMD_SET_Y1 then
-					TraceI("CMD_SET_Y1 (%d)\n",data);//call TraceI("CMD_SET_Y1 (%d)\n",data)
+					TraceI("CMD_SET_Y1 (%d)\n", data);//call TraceI("CMD_SET_Y1 (%d)\n",data)
 					stage_y1 = data;//set stage_y1 = data
 				} else if (cmd == CMD_SET_X2) {//elseif cmd == CMD_SET_X2 then
-					TraceI("CMD_SET_X2 (%d)\n",data);//call TraceI("CMD_SET_X2 (%d)\n",data)
+					TraceI("CMD_SET_X2 (%d)\n", data);//call TraceI("CMD_SET_X2 (%d)\n",data)
 					stage_x2 = data;//set stage_x2 = data
 					need_stage2 = false;//set need_stage2 = false
 				} else if (cmd == CMD_SET_Y2) {//elseif cmd == CMD_SET_Y2 then
-					TraceI("CMD_SET_Y2 (%d)\n",data);//call TraceI("CMD_SET_Y2 (%d)\n",data)
+					TraceI("CMD_SET_Y2 (%d)\n", data);//call TraceI("CMD_SET_Y2 (%d)\n",data)
 					stage_y2 = data;//set stage_y2 = data
 					need_stage2 = false;//set need_stage2 = false
 				} else if (cmd == CMD_SET_SEQUENCE) {//elseif cmd == CMD_SET_SEQUENCE then
-					TraceI("CMD_SET_SEQUENCE (%d)\n",data);//call TraceI("CMD_SET_SEQUENCE (%d)\n",data)
+					TraceI("CMD_SET_SEQUENCE (%d)\n", data);//call TraceI("CMD_SET_SEQUENCE (%d)\n",data)
 					if (data==2) {//if data==2 then
 						harvest_ghouls = 5;//set harvest_ghouls = 5
 					} else {//else
@@ -616,17 +616,17 @@ namespace Jass {
 					}//endif
 					setup_waves(data);//call setup_waves(data)
 				} else if (cmd == CMD_SET_TARGET) {//elseif cmd == CMD_SET_TARGET then
-					TraceI("CMD_SET_TARGET (%d)\n",data);//call TraceI("CMD_SET_TARGET (%d)\n",data)
+					TraceI("CMD_SET_TARGET (%d)\n", data);//call TraceI("CMD_SET_TARGET (%d)\n",data)
 					target = data;//set target = data
 					if (need_stage2) {//if need_stage2 then
 						stage_x2 = stage_x1;//set stage_x2 = stage_x1
 						stage_y2 = stage_y1;//set stage_y2 = stage_y1
 					}//endif
-					SetCaptainHome(BOTH_CAPTAINS,stage_x1,stage_y1);//call SetCaptainHome(BOTH_CAPTAINS,stage_x1,stage_y1)
+					SetCaptainHome(CommonAi.BOTH_CAPTAINS, N07_rainbowAi.stage_x1, N07_rainbowAi.stage_y1);//call SetCaptainHome(BOTH_CAPTAINS,stage_x1,stage_y1)
 					send_waves();//call send_waves()
 				} else {//else
-					TraceI("unknown command (%d)\n",cmd);//call TraceI("unknown command (%d)\n",cmd)
-					TraceI("unknown data (%d)\n",data);//call TraceI("unknown data (%d)\n",data)
+					TraceI("unknown command (%d)\n", cmd);//call TraceI("unknown command (%d)\n",cmd)
+					TraceI("unknown data (%d)\n", data);//call TraceI("unknown data (%d)\n",data)
 				}//endif
 			}//endloop
 		}//endfunction
@@ -655,21 +655,21 @@ namespace Jass {
 			campaign_wood_peons = 15;//set campaign_wood_peons     = 15
 			campaign_basics_speed = 3;//set campaign_basics_speed   = 3
 			SetSlowChopping(false);//call SetSlowChopping(false)
-			start_unit(1, ACOLYTE,        true);//call start_unit( 1, ACOLYTE,        true  )
-			start_unit(1, NECROPOLIS_1,   false);//call start_unit( 1, NECROPOLIS_1,   false )
-			start_unit(2, CRYPT,          false);//call start_unit( 2, CRYPT,          false )
-			start_unit(1, GRAVEYARD,      false);//call start_unit( 1, GRAVEYARD,      false )
-			start_unit(1, UNDEAD_ALTAR,   false);//call start_unit( 1, UNDEAD_ALTAR,   false )
-			start_unit(4, ZIGGURAT_1,     false);//call start_unit( 4, ZIGGURAT_1,     false )
-			SetBuildUnit(harvest_ghouls, GHOUL);//call SetBuildUnit( harvest_ghouls, GHOUL )
-			start_unit(1, NECROPOLIS_2,   true);//call start_unit( 1, NECROPOLIS_2,   true  )
-			start_unit(2, SLAUGHTERHOUSE, false);//call start_unit( 2, SLAUGHTERHOUSE, false )
-			start_unit(1, DAMNED_TEMPLE,  false);//call start_unit( 1, DAMNED_TEMPLE,  false )
-			start_unit(1, SAC_PIT,        false);//call start_unit( 1, SAC_PIT,        false )
-			start_unit(1, NECROPOLIS_3,   true);//call start_unit( 1, NECROPOLIS_3,   true  )
-			start_unit(1, BONEYARD,       false);//call start_unit( 1, BONEYARD,       false )
-			start_unit(4, ZIGGURAT_2,     false);//call start_unit( 4, ZIGGURAT_2,     false )
-			start_unit(4, ACOLYTE,        false);//call start_unit( 4, ACOLYTE,        false )
+			start_unit(1, CommonAi.ACOLYTE, true);//call start_unit( 1, ACOLYTE,        true  )
+			start_unit(1, CommonAi.NECROPOLIS_1, false);//call start_unit( 1, NECROPOLIS_1,   false )
+			start_unit(2, CommonAi.CRYPT, false);//call start_unit( 2, CRYPT,          false )
+			start_unit(1, CommonAi.GRAVEYARD, false);//call start_unit( 1, GRAVEYARD,      false )
+			start_unit(1, CommonAi.UNDEAD_ALTAR, false);//call start_unit( 1, UNDEAD_ALTAR,   false )
+			start_unit(4, CommonAi.ZIGGURAT_1, false);//call start_unit( 4, ZIGGURAT_1,     false )
+			SetBuildUnit(N07_rainbowAi.harvest_ghouls, CommonAi.GHOUL);//call SetBuildUnit( harvest_ghouls, GHOUL )
+			start_unit(1, CommonAi.NECROPOLIS_2, true);//call start_unit( 1, NECROPOLIS_2,   true  )
+			start_unit(2, CommonAi.SLAUGHTERHOUSE, false);//call start_unit( 2, SLAUGHTERHOUSE, false )
+			start_unit(1, CommonAi.DAMNED_TEMPLE, false);//call start_unit( 1, DAMNED_TEMPLE,  false )
+			start_unit(1, CommonAi.SAC_PIT, false);//call start_unit( 1, SAC_PIT,        false )
+			start_unit(1, CommonAi.NECROPOLIS_3, true);//call start_unit( 1, NECROPOLIS_3,   true  )
+			start_unit(1, CommonAi.BONEYARD, false);//call start_unit( 1, BONEYARD,       false )
+			start_unit(4, CommonAi.ZIGGURAT_2, false);//call start_unit( 4, ZIGGURAT_2,     false )
+			start_unit(4, CommonAi.ACOLYTE, false);//call start_unit( 4, ACOLYTE,        false )
 			while (true) {//loop
 				if (aborting && GetUnitCountDone(ACOLYTE)>0) { break; }//exitwhen aborting and GetUnitCountDone(ACOLYTE)>0
 				Sleep(5);//call Sleep(5)
@@ -684,12 +684,12 @@ namespace Jass {
 		//
 		//
 		private void main() {//function main takes nothing returns nothing
-			TraceI("***** rainbow main started for %d *****\n",GetAiPlayer());//call TraceI("***** rainbow main started for %d *****\n",GetAiPlayer())
+			TraceI("***** rainbow main started for %d *****\n", GetAiPlayer());//call TraceI("***** rainbow main started for %d *****\n",GetAiPlayer())
 			do_debug_cheats = true;//set do_debug_cheats = true
 			Cheat("aitrace");//call Cheat("aitrace")
 			//
 		}//endif
-		CampaignAI(ZIGGURAT_1,null);//call CampaignAI(ZIGGURAT_1,null)
+		CampaignAI(CommonAi.ZIGGURAT_1, null);//call CampaignAI(ZIGGURAT_1,null)
 		StartThread(function define_town);//call StartThread(function define_town)
 		StartThread(function hero_failsafe);//call StartThread(function hero_failsafe)
 		get_commands();//call get_commands()

@@ -9,9 +9,9 @@ namespace Jass {
 		//
 		//
 		private void main() {//function main takes nothing returns nothing
-			CampaignAI(ZIGGURAT_1,null);//call CampaignAI(ZIGGURAT_1,null)
-			SetBuildUnit(1, ACOLYTE);//call SetBuildUnit( 1, ACOLYTE )
-			CampaignDefenderEx(1, 2, 3, GHOUL);//call CampaignDefenderEx( 1, 2, 3, GHOUL     )
+			CampaignAI(CommonAi.ZIGGURAT_1, null);//call CampaignAI(ZIGGURAT_1,null)
+			SetBuildUnit(1, CommonAi.ACOLYTE);//call SetBuildUnit( 1, ACOLYTE )
+			CampaignDefenderEx(1, 2, 3, CommonAi.GHOUL);//call CampaignDefenderEx( 1, 2, 3, GHOUL     )
 			SleepForever();//call SleepForever()
 		}//endfunction
 

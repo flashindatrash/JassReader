@@ -23,9 +23,7 @@ namespace Jass
 
 			for (int i = 0; i < length; i++)
 			{
-				var v = new Take();
-				v.Parse(arr[i].Trim());
-				takes.Add(v);
+				takes.Add(new Take(arr[i]));
 			}
 		}
 		

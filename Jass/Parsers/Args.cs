@@ -1,5 +1,6 @@
 using System;
 using System.Text.RegularExpressions;
+using System.Collections.Generic;
 
 namespace Jass
 {
@@ -7,16 +8,20 @@ namespace Jass
 	{
 		public const string Pattern = @".*";
 
-		private string args;
+		private readonly List<Value> values = new List<Value>();
 
 		public void Parse(string text)
 		{
-			args = text.Trim();
+			string[] args = text.Trim().SplitComma();
+			for (int i = 0; i < args.Length; i++)
+			{
+				values.Add(new Value(args[i]));
+			}
 		}
 		
 		public override string ToString()
 		{
-			return args;
+			return values.Count >= 1 ? String.Join(", ", values) : "";
 		}
 	}
 }

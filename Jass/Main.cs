@@ -2,6 +2,8 @@ namespace Jass {
 	class MainClass {
 		public static void Main (string[] args) {
 			//Register Parser
+			Core.RegisterParser(new LineInfo(typeof(Debug), Debug.Pattern));
+			Core.RegisterParser(new LineInfo(typeof(Extends), Extends.Pattern));
 			Core.RegisterParser(new LineInfo(typeof(Globals), Globals.Pattern));
 			Core.RegisterParser(new LineInfo(typeof(EndGlobals), EndGlobals.Pattern));
 			Core.RegisterParser(new LineInfo(typeof(Function), Function.Pattern));
@@ -20,9 +22,9 @@ namespace Jass {
 
 			//Register Class
 			Core.RegisterClass(ClassType.nothing, new ClassInfo("void"));
-			Core.RegisterClass(ClassType.integer, new ClassInfo("int", "0"));
-			Core.RegisterClass(ClassType.boolean, new ClassInfo("bool", "false"));
-			Core.RegisterClass(ClassType.real, new ClassInfo("float", "0f"));
+			Core.RegisterClass(ClassType.integer, new ClassInfo("int"));
+			Core.RegisterClass(ClassType.boolean, new ClassInfo("bool"));
+			Core.RegisterClass(ClassType.real, new ClassInfo("float"));
 
 			using (JassWriter writer = new JassWriter())
 			{
