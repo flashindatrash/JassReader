@@ -77,7 +77,10 @@ namespace Jass
 
 				if (line != null)
 				{
-					
+
+					if (line is ISkeep)
+						continue;
+
 					if (comment != null)
 					{
 						line.Comment = comment.Comment;
@@ -97,9 +100,6 @@ namespace Jass
 					{
 						globalSection = false;
 					}
-
-					if (line is ISkeep)
-						continue;
 
 					line.IsGlobal = globalSection;
 
