@@ -4,7 +4,7 @@ using System.Text.RegularExpressions;
 namespace Jass
 {
 
-	public class Function : JassLine, IParser, ITabAfter
+	public class Function : JassLine, IParser, IName, ITabAfter
 	{
 
 		public const string Pattern = @"^(?:(?<constant>constant)\s+)*(?<attr>function|native)\s+(?<name>" + Name.Pattern + @")\s+takes\s+(?<takes>" + Takes.Pattern + @")\s+returns\s+(?<returns>" + Class.Pattern + @")\r?$";
@@ -25,21 +25,6 @@ namespace Jass
 			get { return attr == "native"; }
 		}
 
-		public string callEngine
-		{
-			get {
-				if (Settings.Debug)
-				{
-					if (returns.IsNothing) return "";
-					else {
-						return "return " + returns.DefaultValue + ";";
-					}
-				}
-
-				return Settings.EngineClass + ".Test();"; 
-			}
-		}
-
 		public void Parse(string text)
 		{
 			Match match = Regex.Match(text, Pattern);
@@ -50,11 +35,16 @@ namespace Jass
 			returns.Parse(match.Groups["returns"].Value);
 		}
 
+		public string GetName()
+		{
+			return name.ToString();
+		}
+
 		public override string ToString()
 		{
 			string modifier = isNative ? "public" : "private";
 			string stat = (isNative || isConstant) ? " static" : "";
-			return modifier + stat + " " + returns + " " + name + "(" + takes + ") " + (isNative ? "{ " + callEngine + " }" : "{");
+			return modifier + stat + " " + returns + " " + GetName() + "(" + takes + ")" + (isNative ? ";" : " {");
 		}
 
 		public int tabAfter

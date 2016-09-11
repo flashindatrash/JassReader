@@ -438,12 +438,12 @@ namespace Jass {
 		public static bool bj_meleeVisibilityIsDay = true;//boolean            bj_meleeVisibilityIsDay     = true
 		public static bool bj_meleeGrantHeroItems = false;//boolean            bj_meleeGrantHeroItems      = false
 		public static location bj_meleeNearestMineToLoc = null;//location           bj_meleeNearestMineToLoc    = null
-		public static int bj_meleeNearestMine = null;//unit               bj_meleeNearestMine         = null
+		public static unit bj_meleeNearestMine = null;//unit               bj_meleeNearestMine         = null
 		public static float bj_meleeNearestMineDist = 0.00;//real               bj_meleeNearestMineDist     = 0.00
 		public static bool bj_meleeGameOver = false;//boolean            bj_meleeGameOver            = false
 		public static bool[] bj_meleeDefeated;//boolean array      bj_meleeDefeated
 		public static bool[] bj_meleeVictoried;//boolean array      bj_meleeVictoried
-		public static int[] bj_ghoul;//unit array         bj_ghoul
+		public static unit[] bj_ghoul;//unit array         bj_ghoul
 		public static timer[] bj_crippledTimer;//timer array        bj_crippledTimer
 		public static timerdialog[] bj_crippledTimerWindows;//timerdialog array  bj_crippledTimerWindows
 		public static bool[] bj_playerIsCrippled;//boolean array      bj_playerIsCrippled
@@ -491,7 +491,7 @@ namespace Jass {
 		public static group bj_groupAddGroupDest = null;//group              bj_groupAddGroupDest        = null
 		public static group bj_groupRemoveGroupDest = null;//group              bj_groupRemoveGroupDest     = null
 		public static int bj_groupRandomConsidered = 0;//integer            bj_groupRandomConsidered    = 0
-		public static int bj_groupRandomCurrentPick = null;//unit               bj_groupRandomCurrentPick   = null
+		public static unit bj_groupRandomCurrentPick = null;//unit               bj_groupRandomCurrentPick   = null
 		public static group bj_groupLastCreatedDest = null;//group              bj_groupLastCreatedDest     = null
 		public static group bj_randomSubGroupGroup = null;//group              bj_randomSubGroupGroup      = null
 		public static int bj_randomSubGroupWant = 0;//integer            bj_randomSubGroupWant       = 0
@@ -505,7 +505,7 @@ namespace Jass {
 		public static item bj_itemRandomCurrentPick = null;//item               bj_itemRandomCurrentPick    = null
 		public static int bj_forceRandomConsidered = 0;//integer            bj_forceRandomConsidered    = 0
 		public static player bj_forceRandomCurrentPick = null;//player             bj_forceRandomCurrentPick   = null
-		public static int bj_makeUnitRescuableUnit = null;//unit               bj_makeUnitRescuableUnit    = null
+		public static unit bj_makeUnitRescuableUnit = null;//unit               bj_makeUnitRescuableUnit    = null
 		public static bool bj_makeUnitRescuableFlag = true;//boolean            bj_makeUnitRescuableFlag    = true
 		public static bool bj_pauseAllUnitsFlag = true;//boolean            bj_pauseAllUnitsFlag        = true
 		public static location bj_enumDestructableCenter = null;//location           bj_enumDestructableCenter   = null
@@ -528,10 +528,10 @@ namespace Jass {
 		public static int[] bj_randDistID;//integer array      bj_randDistID
 		public static int[] bj_randDistChance;//integer array      bj_randDistChance
 		//
-		public static int bj_lastCreatedUnit = null;//unit               bj_lastCreatedUnit          = null
+		public static unit bj_lastCreatedUnit = null;//unit               bj_lastCreatedUnit          = null
 		public static item bj_lastCreatedItem = null;//item               bj_lastCreatedItem          = null
 		public static item bj_lastRemovedItem = null;//item               bj_lastRemovedItem          = null
-		public static int bj_lastHauntedGoldMine = null;//unit               bj_lastHauntedGoldMine      = null
+		public static unit bj_lastHauntedGoldMine = null;//unit               bj_lastHauntedGoldMine      = null
 		public static destructable bj_lastCreatedDestructable = null;//destructable       bj_lastCreatedDestructable  = null
 		public static group bj_lastCreatedGroup = CreateGroup();//group              bj_lastCreatedGroup         = CreateGroup()
 		public static fogmodifier bj_lastCreatedFogModifier = null;//fogmodifier        bj_lastCreatedFogModifier   = null
@@ -550,9 +550,9 @@ namespace Jass {
 		public static float bj_lastTransmissionDuration = 0;//real               bj_lastTransmissionDuration = 0
 		public static gamecache bj_lastCreatedGameCache = null;//gamecache          bj_lastCreatedGameCache     = null
 		public static hashtable bj_lastCreatedHashtable = null;//hashtable          bj_lastCreatedHashtable     = null
-		public static int bj_lastLoadedUnit = null;//unit               bj_lastLoadedUnit           = null
+		public static unit bj_lastLoadedUnit = null;//unit               bj_lastLoadedUnit           = null
 		public static button bj_lastCreatedButton = null;//button             bj_lastCreatedButton        = null
-		public static int bj_lastReplacedUnit = null;//unit               bj_lastReplacedUnit         = null
+		public static unit bj_lastReplacedUnit = null;//unit               bj_lastReplacedUnit         = null
 		public static texttag bj_lastCreatedTextTag = null;//texttag            bj_lastCreatedTextTag       = null
 		public static lightning bj_lastCreatedLightning = null;//lightning          bj_lastCreatedLightning     = null
 		public static image bj_lastCreatedImage = null;//image              bj_lastCreatedImage         = null
@@ -757,7 +757,7 @@ namespace Jass {
 			return RectContainsCoords(r, GetLocationX(loc), GetLocationY(loc));//return RectContainsCoords(r, GetLocationX(loc), GetLocationY(loc))
 		}//endfunction
 		//
-		private bool RectContainsUnit(rect r, int whichUnit) {//function RectContainsUnit takes rect r, unit whichUnit returns boolean
+		private bool RectContainsUnit(rect r, unit whichUnit) {//function RectContainsUnit takes rect r, unit whichUnit returns boolean
 			return RectContainsCoords(r, GetUnitX(whichUnit), GetUnitY(whichUnit));//return RectContainsCoords(r, GetUnitX(whichUnit), GetUnitY(whichUnit))
 		}//endfunction
 		//
@@ -1137,7 +1137,7 @@ namespace Jass {
 			}//endif
 		}//endfunction
 		//
-		private void SetCameraTargetControllerNoZForPlayer(player whichPlayer, int whichUnit, float xoffset, float yoffset, bool inheritOrientation) {//function SetCameraTargetControllerNoZForPlayer takes player whichPlayer, unit whichUnit, real xoffset, real yoffset, boolean inheritOrientation returns nothing
+		private void SetCameraTargetControllerNoZForPlayer(player whichPlayer, unit whichUnit, float xoffset, float yoffset, bool inheritOrientation) {//function SetCameraTargetControllerNoZForPlayer takes player whichPlayer, unit whichUnit, real xoffset, real yoffset, boolean inheritOrientation returns nothing
 			if ((GetLocalPlayer() == whichPlayer)) {//if (GetLocalPlayer() == whichPlayer) then
 				//
 				SetCameraTargetController(whichUnit, xoffset, yoffset, inheritOrientation);//call SetCameraTargetController(whichUnit, xoffset, yoffset, inheritOrientation)
@@ -1371,7 +1371,7 @@ namespace Jass {
 			}//endif
 		}//endfunction
 		//
-		private void SetCameraOrientControllerForPlayerBJ(player whichPlayer, int whichUnit, float xoffset, float yoffset) {//function SetCameraOrientControllerForPlayerBJ takes player whichPlayer, unit whichUnit, real xoffset, real yoffset returns nothing
+		private void SetCameraOrientControllerForPlayerBJ(player whichPlayer, unit whichUnit, float xoffset, float yoffset) {//function SetCameraOrientControllerForPlayerBJ takes player whichPlayer, unit whichUnit, real xoffset, real yoffset returns nothing
 			if ((GetLocalPlayer() == whichPlayer)) {//if (GetLocalPlayer() == whichPlayer) then
 				//
 				SetCameraOrientController(whichUnit, xoffset, yoffset);//call SetCameraOrientController(whichUnit, xoffset, yoffset)
@@ -1543,19 +1543,19 @@ namespace Jass {
 			return TriggerRegisterLeaveRegion(trig, rectRegion, null);//return TriggerRegisterLeaveRegion(trig, rectRegion, null)
 		}//endfunction
 		//
-		private event TriggerRegisterDistanceBetweenUnits(trigger trig, int whichUnit, boolexpr condition, float range) {//function TriggerRegisterDistanceBetweenUnits takes trigger trig, unit whichUnit, boolexpr condition, real range returns event
+		private event TriggerRegisterDistanceBetweenUnits(trigger trig, unit whichUnit, boolexpr condition, float range) {//function TriggerRegisterDistanceBetweenUnits takes trigger trig, unit whichUnit, boolexpr condition, real range returns event
 			return TriggerRegisterUnitInRange(trig, whichUnit, range, condition);//return TriggerRegisterUnitInRange(trig, whichUnit, range, condition)
 		}//endfunction
 		//
-		private event TriggerRegisterUnitInRangeSimple(trigger trig, float range, int whichUnit) {//function TriggerRegisterUnitInRangeSimple takes trigger trig, real range, unit whichUnit returns event
+		private event TriggerRegisterUnitInRangeSimple(trigger trig, float range, unit whichUnit) {//function TriggerRegisterUnitInRangeSimple takes trigger trig, real range, unit whichUnit returns event
 			return TriggerRegisterUnitInRange(trig, whichUnit, range, null);//return TriggerRegisterUnitInRange(trig, whichUnit, range, null)
 		}//endfunction
 		//
-		private event TriggerRegisterUnitLifeEvent(trigger trig, int whichUnit, limitop opcode, float limitval) {//function TriggerRegisterUnitLifeEvent takes trigger trig, unit whichUnit, limitop opcode, real limitval returns event
+		private event TriggerRegisterUnitLifeEvent(trigger trig, unit whichUnit, limitop opcode, float limitval) {//function TriggerRegisterUnitLifeEvent takes trigger trig, unit whichUnit, limitop opcode, real limitval returns event
 			return TriggerRegisterUnitStateEvent(trig, whichUnit, UNIT_STATE_LIFE, opcode, limitval);//return TriggerRegisterUnitStateEvent(trig, whichUnit, UNIT_STATE_LIFE, opcode, limitval)
 		}//endfunction
 		//
-		private event TriggerRegisterUnitManaEvent(trigger trig, int whichUnit, limitop opcode, float limitval) {//function TriggerRegisterUnitManaEvent takes trigger trig, unit whichUnit, limitop opcode, real limitval returns event
+		private event TriggerRegisterUnitManaEvent(trigger trig, unit whichUnit, limitop opcode, float limitval) {//function TriggerRegisterUnitManaEvent takes trigger trig, unit whichUnit, limitop opcode, real limitval returns event
 			return TriggerRegisterUnitStateEvent(trig, whichUnit, UNIT_STATE_MANA, opcode, limitval);//return TriggerRegisterUnitStateEvent(trig, whichUnit, UNIT_STATE_MANA, opcode, limitval)
 		}//endfunction
 		//
@@ -1805,7 +1805,7 @@ namespace Jass {
 			SetDoodadAnimationRect(r, doodadID, animName, false);//call SetDoodadAnimationRect(r, doodadID, animName, false)
 		}//endfunction
 		//
-		private void AddUnitAnimationPropertiesBJ(bool add, string animProperties, int whichUnit) {//function AddUnitAnimationPropertiesBJ takes boolean add, string animProperties, unit whichUnit returns nothing
+		private void AddUnitAnimationPropertiesBJ(bool add, string animProperties, unit whichUnit) {//function AddUnitAnimationPropertiesBJ takes boolean add, string animProperties, unit whichUnit returns nothing
 			AddUnitAnimationProperties(whichUnit, animProperties, add);//call AddUnitAnimationProperties(whichUnit, animProperties, add)
 		}//endfunction
 		//
@@ -1879,7 +1879,7 @@ namespace Jass {
 			SetSoundPosition(soundHandle, GetLocationX(loc), GetLocationY(loc), z);//call SetSoundPosition(soundHandle, GetLocationX(loc), GetLocationY(loc), z)
 		}//endfunction
 		//
-		private void AttachSoundToUnitBJ(sound soundHandle, int whichUnit) {//function AttachSoundToUnitBJ takes sound soundHandle, unit whichUnit returns nothing
+		private void AttachSoundToUnitBJ(sound soundHandle, unit whichUnit) {//function AttachSoundToUnitBJ takes sound soundHandle, unit whichUnit returns nothing
 			AttachSoundToUnit(soundHandle, whichUnit);//call AttachSoundToUnit(soundHandle, whichUnit)
 		}//endfunction
 		//
@@ -1897,7 +1897,7 @@ namespace Jass {
 			PlaySoundBJ(soundHandle);//call PlaySoundBJ(soundHandle)
 		}//endfunction
 		//
-		private void PlaySoundOnUnitBJ(sound soundHandle, float volumePercent, int whichUnit) {//function PlaySoundOnUnitBJ takes sound soundHandle, real volumePercent, unit whichUnit returns nothing
+		private void PlaySoundOnUnitBJ(sound soundHandle, float volumePercent, unit whichUnit) {//function PlaySoundOnUnitBJ takes sound soundHandle, real volumePercent, unit whichUnit returns nothing
 			AttachSoundToUnitBJ(soundHandle, whichUnit);//call AttachSoundToUnitBJ(soundHandle, whichUnit)
 			SetSoundVolumeBJ(soundHandle, volumePercent);//call SetSoundVolumeBJ(soundHandle, volumePercent)
 			PlaySoundBJ(soundHandle);//call PlaySoundBJ(soundHandle)
@@ -2172,11 +2172,11 @@ namespace Jass {
 			SetWidgetLife(whichWidget, life);//call SetWidgetLife(whichWidget, life)
 		}//endfunction
 		//
-		private void AddHeroXPSwapped(int xpToAdd, int whichHero, bool showEyeCandy) {//function AddHeroXPSwapped takes integer xpToAdd, unit whichHero, boolean showEyeCandy returns nothing
+		private void AddHeroXPSwapped(int xpToAdd, unit whichHero, bool showEyeCandy) {//function AddHeroXPSwapped takes integer xpToAdd, unit whichHero, boolean showEyeCandy returns nothing
 			AddHeroXP(whichHero, xpToAdd, showEyeCandy);//call AddHeroXP(whichHero, xpToAdd, showEyeCandy)
 		}//endfunction
 		//
-		private void SetHeroLevelBJ(int whichHero, int newLevel, bool showEyeCandy) {//function SetHeroLevelBJ takes unit whichHero, integer newLevel, boolean showEyeCandy returns nothing
+		private void SetHeroLevelBJ(unit whichHero, int newLevel, bool showEyeCandy) {//function SetHeroLevelBJ takes unit whichHero, integer newLevel, boolean showEyeCandy returns nothing
 			int oldLevel = GetHeroLevel(whichHero);//local integer oldLevel = GetHeroLevel(whichHero)
 			if ((newLevel > oldLevel)) {//if (newLevel > oldLevel) then
 				SetHeroLevel(whichHero, newLevel, showEyeCandy);//call SetHeroLevel(whichHero, newLevel, showEyeCandy)
@@ -2187,35 +2187,35 @@ namespace Jass {
 			}//endif
 		}//endfunction
 		//
-		private int DecUnitAbilityLevelSwapped(int abilcode, int whichUnit) {//function DecUnitAbilityLevelSwapped takes integer abilcode, unit whichUnit returns integer
+		private int DecUnitAbilityLevelSwapped(int abilcode, unit whichUnit) {//function DecUnitAbilityLevelSwapped takes integer abilcode, unit whichUnit returns integer
 			return DecUnitAbilityLevel(whichUnit, abilcode);//return DecUnitAbilityLevel(whichUnit, abilcode)
 		}//endfunction
 		//
-		private int IncUnitAbilityLevelSwapped(int abilcode, int whichUnit) {//function IncUnitAbilityLevelSwapped takes integer abilcode, unit whichUnit returns integer
+		private int IncUnitAbilityLevelSwapped(int abilcode, unit whichUnit) {//function IncUnitAbilityLevelSwapped takes integer abilcode, unit whichUnit returns integer
 			return IncUnitAbilityLevel(whichUnit, abilcode);//return IncUnitAbilityLevel(whichUnit, abilcode)
 		}//endfunction
 		//
-		private int SetUnitAbilityLevelSwapped(int abilcode, int whichUnit, int level) {//function SetUnitAbilityLevelSwapped takes integer abilcode, unit whichUnit, integer level returns integer
+		private int SetUnitAbilityLevelSwapped(int abilcode, unit whichUnit, int level) {//function SetUnitAbilityLevelSwapped takes integer abilcode, unit whichUnit, integer level returns integer
 			return SetUnitAbilityLevel(whichUnit, abilcode, level);//return SetUnitAbilityLevel(whichUnit, abilcode, level)
 		}//endfunction
 		//
-		private int GetUnitAbilityLevelSwapped(int abilcode, int whichUnit) {//function GetUnitAbilityLevelSwapped takes integer abilcode, unit whichUnit returns integer
+		private int GetUnitAbilityLevelSwapped(int abilcode, unit whichUnit) {//function GetUnitAbilityLevelSwapped takes integer abilcode, unit whichUnit returns integer
 			return GetUnitAbilityLevel(whichUnit, abilcode);//return GetUnitAbilityLevel(whichUnit, abilcode)
 		}//endfunction
 		//
-		private bool UnitHasBuffBJ(int whichUnit, int buffcode) {//function UnitHasBuffBJ takes unit whichUnit, integer buffcode returns boolean
+		private bool UnitHasBuffBJ(unit whichUnit, int buffcode) {//function UnitHasBuffBJ takes unit whichUnit, integer buffcode returns boolean
 			return (GetUnitAbilityLevel(whichUnit, buffcode) > 0);//return (GetUnitAbilityLevel(whichUnit, buffcode) > 0)
 		}//endfunction
 		//
-		private bool UnitRemoveBuffBJ(int buffcode, int whichUnit) {//function UnitRemoveBuffBJ takes integer buffcode, unit whichUnit returns boolean
+		private bool UnitRemoveBuffBJ(int buffcode, unit whichUnit) {//function UnitRemoveBuffBJ takes integer buffcode, unit whichUnit returns boolean
 			return UnitRemoveAbility(whichUnit, buffcode);//return UnitRemoveAbility(whichUnit, buffcode)
 		}//endfunction
 		//
-		private bool UnitAddItemSwapped(item whichItem, int whichHero) {//function UnitAddItemSwapped takes item whichItem, unit whichHero returns boolean
+		private bool UnitAddItemSwapped(item whichItem, unit whichHero) {//function UnitAddItemSwapped takes item whichItem, unit whichHero returns boolean
 			return UnitAddItem(whichHero, whichItem);//return UnitAddItem(whichHero, whichItem)
 		}//endfunction
 		//
-		private item UnitAddItemByIdSwapped(int itemId, int whichHero) {//function UnitAddItemByIdSwapped takes integer itemId, unit whichHero returns item
+		private item UnitAddItemByIdSwapped(int itemId, unit whichHero) {//function UnitAddItemByIdSwapped takes integer itemId, unit whichHero returns item
 			//
 			//
 			//
@@ -2224,14 +2224,14 @@ namespace Jass {
 			return bj_lastCreatedItem;//return bj_lastCreatedItem
 		}//endfunction
 		//
-		private void UnitRemoveItemSwapped(item whichItem, int whichHero) {//function UnitRemoveItemSwapped takes item whichItem, unit whichHero returns nothing
+		private void UnitRemoveItemSwapped(item whichItem, unit whichHero) {//function UnitRemoveItemSwapped takes item whichItem, unit whichHero returns nothing
 			bj_lastRemovedItem = whichItem;//set bj_lastRemovedItem = whichItem
 			UnitRemoveItem(whichHero, whichItem);//call UnitRemoveItem(whichHero, whichItem)
 		}//endfunction
 		//
 		//
 		//
-		private item UnitRemoveItemFromSlotSwapped(int itemSlot, int whichHero) {//function UnitRemoveItemFromSlotSwapped takes integer itemSlot, unit whichHero returns item
+		private item UnitRemoveItemFromSlotSwapped(int itemSlot, unit whichHero) {//function UnitRemoveItemFromSlotSwapped takes integer itemSlot, unit whichHero returns item
 			bj_lastRemovedItem = UnitRemoveItemFromSlot(whichHero, itemSlot-1);//set bj_lastRemovedItem = UnitRemoveItemFromSlot(whichHero, itemSlot-1)
 			return bj_lastRemovedItem;//return bj_lastRemovedItem
 		}//endfunction
@@ -2257,7 +2257,7 @@ namespace Jass {
 			return GetLearnedSkill();//return GetLearnedSkill()
 		}//endfunction
 		//
-		private void SuspendHeroXPBJ(bool flag, int whichHero) {//function SuspendHeroXPBJ takes boolean flag, unit whichHero returns nothing
+		private void SuspendHeroXPBJ(bool flag, unit whichHero) {//function SuspendHeroXPBJ takes boolean flag, unit whichHero returns nothing
 			SuspendHeroXP(whichHero, not flag);//call SuspendHeroXP(whichHero, not flag)
 		}//endfunction
 		//
@@ -2277,7 +2277,7 @@ namespace Jass {
 			return GetPlayerHandicap(whichPlayer) * 100;//return GetPlayerHandicap(whichPlayer) * 100
 		}//endfunction
 		//
-		private int GetHeroStatBJ(int whichStat, int whichHero, bool includeBonuses) {//function GetHeroStatBJ takes integer whichStat, unit whichHero, boolean includeBonuses returns integer
+		private int GetHeroStatBJ(int whichStat, unit whichHero, bool includeBonuses) {//function GetHeroStatBJ takes integer whichStat, unit whichHero, boolean includeBonuses returns integer
 			if ((whichStat == bj_HEROSTAT_STR)) {//if (whichStat == bj_HEROSTAT_STR) then
 				return GetHeroStr(whichHero, includeBonuses);//return GetHeroStr(whichHero, includeBonuses)
 			} else if ((whichStat == bj_HEROSTAT_AGI)) {//elseif (whichStat == bj_HEROSTAT_AGI) then
@@ -2290,7 +2290,7 @@ namespace Jass {
 			}//endif
 		}//endfunction
 		//
-		private void SetHeroStat(int whichHero, int whichStat, int value) {//function SetHeroStat takes unit whichHero, integer whichStat, integer value returns nothing
+		private void SetHeroStat(unit whichHero, int whichStat, int value) {//function SetHeroStat takes unit whichHero, integer whichStat, integer value returns nothing
 			//
 			if ((value <= 0)) {//if (value <= 0) then
 				return;//return
@@ -2306,7 +2306,7 @@ namespace Jass {
 			}//endif
 		}//endfunction
 		//
-		private void ModifyHeroStat(int whichStat, int whichHero, int modifyMethod, int value) {//function ModifyHeroStat takes integer whichStat, unit whichHero, integer modifyMethod, integer value returns nothing
+		private void ModifyHeroStat(int whichStat, unit whichHero, int modifyMethod, int value) {//function ModifyHeroStat takes integer whichStat, unit whichHero, integer modifyMethod, integer value returns nothing
 			if ((modifyMethod == bj_MODIFYMETHOD_ADD)) {//if (modifyMethod == bj_MODIFYMETHOD_ADD) then
 				SetHeroStat(whichHero, whichStat, GetHeroStatBJ(whichStat, whichHero, false) + value);//call SetHeroStat(whichHero, whichStat, GetHeroStatBJ(whichStat, whichHero, false) + value)
 			} else if ((modifyMethod == bj_MODIFYMETHOD_SUB)) {//elseif (modifyMethod == bj_MODIFYMETHOD_SUB) then
@@ -2318,7 +2318,7 @@ namespace Jass {
 			}//endif
 		}//endfunction
 		//
-		private bool ModifyHeroSkillPoints(int whichHero, int modifyMethod, int value) {//function ModifyHeroSkillPoints takes unit whichHero, integer modifyMethod, integer value returns boolean
+		private bool ModifyHeroSkillPoints(unit whichHero, int modifyMethod, int value) {//function ModifyHeroSkillPoints takes unit whichHero, integer modifyMethod, integer value returns boolean
 			if ((modifyMethod == bj_MODIFYMETHOD_ADD)) {//if (modifyMethod == bj_MODIFYMETHOD_ADD) then
 				return UnitModifySkillPoints(whichHero, value);//return UnitModifySkillPoints(whichHero, value)
 			} else if ((modifyMethod == bj_MODIFYMETHOD_SUB)) {//elseif (modifyMethod == bj_MODIFYMETHOD_SUB) then
@@ -2331,42 +2331,42 @@ namespace Jass {
 			}//endif
 		}//endfunction
 		//
-		private bool UnitDropItemPointBJ(int whichUnit, item whichItem, float x, float y) {//function UnitDropItemPointBJ takes unit whichUnit, item whichItem, real x, real y returns boolean
+		private bool UnitDropItemPointBJ(unit whichUnit, item whichItem, float x, float y) {//function UnitDropItemPointBJ takes unit whichUnit, item whichItem, real x, real y returns boolean
 			return UnitDropItemPoint(whichUnit, whichItem, x, y);//return UnitDropItemPoint(whichUnit, whichItem, x, y)
 		}//endfunction
 		//
-		private bool UnitDropItemPointLoc(int whichUnit, item whichItem, location loc) {//function UnitDropItemPointLoc takes unit whichUnit, item whichItem, location loc returns boolean
+		private bool UnitDropItemPointLoc(unit whichUnit, item whichItem, location loc) {//function UnitDropItemPointLoc takes unit whichUnit, item whichItem, location loc returns boolean
 			return UnitDropItemPoint(whichUnit, whichItem, GetLocationX(loc), GetLocationY(loc));//return UnitDropItemPoint(whichUnit, whichItem, GetLocationX(loc), GetLocationY(loc))
 		}//endfunction
 		//
-		private bool UnitDropItemSlotBJ(int whichUnit, item whichItem, int slot) {//function UnitDropItemSlotBJ takes unit whichUnit, item whichItem, integer slot returns boolean
+		private bool UnitDropItemSlotBJ(unit whichUnit, item whichItem, int slot) {//function UnitDropItemSlotBJ takes unit whichUnit, item whichItem, integer slot returns boolean
 			return UnitDropItemSlot(whichUnit, whichItem, slot-1);//return UnitDropItemSlot(whichUnit, whichItem, slot-1)
 		}//endfunction
 		//
-		private bool UnitDropItemTargetBJ(int whichUnit, item whichItem, widget target) {//function UnitDropItemTargetBJ takes unit whichUnit, item whichItem, widget target returns boolean
+		private bool UnitDropItemTargetBJ(unit whichUnit, item whichItem, widget target) {//function UnitDropItemTargetBJ takes unit whichUnit, item whichItem, widget target returns boolean
 			return UnitDropItemTarget(whichUnit, whichItem, target);//return UnitDropItemTarget(whichUnit, whichItem, target)
 		}//endfunction
 		//
 		//
 		//
 		//
-		private bool UnitUseItemDestructable(int whichUnit, item whichItem, widget target) {//function UnitUseItemDestructable takes unit whichUnit, item whichItem, widget target returns boolean
+		private bool UnitUseItemDestructable(unit whichUnit, item whichItem, widget target) {//function UnitUseItemDestructable takes unit whichUnit, item whichItem, widget target returns boolean
 			return UnitUseItemTarget(whichUnit, whichItem, target);//return UnitUseItemTarget(whichUnit, whichItem, target)
 		}//endfunction
 		//
-		private bool UnitUseItemPointLoc(int whichUnit, item whichItem, location loc) {//function UnitUseItemPointLoc takes unit whichUnit, item whichItem, location loc returns boolean
+		private bool UnitUseItemPointLoc(unit whichUnit, item whichItem, location loc) {//function UnitUseItemPointLoc takes unit whichUnit, item whichItem, location loc returns boolean
 			return UnitUseItemPoint(whichUnit, whichItem, GetLocationX(loc), GetLocationY(loc));//return UnitUseItemPoint(whichUnit, whichItem, GetLocationX(loc), GetLocationY(loc))
 		}//endfunction
 		//
 		//
 		//
-		private item UnitItemInSlotBJ(int whichUnit, int itemSlot) {//function UnitItemInSlotBJ takes unit whichUnit, integer itemSlot returns item
+		private item UnitItemInSlotBJ(unit whichUnit, int itemSlot) {//function UnitItemInSlotBJ takes unit whichUnit, integer itemSlot returns item
 			return UnitItemInSlot(whichUnit, itemSlot-1);//return UnitItemInSlot(whichUnit, itemSlot-1)
 		}//endfunction
 		//
 		//
 		//
-		private int GetInventoryIndexOfItemTypeBJ(int whichUnit, int itemId) {//function GetInventoryIndexOfItemTypeBJ takes unit whichUnit, integer itemId returns integer
+		private int GetInventoryIndexOfItemTypeBJ(unit whichUnit, int itemId) {//function GetInventoryIndexOfItemTypeBJ takes unit whichUnit, integer itemId returns integer
 			int index;//local integer index
 			item indexItem;//local item    indexItem
 			index = 0;//set index = 0
@@ -2381,7 +2381,7 @@ namespace Jass {
 			return 0;//return 0
 		}//endfunction
 		//
-		private item GetItemOfTypeFromUnitBJ(int whichUnit, int itemId) {//function GetItemOfTypeFromUnitBJ takes unit whichUnit, integer itemId returns item
+		private item GetItemOfTypeFromUnitBJ(unit whichUnit, int itemId) {//function GetItemOfTypeFromUnitBJ takes unit whichUnit, integer itemId returns item
 			int index = GetInventoryIndexOfItemTypeBJ(whichUnit, itemId);//local integer index = GetInventoryIndexOfItemTypeBJ(whichUnit, itemId)
 			if ((index == 0)) {//if (index == 0) then
 				return null;//return null
@@ -2390,11 +2390,11 @@ namespace Jass {
 			}//endif
 		}//endfunction
 		//
-		private bool UnitHasItemOfTypeBJ(int whichUnit, int itemId) {//function UnitHasItemOfTypeBJ takes unit whichUnit, integer itemId returns boolean
+		private bool UnitHasItemOfTypeBJ(unit whichUnit, int itemId) {//function UnitHasItemOfTypeBJ takes unit whichUnit, integer itemId returns boolean
 			return GetInventoryIndexOfItemTypeBJ(whichUnit, itemId) > 0;//return GetInventoryIndexOfItemTypeBJ(whichUnit, itemId) > 0
 		}//endfunction
 		//
-		private int UnitInventoryCount(int whichUnit) {//function UnitInventoryCount takes unit whichUnit returns integer
+		private int UnitInventoryCount(unit whichUnit) {//function UnitInventoryCount takes unit whichUnit returns integer
 			int index = 0;//local integer index = 0
 			int count = 0;//local integer count = 0
 			while (true) {//loop
@@ -2407,7 +2407,7 @@ namespace Jass {
 			return count;//return count
 		}//endfunction
 		//
-		private int UnitInventorySizeBJ(int whichUnit) {//function UnitInventorySizeBJ takes unit whichUnit returns integer
+		private int UnitInventorySizeBJ(unit whichUnit) {//function UnitInventorySizeBJ takes unit whichUnit returns integer
 			return UnitInventorySize(whichUnit);//return UnitInventorySize(whichUnit)
 		}//endfunction
 		//
@@ -2570,11 +2570,11 @@ namespace Jass {
 			return GetIssuedOrderId();//return GetIssuedOrderId()
 		}//endfunction
 		//
-		private int GetKillingUnitBJ() {//function GetKillingUnitBJ takes nothing returns unit
+		private unit GetKillingUnitBJ() {//function GetKillingUnitBJ takes nothing returns unit
 			return GetKillingUnit();//return GetKillingUnit()
 		}//endfunction
 		//
-		private int CreateUnitAtLocSaveLast(player id, int unitid, location loc, float face) {//function CreateUnitAtLocSaveLast takes player id, integer unitid, location loc, real face returns unit
+		private unit CreateUnitAtLocSaveLast(player id, int unitid, location loc, float face) {//function CreateUnitAtLocSaveLast takes player id, integer unitid, location loc, real face returns unit
 			if ((unitid == 'ugol')) {//if (unitid == 'ugol') then
 				bj_lastCreatedUnit = CreateBlightedGoldmine(id, GetLocationX(loc), GetLocationY(loc), face);//set bj_lastCreatedUnit = CreateBlightedGoldmine(id, GetLocationX(loc), GetLocationY(loc), face)
 			} else {//else
@@ -2583,7 +2583,7 @@ namespace Jass {
 			return bj_lastCreatedUnit;//return bj_lastCreatedUnit
 		}//endfunction
 		//
-		private int GetLastCreatedUnit() {//function GetLastCreatedUnit takes nothing returns unit
+		private unit GetLastCreatedUnit() {//function GetLastCreatedUnit takes nothing returns unit
 			return bj_lastCreatedUnit;//return bj_lastCreatedUnit
 		}//endfunction
 		//
@@ -2612,24 +2612,24 @@ namespace Jass {
 			return bj_groupLastCreatedDest;//return bj_groupLastCreatedDest
 		}//endfunction
 		//
-		private int CreateCorpseLocBJ(int unitid, player whichPlayer, location loc) {//function CreateCorpseLocBJ takes integer unitid, player whichPlayer, location loc returns unit
+		private unit CreateCorpseLocBJ(int unitid, player whichPlayer, location loc) {//function CreateCorpseLocBJ takes integer unitid, player whichPlayer, location loc returns unit
 			bj_lastCreatedUnit = CreateCorpse(whichPlayer, unitid, GetLocationX(loc), GetLocationY(loc), GetRandomReal(0, 360));//set bj_lastCreatedUnit = CreateCorpse(whichPlayer, unitid, GetLocationX(loc), GetLocationY(loc), GetRandomReal(0, 360))
 			return bj_lastCreatedUnit;//return bj_lastCreatedUnit
 		}//endfunction
 		//
-		private void UnitSuspendDecayBJ(bool suspend, int whichUnit) {//function UnitSuspendDecayBJ takes boolean suspend, unit whichUnit returns nothing
+		private void UnitSuspendDecayBJ(bool suspend, unit whichUnit) {//function UnitSuspendDecayBJ takes boolean suspend, unit whichUnit returns nothing
 			UnitSuspendDecay(whichUnit, suspend);//call UnitSuspendDecay(whichUnit, suspend)
 		}//endfunction
 		//
 		private void DelayedSuspendDecayStopAnimEnum() {//function DelayedSuspendDecayStopAnimEnum takes nothing returns nothing
-			int enumUnit = GetEnumUnit();//local unit enumUnit = GetEnumUnit()
+			unit enumUnit = GetEnumUnit();//local unit enumUnit = GetEnumUnit()
 			if ((GetUnitState(enumUnit, UNIT_STATE_LIFE) <= 0)) {//if (GetUnitState(enumUnit, UNIT_STATE_LIFE) <= 0) then
 				SetUnitTimeScale(enumUnit, 0.0001);//call SetUnitTimeScale(enumUnit, 0.0001)
 			}//endif
 		}//endfunction
 		//
 		private void DelayedSuspendDecayBoneEnum() {//function DelayedSuspendDecayBoneEnum takes nothing returns nothing
-			int enumUnit = GetEnumUnit();//local unit enumUnit = GetEnumUnit()
+			unit enumUnit = GetEnumUnit();//local unit enumUnit = GetEnumUnit()
 			if ((GetUnitState(enumUnit, UNIT_STATE_LIFE) <= 0)) {//if (GetUnitState(enumUnit, UNIT_STATE_LIFE) <= 0) then
 				UnitSuspendDecay(enumUnit, true);//call UnitSuspendDecay(enumUnit, true)
 				SetUnitTimeScale(enumUnit, 0.0001);//call SetUnitTimeScale(enumUnit, 0.0001)
@@ -2641,7 +2641,7 @@ namespace Jass {
 		//
 		//
 		private void DelayedSuspendDecayFleshEnum() {//function DelayedSuspendDecayFleshEnum takes nothing returns nothing
-			int enumUnit = GetEnumUnit();//local unit enumUnit = GetEnumUnit()
+			unit enumUnit = GetEnumUnit();//local unit enumUnit = GetEnumUnit()
 			if ((GetUnitState(enumUnit, UNIT_STATE_LIFE) <= 0)) {//if (GetUnitState(enumUnit, UNIT_STATE_LIFE) <= 0) then
 				UnitSuspendDecay(enumUnit, true);//call UnitSuspendDecay(enumUnit, true)
 				SetUnitTimeScale(enumUnit, 10.0);//call SetUnitTimeScale(enumUnit, 10.0)
@@ -2679,7 +2679,7 @@ namespace Jass {
 			TriggerAddAction(bj_delayedSuspendDecayTrig, function DelayedSuspendDecay);//call TriggerAddAction(bj_delayedSuspendDecayTrig, function DelayedSuspendDecay)
 		}//endfunction
 		//
-		private int CreatePermanentCorpseLocBJ(int style, int unitid, player whichPlayer, location loc, float facing) {//function CreatePermanentCorpseLocBJ takes integer style, integer unitid, player whichPlayer, location loc, real facing returns unit
+		private unit CreatePermanentCorpseLocBJ(int style, int unitid, player whichPlayer, location loc, float facing) {//function CreatePermanentCorpseLocBJ takes integer style, integer unitid, player whichPlayer, location loc, real facing returns unit
 			bj_lastCreatedUnit = CreateCorpse(whichPlayer, unitid, GetLocationX(loc), GetLocationY(loc), facing);//set bj_lastCreatedUnit = CreateCorpse(whichPlayer, unitid, GetLocationX(loc), GetLocationY(loc), facing)
 			SetUnitBlendTime(bj_lastCreatedUnit, 0);//call SetUnitBlendTime(bj_lastCreatedUnit, 0)
 			if ((style == bj_CORPSETYPE_FLESH)) {//if (style == bj_CORPSETYPE_FLESH) then
@@ -2697,11 +2697,11 @@ namespace Jass {
 			return bj_lastCreatedUnit;//return bj_lastCreatedUnit
 		}//endfunction
 		//
-		private float GetUnitStateSwap(unitstate whichState, int whichUnit) {//function GetUnitStateSwap takes unitstate whichState, unit whichUnit returns real
+		private float GetUnitStateSwap(unitstate whichState, unit whichUnit) {//function GetUnitStateSwap takes unitstate whichState, unit whichUnit returns real
 			return GetUnitState(whichUnit, whichState);//return GetUnitState(whichUnit, whichState)
 		}//endfunction
 		//
-		private float GetUnitStatePercent(int whichUnit, unitstate whichState, unitstate whichMaxState) {//function GetUnitStatePercent takes unit whichUnit, unitstate whichState, unitstate whichMaxState returns real
+		private float GetUnitStatePercent(unit whichUnit, unitstate whichState, unitstate whichMaxState) {//function GetUnitStatePercent takes unit whichUnit, unitstate whichState, unitstate whichMaxState returns real
 			float value = GetUnitState(whichUnit, whichState);//local real value    = GetUnitState(whichUnit, whichState)
 			float maxValue = GetUnitState(whichUnit, whichMaxState);//local real maxValue = GetUnitState(whichUnit, whichMaxState)
 			//
@@ -2711,15 +2711,15 @@ namespace Jass {
 			return value / maxValue * 100.0;//return value / maxValue * 100.0
 		}//endfunction
 		//
-		private float GetUnitLifePercent(int whichUnit) {//function GetUnitLifePercent takes unit whichUnit returns real
+		private float GetUnitLifePercent(unit whichUnit) {//function GetUnitLifePercent takes unit whichUnit returns real
 			return GetUnitStatePercent(whichUnit, UNIT_STATE_LIFE, UNIT_STATE_MAX_LIFE);//return GetUnitStatePercent(whichUnit, UNIT_STATE_LIFE, UNIT_STATE_MAX_LIFE)
 		}//endfunction
 		//
-		private float GetUnitManaPercent(int whichUnit) {//function GetUnitManaPercent takes unit whichUnit returns real
+		private float GetUnitManaPercent(unit whichUnit) {//function GetUnitManaPercent takes unit whichUnit returns real
 			return GetUnitStatePercent(whichUnit, UNIT_STATE_MANA, UNIT_STATE_MAX_MANA);//return GetUnitStatePercent(whichUnit, UNIT_STATE_MANA, UNIT_STATE_MAX_MANA)
 		}//endfunction
 		//
-		private void SelectUnitSingle(int whichUnit) {//function SelectUnitSingle takes unit whichUnit returns nothing
+		private void SelectUnitSingle(unit whichUnit) {//function SelectUnitSingle takes unit whichUnit returns nothing
 			ClearSelection();//call ClearSelection()
 			SelectUnit(whichUnit, true);//call SelectUnit(whichUnit, true)
 		}//endfunction
@@ -2733,11 +2733,11 @@ namespace Jass {
 			ForGroup(g, function SelectGroupBJEnum);//call ForGroup( g, function SelectGroupBJEnum )
 		}//endfunction
 		//
-		private void SelectUnitAdd(int whichUnit) {//function SelectUnitAdd takes unit whichUnit returns nothing
+		private void SelectUnitAdd(unit whichUnit) {//function SelectUnitAdd takes unit whichUnit returns nothing
 			SelectUnit(whichUnit, true);//call SelectUnit(whichUnit, true)
 		}//endfunction
 		//
-		private void SelectUnitRemove(int whichUnit) {//function SelectUnitRemove takes unit whichUnit returns nothing
+		private void SelectUnitRemove(unit whichUnit) {//function SelectUnitRemove takes unit whichUnit returns nothing
 			SelectUnit(whichUnit, false);//call SelectUnit(whichUnit, false)
 		}//endfunction
 		//
@@ -2748,7 +2748,7 @@ namespace Jass {
 			}//endif
 		}//endfunction
 		//
-		private void SelectUnitForPlayerSingle(int whichUnit, player whichPlayer) {//function SelectUnitForPlayerSingle takes unit whichUnit, player whichPlayer returns nothing
+		private void SelectUnitForPlayerSingle(unit whichUnit, player whichPlayer) {//function SelectUnitForPlayerSingle takes unit whichUnit, player whichPlayer returns nothing
 			if ((GetLocalPlayer() == whichPlayer)) {//if (GetLocalPlayer() == whichPlayer) then
 				//
 				ClearSelection();//call ClearSelection()
@@ -2764,41 +2764,41 @@ namespace Jass {
 			}//endif
 		}//endfunction
 		//
-		private void SelectUnitAddForPlayer(int whichUnit, player whichPlayer) {//function SelectUnitAddForPlayer takes unit whichUnit, player whichPlayer returns nothing
+		private void SelectUnitAddForPlayer(unit whichUnit, player whichPlayer) {//function SelectUnitAddForPlayer takes unit whichUnit, player whichPlayer returns nothing
 			if ((GetLocalPlayer() == whichPlayer)) {//if (GetLocalPlayer() == whichPlayer) then
 				//
 				SelectUnit(whichUnit, true);//call SelectUnit(whichUnit, true)
 			}//endif
 		}//endfunction
 		//
-		private void SelectUnitRemoveForPlayer(int whichUnit, player whichPlayer) {//function SelectUnitRemoveForPlayer takes unit whichUnit, player whichPlayer returns nothing
+		private void SelectUnitRemoveForPlayer(unit whichUnit, player whichPlayer) {//function SelectUnitRemoveForPlayer takes unit whichUnit, player whichPlayer returns nothing
 			if ((GetLocalPlayer() == whichPlayer)) {//if (GetLocalPlayer() == whichPlayer) then
 				//
 				SelectUnit(whichUnit, false);//call SelectUnit(whichUnit, false)
 			}//endif
 		}//endfunction
 		//
-		private void SetUnitLifeBJ(int whichUnit, float newValue) {//function SetUnitLifeBJ takes unit whichUnit, real newValue returns nothing
+		private void SetUnitLifeBJ(unit whichUnit, float newValue) {//function SetUnitLifeBJ takes unit whichUnit, real newValue returns nothing
 			SetUnitState(whichUnit, UNIT_STATE_LIFE, RMaxBJ(0,newValue));//call SetUnitState(whichUnit, UNIT_STATE_LIFE, RMaxBJ(0,newValue))
 		}//endfunction
 		//
-		private void SetUnitManaBJ(int whichUnit, float newValue) {//function SetUnitManaBJ takes unit whichUnit, real newValue returns nothing
+		private void SetUnitManaBJ(unit whichUnit, float newValue) {//function SetUnitManaBJ takes unit whichUnit, real newValue returns nothing
 			SetUnitState(whichUnit, UNIT_STATE_MANA, RMaxBJ(0,newValue));//call SetUnitState(whichUnit, UNIT_STATE_MANA, RMaxBJ(0,newValue))
 		}//endfunction
 		//
-		private void SetUnitLifePercentBJ(int whichUnit, float percent) {//function SetUnitLifePercentBJ takes unit whichUnit, real percent returns nothing
+		private void SetUnitLifePercentBJ(unit whichUnit, float percent) {//function SetUnitLifePercentBJ takes unit whichUnit, real percent returns nothing
 			SetUnitState(whichUnit, UNIT_STATE_LIFE, GetUnitState(whichUnit, UNIT_STATE_MAX_LIFE) * RMaxBJ(0,percent) * 0.01);//call SetUnitState(whichUnit, UNIT_STATE_LIFE, GetUnitState(whichUnit, UNIT_STATE_MAX_LIFE) * RMaxBJ(0,percent) * 0.01)
 		}//endfunction
 		//
-		private void SetUnitManaPercentBJ(int whichUnit, float percent) {//function SetUnitManaPercentBJ takes unit whichUnit, real percent returns nothing
+		private void SetUnitManaPercentBJ(unit whichUnit, float percent) {//function SetUnitManaPercentBJ takes unit whichUnit, real percent returns nothing
 			SetUnitState(whichUnit, UNIT_STATE_MANA, GetUnitState(whichUnit, UNIT_STATE_MAX_MANA) * RMaxBJ(0,percent) * 0.01);//call SetUnitState(whichUnit, UNIT_STATE_MANA, GetUnitState(whichUnit, UNIT_STATE_MAX_MANA) * RMaxBJ(0,percent) * 0.01)
 		}//endfunction
 		//
-		private bool IsUnitDeadBJ(int whichUnit) {//function IsUnitDeadBJ takes unit whichUnit returns boolean
+		private bool IsUnitDeadBJ(unit whichUnit) {//function IsUnitDeadBJ takes unit whichUnit returns boolean
 			return GetUnitState(whichUnit, UNIT_STATE_LIFE) <= 0;//return GetUnitState(whichUnit, UNIT_STATE_LIFE) <= 0
 		}//endfunction
 		//
-		private bool IsUnitAliveBJ(int whichUnit) {//function IsUnitAliveBJ takes unit whichUnit returns boolean
+		private bool IsUnitAliveBJ(unit whichUnit) {//function IsUnitAliveBJ takes unit whichUnit returns boolean
 			return !IsUnitDeadBJ(whichUnit);//return not IsUnitDeadBJ(whichUnit)
 		}//endfunction
 		//
@@ -2859,15 +2859,15 @@ namespace Jass {
 			return bj_isUnitGroupInRectResult;//return bj_isUnitGroupInRectResult
 		}//endfunction
 		//
-		private bool IsUnitHiddenBJ(int whichUnit) {//function IsUnitHiddenBJ takes unit whichUnit returns boolean
+		private bool IsUnitHiddenBJ(unit whichUnit) {//function IsUnitHiddenBJ takes unit whichUnit returns boolean
 			return IsUnitHidden(whichUnit);//return IsUnitHidden(whichUnit)
 		}//endfunction
 		//
-		private void ShowUnitHide(int whichUnit) {//function ShowUnitHide takes unit whichUnit returns nothing
+		private void ShowUnitHide(unit whichUnit) {//function ShowUnitHide takes unit whichUnit returns nothing
 			ShowUnit(whichUnit, false);//call ShowUnit(whichUnit, false)
 		}//endfunction
 		//
-		private void ShowUnitShow(int whichUnit) {//function ShowUnitShow takes unit whichUnit returns nothing
+		private void ShowUnitShow(unit whichUnit) {//function ShowUnitShow takes unit whichUnit returns nothing
 			//
 			if ((IsUnitType(whichUnit, UNIT_TYPE_HERO) && IsUnitDeadBJ(whichUnit))) {//if (IsUnitType(whichUnit, UNIT_TYPE_HERO) and IsUnitDeadBJ(whichUnit)) then
 				return;//return
@@ -2879,9 +2879,9 @@ namespace Jass {
 			return GetUnitTypeId(GetFilterUnit()) == 'ngol';//return GetUnitTypeId(GetFilterUnit()) == 'ngol'
 		}//endfunction
 		//
-		private bool IssueHauntOrderAtLocBJ(int whichPeon, location loc) {//function IssueHauntOrderAtLocBJ takes unit whichPeon, location loc returns boolean
+		private bool IssueHauntOrderAtLocBJ(unit whichPeon, location loc) {//function IssueHauntOrderAtLocBJ takes unit whichPeon, location loc returns boolean
 			group g = null;//local group g = null
-			int goldMine = null;//local unit goldMine = null
+			unit goldMine = null;//local unit goldMine = null
 			//
 			g = CreateGroup();//set g = CreateGroup()
 			GroupEnumUnitsInRangeOfLoc(g, loc, 2*bj_CELLWIDTH, filterIssueHauntOrderAtLocBJ);//call GroupEnumUnitsInRangeOfLoc(g, loc, 2*bj_CELLWIDTH, filterIssueHauntOrderAtLocBJ)
@@ -2895,7 +2895,7 @@ namespace Jass {
 			return IssueTargetOrderById(whichPeon, 'ugol', goldMine);//return IssueTargetOrderById(whichPeon, 'ugol', goldMine)
 		}//endfunction
 		//
-		private bool IssueBuildOrderByIdLocBJ(int whichPeon, int unitId, location loc) {//function IssueBuildOrderByIdLocBJ takes unit whichPeon, integer unitId, location loc returns boolean
+		private bool IssueBuildOrderByIdLocBJ(unit whichPeon, int unitId, location loc) {//function IssueBuildOrderByIdLocBJ takes unit whichPeon, integer unitId, location loc returns boolean
 			if ((unitId == 'ugol')) {//if (unitId == 'ugol') then
 				return IssueHauntOrderAtLocBJ(whichPeon, loc);//return IssueHauntOrderAtLocBJ(whichPeon, loc)
 			} else {//else
@@ -2903,7 +2903,7 @@ namespace Jass {
 			}//endif
 		}//endfunction
 		//
-		private bool IssueTrainOrderByIdBJ(int whichUnit, int unitId) {//function IssueTrainOrderByIdBJ takes unit whichUnit, integer unitId returns boolean
+		private bool IssueTrainOrderByIdBJ(unit whichUnit, int unitId) {//function IssueTrainOrderByIdBJ takes unit whichUnit, integer unitId returns boolean
 			return IssueImmediateOrderById(whichUnit, unitId);//return IssueImmediateOrderById(whichUnit, unitId)
 		}//endfunction
 		//
@@ -2911,23 +2911,23 @@ namespace Jass {
 			return GroupImmediateOrderById(g, unitId);//return GroupImmediateOrderById(g, unitId)
 		}//endfunction
 		//
-		private bool IssueUpgradeOrderByIdBJ(int whichUnit, int techId) {//function IssueUpgradeOrderByIdBJ takes unit whichUnit, integer techId returns boolean
+		private bool IssueUpgradeOrderByIdBJ(unit whichUnit, int techId) {//function IssueUpgradeOrderByIdBJ takes unit whichUnit, integer techId returns boolean
 			return IssueImmediateOrderById(whichUnit, techId);//return IssueImmediateOrderById(whichUnit, techId)
 		}//endfunction
 		//
-		private int GetAttackedUnitBJ() {//function GetAttackedUnitBJ takes nothing returns unit
+		private unit GetAttackedUnitBJ() {//function GetAttackedUnitBJ takes nothing returns unit
 			return GetTriggerUnit();//return GetTriggerUnit()
 		}//endfunction
 		//
-		private void SetUnitFlyHeightBJ(int whichUnit, float newHeight, float rate) {//function SetUnitFlyHeightBJ takes unit whichUnit, real newHeight, real rate returns nothing
+		private void SetUnitFlyHeightBJ(unit whichUnit, float newHeight, float rate) {//function SetUnitFlyHeightBJ takes unit whichUnit, real newHeight, real rate returns nothing
 			SetUnitFlyHeight(whichUnit, newHeight, rate);//call SetUnitFlyHeight(whichUnit, newHeight, rate)
 		}//endfunction
 		//
-		private void SetUnitTurnSpeedBJ(int whichUnit, float turnSpeed) {//function SetUnitTurnSpeedBJ takes unit whichUnit, real turnSpeed returns nothing
+		private void SetUnitTurnSpeedBJ(unit whichUnit, float turnSpeed) {//function SetUnitTurnSpeedBJ takes unit whichUnit, real turnSpeed returns nothing
 			SetUnitTurnSpeed(whichUnit, turnSpeed);//call SetUnitTurnSpeed(whichUnit, turnSpeed)
 		}//endfunction
 		//
-		private void SetUnitPropWindowBJ(int whichUnit, float propWindow) {//function SetUnitPropWindowBJ takes unit whichUnit, real propWindow returns nothing
+		private void SetUnitPropWindowBJ(unit whichUnit, float propWindow) {//function SetUnitPropWindowBJ takes unit whichUnit, real propWindow returns nothing
 			float angle = propWindow;//local real angle = propWindow
 			if ((angle <= 0)) {//if (angle <= 0) then
 				angle = 1;//set angle = 1
@@ -2938,35 +2938,35 @@ namespace Jass {
 			SetUnitPropWindow(whichUnit, angle);//call SetUnitPropWindow(whichUnit, angle)
 		}//endfunction
 		//
-		private float GetUnitPropWindowBJ(int whichUnit) {//function GetUnitPropWindowBJ takes unit whichUnit returns real
+		private float GetUnitPropWindowBJ(unit whichUnit) {//function GetUnitPropWindowBJ takes unit whichUnit returns real
 			return GetUnitPropWindow(whichUnit) * bj_RADTODEG;//return GetUnitPropWindow(whichUnit) * bj_RADTODEG
 		}//endfunction
 		//
-		private float GetUnitDefaultPropWindowBJ(int whichUnit) {//function GetUnitDefaultPropWindowBJ takes unit whichUnit returns real
+		private float GetUnitDefaultPropWindowBJ(unit whichUnit) {//function GetUnitDefaultPropWindowBJ takes unit whichUnit returns real
 			return GetUnitDefaultPropWindow(whichUnit);//return GetUnitDefaultPropWindow(whichUnit)
 		}//endfunction
 		//
-		private void SetUnitBlendTimeBJ(int whichUnit, float blendTime) {//function SetUnitBlendTimeBJ takes unit whichUnit, real blendTime returns nothing
+		private void SetUnitBlendTimeBJ(unit whichUnit, float blendTime) {//function SetUnitBlendTimeBJ takes unit whichUnit, real blendTime returns nothing
 			SetUnitBlendTime(whichUnit, blendTime);//call SetUnitBlendTime(whichUnit, blendTime)
 		}//endfunction
 		//
-		private void SetUnitAcquireRangeBJ(int whichUnit, float acquireRange) {//function SetUnitAcquireRangeBJ takes unit whichUnit, real acquireRange returns nothing
+		private void SetUnitAcquireRangeBJ(unit whichUnit, float acquireRange) {//function SetUnitAcquireRangeBJ takes unit whichUnit, real acquireRange returns nothing
 			SetUnitAcquireRange(whichUnit, acquireRange);//call SetUnitAcquireRange(whichUnit, acquireRange)
 		}//endfunction
 		//
-		private void UnitSetCanSleepBJ(int whichUnit, bool canSleep) {//function UnitSetCanSleepBJ takes unit whichUnit, boolean canSleep returns nothing
+		private void UnitSetCanSleepBJ(unit whichUnit, bool canSleep) {//function UnitSetCanSleepBJ takes unit whichUnit, boolean canSleep returns nothing
 			UnitAddSleep(whichUnit, canSleep);//call UnitAddSleep(whichUnit, canSleep)
 		}//endfunction
 		//
-		private bool UnitCanSleepBJ(int whichUnit) {//function UnitCanSleepBJ takes unit whichUnit returns boolean
+		private bool UnitCanSleepBJ(unit whichUnit) {//function UnitCanSleepBJ takes unit whichUnit returns boolean
 			return UnitCanSleep(whichUnit);//return UnitCanSleep(whichUnit)
 		}//endfunction
 		//
-		private void UnitWakeUpBJ(int whichUnit) {//function UnitWakeUpBJ takes unit whichUnit returns nothing
+		private void UnitWakeUpBJ(unit whichUnit) {//function UnitWakeUpBJ takes unit whichUnit returns nothing
 			UnitWakeUp(whichUnit);//call UnitWakeUp(whichUnit)
 		}//endfunction
 		//
-		private bool UnitIsSleepingBJ(int whichUnit) {//function UnitIsSleepingBJ takes unit whichUnit returns boolean
+		private bool UnitIsSleepingBJ(unit whichUnit) {//function UnitIsSleepingBJ takes unit whichUnit returns boolean
 			return UnitIsSleeping(whichUnit);//return UnitIsSleeping(whichUnit)
 		}//endfunction
 		//
@@ -2989,11 +2989,11 @@ namespace Jass {
 			}//endif
 		}//endfunction
 		//
-		private bool UnitGenerateAlarms(int whichUnit, bool generate) {//function UnitGenerateAlarms takes unit whichUnit, boolean generate returns boolean
+		private bool UnitGenerateAlarms(unit whichUnit, bool generate) {//function UnitGenerateAlarms takes unit whichUnit, boolean generate returns boolean
 			return UnitIgnoreAlarm(whichUnit, !generate);//return UnitIgnoreAlarm(whichUnit, not generate)
 		}//endfunction
 		//
-		private bool DoesUnitGenerateAlarms(int whichUnit) {//function DoesUnitGenerateAlarms takes unit whichUnit returns boolean
+		private bool DoesUnitGenerateAlarms(unit whichUnit) {//function DoesUnitGenerateAlarms takes unit whichUnit returns boolean
 			return !UnitIgnoreAlarmToggled(whichUnit);//return not UnitIgnoreAlarmToggled(whichUnit)
 		}//endfunction
 		//
@@ -3025,27 +3025,27 @@ namespace Jass {
 			DestroyGroup(g);//call DestroyGroup(g)
 		}//endfunction
 		//
-		private void PauseUnitBJ(bool pause, int whichUnit) {//function PauseUnitBJ takes boolean pause, unit whichUnit returns nothing
+		private void PauseUnitBJ(bool pause, unit whichUnit) {//function PauseUnitBJ takes boolean pause, unit whichUnit returns nothing
 			PauseUnit(whichUnit, pause);//call PauseUnit(whichUnit, pause)
 		}//endfunction
 		//
-		private bool IsUnitPausedBJ(int whichUnit) {//function IsUnitPausedBJ takes unit whichUnit returns boolean
+		private bool IsUnitPausedBJ(unit whichUnit) {//function IsUnitPausedBJ takes unit whichUnit returns boolean
 			return IsUnitPaused(whichUnit);//return IsUnitPaused(whichUnit)
 		}//endfunction
 		//
-		private void UnitPauseTimedLifeBJ(bool flag, int whichUnit) {//function UnitPauseTimedLifeBJ takes boolean flag, unit whichUnit returns nothing
+		private void UnitPauseTimedLifeBJ(bool flag, unit whichUnit) {//function UnitPauseTimedLifeBJ takes boolean flag, unit whichUnit returns nothing
 			UnitPauseTimedLife(whichUnit, flag);//call UnitPauseTimedLife(whichUnit, flag)
 		}//endfunction
 		//
-		private void UnitApplyTimedLifeBJ(float duration, int buffId, int whichUnit) {//function UnitApplyTimedLifeBJ takes real duration, integer buffId, unit whichUnit returns nothing
+		private void UnitApplyTimedLifeBJ(float duration, int buffId, unit whichUnit) {//function UnitApplyTimedLifeBJ takes real duration, integer buffId, unit whichUnit returns nothing
 			UnitApplyTimedLife(whichUnit, buffId, duration);//call UnitApplyTimedLife(whichUnit, buffId, duration)
 		}//endfunction
 		//
-		private void UnitShareVisionBJ(bool share, int whichUnit, player whichPlayer) {//function UnitShareVisionBJ takes boolean share, unit whichUnit, player whichPlayer returns nothing
+		private void UnitShareVisionBJ(bool share, unit whichUnit, player whichPlayer) {//function UnitShareVisionBJ takes boolean share, unit whichUnit, player whichPlayer returns nothing
 			UnitShareVision(whichUnit, whichPlayer, share);//call UnitShareVision(whichUnit, whichPlayer, share)
 		}//endfunction
 		//
-		private void UnitRemoveBuffsBJ(int buffType, int whichUnit) {//function UnitRemoveBuffsBJ takes integer buffType, unit whichUnit returns nothing
+		private void UnitRemoveBuffsBJ(int buffType, unit whichUnit) {//function UnitRemoveBuffsBJ takes integer buffType, unit whichUnit returns nothing
 			if ((buffType == bj_REMOVEBUFFS_POSITIVE)) {//if (buffType == bj_REMOVEBUFFS_POSITIVE) then
 				UnitRemoveBuffs(whichUnit, true, false);//call UnitRemoveBuffs(whichUnit, true, false)
 			} else if ((buffType == bj_REMOVEBUFFS_NEGATIVE)) {//elseif (buffType == bj_REMOVEBUFFS_NEGATIVE) then
@@ -3059,7 +3059,7 @@ namespace Jass {
 			}//endif
 		}//endfunction
 		//
-		private void UnitRemoveBuffsExBJ(int polarity, int resist, int whichUnit, bool bTLife, bool bAura) {//function UnitRemoveBuffsExBJ takes integer polarity, integer resist, unit whichUnit, boolean bTLife, boolean bAura returns nothing
+		private void UnitRemoveBuffsExBJ(int polarity, int resist, unit whichUnit, bool bTLife, bool bAura) {//function UnitRemoveBuffsExBJ takes integer polarity, integer resist, unit whichUnit, boolean bTLife, boolean bAura returns nothing
 			bool bPos = (polarity == bj_BUFF_POLARITY_EITHER) || (polarity == bj_BUFF_POLARITY_POSITIVE);//local boolean bPos   = (polarity == bj_BUFF_POLARITY_EITHER) or (polarity == bj_BUFF_POLARITY_POSITIVE)
 			bool bNeg = (polarity == bj_BUFF_POLARITY_EITHER) || (polarity == bj_BUFF_POLARITY_NEGATIVE);//local boolean bNeg   = (polarity == bj_BUFF_POLARITY_EITHER) or (polarity == bj_BUFF_POLARITY_NEGATIVE)
 			bool bMagic = (resist == bj_BUFF_RESIST_BOTH) || (resist == bj_BUFF_RESIST_MAGIC);//local boolean bMagic = (resist == bj_BUFF_RESIST_BOTH) or (resist == bj_BUFF_RESIST_MAGIC)
@@ -3067,7 +3067,7 @@ namespace Jass {
 			UnitRemoveBuffsEx(whichUnit, bPos, bNeg, bMagic, bPhys, bTLife, bAura, false);//call UnitRemoveBuffsEx(whichUnit, bPos, bNeg, bMagic, bPhys, bTLife, bAura, false)
 		}//endfunction
 		//
-		private int UnitCountBuffsExBJ(int polarity, int resist, int whichUnit, bool bTLife, bool bAura) {//function UnitCountBuffsExBJ takes integer polarity, integer resist, unit whichUnit, boolean bTLife, boolean bAura returns integer
+		private int UnitCountBuffsExBJ(int polarity, int resist, unit whichUnit, bool bTLife, bool bAura) {//function UnitCountBuffsExBJ takes integer polarity, integer resist, unit whichUnit, boolean bTLife, boolean bAura returns integer
 			bool bPos = (polarity == bj_BUFF_POLARITY_EITHER) || (polarity == bj_BUFF_POLARITY_POSITIVE);//local boolean bPos   = (polarity == bj_BUFF_POLARITY_EITHER) or (polarity == bj_BUFF_POLARITY_POSITIVE)
 			bool bNeg = (polarity == bj_BUFF_POLARITY_EITHER) || (polarity == bj_BUFF_POLARITY_NEGATIVE);//local boolean bNeg   = (polarity == bj_BUFF_POLARITY_EITHER) or (polarity == bj_BUFF_POLARITY_NEGATIVE)
 			bool bMagic = (resist == bj_BUFF_RESIST_BOTH) || (resist == bj_BUFF_RESIST_MAGIC);//local boolean bMagic = (resist == bj_BUFF_RESIST_BOTH) or (resist == bj_BUFF_RESIST_MAGIC)
@@ -3075,61 +3075,61 @@ namespace Jass {
 			return UnitCountBuffsEx(whichUnit, bPos, bNeg, bMagic, bPhys, bTLife, bAura, false);//return UnitCountBuffsEx(whichUnit, bPos, bNeg, bMagic, bPhys, bTLife, bAura, false)
 		}//endfunction
 		//
-		private bool UnitRemoveAbilityBJ(int abilityId, int whichUnit) {//function UnitRemoveAbilityBJ takes integer abilityId, unit whichUnit returns boolean
+		private bool UnitRemoveAbilityBJ(int abilityId, unit whichUnit) {//function UnitRemoveAbilityBJ takes integer abilityId, unit whichUnit returns boolean
 			return UnitRemoveAbility(whichUnit, abilityId);//return UnitRemoveAbility(whichUnit, abilityId)
 		}//endfunction
 		//
-		private bool UnitAddAbilityBJ(int abilityId, int whichUnit) {//function UnitAddAbilityBJ takes integer abilityId, unit whichUnit returns boolean
+		private bool UnitAddAbilityBJ(int abilityId, unit whichUnit) {//function UnitAddAbilityBJ takes integer abilityId, unit whichUnit returns boolean
 			return UnitAddAbility(whichUnit, abilityId);//return UnitAddAbility(whichUnit, abilityId)
 		}//endfunction
 		//
-		private bool UnitRemoveTypeBJ(unittype whichType, int whichUnit) {//function UnitRemoveTypeBJ takes unittype whichType, unit whichUnit returns boolean
+		private bool UnitRemoveTypeBJ(unittype whichType, unit whichUnit) {//function UnitRemoveTypeBJ takes unittype whichType, unit whichUnit returns boolean
 			return UnitRemoveType(whichUnit, whichType);//return UnitRemoveType(whichUnit, whichType)
 		}//endfunction
 		//
-		private bool UnitAddTypeBJ(unittype whichType, int whichUnit) {//function UnitAddTypeBJ takes unittype whichType, unit whichUnit returns boolean
+		private bool UnitAddTypeBJ(unittype whichType, unit whichUnit) {//function UnitAddTypeBJ takes unittype whichType, unit whichUnit returns boolean
 			return UnitAddType(whichUnit, whichType);//return UnitAddType(whichUnit, whichType)
 		}//endfunction
 		//
-		private bool UnitMakeAbilityPermanentBJ(bool permanent, int abilityId, int whichUnit) {//function UnitMakeAbilityPermanentBJ takes boolean permanent, integer abilityId, unit whichUnit returns boolean
+		private bool UnitMakeAbilityPermanentBJ(bool permanent, int abilityId, unit whichUnit) {//function UnitMakeAbilityPermanentBJ takes boolean permanent, integer abilityId, unit whichUnit returns boolean
 			return UnitMakeAbilityPermanent(whichUnit, permanent, abilityId);//return UnitMakeAbilityPermanent(whichUnit, permanent, abilityId)
 		}//endfunction
 		//
-		private void SetUnitExplodedBJ(int whichUnit, bool exploded) {//function SetUnitExplodedBJ takes unit whichUnit, boolean exploded returns nothing
+		private void SetUnitExplodedBJ(unit whichUnit, bool exploded) {//function SetUnitExplodedBJ takes unit whichUnit, boolean exploded returns nothing
 			SetUnitExploded(whichUnit, exploded);//call SetUnitExploded(whichUnit, exploded)
 		}//endfunction
 		//
-		private void ExplodeUnitBJ(int whichUnit) {//function ExplodeUnitBJ takes unit whichUnit returns nothing
+		private void ExplodeUnitBJ(unit whichUnit) {//function ExplodeUnitBJ takes unit whichUnit returns nothing
 			SetUnitExploded(whichUnit, true);//call SetUnitExploded(whichUnit, true)
 			KillUnit(whichUnit);//call KillUnit(whichUnit)
 		}//endfunction
 		//
-		private int GetTransportUnitBJ() {//function GetTransportUnitBJ takes nothing returns unit
+		private unit GetTransportUnitBJ() {//function GetTransportUnitBJ takes nothing returns unit
 			return GetTransportUnit();//return GetTransportUnit()
 		}//endfunction
 		//
-		private int GetLoadedUnitBJ() {//function GetLoadedUnitBJ takes nothing returns unit
+		private unit GetLoadedUnitBJ() {//function GetLoadedUnitBJ takes nothing returns unit
 			return GetLoadedUnit();//return GetLoadedUnit()
 		}//endfunction
 		//
-		private bool IsUnitInTransportBJ(int whichUnit, int whichTransport) {//function IsUnitInTransportBJ takes unit whichUnit, unit whichTransport returns boolean
+		private bool IsUnitInTransportBJ(unit whichUnit, unit whichTransport) {//function IsUnitInTransportBJ takes unit whichUnit, unit whichTransport returns boolean
 			return IsUnitInTransport(whichUnit, whichTransport);//return IsUnitInTransport(whichUnit, whichTransport)
 		}//endfunction
 		//
-		private bool IsUnitLoadedBJ(int whichUnit) {//function IsUnitLoadedBJ takes unit whichUnit returns boolean
+		private bool IsUnitLoadedBJ(unit whichUnit) {//function IsUnitLoadedBJ takes unit whichUnit returns boolean
 			return IsUnitLoaded(whichUnit);//return IsUnitLoaded(whichUnit)
 		}//endfunction
 		//
-		private bool IsUnitIllusionBJ(int whichUnit) {//function IsUnitIllusionBJ takes unit whichUnit returns boolean
+		private bool IsUnitIllusionBJ(unit whichUnit) {//function IsUnitIllusionBJ takes unit whichUnit returns boolean
 			return IsUnitIllusion(whichUnit);//return IsUnitIllusion(whichUnit)
 		}//endfunction
 		//
 		//
 		//
 		//
-		private int ReplaceUnitBJ(int whichUnit, int newUnitId, int unitStateMethod) {//function ReplaceUnitBJ takes unit whichUnit, integer newUnitId, integer unitStateMethod returns unit
-			int oldUnit = whichUnit;//local unit    oldUnit = whichUnit
-			int newUnit;//local unit    newUnit
+		private unit ReplaceUnitBJ(unit whichUnit, int newUnitId, int unitStateMethod) {//function ReplaceUnitBJ takes unit whichUnit, integer newUnitId, integer unitStateMethod returns unit
+			unit oldUnit = whichUnit;//local unit    oldUnit = whichUnit
+			unit newUnit;//local unit    newUnit
 			bool wasHidden;//local boolean wasHidden
 			int index;//local integer index
 			item indexItem;//local item    indexItem
@@ -3205,45 +3205,45 @@ namespace Jass {
 			return newUnit;//return newUnit
 		}//endfunction
 		//
-		private int GetLastReplacedUnitBJ() {//function GetLastReplacedUnitBJ takes nothing returns unit
+		private unit GetLastReplacedUnitBJ() {//function GetLastReplacedUnitBJ takes nothing returns unit
 			return bj_lastReplacedUnit;//return bj_lastReplacedUnit
 		}//endfunction
 		//
-		private void SetUnitPositionLocFacingBJ(int whichUnit, location loc, float facing) {//function SetUnitPositionLocFacingBJ takes unit whichUnit, location loc, real facing returns nothing
+		private void SetUnitPositionLocFacingBJ(unit whichUnit, location loc, float facing) {//function SetUnitPositionLocFacingBJ takes unit whichUnit, location loc, real facing returns nothing
 			SetUnitPositionLoc(whichUnit, loc);//call SetUnitPositionLoc(whichUnit, loc)
 			SetUnitFacing(whichUnit, facing);//call SetUnitFacing(whichUnit, facing)
 		}//endfunction
 		//
-		private void SetUnitPositionLocFacingLocBJ(int whichUnit, location loc, location lookAt) {//function SetUnitPositionLocFacingLocBJ takes unit whichUnit, location loc, location lookAt returns nothing
+		private void SetUnitPositionLocFacingLocBJ(unit whichUnit, location loc, location lookAt) {//function SetUnitPositionLocFacingLocBJ takes unit whichUnit, location loc, location lookAt returns nothing
 			SetUnitPositionLoc(whichUnit, loc);//call SetUnitPositionLoc(whichUnit, loc)
 			SetUnitFacing(whichUnit, AngleBetweenPoints(loc, lookAt));//call SetUnitFacing(whichUnit, AngleBetweenPoints(loc, lookAt))
 		}//endfunction
 		//
-		private void AddItemToStockBJ(int itemId, int whichUnit, int currentStock, int stockMax) {//function AddItemToStockBJ takes integer itemId, unit whichUnit, integer currentStock, integer stockMax returns nothing
+		private void AddItemToStockBJ(int itemId, unit whichUnit, int currentStock, int stockMax) {//function AddItemToStockBJ takes integer itemId, unit whichUnit, integer currentStock, integer stockMax returns nothing
 			AddItemToStock(whichUnit, itemId, currentStock, stockMax);//call AddItemToStock(whichUnit, itemId, currentStock, stockMax)
 		}//endfunction
 		//
-		private void AddUnitToStockBJ(int unitId, int whichUnit, int currentStock, int stockMax) {//function AddUnitToStockBJ takes integer unitId, unit whichUnit, integer currentStock, integer stockMax returns nothing
+		private void AddUnitToStockBJ(int unitId, unit whichUnit, int currentStock, int stockMax) {//function AddUnitToStockBJ takes integer unitId, unit whichUnit, integer currentStock, integer stockMax returns nothing
 			AddUnitToStock(whichUnit, unitId, currentStock, stockMax);//call AddUnitToStock(whichUnit, unitId, currentStock, stockMax)
 		}//endfunction
 		//
-		private void RemoveItemFromStockBJ(int itemId, int whichUnit) {//function RemoveItemFromStockBJ takes integer itemId, unit whichUnit returns nothing
+		private void RemoveItemFromStockBJ(int itemId, unit whichUnit) {//function RemoveItemFromStockBJ takes integer itemId, unit whichUnit returns nothing
 			RemoveItemFromStock(whichUnit, itemId);//call RemoveItemFromStock(whichUnit, itemId)
 		}//endfunction
 		//
-		private void RemoveUnitFromStockBJ(int unitId, int whichUnit) {//function RemoveUnitFromStockBJ takes integer unitId, unit whichUnit returns nothing
+		private void RemoveUnitFromStockBJ(int unitId, unit whichUnit) {//function RemoveUnitFromStockBJ takes integer unitId, unit whichUnit returns nothing
 			RemoveUnitFromStock(whichUnit, unitId);//call RemoveUnitFromStock(whichUnit, unitId)
 		}//endfunction
 		//
-		private void SetUnitUseFoodBJ(bool enable, int whichUnit) {//function SetUnitUseFoodBJ takes boolean enable, unit whichUnit returns nothing
+		private void SetUnitUseFoodBJ(bool enable, unit whichUnit) {//function SetUnitUseFoodBJ takes boolean enable, unit whichUnit returns nothing
 			SetUnitUseFood(whichUnit, enable);//call SetUnitUseFood(whichUnit, enable)
 		}//endfunction
 		//
-		private bool UnitDamagePointLoc(int whichUnit, float delay, float radius, location loc, float amount, attacktype whichAttack, damagetype whichDamage) {//function UnitDamagePointLoc takes unit whichUnit, real delay, real radius, location loc, real amount, attacktype whichAttack, damagetype whichDamage returns boolean
+		private bool UnitDamagePointLoc(unit whichUnit, float delay, float radius, location loc, float amount, attacktype whichAttack, damagetype whichDamage) {//function UnitDamagePointLoc takes unit whichUnit, real delay, real radius, location loc, real amount, attacktype whichAttack, damagetype whichDamage returns boolean
 			return UnitDamagePoint(whichUnit, delay, radius, GetLocationX(loc), GetLocationY(loc), amount, true, false, whichAttack, whichDamage, WEAPON_TYPE_WHOKNOWS);//return UnitDamagePoint(whichUnit, delay, radius, GetLocationX(loc), GetLocationY(loc), amount, true, false, whichAttack, whichDamage, WEAPON_TYPE_WHOKNOWS)
 		}//endfunction
 		//
-		private bool UnitDamageTargetBJ(int whichUnit, int target, float amount, attacktype whichAttack, damagetype whichDamage) {//function UnitDamageTargetBJ takes unit whichUnit, unit target, real amount, attacktype whichAttack, damagetype whichDamage returns boolean
+		private bool UnitDamageTargetBJ(unit whichUnit, unit target, float amount, attacktype whichAttack, damagetype whichDamage) {//function UnitDamageTargetBJ takes unit whichUnit, unit target, real amount, attacktype whichAttack, damagetype whichDamage returns boolean
 			return UnitDamageTarget(whichUnit, target, amount, true, false, whichAttack, whichDamage, WEAPON_TYPE_WHOKNOWS);//return UnitDamageTarget(whichUnit, target, amount, true, false, whichAttack, whichDamage, WEAPON_TYPE_WHOKNOWS)
 		}//endfunction
 		//
@@ -3437,7 +3437,7 @@ namespace Jass {
 		//
 		//
 		private void NudgeUnitsInRectEnum() {//function NudgeUnitsInRectEnum takes nothing returns nothing
-			int nudgee = GetEnumUnit();//local unit nudgee = GetEnumUnit()
+			unit nudgee = GetEnumUnit();//local unit nudgee = GetEnumUnit()
 			SetUnitPosition(nudgee, GetUnitX(nudgee), GetUnitY(nudgee));//call SetUnitPosition(nudgee, GetUnitX(nudgee), GetUnitY(nudgee))
 		}//endfunction
 		//
@@ -3564,23 +3564,23 @@ namespace Jass {
 		//
 		//
 		//
-		private void WaygateActivateBJ(bool activate, int waygate) {//function WaygateActivateBJ takes boolean activate, unit waygate returns nothing
+		private void WaygateActivateBJ(bool activate, unit waygate) {//function WaygateActivateBJ takes boolean activate, unit waygate returns nothing
 			WaygateActivate(waygate, activate);//call WaygateActivate(waygate, activate)
 		}//endfunction
 		//
-		private bool WaygateIsActiveBJ(int waygate) {//function WaygateIsActiveBJ takes unit waygate returns boolean
+		private bool WaygateIsActiveBJ(unit waygate) {//function WaygateIsActiveBJ takes unit waygate returns boolean
 			return WaygateIsActive(waygate);//return WaygateIsActive(waygate)
 		}//endfunction
 		//
-		private void WaygateSetDestinationLocBJ(int waygate, location loc) {//function WaygateSetDestinationLocBJ takes unit waygate, location loc returns nothing
+		private void WaygateSetDestinationLocBJ(unit waygate, location loc) {//function WaygateSetDestinationLocBJ takes unit waygate, location loc returns nothing
 			WaygateSetDestination(waygate, GetLocationX(loc), GetLocationY(loc));//call WaygateSetDestination(waygate, GetLocationX(loc), GetLocationY(loc))
 		}//endfunction
 		//
-		private location WaygateGetDestinationLocBJ(int waygate) {//function WaygateGetDestinationLocBJ takes unit waygate returns location
+		private location WaygateGetDestinationLocBJ(unit waygate) {//function WaygateGetDestinationLocBJ takes unit waygate returns location
 			return Location(WaygateGetDestinationX(waygate), WaygateGetDestinationY(waygate));//return Location(WaygateGetDestinationX(waygate), WaygateGetDestinationY(waygate))
 		}//endfunction
 		//
-		private void UnitSetUsesAltIconBJ(bool flag, int whichUnit) {//function UnitSetUsesAltIconBJ takes boolean flag, unit whichUnit returns nothing
+		private void UnitSetUsesAltIconBJ(bool flag, unit whichUnit) {//function UnitSetUsesAltIconBJ takes boolean flag, unit whichUnit returns nothing
 			UnitSetUsesAltIcon(whichUnit, flag);//call UnitSetUsesAltIcon(whichUnit, flag)
 		}//endfunction
 		//
@@ -3620,11 +3620,11 @@ namespace Jass {
 			}//endif
 		}//endfunction
 		//
-		private void GroupAddUnitSimple(int whichUnit, group whichGroup) {//function GroupAddUnitSimple takes unit whichUnit, group whichGroup returns nothing
+		private void GroupAddUnitSimple(unit whichUnit, group whichGroup) {//function GroupAddUnitSimple takes unit whichUnit, group whichGroup returns nothing
 			GroupAddUnit(whichGroup, whichUnit);//call GroupAddUnit(whichGroup, whichUnit)
 		}//endfunction
 		//
-		private void GroupRemoveUnitSimple(int whichUnit, group whichGroup) {//function GroupRemoveUnitSimple takes unit whichUnit, group whichGroup returns nothing
+		private void GroupRemoveUnitSimple(unit whichUnit, group whichGroup) {//function GroupRemoveUnitSimple takes unit whichUnit, group whichGroup returns nothing
 			GroupRemoveUnit(whichGroup, whichUnit);//call GroupRemoveUnit(whichGroup, whichUnit)
 		}//endfunction
 		//
@@ -3685,7 +3685,7 @@ namespace Jass {
 		//
 		//
 		//
-		private int GroupPickRandomUnit(group whichGroup) {//function GroupPickRandomUnit takes group whichGroup returns unit
+		private unit GroupPickRandomUnit(group whichGroup) {//function GroupPickRandomUnit takes group whichGroup returns unit
 			//
 			//
 			bool wantDestroy = bj_wantDestroyGroup;//local boolean wantDestroy = bj_wantDestroyGroup
@@ -3908,7 +3908,7 @@ namespace Jass {
 		}//endfunction
 		//
 		private bool LivingPlayerUnitsOfTypeIdFilter() {//function LivingPlayerUnitsOfTypeIdFilter takes nothing returns boolean
-			int filterUnit = GetFilterUnit();//local unit filterUnit = GetFilterUnit()
+			unit filterUnit = GetFilterUnit();//local unit filterUnit = GetFilterUnit()
 			return IsUnitAliveBJ(filterUnit) && GetUnitTypeId(filterUnit) == bj_livingPlayerUnitsTypeId;//return IsUnitAliveBJ(filterUnit) and GetUnitTypeId(filterUnit) == bj_livingPlayerUnitsTypeId
 		}//endfunction
 		//
@@ -3928,15 +3928,15 @@ namespace Jass {
 		//
 		//
 		//
-		private void ResetUnitAnimation(int whichUnit) {//function ResetUnitAnimation takes unit whichUnit returns nothing
+		private void ResetUnitAnimation(unit whichUnit) {//function ResetUnitAnimation takes unit whichUnit returns nothing
 			SetUnitAnimation(whichUnit, "stand");//call SetUnitAnimation(whichUnit, "stand")
 		}//endfunction
 		//
-		private void SetUnitTimeScalePercent(int whichUnit, float percentScale) {//function SetUnitTimeScalePercent takes unit whichUnit, real percentScale returns nothing
+		private void SetUnitTimeScalePercent(unit whichUnit, float percentScale) {//function SetUnitTimeScalePercent takes unit whichUnit, real percentScale returns nothing
 			SetUnitTimeScale(whichUnit, percentScale * 0.01);//call SetUnitTimeScale(whichUnit, percentScale * 0.01)
 		}//endfunction
 		//
-		private void SetUnitScalePercent(int whichUnit, float percentScaleX, float percentScaleY, float percentScaleZ) {//function SetUnitScalePercent takes unit whichUnit, real percentScaleX, real percentScaleY, real percentScaleZ returns nothing
+		private void SetUnitScalePercent(unit whichUnit, float percentScaleX, float percentScaleY, float percentScaleZ) {//function SetUnitScalePercent takes unit whichUnit, real percentScaleX, real percentScaleY, real percentScaleZ returns nothing
 			SetUnitScale(whichUnit, percentScaleX * 0.01, percentScaleY * 0.01, percentScaleZ * 0.01);//call SetUnitScale(whichUnit, percentScaleX * 0.01, percentScaleY * 0.01, percentScaleZ * 0.01)
 		}//endfunction
 		//
@@ -3944,11 +3944,11 @@ namespace Jass {
 		//
 		//
 		//
-		private void SetUnitVertexColorBJ(int whichUnit, float red, float green, float blue, float transparency) {//function SetUnitVertexColorBJ takes unit whichUnit, real red, real green, real blue, real transparency returns nothing
+		private void SetUnitVertexColorBJ(unit whichUnit, float red, float green, float blue, float transparency) {//function SetUnitVertexColorBJ takes unit whichUnit, real red, real green, real blue, real transparency returns nothing
 			SetUnitVertexColor(whichUnit, PercentTo255(red), PercentTo255(green), PercentTo255(blue), PercentTo255(100.0-transparency));//call SetUnitVertexColor(whichUnit, PercentTo255(red), PercentTo255(green), PercentTo255(blue), PercentTo255(100.0-transparency))
 		}//endfunction
 		//
-		private void UnitAddIndicatorBJ(int whichUnit, float red, float green, float blue, float transparency) {//function UnitAddIndicatorBJ takes unit whichUnit, real red, real green, real blue, real transparency returns nothing
+		private void UnitAddIndicatorBJ(unit whichUnit, float red, float green, float blue, float transparency) {//function UnitAddIndicatorBJ takes unit whichUnit, real red, real green, real blue, real transparency returns nothing
 			AddIndicator(whichUnit, PercentTo255(red), PercentTo255(green), PercentTo255(blue), PercentTo255(100.0-transparency));//call AddIndicator(whichUnit, PercentTo255(red), PercentTo255(green), PercentTo255(blue), PercentTo255(100.0-transparency))
 		}//endfunction
 		//
@@ -3962,7 +3962,7 @@ namespace Jass {
 		//
 		//
 		//
-		private void SetUnitFacingToFaceLocTimed(int whichUnit, location target, float duration) {//function SetUnitFacingToFaceLocTimed takes unit whichUnit, location target, real duration returns nothing
+		private void SetUnitFacingToFaceLocTimed(unit whichUnit, location target, float duration) {//function SetUnitFacingToFaceLocTimed takes unit whichUnit, location target, real duration returns nothing
 			location unitLoc = GetUnitLoc(whichUnit);//local location unitLoc = GetUnitLoc(whichUnit)
 			SetUnitFacingTimed(whichUnit, AngleBetweenPoints(unitLoc, target), duration);//call SetUnitFacingTimed(whichUnit, AngleBetweenPoints(unitLoc, target), duration)
 			RemoveLocation(unitLoc);//call RemoveLocation(unitLoc)
@@ -3970,13 +3970,13 @@ namespace Jass {
 		//
 		//
 		//
-		private void SetUnitFacingToFaceUnitTimed(int whichUnit, int target, float duration) {//function SetUnitFacingToFaceUnitTimed takes unit whichUnit, unit target, real duration returns nothing
+		private void SetUnitFacingToFaceUnitTimed(unit whichUnit, unit target, float duration) {//function SetUnitFacingToFaceUnitTimed takes unit whichUnit, unit target, real duration returns nothing
 			location unitLoc = GetUnitLoc(target);//local location unitLoc = GetUnitLoc(target)
 			SetUnitFacingToFaceLocTimed(whichUnit, unitLoc, duration);//call SetUnitFacingToFaceLocTimed(whichUnit, unitLoc, duration)
 			RemoveLocation(unitLoc);//call RemoveLocation(unitLoc)
 		}//endfunction
 		//
-		private void QueueUnitAnimationBJ(int whichUnit, string whichAnimation) {//function QueueUnitAnimationBJ takes unit whichUnit, string whichAnimation returns nothing
+		private void QueueUnitAnimationBJ(unit whichUnit, string whichAnimation) {//function QueueUnitAnimationBJ takes unit whichUnit, string whichAnimation returns nothing
 			QueueUnitAnimation(whichUnit, whichAnimation);//call QueueUnitAnimation(whichUnit, whichAnimation)
 		}//endfunction
 		//
@@ -5114,7 +5114,7 @@ namespace Jass {
 			SetTextTagPos(tt, GetLocationX(loc), GetLocationY(loc), zOffset);//call SetTextTagPos(tt, GetLocationX(loc), GetLocationY(loc), zOffset)
 		}//endfunction
 		//
-		private void SetTextTagPosUnitBJ(texttag tt, int whichUnit, float zOffset) {//function SetTextTagPosUnitBJ takes texttag tt, unit whichUnit, real zOffset returns nothing
+		private void SetTextTagPosUnitBJ(texttag tt, unit whichUnit, float zOffset) {//function SetTextTagPosUnitBJ takes texttag tt, unit whichUnit, real zOffset returns nothing
 			SetTextTagPosUnit(tt, whichUnit, zOffset);//call SetTextTagPosUnit(tt, whichUnit, zOffset)
 		}//endfunction
 		//
@@ -5146,7 +5146,7 @@ namespace Jass {
 			return bj_lastCreatedTextTag;//return bj_lastCreatedTextTag
 		}//endfunction
 		//
-		private texttag CreateTextTagUnitBJ(string s, int whichUnit, float zOffset, float size, float red, float green, float blue, float transparency) {//function CreateTextTagUnitBJ takes string s, unit whichUnit, real zOffset, real size, real red, real green, real blue, real transparency returns texttag
+		private texttag CreateTextTagUnitBJ(string s, unit whichUnit, float zOffset, float size, float red, float green, float blue, float transparency) {//function CreateTextTagUnitBJ takes string s, unit whichUnit, real zOffset, real size, real red, real green, real blue, real transparency returns texttag
 			bj_lastCreatedTextTag = CreateTextTag();//set bj_lastCreatedTextTag = CreateTextTag()
 			SetTextTagTextBJ(bj_lastCreatedTextTag, s, size);//call SetTextTagTextBJ(bj_lastCreatedTextTag, s, size)
 			SetTextTagPosUnitBJ(bj_lastCreatedTextTag, whichUnit, zOffset);//call SetTextTagPosUnitBJ(bj_lastCreatedTextTag, whichUnit, zOffset)
@@ -5369,7 +5369,7 @@ namespace Jass {
 		//
 		//
 		//
-		private void TransmissionFromUnitWithNameBJ(force toForce, int whichUnit, string unitName, sound soundHandle, string message, int timeType, float timeVal, bool wait) {//function TransmissionFromUnitWithNameBJ takes force toForce, unit whichUnit, string unitName, sound soundHandle, string message, integer timeType, real timeVal, boolean wait returns nothing
+		private void TransmissionFromUnitWithNameBJ(force toForce, unit whichUnit, string unitName, sound soundHandle, string message, int timeType, float timeVal, bool wait) {//function TransmissionFromUnitWithNameBJ takes force toForce, unit whichUnit, string unitName, sound soundHandle, string message, integer timeType, real timeVal, boolean wait returns nothing
 			TryInitCinematicBehaviorBJ();//call TryInitCinematicBehaviorBJ()
 			//
 			timeVal = RMaxBJ(timeVal, 0);//set timeVal = RMaxBJ(timeVal, 0)
@@ -5615,7 +5615,7 @@ namespace Jass {
 		//
 		//
 		//
-		private void RescueUnitBJ(int whichUnit, player rescuer, bool changeColor) {//function RescueUnitBJ takes unit whichUnit, player rescuer, boolean changeColor returns nothing
+		private void RescueUnitBJ(unit whichUnit, player rescuer, bool changeColor) {//function RescueUnitBJ takes unit whichUnit, player rescuer, boolean changeColor returns nothing
 			if (IsUnitDeadBJ(whichUnit) || (GetOwningPlayer(whichUnit) == rescuer)) {//if IsUnitDeadBJ(whichUnit) or (GetOwningPlayer(whichUnit) == rescuer) then
 				return;//return
 			}//endif
@@ -5626,7 +5626,7 @@ namespace Jass {
 		}//endfunction
 		//
 		private void TriggerActionUnitRescuedBJ() {//function TriggerActionUnitRescuedBJ takes nothing returns nothing
-			int theUnit = GetTriggerUnit();//local unit theUnit = GetTriggerUnit()
+			unit theUnit = GetTriggerUnit();//local unit theUnit = GetTriggerUnit()
 			if (IsUnitType(theUnit, UNIT_TYPE_STRUCTURE)) {//if IsUnitType(theUnit, UNIT_TYPE_STRUCTURE) then
 				RescueUnitBJ(theUnit, GetOwningPlayer(GetRescuer()), bj_rescueChangeColorBldg);//call RescueUnitBJ(theUnit, GetOwningPlayer(GetRescuer()), bj_rescueChangeColorBldg)
 			} else {//else
@@ -5671,7 +5671,7 @@ namespace Jass {
 			SetUnitRescuable(bj_makeUnitRescuableUnit, GetEnumPlayer(), bj_makeUnitRescuableFlag);//call SetUnitRescuable(bj_makeUnitRescuableUnit, GetEnumPlayer(), bj_makeUnitRescuableFlag)
 		}//endfunction
 		//
-		private void MakeUnitRescuableToForceBJ(int whichUnit, bool isRescuable, force whichForce) {//function MakeUnitRescuableToForceBJ takes unit whichUnit, boolean isRescuable, force whichForce returns nothing
+		private void MakeUnitRescuableToForceBJ(unit whichUnit, bool isRescuable, force whichForce) {//function MakeUnitRescuableToForceBJ takes unit whichUnit, boolean isRescuable, force whichForce returns nothing
 			//
 			bj_makeUnitRescuableUnit = whichUnit;//set bj_makeUnitRescuableUnit = whichUnit
 			bj_makeUnitRescuableFlag = isRescuable;//set bj_makeUnitRescuableFlag = isRescuable
@@ -5860,7 +5860,7 @@ namespace Jass {
 			return StoreString(cache, missionKey, key, value);//return StoreString(cache, missionKey, key, value)
 		}//endfunction
 		//
-		private bool StoreUnitBJ(int whichUnit, string key, string missionKey, gamecache cache) {//function StoreUnitBJ takes unit whichUnit, string key, string missionKey, gamecache cache returns boolean
+		private bool StoreUnitBJ(unit whichUnit, string key, string missionKey, gamecache cache) {//function StoreUnitBJ takes unit whichUnit, string key, string missionKey, gamecache cache returns boolean
 			return StoreUnit(cache, missionKey, key, whichUnit);//return StoreUnit(cache, missionKey, key, whichUnit)
 		}//endfunction
 		//
@@ -5896,7 +5896,7 @@ namespace Jass {
 			return SaveItemHandle(table, missionKey, key, whichItem);//return SaveItemHandle(table, missionKey, key, whichItem)
 		}//endfunction
 		//
-		private bool SaveUnitHandleBJ(int whichUnit, int key, int missionKey, hashtable table) {//function SaveUnitHandleBJ takes unit whichUnit, integer key, integer missionKey, hashtable table returns boolean
+		private bool SaveUnitHandleBJ(unit whichUnit, int key, int missionKey, hashtable table) {//function SaveUnitHandleBJ takes unit whichUnit, integer key, integer missionKey, hashtable table returns boolean
 			return SaveUnitHandle(table, missionKey, key, whichUnit);//return SaveUnitHandle(table, missionKey, key, whichUnit)
 		}//endfunction
 		//
@@ -6104,7 +6104,7 @@ namespace Jass {
 			return LoadItemHandle(table, missionKey, key);//return LoadItemHandle(table, missionKey, key)
 		}//endfunction
 		//
-		private int LoadUnitHandleBJ(int key, int missionKey, hashtable table) {//function LoadUnitHandleBJ takes integer key, integer missionKey, hashtable table returns unit
+		private unit LoadUnitHandleBJ(int key, int missionKey, hashtable table) {//function LoadUnitHandleBJ takes integer key, integer missionKey, hashtable table returns unit
 			return LoadUnitHandle(table, missionKey, key);//return LoadUnitHandle(table, missionKey, key)
 		}//endfunction
 		//
@@ -6240,18 +6240,18 @@ namespace Jass {
 			return LoadHashtableHandle(table, missionKey, key);//return LoadHashtableHandle(table, missionKey, key)
 		}//endfunction
 		//
-		private int RestoreUnitLocFacingAngleBJ(string key, string missionKey, gamecache cache, player forWhichPlayer, location loc, float facing) {//function RestoreUnitLocFacingAngleBJ takes string key, string missionKey, gamecache cache, player forWhichPlayer, location loc, real facing returns unit
+		private unit RestoreUnitLocFacingAngleBJ(string key, string missionKey, gamecache cache, player forWhichPlayer, location loc, float facing) {//function RestoreUnitLocFacingAngleBJ takes string key, string missionKey, gamecache cache, player forWhichPlayer, location loc, real facing returns unit
 			//
 			bj_lastLoadedUnit = RestoreUnit(cache, missionKey, key, forWhichPlayer, GetLocationX(loc), GetLocationY(loc), facing);//set bj_lastLoadedUnit = RestoreUnit(cache, missionKey, key, forWhichPlayer, GetLocationX(loc), GetLocationY(loc), facing)
 			return bj_lastLoadedUnit;//return bj_lastLoadedUnit
 		}//endfunction
 		//
-		private int RestoreUnitLocFacingPointBJ(string key, string missionKey, gamecache cache, player forWhichPlayer, location loc, location lookAt) {//function RestoreUnitLocFacingPointBJ takes string key, string missionKey, gamecache cache, player forWhichPlayer, location loc, location lookAt returns unit
+		private unit RestoreUnitLocFacingPointBJ(string key, string missionKey, gamecache cache, player forWhichPlayer, location loc, location lookAt) {//function RestoreUnitLocFacingPointBJ takes string key, string missionKey, gamecache cache, player forWhichPlayer, location loc, location lookAt returns unit
 			//
 			return RestoreUnitLocFacingAngleBJ(key, missionKey, cache, forWhichPlayer, loc, AngleBetweenPoints(loc, lookAt));//return RestoreUnitLocFacingAngleBJ(key, missionKey, cache, forWhichPlayer, loc, AngleBetweenPoints(loc, lookAt))
 		}//endfunction
 		//
-		private int GetLastRestoredUnitBJ() {//function GetLastRestoredUnitBJ takes nothing returns unit
+		private unit GetLastRestoredUnitBJ() {//function GetLastRestoredUnitBJ takes nothing returns unit
 			return bj_lastLoadedUnit;//return bj_lastLoadedUnit
 		}//endfunction
 		//
@@ -6416,7 +6416,7 @@ namespace Jass {
 			return GetPlayerState(whichPlayer, whichPlayerFlag) == 1;//return GetPlayerState(whichPlayer, whichPlayerFlag) == 1
 		}//endfunction
 		//
-		private void AddResourceAmountBJ(int delta, int whichUnit) {//function AddResourceAmountBJ takes integer delta, unit whichUnit returns nothing
+		private void AddResourceAmountBJ(int delta, unit whichUnit) {//function AddResourceAmountBJ takes integer delta, unit whichUnit returns nothing
 			AddResourceAmount(whichUnit, delta);//call AddResourceAmount(whichUnit, delta)
 		}//endfunction
 		//
@@ -6438,11 +6438,11 @@ namespace Jass {
 		//
 		//
 		//
-		private int BlightGoldMineForPlayerBJ(int goldMine, player whichPlayer) {//function BlightGoldMineForPlayerBJ takes unit goldMine, player whichPlayer returns unit
+		private unit BlightGoldMineForPlayerBJ(unit goldMine, player whichPlayer) {//function BlightGoldMineForPlayerBJ takes unit goldMine, player whichPlayer returns unit
 			float mineX;//local real    mineX
 			float mineY;//local real    mineY
 			int mineGold;//local integer mineGold
-			int newMine;//local unit    newMine
+			unit newMine;//local unit    newMine
 			//
 			if (GetUnitTypeId(goldMine) != 'ngol') {//if GetUnitTypeId(goldMine) != 'ngol' then
 				return null;//return null
@@ -6458,12 +6458,12 @@ namespace Jass {
 			return newMine;//return newMine
 		}//endfunction
 		//
-		private int BlightGoldMineForPlayer(int goldMine, player whichPlayer) {//function BlightGoldMineForPlayer takes unit goldMine, player whichPlayer returns unit
+		private unit BlightGoldMineForPlayer(unit goldMine, player whichPlayer) {//function BlightGoldMineForPlayer takes unit goldMine, player whichPlayer returns unit
 			bj_lastHauntedGoldMine = BlightGoldMineForPlayerBJ(goldMine, whichPlayer);//set bj_lastHauntedGoldMine = BlightGoldMineForPlayerBJ(goldMine, whichPlayer)
 			return bj_lastHauntedGoldMine;//return bj_lastHauntedGoldMine
 		}//endfunction
 		//
-		private int GetLastHauntedGoldMine() {//function GetLastHauntedGoldMine takes nothing returns unit
+		private unit GetLastHauntedGoldMine() {//function GetLastHauntedGoldMine takes nothing returns unit
 			return bj_lastHauntedGoldMine;//return bj_lastHauntedGoldMine
 		}//endfunction
 		//
@@ -6503,25 +6503,25 @@ namespace Jass {
 			SetMapFlag(MAP_LOCK_SPEED, false);//call SetMapFlag(MAP_LOCK_SPEED, false)
 		}//endfunction
 		//
-		private bool IssueTargetOrderBJ(int whichUnit, string order, widget targetWidget) {//function IssueTargetOrderBJ takes unit whichUnit, string order, widget targetWidget returns boolean
+		private bool IssueTargetOrderBJ(unit whichUnit, string order, widget targetWidget) {//function IssueTargetOrderBJ takes unit whichUnit, string order, widget targetWidget returns boolean
 			return IssueTargetOrder( whichUnit, order, targetWidget );//return IssueTargetOrder( whichUnit, order, targetWidget )
 		}//endfunction
 		//
-		private bool IssuePointOrderLocBJ(int whichUnit, string order, location whichLocation) {//function IssuePointOrderLocBJ takes unit whichUnit, string order, location whichLocation returns boolean
+		private bool IssuePointOrderLocBJ(unit whichUnit, string order, location whichLocation) {//function IssuePointOrderLocBJ takes unit whichUnit, string order, location whichLocation returns boolean
 			return IssuePointOrderLoc( whichUnit, order, whichLocation );//return IssuePointOrderLoc( whichUnit, order, whichLocation )
 		}//endfunction
 		//
 		//
 		//
 		//
-		private bool IssueTargetDestructableOrder(int whichUnit, string order, widget targetWidget) {//function IssueTargetDestructableOrder takes unit whichUnit, string order, widget targetWidget returns boolean
+		private bool IssueTargetDestructableOrder(unit whichUnit, string order, widget targetWidget) {//function IssueTargetDestructableOrder takes unit whichUnit, string order, widget targetWidget returns boolean
 			return IssueTargetOrder( whichUnit, order, targetWidget );//return IssueTargetOrder( whichUnit, order, targetWidget )
 		}//endfunction
-		private bool IssueTargetItemOrder(int whichUnit, string order, widget targetWidget) {//function IssueTargetItemOrder takes unit whichUnit, string order, widget targetWidget returns boolean
+		private bool IssueTargetItemOrder(unit whichUnit, string order, widget targetWidget) {//function IssueTargetItemOrder takes unit whichUnit, string order, widget targetWidget returns boolean
 			return IssueTargetOrder( whichUnit, order, targetWidget );//return IssueTargetOrder( whichUnit, order, targetWidget )
 		}//endfunction
 		//
-		private bool IssueImmediateOrderBJ(int whichUnit, string order) {//function IssueImmediateOrderBJ takes unit whichUnit, string order returns boolean
+		private bool IssueImmediateOrderBJ(unit whichUnit, string order) {//function IssueImmediateOrderBJ takes unit whichUnit, string order returns boolean
 			return IssueImmediateOrder( whichUnit, order );//return IssueImmediateOrder( whichUnit, order )
 		}//endfunction
 		//
@@ -6553,15 +6553,15 @@ namespace Jass {
 		//
 		//
 		//
-		private void SetUnitRallyPoint(int whichUnit, location targPos) {//function SetUnitRallyPoint takes unit whichUnit, location targPos returns nothing
+		private void SetUnitRallyPoint(unit whichUnit, location targPos) {//function SetUnitRallyPoint takes unit whichUnit, location targPos returns nothing
 			IssuePointOrderLocBJ(whichUnit, "setrally", targPos);//call IssuePointOrderLocBJ(whichUnit, "setrally", targPos)
 		}//endfunction
 		//
-		private void SetUnitRallyUnit(int whichUnit, int targUnit) {//function SetUnitRallyUnit takes unit whichUnit, unit targUnit returns nothing
+		private void SetUnitRallyUnit(unit whichUnit, unit targUnit) {//function SetUnitRallyUnit takes unit whichUnit, unit targUnit returns nothing
 			IssueTargetOrder(whichUnit, "setrally", targUnit);//call IssueTargetOrder(whichUnit, "setrally", targUnit)
 		}//endfunction
 		//
-		private void SetUnitRallyDestructable(int whichUnit, destructable targDest) {//function SetUnitRallyDestructable takes unit whichUnit, destructable targDest returns nothing
+		private void SetUnitRallyDestructable(unit whichUnit, destructable targDest) {//function SetUnitRallyDestructable takes unit whichUnit, destructable targDest returns nothing
 			IssueTargetOrder(whichUnit, "setrally", targDest);//call IssueTargetOrder(whichUnit, "setrally", targDest)
 		}//endfunction
 		//
@@ -6691,7 +6691,7 @@ namespace Jass {
 		//
 		//
 		//
-		private void MeleeGrantItemsToHero(int whichUnit) {//function MeleeGrantItemsToHero takes unit whichUnit returns nothing
+		private void MeleeGrantItemsToHero(unit whichUnit) {//function MeleeGrantItemsToHero takes unit whichUnit returns nothing
 			int owner = GetPlayerId(GetOwningPlayer(whichUnit));//local integer owner   = GetPlayerId(GetOwningPlayer(whichUnit))
 			//
 			if ((bj_meleeTwinkedHeroes[owner] < bj_MELEE_MAX_TWINKED_HEROES)) {//if (bj_meleeTwinkedHeroes[owner] < bj_MELEE_MAX_TWINKED_HEROES) then
@@ -6744,7 +6744,7 @@ namespace Jass {
 		//
 		//
 		private void MeleeClearExcessUnit() {//function MeleeClearExcessUnit takes nothing returns nothing
-			int theUnit = GetEnumUnit();//local unit    theUnit = GetEnumUnit()
+			unit theUnit = GetEnumUnit();//local unit    theUnit = GetEnumUnit()
 			int owner = GetPlayerId(GetOwningPlayer(theUnit));//local integer owner   = GetPlayerId(GetOwningPlayer(theUnit))
 			if ((owner == PLAYER_NEUTRAL_AGGRESSIVE)) {//if (owner == PLAYER_NEUTRAL_AGGRESSIVE) then
 				//
@@ -6790,7 +6790,7 @@ namespace Jass {
 		//
 		//
 		private void MeleeEnumFindNearestMine() {//function MeleeEnumFindNearestMine takes nothing returns nothing
-			int enumUnit = GetEnumUnit();//local unit enumUnit = GetEnumUnit()
+			unit enumUnit = GetEnumUnit();//local unit enumUnit = GetEnumUnit()
 			float dist;//local real dist
 			location unitLoc;//local location unitLoc
 			if ((GetUnitTypeId(enumUnit) == 'ngol')) {//if (GetUnitTypeId(enumUnit) == 'ngol') then
@@ -6805,7 +6805,7 @@ namespace Jass {
 			}//endif
 		}//endfunction
 		//
-		private int MeleeFindNearestMine(location src, float range) {//function MeleeFindNearestMine takes location src, real range returns unit
+		private unit MeleeFindNearestMine(location src, float range) {//function MeleeFindNearestMine takes location src, real range returns unit
 			group nearbyMines;//local group nearbyMines
 			bj_meleeNearestMine = null;//set bj_meleeNearestMine = null
 			bj_meleeNearestMineDist = -1;//set bj_meleeNearestMineDist = -1
@@ -6817,8 +6817,8 @@ namespace Jass {
 			return bj_meleeNearestMine;//return bj_meleeNearestMine
 		}//endfunction
 		//
-		private int MeleeRandomHeroLoc(player p, int id1, int id2, int id3, int id4, location loc) {//function MeleeRandomHeroLoc takes player p, integer id1, integer id2, integer id3, integer id4, location loc returns unit
-			int hero = null;//local unit    hero = null
+		private unit MeleeRandomHeroLoc(player p, int id1, int id2, int id3, int id4, location loc) {//function MeleeRandomHeroLoc takes player p, integer id1, integer id2, integer id3, integer id4, location loc returns unit
+			unit hero = null;//local unit    hero = null
 			int roll;//local integer roll
 			int pick;//local integer pick
 			version v;//local version v
@@ -6882,12 +6882,12 @@ namespace Jass {
 		private void MeleeStartingUnitsHuman(player whichPlayer, location startLoc, bool doHeroes, bool doCamera, bool doPreload) {//function MeleeStartingUnitsHuman takes player whichPlayer, location startLoc, boolean doHeroes, boolean doCamera, boolean doPreload returns nothing
 			bool useRandomHero = IsMapFlagSet(MAP_RANDOM_HERO);//local boolean  useRandomHero = IsMapFlagSet(MAP_RANDOM_HERO)
 			float unitSpacing = 64.00;//local real     unitSpacing   = 64.00
-			int nearestMine;//local unit     nearestMine
+			unit nearestMine;//local unit     nearestMine
 			location nearMineLoc;//local location nearMineLoc
 			location heroLoc;//local location heroLoc
 			float peonX;//local real     peonX
 			float peonY;//local real     peonY
-			int townHall = null;//local unit     townHall = null
+			unit townHall = null;//local unit     townHall = null
 			if ((doPreload)) {//if (doPreload) then
 				Preloader("scripts\\HumanMelee.pld");//call Preloader( "scripts\\HumanMelee.pld" )
 			}//endif
@@ -6947,7 +6947,7 @@ namespace Jass {
 		private void MeleeStartingUnitsOrc(player whichPlayer, location startLoc, bool doHeroes, bool doCamera, bool doPreload) {//function MeleeStartingUnitsOrc takes player whichPlayer, location startLoc, boolean doHeroes, boolean doCamera, boolean doPreload returns nothing
 			bool useRandomHero = IsMapFlagSet(MAP_RANDOM_HERO);//local boolean  useRandomHero = IsMapFlagSet(MAP_RANDOM_HERO)
 			float unitSpacing = 64.00;//local real     unitSpacing   = 64.00
-			int nearestMine;//local unit     nearestMine
+			unit nearestMine;//local unit     nearestMine
 			location nearMineLoc;//local location nearMineLoc
 			location heroLoc;//local location heroLoc
 			float peonX;//local real     peonX
@@ -7010,7 +7010,7 @@ namespace Jass {
 		private void MeleeStartingUnitsUndead(player whichPlayer, location startLoc, bool doHeroes, bool doCamera, bool doPreload) {//function MeleeStartingUnitsUndead takes player whichPlayer, location startLoc, boolean doHeroes, boolean doCamera, boolean doPreload returns nothing
 			bool useRandomHero = IsMapFlagSet(MAP_RANDOM_HERO);//local boolean  useRandomHero = IsMapFlagSet(MAP_RANDOM_HERO)
 			float unitSpacing = 64.00;//local real     unitSpacing   = 64.00
-			int nearestMine;//local unit     nearestMine
+			unit nearestMine;//local unit     nearestMine
 			location nearMineLoc;//local location nearMineLoc
 			location nearTownLoc;//local location nearTownLoc
 			location heroLoc;//local location heroLoc
@@ -7083,13 +7083,13 @@ namespace Jass {
 			float unitSpacing = 64.00;//local real     unitSpacing   = 64.00
 			float minTreeDist = 3.50 * bj_CELLWIDTH;//local real     minTreeDist   = 3.50 * bj_CELLWIDTH
 			float minWispDist = 1.75 * bj_CELLWIDTH;//local real     minWispDist   = 1.75 * bj_CELLWIDTH
-			int nearestMine;//local unit     nearestMine
+			unit nearestMine;//local unit     nearestMine
 			location nearMineLoc;//local location nearMineLoc
 			location wispLoc;//local location wispLoc
 			location heroLoc;//local location heroLoc
 			float peonX;//local real     peonX
 			float peonY;//local real     peonY
-			int tree;//local unit     tree
+			unit tree;//local unit     tree
 			if ((doPreload)) {//if (doPreload) then
 				Preloader("scripts\\NightElfMelee.pld");//call Preloader( "scripts\\NightElfMelee.pld" )
 			}//endif
@@ -7273,7 +7273,7 @@ namespace Jass {
 				if (index == bj_MAX_PLAYERS) { break; }//exitwhen index == bj_MAX_PLAYERS
 			}//endloop
 		}//endfunction
-		private void LockGuardPosition(int targ) {//function LockGuardPosition takes unit targ returns nothing
+		private void LockGuardPosition(unit targ) {//function LockGuardPosition takes unit targ returns nothing
 			SetUnitCreepGuard(targ,true);//call SetUnitCreepGuard(targ,true)
 		}//endfunction
 		//
@@ -7709,7 +7709,7 @@ namespace Jass {
 		//
 		//
 		//
-		private void MeleeCheckLostUnit(int lostUnit) {//function MeleeCheckLostUnit takes unit lostUnit returns nothing
+		private void MeleeCheckLostUnit(unit lostUnit) {//function MeleeCheckLostUnit takes unit lostUnit returns nothing
 			player lostUnitOwner = GetOwningPlayer(lostUnit);//local player lostUnitOwner = GetOwningPlayer(lostUnit)
 			//
 			if ((GetPlayerStructureCount(lostUnitOwner, true) <= 0)) {//if (GetPlayerStructureCount(lostUnitOwner, true) <= 0) then
@@ -7723,7 +7723,7 @@ namespace Jass {
 		//
 		//
 		//
-		private void MeleeCheckAddedUnit(int addedUnit) {//function MeleeCheckAddedUnit takes unit addedUnit returns nothing
+		private void MeleeCheckAddedUnit(unit addedUnit) {//function MeleeCheckAddedUnit takes unit addedUnit returns nothing
 			player addedUnitOwner = GetOwningPlayer(addedUnit);//local player addedUnitOwner = GetOwningPlayer(addedUnit)
 			//
 			if ((bj_playerIsCrippled[GetPlayerId(addedUnitOwner)])) {//if (bj_playerIsCrippled[GetPlayerId(addedUnitOwner)]) then
@@ -8505,7 +8505,7 @@ namespace Jass {
 		//
 		//
 		//
-		private item UnitDropItem(int inUnit, int inItemID) {//function UnitDropItem takes unit inUnit, integer inItemID returns item
+		private item UnitDropItem(unit inUnit, int inItemID) {//function UnitDropItem takes unit inUnit, integer inItemID returns item
 			float x;//local real x
 			float y;//local real y
 			float radius = 32;//local real radius = 32

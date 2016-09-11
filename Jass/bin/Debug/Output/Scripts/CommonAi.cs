@@ -8,129 +8,129 @@ namespace Jass {
 		//
 		//
 		//
-		public static void DebugS(string str) {  }//native DebugS               takes string str                            returns nothing
-		public static void DebugFI(string str, int val) {  }//native DebugFI              takes string str, integer val               returns nothing
-		public static void DebugUnitID(string str, int val) {  }//native DebugUnitID          takes string str, integer val               returns nothing
-		public static void DisplayText(int p, string str) {  }//native DisplayText          takes integer p, string str                 returns nothing
-		public static void DisplayTextI(int p, string str, int val) {  }//native DisplayTextI         takes integer p, string str, integer val    returns nothing
-		public static void DisplayTextII(int p, string str, int v1, int v2) {  }//native DisplayTextII        takes integer p, string str, integer v1, integer v2 returns nothing
-		public static void DisplayTextIII(int p, string str, int v1, int v2, int v3) {  }//native DisplayTextIII       takes integer p, string str, integer v1, integer v2, integer v3 returns nothing
-		public static bool DoAiScriptDebug(nothin g) { return false; }//native DoAiScriptDebug      takes nothing                               returns boolean
-		public static int GetAiPlayer(nothin g) { return 0; }//native GetAiPlayer          takes nothing                               returns integer
-		public static int GetHeroId(nothin g) { return 0; }//native GetHeroId            takes nothing                               returns integer
-		public static int GetHeroLevelAI(nothin g) { return 0; }//native GetHeroLevelAI       takes nothing                               returns integer
-		public static int GetUnitCount(int unitid) { return 0; }//native GetUnitCount         takes integer unitid                        returns integer
-		public static int GetPlayerUnitTypeCount(player p, int unitid) { return 0; }//native GetPlayerUnitTypeCount takes player p, integer unitid            returns integer
-		public static int GetUnitCountDone(int unitid) { return 0; }//native GetUnitCountDone     takes integer unitid                        returns integer
-		public static int GetTownUnitCount(int id, int tn, bool dn) { return 0; }//native GetTownUnitCount     takes integer id, integer tn, boolean dn    returns integer
-		public static int GetUnitGoldCost(int unitid) { return 0; }//native GetUnitGoldCost      takes integer unitid                        returns integer
-		public static int GetUnitWoodCost(int unitid) { return 0; }//native GetUnitWoodCost      takes integer unitid                        returns integer
-		public static int GetUnitBuildTime(int unitid) { return 0; }//native GetUnitBuildTime     takes integer unitid                        returns integer
-		public static int GetMinesOwned(nothin g) { return 0; }//native GetMinesOwned        takes nothing                               returns integer
-		public static int GetGoldOwned(nothin g) { return 0; }//native GetGoldOwned         takes nothing                               returns integer
-		public static int TownWithMine(nothin g) { return 0; }//native TownWithMine         takes nothing                               returns integer
-		public static bool TownHasMine(int townid) { return false; }//native TownHasMine          takes integer townid                        returns boolean
-		public static bool TownHasHall(int townid) { return false; }//native TownHasHall          takes integer townid                        returns boolean
-		public static int GetUpgradeLevel(int id) { return 0; }//native GetUpgradeLevel      takes integer id                            returns integer
-		public static int GetUpgradeGoldCost(int id) { return 0; }//native GetUpgradeGoldCost   takes integer id                            returns integer
-		public static int GetUpgradeWoodCost(int id) { return 0; }//native GetUpgradeWoodCost   takes integer id                            returns integer
-		public static int GetNextExpansion(nothin g) { return 0; }//native GetNextExpansion     takes nothing                               returns integer
-		public static int GetMegaTarget(nothin g) { return 0; }//native GetMegaTarget        takes nothing                               returns unit
-		public static int GetBuilding(player p) { return 0; }//native GetBuilding          takes player p                              returns unit
-		public static int GetEnemyPower(nothin g) { return 0; }//native GetEnemyPower        takes nothing                               returns integer
-		public static void SetAllianceTarget(int id) {  }//native SetAllianceTarget    takes unit id                               returns nothing
-		public static int GetAllianceTarget(nothin g) { return 0; }//native GetAllianceTarget    takes nothing                               returns unit
-		public static bool SetProduce(int qty, int id, int town) { return false; }//native SetProduce           takes integer qty, integer id, integer town returns boolean
-		public static void Unsummon(int unitid) {  }//native Unsummon             takes unit unitid                           returns nothing
-		public static bool SetExpansion(int peon, int id) { return false; }//native SetExpansion         takes unit peon, integer id                 returns boolean
-		public static bool SetUpgrade(int id) { return false; }//native SetUpgrade           takes integer id                            returns boolean
-		public static void SetHeroLevels(code func) {  }//native SetHeroLevels        takes code func                             returns nothing
-		public static void SetNewHeroes(bool state) {  }//native SetNewHeroes         takes boolean state                         returns nothing
-		public static void PurchaseZeppelin(nothin g) {  }//native PurchaseZeppelin     takes nothing                               returns nothing
-		public static bool MergeUnits(int qty, int a, int b, int make) { return false; }//native MergeUnits           takes integer qty, integer a, integer b, integer make returns boolean
-		public static bool ConvertUnits(int qty, int id) { return false; }//native ConvertUnits         takes integer qty, integer id               returns boolean
-		public static void SetCampaignAI(nothin g) {  }//native SetCampaignAI        takes nothing                               returns nothing
-		public static void SetMeleeAI(nothin g) {  }//native SetMeleeAI           takes nothing                               returns nothing
-		public static void SetTargetHeroes(bool state) {  }//native SetTargetHeroes      takes boolean state                         returns nothing
-		public static void SetPeonsRepair(bool state) {  }//native SetPeonsRepair       takes boolean state                         returns nothing
-		public static void SetRandomPaths(bool state) {  }//native SetRandomPaths       takes boolean state                         returns nothing
-		public static void SetDefendPlayer(bool state) {  }//native SetDefendPlayer      takes boolean state                         returns nothing
-		public static void SetHeroesFlee(bool state) {  }//native SetHeroesFlee        takes boolean state                         returns nothing
-		public static void SetHeroesBuyItems(bool state) {  }//native SetHeroesBuyItems    takes boolean state                         returns nothing
-		public static void SetWatchMegaTargets(bool state) {  }//native SetWatchMegaTargets  takes boolean state                         returns nothing
-		public static void SetIgnoreInjured(bool state) {  }//native SetIgnoreInjured     takes boolean state                         returns nothing
-		public static void SetHeroesTakeItems(bool state) {  }//native SetHeroesTakeItems   takes boolean state                         returns nothing
-		public static void SetUnitsFlee(bool state) {  }//native SetUnitsFlee         takes boolean state                         returns nothing
-		public static void SetGroupsFlee(bool state) {  }//native SetGroupsFlee        takes boolean state                         returns nothing
-		public static void SetSlowChopping(bool state) {  }//native SetSlowChopping      takes boolean state                         returns nothing
-		public static void SetCaptainChanges(bool allow) {  }//native SetCaptainChanges    takes boolean allow                         returns nothing
-		public static void SetSmartArtillery(bool state) {  }//native SetSmartArtillery    takes boolean state                         returns nothing
-		public static void SetReplacementCount(int qty) {  }//native SetReplacementCount  takes integer qty                           returns nothing
-		public static void GroupTimedLife(bool allow) {  }//native GroupTimedLife       takes boolean allow                         returns nothing
-		public static void RemoveInjuries(nothin g) {  }//native RemoveInjuries       takes nothing                               returns nothing
-		public static void RemoveSiege(nothin g) {  }//native RemoveSiege          takes nothing                               returns nothing
-		public static void InitAssault(nothin g) {  }//native InitAssault          takes nothing                               returns nothing
-		public static bool AddAssault(int qty, int id) { return false; }//native AddAssault           takes integer qty, integer id               returns boolean
-		public static bool AddDefenders(int qty, int id) { return false; }//native AddDefenders         takes integer qty, integer id               returns boolean
-		public static int GetCreepCamp(int min, int max, bool flyers_ok) { return 0; }//native GetCreepCamp         takes integer min, integer max, boolean flyers_ok returns unit
-		public static void StartGetEnemyBase(nothin g) {  }//native StartGetEnemyBase    takes nothing                               returns nothing
-		public static bool WaitGetEnemyBase(nothin g) { return false; }//native WaitGetEnemyBase     takes nothing                               returns boolean
-		public static int GetEnemyBase(nothin g) { return 0; }//native GetEnemyBase         takes nothing                               returns unit
-		public static int GetExpansionFoe(nothin g) { return 0; }//native GetExpansionFoe      takes nothing                               returns unit
-		public static int GetEnemyExpansion(nothin g) { return 0; }//native GetEnemyExpansion    takes nothing                               returns unit
-		public static int GetExpansionX(nothin g) { return 0; }//native GetExpansionX        takes nothing                               returns integer
-		public static int GetExpansionY(nothin g) { return 0; }//native GetExpansionY        takes nothing                               returns integer
-		public static void SetStagePoint(float x, float y) {  }//native SetStagePoint        takes real x, real y                        returns nothing
-		public static void AttackMoveKill(int target) {  }//native AttackMoveKill       takes unit target                           returns nothing
-		public static void AttackMoveXY(int x, int y) {  }//native AttackMoveXY         takes integer x, integer y                  returns nothing
-		public static void LoadZepWave(int x, int y) {  }//native LoadZepWave          takes integer x, integer y                  returns nothing
-		public static bool SuicidePlayer(player id, bool check_full) { return false; }//native SuicidePlayer        takes player id, boolean check_full         returns boolean
-		public static bool SuicidePlayerUnits(player id, bool check_full) { return false; }//native SuicidePlayerUnits   takes player id, boolean check_full         returns boolean
-		public static bool CaptainInCombat(bool attack_captain) { return false; }//native CaptainInCombat      takes boolean attack_captain                returns boolean
-		public static bool IsTowered(int target) { return false; }//native IsTowered            takes unit target                           returns boolean
-		public static void ClearHarvestAI(nothin g) {  }//native ClearHarvestAI       takes nothing                               returns nothing
-		public static void HarvestGold(int town, int peons) {  }//native HarvestGold          takes integer town, integer peons           returns nothing
-		public static void HarvestWood(int town, int peons) {  }//native HarvestWood          takes integer town, integer peons           returns nothing
-		public static int GetExpansionPeon(nothin g) { return 0; }//native GetExpansionPeon     takes nothing                               returns unit
-		public static void StopGathering(nothin g) {  }//native StopGathering        takes nothing                               returns nothing
-		public static void AddGuardPost(int id, float x, float y) {  }//native AddGuardPost         takes integer id, real x, real y            returns nothing
-		public static void FillGuardPosts(nothin g) {  }//native FillGuardPosts       takes nothing                               returns nothing
-		public static void ReturnGuardPosts(nothin g) {  }//native ReturnGuardPosts     takes nothing                               returns nothing
-		public static void CreateCaptains(nothin g) {  }//native CreateCaptains       takes nothing                               returns nothing
-		public static void SetCaptainHome(int which, float x, float y) {  }//native SetCaptainHome       takes integer which, real x, real y         returns nothing
-		public static void ResetCaptainLocs(nothin g) {  }//native ResetCaptainLocs     takes nothing                               returns nothing
-		public static void ShiftTownSpot(float x, float y) {  }//native ShiftTownSpot        takes real x, real y                        returns nothing
-		public static void TeleportCaptain(float x, float y) {  }//native TeleportCaptain      takes real x, real y                        returns nothing
-		public static void ClearCaptainTargets(nothin g) {  }//native ClearCaptainTargets  takes nothing                               returns nothing
-		public static void CaptainAttack(float x, float y) {  }//native CaptainAttack        takes real x, real y                        returns nothing
-		public static void CaptainVsUnits(player id) {  }//native CaptainVsUnits       takes player id                             returns nothing
-		public static void CaptainVsPlayer(player id) {  }//native CaptainVsPlayer      takes player id                             returns nothing
-		public static void CaptainGoHome(nothin g) {  }//native CaptainGoHome        takes nothing                               returns nothing
-		public static bool CaptainIsHome(nothin g) { return false; }//native CaptainIsHome        takes nothing                               returns boolean
-		public static bool CaptainIsFull(nothin g) { return false; }//native CaptainIsFull        takes nothing                               returns boolean
-		public static bool CaptainIsEmpty(nothin g) { return false; }//native CaptainIsEmpty       takes nothing                               returns boolean
-		public static int CaptainGroupSize(nothin g) { return 0; }//native CaptainGroupSize     takes nothing                               returns integer
-		public static int CaptainReadiness(nothin g) { return 0; }//native CaptainReadiness     takes nothing                               returns integer
-		public static bool CaptainRetreating(nothin g) { return false; }//native CaptainRetreating    takes nothing                               returns boolean
-		public static int CaptainReadinessHP(nothin g) { return 0; }//native CaptainReadinessHP   takes nothing                               returns integer
-		public static int CaptainReadinessMa(nothin g) { return 0; }//native CaptainReadinessMa   takes nothing                               returns integer
-		public static bool CaptainAtGoal(nothin g) { return false; }//native CaptainAtGoal        takes nothing                               returns boolean
-		public static bool CreepsOnMap(nothin g) { return false; }//native CreepsOnMap          takes nothing                               returns boolean
-		public static void SuicideUnit(int count, int unitid) {  }//native SuicideUnit          takes integer count, integer unitid         returns nothing
-		public static void SuicideUnitEx(int ct, int uid, int pid) {  }//native SuicideUnitEx        takes integer ct, integer uid, integer pid  returns nothing
-		public static void StartThread(code func) {  }//native StartThread          takes code func                             returns nothing
-		public static void Sleep(float seconds) {  }//native Sleep                takes real seconds                          returns nothing
-		public static bool UnitAlive(int id) { return false; }//native UnitAlive            takes unit id                               returns boolean
-		public static bool UnitInvis(int id) { return false; }//native UnitInvis            takes unit id                               returns boolean
-		public static int IgnoredUnits(int unitid) { return 0; }//native IgnoredUnits         takes integer unitid                        returns integer
-		public static bool TownThreatened(nothin g) { return false; }//native TownThreatened       takes nothing                               returns boolean
-		public static void DisablePathing(nothin g) {  }//native DisablePathing       takes nothing                               returns nothing
-		public static void SetAmphibious(nothin g) {  }//native SetAmphibious        takes nothing                               returns nothing
-		public static int CommandsWaiting(nothin g) { return 0; }//native CommandsWaiting      takes nothing                               returns integer
-		public static int GetLastCommand(nothin g) { return 0; }//native GetLastCommand       takes nothing                               returns integer
-		public static int GetLastData(nothin g) { return 0; }//native GetLastData          takes nothing                               returns integer
-		public static void PopLastCommand(nothin g) {  }//native PopLastCommand       takes nothing                               returns nothing
-		public static int MeleeDifficulty(nothin g) { return 0; }//native MeleeDifficulty      takes nothing                               returns integer
+		public static void DebugS(string str);//native DebugS               takes string str                            returns nothing
+		public static void DebugFI(string str, int val);//native DebugFI              takes string str, integer val               returns nothing
+		public static void DebugUnitID(string str, int val);//native DebugUnitID          takes string str, integer val               returns nothing
+		public static void DisplayText(int p, string str);//native DisplayText          takes integer p, string str                 returns nothing
+		public static void DisplayTextI(int p, string str, int val);//native DisplayTextI         takes integer p, string str, integer val    returns nothing
+		public static void DisplayTextII(int p, string str, int v1, int v2);//native DisplayTextII        takes integer p, string str, integer v1, integer v2 returns nothing
+		public static void DisplayTextIII(int p, string str, int v1, int v2, int v3);//native DisplayTextIII       takes integer p, string str, integer v1, integer v2, integer v3 returns nothing
+		public static bool DoAiScriptDebug(nothin g);//native DoAiScriptDebug      takes nothing                               returns boolean
+		public static int GetAiPlayer(nothin g);//native GetAiPlayer          takes nothing                               returns integer
+		public static int GetHeroId(nothin g);//native GetHeroId            takes nothing                               returns integer
+		public static int GetHeroLevelAI(nothin g);//native GetHeroLevelAI       takes nothing                               returns integer
+		public static int GetUnitCount(int unitid);//native GetUnitCount         takes integer unitid                        returns integer
+		public static int GetPlayerUnitTypeCount(player p, int unitid);//native GetPlayerUnitTypeCount takes player p, integer unitid            returns integer
+		public static int GetUnitCountDone(int unitid);//native GetUnitCountDone     takes integer unitid                        returns integer
+		public static int GetTownUnitCount(int id, int tn, bool dn);//native GetTownUnitCount     takes integer id, integer tn, boolean dn    returns integer
+		public static int GetUnitGoldCost(int unitid);//native GetUnitGoldCost      takes integer unitid                        returns integer
+		public static int GetUnitWoodCost(int unitid);//native GetUnitWoodCost      takes integer unitid                        returns integer
+		public static int GetUnitBuildTime(int unitid);//native GetUnitBuildTime     takes integer unitid                        returns integer
+		public static int GetMinesOwned(nothin g);//native GetMinesOwned        takes nothing                               returns integer
+		public static int GetGoldOwned(nothin g);//native GetGoldOwned         takes nothing                               returns integer
+		public static int TownWithMine(nothin g);//native TownWithMine         takes nothing                               returns integer
+		public static bool TownHasMine(int townid);//native TownHasMine          takes integer townid                        returns boolean
+		public static bool TownHasHall(int townid);//native TownHasHall          takes integer townid                        returns boolean
+		public static int GetUpgradeLevel(int id);//native GetUpgradeLevel      takes integer id                            returns integer
+		public static int GetUpgradeGoldCost(int id);//native GetUpgradeGoldCost   takes integer id                            returns integer
+		public static int GetUpgradeWoodCost(int id);//native GetUpgradeWoodCost   takes integer id                            returns integer
+		public static int GetNextExpansion(nothin g);//native GetNextExpansion     takes nothing                               returns integer
+		public static unit GetMegaTarget(nothin g);//native GetMegaTarget        takes nothing                               returns unit
+		public static unit GetBuilding(player p);//native GetBuilding          takes player p                              returns unit
+		public static int GetEnemyPower(nothin g);//native GetEnemyPower        takes nothing                               returns integer
+		public static void SetAllianceTarget(unit id);//native SetAllianceTarget    takes unit id                               returns nothing
+		public static unit GetAllianceTarget(nothin g);//native GetAllianceTarget    takes nothing                               returns unit
+		public static bool SetProduce(int qty, int id, int town);//native SetProduce           takes integer qty, integer id, integer town returns boolean
+		public static void Unsummon(unit unitid);//native Unsummon             takes unit unitid                           returns nothing
+		public static bool SetExpansion(unit peon, int id);//native SetExpansion         takes unit peon, integer id                 returns boolean
+		public static bool SetUpgrade(int id);//native SetUpgrade           takes integer id                            returns boolean
+		public static void SetHeroLevels(code func);//native SetHeroLevels        takes code func                             returns nothing
+		public static void SetNewHeroes(bool state);//native SetNewHeroes         takes boolean state                         returns nothing
+		public static void PurchaseZeppelin(nothin g);//native PurchaseZeppelin     takes nothing                               returns nothing
+		public static bool MergeUnits(int qty, int a, int b, int make);//native MergeUnits           takes integer qty, integer a, integer b, integer make returns boolean
+		public static bool ConvertUnits(int qty, int id);//native ConvertUnits         takes integer qty, integer id               returns boolean
+		public static void SetCampaignAI(nothin g);//native SetCampaignAI        takes nothing                               returns nothing
+		public static void SetMeleeAI(nothin g);//native SetMeleeAI           takes nothing                               returns nothing
+		public static void SetTargetHeroes(bool state);//native SetTargetHeroes      takes boolean state                         returns nothing
+		public static void SetPeonsRepair(bool state);//native SetPeonsRepair       takes boolean state                         returns nothing
+		public static void SetRandomPaths(bool state);//native SetRandomPaths       takes boolean state                         returns nothing
+		public static void SetDefendPlayer(bool state);//native SetDefendPlayer      takes boolean state                         returns nothing
+		public static void SetHeroesFlee(bool state);//native SetHeroesFlee        takes boolean state                         returns nothing
+		public static void SetHeroesBuyItems(bool state);//native SetHeroesBuyItems    takes boolean state                         returns nothing
+		public static void SetWatchMegaTargets(bool state);//native SetWatchMegaTargets  takes boolean state                         returns nothing
+		public static void SetIgnoreInjured(bool state);//native SetIgnoreInjured     takes boolean state                         returns nothing
+		public static void SetHeroesTakeItems(bool state);//native SetHeroesTakeItems   takes boolean state                         returns nothing
+		public static void SetUnitsFlee(bool state);//native SetUnitsFlee         takes boolean state                         returns nothing
+		public static void SetGroupsFlee(bool state);//native SetGroupsFlee        takes boolean state                         returns nothing
+		public static void SetSlowChopping(bool state);//native SetSlowChopping      takes boolean state                         returns nothing
+		public static void SetCaptainChanges(bool allow);//native SetCaptainChanges    takes boolean allow                         returns nothing
+		public static void SetSmartArtillery(bool state);//native SetSmartArtillery    takes boolean state                         returns nothing
+		public static void SetReplacementCount(int qty);//native SetReplacementCount  takes integer qty                           returns nothing
+		public static void GroupTimedLife(bool allow);//native GroupTimedLife       takes boolean allow                         returns nothing
+		public static void RemoveInjuries(nothin g);//native RemoveInjuries       takes nothing                               returns nothing
+		public static void RemoveSiege(nothin g);//native RemoveSiege          takes nothing                               returns nothing
+		public static void InitAssault(nothin g);//native InitAssault          takes nothing                               returns nothing
+		public static bool AddAssault(int qty, int id);//native AddAssault           takes integer qty, integer id               returns boolean
+		public static bool AddDefenders(int qty, int id);//native AddDefenders         takes integer qty, integer id               returns boolean
+		public static unit GetCreepCamp(int min, int max, bool flyers_ok);//native GetCreepCamp         takes integer min, integer max, boolean flyers_ok returns unit
+		public static void StartGetEnemyBase(nothin g);//native StartGetEnemyBase    takes nothing                               returns nothing
+		public static bool WaitGetEnemyBase(nothin g);//native WaitGetEnemyBase     takes nothing                               returns boolean
+		public static unit GetEnemyBase(nothin g);//native GetEnemyBase         takes nothing                               returns unit
+		public static unit GetExpansionFoe(nothin g);//native GetExpansionFoe      takes nothing                               returns unit
+		public static unit GetEnemyExpansion(nothin g);//native GetEnemyExpansion    takes nothing                               returns unit
+		public static int GetExpansionX(nothin g);//native GetExpansionX        takes nothing                               returns integer
+		public static int GetExpansionY(nothin g);//native GetExpansionY        takes nothing                               returns integer
+		public static void SetStagePoint(float x, float y);//native SetStagePoint        takes real x, real y                        returns nothing
+		public static void AttackMoveKill(unit target);//native AttackMoveKill       takes unit target                           returns nothing
+		public static void AttackMoveXY(int x, int y);//native AttackMoveXY         takes integer x, integer y                  returns nothing
+		public static void LoadZepWave(int x, int y);//native LoadZepWave          takes integer x, integer y                  returns nothing
+		public static bool SuicidePlayer(player id, bool check_full);//native SuicidePlayer        takes player id, boolean check_full         returns boolean
+		public static bool SuicidePlayerUnits(player id, bool check_full);//native SuicidePlayerUnits   takes player id, boolean check_full         returns boolean
+		public static bool CaptainInCombat(bool attack_captain);//native CaptainInCombat      takes boolean attack_captain                returns boolean
+		public static bool IsTowered(unit target);//native IsTowered            takes unit target                           returns boolean
+		public static void ClearHarvestAI(nothin g);//native ClearHarvestAI       takes nothing                               returns nothing
+		public static void HarvestGold(int town, int peons);//native HarvestGold          takes integer town, integer peons           returns nothing
+		public static void HarvestWood(int town, int peons);//native HarvestWood          takes integer town, integer peons           returns nothing
+		public static unit GetExpansionPeon(nothin g);//native GetExpansionPeon     takes nothing                               returns unit
+		public static void StopGathering(nothin g);//native StopGathering        takes nothing                               returns nothing
+		public static void AddGuardPost(int id, float x, float y);//native AddGuardPost         takes integer id, real x, real y            returns nothing
+		public static void FillGuardPosts(nothin g);//native FillGuardPosts       takes nothing                               returns nothing
+		public static void ReturnGuardPosts(nothin g);//native ReturnGuardPosts     takes nothing                               returns nothing
+		public static void CreateCaptains(nothin g);//native CreateCaptains       takes nothing                               returns nothing
+		public static void SetCaptainHome(int which, float x, float y);//native SetCaptainHome       takes integer which, real x, real y         returns nothing
+		public static void ResetCaptainLocs(nothin g);//native ResetCaptainLocs     takes nothing                               returns nothing
+		public static void ShiftTownSpot(float x, float y);//native ShiftTownSpot        takes real x, real y                        returns nothing
+		public static void TeleportCaptain(float x, float y);//native TeleportCaptain      takes real x, real y                        returns nothing
+		public static void ClearCaptainTargets(nothin g);//native ClearCaptainTargets  takes nothing                               returns nothing
+		public static void CaptainAttack(float x, float y);//native CaptainAttack        takes real x, real y                        returns nothing
+		public static void CaptainVsUnits(player id);//native CaptainVsUnits       takes player id                             returns nothing
+		public static void CaptainVsPlayer(player id);//native CaptainVsPlayer      takes player id                             returns nothing
+		public static void CaptainGoHome(nothin g);//native CaptainGoHome        takes nothing                               returns nothing
+		public static bool CaptainIsHome(nothin g);//native CaptainIsHome        takes nothing                               returns boolean
+		public static bool CaptainIsFull(nothin g);//native CaptainIsFull        takes nothing                               returns boolean
+		public static bool CaptainIsEmpty(nothin g);//native CaptainIsEmpty       takes nothing                               returns boolean
+		public static int CaptainGroupSize(nothin g);//native CaptainGroupSize     takes nothing                               returns integer
+		public static int CaptainReadiness(nothin g);//native CaptainReadiness     takes nothing                               returns integer
+		public static bool CaptainRetreating(nothin g);//native CaptainRetreating    takes nothing                               returns boolean
+		public static int CaptainReadinessHP(nothin g);//native CaptainReadinessHP   takes nothing                               returns integer
+		public static int CaptainReadinessMa(nothin g);//native CaptainReadinessMa   takes nothing                               returns integer
+		public static bool CaptainAtGoal(nothin g);//native CaptainAtGoal        takes nothing                               returns boolean
+		public static bool CreepsOnMap(nothin g);//native CreepsOnMap          takes nothing                               returns boolean
+		public static void SuicideUnit(int count, int unitid);//native SuicideUnit          takes integer count, integer unitid         returns nothing
+		public static void SuicideUnitEx(int ct, int uid, int pid);//native SuicideUnitEx        takes integer ct, integer uid, integer pid  returns nothing
+		public static void StartThread(code func);//native StartThread          takes code func                             returns nothing
+		public static void Sleep(float seconds);//native Sleep                takes real seconds                          returns nothing
+		public static bool UnitAlive(unit id);//native UnitAlive            takes unit id                               returns boolean
+		public static bool UnitInvis(unit id);//native UnitInvis            takes unit id                               returns boolean
+		public static int IgnoredUnits(int unitid);//native IgnoredUnits         takes integer unitid                        returns integer
+		public static bool TownThreatened(nothin g);//native TownThreatened       takes nothing                               returns boolean
+		public static void DisablePathing(nothin g);//native DisablePathing       takes nothing                               returns nothing
+		public static void SetAmphibious(nothin g);//native SetAmphibious        takes nothing                               returns nothing
+		public static int CommandsWaiting(nothin g);//native CommandsWaiting      takes nothing                               returns integer
+		public static int GetLastCommand(nothin g);//native GetLastCommand       takes nothing                               returns integer
+		public static int GetLastData(nothin g);//native GetLastData          takes nothing                               returns integer
+		public static void PopLastCommand(nothin g);//native PopLastCommand       takes nothing                               returns nothing
+		public static int MeleeDifficulty(nothin g);//native MeleeDifficulty      takes nothing                               returns integer
 		//
 		//
 		//
@@ -799,11 +799,11 @@ namespace Jass {
 			do_campaign_farms = state;//set do_campaign_farms = state
 		}//endfunction
 		//
-		private int GetMinorCreep() {//function GetMinorCreep takes nothing returns unit
+		private unit GetMinorCreep() {//function GetMinorCreep takes nothing returns unit
 			return GetCreepCamp(0,9,false);//return GetCreepCamp(0,9,false)
 		}//endfunction
 		//
-		private int GetMajorCreep() {//function GetMajorCreep takes nothing returns unit
+		private unit GetMajorCreep() {//function GetMajorCreep takes nothing returns unit
 			return GetCreepCamp(10,100,allow_air_creeps);//return GetCreepCamp(10,100,allow_air_creeps)
 		}//endfunction
 		//
@@ -1134,7 +1134,7 @@ namespace Jass {
 		private bool StartExpansion(int qty, int hall) {//function StartExpansion takes integer qty, integer hall returns boolean
 			int count;//local integer count
 			int town;//local integer town
-			int peon;//local unit    peon
+			unit peon;//local unit    peon
 			int gold_cost;//local integer gold_cost
 			count = TownCount(hall);//set count = TownCount(hall)
 			if (count >= qty) {//if count >= qty then
@@ -1695,7 +1695,7 @@ namespace Jass {
 			}//endloop
 		}//endfunction
 		//
-		private void CommonSleepUntilTargetDead(int target, bool reform) {//function CommonSleepUntilTargetDead takes unit target, boolean reform returns nothing
+		private void CommonSleepUntilTargetDead(unit target, bool reform) {//function CommonSleepUntilTargetDead takes unit target, boolean reform returns nothing
 			while (true) {//loop
 				if (CaptainRetreating()) { break; }//exitwhen CaptainRetreating()
 				if (CaptainReadinessHP() <= 40) { break; }//exitwhen CaptainReadinessHP() <= 40
@@ -1716,16 +1716,16 @@ namespace Jass {
 			}//endloop
 		}//endfunction
 		//
-		private void SleepUntilTargetDead(int target) {//function SleepUntilTargetDead takes unit target returns nothing
+		private void SleepUntilTargetDead(unit target) {//function SleepUntilTargetDead takes unit target returns nothing
 			CommonSleepUntilTargetDead(target,false);//call CommonSleepUntilTargetDead(target,false)
 		}//endfunction
 		//
-		private void ReformUntilTargetDead(int target) {//function ReformUntilTargetDead takes unit target returns nothing
+		private void ReformUntilTargetDead(unit target) {//function ReformUntilTargetDead takes unit target returns nothing
 			Trace("ReformUntilTargetDead\n");//debug call Trace("ReformUntilTargetDead\n")
 			CommonSleepUntilTargetDead(target,true);//call CommonSleepUntilTargetDead(target,true)
 		}//endfunction
 		//
-		private void AttackMoveKillA(int target) {//function AttackMoveKillA takes unit target returns nothing
+		private void AttackMoveKillA(unit target) {//function AttackMoveKillA takes unit target returns nothing
 			if (target == null) {//if target == null then
 				SuicideSleep(3);//call SuicideSleep(3)
 				return;//return
@@ -1737,28 +1737,28 @@ namespace Jass {
 		}//endfunction
 		//
 		private void MinorCreepAttack() {//function MinorCreepAttack takes nothing returns nothing
-			int target = GetMinorCreep();//local unit target = GetMinorCreep()
+			unit target = GetMinorCreep();//local unit target = GetMinorCreep()
 			SetAllianceTarget(target);//call SetAllianceTarget(target)
 			FormGroup(3, true);//call FormGroup(3, true)
 			AttackMoveKillA(target);//call AttackMoveKillA(target)
 		}//endfunction
 		//
 		private void MajorCreepAttack() {//function MajorCreepAttack takes nothing returns nothing
-			int target = GetMajorCreep();//local unit target = GetMajorCreep()
+			unit target = GetMajorCreep();//local unit target = GetMajorCreep()
 			SetAllianceTarget(target);//call SetAllianceTarget(target)
 			FormGroup(3,true);//call FormGroup(3,true)
 			AttackMoveKillA(target);//call AttackMoveKillA(target)
 		}//endfunction
 		//
 		private void CreepAttackEx() {//function CreepAttackEx takes nothing returns nothing
-			int target = GetCreepCamp(min_creeps,max_creeps,allow_air_creeps);//local unit target = GetCreepCamp(min_creeps,max_creeps,allow_air_creeps)
+			unit target = GetCreepCamp(min_creeps,max_creeps,allow_air_creeps);//local unit target = GetCreepCamp(min_creeps,max_creeps,allow_air_creeps)
 			SetAllianceTarget(target);//call SetAllianceTarget(target)
 			FormGroup(3,true);//call FormGroup(3,true)
 			AttackMoveKillA(target);//call AttackMoveKillA(target)
 		}//endfunction
 		//
 		private void AnyPlayerAttack() {//function AnyPlayerAttack takes nothing returns nothing
-			int hall;//local unit hall
+			unit hall;//local unit hall
 			hall = GetEnemyExpansion();//set hall = GetEnemyExpansion()
 			if (hall == null) {//if hall == null then
 				StartGetEnemyBase();//call StartGetEnemyBase()
@@ -1774,7 +1774,7 @@ namespace Jass {
 		}//endfunction
 		//
 		private void ExpansionAttack() {//function ExpansionAttack takes nothing returns nothing
-			int creep = GetExpansionFoe();//local unit creep = GetExpansionFoe()
+			unit creep = GetExpansionFoe();//local unit creep = GetExpansionFoe()
 			int x;//local integer x
 			FormGroup(3, true);//call FormGroup(3, true)
 			if (creep == null) {//if creep == null then
@@ -1826,10 +1826,10 @@ namespace Jass {
 		private void SingleMeleeAttack(bool needs_exp, bool has_siege, bool major_ok, bool air_units) {//function SingleMeleeAttack takes boolean needs_exp, boolean has_siege, boolean major_ok, boolean air_units returns nothing
 			bool can_siege;//local boolean   can_siege
 			float daytime;//local real      daytime
-			int hall;//local unit      hall
-			int mega;//local unit      mega
-			int creep;//local unit      creep
-			int common;//local unit      common
+			unit hall;//local unit      hall
+			unit mega;//local unit      mega
+			unit creep;//local unit      creep
+			unit common;//local unit      common
 			int minimum;//local integer   minimum
 			bool allies;//local boolean   allies
 			Trace("===SingleMeleeAttack===\n");//call Trace("===SingleMeleeAttack===\n")
@@ -2078,7 +2078,7 @@ namespace Jass {
 		}//endfunction
 		//
 		private void UnsummonAll() {//function UnsummonAll takes nothing returns nothing
-			int bldg;//local unit bldg
+			unit bldg;//local unit bldg
 			while (true) {//loop
 				bldg = GetBuilding(ai_player);//set bldg = GetBuilding(ai_player)
 				if (bldg==null) { break; }//exitwhen bldg==null

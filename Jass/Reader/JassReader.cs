@@ -6,46 +6,35 @@ using System.IO;
 namespace Jass
 {
 
-	public class JassReader : IDisposable
+	public class JassReader : JassDirectory
 	{
-
-		public static List<JassLine> globals = new List<JassLine>();
-		public static List<JassLine> native = new List<JassLine>();
-
-		private DirectoryInfo _inputFolder;
-
-		//contructor
-		public JassReader()
+		
+		//Contructor
+		public JassReader() : base (Settings.InputFolder)
 		{
-			_inputFolder = new DirectoryInfo(Settings.InputFolder);
 		}
 
-		//destructor
-		~JassReader()
+		public JassFile[] ReadAll()
 		{
-			Dispose(false);
-		}
-
-		public string[] GetAllFiles()
-		{
-			FileInfo[] files = _inputFolder.GetFiles("*.*", SearchOption.AllDirectories);
-			string[] relativeFiles = new string[files.Length];
+			FileInfo[] files = _directory.GetFiles("*.*", SearchOption.AllDirectories);
+			JassFile[] jassFiles = new JassFile[files.Length];
 			for (int i = 0; i < files.Length; i++)
 			{
 				FileInfo searchFile = files[i];
-				relativeFiles[i] = searchFile.FullName.Substring(_inputFolder.FullName.Length);
+				jassFiles[i] = Read(searchFile.FullName.Substring(_directory.FullName.Length));
 			}
-			return relativeFiles;
+			return jassFiles;
 		}
 
-		public List<JassLine> Read(string path)
+		public JassFile Read(string path)
 		{
 			Log.Add(string.Format("Read file: {0}", path), ConsoleColor.Blue);
 
-			var result = new List<JassLine>();
-			string[] lines = File.Get(Path.Combine(_inputFolder.ToString(), path)).SplitLines();
+			var file = new JassFile(path);
 
 			bool globalSection = false;
+
+			string[] lines = File.Get(Path.Combine(_directory.ToString(), path)).SplitLines();
 
 			for (int i = 0; i < lines.Length; i++)
 			{
@@ -88,6 +77,7 @@ namespace Jass
 
 				if (line != null)
 				{
+					
 					if (comment != null)
 					{
 						line.Comment = comment.Comment;
@@ -113,51 +103,14 @@ namespace Jass
 
 					line.IsGlobal = globalSection;
 
-					result.Add(line);
-
-					if (line is Function && ((Function)line).isNative)
-					{
-						//добавить в нативный список функций
-						native.Add(line);
-					}
-					else if (globalSection)
-					{
-						//добавить в глоабльный список
-						globals.Add(line);
-					}
+					file.AddLine(line);
 				}
 				else {
 					Log.Add(string.Format("Unknown line: {0}", text), ConsoleColor.DarkRed);
 				}
 			}
 
-			return result;
-		}
-
-		/*
-		 * IDisposable
-		 */
-		private bool disposed = false;
-
-		public void Dispose()
-		{
-			Dispose(true);
-			//подавляем финализацию
-			GC.SuppressFinalize(this);
-		}
-
-		protected virtual void Dispose(bool disposing)
-		{
-			if (!disposed)
-			{
-				if (disposing)
-				{
-					// Освобождаем управляемые ресурсы
-					_inputFolder = null;
-				}
-				// освобождаем неуправляемые объекты
-				disposed = true;
-			}
+			return file;
 		}
 
 	}

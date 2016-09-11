@@ -25,14 +25,6 @@ namespace Jass
 			}
 		}
 
-		public string DefaultValue
-		{
-			get
-			{
-				return info.DefaultValue;
-			}
-		}
-
 		private string name;
 		private ClassInfo info;
 		

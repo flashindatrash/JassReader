@@ -1,35 +1,25 @@
 ﻿using System;
 using System.IO;
 using System.Text;
-using System.Collections.Generic;
 
 namespace Jass
 {
-	public class JassWriter : IDisposable
+	public class JassWriter : JassDirectory
 	{
 		
-		private DirectoryInfo _outputFolder;
-
 		//constructor
-		public JassWriter()
+		public JassWriter() : base (Settings.OutputFolder)
 		{
-			_outputFolder = new DirectoryInfo(Settings.OutputFolder);
-		}
-
-		//destructor
-		~JassWriter()
-		{
-			Dispose(false);
 		}
 
 		public void ClearFolder()
 		{
-			_outputFolder.Clear();
+			_directory.Clear();
 		}
 
-		public void CreateFile(JassFormatter file)
+		public void CreateFile(JassFile file)
 		{
-			string path = Path.Combine(_outputFolder.ToString(), file.Path);
+			string path = Path.Combine(_directory.ToString(), file.FullPath);
 
 			Directory.CreateDirectory(Path.GetDirectoryName(path));
 
@@ -44,7 +34,7 @@ namespace Jass
 				// Create the file.
 				using (FileStream fs = System.IO.File.Create(path))
 				{
-					Byte[] info = new UTF8Encoding().GetBytes(file.Out);
+					Byte[] info = new UTF8Encoding().GetBytes(file.Format());
 					fs.Write(info, 0, info.Length);
 				}
 			}
@@ -55,31 +45,6 @@ namespace Jass
 			}
 		}
 
-		/*
-		 * IDisposable
-		 */
-		private bool disposed = false;
-
-		public void Dispose()
-		{
-			Dispose(true);
-			//подавляем финализацию
-			GC.SuppressFinalize(this);
-		}
-
-		protected virtual void Dispose(bool disposing)
-		{
-			if (!disposed)
-			{
-				if (disposing)
-				{
-					// Освобождаем управляемые ресурсы
-					_outputFolder = null;
-				}
-				// освобождаем неуправляемые объекты
-				disposed = true;
-			}
-		}
 	}
 }
 

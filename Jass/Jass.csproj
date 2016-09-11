@@ -52,7 +52,7 @@
     <Compile Include="Parsers\Args.cs" />
     <Compile Include="Parsers\Takes.cs" />
     <Compile Include="Parsers\Class.cs" />
-    <Compile Include="Parsers\Var.cs" />
+    <Compile Include="Parsers\Take.cs" />
     <Compile Include="Parsers\Name.cs" />
     <Compile Include="Parsers\Comment.cs" />
     <Compile Include="Parsers\Return.cs" />
@@ -74,13 +74,17 @@
     <Compile Include="Utils\Settings.cs" />
     <Compile Include="Utils\File.cs" />
     <Compile Include="Extends\DirectoryInfoExtend.cs" />
-    <Compile Include="Reader\JassLine.cs" />
-    <Compile Include="Reader\JassFormatter.cs" />
     <Compile Include="Parsers\Loop.cs" />
     <Compile Include="Parsers\EndLoop.cs" />
     <Compile Include="Parsers\ExitWhen.cs" />
     <Compile Include="Reader\Interfaces\ISkeep.cs" />
     <Compile Include="Structures\ClassInfo.cs" />
+    <Compile Include="Reader\JassFile.cs" />
+    <Compile Include="Structures\LinkInfo.cs" />
+    <Compile Include="Reader\JassLine.cs" />
+    <Compile Include="Reader\Interfaces\IName.cs" />
+    <Compile Include="Reader\LinkStorage.cs" />
+    <Compile Include="Reader\JassDirectory.cs" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Reader\Interfaces\" />

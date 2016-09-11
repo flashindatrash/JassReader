@@ -3,18 +3,18 @@ using System.Text.RegularExpressions;
 
 namespace Jass
 {
-	public class Var : IParser
+	public class Take : IParser
 	{
-		public const string Pattern = @"^(?<class>[\w_]+)\s*(?<name>[\w_]+)";
+		public const string Pattern = @"^(?<class>" + Class.Pattern + @")\s*(?<name>" + Name.Pattern + @")";
 
 		private readonly Class jclass = new Class();
-		private string name;
+		private readonly Name name = new Name();
 
 		public void Parse(string text)
 		{
 			Match match = Regex.Match(text, Pattern);
 			jclass.Parse(match.Groups["class"].Value);
-			name = match.Groups["name"].Value;
+			name.Parse(match.Groups["name"].Value);
 		}
 
 		public override string ToString()

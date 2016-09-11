@@ -23,20 +23,21 @@ namespace Jass {
 			Core.RegisterClass(ClassType.integer, new ClassInfo("int", "0"));
 			Core.RegisterClass(ClassType.boolean, new ClassInfo("bool", "false"));
 			Core.RegisterClass(ClassType.real, new ClassInfo("float", "0f"));
-			Core.RegisterClass(ClassType.unit, new ClassInfo("int", "0")); //delete
 
 			using (JassWriter writer = new JassWriter())
 			{
 				writer.ClearFolder();
 
+				JassFile[] files;
+
 				using (JassReader reader = new JassReader())
 				{
-					string[] files = reader.GetAllFiles();
-					foreach (string file in files)
-					{
-						var lines = reader.Read(file);
-						writer.CreateFile(new JassFormatter(lines, file, Settings.ClassTemplate));
-					}
+					files = reader.ReadAll();
+				}
+
+				foreach (JassFile file in files)
+				{
+					writer.CreateFile(file);
 				}
 			}
 		}

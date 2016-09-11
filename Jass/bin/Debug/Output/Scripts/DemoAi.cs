@@ -71,7 +71,7 @@ namespace Jass {
 		public static int assault_state = CHECK_CREEPS;//integer assault_state   = CHECK_CREEPS
 		public const int PEON_ASSIGNMENT = 10;//constant integer PEON_ASSIGNMENT = 10
 		public static int peon_timer = 0;//integer peon_timer = 0
-		public static int creep_target;//unit creep_target
+		public static unit creep_target;//unit creep_target
 		//
 		//
 		public static int build_index;//integer build_index

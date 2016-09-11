@@ -97,7 +97,7 @@ namespace Jass {
 		}//endfunction
 		//
 		private void DebugTeleportEnum() {//function DebugTeleportEnum takes nothing returns nothing
-			int u = GetEnumUnit();//local unit u = GetEnumUnit()
+			unit u = GetEnumUnit();//local unit u = GetEnumUnit()
 			SetUnitPosition(u, GetCameraTargetPositionX(), GetCameraTargetPositionY());//call SetUnitPosition(u, GetCameraTargetPositionX(), GetCameraTargetPositionY())
 		}//endfunction
 		//
@@ -137,7 +137,7 @@ namespace Jass {
 		//
 		private void DebugUnitInfoEnum() {//function DebugUnitInfoEnum takes nothing returns nothing
 			player thePlayer = GetTriggerPlayer();//local player thePlayer = GetTriggerPlayer()
-			int theUnit = GetEnumUnit();//local unit   theUnit   = GetEnumUnit()
+			unit theUnit = GetEnumUnit();//local unit   theUnit   = GetEnumUnit()
 			string message;//local string message
 			message = "Player" + I2S(GetPlayerId(GetOwningPlayer(theUnit)));//set message = "Player" + I2S(GetPlayerId(GetOwningPlayer(theUnit)))
 			message = message + " '" + DebugIdInteger2IdString(GetUnitTypeId(theUnit)) + "'";//set message = message + " '" + DebugIdInteger2IdString(GetUnitTypeId(theUnit)) + "'"
@@ -277,7 +277,7 @@ namespace Jass {
 		}//endfunction
 		//
 		private void DebugGotoUnitEnum() {//function DebugGotoUnitEnum takes nothing returns nothing
-			int u = GetEnumUnit();//local unit u = GetEnumUnit()
+			unit u = GetEnumUnit();//local unit u = GetEnumUnit()
 			bj_debugGotoUnitX = bj_debugGotoUnitX + GetUnitX(u);//set bj_debugGotoUnitX = bj_debugGotoUnitX + GetUnitX(u)
 			bj_debugGotoUnitY = bj_debugGotoUnitY + GetUnitY(u);//set bj_debugGotoUnitY = bj_debugGotoUnitY + GetUnitY(u)
 			bj_debugGotoUnits = bj_debugGotoUnits + 1;//set bj_debugGotoUnits = bj_debugGotoUnits + 1

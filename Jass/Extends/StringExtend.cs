@@ -23,6 +23,16 @@ namespace Jass
 			return str.Substring(0, 1).ToUpper() + str.Substring(1, str.Length - 1);
 		}
 
+		public static string EachDotUpper(this string str)
+		{
+			string output = "";
+			foreach (string part in str.SplitDot())
+			{
+				output += part.FirstUpper();
+			}
+			return output;
+		}
+
 	}
 }
 

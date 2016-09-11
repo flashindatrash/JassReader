@@ -8,7 +8,7 @@ namespace Jass
 	{
 		public const string Pattern = @".+";
 
-		private readonly List<Var> takes = new List<Var>();
+		private readonly List<Take> takes = new List<Take>();
 		
 		public void Parse(string text)
 		{
@@ -23,7 +23,7 @@ namespace Jass
 
 			for (int i = 0; i < length; i++)
 			{
-				var v = new Var();
+				var v = new Take();
 				v.Parse(arr[i].Trim());
 				takes.Add(v);
 			}

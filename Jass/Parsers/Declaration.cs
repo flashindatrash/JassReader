@@ -4,7 +4,7 @@ using System.Collections.Generic;
 
 namespace Jass
 {
-	public class Declaration : JassLine, IParser
+	public class Declaration : JassLine, IParser, IName
 	{
 		public const string Pattern = @"^(?:(?<attr>local|constant)\s+)*(?<class>" + Class.Pattern + @")\s+(?<array>array\s+)*(?<name>" + Name.Pattern + @")(?:\s*=\s*(?<eval>" + Eval.Pattern + @"))*\r?$";
 
@@ -30,12 +30,12 @@ namespace Jass
 			}
 		}
 
-		public bool hasEval
+		public bool HasEval
 		{
 			set; get;
 		}
 
-		public bool isArray
+		public bool IsArray
 		{
 			set; get;
 		}
@@ -45,23 +45,28 @@ namespace Jass
 			Match match = Regex.Match(text, Pattern);
 			attr = match.Groups["attr"].Value;
 			jclass.Parse(match.Groups["class"].Value);
-			isArray = !String.IsNullOrEmpty(match.Groups["array"].Value.Trim());
+			IsArray = !String.IsNullOrEmpty(match.Groups["array"].Value.Trim());
 			name.Parse(match.Groups["name"].Value);
 			string e = match.Groups["eval"].Value.Trim();
-			hasEval = !String.IsNullOrEmpty(e);
-			if (hasEval)
+			HasEval = !String.IsNullOrEmpty(e);
+			if (HasEval)
 			{
 				eval.Parse(e);
 			}
+		}
+
+		public string GetName()
+		{
+			return name.ToString();
 		}
 
 		public override string ToString()
 		{
 			return (IsLocal ? "" : IsGlobal ? "public " : "private ") + 
 				(IsConstant ? "const " : IsGlobal ? "static " : "") +
-				(isArray ? jclass + "[] " : jclass + " ") + 
-				name + 
-				(hasEval ? " = " + eval : "") + ";";
+				(IsArray ? jclass + "[] " : jclass + " ") + 
+				GetName() + 
+				(HasEval ? " = " + eval : "") + ";";
 		}
 
 	}
