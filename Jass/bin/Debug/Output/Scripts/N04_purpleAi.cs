@@ -8,6 +8,8 @@ namespace Jass {
 		//
 		//
 		//
+		public const player orcs = Player(0);//constant player orcs = Player(0)
+		public const player humans = Player(9);//constant player humans = Player(9)
 		//
 		//
 		//

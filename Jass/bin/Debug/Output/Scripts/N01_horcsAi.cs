@@ -8,6 +8,10 @@ namespace Jass {
 		//
 		//
 		//
+		public const int SIDE_HUMAN = 1;//constant integer SIDE_HUMAN = 1
+		public const int SIDE_ORC = 2;//constant integer SIDE_ORC   = 2
+		public static int side;//integer side
+		public const player user = Player(1);//constant player user = Player(1)
 		//
 		//
 		//

@@ -14,11 +14,6 @@ namespace Jass
 			get { return ConfigurationManager.AppSettings["output.folder"]; }
 		}
 
-		public static string GlobalsTemplate
-		{
-			get { return ConfigurationManager.AppSettings["globals.tpl"]; }
-		}
-
 		public static string ApiTemplate
 		{
 			get { return ConfigurationManager.AppSettings["api.tpl"]; }

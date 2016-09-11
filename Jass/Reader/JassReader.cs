@@ -110,7 +110,11 @@ namespace Jass
 
 					if (line is ISkeep)
 						continue;
-					
+
+					line.IsGlobal = globalSection;
+
+					result.Add(line);
+
 					if (line is Function && ((Function)line).isNative)
 					{
 						//добавить в нативный список функций
@@ -120,11 +124,6 @@ namespace Jass
 					{
 						//добавить в глоабльный список
 						globals.Add(line);
-					}
-					else
-					{
-						//добавить в текущий класс
-						result.Add(line);
 					}
 				}
 				else {

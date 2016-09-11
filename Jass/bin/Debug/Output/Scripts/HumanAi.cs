@@ -8,6 +8,27 @@ namespace Jass {
 		//
 		//
 		//
+		public static bool startup = true;//boolean startup     = true
+		public static int C_footmen = 0;//integer C_footmen   = 0
+		public static int C_priest = 0;//integer C_priest    = 0
+		public static int C_riflemen = 0;//integer C_riflemen  = 0
+		public static int C_gyro = 0;//integer C_gyro      = 0
+		public static int C_gryphon = 0;//integer C_gryphon   = 0
+		public static int C_vs_air = 0;//integer C_vs_air    = 0
+		public static int max_rifle = 0;//integer max_rifle   = 0
+		public static int max_gyro = 0;//integer max_gyro    = 0
+		public static int max_gryphon = 0;//integer max_gryphon = 0
+		public static bool keep = false;//boolean keep        = false
+		public static bool castle = false;//boolean castle      = false
+		public static bool mill = false;//boolean mill        = false
+		public static bool smith = false;//boolean smith       = false
+		public static bool barracks = false;//boolean barracks    = false
+		public static bool knights = false;//boolean knights     = false
+		public static bool workshop = false;//boolean workshop    = false
+		public static bool sanctum = false;//boolean sanctum     = false
+		public static bool aviary = false;//boolean aviary      = false
+		public static bool priests = false;//boolean priests     = false
+		public static bool sorcery = false;//boolean sorcery     = false
 		//
 		//
 		//

@@ -9,6 +9,81 @@ namespace Jass {
 		//
 		//
 		//
+		//
+		public static int total_gold;//integer total_gold
+		public static int total_wood;//integer total_wood
+		public static int total_stones;//integer total_stones
+		//
+		//
+		public static int altar = 'halt';//integer altar       = 'halt'
+		public static int sanctum = 'hars';//integer sanctum     = 'hars'
+		public static int armory = 'harm';//integer armory      = 'harm'
+		public static int garrison = 'hbar';//integer garrison    = 'hbar'
+		public static int house = 'hhou';//integer house       = 'hhou'
+		public static int town_hall = 'htow';//integer town_hall   = 'htow'
+		public static int smith = 'hbla';//integer smith       = 'hbla'
+		public static int castle = 'hcas';//integer castle      = 'hcas'
+		public static int cannon = 'hctw';//integer cannon      = 'hctw'
+		public static int guard = 'hgtw';//integer guard       = 'hgtw'
+		public static int keep = 'hkee';//integer keep        = 'hkee'
+		public static int church = 'htws';//integer church      = 'htws'
+		public static int mill = 'hlum';//integer mill        = 'hlum'
+		//
+		//
+		public static int peon = 'hpea';//integer peon        = 'hpea'
+		public static int footman = 'hfoo';//integer footman     = 'hfoo'
+		public static int serpent = 'hegr';//integer serpent     = 'hegr'
+		public static int copter = 'hgyr';//integer copter      = 'hgyr'
+		public static int knight = 'hkni';//integer knight      = 'hkni'
+		public static int priest = 'hmpr';//integer priest      = 'hmpr'
+		public static int mortar = 'hmtm';//integer mortar      = 'hmtm'
+		public static int rifle = 'hrif';//integer rifle       = 'hrif'
+		public static int caster = 'hsor';//integer caster      = 'hsor'
+		public static int tank = 'hstt';//integer tank        = 'hstt'
+		public static int elemental = 'hwat';//integer elemental   = 'hwat'
+		//
+		//
+		public static int Uweapons = 'Rhme';//integer Uweapons    = 'Rhme'
+		public static int Uranged = 'Rhra';//integer Uranged     = 'Rhra'
+		public static int Uartillery = 'Rhaa';//integer Uartillery  = 'Rhaa'
+		public static int Uarmor = 'Rhar';//integer Uarmor      = 'Rhar'
+		public static int Ubldgs = 'Rhac';//integer Ubldgs      = 'Rhac'
+		public static int Usight = 'Rhss';//integer Usight      = 'Rhss'
+		//
+		//
+		public static int paladin = 'Hpal';//integer paladin     = 'Hpal'
+		public static int king = 'Hamg';//integer king        = 'Hamg'
+		public static int mage = 'Hmkg';//integer mage        = 'Hmkg'
+		public static int ranger = 'Hran';//integer ranger      = 'Hran'
+		//
+		//
+		public const int END_ASSAULT = 0;//constant integer END_ASSAULT    = 0
+		public const int NO_CREEPS = 1;//constant integer NO_CREEPS      = 1
+		public const int CHECK_CREEPS = 2;//constant integer CHECK_CREEPS   = 2
+		public const int AWAIT_TROOPS = 3;//constant integer AWAIT_TROOPS   = 3
+		public const int KILL_CREEP = 4;//constant integer KILL_CREEP     = 4
+		public const int AWAIT_BATTLE = 5;//constant integer AWAIT_BATTLE   = 5
+		public const int AWAIT_GOAL = 6;//constant integer AWAIT_GOAL     = 6
+		public const int RETURN_HOME = 7;//constant integer RETURN_HOME    = 7
+		public const int AWAIT_HEALING = 8;//constant integer AWAIT_HEALING  = 8
+		public static int assault_timer = 0;//integer assault_timer   = 0
+		public static int assaultN = 1;//integer assaultN        = 1
+		public static int assault_state = CHECK_CREEPS;//integer assault_state   = CHECK_CREEPS
+		public const int PEON_ASSIGNMENT = 10;//constant integer PEON_ASSIGNMENT = 10
+		public static int peon_timer = 0;//integer peon_timer = 0
+		public static int creep_target;//unit creep_target
+		//
+		//
+		public static int build_index;//integer build_index
+		public static int[] build_qty;//integer array build_qty
+		public static int[] build_item;//integer array build_item
+		public static int[] build_type;//integer array build_type
+		public const int NORMAL = 1;//constant integer NORMAL     = 1
+		public const int UPGRADE = 2;//constant integer UPGRADE    = 2
+		public static int assault_index;//integer assault_index
+		public static int[] assault_qty;//integer array assault_qty
+		public static int[] assault_item;//integer array assault_item
+		//
 		private void set_build(int qty, int id) {//function set_build takes integer qty, integer id returns nothing
 			build_qty[build_index] = qty;//set build_qty[build_index] = qty
 			build_item[build_index] = id;//set build_item[build_index] = id

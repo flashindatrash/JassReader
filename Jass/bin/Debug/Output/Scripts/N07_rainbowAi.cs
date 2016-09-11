@@ -8,6 +8,69 @@ namespace Jass {
 		//
 		//
 		//
+		public const int NORMAL_WAVE_DUR = 75;//constant integer NORMAL_WAVE_DUR    = 75
+		public const int HARD_WAVE_DUR = 75;//constant integer HARD_WAVE_DUR      = 75
+		public const int NORM_ALLOW_TREES = 0;//constant integer NORM_ALLOW_TREES   = 0
+		public const int NORM_TREE_FACTOR = 5;//constant integer NORM_TREE_FACTOR   = 5
+		public const int NORM_BASE_BONUS = 0;//constant integer NORM_BASE_BONUS    = 0
+		public const int NORM_BONUS_CAP = 10;//constant integer NORM_BONUS_CAP     = 10
+		public const int HARD_ALLOW_TREES = 0;//constant integer HARD_ALLOW_TREES   = 0
+		public const int HARD_TREE_FACTOR = 4;//constant integer HARD_TREE_FACTOR   = 4
+		public const int HARD_BASE_BONUS = 1;//constant integer HARD_BASE_BONUS    = 1
+		public const int HARD_BONUS_CAP = 10;//constant integer HARD_BONUS_CAP     = 10
+		public const int PIT_STOP_WAVE = 0;//constant integer PIT_STOP_WAVE      = 0
+		public const int BASIC_WAVE1 = 1;//constant integer BASIC_WAVE1        = 1
+		public const int BASIC_WAVE2 = 2;//constant integer BASIC_WAVE2        = 2
+		public const int AIR_WAVE = 3;//constant integer AIR_WAVE           = 3
+		public const int ANTI_AIR_WAVE = 4;//constant integer ANTI_AIR_WAVE      = 4
+		public const int ANTIMAGIC_WAVE = 5;//constant integer ANTIMAGIC_WAVE     = 5
+		public const int SIEGE_WAVE = 6;//constant integer SIEGE_WAVE         = 6
+		public const int POSSESS_WAVE = 7;//constant integer POSSESS_WAVE       = 7
+		public const int SKELETON_WAVE = 8;//constant integer SKELETON_WAVE      = 8
+		public const int PLAGUE_WAVE = 9;//constant integer PLAGUE_WAVE        = 9
+		public const int BURNING_WAVE = 10;//constant integer BURNING_WAVE       = 10
+		public const int F_U1_WAVE = 11;//constant integer F_U1_WAVE          = 11
+		public const int F_U2_WAVE = 12;//constant integer F_U2_WAVE          = 12
+		public const int F_U3_WAVE = 13;//constant integer F_U3_WAVE          = 13
+		public const int CMD_SET_X1 = 1;//constant integer CMD_SET_X1         = 1
+		public const int CMD_SET_Y1 = 2;//constant integer CMD_SET_Y1         = 2
+		public const int CMD_SET_SEQUENCE = 3;//constant integer CMD_SET_SEQUENCE   = 3
+		public const int CMD_SET_TARGET = 4;//constant integer CMD_SET_TARGET     = 4
+		public const int CMD_STOP = 5;//constant integer CMD_STOP           = 5
+		public const int CMD_SET_X2 = 6;//constant integer CMD_SET_X2         = 6
+		public const int CMD_SET_Y2 = 7;//constant integer CMD_SET_Y2         = 7
+		public const int BANSHEE_POSSESS = 'uC00';//constant integer BANSHEE_POSSESS    = 'uC00'
+		public const int BANSHEE_CURSE = 'uC01';//constant integer BANSHEE_CURSE      = 'uC01'
+		public const int BANSHEE_ANTIMAGIC = 'uC02';//constant integer BANSHEE_ANTIMAGIC  = 'uC02'
+		//
+		//
+		//
+		//
+		//
+		public const int BUILD_INFERNAL = 'nC08';//constant integer BUILD_INFERNAL     = 'nC08'
+		//
+		//
+		//
+		public const int GHOULZ = 'uC12';//constant integer GHOULZ             = 'uC12'
+		public static player USER = Player(1);//player USER                         = Player(1)
+		public static int stage_x1 = 0;//integer stage_x1                    = 0
+		public static int stage_y1 = 0;//integer stage_y1                    = 0
+		public static int stage_x2 = 0;//integer stage_x2                    = 0
+		public static int stage_y2 = 0;//integer stage_y2                    = 0
+		public static bool need_stage2 = true;//boolean need_stage2                 = true
+		public static bool at_stage1 = false;//boolean at_stage1                   = false
+		public static bool aborting = false;//boolean aborting                    = false
+		public static bool send_lich = false;//boolean send_lich                   = false
+		public static bool send_lord = false;//boolean send_lord                   = false
+		public static bool send_azga = false;//boolean send_azga                   = false
+		public static int wave_count = 0;//integer wave_count                  = 0
+		public static int wave_restart = 0;//integer wave_restart                = 0
+		public static int strength = 0;//integer strength                    = 0
+		public static int target = 0;//integer target                      = 0
+		public static int harvest_ghouls = 0;//integer harvest_ghouls              = 0
+		public static int[] wave_type;//integer array wave_type
+		public static int[] wave_sleep;//integer array wave_sleep
+		public static int[] wave_hero;//integer array wave_hero
 		//
 		//
 		//
@@ -87,6 +150,7 @@ namespace Jass {
 				pit_stop(40, 30);//call pit_stop( 40, 30 )
 				add_wave(PIT_LORD,   F_U3_WAVE);//call add_wave( PIT_LORD,   F_U3_WAVE        )
 				//
+			} else {//else
 				//
 				add_wave(0,          BASIC_WAVE1);//call add_wave( 0,          BASIC_WAVE1      )
 				add_wave(0,          BASIC_WAVE2);//call add_wave( 0,          BASIC_WAVE2      )

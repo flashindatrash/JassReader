@@ -8,6 +8,8 @@ namespace Jass {
 		//
 		//
 		//
+		public static player user = Player(2);//player user = Player(2)
+		public static int upg_level = 1;//integer upg_level = 1
 		//
 		//
 		//

@@ -8,6 +8,7 @@ namespace Jass {
 		//
 		//
 		//
+		public const player undead = Player(3);//constant player undead = Player(3)
 		//
 		//
 		//

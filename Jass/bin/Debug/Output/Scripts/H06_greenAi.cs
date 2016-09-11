@@ -8,6 +8,19 @@ namespace Jass {
 		//
 		//
 		//
+		public const int SET_GOAL_X = 1;//constant integer SET_GOAL_X             = 1
+		public const int SET_GOAL_Y = 2;//constant integer SET_GOAL_Y             = 2
+		public const int ATTACK_GOAL = 3;//constant integer ATTACK_GOAL            = 3
+		public const int ATTACK_PLAYER = 4;//constant integer ATTACK_PLAYER          = 4
+		public const int SET_TELEPORT_X = 5;//constant integer SET_TELEPORT_X         = 5
+		public const int SET_TELEPORT_Y = 6;//constant integer SET_TELEPORT_Y         = 6
+		public const int TELEPORT = 7;//constant integer TELEPORT               = 7
+		public const int STOP_CURRENT_ATTACK = 8;//constant integer STOP_CURRENT_ATTACK    = 8
+		public const int ATTACK_ZOMBIES = 9;//constant integer ATTACK_ZOMBIES         = 9
+		public const player USER = Player(1);//constant player USER                    = Player(1)
+		public const player ZOMBIES = Player(2);//constant player ZOMBIES                 = Player(2)
+		public static int command;//integer command
+		public static int command_data;//integer command_data
 		//
 		//
 		//

@@ -8,6 +8,10 @@ namespace Jass {
 		//
 		//
 		//
+		public static player user = PlayerEx(1);//player user = PlayerEx(1)
+		public const int NERATHOR = 'O000';//constant integer NERATHOR       = 'O000'
+		public const int ORC_JUGG = 'ojgn';//constant integer ORC_JUGG       = 'ojgn'
+		public const int ORC_FRIGATE = 'odes';//constant integer ORC_FRIGATE    = 'odes'
 		//
 		//
 		//

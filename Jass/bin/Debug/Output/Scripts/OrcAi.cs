@@ -8,6 +8,16 @@ namespace Jass {
 		//
 		//
 		//
+		public static bool startup = true;//boolean startup         = true
+		public static int C_hunters = 0;//integer C_hunters       = 0
+		public static int C_grunt = 0;//integer C_grunt         = 0
+		public static int C_raiders = 0;//integer C_raiders       = 0
+		public static bool forge = false;//boolean forge           = false
+		public static bool stronghold = false;//boolean stronghold      = false
+		public static bool fortress = false;//boolean fortress        = false
+		public static bool bestiary = false;//boolean bestiary        = false
+		public static bool lodge = false;//boolean lodge           = false
+		public static bool totem = false;//boolean totem           = false
 		//
 		//
 		//

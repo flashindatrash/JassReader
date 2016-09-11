@@ -8,6 +8,7 @@ namespace Jass {
 		//
 		//
 		//
+		public static player targ = PlayerEx(6);//player targ = PlayerEx(6)
 		private void main() {//function main takes nothing returns nothing
 			CampaignAI(HOUSE,null);//call CampaignAI(HOUSE,null)
 			SetPeonsRepair(true);//call SetPeonsRepair(true)

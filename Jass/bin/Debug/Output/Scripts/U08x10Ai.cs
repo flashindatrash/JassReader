@@ -8,6 +8,8 @@ namespace Jass {
 		//
 		//
 		//
+		public const int SET_X = 1;//constant integer SET_X = 1
+		public const int SET_Y = 2;//constant integer SET_Y = 2
 		//
 		//
 		//

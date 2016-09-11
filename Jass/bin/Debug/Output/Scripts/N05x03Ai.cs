@@ -8,6 +8,7 @@ namespace Jass {
 		//
 		//
 		//
+		public static player user = PlayerEx(2);//player user = PlayerEx(2)
 		private void main() {//function main takes nothing returns nothing
 			CampaignAI(NAGA_CORAL,null);//call CampaignAI(NAGA_CORAL,null)
 			SetAmphibious();//call SetAmphibious()

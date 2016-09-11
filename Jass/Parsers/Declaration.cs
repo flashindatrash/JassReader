@@ -14,7 +14,7 @@ namespace Jass
 		private readonly Name name = new Name();
 		private readonly Eval eval = new Eval();
 
-		public bool isLocal
+		public bool IsLocal
 		{
 			get
 			{
@@ -22,7 +22,7 @@ namespace Jass
 			}
 		}
 
-		public bool isConstant
+		public bool IsConstant
 		{
 			get
 			{
@@ -57,7 +57,11 @@ namespace Jass
 
 		public override string ToString()
 		{
-			return (isLocal ? "" : "private ") + (isArray ? jclass + "[] " : jclass + " ") + name + (hasEval ? " = " + eval : "") + ";";
+			return (IsLocal ? "" : IsGlobal ? "public " : "private ") + 
+				(IsConstant ? "const " : IsGlobal ? "static " : "") +
+				(isArray ? jclass + "[] " : jclass + " ") + 
+				name + 
+				(hasEval ? " = " + eval : "") + ";";
 		}
 
 	}

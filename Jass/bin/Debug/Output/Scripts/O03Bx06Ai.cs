@@ -8,6 +8,7 @@ namespace Jass {
 		//
 		//
 		//
+		public static int user = 9;//integer user = 9
 		private void main() {//function main takes nothing returns nothing
 			CampaignAI(BURROW,null);//call CampaignAI(BURROW,null)
 			PrepFullSuicide();//call PrepFullSuicide()

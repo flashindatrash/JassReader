@@ -7,6 +7,11 @@ namespace Jass
 		{
 			set; get;
 		}
+
+		public bool IsGlobal
+		{
+			set; get;
+		}
 	}
 }
 

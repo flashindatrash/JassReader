@@ -9,6 +9,53 @@ namespace Jass {
 		//
 		//
 		//
+		public const float bj_DEBUG_CAMFIELD_SPEED = 0;//constant real     bj_DEBUG_CAMFIELD_SPEED     = 0
+		public const string bj_DEBUG_CHAT_GIMME = "gimme";//constant string   bj_DEBUG_CHAT_GIMME         = "gimme"
+		public const string bj_DEBUG_CHAT_DEMO = "demo";//constant string   bj_DEBUG_CHAT_DEMO          = "demo"
+		public const string bj_DEBUG_CHAT_TELEPORT = "teleport";//constant string   bj_DEBUG_CHAT_TELEPORT      = "teleport"
+		public const string bj_DEBUG_CHAT_UNITINFO = "unitinfo";//constant string   bj_DEBUG_CHAT_UNITINFO      = "unitinfo"
+		public const string bj_DEBUG_CHAT_UNITINFO2 = "ui";//constant string   bj_DEBUG_CHAT_UNITINFO2     = "ui"
+		public const string bj_DEBUG_CHAT_CAMINFO = "caminfo";//constant string   bj_DEBUG_CHAT_CAMINFO       = "caminfo"
+		public const string bj_DEBUG_CHAT_CAMINFO2 = "ci";//constant string   bj_DEBUG_CHAT_CAMINFO2      = "ci"
+		public const string bj_DEBUG_CHAT_CAMDIST = "camdist";//constant string   bj_DEBUG_CHAT_CAMDIST       = "camdist"
+		public const string bj_DEBUG_CHAT_CAMFARZ = "camfarz";//constant string   bj_DEBUG_CHAT_CAMFARZ       = "camfarz"
+		public const string bj_DEBUG_CHAT_CAMAOA = "camaoa";//constant string   bj_DEBUG_CHAT_CAMAOA        = "camaoa"
+		public const string bj_DEBUG_CHAT_CAMFOV = "camfov";//constant string   bj_DEBUG_CHAT_CAMFOV        = "camfov"
+		public const string bj_DEBUG_CHAT_CAMROLL = "camroll";//constant string   bj_DEBUG_CHAT_CAMROLL       = "camroll"
+		public const string bj_DEBUG_CHAT_CAMROT = "camrot";//constant string   bj_DEBUG_CHAT_CAMROT        = "camrot"
+		public const string bj_DEBUG_CHAT_CAMRESET = "camreset";//constant string   bj_DEBUG_CHAT_CAMRESET      = "camreset"
+		public const string bj_DEBUG_CHAT_REMOVEUNIT = "ru";//constant string   bj_DEBUG_CHAT_REMOVEUNIT    = "ru"
+		public const string bj_DEBUG_CHAT_GOTOX = "gotox";//constant string   bj_DEBUG_CHAT_GOTOX         = "gotox"
+		public const string bj_DEBUG_CHAT_GOTOY = "gotoy";//constant string   bj_DEBUG_CHAT_GOTOY         = "gotoy"
+		public const string bj_DEBUG_CHAT_GOTOXY = "gotoxy";//constant string   bj_DEBUG_CHAT_GOTOXY        = "gotoxy"
+		public const string bj_DEBUG_CHAT_GOTOUNIT = "gotounit";//constant string   bj_DEBUG_CHAT_GOTOUNIT      = "gotounit"
+		public const string bj_DEBUG_CHAT_DIFFICULTY = "difficulty";//constant string   bj_DEBUG_CHAT_DIFFICULTY    = "difficulty"
+		public const string bj_DEBUG_CHAT_FINGEROFDEATH = "fingerofdeath";//constant string   bj_DEBUG_CHAT_FINGEROFDEATH = "fingerofdeath"
+		public static trigger bj_debugGimmeTrig;//trigger           bj_debugGimmeTrig
+		public static trigger bj_debugDemoTrig;//trigger           bj_debugDemoTrig
+		public static trigger bj_debugTeleportTrig;//trigger           bj_debugTeleportTrig
+		public static trigger bj_debugUnitInfoTrig;//trigger           bj_debugUnitInfoTrig
+		public static trigger bj_debugCamInfoTrig;//trigger           bj_debugCamInfoTrig
+		public static trigger bj_debugCamDistTrig;//trigger           bj_debugCamDistTrig
+		public static trigger bj_debugCamFarzTrig;//trigger           bj_debugCamFarzTrig
+		public static trigger bj_debugCamAoaTrig;//trigger           bj_debugCamAoaTrig
+		public static trigger bj_debugCamFovTrig;//trigger           bj_debugCamFovTrig
+		public static trigger bj_debugCamRollTrig;//trigger           bj_debugCamRollTrig
+		public static trigger bj_debugCamRotTrig;//trigger           bj_debugCamRotTrig
+		public static trigger bj_debugCamResetTrig;//trigger           bj_debugCamResetTrig
+		public static trigger bj_debugRuTrig;//trigger           bj_debugRuTrig
+		public static trigger bj_debugGotoXTrig;//trigger           bj_debugGotoXTrig
+		public static trigger bj_debugGotoYTrig;//trigger           bj_debugGotoYTrig
+		public static trigger bj_debugGotoXYTrig;//trigger           bj_debugGotoXYTrig
+		public static trigger bj_debugGotoUnitTrig;//trigger           bj_debugGotoUnitTrig
+		public static trigger bj_debugDifficultyTrig;//trigger           bj_debugDifficultyTrig
+		public static trigger[] bj_debugFingerOfDeathTrig;//trigger  array    bj_debugFingerOfDeathTrig
+		public static trigger[] bj_debugToolOfDeathTrig;//trigger  array    bj_debugToolOfDeathTrig
+		public static bool[] bj_debugFingerOfDeathEnabled;//boolean  array    bj_debugFingerOfDeathEnabled
+		public static float bj_debugGotoUnitX = 0;//real              bj_debugGotoUnitX = 0
+		public static float bj_debugGotoUnitY = 0;//real              bj_debugGotoUnitY = 0
+		public static int bj_debugGotoUnits = 0;//integer           bj_debugGotoUnits = 0
+		//
 		//
 		//
 		//

@@ -8,6 +8,17 @@ namespace Jass {
 		//
 		//
 		//
+		public static player targ1 = PlayerEx(6);//player targ1 = PlayerEx(6)
+		public static player targ2 = PlayerEx(4);//player targ2 = PlayerEx(4)
+		public static player targ = targ1;//player targ  = targ1
+		public const int AKAMA = 'Naka';//constant integer AKAMA          = 'Naka'
+		public const int DPEON = 'ndrl';//constant integer DPEON          = 'ndrl'
+		public const int DCATAPULT = 'ncat';//constant integer DCATAPULT      = 'ncat'
+		public const int DSALAMANDER = 'ndsa';//constant integer DSALAMANDER    = 'ndsa'
+		public const int DSTALKER = 'ndrt';//constant integer DSTALKER       = 'ndrt'
+		public const int DVINDICATOR = 'ndrn';//constant integer DVINDICATOR    = 'ndrn'
+		public const int DHARBINGER = 'ndrh';//constant integer DHARBINGER     = 'ndrh'
+		public const int DSEER = 'ndrs';//constant integer DSEER          = 'ndrs'
 		//
 		//
 		//

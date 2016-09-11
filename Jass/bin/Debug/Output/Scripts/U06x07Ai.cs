@@ -8,6 +8,8 @@ namespace Jass {
 		//
 		//
 		//
+		public const int LICH2 = 'U001';//constant integer LICH2 = 'U001'
+		public static player user = PlayerEx(9);//player user = PlayerEx(9)
 		//
 		//
 		//

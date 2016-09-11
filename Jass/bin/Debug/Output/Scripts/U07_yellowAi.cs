@@ -8,6 +8,7 @@ namespace Jass {
 		//
 		//
 		//
+		public static player user = Player(6);//player user = Player(6)
 		//
 		//
 		//

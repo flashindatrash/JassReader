@@ -8,6 +8,22 @@ namespace Jass {
 		//
 		//
 		//
+		public static int AG = 0;//integer AG          = 0
+		public static int wave = 1;//integer wave        = 1
+		public static bool halls = false;//boolean halls       = false
+		public static bool citadel = false;//boolean citadel     = false
+		public static bool grave = false;//boolean grave       = false
+		public static bool melee = false;//boolean melee       = false
+		public static bool ranged = false;//boolean ranged      = false
+		public static bool C_aboms = false;//boolean C_aboms     = false
+		public static bool M_aboms = false;//boolean M_aboms     = false
+		public static bool banshees = false;//boolean banshees    = false
+		public static bool sac_pit = false;//boolean sac_pit     = false
+		public static bool boneyard = false;//boolean boneyard    = false
+		public static bool fiends = false;//boolean fiends      = false
+		public static bool slaught = false;//boolean slaught     = false
+		public static bool temple = false;//boolean temple      = false
+		public static bool wagons = false;//boolean wagons      = false
 		//
 		//
 		//

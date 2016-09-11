@@ -8,6 +8,76 @@ namespace Jass {
 		//
 		//
 		//
+		public const int ILLIDAN_TOWN_X = 4400;//constant integer ILLIDAN_TOWN_X     = 4400
+		public const int ILLIDAN_TOWN_Y = 6300;//constant integer ILLIDAN_TOWN_Y     = 6300
+		public const int ILLIDAN_DEF_X = 5050;//constant integer ILLIDAN_DEF_X      = 5050
+		public const int ILLIDAN_DEF_Y = 6600;//constant integer ILLIDAN_DEF_Y      = 6600
+		public const player USER = PlayerEx(1);//constant player USER                = PlayerEx(1)
+		public const int OFFSET_X = 600;//constant integer OFFSET_X           = 600
+		public const int OFFSET_Y = 500;//constant integer OFFSET_Y           = 500
+		public const int NAGA_COUATL2 = 'n000';//constant integer NAGA_COUATL2       = 'n000'
+		public const int NAGA_REAVER2 = 'n001';//constant integer NAGA_REAVER2       = 'n001'
+		public const int NAGA_ROYAL2 = 'n002';//constant integer NAGA_ROYAL2        = 'n002'
+		public const int NAGA_MYRMIDON2 = 'n003';//constant integer NAGA_MYRMIDON2     = 'n003'
+		public const int NAGA_SNAP_DRAGON2 = 'n004';//constant integer NAGA_SNAP_DRAGON2  = 'n004'
+		public const int NAGA_TURTLE2 = 'n005';//constant integer NAGA_TURTLE2       = 'n005'
+		public const int NAGA_SIREN2 = 'n007';//constant integer NAGA_SIREN2        = 'n007'
+		public const int BUCKET_COUATL = 0;//constant integer BUCKET_COUATL      = 0
+		public const int BUCKET_SNAP_DRAGON = 1;//constant integer BUCKET_SNAP_DRAGON = 1
+		public const int BUCKET_REAVER = 2;//constant integer BUCKET_REAVER      = 2
+		public const int BUCKET_MYRMIDON = 3;//constant integer BUCKET_MYRMIDON    = 3
+		public const int BUCKET_SIREN = 4;//constant integer BUCKET_SIREN       = 4
+		public const int BUCKET_TURTLE = 5;//constant integer BUCKET_TURTLE      = 5
+		public const int BUCKET_ROYAL = 6;//constant integer BUCKET_ROYAL       = 6
+		public const int BUCKET_END = 7;//constant integer BUCKET_END         = 7
+		public const int SET_TOWN_1_X = 1;//constant integer SET_TOWN_1_X       =  1
+		public const int SET_TOWN_1_Y = 2;//constant integer SET_TOWN_1_Y       =  2
+		public const int SET_TOWN_2_X = 3;//constant integer SET_TOWN_2_X       =  3
+		public const int SET_TOWN_2_Y = 4;//constant integer SET_TOWN_2_Y       =  4
+		public const int SET_TOWN_3_X = 5;//constant integer SET_TOWN_3_X       =  5
+		public const int SET_TOWN_3_Y = 6;//constant integer SET_TOWN_3_Y       =  6
+		public const int SET_TOWN_4_X = 7;//constant integer SET_TOWN_4_X       =  7
+		public const int SET_TOWN_4_Y = 8;//constant integer SET_TOWN_4_Y       =  8
+		public const int PEONS_LOST = 9;//constant integer PEONS_LOST         =  9
+		public const int SLOT_LOST = 10;//constant integer SLOT_LOST          = 10
+		public const int SLOT_GAINED = 11;//constant integer SLOT_GAINED        = 11
+		public const int SLOT_STEPPED_ON = 12;//constant integer SLOT_STEPPED_ON    = 12
+		public const int STARTUP_CMDS = 12;//constant integer STARTUP_CMDS       = 12
+		public const bool NORMAL_ATTACK = true;//constant boolean NORMAL_ATTACK      = true
+		public const bool PEON_ATTACK = false;//constant boolean PEON_ATTACK        = false
+		public const int NO_CONTROL = 1;//constant integer NO_CONTROL         = 1
+		public const int ILLIDAN_CONTROL = 2;//constant integer ILLIDAN_CONTROL    = 2
+		public const int ARTHAS_CONTROL = 3;//constant integer ARTHAS_CONTROL     = 3
+		public const int NOT_POSSIBLE = 1;//constant integer NOT_POSSIBLE       = 1
+		public const int START_SLOT = 2;//constant integer START_SLOT         = 2
+		public static int startup = 0;//integer startup                     = 0
+		public static bool first_attack = true;//boolean first_attack                = true
+		public static int action_state = SLOT_LOST;//integer action_state                = SLOT_LOST
+		public static int next_slot = -1;//integer next_slot                   = -1
+		public static int attack_delay = 1;//integer attack_delay                = 1
+		public static int attack_index = 0;//integer attack_index                = 0
+		public static bool rebuild_Illidan = true;//boolean rebuild_Illidan             = true
+		public static bool stepped_on = false;//boolean stepped_on                  = false
+		public static bool suicide_mode = false;//boolean suicide_mode                = false
+		public static bool did_suicide = false;//boolean did_suicide                 = false
+		public static bool timeout_failure = false;//boolean timeout_failure             = false
+		public static int[] town_x;//integer array town_x
+		public static int[] town_y;//integer array town_y
+		public static bool[] peons_lost;//boolean array peons_lost
+		public static bool[] slot_owned;//boolean array slot_owned
+		public static int[] slot_control;//integer array slot_control
+		public static int[] Illidan0;//integer array Illidan0
+		public static int[] Illidan1;//integer array Illidan1
+		public static int[] Illidan2;//integer array Illidan2
+		public static int[] Illidan3;//integer array Illidan3
+		public static int[] attack_min_COPs;//integer array attack_min_COPs
+		public static int[] attack_max_COPs;//integer array attack_max_COPs
+		public static int[] attack_qty;//integer array attack_qty
+		public static int[] attack_bucket;//integer array attack_bucket
+		public static int[] bucket_qty;//integer array bucket_qty
+		public static int[] bucket_unitid;//integer array bucket_unitid
+		public static float[] food_factor;//real array food_factor
+		public static float dragon_factor;//real dragon_factor
 		//
 		//
 		//

@@ -8,6 +8,10 @@ namespace Jass {
 		//
 		//
 		//
+		public static player user = PlayerEx(03);//player user = PlayerEx(03)
+		public const int ELITE_FOOTMAN = 'hcth';//constant integer ELITE_FOOTMAN  = 'hcth'
+		public const int CHAPLIN = 'nchp';//constant integer CHAPLIN        = 'nchp'
+		public const int HYDROMANCER = 'nhym';//constant integer HYDROMANCER    = 'nhym'
 		//
 		//
 		//

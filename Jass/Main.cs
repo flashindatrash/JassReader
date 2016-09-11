@@ -36,12 +36,8 @@ namespace Jass {
 					{
 						var lines = reader.Read(file);
 						writer.CreateFile(new JassFormatter(lines, file, Settings.ClassTemplate));
-						//break;
 					}
 				}
-
-				writer.CreateFile(new JassFormatter(JassReader.globals, "Globals", Settings.GlobalsTemplate));
-				writer.CreateFile(new JassFormatter(JassReader.native, "Api", Settings.ApiTemplate));
 			}
 		}
 	}

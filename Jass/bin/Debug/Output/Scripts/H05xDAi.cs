@@ -8,6 +8,35 @@ namespace Jass {
 		//
 		//
 		//
+		public const int SET_SLOT = 1;//constant integer SET_SLOT       = 1
+		public const int TURN_ON = 2;//constant integer TURN_ON        = 2
+		public const int TURN_OFF = 3;//constant integer TURN_OFF       = 3
+		public const int CAPT_X = 4;//constant integer CAPT_X         = 4
+		public const int CAPT_Y = 5;//constant integer CAPT_Y         = 5
+		public const int FEL_GUARD = 'nfgu';//constant integer FEL_GUARD      = 'nfgu'
+		public const int BLOODFIEND = 'nfgb';//constant integer BLOODFIEND     = 'nfgb'
+		public const int FEL_BEAST = 'npfl';//constant integer FEL_BEAST      = 'npfl'
+		public const int ELDER_VOID = 'nvde';//constant integer ELDER_VOID     = 'nvde'
+		public const int GREATER_VOID = 'nvdg';//constant integer GREATER_VOID   = 'nvdg'
+		public const int NETHER_DRAKE = 'nndk';//constant integer NETHER_DRAKE   = 'nndk'
+		public const int NETHER_HATCH = 'nnht';//constant integer NETHER_HATCH   = 'nnht'
+		public const int OVERLORD = 'nfov';//constant integer OVERLORD       = 'nfov'
+		public const int SORCEROR = 'ners';//constant integer SORCEROR       = 'ners'
+		public const int DIABOLIST = 'nerd';//constant integer DIABOLIST      = 'nerd'
+		public const int FEL_RAVAGER = 'npfm';//constant integer FEL_RAVAGER    = 'npfm'
+		public const int ERE_WARLOCK = 'nerw';//constant integer ERE_WARLOCK    = 'nerw'
+		public const int NETHER_DRAGON = 'nndr';//constant integer NETHER_DRAGON  = 'nndr'
+		public const int TORMENTOR = 'ndqv';//constant integer TORMENTOR      = 'ndqv'
+		public const int TEMPTRESS = 'ndqt';//constant integer TEMPTRESS      = 'ndqt'
+		public const int MAIDEN = 'ndqp';//constant integer MAIDEN         = 'ndqp'
+		public const int QUEEN = 'ndqs';//constant integer QUEEN          = 'ndqs'
+		public const int ILLIDAN_SLOT = 11;//constant integer ILLIDAN_SLOT   = 11
+		public static int slot = 0;//integer slot                    = 0
+		public static bool gate_open = false;//boolean gate_open               = false
+		public static bool suicide_off = true;//boolean suicide_off             = true
+		public static int[] suicide_list;//integer array suicide_list
+		public static int next_suicide = 0;//integer next_suicide            = 0
+		public static int next_declare = 0;//integer next_declare            = 0
 		//
 		//
 		//

@@ -8,6 +8,21 @@ namespace Jass {
 		//
 		//
 		//
+		public static bool startup = true;//boolean startup     = true
+		public static int C_huntress = 0;//integer C_huntress  = 0
+		public static int C_archers = 0;//integer C_archers   = 0
+		public static int C_dryads = 0;//integer C_dryads    = 0
+		public static int C_chimaera = 0;//integer C_chimaera  = 0
+		public static bool lore = false;//boolean lore        = false
+		public static bool wind = false;//boolean wind        = false
+		public static bool ages = false;//boolean ages        = false
+		public static bool eternity = false;//boolean eternity    = false
+		public static bool war = false;//boolean war         = false
+		public static bool hunters = false;//boolean hunters     = false
+		public static bool ballista = false;//boolean ballista    = false
+		public static bool claws = false;//boolean claws       = false
+		public static bool roost = false;//boolean roost       = false
+		public static bool use_bears = false;//boolean use_bears   = false
 		//
 		//
 		//

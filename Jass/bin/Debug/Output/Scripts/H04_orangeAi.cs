@@ -8,6 +8,7 @@ namespace Jass {
 		//
 		//
 		//
+		public static player user = Player(1);//player user = Player(1)
 		private void do_cheats() {//function do_cheats takes nothing returns nothing
 			Cheat("showmap");//call Cheat("showmap")
 			Cheat("av");//call Cheat("av")

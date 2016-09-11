@@ -8,6 +8,12 @@ namespace Jass {
 		//
 		//
 		//
+		public const float TICH_CAPT_X = 6987;//constant real TICH_CAPT_X = 6987
+		public const float TICH_CAPT_Y = 2537;//constant real TICH_CAPT_Y = 2537
+		public const float WAVE_CAPT_X = 5530;//constant real WAVE_CAPT_X = 5530
+		public const float WAVE_CAPT_Y = 1270;//constant real WAVE_CAPT_Y = 1270
+		public static player user = Player(1);//player user = Player(1)
+		public const int WAVE_DOOMS = 'nC00';//constant integer WAVE_DOOMS = 'nC00'
 		//
 		private void main() {//function main takes nothing returns nothing
 			CampaignAI(0,null);//call CampaignAI(0,null)

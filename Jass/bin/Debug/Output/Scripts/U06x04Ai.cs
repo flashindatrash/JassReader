@@ -8,6 +8,9 @@ namespace Jass {
 		//
 		//
 		//
+		public static player sylvie = PlayerEx(2);//player sylvie = PlayerEx(2)
+		public static player garit = PlayerEx(9);//player garit  = PlayerEx(9)
+		public const int BALNAZZAR = 'Ubal';//constant integer BALNAZZAR  = 'Ubal'
 		//
 		//
 		//

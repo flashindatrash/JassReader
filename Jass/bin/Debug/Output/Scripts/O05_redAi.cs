@@ -8,6 +8,8 @@ namespace Jass {
 		//
 		//
 		//
+		public static player user = Player(3);//player user = Player(3)
+		public static int factor = 1;//integer factor = 1
 		private void MikesSuicide(int easy, int med, int hard, player user) {//function MikesSuicide takes integer easy, integer med, integer hard, player user returns nothing
 			if (CommandsWaiting()>0) {//if CommandsWaiting()>0 then
 				factor = 2;//set factor = 2

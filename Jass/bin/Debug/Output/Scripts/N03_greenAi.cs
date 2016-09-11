@@ -8,6 +8,19 @@ namespace Jass {
 		//
 		//
 		//
+		public const float MAIN_TOWN_X = -4279;//constant real MAIN_TOWN_X   = -4279
+		public const float MAIN_TOWN_Y = 3057;//constant real MAIN_TOWN_Y   =  3057
+		public const float DEFENSE_X = -3919;//constant real DEFENSE_X     = -3919
+		public const float DEFENSE_Y = 1198;//constant real DEFENSE_Y     =  1198
+		public const float GRAVEYARD_X = -1979;//constant real GRAVEYARD_X   = -1979
+		public const float GRAVEYARD_Y = -1037;//constant real GRAVEYARD_Y   = -1037
+		public const int MIN_GHOULS = 3;//constant integer MIN_GHOULS        =  3
+		public const int MAX_GHOULS_NORMAL = 10;//constant integer MAX_GHOULS_NORMAL = 10
+		public const int MAX_GHOULS_HARD = 15;//constant integer MAX_GHOULS_HARD   = 15
+		public static bool on_alert = false;//boolean on_alert            = false
+		public static int defcon = 5;//integer defcon              = 5
+		public static int trees_alive = 100;//integer trees_alive         = 100
+		public static int best_ghouls = 0;//integer best_ghouls         = 0
 		//
 		//
 		//

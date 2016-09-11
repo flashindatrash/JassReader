@@ -8,6 +8,7 @@ namespace Jass {
 		//
 		//
 		//
+		public static bool icj_initCheats = InitDebugTriggers();//boolean  icj_initCheats = InitDebugTriggers()
 
 	
 	}

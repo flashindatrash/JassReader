@@ -8,6 +8,7 @@ namespace Jass {
 		//
 		//
 		//
+		public const player user = Player(1);//constant player user = Player(1)
 		//
 		//
 		//

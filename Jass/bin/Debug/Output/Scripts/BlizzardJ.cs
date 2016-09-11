@@ -12,6 +12,565 @@ namespace Jass {
 		//
 		//
 		//
+		public const float bj_PI = 3.14159;//constant real      bj_PI                            = 3.14159
+		public const float bj_E = 2.71828;//constant real      bj_E                             = 2.71828
+		public const float bj_CELLWIDTH = 128.0;//constant real      bj_CELLWIDTH                     = 128.0
+		public const float bj_CLIFFHEIGHT = 128.0;//constant real      bj_CLIFFHEIGHT                   = 128.0
+		public const float bj_UNIT_FACING = 270.0;//constant real      bj_UNIT_FACING                   = 270.0
+		public const float bj_RADTODEG = 180.0/bj_PI;//constant real      bj_RADTODEG                      = 180.0/bj_PI
+		public const float bj_DEGTORAD = bj_PI/180.0;//constant real      bj_DEGTORAD                      = bj_PI/180.0
+		public const float bj_TEXT_DELAY_QUEST = 20.00;//constant real      bj_TEXT_DELAY_QUEST              = 20.00
+		public const float bj_TEXT_DELAY_QUESTUPDATE = 20.00;//constant real      bj_TEXT_DELAY_QUESTUPDATE        = 20.00
+		public const float bj_TEXT_DELAY_QUESTDONE = 20.00;//constant real      bj_TEXT_DELAY_QUESTDONE          = 20.00
+		public const float bj_TEXT_DELAY_QUESTFAILED = 20.00;//constant real      bj_TEXT_DELAY_QUESTFAILED        = 20.00
+		public const float bj_TEXT_DELAY_QUESTREQUIREMENT = 20.00;//constant real      bj_TEXT_DELAY_QUESTREQUIREMENT   = 20.00
+		public const float bj_TEXT_DELAY_MISSIONFAILED = 20.00;//constant real      bj_TEXT_DELAY_MISSIONFAILED      = 20.00
+		public const float bj_TEXT_DELAY_ALWAYSHINT = 12.00;//constant real      bj_TEXT_DELAY_ALWAYSHINT         = 12.00
+		public const float bj_TEXT_DELAY_HINT = 12.00;//constant real      bj_TEXT_DELAY_HINT               = 12.00
+		public const float bj_TEXT_DELAY_SECRET = 10.00;//constant real      bj_TEXT_DELAY_SECRET             = 10.00
+		public const float bj_TEXT_DELAY_UNITACQUIRED = 15.00;//constant real      bj_TEXT_DELAY_UNITACQUIRED       = 15.00
+		public const float bj_TEXT_DELAY_UNITAVAILABLE = 10.00;//constant real      bj_TEXT_DELAY_UNITAVAILABLE      = 10.00
+		public const float bj_TEXT_DELAY_ITEMACQUIRED = 10.00;//constant real      bj_TEXT_DELAY_ITEMACQUIRED       = 10.00
+		public const float bj_TEXT_DELAY_WARNING = 12.00;//constant real      bj_TEXT_DELAY_WARNING            = 12.00
+		public const float bj_QUEUE_DELAY_QUEST = 5.00;//constant real      bj_QUEUE_DELAY_QUEST             =  5.00
+		public const float bj_QUEUE_DELAY_HINT = 5.00;//constant real      bj_QUEUE_DELAY_HINT              =  5.00
+		public const float bj_QUEUE_DELAY_SECRET = 3.00;//constant real      bj_QUEUE_DELAY_SECRET            =  3.00
+		public const float bj_HANDICAP_EASY = 60.00;//constant real      bj_HANDICAP_EASY                 = 60.00
+		public const float bj_GAME_STARTED_THRESHOLD = 0.01;//constant real      bj_GAME_STARTED_THRESHOLD        =  0.01
+		public const float bj_WAIT_FOR_COND_MIN_INTERVAL = 0.10;//constant real      bj_WAIT_FOR_COND_MIN_INTERVAL    =  0.10
+		public const float bj_POLLED_WAIT_INTERVAL = 0.10;//constant real      bj_POLLED_WAIT_INTERVAL          =  0.10
+		public const float bj_POLLED_WAIT_SKIP_THRESHOLD = 2.00;//constant real      bj_POLLED_WAIT_SKIP_THRESHOLD    =  2.00
+		//
+		public const int bj_MAX_INVENTORY = 6;//constant integer   bj_MAX_INVENTORY                 =   6
+		public const int bj_MAX_PLAYERS = 12;//constant integer   bj_MAX_PLAYERS                   =  12
+		public const int bj_PLAYER_NEUTRAL_VICTIM = 13;//constant integer   bj_PLAYER_NEUTRAL_VICTIM         =  13
+		public const int bj_PLAYER_NEUTRAL_EXTRA = 14;//constant integer   bj_PLAYER_NEUTRAL_EXTRA          =  14
+		public const int bj_MAX_PLAYER_SLOTS = 16;//constant integer   bj_MAX_PLAYER_SLOTS              =  16
+		public const int bj_MAX_SKELETONS = 25;//constant integer   bj_MAX_SKELETONS                 =  25
+		public const int bj_MAX_STOCK_ITEM_SLOTS = 11;//constant integer   bj_MAX_STOCK_ITEM_SLOTS          =  11
+		public const int bj_MAX_STOCK_UNIT_SLOTS = 11;//constant integer   bj_MAX_STOCK_UNIT_SLOTS          =  11
+		public const int bj_MAX_ITEM_LEVEL = 10;//constant integer   bj_MAX_ITEM_LEVEL                =  10
+		//
+		//
+		public const float bj_TOD_DAWN = 6.00;//constant real      bj_TOD_DAWN                      = 6.00
+		public const float bj_TOD_DUSK = 18.00;//constant real      bj_TOD_DUSK                      = 18.00
+		//
+		//
+		//
+		//
+		//
+		//
+		//
+		//
+		//
+		public const float bj_MELEE_STARTING_TOD = 8.00;//constant real      bj_MELEE_STARTING_TOD            = 8.00
+		public const int bj_MELEE_STARTING_GOLD_V0 = 750;//constant integer   bj_MELEE_STARTING_GOLD_V0        = 750
+		public const int bj_MELEE_STARTING_GOLD_V1 = 500;//constant integer   bj_MELEE_STARTING_GOLD_V1        = 500
+		public const int bj_MELEE_STARTING_LUMBER_V0 = 200;//constant integer   bj_MELEE_STARTING_LUMBER_V0      = 200
+		public const int bj_MELEE_STARTING_LUMBER_V1 = 150;//constant integer   bj_MELEE_STARTING_LUMBER_V1      = 150
+		public const int bj_MELEE_STARTING_HERO_TOKENS = 1;//constant integer   bj_MELEE_STARTING_HERO_TOKENS    = 1
+		public const int bj_MELEE_HERO_LIMIT = 3;//constant integer   bj_MELEE_HERO_LIMIT              = 3
+		public const int bj_MELEE_HERO_TYPE_LIMIT = 1;//constant integer   bj_MELEE_HERO_TYPE_LIMIT         = 1
+		public const float bj_MELEE_MINE_SEARCH_RADIUS = 2000;//constant real      bj_MELEE_MINE_SEARCH_RADIUS      = 2000
+		public const float bj_MELEE_CLEAR_UNITS_RADIUS = 1500;//constant real      bj_MELEE_CLEAR_UNITS_RADIUS      = 1500
+		public const float bj_MELEE_CRIPPLE_TIMEOUT = 120.00;//constant real      bj_MELEE_CRIPPLE_TIMEOUT         = 120.00
+		public const float bj_MELEE_CRIPPLE_MSG_DURATION = 20.00;//constant real      bj_MELEE_CRIPPLE_MSG_DURATION    = 20.00
+		public const int bj_MELEE_MAX_TWINKED_HEROES_V0 = 3;//constant integer   bj_MELEE_MAX_TWINKED_HEROES_V0   = 3
+		public const int bj_MELEE_MAX_TWINKED_HEROES_V1 = 1;//constant integer   bj_MELEE_MAX_TWINKED_HEROES_V1   = 1
+		//
+		public const float bj_CREEP_ITEM_DELAY = 0.50;//constant real      bj_CREEP_ITEM_DELAY              = 0.50
+		//
+		public const float bj_STOCK_RESTOCK_INITIAL_DELAY = 120;//constant real      bj_STOCK_RESTOCK_INITIAL_DELAY   = 120
+		public const float bj_STOCK_RESTOCK_INTERVAL = 30;//constant real      bj_STOCK_RESTOCK_INTERVAL        = 30
+		public const int bj_STOCK_MAX_ITERATIONS = 20;//constant integer   bj_STOCK_MAX_ITERATIONS          = 20
+		//
+		public const int bj_MAX_DEST_IN_REGION_EVENTS = 64;//constant integer   bj_MAX_DEST_IN_REGION_EVENTS     = 64
+		//
+		public const int bj_CAMERA_MIN_FARZ = 100;//constant integer   bj_CAMERA_MIN_FARZ               = 100
+		public const int bj_CAMERA_DEFAULT_DISTANCE = 1650;//constant integer   bj_CAMERA_DEFAULT_DISTANCE       = 1650
+		public const int bj_CAMERA_DEFAULT_FARZ = 5000;//constant integer   bj_CAMERA_DEFAULT_FARZ           = 5000
+		public const int bj_CAMERA_DEFAULT_AOA = 304;//constant integer   bj_CAMERA_DEFAULT_AOA            = 304
+		public const int bj_CAMERA_DEFAULT_FOV = 70;//constant integer   bj_CAMERA_DEFAULT_FOV            = 70
+		public const int bj_CAMERA_DEFAULT_ROLL = 0;//constant integer   bj_CAMERA_DEFAULT_ROLL           = 0
+		public const int bj_CAMERA_DEFAULT_ROTATION = 90;//constant integer   bj_CAMERA_DEFAULT_ROTATION       = 90
+		//
+		public const float bj_RESCUE_PING_TIME = 2.00;//constant real      bj_RESCUE_PING_TIME              = 2.00
+		//
+		public const float bj_NOTHING_SOUND_DURATION = 5.00;//constant real      bj_NOTHING_SOUND_DURATION        = 5.00
+		public const float bj_TRANSMISSION_PING_TIME = 1.00;//constant real      bj_TRANSMISSION_PING_TIME        = 1.00
+		public const int bj_TRANSMISSION_IND_RED = 255;//constant integer   bj_TRANSMISSION_IND_RED          = 255
+		public const int bj_TRANSMISSION_IND_BLUE = 255;//constant integer   bj_TRANSMISSION_IND_BLUE         = 255
+		public const int bj_TRANSMISSION_IND_GREEN = 255;//constant integer   bj_TRANSMISSION_IND_GREEN        = 255
+		public const int bj_TRANSMISSION_IND_ALPHA = 255;//constant integer   bj_TRANSMISSION_IND_ALPHA        = 255
+		public const float bj_TRANSMISSION_PORT_HANGTIME = 1.50;//constant real      bj_TRANSMISSION_PORT_HANGTIME    = 1.50
+		//
+		public const float bj_CINEMODE_INTERFACEFADE = 0.50;//constant real      bj_CINEMODE_INTERFACEFADE        = 0.50
+		public const gamespeed bj_CINEMODE_GAMESPEED = MAP_SPEED_NORMAL;//constant gamespeed bj_CINEMODE_GAMESPEED            = MAP_SPEED_NORMAL
+		//
+		public const float bj_CINEMODE_VOLUME_UNITMOVEMENT = 0.40;//constant real      bj_CINEMODE_VOLUME_UNITMOVEMENT  = 0.40
+		public const float bj_CINEMODE_VOLUME_UNITSOUNDS = 0.00;//constant real      bj_CINEMODE_VOLUME_UNITSOUNDS    = 0.00
+		public const float bj_CINEMODE_VOLUME_COMBAT = 0.40;//constant real      bj_CINEMODE_VOLUME_COMBAT        = 0.40
+		public const float bj_CINEMODE_VOLUME_SPELLS = 0.40;//constant real      bj_CINEMODE_VOLUME_SPELLS        = 0.40
+		public const float bj_CINEMODE_VOLUME_UI = 0.00;//constant real      bj_CINEMODE_VOLUME_UI            = 0.00
+		public const float bj_CINEMODE_VOLUME_MUSIC = 0.55;//constant real      bj_CINEMODE_VOLUME_MUSIC         = 0.55
+		public const float bj_CINEMODE_VOLUME_AMBIENTSOUNDS = 1.00;//constant real      bj_CINEMODE_VOLUME_AMBIENTSOUNDS = 1.00
+		public const float bj_CINEMODE_VOLUME_FIRE = 0.60;//constant real      bj_CINEMODE_VOLUME_FIRE          = 0.60
+		//
+		public const float bj_SPEECH_VOLUME_UNITMOVEMENT = 0.25;//constant real      bj_SPEECH_VOLUME_UNITMOVEMENT    = 0.25
+		public const float bj_SPEECH_VOLUME_UNITSOUNDS = 0.00;//constant real      bj_SPEECH_VOLUME_UNITSOUNDS      = 0.00
+		public const float bj_SPEECH_VOLUME_COMBAT = 0.25;//constant real      bj_SPEECH_VOLUME_COMBAT          = 0.25
+		public const float bj_SPEECH_VOLUME_SPELLS = 0.25;//constant real      bj_SPEECH_VOLUME_SPELLS          = 0.25
+		public const float bj_SPEECH_VOLUME_UI = 0.00;//constant real      bj_SPEECH_VOLUME_UI              = 0.00
+		public const float bj_SPEECH_VOLUME_MUSIC = 0.55;//constant real      bj_SPEECH_VOLUME_MUSIC           = 0.55
+		public const float bj_SPEECH_VOLUME_AMBIENTSOUNDS = 1.00;//constant real      bj_SPEECH_VOLUME_AMBIENTSOUNDS   = 1.00
+		public const float bj_SPEECH_VOLUME_FIRE = 0.60;//constant real      bj_SPEECH_VOLUME_FIRE            = 0.60
+		//
+		public const float bj_SMARTPAN_TRESHOLD_PAN = 500;//constant real      bj_SMARTPAN_TRESHOLD_PAN         = 500
+		public const float bj_SMARTPAN_TRESHOLD_SNAP = 3500;//constant real      bj_SMARTPAN_TRESHOLD_SNAP        = 3500
+		//
+		public const int bj_MAX_QUEUED_TRIGGERS = 100;//constant integer   bj_MAX_QUEUED_TRIGGERS           = 100
+		public const float bj_QUEUED_TRIGGER_TIMEOUT = 180.00;//constant real      bj_QUEUED_TRIGGER_TIMEOUT        = 180.00
+		//
+		public const int bj_CAMPAIGN_INDEX_T = 0;//constant integer   bj_CAMPAIGN_INDEX_T        = 0
+		public const int bj_CAMPAIGN_INDEX_H = 1;//constant integer   bj_CAMPAIGN_INDEX_H        = 1
+		public const int bj_CAMPAIGN_INDEX_U = 2;//constant integer   bj_CAMPAIGN_INDEX_U        = 2
+		public const int bj_CAMPAIGN_INDEX_O = 3;//constant integer   bj_CAMPAIGN_INDEX_O        = 3
+		public const int bj_CAMPAIGN_INDEX_N = 4;//constant integer   bj_CAMPAIGN_INDEX_N        = 4
+		public const int bj_CAMPAIGN_INDEX_XN = 5;//constant integer   bj_CAMPAIGN_INDEX_XN       = 5
+		public const int bj_CAMPAIGN_INDEX_XH = 6;//constant integer   bj_CAMPAIGN_INDEX_XH       = 6
+		public const int bj_CAMPAIGN_INDEX_XU = 7;//constant integer   bj_CAMPAIGN_INDEX_XU       = 7
+		public const int bj_CAMPAIGN_INDEX_XO = 8;//constant integer   bj_CAMPAIGN_INDEX_XO       = 8
+		//
+		public const int bj_CAMPAIGN_OFFSET_T = 0;//constant integer   bj_CAMPAIGN_OFFSET_T       = 0
+		public const int bj_CAMPAIGN_OFFSET_H = 1;//constant integer   bj_CAMPAIGN_OFFSET_H       = 1
+		public const int bj_CAMPAIGN_OFFSET_U = 2;//constant integer   bj_CAMPAIGN_OFFSET_U       = 2
+		public const int bj_CAMPAIGN_OFFSET_O = 3;//constant integer   bj_CAMPAIGN_OFFSET_O       = 3
+		public const int bj_CAMPAIGN_OFFSET_N = 4;//constant integer   bj_CAMPAIGN_OFFSET_N       = 4
+		public const int bj_CAMPAIGN_OFFSET_XN = 0;//constant integer   bj_CAMPAIGN_OFFSET_XN      = 0
+		public const int bj_CAMPAIGN_OFFSET_XH = 1;//constant integer   bj_CAMPAIGN_OFFSET_XH      = 1
+		public const int bj_CAMPAIGN_OFFSET_XU = 2;//constant integer   bj_CAMPAIGN_OFFSET_XU      = 2
+		public const int bj_CAMPAIGN_OFFSET_XO = 3;//constant integer   bj_CAMPAIGN_OFFSET_XO      = 3
+		//
+		//
+		public const int bj_MISSION_INDEX_T00 = bj_CAMPAIGN_OFFSET_T * 1000 + 0;//constant integer   bj_MISSION_INDEX_T00       = bj_CAMPAIGN_OFFSET_T * 1000 + 0
+		public const int bj_MISSION_INDEX_T01 = bj_CAMPAIGN_OFFSET_T * 1000 + 1;//constant integer   bj_MISSION_INDEX_T01       = bj_CAMPAIGN_OFFSET_T * 1000 + 1
+		//
+		public const int bj_MISSION_INDEX_H00 = bj_CAMPAIGN_OFFSET_H * 1000 + 0;//constant integer   bj_MISSION_INDEX_H00       = bj_CAMPAIGN_OFFSET_H * 1000 + 0
+		public const int bj_MISSION_INDEX_H01 = bj_CAMPAIGN_OFFSET_H * 1000 + 1;//constant integer   bj_MISSION_INDEX_H01       = bj_CAMPAIGN_OFFSET_H * 1000 + 1
+		public const int bj_MISSION_INDEX_H02 = bj_CAMPAIGN_OFFSET_H * 1000 + 2;//constant integer   bj_MISSION_INDEX_H02       = bj_CAMPAIGN_OFFSET_H * 1000 + 2
+		public const int bj_MISSION_INDEX_H03 = bj_CAMPAIGN_OFFSET_H * 1000 + 3;//constant integer   bj_MISSION_INDEX_H03       = bj_CAMPAIGN_OFFSET_H * 1000 + 3
+		public const int bj_MISSION_INDEX_H04 = bj_CAMPAIGN_OFFSET_H * 1000 + 4;//constant integer   bj_MISSION_INDEX_H04       = bj_CAMPAIGN_OFFSET_H * 1000 + 4
+		public const int bj_MISSION_INDEX_H05 = bj_CAMPAIGN_OFFSET_H * 1000 + 5;//constant integer   bj_MISSION_INDEX_H05       = bj_CAMPAIGN_OFFSET_H * 1000 + 5
+		public const int bj_MISSION_INDEX_H06 = bj_CAMPAIGN_OFFSET_H * 1000 + 6;//constant integer   bj_MISSION_INDEX_H06       = bj_CAMPAIGN_OFFSET_H * 1000 + 6
+		public const int bj_MISSION_INDEX_H07 = bj_CAMPAIGN_OFFSET_H * 1000 + 7;//constant integer   bj_MISSION_INDEX_H07       = bj_CAMPAIGN_OFFSET_H * 1000 + 7
+		public const int bj_MISSION_INDEX_H08 = bj_CAMPAIGN_OFFSET_H * 1000 + 8;//constant integer   bj_MISSION_INDEX_H08       = bj_CAMPAIGN_OFFSET_H * 1000 + 8
+		public const int bj_MISSION_INDEX_H09 = bj_CAMPAIGN_OFFSET_H * 1000 + 9;//constant integer   bj_MISSION_INDEX_H09       = bj_CAMPAIGN_OFFSET_H * 1000 + 9
+		public const int bj_MISSION_INDEX_H10 = bj_CAMPAIGN_OFFSET_H * 1000 + 10;//constant integer   bj_MISSION_INDEX_H10       = bj_CAMPAIGN_OFFSET_H * 1000 + 10
+		public const int bj_MISSION_INDEX_H11 = bj_CAMPAIGN_OFFSET_H * 1000 + 11;//constant integer   bj_MISSION_INDEX_H11       = bj_CAMPAIGN_OFFSET_H * 1000 + 11
+		//
+		public const int bj_MISSION_INDEX_U00 = bj_CAMPAIGN_OFFSET_U * 1000 + 0;//constant integer   bj_MISSION_INDEX_U00       = bj_CAMPAIGN_OFFSET_U * 1000 + 0
+		public const int bj_MISSION_INDEX_U01 = bj_CAMPAIGN_OFFSET_U * 1000 + 1;//constant integer   bj_MISSION_INDEX_U01       = bj_CAMPAIGN_OFFSET_U * 1000 + 1
+		public const int bj_MISSION_INDEX_U02 = bj_CAMPAIGN_OFFSET_U * 1000 + 2;//constant integer   bj_MISSION_INDEX_U02       = bj_CAMPAIGN_OFFSET_U * 1000 + 2
+		public const int bj_MISSION_INDEX_U03 = bj_CAMPAIGN_OFFSET_U * 1000 + 3;//constant integer   bj_MISSION_INDEX_U03       = bj_CAMPAIGN_OFFSET_U * 1000 + 3
+		public const int bj_MISSION_INDEX_U05 = bj_CAMPAIGN_OFFSET_U * 1000 + 4;//constant integer   bj_MISSION_INDEX_U05       = bj_CAMPAIGN_OFFSET_U * 1000 + 4
+		public const int bj_MISSION_INDEX_U07 = bj_CAMPAIGN_OFFSET_U * 1000 + 5;//constant integer   bj_MISSION_INDEX_U07       = bj_CAMPAIGN_OFFSET_U * 1000 + 5
+		public const int bj_MISSION_INDEX_U08 = bj_CAMPAIGN_OFFSET_U * 1000 + 6;//constant integer   bj_MISSION_INDEX_U08       = bj_CAMPAIGN_OFFSET_U * 1000 + 6
+		public const int bj_MISSION_INDEX_U09 = bj_CAMPAIGN_OFFSET_U * 1000 + 7;//constant integer   bj_MISSION_INDEX_U09       = bj_CAMPAIGN_OFFSET_U * 1000 + 7
+		public const int bj_MISSION_INDEX_U10 = bj_CAMPAIGN_OFFSET_U * 1000 + 8;//constant integer   bj_MISSION_INDEX_U10       = bj_CAMPAIGN_OFFSET_U * 1000 + 8
+		public const int bj_MISSION_INDEX_U11 = bj_CAMPAIGN_OFFSET_U * 1000 + 9;//constant integer   bj_MISSION_INDEX_U11       = bj_CAMPAIGN_OFFSET_U * 1000 + 9
+		//
+		public const int bj_MISSION_INDEX_O00 = bj_CAMPAIGN_OFFSET_O * 1000 + 0;//constant integer   bj_MISSION_INDEX_O00       = bj_CAMPAIGN_OFFSET_O * 1000 + 0
+		public const int bj_MISSION_INDEX_O01 = bj_CAMPAIGN_OFFSET_O * 1000 + 1;//constant integer   bj_MISSION_INDEX_O01       = bj_CAMPAIGN_OFFSET_O * 1000 + 1
+		public const int bj_MISSION_INDEX_O02 = bj_CAMPAIGN_OFFSET_O * 1000 + 2;//constant integer   bj_MISSION_INDEX_O02       = bj_CAMPAIGN_OFFSET_O * 1000 + 2
+		public const int bj_MISSION_INDEX_O03 = bj_CAMPAIGN_OFFSET_O * 1000 + 3;//constant integer   bj_MISSION_INDEX_O03       = bj_CAMPAIGN_OFFSET_O * 1000 + 3
+		public const int bj_MISSION_INDEX_O04 = bj_CAMPAIGN_OFFSET_O * 1000 + 4;//constant integer   bj_MISSION_INDEX_O04       = bj_CAMPAIGN_OFFSET_O * 1000 + 4
+		public const int bj_MISSION_INDEX_O05 = bj_CAMPAIGN_OFFSET_O * 1000 + 5;//constant integer   bj_MISSION_INDEX_O05       = bj_CAMPAIGN_OFFSET_O * 1000 + 5
+		public const int bj_MISSION_INDEX_O06 = bj_CAMPAIGN_OFFSET_O * 1000 + 6;//constant integer   bj_MISSION_INDEX_O06       = bj_CAMPAIGN_OFFSET_O * 1000 + 6
+		public const int bj_MISSION_INDEX_O07 = bj_CAMPAIGN_OFFSET_O * 1000 + 7;//constant integer   bj_MISSION_INDEX_O07       = bj_CAMPAIGN_OFFSET_O * 1000 + 7
+		public const int bj_MISSION_INDEX_O08 = bj_CAMPAIGN_OFFSET_O * 1000 + 8;//constant integer   bj_MISSION_INDEX_O08       = bj_CAMPAIGN_OFFSET_O * 1000 + 8
+		public const int bj_MISSION_INDEX_O09 = bj_CAMPAIGN_OFFSET_O * 1000 + 9;//constant integer   bj_MISSION_INDEX_O09       = bj_CAMPAIGN_OFFSET_O * 1000 + 9
+		public const int bj_MISSION_INDEX_O10 = bj_CAMPAIGN_OFFSET_O * 1000 + 10;//constant integer   bj_MISSION_INDEX_O10       = bj_CAMPAIGN_OFFSET_O * 1000 + 10
+		//
+		public const int bj_MISSION_INDEX_N00 = bj_CAMPAIGN_OFFSET_N * 1000 + 0;//constant integer   bj_MISSION_INDEX_N00       = bj_CAMPAIGN_OFFSET_N * 1000 + 0
+		public const int bj_MISSION_INDEX_N01 = bj_CAMPAIGN_OFFSET_N * 1000 + 1;//constant integer   bj_MISSION_INDEX_N01       = bj_CAMPAIGN_OFFSET_N * 1000 + 1
+		public const int bj_MISSION_INDEX_N02 = bj_CAMPAIGN_OFFSET_N * 1000 + 2;//constant integer   bj_MISSION_INDEX_N02       = bj_CAMPAIGN_OFFSET_N * 1000 + 2
+		public const int bj_MISSION_INDEX_N03 = bj_CAMPAIGN_OFFSET_N * 1000 + 3;//constant integer   bj_MISSION_INDEX_N03       = bj_CAMPAIGN_OFFSET_N * 1000 + 3
+		public const int bj_MISSION_INDEX_N04 = bj_CAMPAIGN_OFFSET_N * 1000 + 4;//constant integer   bj_MISSION_INDEX_N04       = bj_CAMPAIGN_OFFSET_N * 1000 + 4
+		public const int bj_MISSION_INDEX_N05 = bj_CAMPAIGN_OFFSET_N * 1000 + 5;//constant integer   bj_MISSION_INDEX_N05       = bj_CAMPAIGN_OFFSET_N * 1000 + 5
+		public const int bj_MISSION_INDEX_N06 = bj_CAMPAIGN_OFFSET_N * 1000 + 6;//constant integer   bj_MISSION_INDEX_N06       = bj_CAMPAIGN_OFFSET_N * 1000 + 6
+		public const int bj_MISSION_INDEX_N07 = bj_CAMPAIGN_OFFSET_N * 1000 + 7;//constant integer   bj_MISSION_INDEX_N07       = bj_CAMPAIGN_OFFSET_N * 1000 + 7
+		public const int bj_MISSION_INDEX_N08 = bj_CAMPAIGN_OFFSET_N * 1000 + 8;//constant integer   bj_MISSION_INDEX_N08       = bj_CAMPAIGN_OFFSET_N * 1000 + 8
+		public const int bj_MISSION_INDEX_N09 = bj_CAMPAIGN_OFFSET_N * 1000 + 9;//constant integer   bj_MISSION_INDEX_N09       = bj_CAMPAIGN_OFFSET_N * 1000 + 9
+		//
+		public const int bj_MISSION_INDEX_XN00 = bj_CAMPAIGN_OFFSET_XN * 1000 + 0;//constant integer   bj_MISSION_INDEX_XN00       = bj_CAMPAIGN_OFFSET_XN * 1000 + 0
+		public const int bj_MISSION_INDEX_XN01 = bj_CAMPAIGN_OFFSET_XN * 1000 + 1;//constant integer   bj_MISSION_INDEX_XN01       = bj_CAMPAIGN_OFFSET_XN * 1000 + 1
+		public const int bj_MISSION_INDEX_XN02 = bj_CAMPAIGN_OFFSET_XN * 1000 + 2;//constant integer   bj_MISSION_INDEX_XN02       = bj_CAMPAIGN_OFFSET_XN * 1000 + 2
+		public const int bj_MISSION_INDEX_XN03 = bj_CAMPAIGN_OFFSET_XN * 1000 + 3;//constant integer   bj_MISSION_INDEX_XN03       = bj_CAMPAIGN_OFFSET_XN * 1000 + 3
+		public const int bj_MISSION_INDEX_XN04 = bj_CAMPAIGN_OFFSET_XN * 1000 + 4;//constant integer   bj_MISSION_INDEX_XN04       = bj_CAMPAIGN_OFFSET_XN * 1000 + 4
+		public const int bj_MISSION_INDEX_XN05 = bj_CAMPAIGN_OFFSET_XN * 1000 + 5;//constant integer   bj_MISSION_INDEX_XN05       = bj_CAMPAIGN_OFFSET_XN * 1000 + 5
+		public const int bj_MISSION_INDEX_XN06 = bj_CAMPAIGN_OFFSET_XN * 1000 + 6;//constant integer   bj_MISSION_INDEX_XN06       = bj_CAMPAIGN_OFFSET_XN * 1000 + 6
+		public const int bj_MISSION_INDEX_XN07 = bj_CAMPAIGN_OFFSET_XN * 1000 + 7;//constant integer   bj_MISSION_INDEX_XN07       = bj_CAMPAIGN_OFFSET_XN * 1000 + 7
+		public const int bj_MISSION_INDEX_XN08 = bj_CAMPAIGN_OFFSET_XN * 1000 + 8;//constant integer   bj_MISSION_INDEX_XN08       = bj_CAMPAIGN_OFFSET_XN * 1000 + 8
+		public const int bj_MISSION_INDEX_XN09 = bj_CAMPAIGN_OFFSET_XN * 1000 + 9;//constant integer   bj_MISSION_INDEX_XN09       = bj_CAMPAIGN_OFFSET_XN * 1000 + 9
+		public const int bj_MISSION_INDEX_XN10 = bj_CAMPAIGN_OFFSET_XN * 1000 + 10;//constant integer   bj_MISSION_INDEX_XN10       = bj_CAMPAIGN_OFFSET_XN * 1000 + 10
+		//
+		public const int bj_MISSION_INDEX_XH00 = bj_CAMPAIGN_OFFSET_XH * 1000 + 0;//constant integer   bj_MISSION_INDEX_XH00       = bj_CAMPAIGN_OFFSET_XH * 1000 + 0
+		public const int bj_MISSION_INDEX_XH01 = bj_CAMPAIGN_OFFSET_XH * 1000 + 1;//constant integer   bj_MISSION_INDEX_XH01       = bj_CAMPAIGN_OFFSET_XH * 1000 + 1
+		public const int bj_MISSION_INDEX_XH02 = bj_CAMPAIGN_OFFSET_XH * 1000 + 2;//constant integer   bj_MISSION_INDEX_XH02       = bj_CAMPAIGN_OFFSET_XH * 1000 + 2
+		public const int bj_MISSION_INDEX_XH03 = bj_CAMPAIGN_OFFSET_XH * 1000 + 3;//constant integer   bj_MISSION_INDEX_XH03       = bj_CAMPAIGN_OFFSET_XH * 1000 + 3
+		public const int bj_MISSION_INDEX_XH04 = bj_CAMPAIGN_OFFSET_XH * 1000 + 4;//constant integer   bj_MISSION_INDEX_XH04       = bj_CAMPAIGN_OFFSET_XH * 1000 + 4
+		public const int bj_MISSION_INDEX_XH05 = bj_CAMPAIGN_OFFSET_XH * 1000 + 5;//constant integer   bj_MISSION_INDEX_XH05       = bj_CAMPAIGN_OFFSET_XH * 1000 + 5
+		public const int bj_MISSION_INDEX_XH06 = bj_CAMPAIGN_OFFSET_XH * 1000 + 6;//constant integer   bj_MISSION_INDEX_XH06       = bj_CAMPAIGN_OFFSET_XH * 1000 + 6
+		public const int bj_MISSION_INDEX_XH07 = bj_CAMPAIGN_OFFSET_XH * 1000 + 7;//constant integer   bj_MISSION_INDEX_XH07       = bj_CAMPAIGN_OFFSET_XH * 1000 + 7
+		public const int bj_MISSION_INDEX_XH08 = bj_CAMPAIGN_OFFSET_XH * 1000 + 8;//constant integer   bj_MISSION_INDEX_XH08       = bj_CAMPAIGN_OFFSET_XH * 1000 + 8
+		public const int bj_MISSION_INDEX_XH09 = bj_CAMPAIGN_OFFSET_XH * 1000 + 9;//constant integer   bj_MISSION_INDEX_XH09       = bj_CAMPAIGN_OFFSET_XH * 1000 + 9
+		//
+		public const int bj_MISSION_INDEX_XU00 = bj_CAMPAIGN_OFFSET_XU * 1000 + 0;//constant integer   bj_MISSION_INDEX_XU00       = bj_CAMPAIGN_OFFSET_XU * 1000 + 0
+		public const int bj_MISSION_INDEX_XU01 = bj_CAMPAIGN_OFFSET_XU * 1000 + 1;//constant integer   bj_MISSION_INDEX_XU01       = bj_CAMPAIGN_OFFSET_XU * 1000 + 1
+		public const int bj_MISSION_INDEX_XU02 = bj_CAMPAIGN_OFFSET_XU * 1000 + 2;//constant integer   bj_MISSION_INDEX_XU02       = bj_CAMPAIGN_OFFSET_XU * 1000 + 2
+		public const int bj_MISSION_INDEX_XU03 = bj_CAMPAIGN_OFFSET_XU * 1000 + 3;//constant integer   bj_MISSION_INDEX_XU03       = bj_CAMPAIGN_OFFSET_XU * 1000 + 3
+		public const int bj_MISSION_INDEX_XU04 = bj_CAMPAIGN_OFFSET_XU * 1000 + 4;//constant integer   bj_MISSION_INDEX_XU04       = bj_CAMPAIGN_OFFSET_XU * 1000 + 4
+		public const int bj_MISSION_INDEX_XU05 = bj_CAMPAIGN_OFFSET_XU * 1000 + 5;//constant integer   bj_MISSION_INDEX_XU05       = bj_CAMPAIGN_OFFSET_XU * 1000 + 5
+		public const int bj_MISSION_INDEX_XU06 = bj_CAMPAIGN_OFFSET_XU * 1000 + 6;//constant integer   bj_MISSION_INDEX_XU06       = bj_CAMPAIGN_OFFSET_XU * 1000 + 6
+		public const int bj_MISSION_INDEX_XU07 = bj_CAMPAIGN_OFFSET_XU * 1000 + 7;//constant integer   bj_MISSION_INDEX_XU07       = bj_CAMPAIGN_OFFSET_XU * 1000 + 7
+		public const int bj_MISSION_INDEX_XU08 = bj_CAMPAIGN_OFFSET_XU * 1000 + 8;//constant integer   bj_MISSION_INDEX_XU08       = bj_CAMPAIGN_OFFSET_XU * 1000 + 8
+		public const int bj_MISSION_INDEX_XU09 = bj_CAMPAIGN_OFFSET_XU * 1000 + 9;//constant integer   bj_MISSION_INDEX_XU09       = bj_CAMPAIGN_OFFSET_XU * 1000 + 9
+		public const int bj_MISSION_INDEX_XU10 = bj_CAMPAIGN_OFFSET_XU * 1000 + 10;//constant integer   bj_MISSION_INDEX_XU10       = bj_CAMPAIGN_OFFSET_XU * 1000 + 10
+		public const int bj_MISSION_INDEX_XU11 = bj_CAMPAIGN_OFFSET_XU * 1000 + 11;//constant integer   bj_MISSION_INDEX_XU11       = bj_CAMPAIGN_OFFSET_XU * 1000 + 11
+		public const int bj_MISSION_INDEX_XU12 = bj_CAMPAIGN_OFFSET_XU * 1000 + 12;//constant integer   bj_MISSION_INDEX_XU12       = bj_CAMPAIGN_OFFSET_XU * 1000 + 12
+		public const int bj_MISSION_INDEX_XU13 = bj_CAMPAIGN_OFFSET_XU * 1000 + 13;//constant integer   bj_MISSION_INDEX_XU13       = bj_CAMPAIGN_OFFSET_XU * 1000 + 13
+		//
+		public const int bj_MISSION_INDEX_XO00 = bj_CAMPAIGN_OFFSET_XO * 1000 + 0;//constant integer   bj_MISSION_INDEX_XO00       = bj_CAMPAIGN_OFFSET_XO * 1000 + 0
+		//
+		public const int bj_CINEMATICINDEX_TOP = 0;//constant integer   bj_CINEMATICINDEX_TOP      = 0
+		public const int bj_CINEMATICINDEX_HOP = 1;//constant integer   bj_CINEMATICINDEX_HOP      = 1
+		public const int bj_CINEMATICINDEX_HED = 2;//constant integer   bj_CINEMATICINDEX_HED      = 2
+		public const int bj_CINEMATICINDEX_OOP = 3;//constant integer   bj_CINEMATICINDEX_OOP      = 3
+		public const int bj_CINEMATICINDEX_OED = 4;//constant integer   bj_CINEMATICINDEX_OED      = 4
+		public const int bj_CINEMATICINDEX_UOP = 5;//constant integer   bj_CINEMATICINDEX_UOP      = 5
+		public const int bj_CINEMATICINDEX_UED = 6;//constant integer   bj_CINEMATICINDEX_UED      = 6
+		public const int bj_CINEMATICINDEX_NOP = 7;//constant integer   bj_CINEMATICINDEX_NOP      = 7
+		public const int bj_CINEMATICINDEX_NED = 8;//constant integer   bj_CINEMATICINDEX_NED      = 8
+		public const int bj_CINEMATICINDEX_XOP = 9;//constant integer   bj_CINEMATICINDEX_XOP      = 9
+		public const int bj_CINEMATICINDEX_XED = 10;//constant integer   bj_CINEMATICINDEX_XED      = 10
+		//
+		public const int bj_ALLIANCE_UNALLIED = 0;//constant integer   bj_ALLIANCE_UNALLIED        = 0
+		public const int bj_ALLIANCE_UNALLIED_VISION = 1;//constant integer   bj_ALLIANCE_UNALLIED_VISION = 1
+		public const int bj_ALLIANCE_ALLIED = 2;//constant integer   bj_ALLIANCE_ALLIED          = 2
+		public const int bj_ALLIANCE_ALLIED_VISION = 3;//constant integer   bj_ALLIANCE_ALLIED_VISION   = 3
+		public const int bj_ALLIANCE_ALLIED_UNITS = 4;//constant integer   bj_ALLIANCE_ALLIED_UNITS    = 4
+		public const int bj_ALLIANCE_ALLIED_ADVUNITS = 5;//constant integer   bj_ALLIANCE_ALLIED_ADVUNITS = 5
+		public const int bj_ALLIANCE_NEUTRAL = 6;//constant integer   bj_ALLIANCE_NEUTRAL         = 6
+		public const int bj_ALLIANCE_NEUTRAL_VISION = 7;//constant integer   bj_ALLIANCE_NEUTRAL_VISION  = 7
+		//
+		public const int bj_KEYEVENTTYPE_DEPRESS = 0;//constant integer   bj_KEYEVENTTYPE_DEPRESS     = 0
+		public const int bj_KEYEVENTTYPE_RELEASE = 1;//constant integer   bj_KEYEVENTTYPE_RELEASE     = 1
+		//
+		public const int bj_KEYEVENTKEY_LEFT = 0;//constant integer   bj_KEYEVENTKEY_LEFT         = 0
+		public const int bj_KEYEVENTKEY_RIGHT = 1;//constant integer   bj_KEYEVENTKEY_RIGHT        = 1
+		public const int bj_KEYEVENTKEY_DOWN = 2;//constant integer   bj_KEYEVENTKEY_DOWN         = 2
+		public const int bj_KEYEVENTKEY_UP = 3;//constant integer   bj_KEYEVENTKEY_UP           = 3
+		//
+		public const int bj_TIMETYPE_ADD = 0;//constant integer   bj_TIMETYPE_ADD             = 0
+		public const int bj_TIMETYPE_SET = 1;//constant integer   bj_TIMETYPE_SET             = 1
+		public const int bj_TIMETYPE_SUB = 2;//constant integer   bj_TIMETYPE_SUB             = 2
+		//
+		public const int bj_CAMERABOUNDS_ADJUST_ADD = 0;//constant integer   bj_CAMERABOUNDS_ADJUST_ADD  = 0
+		public const int bj_CAMERABOUNDS_ADJUST_SUB = 1;//constant integer   bj_CAMERABOUNDS_ADJUST_SUB  = 1
+		//
+		public const int bj_QUESTTYPE_REQ_DISCOVERED = 0;//constant integer   bj_QUESTTYPE_REQ_DISCOVERED   = 0
+		public const int bj_QUESTTYPE_REQ_UNDISCOVERED = 1;//constant integer   bj_QUESTTYPE_REQ_UNDISCOVERED = 1
+		public const int bj_QUESTTYPE_OPT_DISCOVERED = 2;//constant integer   bj_QUESTTYPE_OPT_DISCOVERED   = 2
+		public const int bj_QUESTTYPE_OPT_UNDISCOVERED = 3;//constant integer   bj_QUESTTYPE_OPT_UNDISCOVERED = 3
+		//
+		public const int bj_QUESTMESSAGE_DISCOVERED = 0;//constant integer   bj_QUESTMESSAGE_DISCOVERED    = 0
+		public const int bj_QUESTMESSAGE_UPDATED = 1;//constant integer   bj_QUESTMESSAGE_UPDATED       = 1
+		public const int bj_QUESTMESSAGE_COMPLETED = 2;//constant integer   bj_QUESTMESSAGE_COMPLETED     = 2
+		public const int bj_QUESTMESSAGE_FAILED = 3;//constant integer   bj_QUESTMESSAGE_FAILED        = 3
+		public const int bj_QUESTMESSAGE_REQUIREMENT = 4;//constant integer   bj_QUESTMESSAGE_REQUIREMENT   = 4
+		public const int bj_QUESTMESSAGE_MISSIONFAILED = 5;//constant integer   bj_QUESTMESSAGE_MISSIONFAILED = 5
+		public const int bj_QUESTMESSAGE_ALWAYSHINT = 6;//constant integer   bj_QUESTMESSAGE_ALWAYSHINT    = 6
+		public const int bj_QUESTMESSAGE_HINT = 7;//constant integer   bj_QUESTMESSAGE_HINT          = 7
+		public const int bj_QUESTMESSAGE_SECRET = 8;//constant integer   bj_QUESTMESSAGE_SECRET        = 8
+		public const int bj_QUESTMESSAGE_UNITACQUIRED = 9;//constant integer   bj_QUESTMESSAGE_UNITACQUIRED  = 9
+		public const int bj_QUESTMESSAGE_UNITAVAILABLE = 10;//constant integer   bj_QUESTMESSAGE_UNITAVAILABLE = 10
+		public const int bj_QUESTMESSAGE_ITEMACQUIRED = 11;//constant integer   bj_QUESTMESSAGE_ITEMACQUIRED  = 11
+		public const int bj_QUESTMESSAGE_WARNING = 12;//constant integer   bj_QUESTMESSAGE_WARNING       = 12
+		//
+		public const int bj_SORTTYPE_SORTBYVALUE = 0;//constant integer   bj_SORTTYPE_SORTBYVALUE     = 0
+		public const int bj_SORTTYPE_SORTBYPLAYER = 1;//constant integer   bj_SORTTYPE_SORTBYPLAYER    = 1
+		public const int bj_SORTTYPE_SORTBYLABEL = 2;//constant integer   bj_SORTTYPE_SORTBYLABEL     = 2
+		//
+		public const int bj_CINEFADETYPE_FADEIN = 0;//constant integer   bj_CINEFADETYPE_FADEIN      = 0
+		public const int bj_CINEFADETYPE_FADEOUT = 1;//constant integer   bj_CINEFADETYPE_FADEOUT     = 1
+		public const int bj_CINEFADETYPE_FADEOUTIN = 2;//constant integer   bj_CINEFADETYPE_FADEOUTIN   = 2
+		//
+		public const int bj_REMOVEBUFFS_POSITIVE = 0;//constant integer   bj_REMOVEBUFFS_POSITIVE     = 0
+		public const int bj_REMOVEBUFFS_NEGATIVE = 1;//constant integer   bj_REMOVEBUFFS_NEGATIVE     = 1
+		public const int bj_REMOVEBUFFS_ALL = 2;//constant integer   bj_REMOVEBUFFS_ALL          = 2
+		public const int bj_REMOVEBUFFS_NONTLIFE = 3;//constant integer   bj_REMOVEBUFFS_NONTLIFE     = 3
+		//
+		public const int bj_BUFF_POLARITY_POSITIVE = 0;//constant integer   bj_BUFF_POLARITY_POSITIVE   = 0
+		public const int bj_BUFF_POLARITY_NEGATIVE = 1;//constant integer   bj_BUFF_POLARITY_NEGATIVE   = 1
+		public const int bj_BUFF_POLARITY_EITHER = 2;//constant integer   bj_BUFF_POLARITY_EITHER     = 2
+		//
+		public const int bj_BUFF_RESIST_MAGIC = 0;//constant integer   bj_BUFF_RESIST_MAGIC        = 0
+		public const int bj_BUFF_RESIST_PHYSICAL = 1;//constant integer   bj_BUFF_RESIST_PHYSICAL     = 1
+		public const int bj_BUFF_RESIST_EITHER = 2;//constant integer   bj_BUFF_RESIST_EITHER       = 2
+		public const int bj_BUFF_RESIST_BOTH = 3;//constant integer   bj_BUFF_RESIST_BOTH         = 3
+		//
+		public const int bj_HEROSTAT_STR = 0;//constant integer   bj_HEROSTAT_STR             = 0
+		public const int bj_HEROSTAT_AGI = 1;//constant integer   bj_HEROSTAT_AGI             = 1
+		public const int bj_HEROSTAT_INT = 2;//constant integer   bj_HEROSTAT_INT             = 2
+		//
+		public const int bj_MODIFYMETHOD_ADD = 0;//constant integer   bj_MODIFYMETHOD_ADD    = 0
+		public const int bj_MODIFYMETHOD_SUB = 1;//constant integer   bj_MODIFYMETHOD_SUB    = 1
+		public const int bj_MODIFYMETHOD_SET = 2;//constant integer   bj_MODIFYMETHOD_SET    = 2
+		//
+		public const int bj_UNIT_STATE_METHOD_ABSOLUTE = 0;//constant integer   bj_UNIT_STATE_METHOD_ABSOLUTE = 0
+		public const int bj_UNIT_STATE_METHOD_RELATIVE = 1;//constant integer   bj_UNIT_STATE_METHOD_RELATIVE = 1
+		public const int bj_UNIT_STATE_METHOD_DEFAULTS = 2;//constant integer   bj_UNIT_STATE_METHOD_DEFAULTS = 2
+		public const int bj_UNIT_STATE_METHOD_MAXIMUM = 3;//constant integer   bj_UNIT_STATE_METHOD_MAXIMUM  = 3
+		//
+		public const int bj_GATEOPERATION_CLOSE = 0;//constant integer   bj_GATEOPERATION_CLOSE      = 0
+		public const int bj_GATEOPERATION_OPEN = 1;//constant integer   bj_GATEOPERATION_OPEN       = 1
+		public const int bj_GATEOPERATION_DESTROY = 2;//constant integer   bj_GATEOPERATION_DESTROY    = 2
+		//
+		public const int bj_GAMECACHE_BOOLEAN = 0;//constant integer   bj_GAMECACHE_BOOLEAN                 = 0
+		public const int bj_GAMECACHE_INTEGER = 1;//constant integer   bj_GAMECACHE_INTEGER                 = 1
+		public const int bj_GAMECACHE_REAL = 2;//constant integer   bj_GAMECACHE_REAL                    = 2
+		public const int bj_GAMECACHE_UNIT = 3;//constant integer   bj_GAMECACHE_UNIT                    = 3
+		public const int bj_GAMECACHE_STRING = 4;//constant integer   bj_GAMECACHE_STRING                  = 4
+		//
+		public const int bj_HASHTABLE_BOOLEAN = 0;//constant integer   bj_HASHTABLE_BOOLEAN                 = 0
+		public const int bj_HASHTABLE_INTEGER = 1;//constant integer   bj_HASHTABLE_INTEGER                 = 1
+		public const int bj_HASHTABLE_REAL = 2;//constant integer   bj_HASHTABLE_REAL                    = 2
+		public const int bj_HASHTABLE_STRING = 3;//constant integer   bj_HASHTABLE_STRING                  = 3
+		public const int bj_HASHTABLE_HANDLE = 4;//constant integer   bj_HASHTABLE_HANDLE                  = 4
+		//
+		public const int bj_ITEM_STATUS_HIDDEN = 0;//constant integer   bj_ITEM_STATUS_HIDDEN       = 0
+		public const int bj_ITEM_STATUS_OWNED = 1;//constant integer   bj_ITEM_STATUS_OWNED        = 1
+		public const int bj_ITEM_STATUS_INVULNERABLE = 2;//constant integer   bj_ITEM_STATUS_INVULNERABLE = 2
+		public const int bj_ITEM_STATUS_POWERUP = 3;//constant integer   bj_ITEM_STATUS_POWERUP      = 3
+		public const int bj_ITEM_STATUS_SELLABLE = 4;//constant integer   bj_ITEM_STATUS_SELLABLE     = 4
+		public const int bj_ITEM_STATUS_PAWNABLE = 5;//constant integer   bj_ITEM_STATUS_PAWNABLE     = 5
+		//
+		public const int bj_ITEMCODE_STATUS_POWERUP = 0;//constant integer   bj_ITEMCODE_STATUS_POWERUP  = 0
+		public const int bj_ITEMCODE_STATUS_SELLABLE = 1;//constant integer   bj_ITEMCODE_STATUS_SELLABLE = 1
+		public const int bj_ITEMCODE_STATUS_PAWNABLE = 2;//constant integer   bj_ITEMCODE_STATUS_PAWNABLE = 2
+		//
+		public const int bj_MINIMAPPINGSTYLE_SIMPLE = 0;//constant integer   bj_MINIMAPPINGSTYLE_SIMPLE  = 0
+		public const int bj_MINIMAPPINGSTYLE_FLASHY = 1;//constant integer   bj_MINIMAPPINGSTYLE_FLASHY  = 1
+		public const int bj_MINIMAPPINGSTYLE_ATTACK = 2;//constant integer   bj_MINIMAPPINGSTYLE_ATTACK  = 2
+		//
+		public const float bj_CORPSE_MAX_DEATH_TIME = 8.00;//constant real      bj_CORPSE_MAX_DEATH_TIME    = 8.00
+		//
+		public const int bj_CORPSETYPE_FLESH = 0;//constant integer   bj_CORPSETYPE_FLESH         = 0
+		public const int bj_CORPSETYPE_BONE = 1;//constant integer   bj_CORPSETYPE_BONE          = 1
+		//
+		public const int bj_ELEVATOR_BLOCKER_CODE = 'DTep';//constant integer   bj_ELEVATOR_BLOCKER_CODE    = 'DTep'
+		public const int bj_ELEVATOR_CODE01 = 'DTrf';//constant integer   bj_ELEVATOR_CODE01          = 'DTrf'
+		public const int bj_ELEVATOR_CODE02 = 'DTrx';//constant integer   bj_ELEVATOR_CODE02          = 'DTrx'
+		//
+		public const int bj_ELEVATOR_WALL_TYPE_ALL = 0;//constant integer   bj_ELEVATOR_WALL_TYPE_ALL        = 0
+		public const int bj_ELEVATOR_WALL_TYPE_EAST = 1;//constant integer   bj_ELEVATOR_WALL_TYPE_EAST       = 1
+		public const int bj_ELEVATOR_WALL_TYPE_NORTH = 2;//constant integer   bj_ELEVATOR_WALL_TYPE_NORTH      = 2
+		public const int bj_ELEVATOR_WALL_TYPE_SOUTH = 3;//constant integer   bj_ELEVATOR_WALL_TYPE_SOUTH      = 3
+		public const int bj_ELEVATOR_WALL_TYPE_WEST = 4;//constant integer   bj_ELEVATOR_WALL_TYPE_WEST       = 4
+		//
+		//
+		//
+		//
+		public static force bj_FORCE_ALL_PLAYERS = null;//force              bj_FORCE_ALL_PLAYERS        = null
+		public static force[] bj_FORCE_PLAYER;//force array        bj_FORCE_PLAYER
+		public static int bj_MELEE_MAX_TWINKED_HEROES = 0;//integer            bj_MELEE_MAX_TWINKED_HEROES = 0
+		//
+		public static rect bj_mapInitialPlayableArea = null;//rect               bj_mapInitialPlayableArea   = null
+		public static rect bj_mapInitialCameraBounds = null;//rect               bj_mapInitialCameraBounds   = null
+		//
+		public static int bj_forLoopAIndex = 0;//integer            bj_forLoopAIndex            = 0
+		public static int bj_forLoopBIndex = 0;//integer            bj_forLoopBIndex            = 0
+		public static int bj_forLoopAIndexEnd = 0;//integer            bj_forLoopAIndexEnd         = 0
+		public static int bj_forLoopBIndexEnd = 0;//integer            bj_forLoopBIndexEnd         = 0
+		public static bool bj_slotControlReady = false;//boolean            bj_slotControlReady         = false
+		public static bool[] bj_slotControlUsed;//boolean array      bj_slotControlUsed
+		public static mapcontrol[] bj_slotControl;//mapcontrol array   bj_slotControl
+		//
+		public static timer bj_gameStartedTimer = null;//timer              bj_gameStartedTimer         = null
+		public static bool bj_gameStarted = false;//boolean            bj_gameStarted              = false
+		public static timer bj_volumeGroupsTimer = CreateTimer();//timer              bj_volumeGroupsTimer        = CreateTimer()
+		//
+		public static bool bj_isSinglePlayer = false;//boolean            bj_isSinglePlayer           = false
+		//
+		public static trigger bj_dncSoundsDay = null;//trigger            bj_dncSoundsDay             = null
+		public static trigger bj_dncSoundsNight = null;//trigger            bj_dncSoundsNight           = null
+		public static sound bj_dayAmbientSound = null;//sound              bj_dayAmbientSound          = null
+		public static sound bj_nightAmbientSound = null;//sound              bj_nightAmbientSound        = null
+		public static trigger bj_dncSoundsDawn = null;//trigger            bj_dncSoundsDawn            = null
+		public static trigger bj_dncSoundsDusk = null;//trigger            bj_dncSoundsDusk            = null
+		public static sound bj_dawnSound = null;//sound              bj_dawnSound                = null
+		public static sound bj_duskSound = null;//sound              bj_duskSound                = null
+		public static bool bj_useDawnDuskSounds = true;//boolean            bj_useDawnDuskSounds        = true
+		public static bool bj_dncIsDaytime = false;//boolean            bj_dncIsDaytime             = false
+		//
+		//
+		public static sound bj_rescueSound = null;//sound              bj_rescueSound              = null
+		public static sound bj_questDiscoveredSound = null;//sound              bj_questDiscoveredSound     = null
+		public static sound bj_questUpdatedSound = null;//sound              bj_questUpdatedSound        = null
+		public static sound bj_questCompletedSound = null;//sound              bj_questCompletedSound      = null
+		public static sound bj_questFailedSound = null;//sound              bj_questFailedSound         = null
+		public static sound bj_questHintSound = null;//sound              bj_questHintSound           = null
+		public static sound bj_questSecretSound = null;//sound              bj_questSecretSound         = null
+		public static sound bj_questItemAcquiredSound = null;//sound              bj_questItemAcquiredSound   = null
+		public static sound bj_questWarningSound = null;//sound              bj_questWarningSound        = null
+		public static sound bj_victoryDialogSound = null;//sound              bj_victoryDialogSound       = null
+		public static sound bj_defeatDialogSound = null;//sound              bj_defeatDialogSound        = null
+		//
+		public static trigger bj_stockItemPurchased = null;//trigger            bj_stockItemPurchased       = null
+		public static timer bj_stockUpdateTimer = null;//timer              bj_stockUpdateTimer         = null
+		public static bool[] bj_stockAllowedPermanent;//boolean array      bj_stockAllowedPermanent
+		public static bool[] bj_stockAllowedCharged;//boolean array      bj_stockAllowedCharged
+		public static bool[] bj_stockAllowedArtifact;//boolean array      bj_stockAllowedArtifact
+		public static int bj_stockPickedItemLevel = 0;//integer            bj_stockPickedItemLevel     = 0
+		public static itemtype bj_stockPickedItemType;//itemtype           bj_stockPickedItemType
+		//
+		public static trigger bj_meleeVisibilityTrained = null;//trigger            bj_meleeVisibilityTrained   = null
+		public static bool bj_meleeVisibilityIsDay = true;//boolean            bj_meleeVisibilityIsDay     = true
+		public static bool bj_meleeGrantHeroItems = false;//boolean            bj_meleeGrantHeroItems      = false
+		public static location bj_meleeNearestMineToLoc = null;//location           bj_meleeNearestMineToLoc    = null
+		public static int bj_meleeNearestMine = null;//unit               bj_meleeNearestMine         = null
+		public static float bj_meleeNearestMineDist = 0.00;//real               bj_meleeNearestMineDist     = 0.00
+		public static bool bj_meleeGameOver = false;//boolean            bj_meleeGameOver            = false
+		public static bool[] bj_meleeDefeated;//boolean array      bj_meleeDefeated
+		public static bool[] bj_meleeVictoried;//boolean array      bj_meleeVictoried
+		public static int[] bj_ghoul;//unit array         bj_ghoul
+		public static timer[] bj_crippledTimer;//timer array        bj_crippledTimer
+		public static timerdialog[] bj_crippledTimerWindows;//timerdialog array  bj_crippledTimerWindows
+		public static bool[] bj_playerIsCrippled;//boolean array      bj_playerIsCrippled
+		public static bool[] bj_playerIsExposed;//boolean array      bj_playerIsExposed
+		public static bool bj_finishSoonAllExposed = false;//boolean            bj_finishSoonAllExposed     = false
+		public static timerdialog bj_finishSoonTimerDialog = null;//timerdialog        bj_finishSoonTimerDialog    = null
+		public static int[] bj_meleeTwinkedHeroes;//integer array      bj_meleeTwinkedHeroes
+		//
+		public static trigger bj_rescueUnitBehavior = null;//trigger            bj_rescueUnitBehavior       = null
+		public static bool bj_rescueChangeColorUnit = true;//boolean            bj_rescueChangeColorUnit    = true
+		public static bool bj_rescueChangeColorBldg = true;//boolean            bj_rescueChangeColorBldg    = true
+		//
+		public static timer bj_cineSceneEndingTimer = null;//timer              bj_cineSceneEndingTimer     = null
+		public static sound bj_cineSceneLastSound = null;//sound              bj_cineSceneLastSound       = null
+		public static trigger bj_cineSceneBeingSkipped = null;//trigger            bj_cineSceneBeingSkipped    = null
+		//
+		public static gamespeed bj_cineModePriorSpeed = MAP_SPEED_NORMAL;//gamespeed          bj_cineModePriorSpeed       = MAP_SPEED_NORMAL
+		public static bool bj_cineModePriorFogSetting = false;//boolean            bj_cineModePriorFogSetting  = false
+		public static bool bj_cineModePriorMaskSetting = false;//boolean            bj_cineModePriorMaskSetting = false
+		public static bool bj_cineModeAlreadyIn = false;//boolean            bj_cineModeAlreadyIn        = false
+		public static bool bj_cineModePriorDawnDusk = false;//boolean            bj_cineModePriorDawnDusk    = false
+		public static int bj_cineModeSavedSeed = 0;//integer            bj_cineModeSavedSeed        = 0
+		//
+		public static timer bj_cineFadeFinishTimer = null;//timer              bj_cineFadeFinishTimer      = null
+		public static timer bj_cineFadeContinueTimer = null;//timer              bj_cineFadeContinueTimer    = null
+		public static float bj_cineFadeContinueRed = 0;//real               bj_cineFadeContinueRed      = 0
+		public static float bj_cineFadeContinueGreen = 0;//real               bj_cineFadeContinueGreen    = 0
+		public static float bj_cineFadeContinueBlue = 0;//real               bj_cineFadeContinueBlue     = 0
+		public static float bj_cineFadeContinueTrans = 0;//real               bj_cineFadeContinueTrans    = 0
+		public static float bj_cineFadeContinueDuration = 0;//real               bj_cineFadeContinueDuration = 0
+		public static string bj_cineFadeContinueTex = "";//string             bj_cineFadeContinueTex      = ""
+		//
+		public static int bj_queuedExecTotal = 0;//integer            bj_queuedExecTotal          = 0
+		public static trigger[] bj_queuedExecTriggers;//trigger array      bj_queuedExecTriggers
+		public static bool[] bj_queuedExecUseConds;//boolean array      bj_queuedExecUseConds
+		public static timer bj_queuedExecTimeoutTimer = CreateTimer();//timer              bj_queuedExecTimeoutTimer   = CreateTimer()
+		public static trigger bj_queuedExecTimeout = null;//trigger            bj_queuedExecTimeout        = null
+		//
+		public static int bj_destInRegionDiesCount = 0;//integer            bj_destInRegionDiesCount    = 0
+		public static trigger bj_destInRegionDiesTrig = null;//trigger            bj_destInRegionDiesTrig     = null
+		public static int bj_groupCountUnits = 0;//integer            bj_groupCountUnits          = 0
+		public static int bj_forceCountPlayers = 0;//integer            bj_forceCountPlayers        = 0
+		public static int bj_groupEnumTypeId = 0;//integer            bj_groupEnumTypeId          = 0
+		public static player bj_groupEnumOwningPlayer = null;//player             bj_groupEnumOwningPlayer    = null
+		public static group bj_groupAddGroupDest = null;//group              bj_groupAddGroupDest        = null
+		public static group bj_groupRemoveGroupDest = null;//group              bj_groupRemoveGroupDest     = null
+		public static int bj_groupRandomConsidered = 0;//integer            bj_groupRandomConsidered    = 0
+		public static int bj_groupRandomCurrentPick = null;//unit               bj_groupRandomCurrentPick   = null
+		public static group bj_groupLastCreatedDest = null;//group              bj_groupLastCreatedDest     = null
+		public static group bj_randomSubGroupGroup = null;//group              bj_randomSubGroupGroup      = null
+		public static int bj_randomSubGroupWant = 0;//integer            bj_randomSubGroupWant       = 0
+		public static int bj_randomSubGroupTotal = 0;//integer            bj_randomSubGroupTotal      = 0
+		public static float bj_randomSubGroupChance = 0;//real               bj_randomSubGroupChance     = 0
+		public static int bj_destRandomConsidered = 0;//integer            bj_destRandomConsidered     = 0
+		public static destructable bj_destRandomCurrentPick = null;//destructable       bj_destRandomCurrentPick    = null
+		public static destructable bj_elevatorWallBlocker = null;//destructable       bj_elevatorWallBlocker      = null
+		public static destructable bj_elevatorNeighbor = null;//destructable       bj_elevatorNeighbor         = null
+		public static int bj_itemRandomConsidered = 0;//integer            bj_itemRandomConsidered     = 0
+		public static item bj_itemRandomCurrentPick = null;//item               bj_itemRandomCurrentPick    = null
+		public static int bj_forceRandomConsidered = 0;//integer            bj_forceRandomConsidered    = 0
+		public static player bj_forceRandomCurrentPick = null;//player             bj_forceRandomCurrentPick   = null
+		public static int bj_makeUnitRescuableUnit = null;//unit               bj_makeUnitRescuableUnit    = null
+		public static bool bj_makeUnitRescuableFlag = true;//boolean            bj_makeUnitRescuableFlag    = true
+		public static bool bj_pauseAllUnitsFlag = true;//boolean            bj_pauseAllUnitsFlag        = true
+		public static location bj_enumDestructableCenter = null;//location           bj_enumDestructableCenter   = null
+		public static float bj_enumDestructableRadius = 0;//real               bj_enumDestructableRadius   = 0
+		public static playercolor bj_setPlayerTargetColor = null;//playercolor        bj_setPlayerTargetColor     = null
+		public static bool bj_isUnitGroupDeadResult = true;//boolean            bj_isUnitGroupDeadResult    = true
+		public static bool bj_isUnitGroupEmptyResult = true;//boolean            bj_isUnitGroupEmptyResult   = true
+		public static bool bj_isUnitGroupInRectResult = true;//boolean            bj_isUnitGroupInRectResult  = true
+		public static rect bj_isUnitGroupInRectRect = null;//rect               bj_isUnitGroupInRectRect    = null
+		public static bool bj_changeLevelShowScores = false;//boolean            bj_changeLevelShowScores    = false
+		public static string bj_changeLevelMapName = null;//string             bj_changeLevelMapName       = null
+		public static group bj_suspendDecayFleshGroup = CreateGroup();//group              bj_suspendDecayFleshGroup   = CreateGroup()
+		public static group bj_suspendDecayBoneGroup = CreateGroup();//group              bj_suspendDecayBoneGroup    = CreateGroup()
+		public static timer bj_delayedSuspendDecayTimer = CreateTimer();//timer              bj_delayedSuspendDecayTimer = CreateTimer()
+		public static trigger bj_delayedSuspendDecayTrig = null;//trigger            bj_delayedSuspendDecayTrig  = null
+		public static int bj_livingPlayerUnitsTypeId = 0;//integer            bj_livingPlayerUnitsTypeId  = 0
+		public static widget bj_lastDyingWidget = null;//widget             bj_lastDyingWidget          = null
+		//
+		public static int bj_randDistCount = 0;//integer            bj_randDistCount            = 0
+		public static int[] bj_randDistID;//integer array      bj_randDistID
+		public static int[] bj_randDistChance;//integer array      bj_randDistChance
+		//
+		public static int bj_lastCreatedUnit = null;//unit               bj_lastCreatedUnit          = null
+		public static item bj_lastCreatedItem = null;//item               bj_lastCreatedItem          = null
+		public static item bj_lastRemovedItem = null;//item               bj_lastRemovedItem          = null
+		public static int bj_lastHauntedGoldMine = null;//unit               bj_lastHauntedGoldMine      = null
+		public static destructable bj_lastCreatedDestructable = null;//destructable       bj_lastCreatedDestructable  = null
+		public static group bj_lastCreatedGroup = CreateGroup();//group              bj_lastCreatedGroup         = CreateGroup()
+		public static fogmodifier bj_lastCreatedFogModifier = null;//fogmodifier        bj_lastCreatedFogModifier   = null
+		public static effect bj_lastCreatedEffect = null;//effect             bj_lastCreatedEffect        = null
+		public static weathereffect bj_lastCreatedWeatherEffect = null;//weathereffect      bj_lastCreatedWeatherEffect = null
+		public static terraindeformation bj_lastCreatedTerrainDeformation = null;//terraindeformation bj_lastCreatedTerrainDeformation = null
+		public static quest bj_lastCreatedQuest = null;//quest              bj_lastCreatedQuest         = null
+		public static questitem bj_lastCreatedQuestItem = null;//questitem          bj_lastCreatedQuestItem     = null
+		public static defeatcondition bj_lastCreatedDefeatCondition = null;//defeatcondition    bj_lastCreatedDefeatCondition = null
+		public static timer bj_lastStartedTimer = CreateTimer();//timer              bj_lastStartedTimer         = CreateTimer()
+		public static timerdialog bj_lastCreatedTimerDialog = null;//timerdialog        bj_lastCreatedTimerDialog   = null
+		public static leaderboard bj_lastCreatedLeaderboard = null;//leaderboard        bj_lastCreatedLeaderboard   = null
+		public static multiboard bj_lastCreatedMultiboard = null;//multiboard         bj_lastCreatedMultiboard    = null
+		public static sound bj_lastPlayedSound = null;//sound              bj_lastPlayedSound          = null
+		public static string bj_lastPlayedMusic = "";//string             bj_lastPlayedMusic          = ""
+		public static float bj_lastTransmissionDuration = 0;//real               bj_lastTransmissionDuration = 0
+		public static gamecache bj_lastCreatedGameCache = null;//gamecache          bj_lastCreatedGameCache     = null
+		public static hashtable bj_lastCreatedHashtable = null;//hashtable          bj_lastCreatedHashtable     = null
+		public static int bj_lastLoadedUnit = null;//unit               bj_lastLoadedUnit           = null
+		public static button bj_lastCreatedButton = null;//button             bj_lastCreatedButton        = null
+		public static int bj_lastReplacedUnit = null;//unit               bj_lastReplacedUnit         = null
+		public static texttag bj_lastCreatedTextTag = null;//texttag            bj_lastCreatedTextTag       = null
+		public static lightning bj_lastCreatedLightning = null;//lightning          bj_lastCreatedLightning     = null
+		public static image bj_lastCreatedImage = null;//image              bj_lastCreatedImage         = null
+		public static ubersplat bj_lastCreatedUbersplat = null;//ubersplat          bj_lastCreatedUbersplat     = null
+		//
+		public static boolexpr filterIssueHauntOrderAtLocBJ = null;//boolexpr           filterIssueHauntOrderAtLocBJ      = null
+		public static boolexpr filterEnumDestructablesInCircleBJ = null;//boolexpr           filterEnumDestructablesInCircleBJ = null
+		public static boolexpr filterGetUnitsInRectOfPlayer = null;//boolexpr           filterGetUnitsInRectOfPlayer      = null
+		public static boolexpr filterGetUnitsOfTypeIdAll = null;//boolexpr           filterGetUnitsOfTypeIdAll         = null
+		public static boolexpr filterGetUnitsOfPlayerAndTypeId = null;//boolexpr           filterGetUnitsOfPlayerAndTypeId   = null
+		public static boolexpr filterMeleeTrainedUnitIsHeroBJ = null;//boolexpr           filterMeleeTrainedUnitIsHeroBJ    = null
+		public static boolexpr filterLivingPlayerUnitsOfTypeId = null;//boolexpr           filterLivingPlayerUnitsOfTypeId   = null
+		//
+		public static bool bj_wantDestroyGroup = false;//boolean            bj_wantDestroyGroup         = false
+		//
+		//
+		//
+		//
 		//
 		//
 		private void BJDebugMsg(string msg) {//function BJDebugMsg takes string msg returns nothing

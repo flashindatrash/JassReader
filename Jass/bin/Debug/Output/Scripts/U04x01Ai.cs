@@ -8,6 +8,9 @@ namespace Jass {
 		//
 		//
 		//
+		public static player user = PlayerEx(4);//player user = PlayerEx(4)
+		public const int NO_CLOUD_HAWK = 'h001';//constant integer NO_CLOUD_HAWK  = 'h001'
+		public const int CLOUD_HAWK = HUMAN_DRAGON_HAWK;//constant integer CLOUD_HAWK     = HUMAN_DRAGON_HAWK
 		//
 		//
 		//

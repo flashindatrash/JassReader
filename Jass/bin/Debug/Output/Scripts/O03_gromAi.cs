@@ -8,6 +8,25 @@ namespace Jass {
 		//
 		//
 		//
+		public const int GO_AGRO = 1;//constant integer GO_AGRO        = 1
+		public const int GO_KILL = 2;//constant integer GO_KILL        = 2
+		public const int PLAYER_DIED = 3;//constant integer PLAYER_DIED    = 3
+		public const int PLAYER_ASS = 4;//constant integer PLAYER_ASS     = 4
+		public const int CLEAR_AGRO = 5;//constant integer CLEAR_AGRO     = 5
+		public const int USER = 0;//constant integer USER           = 0
+		public const int BLUE = 1;//constant integer BLUE           = 1
+		public const int GRAY = 8;//constant integer GRAY           = 8
+		public const int LIGHT_BLUE = 9;//constant integer LIGHT_BLUE     = 9
+		public const int GREEN = 10;//constant integer GREEN          = 10
+		public const int EASY_AGRO = 120;//constant integer EASY_AGRO      = 120
+		public const int NORMAL_AGRO = 120;//constant integer NORMAL_AGRO    = 120
+		public const int HARD_AGRO = 120;//constant integer HARD_AGRO      = 120
+		public static int grom_target = -1;//integer grom_target             = -1
+		public static int wave_index = 0;//integer wave_index              = 0
+		public static int strength = 1;//integer strength                = 1
+		public static bool agro_mode = true;//boolean agro_mode               = true
+		public static bool[] alive;//boolean array alive
+		public static bool[] needs_agro;//boolean array needs_agro
 		//
 		//
 		//

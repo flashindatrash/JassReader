@@ -8,6 +8,12 @@ namespace Jass {
 		//
 		//
 		//
+		public const int SWISP = 'e001';//constant integer SWISP          = 'e001'
+		public const int SHUNTRESS = 'e000';//constant integer SHUNTRESS      = 'e000'
+		public const int SARCHER = 'e005';//constant integer SARCHER        = 'e005'
+		public const int SANCIENTWAR = 'e009';//constant integer SANCIENTWAR    = 'e009'
+		public const int SPROTECTOR = 'e008';//constant integer SPROTECTOR     = 'e008'
+		public const int SMOONWELL = 'e007';//constant integer SMOONWELL      = 'e007'
 		//
 		//
 		//

@@ -8,6 +8,10 @@ namespace Jass {
 		//
 		//
 		//
+		public static player user = PlayerEx(4);//player user = PlayerEx(4)
+		public static int delay = M5;//integer delay       = M5
+		public static int hard_delay = M4;//integer hard_delay  = M4
+		public static int fast_delay = M3;//integer fast_delay  = M3
 		//
 		//
 		//
