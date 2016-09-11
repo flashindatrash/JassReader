@@ -5,10 +5,10 @@ namespace Jass
 {
 	public class IfThen : JassLine, IParser, ITabBefore, ITabAfter
 	{
-		public const string Pattern = @"^(?<type>if|elseif)\s*(?<expression>" + Expression.Pattern + @")\s+then\r?$";
+		public const string Pattern = @"^(?<type>if|elseif)\s*(?<expression>" + Eval.Pattern + @")\s+then\r?$";
 
 		private string type;
-		private readonly Expression expression = new Expression();
+		private readonly Eval expression = new Eval();
 
 		public bool isElse
 		{

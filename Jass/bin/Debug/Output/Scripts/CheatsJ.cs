@@ -278,7 +278,7 @@ namespace Jass {
 				DisplayTextToPlayer(Player(index), 0, 0, "Finger Of Death Enabled");//call DisplayTextToPlayer(Player(index), 0, 0, "Finger Of Death Enabled")
 				EnableTrigger(bj_debugToolOfDeathTrig[index]);//call EnableTrigger(bj_debugToolOfDeathTrig[index])
 			}//endif
-			bj_debugFingerOfDeathEnabled[index] = not bj_debugFingerOfDeathEnabled[index];//set bj_debugFingerOfDeathEnabled[index] = not bj_debugFingerOfDeathEnabled[index]
+			bj_debugFingerOfDeathEnabled[index] = !bj_debugFingerOfDeathEnabled[index];//set bj_debugFingerOfDeathEnabled[index] = not bj_debugFingerOfDeathEnabled[index]
 		}//endfunction
 		//
 		private bool InitDebugTriggers() {//function InitDebugTriggers takes nothing returns boolean

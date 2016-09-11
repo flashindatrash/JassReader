@@ -1251,7 +1251,7 @@ namespace Jass {
 			//
 			hall = GetEnemyExpansion();//set hall = GetEnemyExpansion()
 			daytime = GetFloatGameState(GAME_STATE_TIME_OF_DAY);//set daytime = GetFloatGameState(GAME_STATE_TIME_OF_DAY)
-			can_siege = has_siege and (air_units or (daytime>=4 and daytime<=12));//set can_siege = has_siege and (air_units or (daytime>=4 and daytime<=12))
+			can_siege = has_siege && (air_units || (daytime>=4 && daytime<=12));//set can_siege = has_siege and (air_units or (daytime>=4 and daytime<=12))
 			if (hall!=null && (can_siege || !IsTowered(hall))) {//if hall!=null and (can_siege or not IsTowered(hall)) then
 				Trace("test player town attack\n");//call Trace("test player town attack\n")
 				if (MeleeDifficulty() == MELEE_NEWBIE) {//if MeleeDifficulty() == MELEE_NEWBIE then

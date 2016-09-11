@@ -158,11 +158,11 @@ namespace Jass {
 				}//endloop
 				setup_force();//call setup_force()
 				wyrms = GetUnitCountDone(FROST_WYRM)>0;//set wyrms            = GetUnitCountDone(FROST_WYRM)>0
-				air_units = wyrms or TownCountDone(GARGOYLE)>0;//set air_units        = wyrms or TownCountDone(GARGOYLE)>0
-				major_ok = air_units or GetUnitCountDone(CRYPT_FIEND)>0;//set major_ok         = air_units or GetUnitCountDone(CRYPT_FIEND)>0
-				needs_exp = take_exp and major_ok;//set needs_exp        = take_exp and major_ok
-				has_siege = wyrms or GetUnitCountDone(MEAT_WAGON)>0;//set has_siege        = wyrms or GetUnitCountDone(MEAT_WAGON)>0
-				allow_air_creeps = air_units or (major_ok and GetUpgradeLevel(UPG_FIEND_WEB)>0);//set allow_air_creeps = air_units or (major_ok and GetUpgradeLevel(UPG_FIEND_WEB)>0)
+				air_units = wyrms || TownCountDone(GARGOYLE)>0;//set air_units        = wyrms or TownCountDone(GARGOYLE)>0
+				major_ok = air_units || GetUnitCountDone(CRYPT_FIEND)>0;//set major_ok         = air_units or GetUnitCountDone(CRYPT_FIEND)>0
+				needs_exp = take_exp && major_ok;//set needs_exp        = take_exp and major_ok
+				has_siege = wyrms || GetUnitCountDone(MEAT_WAGON)>0;//set has_siege        = wyrms or GetUnitCountDone(MEAT_WAGON)>0
+				allow_air_creeps = air_units || (major_ok && GetUpgradeLevel(UPG_FIEND_WEB)>0);//set allow_air_creeps = air_units or (major_ok and GetUpgradeLevel(UPG_FIEND_WEB)>0)
 				SingleMeleeAttack(needs_exp,has_siege,major_ok,air_units);//call SingleMeleeAttack(needs_exp,has_siege,major_ok,air_units)
 			}//endloop
 		}//endfunction
@@ -183,12 +183,12 @@ namespace Jass {
 			citadel = TownCountDone(NECROPOLIS_3)>0;//set citadel  = TownCountDone(NECROPOLIS_3)>0
 			grave = GetUnitCountDone(GRAVEYARD)>0;//set grave    = GetUnitCountDone(GRAVEYARD)>0
 			C_aboms = GetUnitCountDone(ABOMINATION)>0;//set C_aboms  = GetUnitCountDone(ABOMINATION)>0
-			M_aboms = citadel and slaught and GetWood()>100;//set M_aboms  = citadel and slaught and GetWood()>100
-			melee = C_aboms or GetUnitCountDone(GHOUL)>0;//set melee    = C_aboms or GetUnitCountDone(GHOUL)>0
-			ranged = fiends or TownCountDone(GARGOYLE)>0;//set ranged   = fiends or TownCountDone(GARGOYLE)>0
+			M_aboms = citadel && slaught && GetWood()>100;//set M_aboms  = citadel and slaught and GetWood()>100
+			melee = C_aboms || GetUnitCountDone(GHOUL)>0;//set melee    = C_aboms or GetUnitCountDone(GHOUL)>0
+			ranged = fiends || TownCountDone(GARGOYLE)>0;//set ranged   = fiends or TownCountDone(GARGOYLE)>0
 			slaught = GetUnitCountDone(SLAUGHTERHOUSE)>0;//set slaught  = GetUnitCountDone(SLAUGHTERHOUSE)>0
 			temple = GetUnitCountDone(DAMNED_TEMPLE)>0;//set temple   = GetUnitCountDone(DAMNED_TEMPLE)>0
-			banshees = citadel and temple;//set banshees = citadel and temple
+			banshees = citadel && temple;//set banshees = citadel and temple
 			sac_pit = GetUnitCountDone(SAC_PIT)>0;//set sac_pit  = GetUnitCountDone(SAC_PIT)>0
 			boneyard = GetUnitCountDone(BONEYARD)>0;//set boneyard = GetUnitCountDone(BONEYARD)>0
 			wagons = GetUnitCountDone(MEAT_WAGON)>0;//set wagons   = GetUnitCountDone(MEAT_WAGON)>0

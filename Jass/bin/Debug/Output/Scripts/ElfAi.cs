@@ -136,11 +136,11 @@ namespace Jass {
 				}//endloop
 				setup_force();//call setup_force()
 				major_ok = GetUnitCountDone(HUNTRESS)>=2;//set major_ok         = GetUnitCountDone(HUNTRESS)>=2
-				needs_exp = take_exp and (major_ok or GetGoldOwned()<2000);//set needs_exp        = take_exp and (major_ok or GetGoldOwned()<2000)
+				needs_exp = take_exp && (major_ok || GetGoldOwned()<2000);//set needs_exp        = take_exp and (major_ok or GetGoldOwned()<2000)
 				chim = GetUnitCountDone(CHIMAERA);//set chim             = GetUnitCountDone(CHIMAERA)
-				has_siege = GetUnitCountDone(BALLISTA)>0 or chim>0;//set has_siege        = GetUnitCountDone(BALLISTA)>0 or chim>0
+				has_siege = GetUnitCountDone(BALLISTA)>0 || chim>0;//set has_siege        = GetUnitCountDone(BALLISTA)>0 or chim>0
 				air_units = GetUnitCountDone(HIPPO_RIDER)>0;//set air_units        = GetUnitCountDone(HIPPO_RIDER)>0
-				allow_air_creeps = air_units or GetUnitCountDone(ARCHER)>0;//set allow_air_creeps = air_units or GetUnitCountDone(ARCHER)>0
+				allow_air_creeps = air_units || GetUnitCountDone(ARCHER)>0;//set allow_air_creeps = air_units or GetUnitCountDone(ARCHER)>0
 				SingleMeleeAttack(needs_exp,has_siege,major_ok,air_units);//call SingleMeleeAttack(needs_exp,has_siege,major_ok,air_units)
 			}//endloop
 		}//endfunction
@@ -161,7 +161,7 @@ namespace Jass {
 			ballista = GetUnitCount(BALLISTA)>0;//set ballista    = GetUnitCount(BALLISTA)>0
 			claws = TownCount(DRUID_CLAW)>0;//set claws       = TownCount(DRUID_CLAW)>0
 			roost = GetUnitCountDone(CHIMAERA_ROOST)>0;//set roost       = GetUnitCountDone(CHIMAERA_ROOST)>0
-			use_bears = lore and GetUpgradeLevel(UPG_DRUID_CLAW)>=2;//set use_bears   = lore and GetUpgradeLevel(UPG_DRUID_CLAW)>=2
+			use_bears = lore && GetUpgradeLevel(UPG_DRUID_CLAW)>=2;//set use_bears   = lore and GetUpgradeLevel(UPG_DRUID_CLAW)>=2
 		}//endfunction
 		//
 		//

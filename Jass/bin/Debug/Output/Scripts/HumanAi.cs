@@ -145,10 +145,10 @@ namespace Jass {
 				}//endloop
 				setup_force();//call setup_force()
 				major_ok = GetUnitCountDone(RIFLEMAN)>=2;//set major_ok         = GetUnitCountDone(RIFLEMAN)>=2
-				needs_exp = take_exp and major_ok;//set needs_exp        = take_exp and major_ok
-				has_siege = GetUnitCountDone(MORTAR)>0 or GetUnitCountDone(TANK)>0;//set has_siege        = GetUnitCountDone(MORTAR)>0 or GetUnitCountDone(TANK)>0
-				air_units = GetUnitCountDone(COPTER)>0 or GetUnitCountDone(GRYPHON)>0;//set air_units        = GetUnitCountDone(COPTER)>0 or GetUnitCountDone(GRYPHON)>0
-				allow_air_creeps = air_units or major_ok;//set allow_air_creeps = air_units or major_ok
+				needs_exp = take_exp && major_ok;//set needs_exp        = take_exp and major_ok
+				has_siege = GetUnitCountDone(MORTAR)>0 || GetUnitCountDone(TANK)>0;//set has_siege        = GetUnitCountDone(MORTAR)>0 or GetUnitCountDone(TANK)>0
+				air_units = GetUnitCountDone(COPTER)>0 || GetUnitCountDone(GRYPHON)>0;//set air_units        = GetUnitCountDone(COPTER)>0 or GetUnitCountDone(GRYPHON)>0
+				allow_air_creeps = air_units || major_ok;//set allow_air_creeps = air_units or major_ok
 				SingleMeleeAttack(needs_exp,has_siege,major_ok,air_units);//call SingleMeleeAttack(needs_exp,has_siege,major_ok,air_units)
 			}//endloop
 		}//endfunction
@@ -166,7 +166,7 @@ namespace Jass {
 			mill = GetUnitCountDone(LUMBER_MILL)>0;//set mill        = GetUnitCountDone(LUMBER_MILL)>0
 			smith = GetUnitCountDone(BLACKSMITH)>0;//set smith       = GetUnitCountDone(BLACKSMITH)>0
 			barracks = GetUnitCountDone(BARRACKS)>0;//set barracks    = GetUnitCountDone(BARRACKS)>0
-			knights = barracks and mill and smith and castle;//set knights     = barracks and mill and smith and castle
+			knights = barracks && mill && smith && castle;//set knights     = barracks and mill and smith and castle
 			workshop = GetUnitCountDone(WORKSHOP)>0;//set workshop    = GetUnitCountDone(WORKSHOP)>0
 			sanctum = GetUnitCountDone(SANCTUM)>0;//set sanctum     = GetUnitCountDone(SANCTUM)>0
 			aviary = GetUnitCountDone(AVIARY)>0;//set aviary      = GetUnitCountDone(AVIARY)>0

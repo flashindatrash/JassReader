@@ -140,8 +140,8 @@ namespace Jass {
 				}//endloop
 				setup_force();//call setup_force()
 				air_units = GetUnitCountDone(WYVERN)>0;//set air_units        = GetUnitCountDone(WYVERN)>0
-				major_ok = air_units or GetUnitCountDone(HEAD_HUNTER)>=2;//set major_ok         = air_units or GetUnitCountDone(HEAD_HUNTER)>=2
-				needs_exp = take_exp and major_ok;//set needs_exp        = take_exp and major_ok
+				major_ok = air_units || GetUnitCountDone(HEAD_HUNTER)>=2;//set major_ok         = air_units or GetUnitCountDone(HEAD_HUNTER)>=2
+				needs_exp = take_exp && major_ok;//set needs_exp        = take_exp and major_ok
 				has_siege = GetUnitCountDone(CATAPULT)>0;//set has_siege        = GetUnitCountDone(CATAPULT)>0
 				allow_air_creeps = major_ok;//set allow_air_creeps = major_ok
 				SingleMeleeAttack(needs_exp,has_siege,major_ok,air_units);//call SingleMeleeAttack(needs_exp,has_siege,major_ok,air_units)

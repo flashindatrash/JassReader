@@ -191,7 +191,7 @@ namespace Jass {
 		}//endfunction
 		//
 		private bool RectContainsCoords(rect r, float x, float y) {//function RectContainsCoords takes rect r, real x, real y returns boolean
-			return (GetRectMinX(r) <= x) and (x <= GetRectMaxX(r)) and (GetRectMinY(r) <= y) and (y <= GetRectMaxY(r));//return (GetRectMinX(r) <= x) and (x <= GetRectMaxX(r)) and (GetRectMinY(r) <= y) and (y <= GetRectMaxY(r))
+			return (GetRectMinX(r) <= x) && (x <= GetRectMaxX(r)) && (GetRectMinY(r) <= y) && (y <= GetRectMaxY(r));//return (GetRectMinX(r) <= x) and (x <= GetRectMaxX(r)) and (GetRectMinY(r) <= y) and (y <= GetRectMaxY(r))
 		}//endfunction
 		//
 		private bool RectContainsLoc(rect r, location loc) {//function RectContainsLoc takes rect r, location loc returns boolean
@@ -479,11 +479,11 @@ namespace Jass {
 		}//endfunction
 		//
 		private bool GetBooleanAnd(bool valueA, bool valueB) {//function GetBooleanAnd takes boolean valueA, boolean valueB returns boolean
-			return valueA and valueB;//return valueA and valueB
+			return valueA && valueB;//return valueA and valueB
 		}//endfunction
 		//
 		private bool GetBooleanOr(bool valueA, bool valueB) {//function GetBooleanOr takes boolean valueA, boolean valueB returns boolean
-			return valueA or valueB;//return valueA or valueB
+			return valueA || valueB;//return valueA or valueB
 		}//endfunction
 		//
 		//
@@ -526,11 +526,11 @@ namespace Jass {
 		}//endfunction
 		//
 		private bool CompareLocationsBJ(location A, location B) {//function CompareLocationsBJ takes location A, location B returns boolean
-			return GetLocationX(A) == GetLocationX(B) and GetLocationY(A) == GetLocationY(B);//return GetLocationX(A) == GetLocationX(B) and GetLocationY(A) == GetLocationY(B)
+			return GetLocationX(A) == GetLocationX(B) && GetLocationY(A) == GetLocationY(B);//return GetLocationX(A) == GetLocationX(B) and GetLocationY(A) == GetLocationY(B)
 		}//endfunction
 		//
 		private bool CompareRectsBJ(rect A, rect B) {//function CompareRectsBJ takes rect A, rect B returns boolean
-			return GetRectMinX(A) == GetRectMinX(B) and GetRectMinY(A) == GetRectMinY(B) and GetRectMaxX(A) == GetRectMaxX(B) and GetRectMaxY(A) == GetRectMaxY(B);//return GetRectMinX(A) == GetRectMinX(B) and GetRectMinY(A) == GetRectMinY(B) and GetRectMaxX(A) == GetRectMaxX(B) and GetRectMaxY(A) == GetRectMaxY(B)
+			return GetRectMinX(A) == GetRectMinX(B) && GetRectMinY(A) == GetRectMinY(B) && GetRectMaxX(A) == GetRectMaxX(B) && GetRectMaxY(A) == GetRectMaxY(B);//return GetRectMinX(A) == GetRectMinX(B) and GetRectMinY(A) == GetRectMinY(B) and GetRectMaxX(A) == GetRectMaxX(B) and GetRectMaxY(A) == GetRectMaxY(B)
 		}//endfunction
 		//
 		//
@@ -1470,7 +1470,7 @@ namespace Jass {
 		}//endfunction
 		//
 		private bool GetSoundIsPlayingBJ(sound soundHandle) {//function GetSoundIsPlayingBJ takes sound soundHandle returns boolean
-			return GetSoundIsLoading(soundHandle) or GetSoundIsPlaying(soundHandle);//return GetSoundIsLoading(soundHandle) or GetSoundIsPlaying(soundHandle)
+			return GetSoundIsLoading(soundHandle) || GetSoundIsPlaying(soundHandle);//return GetSoundIsLoading(soundHandle) or GetSoundIsPlaying(soundHandle)
 		}//endfunction
 		//
 		private void WaitForSoundBJ(sound soundHandle, float offset) {//function WaitForSoundBJ takes sound soundHandle, real offset returns nothing
@@ -1873,7 +1873,7 @@ namespace Jass {
 		}//endfunction
 		//
 		private bool IsItemHiddenBJ(item whichItem) {//function IsItemHiddenBJ takes item whichItem returns boolean
-			return not IsItemVisible(whichItem);//return not IsItemVisible(whichItem)
+			return !IsItemVisible(whichItem);//return not IsItemVisible(whichItem)
 		}//endfunction
 		//
 		private int ChooseRandomItemBJ(int level) {//function ChooseRandomItemBJ takes integer level returns integer
@@ -1923,7 +1923,7 @@ namespace Jass {
 		//
 		private bool CheckItemStatus(item whichItem, int status) {//function CheckItemStatus takes item whichItem, integer status returns boolean
 			if ((status == bj_ITEM_STATUS_HIDDEN)) {//if (status == bj_ITEM_STATUS_HIDDEN) then
-				return not IsItemVisible(whichItem);//return not IsItemVisible(whichItem)
+				return !IsItemVisible(whichItem);//return not IsItemVisible(whichItem)
 			} else if ((status == bj_ITEM_STATUS_OWNED)) {//elseif (status == bj_ITEM_STATUS_OWNED) then
 				return IsItemOwned(whichItem);//return IsItemOwned(whichItem)
 			} else if ((status == bj_ITEM_STATUS_INVULNERABLE)) {//elseif (status == bj_ITEM_STATUS_INVULNERABLE) then
@@ -2240,7 +2240,7 @@ namespace Jass {
 		}//endfunction
 		//
 		private bool IsUnitAliveBJ(int whichUnit) {//function IsUnitAliveBJ takes unit whichUnit returns boolean
-			return not IsUnitDeadBJ(whichUnit);//return not IsUnitDeadBJ(whichUnit)
+			return !IsUnitDeadBJ(whichUnit);//return not IsUnitDeadBJ(whichUnit)
 		}//endfunction
 		//
 		private void IsUnitGroupDeadBJEnum() {//function IsUnitGroupDeadBJEnum takes nothing returns nothing
@@ -2431,11 +2431,11 @@ namespace Jass {
 		}//endfunction
 		//
 		private bool UnitGenerateAlarms(int whichUnit, bool generate) {//function UnitGenerateAlarms takes unit whichUnit, boolean generate returns boolean
-			return UnitIgnoreAlarm(whichUnit, not generate);//return UnitIgnoreAlarm(whichUnit, not generate)
+			return UnitIgnoreAlarm(whichUnit, !generate);//return UnitIgnoreAlarm(whichUnit, not generate)
 		}//endfunction
 		//
 		private bool DoesUnitGenerateAlarms(int whichUnit) {//function DoesUnitGenerateAlarms takes unit whichUnit returns boolean
-			return not UnitIgnoreAlarmToggled(whichUnit);//return not UnitIgnoreAlarmToggled(whichUnit)
+			return !UnitIgnoreAlarmToggled(whichUnit);//return not UnitIgnoreAlarmToggled(whichUnit)
 		}//endfunction
 		//
 		private void PauseAllUnitsBJEnum() {//function PauseAllUnitsBJEnum takes nothing returns nothing
@@ -2501,18 +2501,18 @@ namespace Jass {
 		}//endfunction
 		//
 		private void UnitRemoveBuffsExBJ(int polarity, int resist, int whichUnit, bool bTLife, bool bAura) {//function UnitRemoveBuffsExBJ takes integer polarity, integer resist, unit whichUnit, boolean bTLife, boolean bAura returns nothing
-			bool bPos = (polarity == bj_BUFF_POLARITY_EITHER) or (polarity == bj_BUFF_POLARITY_POSITIVE);//local boolean bPos   = (polarity == bj_BUFF_POLARITY_EITHER) or (polarity == bj_BUFF_POLARITY_POSITIVE)
-			bool bNeg = (polarity == bj_BUFF_POLARITY_EITHER) or (polarity == bj_BUFF_POLARITY_NEGATIVE);//local boolean bNeg   = (polarity == bj_BUFF_POLARITY_EITHER) or (polarity == bj_BUFF_POLARITY_NEGATIVE)
-			bool bMagic = (resist == bj_BUFF_RESIST_BOTH) or (resist == bj_BUFF_RESIST_MAGIC);//local boolean bMagic = (resist == bj_BUFF_RESIST_BOTH) or (resist == bj_BUFF_RESIST_MAGIC)
-			bool bPhys = (resist == bj_BUFF_RESIST_BOTH) or (resist == bj_BUFF_RESIST_PHYSICAL);//local boolean bPhys  = (resist == bj_BUFF_RESIST_BOTH) or (resist == bj_BUFF_RESIST_PHYSICAL)
+			bool bPos = (polarity == bj_BUFF_POLARITY_EITHER) || (polarity == bj_BUFF_POLARITY_POSITIVE);//local boolean bPos   = (polarity == bj_BUFF_POLARITY_EITHER) or (polarity == bj_BUFF_POLARITY_POSITIVE)
+			bool bNeg = (polarity == bj_BUFF_POLARITY_EITHER) || (polarity == bj_BUFF_POLARITY_NEGATIVE);//local boolean bNeg   = (polarity == bj_BUFF_POLARITY_EITHER) or (polarity == bj_BUFF_POLARITY_NEGATIVE)
+			bool bMagic = (resist == bj_BUFF_RESIST_BOTH) || (resist == bj_BUFF_RESIST_MAGIC);//local boolean bMagic = (resist == bj_BUFF_RESIST_BOTH) or (resist == bj_BUFF_RESIST_MAGIC)
+			bool bPhys = (resist == bj_BUFF_RESIST_BOTH) || (resist == bj_BUFF_RESIST_PHYSICAL);//local boolean bPhys  = (resist == bj_BUFF_RESIST_BOTH) or (resist == bj_BUFF_RESIST_PHYSICAL)
 			UnitRemoveBuffsEx(whichUnit, bPos, bNeg, bMagic, bPhys, bTLife, bAura, false);//call UnitRemoveBuffsEx(whichUnit, bPos, bNeg, bMagic, bPhys, bTLife, bAura, false)
 		}//endfunction
 		//
 		private int UnitCountBuffsExBJ(int polarity, int resist, int whichUnit, bool bTLife, bool bAura) {//function UnitCountBuffsExBJ takes integer polarity, integer resist, unit whichUnit, boolean bTLife, boolean bAura returns integer
-			bool bPos = (polarity == bj_BUFF_POLARITY_EITHER) or (polarity == bj_BUFF_POLARITY_POSITIVE);//local boolean bPos   = (polarity == bj_BUFF_POLARITY_EITHER) or (polarity == bj_BUFF_POLARITY_POSITIVE)
-			bool bNeg = (polarity == bj_BUFF_POLARITY_EITHER) or (polarity == bj_BUFF_POLARITY_NEGATIVE);//local boolean bNeg   = (polarity == bj_BUFF_POLARITY_EITHER) or (polarity == bj_BUFF_POLARITY_NEGATIVE)
-			bool bMagic = (resist == bj_BUFF_RESIST_BOTH) or (resist == bj_BUFF_RESIST_MAGIC);//local boolean bMagic = (resist == bj_BUFF_RESIST_BOTH) or (resist == bj_BUFF_RESIST_MAGIC)
-			bool bPhys = (resist == bj_BUFF_RESIST_BOTH) or (resist == bj_BUFF_RESIST_PHYSICAL);//local boolean bPhys  = (resist == bj_BUFF_RESIST_BOTH) or (resist == bj_BUFF_RESIST_PHYSICAL)
+			bool bPos = (polarity == bj_BUFF_POLARITY_EITHER) || (polarity == bj_BUFF_POLARITY_POSITIVE);//local boolean bPos   = (polarity == bj_BUFF_POLARITY_EITHER) or (polarity == bj_BUFF_POLARITY_POSITIVE)
+			bool bNeg = (polarity == bj_BUFF_POLARITY_EITHER) || (polarity == bj_BUFF_POLARITY_NEGATIVE);//local boolean bNeg   = (polarity == bj_BUFF_POLARITY_EITHER) or (polarity == bj_BUFF_POLARITY_NEGATIVE)
+			bool bMagic = (resist == bj_BUFF_RESIST_BOTH) || (resist == bj_BUFF_RESIST_MAGIC);//local boolean bMagic = (resist == bj_BUFF_RESIST_BOTH) or (resist == bj_BUFF_RESIST_MAGIC)
+			bool bPhys = (resist == bj_BUFF_RESIST_BOTH) || (resist == bj_BUFF_RESIST_PHYSICAL);//local boolean bPhys  = (resist == bj_BUFF_RESIST_BOTH) or (resist == bj_BUFF_RESIST_PHYSICAL)
 			return UnitCountBuffsEx(whichUnit, bPos, bNeg, bMagic, bPhys, bTLife, bAura, false);//return UnitCountBuffsEx(whichUnit, bPos, bNeg, bMagic, bPhys, bTLife, bAura, false)
 		}//endfunction
 		//
@@ -2740,7 +2740,7 @@ namespace Jass {
 		}//endfunction
 		//
 		private bool IsDestructableAliveBJ(destructable d) {//function IsDestructableAliveBJ takes destructable d returns boolean
-			return not IsDestructableDeadBJ(d);//return not IsDestructableDeadBJ(d)
+			return !IsDestructableDeadBJ(d);//return not IsDestructableDeadBJ(d)
 		}//endfunction
 		//
 		//
@@ -3350,7 +3350,7 @@ namespace Jass {
 		//
 		private bool LivingPlayerUnitsOfTypeIdFilter() {//function LivingPlayerUnitsOfTypeIdFilter takes nothing returns boolean
 			int filterUnit = GetFilterUnit();//local unit filterUnit = GetFilterUnit()
-			return IsUnitAliveBJ(filterUnit) and GetUnitTypeId(filterUnit) == bj_livingPlayerUnitsTypeId;//return IsUnitAliveBJ(filterUnit) and GetUnitTypeId(filterUnit) == bj_livingPlayerUnitsTypeId
+			return IsUnitAliveBJ(filterUnit) && GetUnitTypeId(filterUnit) == bj_livingPlayerUnitsTypeId;//return IsUnitAliveBJ(filterUnit) and GetUnitTypeId(filterUnit) == bj_livingPlayerUnitsTypeId
 		}//endfunction
 		//
 		private int CountLivingPlayerUnitsOfTypeId(int unitId, player whichPlayer) {//function CountLivingPlayerUnitsOfTypeId takes integer unitId, player whichPlayer returns integer
@@ -3701,13 +3701,13 @@ namespace Jass {
 		//
 		private bool AllowVictoryDefeat(playergameresult gameResult) {//function AllowVictoryDefeat takes playergameresult gameResult returns boolean
 			if ((gameResult == PLAYER_GAME_RESULT_VICTORY)) {//if (gameResult == PLAYER_GAME_RESULT_VICTORY) then
-				return not IsNoVictoryCheat();//return not IsNoVictoryCheat()
+				return !IsNoVictoryCheat();//return not IsNoVictoryCheat()
 			}//endif
 			if ((gameResult == PLAYER_GAME_RESULT_DEFEAT)) {//if (gameResult == PLAYER_GAME_RESULT_DEFEAT) then
-				return not IsNoDefeatCheat();//return not IsNoDefeatCheat()
+				return !IsNoDefeatCheat();//return not IsNoDefeatCheat()
 			}//endif
 			if ((gameResult == PLAYER_GAME_RESULT_NEUTRAL)) {//if (gameResult == PLAYER_GAME_RESULT_NEUTRAL) then
-				return (not IsNoVictoryCheat()) and (not IsNoDefeatCheat());//return (not IsNoVictoryCheat()) and (not IsNoDefeatCheat())
+				return (!IsNoVictoryCheat()) && (!IsNoDefeatCheat());//return (not IsNoVictoryCheat()) and (not IsNoDefeatCheat())
 			}//endif
 			return true;//return true
 		}//endfunction
@@ -3963,8 +3963,8 @@ namespace Jass {
 		//
 		//
 		private quest CreateQuestBJ(int questType, string title, string description, string iconPath) {//function CreateQuestBJ takes integer questType, string title, string description, string iconPath returns quest
-			bool required = (questType == bj_QUESTTYPE_REQ_DISCOVERED) or (questType == bj_QUESTTYPE_REQ_UNDISCOVERED);//local boolean required   = (questType == bj_QUESTTYPE_REQ_DISCOVERED) or (questType == bj_QUESTTYPE_REQ_UNDISCOVERED)
-			bool discovered = (questType == bj_QUESTTYPE_REQ_DISCOVERED) or (questType == bj_QUESTTYPE_OPT_DISCOVERED);//local boolean discovered = (questType == bj_QUESTTYPE_REQ_DISCOVERED) or (questType == bj_QUESTTYPE_OPT_DISCOVERED)
+			bool required = (questType == bj_QUESTTYPE_REQ_DISCOVERED) || (questType == bj_QUESTTYPE_REQ_UNDISCOVERED);//local boolean required   = (questType == bj_QUESTTYPE_REQ_DISCOVERED) or (questType == bj_QUESTTYPE_REQ_UNDISCOVERED)
+			bool discovered = (questType == bj_QUESTTYPE_REQ_DISCOVERED) || (questType == bj_QUESTTYPE_OPT_DISCOVERED);//local boolean discovered = (questType == bj_QUESTTYPE_REQ_DISCOVERED) or (questType == bj_QUESTTYPE_OPT_DISCOVERED)
 			bj_lastCreatedQuest = CreateQuest();//set bj_lastCreatedQuest = CreateQuest()
 			QuestSetTitle(bj_lastCreatedQuest, title);//call QuestSetTitle(bj_lastCreatedQuest, title)
 			QuestSetDescription(bj_lastCreatedQuest, description);//call QuestSetDescription(bj_lastCreatedQuest, description)
@@ -7092,7 +7092,7 @@ namespace Jass {
 			int allyStructures = MeleeGetAllyStructureCount(whichPlayer);//local integer allyStructures    = MeleeGetAllyStructureCount(whichPlayer)
 			int allyKeyStructures = MeleeGetAllyKeyStructureCount(whichPlayer);//local integer allyKeyStructures = MeleeGetAllyKeyStructureCount(whichPlayer)
 			//
-			return (allyStructures > 0) and (allyKeyStructures <= 0);//return (allyStructures > 0) and (allyKeyStructures <= 0)
+			return (allyStructures > 0) && (allyKeyStructures <= 0);//return (allyStructures > 0) and (allyKeyStructures <= 0)
 		}//endfunction
 		//
 		//
@@ -7274,7 +7274,7 @@ namespace Jass {
 				return false;//return false
 			}//endif
 			slotState = GetPlayerSlotState(whichPlayer);//set slotState = GetPlayerSlotState(whichPlayer)
-			return (slotState == PLAYER_SLOT_STATE_PLAYING or slotState == PLAYER_SLOT_STATE_LEFT);//return (slotState == PLAYER_SLOT_STATE_PLAYING or slotState == PLAYER_SLOT_STATE_LEFT)
+			return (slotState == PLAYER_SLOT_STATE_PLAYING || slotState == PLAYER_SLOT_STATE_LEFT);//return (slotState == PLAYER_SLOT_STATE_PLAYING or slotState == PLAYER_SLOT_STATE_LEFT)
 		}//endfunction
 		//
 		private void MeleeTournamentFinishNowRuleA(int multiplier) {//function MeleeTournamentFinishNowRuleA takes integer multiplier returns nothing

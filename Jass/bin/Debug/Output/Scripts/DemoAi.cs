@@ -182,7 +182,7 @@ namespace Jass {
 			//
 			//
 			//
-			return total_stones < stone_cost or SetUpgrade(upgid);//return total_stones < stone_cost or SetUpgrade(upgid)
+			return total_stones < stone_cost || SetUpgrade(upgid);//return total_stones < stone_cost or SetUpgrade(upgid)
 		}//endfunction
 		//
 		private bool set_start(int ask_qty, int unitid) {//function set_start takes integer ask_qty, integer unitid returns boolean
