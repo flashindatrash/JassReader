@@ -7,8 +7,7 @@ namespace Jass
 {
 	public class JassWriter : IDisposable
 	{
-
-
+		
 		private DirectoryInfo _outputFolder;
 
 		//constructor

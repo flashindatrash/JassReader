@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using System.Text.RegularExpressions;
+using System.IO;
 
 namespace Jass
 {
@@ -11,17 +12,12 @@ namespace Jass
 		public static List<JassLine> globals = new List<JassLine>();
 		public static List<JassLine> native = new List<JassLine>();
 
-		public List<JassLine> result = new List<JassLine>();
-
-		public string file
-		{
-			set; get;
-		}
+		private DirectoryInfo _inputFolder;
 
 		//contructor
 		public JassReader()
 		{
-		
+			_inputFolder = new DirectoryInfo(Settings.InputFolder);
 		}
 
 		//destructor
@@ -30,19 +26,27 @@ namespace Jass
 			Dispose(false);
 		}
 
-
-		public void Read(string path)
+		public string[] GetAllFiles()
 		{
-			file = path;
-			Log.Add(string.Format("Read file: {0}", file), ConsoleColor.Blue);
-			Parse(File.Get(System.IO.Path.Combine(Settings.InputFolder, file)));
+			FileInfo[] files = _inputFolder.GetFiles("*.*", SearchOption.AllDirectories);
+			string[] relativeFiles = new string[files.Length];
+			for (int i = 0; i < files.Length; i++)
+			{
+				FileInfo searchFile = files[i];
+				relativeFiles[i] = searchFile.FullName.Substring(_inputFolder.FullName.Length);
+			}
+			return relativeFiles;
 		}
 
-		private void Parse(string input)
+		public List<JassLine> Read(string path)
 		{
-			string[] lines = input.SplitLines();
-			int totalRead = 0;
+			Log.Add(string.Format("Read file: {0}", path), ConsoleColor.Blue);
+
+			var result = new List<JassLine>();
+			string[] lines = File.Get(Path.Combine(_inputFolder.ToString(), path)).SplitLines();
+
 			bool globalSection = false;
+
 			for (int i = 0; i < lines.Length; i++)
 			{
 				string text = lines[i].Trim();
@@ -94,8 +98,6 @@ namespace Jass
 						line.Comment = "//" + text;
 					}
 
-					totalRead++;
-
 					//определим глобальную секцию
 					if (line is Globals)
 					{
@@ -130,7 +132,7 @@ namespace Jass
 				}
 			}
 
-			Log.Add(string.Format("Completed: {0}%", Math.Round((decimal)totalRead/lines.Length*100)), ConsoleColor.Green);
+			return result;
 		}
 
 		/*
@@ -152,7 +154,7 @@ namespace Jass
 				if (disposing)
 				{
 					// Освобождаем управляемые ресурсы
-					result = null;
+					_inputFolder = null;
 				}
 				// освобождаем неуправляемые объекты
 				disposed = true;

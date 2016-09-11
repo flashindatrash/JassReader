@@ -30,9 +30,12 @@ namespace Jass {
 
 				using (JassReader reader = new JassReader())
 				{
-					reader.Read("Scripts\\common.ai");
-
-					writer.CreateFile(new JassFormatter(reader.result, reader.file, Settings.ClassTemplate));
+					string[] files = reader.GetAllFiles();
+					foreach (string file in files)
+					{
+						var lines = reader.Read(file);
+						writer.CreateFile(new JassFormatter(lines, file, Settings.ClassTemplate));
+					}
 				}
 
 				writer.CreateFile(new JassFormatter(JassReader.globals, "Globals", Settings.GlobalsTemplate));

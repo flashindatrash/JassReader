@@ -57,7 +57,7 @@ namespace Jass
 
 		public override string ToString()
 		{
-			return (isLocal ? "" : "private ") + (isArray ? jclass + "[]" : jclass + " ") + name + (hasEval ? " = " + eval : "") + ";";
+			return (isLocal ? "" : "private ") + (isArray ? jclass + "[] " : jclass + " ") + name + (hasEval ? " = " + eval : "") + ";";
 		}
 
 	}

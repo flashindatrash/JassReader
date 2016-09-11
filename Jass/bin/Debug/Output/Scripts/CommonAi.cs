@@ -1512,7 +1512,7 @@ namespace Jass {
 			int second;//local integer second
 			int third;//local integer third
 			int last;//local integer last
-			int[]heroes;//local integer array heroes
+			int[] heroes;//local integer array heroes
 			//
 			if (raceid == RACE_HUMAN) {//if raceid == RACE_HUMAN then
 				//
