@@ -31,7 +31,7 @@ namespace Jass
 		
 		public override string ToString()
 		{
-			return takes.Count > 1 ? String.Join(", ", takes) : "";
+			return takes.Count >= 1 ? String.Join(", ", takes) : "";
 		}
 	}
 }

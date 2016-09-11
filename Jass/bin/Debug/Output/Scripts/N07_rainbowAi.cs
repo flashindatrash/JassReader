@@ -12,8 +12,12 @@ namespace Jass {
 		//
 		//
 		private void add_wave(int whero, int wtype) {//function add_wave takes integer whero, integer wtype returns nothing
+			wave_hero[wave_count] = whero;//set wave_hero  [wave_count] = whero
+			wave_type[wave_count] = wtype;//set wave_type  [wave_count] = wtype
 			if (difficulty == HARD) {//if difficulty == HARD then
+				wave_sleep[wave_count] = HARD_WAVE_DUR;//set wave_sleep [wave_count] = HARD_WAVE_DUR
 			} else {//else
+				wave_sleep[wave_count] = NORMAL_WAVE_DUR;//set wave_sleep [wave_count] = NORMAL_WAVE_DUR
 			}//endif
 			wave_count = wave_count + 1;//set wave_count = wave_count + 1
 		}//endfunction
@@ -21,8 +25,12 @@ namespace Jass {
 		//
 		//
 		private void pit_stop(int ensecs, int hsecs) {//function pit_stop takes integer ensecs, integer hsecs returns nothing
+			wave_hero[wave_count] = 0;//set wave_hero  [wave_count] = 0
+			wave_type[wave_count] = PIT_STOP_WAVE;//set wave_type  [wave_count] = PIT_STOP_WAVE
 			if (difficulty==HARD) {//if difficulty==HARD then
+				wave_sleep[wave_count] = hsecs;//set wave_sleep [wave_count] = hsecs
 			} else {//else
+				wave_sleep[wave_count] = ensecs;//set wave_sleep [wave_count] = ensecs
 			}//endif
 			wave_count = wave_count + 1;//set wave_count = wave_count + 1
 		}//endfunction
@@ -35,7 +43,7 @@ namespace Jass {
 		//
 		//
 		//
-		private void setup_waves() {//function setup_waves takes integer sequence returns nothing
+		private void setup_waves(int sequence) {//function setup_waves takes integer sequence returns nothing
 			TraceI("***** setup_waves (group %d) *****\n",sequence);//call TraceI("***** setup_waves (group %d) *****\n",sequence)
 			wave_count = 0;//set wave_count = 0
 			//
@@ -129,6 +137,9 @@ namespace Jass {
 			}//endloop
 			//
 			//
+			harass_qty[harass_length] = adding;//set harass_qty   [harass_length] = adding
+			harass_max[harass_length] = adding;//set harass_max   [harass_length] = adding
+			harass_units[harass_length] = unitid;//set harass_units [harass_length] = unitid
 			harass_length = harass_length + 1;//set harass_length = harass_length + 1
 		}//endfunction
 		//
@@ -145,7 +156,7 @@ namespace Jass {
 		//
 		//
 		//
-		private void do_EVERY_WAVE_LAST() {//function do_EVERY_WAVE_LAST takes integer heroid returns nothing
+		private void do_EVERY_WAVE_LAST(int heroid) {//function do_EVERY_WAVE_LAST takes integer heroid returns nothing
 			if (heroid != 0) {//if heroid != 0 then
 				wave_units(1, 1, heroid);//call wave_units( 1, 1, heroid       )
 				wave_units(1, 1, BANSHEE);//call wave_units( 1, 1, BANSHEE      )
@@ -361,7 +372,7 @@ namespace Jass {
 		//
 		//
 		//
-		private void suicide_unit() {//function suicide_unit takes integer unitid returns nothing
+		private void suicide_unit(int unitid) {//function suicide_unit takes integer unitid returns nothing
 			SuicideUnitEx(1,unitid,target);//call SuicideUnitEx(1,unitid,target)
 			SuicideUnitEx(1,SKEL_WARRIOR,target);//call SuicideUnitEx(1,SKEL_WARRIOR,target)
 			Sleep(0.1);//call Sleep(0.1)

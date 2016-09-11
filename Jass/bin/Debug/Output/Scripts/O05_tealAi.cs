@@ -37,10 +37,10 @@ namespace Jass {
 		private void main() {//function main takes nothing returns nothing
 			int command;//local integer command
 			int data;//local integer data
-			real goal_x = 0;//local real goal_x = 0
-			real goal_y = 0;//local real goal_y = 0
-			real home_x = 0;//local real home_x = 0
-			real home_y = 0;//local real home_y = 0
+			float goal_x = 0;//local real goal_x = 0
+			float goal_y = 0;//local real goal_y = 0
+			float home_x = 0;//local real home_x = 0
+			float home_y = 0;//local real home_y = 0
 			CampaignAI(MOON_WELL,null);//call CampaignAI(MOON_WELL,null)
 			SetBuildUnit(2, ARCHER);//call SetBuildUnit( 2, ARCHER    )
 			SetBuildUnit(2, HUNTRESS);//call SetBuildUnit( 2, HUNTRESS  )

@@ -15,31 +15,85 @@ namespace Jass {
 			//
 			if (hero_id == BLADE_MASTER) {//if hero_id == BLADE_MASTER then
 				//
+				skills1[1] = MIRROR_IMAGE;//set skills1[ 1] = MIRROR_IMAGE
+				skills1[2] = CRITICAL_STRIKE;//set skills1[ 2] = CRITICAL_STRIKE
+				skills1[3] = CRITICAL_STRIKE;//set skills1[ 3] = CRITICAL_STRIKE
+				skills1[4] = WIND_WALK;//set skills1[ 4] = WIND_WALK
+				skills1[5] = MIRROR_IMAGE;//set skills1[ 5] = MIRROR_IMAGE
+				skills1[6] = BLADE_STORM;//set skills1[ 6] = BLADE_STORM
+				skills1[7] = CRITICAL_STRIKE;//set skills1[ 7] = CRITICAL_STRIKE
+				skills1[8] = MIRROR_IMAGE;//set skills1[ 8] = MIRROR_IMAGE
+				skills1[9] = WIND_WALK;//set skills1[ 9] = WIND_WALK
 				skills1[10] = WIND_WALK;//set skills1[10] = WIND_WALK
 			}//endif
 			//
 			if (hero_id2 == BLADE_MASTER) {//if hero_id2 == BLADE_MASTER then
 				//
+				skills2[1] = MIRROR_IMAGE;//set skills2[ 1] = MIRROR_IMAGE
+				skills2[2] = CRITICAL_STRIKE;//set skills2[ 2] = CRITICAL_STRIKE
+				skills2[3] = WIND_WALK;//set skills2[ 3] = WIND_WALK
+				skills2[4] = CRITICAL_STRIKE;//set skills2[ 4] = CRITICAL_STRIKE
+				skills2[5] = CRITICAL_STRIKE;//set skills2[ 5] = CRITICAL_STRIKE
+				skills2[6] = BLADE_STORM;//set skills2[ 6] = BLADE_STORM
+				skills2[7] = MIRROR_IMAGE;//set skills2[ 7] = MIRROR_IMAGE
+				skills2[8] = MIRROR_IMAGE;//set skills2[ 8] = MIRROR_IMAGE
+				skills2[9] = WIND_WALK;//set skills2[ 9] = WIND_WALK
 				skills2[10] = WIND_WALK;//set skills2[10] = WIND_WALK
 			}//endif
 			//
 			if (hero_id == FAR_SEER) {//if hero_id == FAR_SEER then
 				//
+				skills1[1] = CHAIN_LIGHTNING;//set skills1[ 1] = CHAIN_LIGHTNING
+				skills1[2] = SPIRIT_WOLF;//set skills1[ 2] = SPIRIT_WOLF
+				skills1[3] = CHAIN_LIGHTNING;//set skills1[ 3] = CHAIN_LIGHTNING
+				skills1[4] = SPIRIT_WOLF;//set skills1[ 4] = SPIRIT_WOLF
+				skills1[5] = CHAIN_LIGHTNING;//set skills1[ 5] = CHAIN_LIGHTNING
+				skills1[6] = EARTHQUAKE;//set skills1[ 6] = EARTHQUAKE
+				skills1[7] = SPIRIT_WOLF;//set skills1[ 7] = SPIRIT_WOLF
+				skills1[8] = FAR_SIGHT;//set skills1[ 8] = FAR_SIGHT
+				skills1[9] = FAR_SIGHT;//set skills1[ 9] = FAR_SIGHT
 				skills1[10] = FAR_SIGHT;//set skills1[10] = FAR_SIGHT
 			}//endif
 			//
 			if (hero_id2 == FAR_SEER) {//if hero_id2 == FAR_SEER then
 				//
+				skills2[1] = CHAIN_LIGHTNING;//set skills2[ 1] = CHAIN_LIGHTNING
+				skills2[2] = SPIRIT_WOLF;//set skills2[ 2] = SPIRIT_WOLF
+				skills2[3] = CHAIN_LIGHTNING;//set skills2[ 3] = CHAIN_LIGHTNING
+				skills2[4] = SPIRIT_WOLF;//set skills2[ 4] = SPIRIT_WOLF
+				skills2[5] = CHAIN_LIGHTNING;//set skills2[ 5] = CHAIN_LIGHTNING
+				skills2[6] = EARTHQUAKE;//set skills2[ 6] = EARTHQUAKE
+				skills2[7] = SPIRIT_WOLF;//set skills2[ 7] = SPIRIT_WOLF
+				skills2[8] = FAR_SIGHT;//set skills2[ 8] = FAR_SIGHT
+				skills2[9] = FAR_SIGHT;//set skills2[ 9] = FAR_SIGHT
 				skills2[10] = FAR_SIGHT;//set skills2[10] = FAR_SIGHT
 			}//endif
 			//
 			if (hero_id == TAUREN_CHIEF) {//if hero_id == TAUREN_CHIEF then
 				//
+				skills1[1] = SHOCKWAVE;//set skills1[ 1] = SHOCKWAVE
+				skills1[2] = ENDURANE_AURA;//set skills1[ 2] = ENDURANE_AURA
+				skills1[3] = SHOCKWAVE;//set skills1[ 3] = SHOCKWAVE
+				skills1[4] = ENDURANE_AURA;//set skills1[ 4] = ENDURANE_AURA
+				skills1[5] = SHOCKWAVE;//set skills1[ 5] = SHOCKWAVE
+				skills1[6] = REINCARNATION;//set skills1[ 6] = REINCARNATION
+				skills1[7] = ENDURANE_AURA;//set skills1[ 7] = ENDURANE_AURA
+				skills1[8] = WAR_STOMP;//set skills1[ 8] = WAR_STOMP
+				skills1[9] = WAR_STOMP;//set skills1[ 9] = WAR_STOMP
 				skills1[10] = WAR_STOMP;//set skills1[10] = WAR_STOMP
 			}//endif
 			//
 			if (hero_id2 == TAUREN_CHIEF) {//if hero_id2 == TAUREN_CHIEF then
 				//
+				skills2[1] = ENDURANE_AURA;//set skills2[ 1] = ENDURANE_AURA
+				skills2[2] = WAR_STOMP;//set skills2[ 2] = WAR_STOMP
+				skills2[3] = WAR_STOMP;//set skills2[ 3] = WAR_STOMP
+				skills2[4] = ENDURANE_AURA;//set skills2[ 4] = ENDURANE_AURA
+				skills2[5] = WAR_STOMP;//set skills2[ 5] = WAR_STOMP
+				skills2[6] = REINCARNATION;//set skills2[ 6] = REINCARNATION
+				skills2[7] = ENDURANE_AURA;//set skills2[ 7] = ENDURANE_AURA
+				skills2[8] = SHOCKWAVE;//set skills2[ 8] = SHOCKWAVE
+				skills2[9] = SHOCKWAVE;//set skills2[ 9] = SHOCKWAVE
 				skills2[10] = SHOCKWAVE;//set skills2[10] = SHOCKWAVE
 			}//endif
 		}//endfunction
@@ -220,13 +274,13 @@ namespace Jass {
 		//
 		//
 		//
-		private void build_melee() {//function build_melee takes integer pool returns nothing
+		private void build_melee(int pool) {//function build_melee takes integer pool returns nothing
 			FoodPool(pool,  true,GRUNT,3,  bestiary,RAIDER,3);//call FoodPool( pool,  true,GRUNT,3,  bestiary,RAIDER,3 )
 		}//endfunction
 		//
 		//
 		//
-		private void build_ranged() {//function build_ranged takes integer pool returns nothing
+		private void build_ranged(int pool) {//function build_ranged takes integer pool returns nothing
 			FoodPool(pool,  true,HEAD_HUNTER,2,  forge and fortress,WYVERN,4);//call FoodPool( pool,  true,HEAD_HUNTER,2,  forge and fortress,WYVERN,4 )
 		}//endfunction
 		//

@@ -10,34 +10,34 @@ namespace Jass {
 		//
 		//
 		//
-		private real bj_PI = 3.14159;//constant real      bj_PI                            = 3.14159
-		private real bj_E = 2.71828;//constant real      bj_E                             = 2.71828
-		private real bj_CELLWIDTH = 128.0;//constant real      bj_CELLWIDTH                     = 128.0
-		private real bj_CLIFFHEIGHT = 128.0;//constant real      bj_CLIFFHEIGHT                   = 128.0
-		private real bj_UNIT_FACING = 270.0;//constant real      bj_UNIT_FACING                   = 270.0
-		private real bj_RADTODEG = 180.0/bj_PI;//constant real      bj_RADTODEG                      = 180.0/bj_PI
-		private real bj_DEGTORAD = bj_PI/180.0;//constant real      bj_DEGTORAD                      = bj_PI/180.0
-		private real bj_TEXT_DELAY_QUEST = 20.00;//constant real      bj_TEXT_DELAY_QUEST              = 20.00
-		private real bj_TEXT_DELAY_QUESTUPDATE = 20.00;//constant real      bj_TEXT_DELAY_QUESTUPDATE        = 20.00
-		private real bj_TEXT_DELAY_QUESTDONE = 20.00;//constant real      bj_TEXT_DELAY_QUESTDONE          = 20.00
-		private real bj_TEXT_DELAY_QUESTFAILED = 20.00;//constant real      bj_TEXT_DELAY_QUESTFAILED        = 20.00
-		private real bj_TEXT_DELAY_QUESTREQUIREMENT = 20.00;//constant real      bj_TEXT_DELAY_QUESTREQUIREMENT   = 20.00
-		private real bj_TEXT_DELAY_MISSIONFAILED = 20.00;//constant real      bj_TEXT_DELAY_MISSIONFAILED      = 20.00
-		private real bj_TEXT_DELAY_ALWAYSHINT = 12.00;//constant real      bj_TEXT_DELAY_ALWAYSHINT         = 12.00
-		private real bj_TEXT_DELAY_HINT = 12.00;//constant real      bj_TEXT_DELAY_HINT               = 12.00
-		private real bj_TEXT_DELAY_SECRET = 10.00;//constant real      bj_TEXT_DELAY_SECRET             = 10.00
-		private real bj_TEXT_DELAY_UNITACQUIRED = 15.00;//constant real      bj_TEXT_DELAY_UNITACQUIRED       = 15.00
-		private real bj_TEXT_DELAY_UNITAVAILABLE = 10.00;//constant real      bj_TEXT_DELAY_UNITAVAILABLE      = 10.00
-		private real bj_TEXT_DELAY_ITEMACQUIRED = 10.00;//constant real      bj_TEXT_DELAY_ITEMACQUIRED       = 10.00
-		private real bj_TEXT_DELAY_WARNING = 12.00;//constant real      bj_TEXT_DELAY_WARNING            = 12.00
-		private real bj_QUEUE_DELAY_QUEST = 5.00;//constant real      bj_QUEUE_DELAY_QUEST             =  5.00
-		private real bj_QUEUE_DELAY_HINT = 5.00;//constant real      bj_QUEUE_DELAY_HINT              =  5.00
-		private real bj_QUEUE_DELAY_SECRET = 3.00;//constant real      bj_QUEUE_DELAY_SECRET            =  3.00
-		private real bj_HANDICAP_EASY = 60.00;//constant real      bj_HANDICAP_EASY                 = 60.00
-		private real bj_GAME_STARTED_THRESHOLD = 0.01;//constant real      bj_GAME_STARTED_THRESHOLD        =  0.01
-		private real bj_WAIT_FOR_COND_MIN_INTERVAL = 0.10;//constant real      bj_WAIT_FOR_COND_MIN_INTERVAL    =  0.10
-		private real bj_POLLED_WAIT_INTERVAL = 0.10;//constant real      bj_POLLED_WAIT_INTERVAL          =  0.10
-		private real bj_POLLED_WAIT_SKIP_THRESHOLD = 2.00;//constant real      bj_POLLED_WAIT_SKIP_THRESHOLD    =  2.00
+		private float bj_PI = 3.14159;//constant real      bj_PI                            = 3.14159
+		private float bj_E = 2.71828;//constant real      bj_E                             = 2.71828
+		private float bj_CELLWIDTH = 128.0;//constant real      bj_CELLWIDTH                     = 128.0
+		private float bj_CLIFFHEIGHT = 128.0;//constant real      bj_CLIFFHEIGHT                   = 128.0
+		private float bj_UNIT_FACING = 270.0;//constant real      bj_UNIT_FACING                   = 270.0
+		private float bj_RADTODEG = 180.0/bj_PI;//constant real      bj_RADTODEG                      = 180.0/bj_PI
+		private float bj_DEGTORAD = bj_PI/180.0;//constant real      bj_DEGTORAD                      = bj_PI/180.0
+		private float bj_TEXT_DELAY_QUEST = 20.00;//constant real      bj_TEXT_DELAY_QUEST              = 20.00
+		private float bj_TEXT_DELAY_QUESTUPDATE = 20.00;//constant real      bj_TEXT_DELAY_QUESTUPDATE        = 20.00
+		private float bj_TEXT_DELAY_QUESTDONE = 20.00;//constant real      bj_TEXT_DELAY_QUESTDONE          = 20.00
+		private float bj_TEXT_DELAY_QUESTFAILED = 20.00;//constant real      bj_TEXT_DELAY_QUESTFAILED        = 20.00
+		private float bj_TEXT_DELAY_QUESTREQUIREMENT = 20.00;//constant real      bj_TEXT_DELAY_QUESTREQUIREMENT   = 20.00
+		private float bj_TEXT_DELAY_MISSIONFAILED = 20.00;//constant real      bj_TEXT_DELAY_MISSIONFAILED      = 20.00
+		private float bj_TEXT_DELAY_ALWAYSHINT = 12.00;//constant real      bj_TEXT_DELAY_ALWAYSHINT         = 12.00
+		private float bj_TEXT_DELAY_HINT = 12.00;//constant real      bj_TEXT_DELAY_HINT               = 12.00
+		private float bj_TEXT_DELAY_SECRET = 10.00;//constant real      bj_TEXT_DELAY_SECRET             = 10.00
+		private float bj_TEXT_DELAY_UNITACQUIRED = 15.00;//constant real      bj_TEXT_DELAY_UNITACQUIRED       = 15.00
+		private float bj_TEXT_DELAY_UNITAVAILABLE = 10.00;//constant real      bj_TEXT_DELAY_UNITAVAILABLE      = 10.00
+		private float bj_TEXT_DELAY_ITEMACQUIRED = 10.00;//constant real      bj_TEXT_DELAY_ITEMACQUIRED       = 10.00
+		private float bj_TEXT_DELAY_WARNING = 12.00;//constant real      bj_TEXT_DELAY_WARNING            = 12.00
+		private float bj_QUEUE_DELAY_QUEST = 5.00;//constant real      bj_QUEUE_DELAY_QUEST             =  5.00
+		private float bj_QUEUE_DELAY_HINT = 5.00;//constant real      bj_QUEUE_DELAY_HINT              =  5.00
+		private float bj_QUEUE_DELAY_SECRET = 3.00;//constant real      bj_QUEUE_DELAY_SECRET            =  3.00
+		private float bj_HANDICAP_EASY = 60.00;//constant real      bj_HANDICAP_EASY                 = 60.00
+		private float bj_GAME_STARTED_THRESHOLD = 0.01;//constant real      bj_GAME_STARTED_THRESHOLD        =  0.01
+		private float bj_WAIT_FOR_COND_MIN_INTERVAL = 0.10;//constant real      bj_WAIT_FOR_COND_MIN_INTERVAL    =  0.10
+		private float bj_POLLED_WAIT_INTERVAL = 0.10;//constant real      bj_POLLED_WAIT_INTERVAL          =  0.10
+		private float bj_POLLED_WAIT_SKIP_THRESHOLD = 2.00;//constant real      bj_POLLED_WAIT_SKIP_THRESHOLD    =  2.00
 		//
 		private int bj_MAX_INVENTORY = 6;//constant integer   bj_MAX_INVENTORY                 =   6
 		private int bj_MAX_PLAYERS = 12;//constant integer   bj_MAX_PLAYERS                   =  12
@@ -50,8 +50,8 @@ namespace Jass {
 		private int bj_MAX_ITEM_LEVEL = 10;//constant integer   bj_MAX_ITEM_LEVEL                =  10
 		//
 		//
-		private real bj_TOD_DAWN = 6.00;//constant real      bj_TOD_DAWN                      = 6.00
-		private real bj_TOD_DUSK = 18.00;//constant real      bj_TOD_DUSK                      = 18.00
+		private float bj_TOD_DAWN = 6.00;//constant real      bj_TOD_DAWN                      = 6.00
+		private float bj_TOD_DUSK = 18.00;//constant real      bj_TOD_DUSK                      = 18.00
 		//
 		//
 		//
@@ -61,7 +61,7 @@ namespace Jass {
 		//
 		//
 		//
-		private real bj_MELEE_STARTING_TOD = 8.00;//constant real      bj_MELEE_STARTING_TOD            = 8.00
+		private float bj_MELEE_STARTING_TOD = 8.00;//constant real      bj_MELEE_STARTING_TOD            = 8.00
 		private int bj_MELEE_STARTING_GOLD_V0 = 750;//constant integer   bj_MELEE_STARTING_GOLD_V0        = 750
 		private int bj_MELEE_STARTING_GOLD_V1 = 500;//constant integer   bj_MELEE_STARTING_GOLD_V1        = 500
 		private int bj_MELEE_STARTING_LUMBER_V0 = 200;//constant integer   bj_MELEE_STARTING_LUMBER_V0      = 200
@@ -69,17 +69,17 @@ namespace Jass {
 		private int bj_MELEE_STARTING_HERO_TOKENS = 1;//constant integer   bj_MELEE_STARTING_HERO_TOKENS    = 1
 		private int bj_MELEE_HERO_LIMIT = 3;//constant integer   bj_MELEE_HERO_LIMIT              = 3
 		private int bj_MELEE_HERO_TYPE_LIMIT = 1;//constant integer   bj_MELEE_HERO_TYPE_LIMIT         = 1
-		private real bj_MELEE_MINE_SEARCH_RADIUS = 2000;//constant real      bj_MELEE_MINE_SEARCH_RADIUS      = 2000
-		private real bj_MELEE_CLEAR_UNITS_RADIUS = 1500;//constant real      bj_MELEE_CLEAR_UNITS_RADIUS      = 1500
-		private real bj_MELEE_CRIPPLE_TIMEOUT = 120.00;//constant real      bj_MELEE_CRIPPLE_TIMEOUT         = 120.00
-		private real bj_MELEE_CRIPPLE_MSG_DURATION = 20.00;//constant real      bj_MELEE_CRIPPLE_MSG_DURATION    = 20.00
+		private float bj_MELEE_MINE_SEARCH_RADIUS = 2000;//constant real      bj_MELEE_MINE_SEARCH_RADIUS      = 2000
+		private float bj_MELEE_CLEAR_UNITS_RADIUS = 1500;//constant real      bj_MELEE_CLEAR_UNITS_RADIUS      = 1500
+		private float bj_MELEE_CRIPPLE_TIMEOUT = 120.00;//constant real      bj_MELEE_CRIPPLE_TIMEOUT         = 120.00
+		private float bj_MELEE_CRIPPLE_MSG_DURATION = 20.00;//constant real      bj_MELEE_CRIPPLE_MSG_DURATION    = 20.00
 		private int bj_MELEE_MAX_TWINKED_HEROES_V0 = 3;//constant integer   bj_MELEE_MAX_TWINKED_HEROES_V0   = 3
 		private int bj_MELEE_MAX_TWINKED_HEROES_V1 = 1;//constant integer   bj_MELEE_MAX_TWINKED_HEROES_V1   = 1
 		//
-		private real bj_CREEP_ITEM_DELAY = 0.50;//constant real      bj_CREEP_ITEM_DELAY              = 0.50
+		private float bj_CREEP_ITEM_DELAY = 0.50;//constant real      bj_CREEP_ITEM_DELAY              = 0.50
 		//
-		private real bj_STOCK_RESTOCK_INITIAL_DELAY = 120;//constant real      bj_STOCK_RESTOCK_INITIAL_DELAY   = 120
-		private real bj_STOCK_RESTOCK_INTERVAL = 30;//constant real      bj_STOCK_RESTOCK_INTERVAL        = 30
+		private float bj_STOCK_RESTOCK_INITIAL_DELAY = 120;//constant real      bj_STOCK_RESTOCK_INITIAL_DELAY   = 120
+		private float bj_STOCK_RESTOCK_INTERVAL = 30;//constant real      bj_STOCK_RESTOCK_INTERVAL        = 30
 		private int bj_STOCK_MAX_ITERATIONS = 20;//constant integer   bj_STOCK_MAX_ITERATIONS          = 20
 		//
 		private int bj_MAX_DEST_IN_REGION_EVENTS = 64;//constant integer   bj_MAX_DEST_IN_REGION_EVENTS     = 64
@@ -92,42 +92,42 @@ namespace Jass {
 		private int bj_CAMERA_DEFAULT_ROLL = 0;//constant integer   bj_CAMERA_DEFAULT_ROLL           = 0
 		private int bj_CAMERA_DEFAULT_ROTATION = 90;//constant integer   bj_CAMERA_DEFAULT_ROTATION       = 90
 		//
-		private real bj_RESCUE_PING_TIME = 2.00;//constant real      bj_RESCUE_PING_TIME              = 2.00
+		private float bj_RESCUE_PING_TIME = 2.00;//constant real      bj_RESCUE_PING_TIME              = 2.00
 		//
-		private real bj_NOTHING_SOUND_DURATION = 5.00;//constant real      bj_NOTHING_SOUND_DURATION        = 5.00
-		private real bj_TRANSMISSION_PING_TIME = 1.00;//constant real      bj_TRANSMISSION_PING_TIME        = 1.00
+		private float bj_NOTHING_SOUND_DURATION = 5.00;//constant real      bj_NOTHING_SOUND_DURATION        = 5.00
+		private float bj_TRANSMISSION_PING_TIME = 1.00;//constant real      bj_TRANSMISSION_PING_TIME        = 1.00
 		private int bj_TRANSMISSION_IND_RED = 255;//constant integer   bj_TRANSMISSION_IND_RED          = 255
 		private int bj_TRANSMISSION_IND_BLUE = 255;//constant integer   bj_TRANSMISSION_IND_BLUE         = 255
 		private int bj_TRANSMISSION_IND_GREEN = 255;//constant integer   bj_TRANSMISSION_IND_GREEN        = 255
 		private int bj_TRANSMISSION_IND_ALPHA = 255;//constant integer   bj_TRANSMISSION_IND_ALPHA        = 255
-		private real bj_TRANSMISSION_PORT_HANGTIME = 1.50;//constant real      bj_TRANSMISSION_PORT_HANGTIME    = 1.50
+		private float bj_TRANSMISSION_PORT_HANGTIME = 1.50;//constant real      bj_TRANSMISSION_PORT_HANGTIME    = 1.50
 		//
-		private real bj_CINEMODE_INTERFACEFADE = 0.50;//constant real      bj_CINEMODE_INTERFACEFADE        = 0.50
+		private float bj_CINEMODE_INTERFACEFADE = 0.50;//constant real      bj_CINEMODE_INTERFACEFADE        = 0.50
 		private gamespeed bj_CINEMODE_GAMESPEED = MAP_SPEED_NORMAL;//constant gamespeed bj_CINEMODE_GAMESPEED            = MAP_SPEED_NORMAL
 		//
-		private real bj_CINEMODE_VOLUME_UNITMOVEMENT = 0.40;//constant real      bj_CINEMODE_VOLUME_UNITMOVEMENT  = 0.40
-		private real bj_CINEMODE_VOLUME_UNITSOUNDS = 0.00;//constant real      bj_CINEMODE_VOLUME_UNITSOUNDS    = 0.00
-		private real bj_CINEMODE_VOLUME_COMBAT = 0.40;//constant real      bj_CINEMODE_VOLUME_COMBAT        = 0.40
-		private real bj_CINEMODE_VOLUME_SPELLS = 0.40;//constant real      bj_CINEMODE_VOLUME_SPELLS        = 0.40
-		private real bj_CINEMODE_VOLUME_UI = 0.00;//constant real      bj_CINEMODE_VOLUME_UI            = 0.00
-		private real bj_CINEMODE_VOLUME_MUSIC = 0.55;//constant real      bj_CINEMODE_VOLUME_MUSIC         = 0.55
-		private real bj_CINEMODE_VOLUME_AMBIENTSOUNDS = 1.00;//constant real      bj_CINEMODE_VOLUME_AMBIENTSOUNDS = 1.00
-		private real bj_CINEMODE_VOLUME_FIRE = 0.60;//constant real      bj_CINEMODE_VOLUME_FIRE          = 0.60
+		private float bj_CINEMODE_VOLUME_UNITMOVEMENT = 0.40;//constant real      bj_CINEMODE_VOLUME_UNITMOVEMENT  = 0.40
+		private float bj_CINEMODE_VOLUME_UNITSOUNDS = 0.00;//constant real      bj_CINEMODE_VOLUME_UNITSOUNDS    = 0.00
+		private float bj_CINEMODE_VOLUME_COMBAT = 0.40;//constant real      bj_CINEMODE_VOLUME_COMBAT        = 0.40
+		private float bj_CINEMODE_VOLUME_SPELLS = 0.40;//constant real      bj_CINEMODE_VOLUME_SPELLS        = 0.40
+		private float bj_CINEMODE_VOLUME_UI = 0.00;//constant real      bj_CINEMODE_VOLUME_UI            = 0.00
+		private float bj_CINEMODE_VOLUME_MUSIC = 0.55;//constant real      bj_CINEMODE_VOLUME_MUSIC         = 0.55
+		private float bj_CINEMODE_VOLUME_AMBIENTSOUNDS = 1.00;//constant real      bj_CINEMODE_VOLUME_AMBIENTSOUNDS = 1.00
+		private float bj_CINEMODE_VOLUME_FIRE = 0.60;//constant real      bj_CINEMODE_VOLUME_FIRE          = 0.60
 		//
-		private real bj_SPEECH_VOLUME_UNITMOVEMENT = 0.25;//constant real      bj_SPEECH_VOLUME_UNITMOVEMENT    = 0.25
-		private real bj_SPEECH_VOLUME_UNITSOUNDS = 0.00;//constant real      bj_SPEECH_VOLUME_UNITSOUNDS      = 0.00
-		private real bj_SPEECH_VOLUME_COMBAT = 0.25;//constant real      bj_SPEECH_VOLUME_COMBAT          = 0.25
-		private real bj_SPEECH_VOLUME_SPELLS = 0.25;//constant real      bj_SPEECH_VOLUME_SPELLS          = 0.25
-		private real bj_SPEECH_VOLUME_UI = 0.00;//constant real      bj_SPEECH_VOLUME_UI              = 0.00
-		private real bj_SPEECH_VOLUME_MUSIC = 0.55;//constant real      bj_SPEECH_VOLUME_MUSIC           = 0.55
-		private real bj_SPEECH_VOLUME_AMBIENTSOUNDS = 1.00;//constant real      bj_SPEECH_VOLUME_AMBIENTSOUNDS   = 1.00
-		private real bj_SPEECH_VOLUME_FIRE = 0.60;//constant real      bj_SPEECH_VOLUME_FIRE            = 0.60
+		private float bj_SPEECH_VOLUME_UNITMOVEMENT = 0.25;//constant real      bj_SPEECH_VOLUME_UNITMOVEMENT    = 0.25
+		private float bj_SPEECH_VOLUME_UNITSOUNDS = 0.00;//constant real      bj_SPEECH_VOLUME_UNITSOUNDS      = 0.00
+		private float bj_SPEECH_VOLUME_COMBAT = 0.25;//constant real      bj_SPEECH_VOLUME_COMBAT          = 0.25
+		private float bj_SPEECH_VOLUME_SPELLS = 0.25;//constant real      bj_SPEECH_VOLUME_SPELLS          = 0.25
+		private float bj_SPEECH_VOLUME_UI = 0.00;//constant real      bj_SPEECH_VOLUME_UI              = 0.00
+		private float bj_SPEECH_VOLUME_MUSIC = 0.55;//constant real      bj_SPEECH_VOLUME_MUSIC           = 0.55
+		private float bj_SPEECH_VOLUME_AMBIENTSOUNDS = 1.00;//constant real      bj_SPEECH_VOLUME_AMBIENTSOUNDS   = 1.00
+		private float bj_SPEECH_VOLUME_FIRE = 0.60;//constant real      bj_SPEECH_VOLUME_FIRE            = 0.60
 		//
-		private real bj_SMARTPAN_TRESHOLD_PAN = 500;//constant real      bj_SMARTPAN_TRESHOLD_PAN         = 500
-		private real bj_SMARTPAN_TRESHOLD_SNAP = 3500;//constant real      bj_SMARTPAN_TRESHOLD_SNAP        = 3500
+		private float bj_SMARTPAN_TRESHOLD_PAN = 500;//constant real      bj_SMARTPAN_TRESHOLD_PAN         = 500
+		private float bj_SMARTPAN_TRESHOLD_SNAP = 3500;//constant real      bj_SMARTPAN_TRESHOLD_SNAP        = 3500
 		//
 		private int bj_MAX_QUEUED_TRIGGERS = 100;//constant integer   bj_MAX_QUEUED_TRIGGERS           = 100
-		private real bj_QUEUED_TRIGGER_TIMEOUT = 180.00;//constant real      bj_QUEUED_TRIGGER_TIMEOUT        = 180.00
+		private float bj_QUEUED_TRIGGER_TIMEOUT = 180.00;//constant real      bj_QUEUED_TRIGGER_TIMEOUT        = 180.00
 		//
 		private int bj_CAMPAIGN_INDEX_T = 0;//constant integer   bj_CAMPAIGN_INDEX_T        = 0
 		private int bj_CAMPAIGN_INDEX_H = 1;//constant integer   bj_CAMPAIGN_INDEX_H        = 1
@@ -361,7 +361,7 @@ namespace Jass {
 		private int bj_MINIMAPPINGSTYLE_FLASHY = 1;//constant integer   bj_MINIMAPPINGSTYLE_FLASHY  = 1
 		private int bj_MINIMAPPINGSTYLE_ATTACK = 2;//constant integer   bj_MINIMAPPINGSTYLE_ATTACK  = 2
 		//
-		private real bj_CORPSE_MAX_DEATH_TIME = 8.00;//constant real      bj_CORPSE_MAX_DEATH_TIME    = 8.00
+		private float bj_CORPSE_MAX_DEATH_TIME = 8.00;//constant real      bj_CORPSE_MAX_DEATH_TIME    = 8.00
 		//
 		private int bj_CORPSETYPE_FLESH = 0;//constant integer   bj_CORPSETYPE_FLESH         = 0
 		private int bj_CORPSETYPE_BONE = 1;//constant integer   bj_CORPSETYPE_BONE          = 1
@@ -437,7 +437,7 @@ namespace Jass {
 		private bool bj_meleeGrantHeroItems = false;//boolean            bj_meleeGrantHeroItems      = false
 		private location bj_meleeNearestMineToLoc = null;//location           bj_meleeNearestMineToLoc    = null
 		private int bj_meleeNearestMine = null;//unit               bj_meleeNearestMine         = null
-		private real bj_meleeNearestMineDist = 0.00;//real               bj_meleeNearestMineDist     = 0.00
+		private float bj_meleeNearestMineDist = 0.00;//real               bj_meleeNearestMineDist     = 0.00
 		private bool bj_meleeGameOver = false;//boolean            bj_meleeGameOver            = false
 		private bool[] bj_meleeDefeated;//boolean array      bj_meleeDefeated
 		private bool[] bj_meleeVictoried;//boolean array      bj_meleeVictoried
@@ -467,11 +467,11 @@ namespace Jass {
 		//
 		private timer bj_cineFadeFinishTimer = null;//timer              bj_cineFadeFinishTimer      = null
 		private timer bj_cineFadeContinueTimer = null;//timer              bj_cineFadeContinueTimer    = null
-		private real bj_cineFadeContinueRed = 0;//real               bj_cineFadeContinueRed      = 0
-		private real bj_cineFadeContinueGreen = 0;//real               bj_cineFadeContinueGreen    = 0
-		private real bj_cineFadeContinueBlue = 0;//real               bj_cineFadeContinueBlue     = 0
-		private real bj_cineFadeContinueTrans = 0;//real               bj_cineFadeContinueTrans    = 0
-		private real bj_cineFadeContinueDuration = 0;//real               bj_cineFadeContinueDuration = 0
+		private float bj_cineFadeContinueRed = 0;//real               bj_cineFadeContinueRed      = 0
+		private float bj_cineFadeContinueGreen = 0;//real               bj_cineFadeContinueGreen    = 0
+		private float bj_cineFadeContinueBlue = 0;//real               bj_cineFadeContinueBlue     = 0
+		private float bj_cineFadeContinueTrans = 0;//real               bj_cineFadeContinueTrans    = 0
+		private float bj_cineFadeContinueDuration = 0;//real               bj_cineFadeContinueDuration = 0
 		private string bj_cineFadeContinueTex = "";//string             bj_cineFadeContinueTex      = ""
 		//
 		private int bj_queuedExecTotal = 0;//integer            bj_queuedExecTotal          = 0
@@ -494,7 +494,7 @@ namespace Jass {
 		private group bj_randomSubGroupGroup = null;//group              bj_randomSubGroupGroup      = null
 		private int bj_randomSubGroupWant = 0;//integer            bj_randomSubGroupWant       = 0
 		private int bj_randomSubGroupTotal = 0;//integer            bj_randomSubGroupTotal      = 0
-		private real bj_randomSubGroupChance = 0;//real               bj_randomSubGroupChance     = 0
+		private float bj_randomSubGroupChance = 0;//real               bj_randomSubGroupChance     = 0
 		private int bj_destRandomConsidered = 0;//integer            bj_destRandomConsidered     = 0
 		private destructable bj_destRandomCurrentPick = null;//destructable       bj_destRandomCurrentPick    = null
 		private destructable bj_elevatorWallBlocker = null;//destructable       bj_elevatorWallBlocker      = null
@@ -507,7 +507,7 @@ namespace Jass {
 		private bool bj_makeUnitRescuableFlag = true;//boolean            bj_makeUnitRescuableFlag    = true
 		private bool bj_pauseAllUnitsFlag = true;//boolean            bj_pauseAllUnitsFlag        = true
 		private location bj_enumDestructableCenter = null;//location           bj_enumDestructableCenter   = null
-		private real bj_enumDestructableRadius = 0;//real               bj_enumDestructableRadius   = 0
+		private float bj_enumDestructableRadius = 0;//real               bj_enumDestructableRadius   = 0
 		private playercolor bj_setPlayerTargetColor = null;//playercolor        bj_setPlayerTargetColor     = null
 		private bool bj_isUnitGroupDeadResult = true;//boolean            bj_isUnitGroupDeadResult    = true
 		private bool bj_isUnitGroupEmptyResult = true;//boolean            bj_isUnitGroupEmptyResult   = true
@@ -545,7 +545,7 @@ namespace Jass {
 		private multiboard bj_lastCreatedMultiboard = null;//multiboard         bj_lastCreatedMultiboard    = null
 		private sound bj_lastPlayedSound = null;//sound              bj_lastPlayedSound          = null
 		private string bj_lastPlayedMusic = "";//string             bj_lastPlayedMusic          = ""
-		private real bj_lastTransmissionDuration = 0;//real               bj_lastTransmissionDuration = 0
+		private float bj_lastTransmissionDuration = 0;//real               bj_lastTransmissionDuration = 0
 		private gamecache bj_lastCreatedGameCache = null;//gamecache          bj_lastCreatedGameCache     = null
 		private hashtable bj_lastCreatedHashtable = null;//hashtable          bj_lastCreatedHashtable     = null
 		private int bj_lastLoadedUnit = null;//unit               bj_lastLoadedUnit           = null
@@ -566,7 +566,7 @@ namespace Jass {
 		//
 		private bool bj_wantDestroyGroup = false;//boolean            bj_wantDestroyGroup         = false
 		//
-		private real bj_DEBUG_CAMFIELD_SPEED = 0;//constant real     bj_DEBUG_CAMFIELD_SPEED     = 0
+		private float bj_DEBUG_CAMFIELD_SPEED = 0;//constant real     bj_DEBUG_CAMFIELD_SPEED     = 0
 		private string bj_DEBUG_CHAT_GIMME = "gimme";//constant string   bj_DEBUG_CHAT_GIMME         = "gimme"
 		private string bj_DEBUG_CHAT_DEMO = "demo";//constant string   bj_DEBUG_CHAT_DEMO          = "demo"
 		private string bj_DEBUG_CHAT_TELEPORT = "teleport";//constant string   bj_DEBUG_CHAT_TELEPORT      = "teleport"
@@ -609,8 +609,8 @@ namespace Jass {
 		private trigger[] bj_debugFingerOfDeathTrig;//trigger  array    bj_debugFingerOfDeathTrig
 		private trigger[] bj_debugToolOfDeathTrig;//trigger  array    bj_debugToolOfDeathTrig
 		private bool[] bj_debugFingerOfDeathEnabled;//boolean  array    bj_debugFingerOfDeathEnabled
-		private real bj_debugGotoUnitX = 0;//real              bj_debugGotoUnitX = 0
-		private real bj_debugGotoUnitY = 0;//real              bj_debugGotoUnitY = 0
+		private float bj_debugGotoUnitX = 0;//real              bj_debugGotoUnitX = 0
+		private float bj_debugGotoUnitY = 0;//real              bj_debugGotoUnitY = 0
 		private int bj_debugGotoUnits = 0;//integer           bj_debugGotoUnits = 0
 		//
 		//
@@ -1862,12 +1862,12 @@ namespace Jass {
 		private player user = PlayerEx(2);//player user = PlayerEx(2)
 		private player user = PlayerEx(2);//player user = PlayerEx(2)
 		private player attacked = Player(4);//player attacked = Player(4)
-		private real MAIN_TOWN_X = -4279;//constant real MAIN_TOWN_X   = -4279
-		private real MAIN_TOWN_Y = 3057;//constant real MAIN_TOWN_Y   =  3057
-		private real DEFENSE_X = -3919;//constant real DEFENSE_X     = -3919
-		private real DEFENSE_Y = 1198;//constant real DEFENSE_Y     =  1198
-		private real GRAVEYARD_X = -1979;//constant real GRAVEYARD_X   = -1979
-		private real GRAVEYARD_Y = -1037;//constant real GRAVEYARD_Y   = -1037
+		private float MAIN_TOWN_X = -4279;//constant real MAIN_TOWN_X   = -4279
+		private float MAIN_TOWN_Y = 3057;//constant real MAIN_TOWN_Y   =  3057
+		private float DEFENSE_X = -3919;//constant real DEFENSE_X     = -3919
+		private float DEFENSE_Y = 1198;//constant real DEFENSE_Y     =  1198
+		private float GRAVEYARD_X = -1979;//constant real GRAVEYARD_X   = -1979
+		private float GRAVEYARD_Y = -1037;//constant real GRAVEYARD_Y   = -1037
 		private int MIN_GHOULS = 3;//constant integer MIN_GHOULS        =  3
 		private int MAX_GHOULS_NORMAL = 10;//constant integer MAX_GHOULS_NORMAL = 10
 		private int MAX_GHOULS_HARD = 15;//constant integer MAX_GHOULS_HARD   = 15
@@ -1876,14 +1876,14 @@ namespace Jass {
 		private int trees_alive = 100;//integer trees_alive         = 100
 		private int best_ghouls = 0;//integer best_ghouls         = 0
 		private player user = Player(2);//constant player user = Player(2)
-		private real MAIN_TOWN_X = -4279;//constant real MAIN_TOWN_X   = -4279
-		private real MAIN_TOWN_Y = 3057;//constant real MAIN_TOWN_Y   =  3057
-		private real DEFENSE_X = -3919;//constant real DEFENSE_X     = -3919
-		private real DEFENSE_Y = 1198;//constant real DEFENSE_Y     =  1198
-		private real FAILSAFE_X = -2700;//constant real FAILSAFE_X    = -2700
-		private real FAILSAFE_Y = 80;//constant real FAILSAFE_Y    =    80
-		private real GRAVEYARD_X = -1979;//constant real GRAVEYARD_X   = -1979
-		private real GRAVEYARD_Y = -1037;//constant real GRAVEYARD_Y   = -1037
+		private float MAIN_TOWN_X = -4279;//constant real MAIN_TOWN_X   = -4279
+		private float MAIN_TOWN_Y = 3057;//constant real MAIN_TOWN_Y   =  3057
+		private float DEFENSE_X = -3919;//constant real DEFENSE_X     = -3919
+		private float DEFENSE_Y = 1198;//constant real DEFENSE_Y     =  1198
+		private float FAILSAFE_X = -2700;//constant real FAILSAFE_X    = -2700
+		private float FAILSAFE_Y = 80;//constant real FAILSAFE_Y    =    80
+		private float GRAVEYARD_X = -1979;//constant real GRAVEYARD_X   = -1979
+		private float GRAVEYARD_Y = -1037;//constant real GRAVEYARD_Y   = -1037
 		private int MIN_GHOULS_NORMAL = 3;//constant integer MIN_GHOULS_NORMAL =  3
 		private int MIN_GHOULS_HARD = 8;//constant integer MIN_GHOULS_HARD   =  8
 		private int MAX_GHOULS_NORMAL = 10;//constant integer MAX_GHOULS_NORMAL = 10
@@ -1912,10 +1912,10 @@ namespace Jass {
 		private player user = Player(1);//player user = Player(1)
 		private player user = Player(1);//player user = Player(1)
 		private player user = Player(1);//player user = Player(1)
-		private real TICH_CAPT_X = 6987;//constant real TICH_CAPT_X = 6987
-		private real TICH_CAPT_Y = 2537;//constant real TICH_CAPT_Y = 2537
-		private real WAVE_CAPT_X = 5530;//constant real WAVE_CAPT_X = 5530
-		private real WAVE_CAPT_Y = 1270;//constant real WAVE_CAPT_Y = 1270
+		private float TICH_CAPT_X = 6987;//constant real TICH_CAPT_X = 6987
+		private float TICH_CAPT_Y = 2537;//constant real TICH_CAPT_Y = 2537
+		private float WAVE_CAPT_X = 5530;//constant real WAVE_CAPT_X = 5530
+		private float WAVE_CAPT_Y = 1270;//constant real WAVE_CAPT_Y = 1270
 		private player user = Player(1);//player user = Player(1)
 		private int WAVE_DOOMS = 'nC00';//constant integer WAVE_DOOMS = 'nC00'
 		private player targ = PlayerEx(6);//player targ = PlayerEx(6)
@@ -2225,8 +2225,8 @@ namespace Jass {
 		private int[] attack_bucket;//integer array attack_bucket
 		private int[] bucket_qty;//integer array bucket_qty
 		private int[] bucket_unitid;//integer array bucket_unitid
-		private real[] food_factor;//real array food_factor
-		private real dragon_factor;//real dragon_factor
+		private float[] food_factor;//real array food_factor
+		private float dragon_factor;//real dragon_factor
 		private player user = PlayerEx(1);//player user = PlayerEx(1)
 		private int NO_CLOUD_HAWK = 'h000';//constant integer NO_CLOUD_HAWK  = 'h000'
 		private int CLOUD_HAWK = HUMAN_DRAGON_HAWK;//constant integer CLOUD_HAWK     = HUMAN_DRAGON_HAWK

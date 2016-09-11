@@ -15,31 +15,85 @@ namespace Jass {
 			//
 			if (hero_id == PALADIN) {//if hero_id == PALADIN then
 				//
+				skills1[1] = HOLY_BOLT;//set skills1[ 1] = HOLY_BOLT
+				skills1[2] = DEVOTION_AURA;//set skills1[ 2] = DEVOTION_AURA
+				skills1[3] = HOLY_BOLT;//set skills1[ 3] = HOLY_BOLT
+				skills1[4] = DIVINE_SHIELD;//set skills1[ 4] = DIVINE_SHIELD
+				skills1[5] = HOLY_BOLT;//set skills1[ 5] = HOLY_BOLT
+				skills1[6] = RESURRECTION;//set skills1[ 6] = RESURRECTION
+				skills1[7] = DEVOTION_AURA;//set skills1[ 7] = DEVOTION_AURA
+				skills1[8] = DEVOTION_AURA;//set skills1[ 8] = DEVOTION_AURA
+				skills1[9] = DIVINE_SHIELD;//set skills1[ 9] = DIVINE_SHIELD
 				skills1[10] = DIVINE_SHIELD;//set skills1[10] = DIVINE_SHIELD
 			}//endif
 			//
 			if (hero_id2 == PALADIN) {//if hero_id2 == PALADIN then
 				//
+				skills2[1] = HOLY_BOLT;//set skills2[ 1] = HOLY_BOLT
+				skills2[2] = DIVINE_SHIELD;//set skills2[ 2] = DIVINE_SHIELD
+				skills2[3] = HOLY_BOLT;//set skills2[ 3] = HOLY_BOLT
+				skills2[4] = DEVOTION_AURA;//set skills2[ 4] = DEVOTION_AURA
+				skills2[5] = HOLY_BOLT;//set skills2[ 5] = HOLY_BOLT
+				skills2[6] = RESURRECTION;//set skills2[ 6] = RESURRECTION
+				skills2[7] = DEVOTION_AURA;//set skills2[ 7] = DEVOTION_AURA
+				skills2[8] = DEVOTION_AURA;//set skills2[ 8] = DEVOTION_AURA
+				skills2[9] = DIVINE_SHIELD;//set skills2[ 9] = DIVINE_SHIELD
 				skills2[10] = DIVINE_SHIELD;//set skills2[10] = DIVINE_SHIELD
 			}//endif
 			//
 			if (hero_id == MTN_KING) {//if hero_id == MTN_KING then
 				//
+				skills1[1] = THUNDER_BOLT;//set skills1[ 1] = THUNDER_BOLT
+				skills1[2] = BASH;//set skills1[ 2] = BASH
+				skills1[3] = THUNDER_BOLT;//set skills1[ 3] = THUNDER_BOLT
+				skills1[4] = THUNDER_CLAP;//set skills1[ 4] = THUNDER_CLAP
+				skills1[5] = THUNDER_BOLT;//set skills1[ 5] = THUNDER_BOLT
+				skills1[6] = AVATAR;//set skills1[ 6] = AVATAR
+				skills1[7] = BASH;//set skills1[ 7] = BASH
+				skills1[8] = BASH;//set skills1[ 8] = BASH
+				skills1[9] = THUNDER_CLAP;//set skills1[ 9] = THUNDER_CLAP
 				skills1[10] = THUNDER_CLAP;//set skills1[10] = THUNDER_CLAP
 			}//endif
 			//
 			if (hero_id2 == MTN_KING) {//if hero_id2 == MTN_KING then
 				//
+				skills2[1] = THUNDER_BOLT;//set skills2[ 1] = THUNDER_BOLT
+				skills2[2] = BASH;//set skills2[ 2] = BASH
+				skills2[3] = THUNDER_BOLT;//set skills2[ 3] = THUNDER_BOLT
+				skills2[4] = THUNDER_CLAP;//set skills2[ 4] = THUNDER_CLAP
+				skills2[5] = THUNDER_BOLT;//set skills2[ 5] = THUNDER_BOLT
+				skills2[6] = AVATAR;//set skills2[ 6] = AVATAR
+				skills2[7] = BASH;//set skills2[ 7] = BASH
+				skills2[8] = BASH;//set skills2[ 8] = BASH
+				skills2[9] = THUNDER_BOLT;//set skills2[ 9] = THUNDER_BOLT
 				skills2[10] = THUNDER_BOLT;//set skills2[10] = THUNDER_BOLT
 			}//endif
 			//
 			if (hero_id == ARCHMAGE) {//if hero_id == ARCHMAGE then
 				//
+				skills1[1] = WATER_ELEMENTAL;//set skills1[ 1] = WATER_ELEMENTAL
+				skills1[2] = BRILLIANCE_AURA;//set skills1[ 2] = BRILLIANCE_AURA
+				skills1[3] = WATER_ELEMENTAL;//set skills1[ 3] = WATER_ELEMENTAL
+				skills1[4] = BLIZZARD;//set skills1[ 4] = BLIZZARD
+				skills1[5] = WATER_ELEMENTAL;//set skills1[ 5] = WATER_ELEMENTAL
+				skills1[6] = MASS_TELEPORT;//set skills1[ 6] = MASS_TELEPORT
+				skills1[7] = BRILLIANCE_AURA;//set skills1[ 7] = BRILLIANCE_AURA
+				skills1[8] = BRILLIANCE_AURA;//set skills1[ 8] = BRILLIANCE_AURA
+				skills1[9] = BLIZZARD;//set skills1[ 9] = BLIZZARD
 				skills1[10] = BLIZZARD;//set skills1[10] = BLIZZARD
 			}//endif
 			//
 			if (hero_id2 == ARCHMAGE) {//if hero_id2 == ARCHMAGE then
 				//
+				skills2[1] = WATER_ELEMENTAL;//set skills2[ 1] = WATER_ELEMENTAL
+				skills2[2] = BRILLIANCE_AURA;//set skills2[ 2] = BRILLIANCE_AURA
+				skills2[3] = WATER_ELEMENTAL;//set skills2[ 3] = WATER_ELEMENTAL
+				skills2[4] = BRILLIANCE_AURA;//set skills2[ 4] = BRILLIANCE_AURA
+				skills2[5] = WATER_ELEMENTAL;//set skills2[ 5] = WATER_ELEMENTAL
+				skills2[6] = MASS_TELEPORT;//set skills2[ 6] = MASS_TELEPORT
+				skills2[7] = BRILLIANCE_AURA;//set skills2[ 7] = BRILLIANCE_AURA
+				skills2[8] = BLIZZARD;//set skills2[ 8] = BLIZZARD
+				skills2[9] = BLIZZARD;//set skills2[ 9] = BLIZZARD
 				skills2[10] = BLIZZARD;//set skills2[10] = BLIZZARD
 			}//endif
 		}//endfunction
@@ -213,7 +267,7 @@ namespace Jass {
 		//
 		//
 		//
-		private void basic_ranged() {//function basic_ranged takes integer food returns nothing
+		private void basic_ranged(int food) {//function basic_ranged takes integer food returns nothing
 			int C_rifle = GetUnitCount(COPTER);//local integer C_rifle = GetUnitCount(COPTER)
 			int rifle;//local integer rifle
 			int gyro;//local integer gyro
@@ -281,7 +335,7 @@ namespace Jass {
 		//
 		//
 		//
-		private void basic_melee() {//function basic_melee takes integer food returns nothing
+		private void basic_melee(int food) {//function basic_melee takes integer food returns nothing
 			FoodPool(food,  true,FOOTMAN,2,  knights,KNIGHT,4);//call FoodPool( food,  true,FOOTMAN,2,  knights,KNIGHT,4 )
 		}//endfunction
 		//

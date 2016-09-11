@@ -8,6 +8,7 @@ namespace Jass
 		nothing,
 		integer,
 		boolean,
+		real,
 		unit
 	}
 

@@ -11,7 +11,7 @@ namespace Jass {
 		//
 		//
 		//
-		private void add_units() {//function add_units takes integer unitid returns nothing
+		private void add_units(int unitid) {//function add_units takes integer unitid returns nothing
 			AddAssault(GetUnitCount(unitid),unitid);//call AddAssault(GetUnitCount(unitid),unitid)
 		}//endfunction
 		//
@@ -44,10 +44,10 @@ namespace Jass {
 		//
 		private void main() {//function main takes nothing returns nothing
 			player kill = null;//local player kill     = null
-			real goal_x = 0;//local real goal_x     = 0
-			real goal_y = 0;//local real goal_y     = 0
-			real teleport_x = 0;//local real teleport_x = 0
-			real teleport_y = 0;//local real teleport_y = 0
+			float goal_x = 0;//local real goal_x     = 0
+			float goal_y = 0;//local real goal_y     = 0
+			float teleport_x = 0;//local real teleport_x = 0
+			float teleport_y = 0;//local real teleport_y = 0
 			CampaignAI(ZIGGURAT_1,null);//call CampaignAI(ZIGGURAT_1,null)
 			StartThread(function gather_forces);//call StartThread(function gather_forces)
 			campaign_wood_peons = 0;//set campaign_wood_peons = 0

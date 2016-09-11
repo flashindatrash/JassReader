@@ -3,7 +3,7 @@ using System.Text.RegularExpressions;
 
 namespace Jass
 {
-	public class Condition : IParser
+	public class Expression : IParser
 	{
 		public const string Pattern = @".*";
 

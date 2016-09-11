@@ -15,31 +15,85 @@ namespace Jass {
 			//
 			if (hero_id == MOON_CHICK) {//if hero_id == MOON_CHICK then
 				//
+				skills1[1] = SEARING_ARROWS;//set skills1[ 1] = SEARING_ARROWS
+				skills1[2] = TRUESHOT;//set skills1[ 2] = TRUESHOT
+				skills1[3] = SEARING_ARROWS;//set skills1[ 3] = SEARING_ARROWS
+				skills1[4] = TRUESHOT;//set skills1[ 4] = TRUESHOT
+				skills1[5] = SEARING_ARROWS;//set skills1[ 5] = SEARING_ARROWS
+				skills1[6] = STARFALL;//set skills1[ 6] = STARFALL
+				skills1[7] = TRUESHOT;//set skills1[ 7] = TRUESHOT
+				skills1[8] = SCOUT;//set skills1[ 8] = SCOUT
+				skills1[9] = SCOUT;//set skills1[ 9] = SCOUT
 				skills1[10] = SCOUT;//set skills1[10] = SCOUT
 			}//endif
 			//
 			if (hero_id2 == MOON_CHICK) {//if hero_id2 == MOON_CHICK then
 				//
+				skills2[1] = TRUESHOT;//set skills2[ 1] = TRUESHOT
+				skills2[2] = SEARING_ARROWS;//set skills2[ 2] = SEARING_ARROWS
+				skills2[3] = TRUESHOT;//set skills2[ 3] = TRUESHOT
+				skills2[4] = SEARING_ARROWS;//set skills2[ 4] = SEARING_ARROWS
+				skills2[5] = TRUESHOT;//set skills2[ 5] = TRUESHOT
+				skills2[6] = STARFALL;//set skills2[ 6] = STARFALL
+				skills2[7] = SEARING_ARROWS;//set skills2[ 7] = SEARING_ARROWS
+				skills2[8] = SCOUT;//set skills2[ 8] = SCOUT
+				skills2[9] = SCOUT;//set skills2[ 9] = SCOUT
 				skills2[10] = SCOUT;//set skills2[10] = SCOUT
 			}//endif
 			//
 			if (hero_id == KEEPER) {//if hero_id == KEEPER then
 				//
+				skills1[1] = FORCE_NATURE;//set skills1[ 1] = FORCE_NATURE
+				skills1[2] = ENT_ROOTS;//set skills1[ 2] = ENT_ROOTS
+				skills1[3] = FORCE_NATURE;//set skills1[ 3] = FORCE_NATURE
+				skills1[4] = THORNS_AURA;//set skills1[ 4] = THORNS_AURA
+				skills1[5] = FORCE_NATURE;//set skills1[ 5] = FORCE_NATURE
+				skills1[6] = TRANQUILITY;//set skills1[ 6] = TRANQUILITY
+				skills1[7] = ENT_ROOTS;//set skills1[ 7] = ENT_ROOTS
+				skills1[8] = ENT_ROOTS;//set skills1[ 8] = ENT_ROOTS
+				skills1[9] = THORNS_AURA;//set skills1[ 9] = THORNS_AURA
 				skills1[10] = THORNS_AURA;//set skills1[10] = THORNS_AURA
 			}//endif
 			//
 			if (hero_id2 == KEEPER) {//if hero_id2 == KEEPER then
 				//
+				skills2[1] = THORNS_AURA;//set skills2[ 1] = THORNS_AURA
+				skills2[2] = ENT_ROOTS;//set skills2[ 2] = ENT_ROOTS
+				skills2[3] = ENT_ROOTS;//set skills2[ 3] = ENT_ROOTS
+				skills2[4] = THORNS_AURA;//set skills2[ 4] = THORNS_AURA
+				skills2[5] = ENT_ROOTS;//set skills2[ 5] = ENT_ROOTS
+				skills2[6] = TRANQUILITY;//set skills2[ 6] = TRANQUILITY
+				skills2[7] = THORNS_AURA;//set skills2[ 7] = THORNS_AURA
+				skills2[8] = FORCE_NATURE;//set skills2[ 8] = FORCE_NATURE
+				skills2[9] = FORCE_NATURE;//set skills2[ 9] = FORCE_NATURE
 				skills2[10] = FORCE_NATURE;//set skills2[10] = FORCE_NATURE
 			}//endif
 			//
 			if (hero_id == DEMON_HUNTER) {//if hero_id == DEMON_HUNTER then
 				//
+				skills1[1] = IMMOLATION;//set skills1[ 1] = IMMOLATION
+				skills1[2] = EVASION;//set skills1[ 2] = EVASION
+				skills1[3] = EVASION;//set skills1[ 3] = EVASION
+				skills1[4] = MANA_BURN;//set skills1[ 4] = MANA_BURN
+				skills1[5] = MANA_BURN;//set skills1[ 5] = MANA_BURN
+				skills1[6] = METAMORPHOSIS;//set skills1[ 6] = METAMORPHOSIS
+				skills1[7] = MANA_BURN;//set skills1[ 7] = MANA_BURN
+				skills1[8] = EVASION;//set skills1[ 8] = EVASION
+				skills1[9] = IMMOLATION;//set skills1[ 9] = IMMOLATION
 				skills1[10] = IMMOLATION;//set skills1[10] = IMMOLATION
 			}//endif
 			//
 			if (hero_id2 == DEMON_HUNTER) {//if hero_id2 == DEMON_HUNTER then
 				//
+				skills2[1] = MANA_BURN;//set skills2[ 1] = MANA_BURN
+				skills2[2] = EVASION;//set skills2[ 2] = EVASION
+				skills2[3] = MANA_BURN;//set skills2[ 3] = MANA_BURN
+				skills2[4] = EVASION;//set skills2[ 4] = EVASION
+				skills2[5] = MANA_BURN;//set skills2[ 5] = MANA_BURN
+				skills2[6] = METAMORPHOSIS;//set skills2[ 6] = METAMORPHOSIS
+				skills2[7] = EVASION;//set skills2[ 7] = EVASION
+				skills2[8] = IMMOLATION;//set skills2[ 8] = IMMOLATION
+				skills2[9] = IMMOLATION;//set skills2[ 9] = IMMOLATION
 				skills2[10] = IMMOLATION;//set skills2[10] = IMMOLATION
 			}//endif
 		}//endfunction

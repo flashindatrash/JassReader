@@ -5,10 +5,10 @@ namespace Jass
 {
 	public class IfThen : JassLine, IParser, ITabBefore, ITabAfter
 	{
-		public const string Pattern = @"^(?<type>if|elseif)\s+(?<condition>" + Condition.Pattern + @")\s+then\r?$";
+		public const string Pattern = @"^(?<type>if|elseif)\s*(?<expression>" + Expression.Pattern + @")\s+then\r?$";
 
 		private string type;
-		private readonly Condition condition = new Condition();
+		private readonly Expression expression = new Expression();
 
 		public bool isElse
 		{
@@ -19,12 +19,12 @@ namespace Jass
 		{
 			Match match = Regex.Match(text, Pattern);
 			type = match.Groups["type"].Value;
-			condition.Parse(match.Groups["condition"].Value);
+			expression.Parse(match.Groups["expression"].Value);
 		}
 
 		public override string ToString()
 		{
-			return (type == "elseif" ? "} else if " : "if ") + "(" + condition + ") {";
+			return (type == "elseif" ? "} else if " : "if ") + "(" + expression + ") {";
 		}
 
 		public int tabBefore

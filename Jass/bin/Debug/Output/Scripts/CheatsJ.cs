@@ -71,7 +71,7 @@ namespace Jass {
 		//
 		//
 		//
-		private string DebugIdInteger2IdString() {//function DebugIdInteger2IdString takes integer value returns string
+		private string DebugIdInteger2IdString(int value) {//function DebugIdInteger2IdString takes integer value returns string
 			string charMap = ".................................!.#$%&'()*+,-./0123456789:;<=>.@ABCDEFGHIJKLMNOPQRSTUVWXYZ[.]^_`abcdefghijklmnopqrstuvwxyz{|}~.................................................................................................................................";//local string charMap = ".................................!.#$%&'()*+,-./0123456789:;<=>.@ABCDEFGHIJKLMNOPQRSTUVWXYZ[.]^_`abcdefghijklmnopqrstuvwxyz{|}~................................................................................................................................."
 			string result = "";//local string result = ""
 			int remainingValue = value;//local integer remainingValue = value
@@ -133,9 +133,9 @@ namespace Jass {
 			DisplayTextToPlayer(thePlayer, 0, 0, message);//call DisplayTextToPlayer(thePlayer, 0, 0, message)
 		}//endfunction
 		//
-		private void DebugCamField(camerafield whichField, int cheatLength, real defaultValue) {//function DebugCamField takes camerafield whichField, integer cheatLength, real defaultValue returns nothing
+		private void DebugCamField(camerafield whichField, int cheatLength, float defaultValue) {//function DebugCamField takes camerafield whichField, integer cheatLength, real defaultValue returns nothing
 			string param = SubString(GetEventPlayerChatString(), cheatLength, 50);//local string param        = SubString(GetEventPlayerChatString(), cheatLength, 50)
-			real value = S2R(param);//local real   value        = S2R(param)
+			float value = S2R(param);//local real   value        = S2R(param)
 			//
 			while (true) {//loop
 				if (!(SubString(param, 0, 1) == " ")) { break; }//exitwhen not (SubString(param, 0, 1) == " ")

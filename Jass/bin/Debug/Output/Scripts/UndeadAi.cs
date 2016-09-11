@@ -15,31 +15,85 @@ namespace Jass {
 			//
 			if (hero_id == LICH) {//if hero_id == LICH then
 				//
+				skills1[1] = FROST_NOVA;//set skills1[ 1] = FROST_NOVA
+				skills1[2] = FROST_ARMOR;//set skills1[ 2] = FROST_ARMOR
+				skills1[3] = FROST_NOVA;//set skills1[ 3] = FROST_NOVA
+				skills1[4] = DARK_RITUAL;//set skills1[ 4] = DARK_RITUAL
+				skills1[5] = FROST_NOVA;//set skills1[ 5] = FROST_NOVA
+				skills1[6] = DEATH_DECAY;//set skills1[ 6] = DEATH_DECAY
+				skills1[7] = DARK_RITUAL;//set skills1[ 7] = DARK_RITUAL
+				skills1[8] = DARK_RITUAL;//set skills1[ 8] = DARK_RITUAL
+				skills1[9] = FROST_ARMOR;//set skills1[ 9] = FROST_ARMOR
 				skills1[10] = FROST_ARMOR;//set skills1[10] = FROST_ARMOR
 			}//endif
 			//
 			if (hero_id2 == LICH) {//if hero_id2 == LICH then
 				//
+				skills2[1] = FROST_NOVA;//set skills2[ 1] = FROST_NOVA
+				skills2[2] = FROST_ARMOR;//set skills2[ 2] = FROST_ARMOR
+				skills2[3] = FROST_NOVA;//set skills2[ 3] = FROST_NOVA
+				skills2[4] = DARK_RITUAL;//set skills2[ 4] = DARK_RITUAL
+				skills2[5] = FROST_NOVA;//set skills2[ 5] = FROST_NOVA
+				skills2[6] = DEATH_DECAY;//set skills2[ 6] = DEATH_DECAY
+				skills2[7] = DARK_RITUAL;//set skills2[ 7] = DARK_RITUAL
+				skills2[8] = DARK_RITUAL;//set skills2[ 8] = DARK_RITUAL
+				skills2[9] = FROST_ARMOR;//set skills2[ 9] = FROST_ARMOR
 				skills2[10] = FROST_ARMOR;//set skills2[10] = FROST_ARMOR
 			}//endif
 			//
 			if (hero_id == DREAD_LORD) {//if hero_id == DREAD_LORD then
 				//
+				skills1[1] = SLEEP;//set skills1[ 1] = SLEEP
+				skills1[2] = VAMP_AURA;//set skills1[ 2] = VAMP_AURA
+				skills1[3] = SLEEP;//set skills1[ 3] = SLEEP
+				skills1[4] = CARRION_SWARM;//set skills1[ 4] = CARRION_SWARM
+				skills1[5] = SLEEP;//set skills1[ 5] = SLEEP
+				skills1[6] = INFERNO;//set skills1[ 6] = INFERNO
+				skills1[7] = CARRION_SWARM;//set skills1[ 7] = CARRION_SWARM
+				skills1[8] = CARRION_SWARM;//set skills1[ 8] = CARRION_SWARM
+				skills1[9] = VAMP_AURA;//set skills1[ 9] = VAMP_AURA
 				skills1[10] = VAMP_AURA;//set skills1[10] = VAMP_AURA
 			}//endif
 			//
 			if (hero_id2 == DREAD_LORD) {//if hero_id2 == DREAD_LORD then
 				//
+				skills2[1] = CARRION_SWARM;//set skills2[ 1] = CARRION_SWARM
+				skills2[2] = SLEEP;//set skills2[ 2] = SLEEP
+				skills2[3] = CARRION_SWARM;//set skills2[ 3] = CARRION_SWARM
+				skills2[4] = VAMP_AURA;//set skills2[ 4] = VAMP_AURA
+				skills2[5] = CARRION_SWARM;//set skills2[ 5] = CARRION_SWARM
+				skills2[6] = INFERNO;//set skills2[ 6] = INFERNO
+				skills2[7] = VAMP_AURA;//set skills2[ 7] = VAMP_AURA
+				skills2[8] = VAMP_AURA;//set skills2[ 8] = VAMP_AURA
+				skills2[9] = SLEEP;//set skills2[ 9] = SLEEP
 				skills2[10] = SLEEP;//set skills2[10] = SLEEP
 			}//endif
 			//
 			if (hero_id == DEATH_KNIGHT) {//if hero_id == DEATH_KNIGHT then
 				//
+				skills1[1] = DEATH_COIL;//set skills1[ 1] = DEATH_COIL
+				skills1[2] = UNHOLY_AURA;//set skills1[ 2] = UNHOLY_AURA
+				skills1[3] = DEATH_COIL;//set skills1[ 3] = DEATH_COIL
+				skills1[4] = UNHOLY_AURA;//set skills1[ 4] = UNHOLY_AURA
+				skills1[5] = DEATH_COIL;//set skills1[ 5] = DEATH_COIL
+				skills1[6] = ANIM_DEAD;//set skills1[ 6] = ANIM_DEAD
+				skills1[7] = UNHOLY_AURA;//set skills1[ 7] = UNHOLY_AURA
+				skills1[8] = DEATH_PACT;//set skills1[ 8] = DEATH_PACT
+				skills1[9] = DEATH_PACT;//set skills1[ 9] = DEATH_PACT
 				skills1[10] = DEATH_PACT;//set skills1[10] = DEATH_PACT
 			}//endif
 			//
 			if (hero_id2 == DEATH_KNIGHT) {//if hero_id2 == DEATH_KNIGHT then
 				//
+				skills2[1] = DEATH_COIL;//set skills2[ 1] = DEATH_COIL
+				skills2[2] = UNHOLY_AURA;//set skills2[ 2] = UNHOLY_AURA
+				skills2[3] = DEATH_COIL;//set skills2[ 3] = DEATH_COIL
+				skills2[4] = UNHOLY_AURA;//set skills2[ 4] = UNHOLY_AURA
+				skills2[5] = DEATH_COIL;//set skills2[ 5] = DEATH_COIL
+				skills2[6] = ANIM_DEAD;//set skills2[ 6] = ANIM_DEAD
+				skills2[7] = UNHOLY_AURA;//set skills2[ 7] = UNHOLY_AURA
+				skills2[8] = DEATH_PACT;//set skills2[ 8] = DEATH_PACT
+				skills2[9] = DEATH_PACT;//set skills2[ 9] = DEATH_PACT
 				skills2[10] = DEATH_PACT;//set skills2[10] = DEATH_PACT
 			}//endif
 		}//endfunction
@@ -115,7 +169,7 @@ namespace Jass {
 		//
 		//
 		//
-		private void undead_mine() {//function undead_mine takes integer townid returns nothing
+		private void undead_mine(int townid) {//function undead_mine takes integer townid returns nothing
 			if (GetGold() < 1000 && TownHasMine(townid)) {//if GetGold() < 1000 and TownHasMine(townid) then
 				SecondaryTown(townid, 1, UNDEAD_MINE);//call SecondaryTown( townid, 1, UNDEAD_MINE )
 			}//endif
@@ -248,7 +302,7 @@ namespace Jass {
 		//
 		//
 		//
-		private void build_melee() {//function build_melee takes integer pool returns nothing
+		private void build_melee(int pool) {//function build_melee takes integer pool returns nothing
 			FoodPool(pool,  true,GHOUL,2,  M_aboms,ABOMINATION,4);//call FoodPool( pool,  true,GHOUL,2,  M_aboms,ABOMINATION,4 )
 		}//endfunction
 		//
@@ -311,7 +365,7 @@ namespace Jass {
 		//
 		//
 		//
-		private void harvest_gold() {//function harvest_gold takes integer townid returns nothing
+		private void harvest_gold(int townid) {//function harvest_gold takes integer townid returns nothing
 			if (TownHasMine(townid)) {//if TownHasMine(townid) then
 				HarvestGold(townid,5);//call HarvestGold(townid,5)
 			}//endif

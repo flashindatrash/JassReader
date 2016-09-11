@@ -11,7 +11,7 @@ namespace Jass {
 		//
 		//
 		//
-		private void set_build_units() {//function set_build_units takes boolean fplayer returns nothing
+		private void set_build_units(bool fplayer) {//function set_build_units takes boolean fplayer returns nothing
 			if (!fplayer) {//if not fplayer then
 				SetBuildUnit(1, PEON);//call SetBuildUnit( 1, PEON              )
 				SetBuildUnit(1, GREAT_HALL);//call SetBuildUnit( 1, GREAT_HALL        )
@@ -30,7 +30,7 @@ namespace Jass {
 		//
 		//
 		//
-		private void set_defenders() {//function set_defenders takes boolean fplayer returns nothing
+		private void set_defenders(bool fplayer) {//function set_defenders takes boolean fplayer returns nothing
 			if (!fplayer) {//if not fplayer then
 				CampaignDefenderEx(1,1,1, GROM);//call CampaignDefenderEx( 1,1,1, GROM		)
 				CampaignDefenderEx(2,2,2, GRUNT);//call CampaignDefenderEx( 2,2,2, GRUNT		)
@@ -106,9 +106,19 @@ namespace Jass {
 		private void init_arrays() {//function init_arrays takes nothing returns nothing
 			int index = 0;//local integer index = 0
 			while (true) {//loop
+				alive[index] = false;//set alive      [index] = false
+				needs_agro[index] = false;//set needs_agro [index] = false
 				index = index + 1;//set index = index + 1
 				if (index == 11) { break; }//exitwhen index == 11
 			}//endloop
+			alive[BLUE       ] = true;//set alive      [ BLUE       ] = true
+			alive[GRAY       ] = true;//set alive      [ GRAY       ] = true
+			alive[LIGHT_BLUE ] = true;//set alive      [ LIGHT_BLUE ] = true
+			alive[GREEN      ] = true;//set alive      [ GREEN      ] = true
+			needs_agro[BLUE       ] = true;//set needs_agro [ BLUE       ] = true
+			needs_agro[GRAY       ] = true;//set needs_agro [ GRAY       ] = true
+			needs_agro[LIGHT_BLUE ] = true;//set needs_agro [ LIGHT_BLUE ] = true
+			needs_agro[GREEN      ] = true;//set needs_agro [ GREEN      ] = true
 		}//endfunction
 		//
 		//
@@ -124,7 +134,7 @@ namespace Jass {
 		//
 		//
 		//
-		private void possible_agro() {//function possible_agro takes integer target returns nothing
+		private void possible_agro(int target) {//function possible_agro takes integer target returns nothing
 			if (grom_target == -1 && alive[target] && needs_agro[target]) {//if grom_target == -1 and alive[target] and needs_agro[target] then
 				grom_target = target;//set grom_target = target
 				needs_agro[target] = false;//set needs_agro[target] = false

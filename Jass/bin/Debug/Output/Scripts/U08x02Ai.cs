@@ -35,7 +35,7 @@ namespace Jass {
 		//
 		//
 		//
-		private real balance_factor(real norm, real hard) {//function balance_factor takes real norm, real hard returns real
+		private float balance_factor(float norm, float hard) {//function balance_factor takes real norm, real hard returns real
 			if (difficulty==EASY || difficulty==NORMAL) {//if difficulty==EASY or difficulty==NORMAL then
 				return norm;//return norm
 			} else {//else
@@ -101,11 +101,18 @@ namespace Jass {
 		//
 		//
 		private void unit_info() {//function unit_info takes nothing returns nothing
+			bucket_unitid[BUCKET_COUATL      ] = NAGA_COUATL2;//set bucket_unitid[ BUCKET_COUATL      ] = NAGA_COUATL2
+			bucket_unitid[BUCKET_SNAP_DRAGON ] = NAGA_SNAP_DRAGON2;//set bucket_unitid[ BUCKET_SNAP_DRAGON ] = NAGA_SNAP_DRAGON2
+			bucket_unitid[BUCKET_REAVER      ] = NAGA_REAVER2;//set bucket_unitid[ BUCKET_REAVER      ] = NAGA_REAVER2
+			bucket_unitid[BUCKET_MYRMIDON    ] = NAGA_MYRMIDON2;//set bucket_unitid[ BUCKET_MYRMIDON    ] = NAGA_MYRMIDON2
+			bucket_unitid[BUCKET_SIREN       ] = NAGA_SIREN2;//set bucket_unitid[ BUCKET_SIREN       ] = NAGA_SIREN2
+			bucket_unitid[BUCKET_TURTLE      ] = NAGA_TURTLE2;//set bucket_unitid[ BUCKET_TURTLE      ] = NAGA_TURTLE2
+			bucket_unitid[BUCKET_ROYAL       ] = NAGA_ROYAL2;//set bucket_unitid[ BUCKET_ROYAL       ] = NAGA_ROYAL2
 		}//endfunction
 		//
 		//
 		//
-		private int slots_controlled() {//function slots_controlled takes integer who returns integer
+		private int slots_controlled(int who) {//function slots_controlled takes integer who returns integer
 			int sum = 0;//local integer sum = 0
 			int i = 1;//local integer i = 1
 			while (true) {//loop
@@ -308,7 +315,7 @@ namespace Jass {
 		//
 		//
 		//
-		private int Illidan_count() {//function Illidan_count takes boolean onlyDone returns integer
+		private int Illidan_count(bool onlyDone) {//function Illidan_count takes boolean onlyDone returns integer
 			if (GetUnitCountDone(ILLIDAN) > 0 || GetUnitCountDone(ILLIDAN_DEMON) > 0) {//if GetUnitCountDone(ILLIDAN) > 0 or GetUnitCountDone(ILLIDAN_DEMON) > 0 then
 				return 1;//return 1
 			}//endif
@@ -365,7 +372,7 @@ namespace Jass {
 		//
 		//
 		//
-		private void Illidan_attack() {//function Illidan_attack takes boolean normal_attack returns nothing
+		private void Illidan_attack(bool normal_attack) {//function Illidan_attack takes boolean normal_attack returns nothing
 			int last_x;//local integer last_x
 			int last_y;//local integer last_y
 			int dx;//local integer dx
@@ -504,9 +511,9 @@ namespace Jass {
 		//
 		private void extra_attackers() {//function extra_attackers takes nothing returns nothing
 			int COPs = slots_controlled(ARTHAS_CONTROL);//local integer COPs = slots_controlled(ARTHAS_CONTROL)
-			real Arthas_factor = food_factor[COPs];//local real Arthas_factor = food_factor[COPs]
-			real player_food = GetPlayerState(USER,PLAYER_STATE_RESOURCE_FOOD_USED) * Arthas_factor;//local real player_food = GetPlayerState(USER,PLAYER_STATE_RESOURCE_FOOD_USED) * Arthas_factor
-			real Illidan_food = 0;//local real Illidan_food = 0
+			float Arthas_factor = food_factor[COPs];//local real Arthas_factor = food_factor[COPs]
+			float player_food = GetPlayerState(USER,PLAYER_STATE_RESOURCE_FOOD_USED) * Arthas_factor;//local real player_food = GetPlayerState(USER,PLAYER_STATE_RESOURCE_FOOD_USED) * Arthas_factor
+			float Illidan_food = 0;//local real Illidan_food = 0
 			int idx;//local integer idx
 			int food_each;//local integer food_each
 			int count;//local integer count

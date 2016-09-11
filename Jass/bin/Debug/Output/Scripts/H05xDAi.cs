@@ -31,7 +31,7 @@ namespace Jass {
 		//
 		//
 		//
-		private void declare_unit() {//function declare_unit takes integer unitid returns nothing
+		private void declare_unit(int unitid) {//function declare_unit takes integer unitid returns nothing
 			suicide_list[next_declare] = unitid;//set suicide_list[next_declare] = unitid
 			next_declare = next_declare + 1;//set next_declare = next_declare + 1
 			suicide_list[next_declare] = -1;//set suicide_list[next_declare] = -1
@@ -110,7 +110,7 @@ namespace Jass {
 		//
 		//
 		//
-		private void send_sleep() {//function send_sleep takes integer seconds returns nothing
+		private void send_sleep(int seconds) {//function send_sleep takes integer seconds returns nothing
 			if (gate_open) {//if gate_open then
 				Sleep(seconds);//call Sleep(seconds)
 			}//endif

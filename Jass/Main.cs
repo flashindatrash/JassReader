@@ -22,6 +22,7 @@ namespace Jass {
 			Core.RegisterClass(ClassType.nothing, new ClassInfo("void"));
 			Core.RegisterClass(ClassType.integer, new ClassInfo("int", "0"));
 			Core.RegisterClass(ClassType.boolean, new ClassInfo("bool", "false"));
+			Core.RegisterClass(ClassType.real, new ClassInfo("float", "0f"));
 			Core.RegisterClass(ClassType.unit, new ClassInfo("int", "0")); //delete
 
 			using (JassWriter writer = new JassWriter())
@@ -35,6 +36,7 @@ namespace Jass {
 					{
 						var lines = reader.Read(file);
 						writer.CreateFile(new JassFormatter(lines, file, Settings.ClassTemplate));
+						//break;
 					}
 				}
 

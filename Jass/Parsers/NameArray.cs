@@ -1,20 +1,25 @@
 ﻿using System;
+using System.Text.RegularExpressions;
+
 namespace Jass
 {
 	public class NameArray : IParser
 	{
-		public const string Pattern = @"[\w\d_\[\]]+";
+		public const string Pattern = @"(?<name>" + Name.Pattern + @")\s*\[\s*(?<index>" + Eval.Pattern + @")\s*\]";
 
 		private string name;
+		private string index;
 
 		public void Parse(string text)
 		{
-			name = text;
+			Match match = Regex.Match(text, Pattern);
+			name = match.Groups["name"].Value;
+			index = match.Groups["index"].Value;
 		}
 
 		public override string ToString()
 		{
-			return name;
+			return name + "[" + index + "]";
 		}
 	}
 }

@@ -14,7 +14,7 @@ namespace Jass {
 		//
 		//
 		//
-		private void BJDebugMsg() {//function BJDebugMsg takes string msg returns nothing
+		private void BJDebugMsg(string msg) {//function BJDebugMsg takes string msg returns nothing
 			int i = 0;//local integer i = 0
 			while (true) {//loop
 				DisplayTimedTextToPlayer(Player(i),0,0,60,msg);//call DisplayTimedTextToPlayer(Player(i),0,0,60,msg)
@@ -28,7 +28,7 @@ namespace Jass {
 		//
 		//
 		//
-		private real RMinBJ(real a, real b) {//function RMinBJ takes real a, real b returns real
+		private float RMinBJ(float a, float b) {//function RMinBJ takes real a, real b returns real
 			if ((a < b)) {//if (a < b) then
 				return a;//return a
 			} else {//else
@@ -36,7 +36,7 @@ namespace Jass {
 			}//endif
 		}//endfunction
 		//
-		private real RMaxBJ(real a, real b) {//function RMaxBJ takes real a, real b returns real
+		private float RMaxBJ(float a, float b) {//function RMaxBJ takes real a, real b returns real
 			if ((a < b)) {//if (a < b) then
 				return b;//return b
 			} else {//else
@@ -44,7 +44,7 @@ namespace Jass {
 			}//endif
 		}//endfunction
 		//
-		private real RAbsBJ() {//function RAbsBJ takes real a returns real
+		private float RAbsBJ(float a) {//function RAbsBJ takes real a returns real
 			if ((a >= 0)) {//if (a >= 0) then
 				return a;//return a
 			} else {//else
@@ -52,7 +52,7 @@ namespace Jass {
 			}//endif
 		}//endfunction
 		//
-		private real RSignBJ() {//function RSignBJ takes real a returns real
+		private float RSignBJ(float a) {//function RSignBJ takes real a returns real
 			if ((a >= 0.0)) {//if (a >= 0.0) then
 				return 1.0;//return 1.0
 			} else {//else
@@ -76,7 +76,7 @@ namespace Jass {
 			}//endif
 		}//endfunction
 		//
-		private int IAbsBJ() {//function IAbsBJ takes integer a returns integer
+		private int IAbsBJ(int a) {//function IAbsBJ takes integer a returns integer
 			if ((a >= 0)) {//if (a >= 0) then
 				return a;//return a
 			} else {//else
@@ -84,7 +84,7 @@ namespace Jass {
 			}//endif
 		}//endfunction
 		//
-		private int ISignBJ() {//function ISignBJ takes integer a returns integer
+		private int ISignBJ(int a) {//function ISignBJ takes integer a returns integer
 			if ((a >= 0)) {//if (a >= 0) then
 				return 1;//return 1
 			} else {//else
@@ -92,59 +92,59 @@ namespace Jass {
 			}//endif
 		}//endfunction
 		//
-		private real SinBJ() {//function SinBJ takes real degrees returns real
+		private float SinBJ(float degrees) {//function SinBJ takes real degrees returns real
 			return Sin(degrees * bj_DEGTORAD);//return Sin(degrees * bj_DEGTORAD)
 		}//endfunction
 		//
-		private real CosBJ() {//function CosBJ takes real degrees returns real
+		private float CosBJ(float degrees) {//function CosBJ takes real degrees returns real
 			return Cos(degrees * bj_DEGTORAD);//return Cos(degrees * bj_DEGTORAD)
 		}//endfunction
 		//
-		private real TanBJ() {//function TanBJ takes real degrees returns real
+		private float TanBJ(float degrees) {//function TanBJ takes real degrees returns real
 			return Tan(degrees * bj_DEGTORAD);//return Tan(degrees * bj_DEGTORAD)
 		}//endfunction
 		//
-		private real AsinBJ() {//function AsinBJ takes real degrees returns real
+		private float AsinBJ(float degrees) {//function AsinBJ takes real degrees returns real
 			return Asin(degrees) * bj_RADTODEG;//return Asin(degrees) * bj_RADTODEG
 		}//endfunction
 		//
-		private real AcosBJ() {//function AcosBJ takes real degrees returns real
+		private float AcosBJ(float degrees) {//function AcosBJ takes real degrees returns real
 			return Acos(degrees) * bj_RADTODEG;//return Acos(degrees) * bj_RADTODEG
 		}//endfunction
 		//
-		private real AtanBJ() {//function AtanBJ takes real degrees returns real
+		private float AtanBJ(float degrees) {//function AtanBJ takes real degrees returns real
 			return Atan(degrees) * bj_RADTODEG;//return Atan(degrees) * bj_RADTODEG
 		}//endfunction
 		//
-		private real Atan2BJ(real y, real x) {//function Atan2BJ takes real y, real x returns real
+		private float Atan2BJ(float y, float x) {//function Atan2BJ takes real y, real x returns real
 			return Atan2(y, x) * bj_RADTODEG;//return Atan2(y, x) * bj_RADTODEG
 		}//endfunction
 		//
-		private real AngleBetweenPoints(location locA, location locB) {//function AngleBetweenPoints takes location locA, location locB returns real
+		private float AngleBetweenPoints(location locA, location locB) {//function AngleBetweenPoints takes location locA, location locB returns real
 			return bj_RADTODEG * Atan2(GetLocationY(locB) - GetLocationY(locA), GetLocationX(locB) - GetLocationX(locA));//return bj_RADTODEG * Atan2(GetLocationY(locB) - GetLocationY(locA), GetLocationX(locB) - GetLocationX(locA))
 		}//endfunction
 		//
-		private real DistanceBetweenPoints(location locA, location locB) {//function DistanceBetweenPoints takes location locA, location locB returns real
-			real dx = GetLocationX(locB) - GetLocationX(locA);//local real dx = GetLocationX(locB) - GetLocationX(locA)
-			real dy = GetLocationY(locB) - GetLocationY(locA);//local real dy = GetLocationY(locB) - GetLocationY(locA)
+		private float DistanceBetweenPoints(location locA, location locB) {//function DistanceBetweenPoints takes location locA, location locB returns real
+			float dx = GetLocationX(locB) - GetLocationX(locA);//local real dx = GetLocationX(locB) - GetLocationX(locA)
+			float dy = GetLocationY(locB) - GetLocationY(locA);//local real dy = GetLocationY(locB) - GetLocationY(locA)
 			return SquareRoot(dx * dx + dy * dy);//return SquareRoot(dx * dx + dy * dy)
 		}//endfunction
 		//
-		private location PolarProjectionBJ(location source, real dist, real angle) {//function PolarProjectionBJ takes location source, real dist, real angle returns location
-			real x = GetLocationX(source) + dist * Cos(angle * bj_DEGTORAD);//local real x = GetLocationX(source) + dist * Cos(angle * bj_DEGTORAD)
-			real y = GetLocationY(source) + dist * Sin(angle * bj_DEGTORAD);//local real y = GetLocationY(source) + dist * Sin(angle * bj_DEGTORAD)
+		private location PolarProjectionBJ(location source, float dist, float angle) {//function PolarProjectionBJ takes location source, real dist, real angle returns location
+			float x = GetLocationX(source) + dist * Cos(angle * bj_DEGTORAD);//local real x = GetLocationX(source) + dist * Cos(angle * bj_DEGTORAD)
+			float y = GetLocationY(source) + dist * Sin(angle * bj_DEGTORAD);//local real y = GetLocationY(source) + dist * Sin(angle * bj_DEGTORAD)
 			return Location(x, y);//return Location(x, y)
 		}//endfunction
 		//
-		private real GetRandomDirectionDeg() {//function GetRandomDirectionDeg takes nothing returns real
+		private float GetRandomDirectionDeg() {//function GetRandomDirectionDeg takes nothing returns real
 			return GetRandomReal(0, 360);//return GetRandomReal(0, 360)
 		}//endfunction
 		//
-		private real GetRandomPercentageBJ() {//function GetRandomPercentageBJ takes nothing returns real
+		private float GetRandomPercentageBJ() {//function GetRandomPercentageBJ takes nothing returns real
 			return GetRandomReal(0, 100);//return GetRandomReal(0, 100)
 		}//endfunction
 		//
-		private location GetRandomLocInRect() {//function GetRandomLocInRect takes rect whichRect returns location
+		private location GetRandomLocInRect(rect whichRect) {//function GetRandomLocInRect takes rect whichRect returns location
 			return Location(GetRandomReal(GetRectMinX(whichRect), GetRectMaxX(whichRect)), GetRandomReal(GetRectMinY(whichRect), GetRectMaxY(whichRect)));//return Location(GetRandomReal(GetRectMinX(whichRect), GetRectMaxX(whichRect)), GetRandomReal(GetRectMinY(whichRect), GetRectMaxY(whichRect)))
 		}//endfunction
 		//
@@ -165,8 +165,8 @@ namespace Jass {
 		//
 		//
 		//
-		private real ModuloReal(real dividend, real divisor) {//function ModuloReal takes real dividend, real divisor returns real
-			real modulus = dividend - I2R(R2I(dividend / divisor)) * divisor;//local real modulus = dividend - I2R(R2I(dividend / divisor)) * divisor
+		private float ModuloReal(float dividend, float divisor) {//function ModuloReal takes real dividend, real divisor returns real
+			float modulus = dividend - I2R(R2I(dividend / divisor)) * divisor;//local real modulus = dividend - I2R(R2I(dividend / divisor)) * divisor
 			//
 			//
 			//
@@ -176,21 +176,21 @@ namespace Jass {
 			return modulus;//return modulus
 		}//endfunction
 		//
-		private location OffsetLocation(location loc, real dx, real dy) {//function OffsetLocation takes location loc, real dx, real dy returns location
+		private location OffsetLocation(location loc, float dx, float dy) {//function OffsetLocation takes location loc, real dx, real dy returns location
 			return Location(GetLocationX(loc) + dx, GetLocationY(loc) + dy);//return Location(GetLocationX(loc) + dx, GetLocationY(loc) + dy)
 		}//endfunction
 		//
-		private rect OffsetRectBJ(rect r, real dx, real dy) {//function OffsetRectBJ takes rect r, real dx, real dy returns rect
+		private rect OffsetRectBJ(rect r, float dx, float dy) {//function OffsetRectBJ takes rect r, real dx, real dy returns rect
 			return Rect( GetRectMinX(r) + dx, GetRectMinY(r) + dy, GetRectMaxX(r) + dx, GetRectMaxY(r) + dy );//return Rect( GetRectMinX(r) + dx, GetRectMinY(r) + dy, GetRectMaxX(r) + dx, GetRectMaxY(r) + dy )
 		}//endfunction
 		//
-		private rect RectFromCenterSizeBJ(location center, real width, real height) {//function RectFromCenterSizeBJ takes location center, real width, real height returns rect
-			real x = GetLocationX( center );//local real x = GetLocationX( center )
-			real y = GetLocationY( center );//local real y = GetLocationY( center )
+		private rect RectFromCenterSizeBJ(location center, float width, float height) {//function RectFromCenterSizeBJ takes location center, real width, real height returns rect
+			float x = GetLocationX( center );//local real x = GetLocationX( center )
+			float y = GetLocationY( center );//local real y = GetLocationY( center )
 			return Rect( x - width*0.5, y - height*0.5, x + width*0.5, y + height*0.5 );//return Rect( x - width*0.5, y - height*0.5, x + width*0.5, y + height*0.5 )
 		}//endfunction
 		//
-		private bool RectContainsCoords(rect r, real x, real y) {//function RectContainsCoords takes rect r, real x, real y returns boolean
+		private bool RectContainsCoords(rect r, float x, float y) {//function RectContainsCoords takes rect r, real x, real y returns boolean
 			return (GetRectMinX(r) <= x) and (x <= GetRectMaxX(r)) and (GetRectMinY(r) <= y) and (y <= GetRectMaxY(r));//return (GetRectMinX(r) <= x) and (x <= GetRectMaxX(r)) and (GetRectMinY(r) <= y) and (y <= GetRectMaxY(r))
 		}//endfunction
 		//
@@ -219,7 +219,7 @@ namespace Jass {
 		//
 		//
 		//
-		private void ConditionalTriggerExecute() {//function ConditionalTriggerExecute takes trigger trig returns nothing
+		private void ConditionalTriggerExecute(trigger trig) {//function ConditionalTriggerExecute takes trigger trig returns nothing
 			if (TriggerEvaluate(trig)) {//if TriggerEvaluate(trig) then
 				TriggerExecute(trig);//call TriggerExecute(trig)
 			}//endif
@@ -274,7 +274,7 @@ namespace Jass {
 		//
 		//
 		//
-		private int QueuedTriggerGetIndex() {//function QueuedTriggerGetIndex takes trigger trig returns integer
+		private int QueuedTriggerGetIndex(trigger trig) {//function QueuedTriggerGetIndex takes trigger trig returns integer
 			//
 			int index = 0;//local integer index     = 0
 			while (true) {//loop
@@ -291,7 +291,7 @@ namespace Jass {
 		//
 		//
 		//
-		private bool QueuedTriggerRemoveByIndex() {//function QueuedTriggerRemoveByIndex takes integer trigIndex returns boolean
+		private bool QueuedTriggerRemoveByIndex(int trigIndex) {//function QueuedTriggerRemoveByIndex takes integer trigIndex returns boolean
 			int index;//local integer index
 			//
 			if ((trigIndex >= bj_queuedExecTotal)) {//if (trigIndex >= bj_queuedExecTotal) then
@@ -348,7 +348,7 @@ namespace Jass {
 		//
 		//
 		//
-		private void QueuedTriggerRemoveBJ() {//function QueuedTriggerRemoveBJ takes trigger trig returns nothing
+		private void QueuedTriggerRemoveBJ(trigger trig) {//function QueuedTriggerRemoveBJ takes trigger trig returns nothing
 			int index;//local integer index
 			int trigIndex;//local integer trigIndex
 			bool trigExecuted;//local boolean trigExecuted
@@ -403,7 +403,7 @@ namespace Jass {
 			return bj_queuedExecTotal <= 0;//return bj_queuedExecTotal <= 0
 		}//endfunction
 		//
-		private bool IsTriggerQueuedBJ() {//function IsTriggerQueuedBJ takes trigger trig returns boolean
+		private bool IsTriggerQueuedBJ(trigger trig) {//function IsTriggerQueuedBJ takes trigger trig returns boolean
 			return QueuedTriggerGetIndex(trig) != -1;//return QueuedTriggerGetIndex(trig) != -1
 		}//endfunction
 		//
@@ -411,7 +411,7 @@ namespace Jass {
 			return bj_forLoopAIndex;//return bj_forLoopAIndex
 		}//endfunction
 		//
-		private void SetForLoopIndexA() {//function SetForLoopIndexA takes integer newIndex returns nothing
+		private void SetForLoopIndexA(int newIndex) {//function SetForLoopIndexA takes integer newIndex returns nothing
 			bj_forLoopAIndex = newIndex;//set bj_forLoopAIndex = newIndex
 		}//endfunction
 		//
@@ -419,15 +419,15 @@ namespace Jass {
 			return bj_forLoopBIndex;//return bj_forLoopBIndex
 		}//endfunction
 		//
-		private void SetForLoopIndexB() {//function SetForLoopIndexB takes integer newIndex returns nothing
+		private void SetForLoopIndexB(int newIndex) {//function SetForLoopIndexB takes integer newIndex returns nothing
 			bj_forLoopBIndex = newIndex;//set bj_forLoopBIndex = newIndex
 		}//endfunction
 		//
 		//
 		//
-		private void PolledWait() {//function PolledWait takes real duration returns nothing
+		private void PolledWait(float duration) {//function PolledWait takes real duration returns nothing
 			timer t;//local timer t
-			real timeRemaining;//local real  timeRemaining
+			float timeRemaining;//local real  timeRemaining
 			if ((duration > 0)) {//if (duration > 0) then
 				t = CreateTimer();//set t = CreateTimer()
 				TimerStart(t, duration, false, null);//call TimerStart(t, duration, false, null)
@@ -469,12 +469,12 @@ namespace Jass {
 		//
 		//
 		//
-		private void CommentString() {//function CommentString takes string commentString returns nothing
+		private void CommentString(string commentString) {//function CommentString takes string commentString returns nothing
 		}//endfunction
 		//
 		//
 		//
-		private string StringIdentity() {//function StringIdentity takes string theString returns string
+		private string StringIdentity(string theString) {//function StringIdentity takes string theString returns string
 			return GetLocalizedString(theString);//return GetLocalizedString(theString)
 		}//endfunction
 		//
@@ -489,7 +489,7 @@ namespace Jass {
 		//
 		//
 		//
-		private int PercentToInt(real percentage, int max) {//function PercentToInt takes real percentage, integer max returns integer
+		private int PercentToInt(float percentage, int max) {//function PercentToInt takes real percentage, integer max returns integer
 			int result = R2I(percentage * I2R(max) * 0.01);//local integer result = R2I(percentage * I2R(max) * 0.01)
 			if ((result < 0)) {//if (result < 0) then
 				result = 0;//set result = 0
@@ -499,27 +499,27 @@ namespace Jass {
 			return result;//return result
 		}//endfunction
 		//
-		private int PercentTo255() {//function PercentTo255 takes real percentage returns integer
+		private int PercentTo255(float percentage) {//function PercentTo255 takes real percentage returns integer
 			return PercentToInt(percentage, 255);//return PercentToInt(percentage, 255)
 		}//endfunction
 		//
-		private real GetTimeOfDay() {//function GetTimeOfDay takes nothing returns real
+		private float GetTimeOfDay() {//function GetTimeOfDay takes nothing returns real
 			return GetFloatGameState(GAME_STATE_TIME_OF_DAY);//return GetFloatGameState(GAME_STATE_TIME_OF_DAY)
 		}//endfunction
 		//
-		private void SetTimeOfDay() {//function SetTimeOfDay takes real whatTime returns nothing
+		private void SetTimeOfDay(float whatTime) {//function SetTimeOfDay takes real whatTime returns nothing
 			SetFloatGameState(GAME_STATE_TIME_OF_DAY, whatTime);//call SetFloatGameState(GAME_STATE_TIME_OF_DAY, whatTime)
 		}//endfunction
 		//
-		private void SetTimeOfDayScalePercentBJ() {//function SetTimeOfDayScalePercentBJ takes real scalePercent returns nothing
+		private void SetTimeOfDayScalePercentBJ(float scalePercent) {//function SetTimeOfDayScalePercentBJ takes real scalePercent returns nothing
 			SetTimeOfDayScale(scalePercent * 0.01);//call SetTimeOfDayScale(scalePercent * 0.01)
 		}//endfunction
 		//
-		private real GetTimeOfDayScalePercentBJ() {//function GetTimeOfDayScalePercentBJ takes nothing returns real
+		private float GetTimeOfDayScalePercentBJ() {//function GetTimeOfDayScalePercentBJ takes nothing returns real
 			return GetTimeOfDayScale() * 100;//return GetTimeOfDayScale() * 100
 		}//endfunction
 		//
-		private void PlaySound() {//function PlaySound takes string soundName returns nothing
+		private void PlaySound(string soundName) {//function PlaySound takes string soundName returns nothing
 			sound soundHandle = CreateSound(soundName, false, false, true, 12700, 12700, "");//local sound soundHandle = CreateSound(soundName, false, false, true, 12700, 12700, "")
 			StartSound(soundHandle);//call StartSound(soundHandle)
 			KillSoundWhenDone(soundHandle);//call KillSoundWhenDone(soundHandle)
@@ -535,9 +535,9 @@ namespace Jass {
 		//
 		//
 		//
-		private rect GetRectFromCircleBJ(location center, real radius) {//function GetRectFromCircleBJ takes location center, real radius returns rect
-			real centerX = GetLocationX(center);//local real centerX = GetLocationX(center)
-			real centerY = GetLocationY(center);//local real centerY = GetLocationY(center)
+		private rect GetRectFromCircleBJ(location center, float radius) {//function GetRectFromCircleBJ takes location center, real radius returns rect
+			float centerX = GetLocationX(center);//local real centerX = GetLocationX(center)
+			float centerY = GetLocationY(center);//local real centerY = GetLocationY(center)
 			return Rect(centerX - radius, centerY - radius, centerX + radius, centerY + radius);//return Rect(centerX - radius, centerY - radius, centerX + radius, centerY + radius)
 		}//endfunction
 		//
@@ -548,7 +548,7 @@ namespace Jass {
 		//
 		private camerasetup GetCurrentCameraSetup() {//function GetCurrentCameraSetup takes nothing returns camerasetup
 			camerasetup theCam = CreateCameraSetup();//local camerasetup theCam = CreateCameraSetup()
-			real duration = 0;//local real duration = 0
+			float duration = 0;//local real duration = 0
 			CameraSetupSetField(theCam, CAMERA_FIELD_TARGET_DISTANCE, GetCameraField(CAMERA_FIELD_TARGET_DISTANCE), duration);//call CameraSetupSetField(theCam, CAMERA_FIELD_TARGET_DISTANCE, GetCameraField(CAMERA_FIELD_TARGET_DISTANCE), duration)
 			CameraSetupSetField(theCam, CAMERA_FIELD_FARZ,            GetCameraField(CAMERA_FIELD_FARZ),            duration);//call CameraSetupSetField(theCam, CAMERA_FIELD_FARZ,            GetCameraField(CAMERA_FIELD_FARZ),            duration)
 			CameraSetupSetField(theCam, CAMERA_FIELD_ZOFFSET,         GetCameraField(CAMERA_FIELD_ZOFFSET),         duration);//call CameraSetupSetField(theCam, CAMERA_FIELD_ZOFFSET,         GetCameraField(CAMERA_FIELD_ZOFFSET),         duration)
@@ -560,32 +560,32 @@ namespace Jass {
 			return theCam;//return theCam
 		}//endfunction
 		//
-		private void CameraSetupApplyForPlayer(bool doPan, camerasetup whichSetup, player whichPlayer, real duration) {//function CameraSetupApplyForPlayer takes boolean doPan, camerasetup whichSetup, player whichPlayer, real duration returns nothing
+		private void CameraSetupApplyForPlayer(bool doPan, camerasetup whichSetup, player whichPlayer, float duration) {//function CameraSetupApplyForPlayer takes boolean doPan, camerasetup whichSetup, player whichPlayer, real duration returns nothing
 			if ((GetLocalPlayer() == whichPlayer)) {//if (GetLocalPlayer() == whichPlayer) then
 				//
 				CameraSetupApplyForceDuration(whichSetup, doPan, duration);//call CameraSetupApplyForceDuration(whichSetup, doPan, duration)
 			}//endif
 		}//endfunction
 		//
-		private real CameraSetupGetFieldSwap(camerafield whichField, camerasetup whichSetup) {//function CameraSetupGetFieldSwap takes camerafield whichField, camerasetup whichSetup returns real
+		private float CameraSetupGetFieldSwap(camerafield whichField, camerasetup whichSetup) {//function CameraSetupGetFieldSwap takes camerafield whichField, camerasetup whichSetup returns real
 			return CameraSetupGetField(whichSetup, whichField);//return CameraSetupGetField(whichSetup, whichField)
 		}//endfunction
 		//
-		private void SetCameraFieldForPlayer(player whichPlayer, camerafield whichField, real value, real duration) {//function SetCameraFieldForPlayer takes player whichPlayer, camerafield whichField, real value, real duration returns nothing
+		private void SetCameraFieldForPlayer(player whichPlayer, camerafield whichField, float value, float duration) {//function SetCameraFieldForPlayer takes player whichPlayer, camerafield whichField, real value, real duration returns nothing
 			if ((GetLocalPlayer() == whichPlayer)) {//if (GetLocalPlayer() == whichPlayer) then
 				//
 				SetCameraField(whichField, value, duration);//call SetCameraField(whichField, value, duration)
 			}//endif
 		}//endfunction
 		//
-		private void SetCameraTargetControllerNoZForPlayer(player whichPlayer, int whichUnit, real xoffset, real yoffset, bool inheritOrientation) {//function SetCameraTargetControllerNoZForPlayer takes player whichPlayer, unit whichUnit, real xoffset, real yoffset, boolean inheritOrientation returns nothing
+		private void SetCameraTargetControllerNoZForPlayer(player whichPlayer, int whichUnit, float xoffset, float yoffset, bool inheritOrientation) {//function SetCameraTargetControllerNoZForPlayer takes player whichPlayer, unit whichUnit, real xoffset, real yoffset, boolean inheritOrientation returns nothing
 			if ((GetLocalPlayer() == whichPlayer)) {//if (GetLocalPlayer() == whichPlayer) then
 				//
 				SetCameraTargetController(whichUnit, xoffset, yoffset, inheritOrientation);//call SetCameraTargetController(whichUnit, xoffset, yoffset, inheritOrientation)
 			}//endif
 		}//endfunction
 		//
-		private void SetCameraPositionForPlayer(player whichPlayer, real x, real y) {//function SetCameraPositionForPlayer takes player whichPlayer, real x, real y returns nothing
+		private void SetCameraPositionForPlayer(player whichPlayer, float x, float y) {//function SetCameraPositionForPlayer takes player whichPlayer, real x, real y returns nothing
 			if ((GetLocalPlayer() == whichPlayer)) {//if (GetLocalPlayer() == whichPlayer) then
 				//
 				SetCameraPosition(x, y);//call SetCameraPosition(x, y)
@@ -599,14 +599,14 @@ namespace Jass {
 			}//endif
 		}//endfunction
 		//
-		private void RotateCameraAroundLocBJ(real degrees, location loc, player whichPlayer, real duration) {//function RotateCameraAroundLocBJ takes real degrees, location loc, player whichPlayer, real duration returns nothing
+		private void RotateCameraAroundLocBJ(float degrees, location loc, player whichPlayer, float duration) {//function RotateCameraAroundLocBJ takes real degrees, location loc, player whichPlayer, real duration returns nothing
 			if ((GetLocalPlayer() == whichPlayer)) {//if (GetLocalPlayer() == whichPlayer) then
 				//
 				SetCameraRotateMode(GetLocationX(loc), GetLocationY(loc), bj_DEGTORAD * degrees, duration);//call SetCameraRotateMode(GetLocationX(loc), GetLocationY(loc), bj_DEGTORAD * degrees, duration)
 			}//endif
 		}//endfunction
 		//
-		private void PanCameraToForPlayer(player whichPlayer, real x, real y) {//function PanCameraToForPlayer takes player whichPlayer, real x, real y returns nothing
+		private void PanCameraToForPlayer(player whichPlayer, float x, float y) {//function PanCameraToForPlayer takes player whichPlayer, real x, real y returns nothing
 			if ((GetLocalPlayer() == whichPlayer)) {//if (GetLocalPlayer() == whichPlayer) then
 				//
 				PanCameraTo(x, y);//call PanCameraTo(x, y)
@@ -620,29 +620,29 @@ namespace Jass {
 			}//endif
 		}//endfunction
 		//
-		private void PanCameraToTimedForPlayer(player whichPlayer, real x, real y, real duration) {//function PanCameraToTimedForPlayer takes player whichPlayer, real x, real y, real duration returns nothing
+		private void PanCameraToTimedForPlayer(player whichPlayer, float x, float y, float duration) {//function PanCameraToTimedForPlayer takes player whichPlayer, real x, real y, real duration returns nothing
 			if ((GetLocalPlayer() == whichPlayer)) {//if (GetLocalPlayer() == whichPlayer) then
 				//
 				PanCameraToTimed(x, y, duration);//call PanCameraToTimed(x, y, duration)
 			}//endif
 		}//endfunction
 		//
-		private void PanCameraToTimedLocForPlayer(player whichPlayer, location loc, real duration) {//function PanCameraToTimedLocForPlayer takes player whichPlayer, location loc, real duration returns nothing
+		private void PanCameraToTimedLocForPlayer(player whichPlayer, location loc, float duration) {//function PanCameraToTimedLocForPlayer takes player whichPlayer, location loc, real duration returns nothing
 			if ((GetLocalPlayer() == whichPlayer)) {//if (GetLocalPlayer() == whichPlayer) then
 				//
 				PanCameraToTimed(GetLocationX(loc), GetLocationY(loc), duration);//call PanCameraToTimed(GetLocationX(loc), GetLocationY(loc), duration)
 			}//endif
 		}//endfunction
 		//
-		private void PanCameraToTimedLocWithZForPlayer(player whichPlayer, location loc, real zOffset, real duration) {//function PanCameraToTimedLocWithZForPlayer takes player whichPlayer, location loc, real zOffset, real duration returns nothing
+		private void PanCameraToTimedLocWithZForPlayer(player whichPlayer, location loc, float zOffset, float duration) {//function PanCameraToTimedLocWithZForPlayer takes player whichPlayer, location loc, real zOffset, real duration returns nothing
 			if ((GetLocalPlayer() == whichPlayer)) {//if (GetLocalPlayer() == whichPlayer) then
 				//
 				PanCameraToTimedWithZ(GetLocationX(loc), GetLocationY(loc), zOffset, duration);//call PanCameraToTimedWithZ(GetLocationX(loc), GetLocationY(loc), zOffset, duration)
 			}//endif
 		}//endfunction
 		//
-		private void SmartCameraPanBJ(player whichPlayer, location loc, real duration) {//function SmartCameraPanBJ takes player whichPlayer, location loc, real duration returns nothing
-			real dist;//local real dist
+		private void SmartCameraPanBJ(player whichPlayer, location loc, float duration) {//function SmartCameraPanBJ takes player whichPlayer, location loc, real duration returns nothing
+			float dist;//local real dist
 			if ((GetLocalPlayer() == whichPlayer)) {//if (GetLocalPlayer() == whichPlayer) then
 				//
 				dist = DistanceBetweenPoints(loc, GetCameraTargetPositionLoc());//set dist = DistanceBetweenPoints(loc, GetCameraTargetPositionLoc())
@@ -665,29 +665,29 @@ namespace Jass {
 			}//endif
 		}//endfunction
 		//
-		private void ResetToGameCameraForPlayer(player whichPlayer, real duration) {//function ResetToGameCameraForPlayer takes player whichPlayer, real duration returns nothing
+		private void ResetToGameCameraForPlayer(player whichPlayer, float duration) {//function ResetToGameCameraForPlayer takes player whichPlayer, real duration returns nothing
 			if ((GetLocalPlayer() == whichPlayer)) {//if (GetLocalPlayer() == whichPlayer) then
 				//
 				ResetToGameCamera(duration);//call ResetToGameCamera(duration)
 			}//endif
 		}//endfunction
 		//
-		private void CameraSetSourceNoiseForPlayer(player whichPlayer, real magnitude, real velocity) {//function CameraSetSourceNoiseForPlayer takes player whichPlayer, real magnitude, real velocity returns nothing
+		private void CameraSetSourceNoiseForPlayer(player whichPlayer, float magnitude, float velocity) {//function CameraSetSourceNoiseForPlayer takes player whichPlayer, real magnitude, real velocity returns nothing
 			if ((GetLocalPlayer() == whichPlayer)) {//if (GetLocalPlayer() == whichPlayer) then
 				//
 				CameraSetSourceNoise(magnitude, velocity);//call CameraSetSourceNoise(magnitude, velocity)
 			}//endif
 		}//endfunction
 		//
-		private void CameraSetTargetNoiseForPlayer(player whichPlayer, real magnitude, real velocity) {//function CameraSetTargetNoiseForPlayer takes player whichPlayer, real magnitude, real velocity returns nothing
+		private void CameraSetTargetNoiseForPlayer(player whichPlayer, float magnitude, float velocity) {//function CameraSetTargetNoiseForPlayer takes player whichPlayer, real magnitude, real velocity returns nothing
 			if ((GetLocalPlayer() == whichPlayer)) {//if (GetLocalPlayer() == whichPlayer) then
 				//
 				CameraSetTargetNoise(magnitude, velocity);//call CameraSetTargetNoise(magnitude, velocity)
 			}//endif
 		}//endfunction
 		//
-		private void CameraSetEQNoiseForPlayer(player whichPlayer, real magnitude) {//function CameraSetEQNoiseForPlayer takes player whichPlayer, real magnitude returns nothing
-			real richter = magnitude;//local real richter = magnitude
+		private void CameraSetEQNoiseForPlayer(player whichPlayer, float magnitude) {//function CameraSetEQNoiseForPlayer takes player whichPlayer, real magnitude returns nothing
+			float richter = magnitude;//local real richter = magnitude
 			if ((richter > 5.0)) {//if (richter > 5.0) then
 				richter = 5.0;//set richter = 5.0
 			}//endif
@@ -701,7 +701,7 @@ namespace Jass {
 			}//endif
 		}//endfunction
 		//
-		private void CameraClearNoiseForPlayer() {//function CameraClearNoiseForPlayer takes player whichPlayer returns nothing
+		private void CameraClearNoiseForPlayer(player whichPlayer) {//function CameraClearNoiseForPlayer takes player whichPlayer returns nothing
 			if ((GetLocalPlayer() == whichPlayer)) {//if (GetLocalPlayer() == whichPlayer) then
 				//
 				CameraSetSourceNoise(0, 0);//call CameraSetSourceNoise(0, 0)
@@ -733,11 +733,11 @@ namespace Jass {
 			return GetWorldBounds();//return GetWorldBounds()
 		}//endfunction
 		//
-		private void SetCameraBoundsToRect() {//function SetCameraBoundsToRect takes rect r returns nothing
-			real minX = GetRectMinX(r);//local real minX = GetRectMinX(r)
-			real minY = GetRectMinY(r);//local real minY = GetRectMinY(r)
-			real maxX = GetRectMaxX(r);//local real maxX = GetRectMaxX(r)
-			real maxY = GetRectMaxY(r);//local real maxY = GetRectMaxY(r)
+		private void SetCameraBoundsToRect(rect r) {//function SetCameraBoundsToRect takes rect r returns nothing
+			float minX = GetRectMinX(r);//local real minX = GetRectMinX(r)
+			float minY = GetRectMinY(r);//local real minY = GetRectMinY(r)
+			float maxX = GetRectMaxX(r);//local real maxX = GetRectMaxX(r)
+			float maxY = GetRectMaxY(r);//local real maxY = GetRectMaxY(r)
 			SetCameraBounds(minX, minY, minX, maxY, maxX, maxY, maxX, minY);//call SetCameraBounds(minX, minY, minX, maxY, maxX, maxY, maxX, minY)
 		}//endfunction
 		//
@@ -748,12 +748,12 @@ namespace Jass {
 			}//endif
 		}//endfunction
 		//
-		private void AdjustCameraBoundsBJ(int adjustMethod, real dxWest, real dxEast, real dyNorth, real dySouth) {//function AdjustCameraBoundsBJ takes integer adjustMethod, real dxWest, real dxEast, real dyNorth, real dySouth returns nothing
-			real minX = 0;//local real minX = 0
-			real minY = 0;//local real minY = 0
-			real maxX = 0;//local real maxX = 0
-			real maxY = 0;//local real maxY = 0
-			real scale = 0;//local real scale = 0
+		private void AdjustCameraBoundsBJ(int adjustMethod, float dxWest, float dxEast, float dyNorth, float dySouth) {//function AdjustCameraBoundsBJ takes integer adjustMethod, real dxWest, real dxEast, real dyNorth, real dySouth returns nothing
+			float minX = 0;//local real minX = 0
+			float minY = 0;//local real minY = 0
+			float maxX = 0;//local real maxX = 0
+			float maxY = 0;//local real maxY = 0
+			float scale = 0;//local real scale = 0
 			if ((adjustMethod == bj_CAMERABOUNDS_ADJUST_ADD)) {//if (adjustMethod == bj_CAMERABOUNDS_ADJUST_ADD) then
 				scale = 1;//set scale = 1
 			} else if ((adjustMethod == bj_CAMERABOUNDS_ADJUST_SUB)) {//elseif (adjustMethod == bj_CAMERABOUNDS_ADJUST_SUB) then
@@ -780,14 +780,14 @@ namespace Jass {
 			SetCameraBounds(minX, minY, minX, maxY, maxX, maxY, maxX, minY);//call SetCameraBounds(minX, minY, minX, maxY, maxX, maxY, maxX, minY)
 		}//endfunction
 		//
-		private void AdjustCameraBoundsForPlayerBJ(int adjustMethod, player whichPlayer, real dxWest, real dxEast, real dyNorth, real dySouth) {//function AdjustCameraBoundsForPlayerBJ takes integer adjustMethod, player whichPlayer, real dxWest, real dxEast, real dyNorth, real dySouth returns nothing
+		private void AdjustCameraBoundsForPlayerBJ(int adjustMethod, player whichPlayer, float dxWest, float dxEast, float dyNorth, float dySouth) {//function AdjustCameraBoundsForPlayerBJ takes integer adjustMethod, player whichPlayer, real dxWest, real dxEast, real dyNorth, real dySouth returns nothing
 			if ((GetLocalPlayer() == whichPlayer)) {//if (GetLocalPlayer() == whichPlayer) then
 				//
 				AdjustCameraBoundsBJ(adjustMethod, dxWest, dxEast, dyNorth, dySouth);//call AdjustCameraBoundsBJ(adjustMethod, dxWest, dxEast, dyNorth, dySouth)
 			}//endif
 		}//endfunction
 		//
-		private void SetCameraQuickPositionForPlayer(player whichPlayer, real x, real y) {//function SetCameraQuickPositionForPlayer takes player whichPlayer, real x, real y returns nothing
+		private void SetCameraQuickPositionForPlayer(player whichPlayer, float x, float y) {//function SetCameraQuickPositionForPlayer takes player whichPlayer, real x, real y returns nothing
 			if ((GetLocalPlayer() == whichPlayer)) {//if (GetLocalPlayer() == whichPlayer) then
 				//
 				SetCameraQuickPosition(x, y);//call SetCameraQuickPosition(x, y)
@@ -801,25 +801,25 @@ namespace Jass {
 			}//endif
 		}//endfunction
 		//
-		private void SetCameraQuickPositionLoc() {//function SetCameraQuickPositionLoc takes location loc returns nothing
+		private void SetCameraQuickPositionLoc(location loc) {//function SetCameraQuickPositionLoc takes location loc returns nothing
 			SetCameraQuickPosition(GetLocationX(loc), GetLocationY(loc));//call SetCameraQuickPosition(GetLocationX(loc), GetLocationY(loc))
 		}//endfunction
 		//
-		private void StopCameraForPlayerBJ() {//function StopCameraForPlayerBJ takes player whichPlayer returns nothing
+		private void StopCameraForPlayerBJ(player whichPlayer) {//function StopCameraForPlayerBJ takes player whichPlayer returns nothing
 			if ((GetLocalPlayer() == whichPlayer)) {//if (GetLocalPlayer() == whichPlayer) then
 				//
 				StopCamera();//call StopCamera()
 			}//endif
 		}//endfunction
 		//
-		private void SetCameraOrientControllerForPlayerBJ(player whichPlayer, int whichUnit, real xoffset, real yoffset) {//function SetCameraOrientControllerForPlayerBJ takes player whichPlayer, unit whichUnit, real xoffset, real yoffset returns nothing
+		private void SetCameraOrientControllerForPlayerBJ(player whichPlayer, int whichUnit, float xoffset, float yoffset) {//function SetCameraOrientControllerForPlayerBJ takes player whichPlayer, unit whichUnit, real xoffset, real yoffset returns nothing
 			if ((GetLocalPlayer() == whichPlayer)) {//if (GetLocalPlayer() == whichPlayer) then
 				//
 				SetCameraOrientController(whichUnit, xoffset, yoffset);//call SetCameraOrientController(whichUnit, xoffset, yoffset)
 			}//endif
 		}//endfunction
 		//
-		private void CameraSetSmoothingFactorBJ() {//function CameraSetSmoothingFactorBJ takes real factor returns nothing
+		private void CameraSetSmoothingFactorBJ(float factor) {//function CameraSetSmoothingFactorBJ takes real factor returns nothing
 			CameraSetSmoothingFactor(factor);//call CameraSetSmoothingFactor(factor)
 		}//endfunction
 		//
@@ -839,14 +839,14 @@ namespace Jass {
 			}//endif
 		}//endfunction
 		//
-		private void DisplayTimedTextToForce(force toForce, real duration, string message) {//function DisplayTimedTextToForce takes force toForce, real duration, string message returns nothing
+		private void DisplayTimedTextToForce(force toForce, float duration, string message) {//function DisplayTimedTextToForce takes force toForce, real duration, string message returns nothing
 			if ((IsPlayerInForce(GetLocalPlayer(), toForce))) {//if (IsPlayerInForce(GetLocalPlayer(), toForce)) then
 				//
 				DisplayTimedTextToPlayer(GetLocalPlayer(), 0, 0, duration, message);//call DisplayTimedTextToPlayer(GetLocalPlayer(), 0, 0, duration, message)
 			}//endif
 		}//endfunction
 		//
-		private void ClearTextMessagesBJ() {//function ClearTextMessagesBJ takes force toForce returns nothing
+		private void ClearTextMessagesBJ(force toForce) {//function ClearTextMessagesBJ takes force toForce returns nothing
 			if ((IsPlayerInForce(GetLocalPlayer(), toForce))) {//if (IsPlayerInForce(GetLocalPlayer(), toForce)) then
 				//
 				ClearTextMessages();//call ClearTextMessages()
@@ -859,10 +859,10 @@ namespace Jass {
 		private string SubStringBJ(string source, int start, int end) {//function SubStringBJ takes string source, integer start, integer end returns string
 			return SubString(source, start-1, end);//return SubString(source, start-1, end)
 		}//endfunction
-		private int GetHandleIdBJ() {//function GetHandleIdBJ takes handle h returns integer
+		private int GetHandleIdBJ(handle h) {//function GetHandleIdBJ takes handle h returns integer
 			return GetHandleId(h);//return GetHandleId(h)
 		}//endfunction
-		private int StringHashBJ() {//function StringHashBJ takes string s returns integer
+		private int StringHashBJ(string s) {//function StringHashBJ takes string s returns integer
 			return StringHash(s);//return StringHash(s)
 		}//endfunction
 		//
@@ -871,11 +871,11 @@ namespace Jass {
 		//
 		//
 		//
-		private event TriggerRegisterTimerEventPeriodic(trigger trig, real timeout) {//function TriggerRegisterTimerEventPeriodic takes trigger trig, real timeout returns event
+		private event TriggerRegisterTimerEventPeriodic(trigger trig, float timeout) {//function TriggerRegisterTimerEventPeriodic takes trigger trig, real timeout returns event
 			return TriggerRegisterTimerEvent(trig, timeout, true);//return TriggerRegisterTimerEvent(trig, timeout, true)
 		}//endfunction
 		//
-		private event TriggerRegisterTimerEventSingle(trigger trig, real timeout) {//function TriggerRegisterTimerEventSingle takes trigger trig, real timeout returns event
+		private event TriggerRegisterTimerEventSingle(trigger trig, float timeout) {//function TriggerRegisterTimerEventSingle takes trigger trig, real timeout returns event
 			return TriggerRegisterTimerEvent(trig, timeout, false);//return TriggerRegisterTimerEvent(trig, timeout, false)
 		}//endfunction
 		//
@@ -960,7 +960,7 @@ namespace Jass {
 			return TriggerRegisterPlayerEvent(trig, whichPlayer, EVENT_PLAYER_END_CINEMATIC);//return TriggerRegisterPlayerEvent(trig, whichPlayer, EVENT_PLAYER_END_CINEMATIC)
 		}//endfunction
 		//
-		private event TriggerRegisterGameStateEventTimeOfDay(trigger trig, limitop opcode, real limitval) {//function TriggerRegisterGameStateEventTimeOfDay takes trigger trig, limitop opcode, real limitval returns event
+		private event TriggerRegisterGameStateEventTimeOfDay(trigger trig, limitop opcode, float limitval) {//function TriggerRegisterGameStateEventTimeOfDay takes trigger trig, limitop opcode, real limitval returns event
 			return TriggerRegisterGameStateEvent(trig, GAME_STATE_TIME_OF_DAY, opcode, limitval);//return TriggerRegisterGameStateEvent(trig, GAME_STATE_TIME_OF_DAY, opcode, limitval)
 		}//endfunction
 		//
@@ -984,19 +984,19 @@ namespace Jass {
 			return TriggerRegisterLeaveRegion(trig, rectRegion, null);//return TriggerRegisterLeaveRegion(trig, rectRegion, null)
 		}//endfunction
 		//
-		private event TriggerRegisterDistanceBetweenUnits(trigger trig, int whichUnit, boolexpr condition, real range) {//function TriggerRegisterDistanceBetweenUnits takes trigger trig, unit whichUnit, boolexpr condition, real range returns event
+		private event TriggerRegisterDistanceBetweenUnits(trigger trig, int whichUnit, boolexpr condition, float range) {//function TriggerRegisterDistanceBetweenUnits takes trigger trig, unit whichUnit, boolexpr condition, real range returns event
 			return TriggerRegisterUnitInRange(trig, whichUnit, range, condition);//return TriggerRegisterUnitInRange(trig, whichUnit, range, condition)
 		}//endfunction
 		//
-		private event TriggerRegisterUnitInRangeSimple(trigger trig, real range, int whichUnit) {//function TriggerRegisterUnitInRangeSimple takes trigger trig, real range, unit whichUnit returns event
+		private event TriggerRegisterUnitInRangeSimple(trigger trig, float range, int whichUnit) {//function TriggerRegisterUnitInRangeSimple takes trigger trig, real range, unit whichUnit returns event
 			return TriggerRegisterUnitInRange(trig, whichUnit, range, null);//return TriggerRegisterUnitInRange(trig, whichUnit, range, null)
 		}//endfunction
 		//
-		private event TriggerRegisterUnitLifeEvent(trigger trig, int whichUnit, limitop opcode, real limitval) {//function TriggerRegisterUnitLifeEvent takes trigger trig, unit whichUnit, limitop opcode, real limitval returns event
+		private event TriggerRegisterUnitLifeEvent(trigger trig, int whichUnit, limitop opcode, float limitval) {//function TriggerRegisterUnitLifeEvent takes trigger trig, unit whichUnit, limitop opcode, real limitval returns event
 			return TriggerRegisterUnitStateEvent(trig, whichUnit, UNIT_STATE_LIFE, opcode, limitval);//return TriggerRegisterUnitStateEvent(trig, whichUnit, UNIT_STATE_LIFE, opcode, limitval)
 		}//endfunction
 		//
-		private event TriggerRegisterUnitManaEvent(trigger trig, int whichUnit, limitop opcode, real limitval) {//function TriggerRegisterUnitManaEvent takes trigger trig, unit whichUnit, limitop opcode, real limitval returns event
+		private event TriggerRegisterUnitManaEvent(trigger trig, int whichUnit, limitop opcode, float limitval) {//function TriggerRegisterUnitManaEvent takes trigger trig, unit whichUnit, limitop opcode, real limitval returns event
 			return TriggerRegisterUnitStateEvent(trig, whichUnit, UNIT_STATE_MANA, opcode, limitval);//return TriggerRegisterUnitStateEvent(trig, whichUnit, UNIT_STATE_MANA, opcode, limitval)
 		}//endfunction
 		//
@@ -1004,19 +1004,19 @@ namespace Jass {
 			return TriggerRegisterDialogEvent(trig, whichDialog);//return TriggerRegisterDialogEvent(trig, whichDialog)
 		}//endfunction
 		//
-		private event TriggerRegisterShowSkillEventBJ() {//function TriggerRegisterShowSkillEventBJ takes trigger trig returns event
+		private event TriggerRegisterShowSkillEventBJ(trigger trig) {//function TriggerRegisterShowSkillEventBJ takes trigger trig returns event
 			return TriggerRegisterGameEvent(trig, EVENT_GAME_SHOW_SKILL);//return TriggerRegisterGameEvent(trig, EVENT_GAME_SHOW_SKILL)
 		}//endfunction
 		//
-		private event TriggerRegisterBuildSubmenuEventBJ() {//function TriggerRegisterBuildSubmenuEventBJ takes trigger trig returns event
+		private event TriggerRegisterBuildSubmenuEventBJ(trigger trig) {//function TriggerRegisterBuildSubmenuEventBJ takes trigger trig returns event
 			return TriggerRegisterGameEvent(trig, EVENT_GAME_BUILD_SUBMENU);//return TriggerRegisterGameEvent(trig, EVENT_GAME_BUILD_SUBMENU)
 		}//endfunction
 		//
-		private event TriggerRegisterGameLoadedEventBJ() {//function TriggerRegisterGameLoadedEventBJ takes trigger trig returns event
+		private event TriggerRegisterGameLoadedEventBJ(trigger trig) {//function TriggerRegisterGameLoadedEventBJ takes trigger trig returns event
 			return TriggerRegisterGameEvent(trig, EVENT_GAME_LOADED);//return TriggerRegisterGameEvent(trig, EVENT_GAME_LOADED)
 		}//endfunction
 		//
-		private event TriggerRegisterGameSavedEventBJ() {//function TriggerRegisterGameSavedEventBJ takes trigger trig returns event
+		private event TriggerRegisterGameSavedEventBJ(trigger trig) {//function TriggerRegisterGameSavedEventBJ takes trigger trig returns event
 			return TriggerRegisterGameEvent(trig, EVENT_GAME_SAVE);//return TriggerRegisterGameEvent(trig, EVENT_GAME_SAVE)
 		}//endfunction
 		//
@@ -1047,19 +1047,19 @@ namespace Jass {
 			return bj_lastCreatedWeatherEffect;//return bj_lastCreatedWeatherEffect
 		}//endfunction
 		//
-		private void RemoveWeatherEffectBJ() {//function RemoveWeatherEffectBJ takes weathereffect whichWeatherEffect returns nothing
+		private void RemoveWeatherEffectBJ(weathereffect whichWeatherEffect) {//function RemoveWeatherEffectBJ takes weathereffect whichWeatherEffect returns nothing
 			RemoveWeatherEffect(whichWeatherEffect);//call RemoveWeatherEffect(whichWeatherEffect)
 		}//endfunction
 		//
-		private terraindeformation TerrainDeformationCraterBJ(real duration, bool permanent, location where, real radius, real depth) {//function TerrainDeformationCraterBJ takes real duration, boolean permanent, location where, real radius, real depth returns terraindeformation
+		private terraindeformation TerrainDeformationCraterBJ(float duration, bool permanent, location where, float radius, float depth) {//function TerrainDeformationCraterBJ takes real duration, boolean permanent, location where, real radius, real depth returns terraindeformation
 			bj_lastCreatedTerrainDeformation = TerrainDeformCrater(GetLocationX(where), GetLocationY(where), radius, depth, R2I(duration * 1000), permanent);//set bj_lastCreatedTerrainDeformation = TerrainDeformCrater(GetLocationX(where), GetLocationY(where), radius, depth, R2I(duration * 1000), permanent)
 			return bj_lastCreatedTerrainDeformation;//return bj_lastCreatedTerrainDeformation
 		}//endfunction
 		//
-		private terraindeformation TerrainDeformationRippleBJ(real duration, bool limitNeg, location where, real startRadius, real endRadius, real depth, real wavePeriod, real waveWidth) {//function TerrainDeformationRippleBJ takes real duration, boolean limitNeg, location where, real startRadius, real endRadius, real depth, real wavePeriod, real waveWidth returns terraindeformation
-			real spaceWave;//local real spaceWave
-			real timeWave;//local real timeWave
-			real radiusRatio;//local real radiusRatio
+		private terraindeformation TerrainDeformationRippleBJ(float duration, bool limitNeg, location where, float startRadius, float endRadius, float depth, float wavePeriod, float waveWidth) {//function TerrainDeformationRippleBJ takes real duration, boolean limitNeg, location where, real startRadius, real endRadius, real depth, real wavePeriod, real waveWidth returns terraindeformation
+			float spaceWave;//local real spaceWave
+			float timeWave;//local real timeWave
+			float radiusRatio;//local real radiusRatio
 			if ((endRadius <= 0 || waveWidth <= 0 || wavePeriod <= 0)) {//if (endRadius <= 0 or waveWidth <= 0 or wavePeriod <= 0) then
 				return null;//return null
 			}//endif
@@ -1070,11 +1070,11 @@ namespace Jass {
 			return bj_lastCreatedTerrainDeformation;//return bj_lastCreatedTerrainDeformation
 		}//endfunction
 		//
-		private terraindeformation TerrainDeformationWaveBJ(real duration, location source, location target, real radius, real depth, real trailDelay) {//function TerrainDeformationWaveBJ takes real duration, location source, location target, real radius, real depth, real trailDelay returns terraindeformation
-			real distance;//local real distance
-			real dirX;//local real dirX
-			real dirY;//local real dirY
-			real speed;//local real speed
+		private terraindeformation TerrainDeformationWaveBJ(float duration, location source, location target, float radius, float depth, float trailDelay) {//function TerrainDeformationWaveBJ takes real duration, location source, location target, real radius, real depth, real trailDelay returns terraindeformation
+			float distance;//local real distance
+			float dirX;//local real dirX
+			float dirY;//local real dirY
+			float speed;//local real speed
 			distance = DistanceBetweenPoints(source, target);//set distance = DistanceBetweenPoints(source, target)
 			if ((distance == 0 || duration <= 0)) {//if (distance == 0 or duration <= 0) then
 				return null;//return null
@@ -1086,12 +1086,12 @@ namespace Jass {
 			return bj_lastCreatedTerrainDeformation;//return bj_lastCreatedTerrainDeformation
 		}//endfunction
 		//
-		private terraindeformation TerrainDeformationRandomBJ(real duration, location where, real radius, real minDelta, real maxDelta, real updateInterval) {//function TerrainDeformationRandomBJ takes real duration, location where, real radius, real minDelta, real maxDelta, real updateInterval returns terraindeformation
+		private terraindeformation TerrainDeformationRandomBJ(float duration, location where, float radius, float minDelta, float maxDelta, float updateInterval) {//function TerrainDeformationRandomBJ takes real duration, location where, real radius, real minDelta, real maxDelta, real updateInterval returns terraindeformation
 			bj_lastCreatedTerrainDeformation = TerrainDeformRandom(GetLocationX(where), GetLocationY(where), radius, minDelta, maxDelta, R2I(duration * 1000), R2I(updateInterval * 1000));//set bj_lastCreatedTerrainDeformation = TerrainDeformRandom(GetLocationX(where), GetLocationY(where), radius, minDelta, maxDelta, R2I(duration * 1000), R2I(updateInterval * 1000))
 			return bj_lastCreatedTerrainDeformation;//return bj_lastCreatedTerrainDeformation
 		}//endfunction
 		//
-		private void TerrainDeformationStopBJ(terraindeformation deformation, real duration) {//function TerrainDeformationStopBJ takes terraindeformation deformation, real duration returns nothing
+		private void TerrainDeformationStopBJ(terraindeformation deformation, float duration) {//function TerrainDeformationStopBJ takes terraindeformation deformation, real duration returns nothing
 			TerrainDeformStop(deformation, R2I(duration * 1000));//call TerrainDeformStop(deformation, R2I(duration * 1000))
 		}//endfunction
 		//
@@ -1104,7 +1104,7 @@ namespace Jass {
 			return bj_lastCreatedLightning;//return bj_lastCreatedLightning
 		}//endfunction
 		//
-		private bool DestroyLightningBJ() {//function DestroyLightningBJ takes lightning whichBolt returns boolean
+		private bool DestroyLightningBJ(lightning whichBolt) {//function DestroyLightningBJ takes lightning whichBolt returns boolean
 			return DestroyLightning(whichBolt);//return DestroyLightning(whichBolt)
 		}//endfunction
 		//
@@ -1112,23 +1112,23 @@ namespace Jass {
 			return MoveLightningEx(whichBolt, true, GetLocationX(where1), GetLocationY(where1), GetLocationZ(where1), GetLocationX(where2), GetLocationY(where2), GetLocationZ(where2));//return MoveLightningEx(whichBolt, true, GetLocationX(where1), GetLocationY(where1), GetLocationZ(where1), GetLocationX(where2), GetLocationY(where2), GetLocationZ(where2))
 		}//endfunction
 		//
-		private real GetLightningColorABJ() {//function GetLightningColorABJ takes lightning whichBolt returns real
+		private float GetLightningColorABJ(lightning whichBolt) {//function GetLightningColorABJ takes lightning whichBolt returns real
 			return GetLightningColorA(whichBolt);//return GetLightningColorA(whichBolt)
 		}//endfunction
 		//
-		private real GetLightningColorRBJ() {//function GetLightningColorRBJ takes lightning whichBolt returns real
+		private float GetLightningColorRBJ(lightning whichBolt) {//function GetLightningColorRBJ takes lightning whichBolt returns real
 			return GetLightningColorR(whichBolt);//return GetLightningColorR(whichBolt)
 		}//endfunction
 		//
-		private real GetLightningColorGBJ() {//function GetLightningColorGBJ takes lightning whichBolt returns real
+		private float GetLightningColorGBJ(lightning whichBolt) {//function GetLightningColorGBJ takes lightning whichBolt returns real
 			return GetLightningColorG(whichBolt);//return GetLightningColorG(whichBolt)
 		}//endfunction
 		//
-		private real GetLightningColorBBJ() {//function GetLightningColorBBJ takes lightning whichBolt returns real
+		private float GetLightningColorBBJ(lightning whichBolt) {//function GetLightningColorBBJ takes lightning whichBolt returns real
 			return GetLightningColorB(whichBolt);//return GetLightningColorB(whichBolt)
 		}//endfunction
 		//
-		private bool SetLightningColorBJ(lightning whichBolt, real r, real g, real b, real a) {//function SetLightningColorBJ takes lightning whichBolt, real r, real g, real b, real a returns boolean
+		private bool SetLightningColorBJ(lightning whichBolt, float r, float g, float b, float a) {//function SetLightningColorBJ takes lightning whichBolt, real r, real g, real b, real a returns boolean
 			return SetLightningColor(whichBolt, r, g, b, a);//return SetLightningColor(whichBolt, r, g, b, a)
 		}//endfunction
 		//
@@ -1144,15 +1144,15 @@ namespace Jass {
 			return GetAbilitySoundById(abilcode, t);//return GetAbilitySoundById(abilcode, t)
 		}//endfunction
 		//
-		private int GetTerrainCliffLevelBJ() {//function GetTerrainCliffLevelBJ takes location where returns integer
+		private int GetTerrainCliffLevelBJ(location where) {//function GetTerrainCliffLevelBJ takes location where returns integer
 			return GetTerrainCliffLevel(GetLocationX(where), GetLocationY(where));//return GetTerrainCliffLevel(GetLocationX(where), GetLocationY(where))
 		}//endfunction
 		//
-		private int GetTerrainTypeBJ() {//function GetTerrainTypeBJ takes location where returns integer
+		private int GetTerrainTypeBJ(location where) {//function GetTerrainTypeBJ takes location where returns integer
 			return GetTerrainType(GetLocationX(where), GetLocationY(where));//return GetTerrainType(GetLocationX(where), GetLocationY(where))
 		}//endfunction
 		//
-		private int GetTerrainVarianceBJ() {//function GetTerrainVarianceBJ takes location where returns integer
+		private int GetTerrainVarianceBJ(location where) {//function GetTerrainVarianceBJ takes location where returns integer
 			return GetTerrainVariance(GetLocationX(where), GetLocationY(where));//return GetTerrainVariance(GetLocationX(where), GetLocationY(where))
 		}//endfunction
 		//
@@ -1168,7 +1168,7 @@ namespace Jass {
 			SetTerrainPathable(GetLocationX(where), GetLocationY(where), t, flag);//call SetTerrainPathable(GetLocationX(where), GetLocationY(where), t, flag)
 		}//endfunction
 		//
-		private void SetWaterBaseColorBJ(real red, real green, real blue, real transparency) {//function SetWaterBaseColorBJ takes real red, real green, real blue, real transparency returns nothing
+		private void SetWaterBaseColorBJ(float red, float green, float blue, float transparency) {//function SetWaterBaseColorBJ takes real red, real green, real blue, real transparency returns nothing
 			SetWaterBaseColor(PercentTo255(red), PercentTo255(green), PercentTo255(blue), PercentTo255(100.0-transparency));//call SetWaterBaseColor(PercentTo255(red), PercentTo255(green), PercentTo255(blue), PercentTo255(100.0-transparency))
 		}//endfunction
 		//
@@ -1177,7 +1177,7 @@ namespace Jass {
 			return bj_lastCreatedFogModifier;//return bj_lastCreatedFogModifier
 		}//endfunction
 		//
-		private fogmodifier CreateFogModifierRadiusLocSimple(player whichPlayer, fogstate whichFogState, location center, real radius, bool afterUnits) {//function CreateFogModifierRadiusLocSimple takes player whichPlayer, fogstate whichFogState, location center, real radius, boolean afterUnits returns fogmodifier
+		private fogmodifier CreateFogModifierRadiusLocSimple(player whichPlayer, fogstate whichFogState, location center, float radius, bool afterUnits) {//function CreateFogModifierRadiusLocSimple takes player whichPlayer, fogstate whichFogState, location center, real radius, boolean afterUnits returns fogmodifier
 			bj_lastCreatedFogModifier = CreateFogModifierRadiusLoc(whichPlayer, whichFogState, center, radius, true, afterUnits);//set bj_lastCreatedFogModifier = CreateFogModifierRadiusLoc(whichPlayer, whichFogState, center, radius, true, afterUnits)
 			return bj_lastCreatedFogModifier;//return bj_lastCreatedFogModifier
 		}//endfunction
@@ -1198,7 +1198,7 @@ namespace Jass {
 		//
 		//
 		//
-		private fogmodifier CreateFogModifierRadiusLocBJ(bool enabled, player whichPlayer, fogstate whichFogState, location center, real radius) {//function CreateFogModifierRadiusLocBJ takes boolean enabled, player whichPlayer, fogstate whichFogState, location center, real radius returns fogmodifier
+		private fogmodifier CreateFogModifierRadiusLocBJ(bool enabled, player whichPlayer, fogstate whichFogState, location center, float radius) {//function CreateFogModifierRadiusLocBJ takes boolean enabled, player whichPlayer, fogstate whichFogState, location center, real radius returns fogmodifier
 			bj_lastCreatedFogModifier = CreateFogModifierRadiusLoc(whichPlayer, whichFogState, center, radius, true, false);//set bj_lastCreatedFogModifier = CreateFogModifierRadiusLoc(whichPlayer, whichFogState, center, radius, true, false)
 			if (enabled) {//if enabled then
 				FogModifierStart(bj_lastCreatedFogModifier);//call FogModifierStart(bj_lastCreatedFogModifier)
@@ -1226,11 +1226,11 @@ namespace Jass {
 			FogMaskEnable(false);//call FogMaskEnable(false)
 		}//endfunction
 		//
-		private void UseTimeOfDayBJ() {//function UseTimeOfDayBJ takes boolean flag returns nothing
+		private void UseTimeOfDayBJ(bool flag) {//function UseTimeOfDayBJ takes boolean flag returns nothing
 			SuspendTimeOfDay(not flag);//call SuspendTimeOfDay(not flag)
 		}//endfunction
 		//
-		private void SetTerrainFogExBJ(int style, real zstart, real zend, real density, real red, real green, real blue) {//function SetTerrainFogExBJ takes integer style, real zstart, real zend, real density, real red, real green, real blue returns nothing
+		private void SetTerrainFogExBJ(int style, float zstart, float zend, float density, float red, float green, float blue) {//function SetTerrainFogExBJ takes integer style, real zstart, real zend, real density, real red, real green, real blue returns nothing
 			SetTerrainFogEx(style, zstart, zend, density, red * 0.01, green * 0.01, blue * 0.01);//call SetTerrainFogEx(style, zstart, zend, density, red * 0.01, green * 0.01, blue * 0.01)
 		}//endfunction
 		//
@@ -1238,7 +1238,7 @@ namespace Jass {
 			ResetTerrainFog();//call ResetTerrainFog()
 		}//endfunction
 		//
-		private void SetDoodadAnimationBJ(string animName, int doodadID, real radius, location center) {//function SetDoodadAnimationBJ takes string animName, integer doodadID, real radius, location center returns nothing
+		private void SetDoodadAnimationBJ(string animName, int doodadID, float radius, location center) {//function SetDoodadAnimationBJ takes string animName, integer doodadID, real radius, location center returns nothing
 			SetDoodadAnimation(GetLocationX(center), GetLocationY(center), radius, doodadID, false, animName, false);//call SetDoodadAnimation(GetLocationX(center), GetLocationY(center), radius, doodadID, false, animName, false)
 		}//endfunction
 		//
@@ -1250,7 +1250,7 @@ namespace Jass {
 			AddUnitAnimationProperties(whichUnit, animProperties, add);//call AddUnitAnimationProperties(whichUnit, animProperties, add)
 		}//endfunction
 		//
-		private image CreateImageBJ(string file, real size, location where, real zOffset, int imageType) {//function CreateImageBJ takes string file, real size, location where, real zOffset, integer imageType returns image
+		private image CreateImageBJ(string file, float size, location where, float zOffset, int imageType) {//function CreateImageBJ takes string file, real size, location where, real zOffset, integer imageType returns image
 			bj_lastCreatedImage = CreateImage(file, size, size, size, GetLocationX(where), GetLocationY(where), zOffset, 0, 0, 0, imageType);//set bj_lastCreatedImage = CreateImage(file, size, size, size, GetLocationX(where), GetLocationY(where), zOffset, 0, 0, 0, imageType)
 			return bj_lastCreatedImage;//return bj_lastCreatedImage
 		}//endfunction
@@ -1259,11 +1259,11 @@ namespace Jass {
 			ShowImage(whichImage, flag);//call ShowImage(whichImage, flag)
 		}//endfunction
 		//
-		private void SetImagePositionBJ(image whichImage, location where, real zOffset) {//function SetImagePositionBJ takes image whichImage, location where, real zOffset returns nothing
+		private void SetImagePositionBJ(image whichImage, location where, float zOffset) {//function SetImagePositionBJ takes image whichImage, location where, real zOffset returns nothing
 			SetImagePosition(whichImage, GetLocationX(where), GetLocationY(where), zOffset);//call SetImagePosition(whichImage, GetLocationX(where), GetLocationY(where), zOffset)
 		}//endfunction
 		//
-		private void SetImageColorBJ(image whichImage, real red, real green, real blue, real alpha) {//function SetImageColorBJ takes image whichImage, real red, real green, real blue, real alpha returns nothing
+		private void SetImageColorBJ(image whichImage, float red, float green, float blue, float alpha) {//function SetImageColorBJ takes image whichImage, real red, real green, real blue, real alpha returns nothing
 			SetImageColor(whichImage, PercentTo255(red), PercentTo255(green), PercentTo255(blue), PercentTo255(100.0-alpha));//call SetImageColor(whichImage, PercentTo255(red), PercentTo255(green), PercentTo255(blue), PercentTo255(100.0-alpha))
 		}//endfunction
 		//
@@ -1271,7 +1271,7 @@ namespace Jass {
 			return bj_lastCreatedImage;//return bj_lastCreatedImage
 		}//endfunction
 		//
-		private ubersplat CreateUbersplatBJ(location where, string name, real red, real green, real blue, real alpha, bool forcePaused, bool noBirthTime) {//function CreateUbersplatBJ takes location where, string name, real red, real green, real blue, real alpha, boolean forcePaused, boolean noBirthTime returns ubersplat
+		private ubersplat CreateUbersplatBJ(location where, string name, float red, float green, float blue, float alpha, bool forcePaused, bool noBirthTime) {//function CreateUbersplatBJ takes location where, string name, real red, real green, real blue, real alpha, boolean forcePaused, boolean noBirthTime returns ubersplat
 			bj_lastCreatedUbersplat = CreateUbersplat(GetLocationX(where), GetLocationY(where), name, PercentTo255(red), PercentTo255(green), PercentTo255(blue), PercentTo255(100.0-alpha), forcePaused, noBirthTime);//set bj_lastCreatedUbersplat = CreateUbersplat(GetLocationX(where), GetLocationY(where), name, PercentTo255(red), PercentTo255(green), PercentTo255(blue), PercentTo255(100.0-alpha), forcePaused, noBirthTime)
 			return bj_lastCreatedUbersplat;//return bj_lastCreatedUbersplat
 		}//endfunction
@@ -1289,7 +1289,7 @@ namespace Jass {
 		//
 		//
 		//
-		private void PlaySoundBJ() {//function PlaySoundBJ takes sound soundHandle returns nothing
+		private void PlaySoundBJ(sound soundHandle) {//function PlaySoundBJ takes sound soundHandle returns nothing
 			bj_lastPlayedSound = soundHandle;//set bj_lastPlayedSound = soundHandle
 			if ((soundHandle != null)) {//if (soundHandle != null) then
 				StartSound(soundHandle);//call StartSound(soundHandle)
@@ -1300,23 +1300,23 @@ namespace Jass {
 			StopSound(soundHandle, false, fadeOut);//call StopSound(soundHandle, false, fadeOut)
 		}//endfunction
 		//
-		private void SetSoundVolumeBJ(sound soundHandle, real volumePercent) {//function SetSoundVolumeBJ takes sound soundHandle, real volumePercent returns nothing
+		private void SetSoundVolumeBJ(sound soundHandle, float volumePercent) {//function SetSoundVolumeBJ takes sound soundHandle, real volumePercent returns nothing
 			SetSoundVolume(soundHandle, PercentToInt(volumePercent, 127));//call SetSoundVolume(soundHandle, PercentToInt(volumePercent, 127))
 		}//endfunction
 		//
-		private void SetSoundOffsetBJ(real newOffset, sound soundHandle) {//function SetSoundOffsetBJ takes real newOffset, sound soundHandle returns nothing
+		private void SetSoundOffsetBJ(float newOffset, sound soundHandle) {//function SetSoundOffsetBJ takes real newOffset, sound soundHandle returns nothing
 			SetSoundPlayPosition(soundHandle, R2I(newOffset * 1000));//call SetSoundPlayPosition(soundHandle, R2I(newOffset * 1000))
 		}//endfunction
 		//
-		private void SetSoundDistanceCutoffBJ(sound soundHandle, real cutoff) {//function SetSoundDistanceCutoffBJ takes sound soundHandle, real cutoff returns nothing
+		private void SetSoundDistanceCutoffBJ(sound soundHandle, float cutoff) {//function SetSoundDistanceCutoffBJ takes sound soundHandle, real cutoff returns nothing
 			SetSoundDistanceCutoff(soundHandle, cutoff);//call SetSoundDistanceCutoff(soundHandle, cutoff)
 		}//endfunction
 		//
-		private void SetSoundPitchBJ(sound soundHandle, real pitch) {//function SetSoundPitchBJ takes sound soundHandle, real pitch returns nothing
+		private void SetSoundPitchBJ(sound soundHandle, float pitch) {//function SetSoundPitchBJ takes sound soundHandle, real pitch returns nothing
 			SetSoundPitch(soundHandle, pitch);//call SetSoundPitch(soundHandle, pitch)
 		}//endfunction
 		//
-		private void SetSoundPositionLocBJ(sound soundHandle, location loc, real z) {//function SetSoundPositionLocBJ takes sound soundHandle, location loc, real z returns nothing
+		private void SetSoundPositionLocBJ(sound soundHandle, location loc, float z) {//function SetSoundPositionLocBJ takes sound soundHandle, location loc, real z returns nothing
 			SetSoundPosition(soundHandle, GetLocationX(loc), GetLocationY(loc), z);//call SetSoundPosition(soundHandle, GetLocationX(loc), GetLocationY(loc), z)
 		}//endfunction
 		//
@@ -1324,55 +1324,55 @@ namespace Jass {
 			AttachSoundToUnit(soundHandle, whichUnit);//call AttachSoundToUnit(soundHandle, whichUnit)
 		}//endfunction
 		//
-		private void SetSoundConeAnglesBJ(sound soundHandle, real inside, real outside, real outsideVolumePercent) {//function SetSoundConeAnglesBJ takes sound soundHandle, real inside, real outside, real outsideVolumePercent returns nothing
+		private void SetSoundConeAnglesBJ(sound soundHandle, float inside, float outside, float outsideVolumePercent) {//function SetSoundConeAnglesBJ takes sound soundHandle, real inside, real outside, real outsideVolumePercent returns nothing
 			SetSoundConeAngles(soundHandle, inside, outside, PercentToInt(outsideVolumePercent, 127));//call SetSoundConeAngles(soundHandle, inside, outside, PercentToInt(outsideVolumePercent, 127))
 		}//endfunction
 		//
-		private void KillSoundWhenDoneBJ() {//function KillSoundWhenDoneBJ takes sound soundHandle returns nothing
+		private void KillSoundWhenDoneBJ(sound soundHandle) {//function KillSoundWhenDoneBJ takes sound soundHandle returns nothing
 			KillSoundWhenDone(soundHandle);//call KillSoundWhenDone(soundHandle)
 		}//endfunction
 		//
-		private void PlaySoundAtPointBJ(sound soundHandle, real volumePercent, location loc, real z) {//function PlaySoundAtPointBJ takes sound soundHandle, real volumePercent, location loc, real z returns nothing
+		private void PlaySoundAtPointBJ(sound soundHandle, float volumePercent, location loc, float z) {//function PlaySoundAtPointBJ takes sound soundHandle, real volumePercent, location loc, real z returns nothing
 			SetSoundPositionLocBJ(soundHandle, loc, z);//call SetSoundPositionLocBJ(soundHandle, loc, z)
 			SetSoundVolumeBJ(soundHandle, volumePercent);//call SetSoundVolumeBJ(soundHandle, volumePercent)
 			PlaySoundBJ(soundHandle);//call PlaySoundBJ(soundHandle)
 		}//endfunction
 		//
-		private void PlaySoundOnUnitBJ(sound soundHandle, real volumePercent, int whichUnit) {//function PlaySoundOnUnitBJ takes sound soundHandle, real volumePercent, unit whichUnit returns nothing
+		private void PlaySoundOnUnitBJ(sound soundHandle, float volumePercent, int whichUnit) {//function PlaySoundOnUnitBJ takes sound soundHandle, real volumePercent, unit whichUnit returns nothing
 			AttachSoundToUnitBJ(soundHandle, whichUnit);//call AttachSoundToUnitBJ(soundHandle, whichUnit)
 			SetSoundVolumeBJ(soundHandle, volumePercent);//call SetSoundVolumeBJ(soundHandle, volumePercent)
 			PlaySoundBJ(soundHandle);//call PlaySoundBJ(soundHandle)
 		}//endfunction
 		//
-		private void PlaySoundFromOffsetBJ(sound soundHandle, real volumePercent, real startingOffset) {//function PlaySoundFromOffsetBJ takes sound soundHandle, real volumePercent, real startingOffset returns nothing
+		private void PlaySoundFromOffsetBJ(sound soundHandle, float volumePercent, float startingOffset) {//function PlaySoundFromOffsetBJ takes sound soundHandle, real volumePercent, real startingOffset returns nothing
 			SetSoundVolumeBJ(soundHandle, volumePercent);//call SetSoundVolumeBJ(soundHandle, volumePercent)
 			PlaySoundBJ(soundHandle);//call PlaySoundBJ(soundHandle)
 			SetSoundOffsetBJ(startingOffset, soundHandle);//call SetSoundOffsetBJ(startingOffset, soundHandle)
 		}//endfunction
 		//
-		private void PlayMusicBJ() {//function PlayMusicBJ takes string musicFileName returns nothing
+		private void PlayMusicBJ(string musicFileName) {//function PlayMusicBJ takes string musicFileName returns nothing
 			bj_lastPlayedMusic = musicFileName;//set bj_lastPlayedMusic = musicFileName
 			PlayMusic(musicFileName);//call PlayMusic(musicFileName)
 		}//endfunction
 		//
-		private void PlayMusicExBJ(string musicFileName, real startingOffset, real fadeInTime) {//function PlayMusicExBJ takes string musicFileName, real startingOffset, real fadeInTime returns nothing
+		private void PlayMusicExBJ(string musicFileName, float startingOffset, float fadeInTime) {//function PlayMusicExBJ takes string musicFileName, real startingOffset, real fadeInTime returns nothing
 			bj_lastPlayedMusic = musicFileName;//set bj_lastPlayedMusic = musicFileName
 			PlayMusicEx(musicFileName, R2I(startingOffset * 1000), R2I(fadeInTime * 1000));//call PlayMusicEx(musicFileName, R2I(startingOffset * 1000), R2I(fadeInTime * 1000))
 		}//endfunction
 		//
-		private void SetMusicOffsetBJ() {//function SetMusicOffsetBJ takes real newOffset returns nothing
+		private void SetMusicOffsetBJ(float newOffset) {//function SetMusicOffsetBJ takes real newOffset returns nothing
 			SetMusicPlayPosition(R2I(newOffset * 1000));//call SetMusicPlayPosition(R2I(newOffset * 1000))
 		}//endfunction
 		//
-		private void PlayThematicMusicBJ() {//function PlayThematicMusicBJ takes string musicName returns nothing
+		private void PlayThematicMusicBJ(string musicName) {//function PlayThematicMusicBJ takes string musicName returns nothing
 			PlayThematicMusic(musicName);//call PlayThematicMusic(musicName)
 		}//endfunction
 		//
-		private void PlayThematicMusicExBJ(string musicName, real startingOffset) {//function PlayThematicMusicExBJ takes string musicName, real startingOffset returns nothing
+		private void PlayThematicMusicExBJ(string musicName, float startingOffset) {//function PlayThematicMusicExBJ takes string musicName, real startingOffset returns nothing
 			PlayThematicMusicEx(musicName, R2I(startingOffset * 1000));//call PlayThematicMusicEx(musicName, R2I(startingOffset * 1000))
 		}//endfunction
 		//
-		private void SetThematicMusicOffsetBJ() {//function SetThematicMusicOffsetBJ takes real newOffset returns nothing
+		private void SetThematicMusicOffsetBJ(float newOffset) {//function SetThematicMusicOffsetBJ takes real newOffset returns nothing
 			SetThematicMusicPlayPosition(R2I(newOffset * 1000));//call SetThematicMusicPlayPosition(R2I(newOffset * 1000))
 		}//endfunction
 		//
@@ -1380,7 +1380,7 @@ namespace Jass {
 			EndThematicMusic();//call EndThematicMusic()
 		}//endfunction
 		//
-		private void StopMusicBJ() {//function StopMusicBJ takes boolean fadeOut returns nothing
+		private void StopMusicBJ(bool fadeOut) {//function StopMusicBJ takes boolean fadeOut returns nothing
 			StopMusic(fadeOut);//call StopMusic(fadeOut)
 		}//endfunction
 		//
@@ -1388,11 +1388,11 @@ namespace Jass {
 			ResumeMusic();//call ResumeMusic()
 		}//endfunction
 		//
-		private void SetMusicVolumeBJ() {//function SetMusicVolumeBJ takes real volumePercent returns nothing
+		private void SetMusicVolumeBJ(float volumePercent) {//function SetMusicVolumeBJ takes real volumePercent returns nothing
 			SetMusicVolume(PercentToInt(volumePercent, 127));//call SetMusicVolume(PercentToInt(volumePercent, 127))
 		}//endfunction
 		//
-		private real GetSoundDurationBJ() {//function GetSoundDurationBJ takes sound soundHandle returns real
+		private float GetSoundDurationBJ(sound soundHandle) {//function GetSoundDurationBJ takes sound soundHandle returns real
 			if ((soundHandle == null)) {//if (soundHandle == null) then
 				return bj_NOTHING_SOUND_DURATION;//return bj_NOTHING_SOUND_DURATION
 			} else {//else
@@ -1400,7 +1400,7 @@ namespace Jass {
 			}//endif
 		}//endfunction
 		//
-		private real GetSoundFileDurationBJ() {//function GetSoundFileDurationBJ takes string musicFileName returns real
+		private float GetSoundFileDurationBJ(string musicFileName) {//function GetSoundFileDurationBJ takes string musicFileName returns real
 			return I2R(GetSoundFileDuration(musicFileName)) * 0.001;//return I2R(GetSoundFileDuration(musicFileName)) * 0.001
 		}//endfunction
 		//
@@ -1412,7 +1412,7 @@ namespace Jass {
 			return bj_lastPlayedMusic;//return bj_lastPlayedMusic
 		}//endfunction
 		//
-		private void VolumeGroupSetVolumeBJ(volumegroup vgroup, real percent) {//function VolumeGroupSetVolumeBJ takes volumegroup vgroup, real percent returns nothing
+		private void VolumeGroupSetVolumeBJ(volumegroup vgroup, float percent) {//function VolumeGroupSetVolumeBJ takes volumegroup vgroup, real percent returns nothing
 			VolumeGroupSetVolume(vgroup, percent * 0.01);//call VolumeGroupSetVolume(vgroup, percent * 0.01)
 		}//endfunction
 		//
@@ -1469,11 +1469,11 @@ namespace Jass {
 			}//endif
 		}//endfunction
 		//
-		private bool GetSoundIsPlayingBJ() {//function GetSoundIsPlayingBJ takes sound soundHandle returns boolean
+		private bool GetSoundIsPlayingBJ(sound soundHandle) {//function GetSoundIsPlayingBJ takes sound soundHandle returns boolean
 			return GetSoundIsLoading(soundHandle) or GetSoundIsPlaying(soundHandle);//return GetSoundIsLoading(soundHandle) or GetSoundIsPlaying(soundHandle)
 		}//endfunction
 		//
-		private void WaitForSoundBJ(sound soundHandle, real offset) {//function WaitForSoundBJ takes sound soundHandle, real offset returns nothing
+		private void WaitForSoundBJ(sound soundHandle, float offset) {//function WaitForSoundBJ takes sound soundHandle, real offset returns nothing
 			TriggerWaitForSound(soundHandle, offset);//call TriggerWaitForSound( soundHandle, offset )
 		}//endfunction
 		//
@@ -1481,7 +1481,7 @@ namespace Jass {
 			SetMapMusic(musicName, false, index);//call SetMapMusic(musicName, false, index)
 		}//endfunction
 		//
-		private void SetMapMusicRandomBJ() {//function SetMapMusicRandomBJ takes string musicName returns nothing
+		private void SetMapMusicRandomBJ(string musicName) {//function SetMapMusicRandomBJ takes string musicName returns nothing
 			SetMapMusic(musicName, true, 0);//call SetMapMusic(musicName, true, 0)
 		}//endfunction
 		//
@@ -1490,8 +1490,8 @@ namespace Jass {
 		}//endfunction
 		//
 		private void SetStackedSoundBJ(bool add, sound soundHandle, rect r) {//function SetStackedSoundBJ takes boolean add, sound soundHandle, rect r returns nothing
-			real width = GetRectMaxX(r) - GetRectMinX(r);//local real width = GetRectMaxX(r) - GetRectMinX(r)
-			real height = GetRectMaxY(r) - GetRectMinY(r);//local real height = GetRectMaxY(r) - GetRectMinY(r)
+			float width = GetRectMaxX(r) - GetRectMinX(r);//local real width = GetRectMaxX(r) - GetRectMinX(r)
+			float height = GetRectMaxY(r) - GetRectMinY(r);//local real height = GetRectMaxY(r) - GetRectMinY(r)
 			SetSoundPosition(soundHandle, GetRectCenterX(r), GetRectCenterY(r), 0);//call SetSoundPosition(soundHandle, GetRectCenterX(r), GetRectCenterY(r), 0)
 			if (add) {//if add then
 				RegisterStackedSound(soundHandle, true, width, height);//call RegisterStackedSound(soundHandle, true, width, height)
@@ -1506,13 +1506,13 @@ namespace Jass {
 			}//endif
 		}//endfunction
 		//
-		private void VolumeGroupSetVolumeForPlayerBJ(player whichPlayer, volumegroup vgroup, real scale) {//function VolumeGroupSetVolumeForPlayerBJ takes player whichPlayer, volumegroup vgroup, real scale returns nothing
+		private void VolumeGroupSetVolumeForPlayerBJ(player whichPlayer, volumegroup vgroup, float scale) {//function VolumeGroupSetVolumeForPlayerBJ takes player whichPlayer, volumegroup vgroup, real scale returns nothing
 			if ((GetLocalPlayer() == whichPlayer)) {//if (GetLocalPlayer() == whichPlayer) then
 				VolumeGroupSetVolume(vgroup, scale);//call VolumeGroupSetVolume(vgroup, scale)
 			}//endif
 		}//endfunction
 		//
-		private void EnableDawnDusk() {//function EnableDawnDusk takes boolean flag returns nothing
+		private void EnableDawnDusk(bool flag) {//function EnableDawnDusk takes boolean flag returns nothing
 			bj_useDawnDuskSounds = flag;//set bj_useDawnDuskSounds = flag
 		}//endfunction
 		//
@@ -1525,8 +1525,8 @@ namespace Jass {
 		//
 		//
 		//
-		private void SetAmbientDaySound() {//function SetAmbientDaySound takes string inLabel returns nothing
-			real ToD;//local real ToD
+		private void SetAmbientDaySound(string inLabel) {//function SetAmbientDaySound takes string inLabel returns nothing
+			float ToD;//local real ToD
 			//
 			if ((bj_dayAmbientSound != null)) {//if (bj_dayAmbientSound != null) then
 				StopSound(bj_dayAmbientSound, true, true);//call StopSound(bj_dayAmbientSound, true, true)
@@ -1540,8 +1540,8 @@ namespace Jass {
 			}//endif
 		}//endfunction
 		//
-		private void SetAmbientNightSound() {//function SetAmbientNightSound takes string inLabel returns nothing
-			real ToD;//local real ToD
+		private void SetAmbientNightSound(string inLabel) {//function SetAmbientNightSound takes string inLabel returns nothing
+			float ToD;//local real ToD
 			//
 			if ((bj_nightAmbientSound != null)) {//if (bj_nightAmbientSound != null) then
 				StopSound(bj_nightAmbientSound, true, true);//call StopSound(bj_nightAmbientSound, true, true)
@@ -1588,7 +1588,7 @@ namespace Jass {
 		//
 		//
 		//
-		private void DestroyEffectBJ() {//function DestroyEffectBJ takes effect whichEffect returns nothing
+		private void DestroyEffectBJ(effect whichEffect) {//function DestroyEffectBJ takes effect whichEffect returns nothing
 			DestroyEffect(whichEffect);//call DestroyEffect(whichEffect)
 		}//endfunction
 		//
@@ -1601,15 +1601,15 @@ namespace Jass {
 		//
 		//
 		//
-		private location GetItemLoc() {//function GetItemLoc takes item whichItem returns location
+		private location GetItemLoc(item whichItem) {//function GetItemLoc takes item whichItem returns location
 			return Location(GetItemX(whichItem), GetItemY(whichItem));//return Location(GetItemX(whichItem), GetItemY(whichItem))
 		}//endfunction
 		//
-		private real GetItemLifeBJ() {//function GetItemLifeBJ takes widget whichWidget returns real
+		private float GetItemLifeBJ(widget whichWidget) {//function GetItemLifeBJ takes widget whichWidget returns real
 			return GetWidgetLife(whichWidget);//return GetWidgetLife(whichWidget)
 		}//endfunction
 		//
-		private void SetItemLifeBJ(widget whichWidget, real life) {//function SetItemLifeBJ takes widget whichWidget, real life returns nothing
+		private void SetItemLifeBJ(widget whichWidget, float life) {//function SetItemLifeBJ takes widget whichWidget, real life returns nothing
 			SetWidgetLife(whichWidget, life);//call SetWidgetLife(whichWidget, life)
 		}//endfunction
 		//
@@ -1702,19 +1702,19 @@ namespace Jass {
 			SuspendHeroXP(whichHero, not flag);//call SuspendHeroXP(whichHero, not flag)
 		}//endfunction
 		//
-		private void SetPlayerHandicapXPBJ(player whichPlayer, real handicapPercent) {//function SetPlayerHandicapXPBJ takes player whichPlayer, real handicapPercent returns nothing
+		private void SetPlayerHandicapXPBJ(player whichPlayer, float handicapPercent) {//function SetPlayerHandicapXPBJ takes player whichPlayer, real handicapPercent returns nothing
 			SetPlayerHandicapXP(whichPlayer, handicapPercent * 0.01);//call SetPlayerHandicapXP(whichPlayer, handicapPercent * 0.01)
 		}//endfunction
 		//
-		private real GetPlayerHandicapXPBJ() {//function GetPlayerHandicapXPBJ takes player whichPlayer returns real
+		private float GetPlayerHandicapXPBJ(player whichPlayer) {//function GetPlayerHandicapXPBJ takes player whichPlayer returns real
 			return GetPlayerHandicapXP(whichPlayer) * 100;//return GetPlayerHandicapXP(whichPlayer) * 100
 		}//endfunction
 		//
-		private void SetPlayerHandicapBJ(player whichPlayer, real handicapPercent) {//function SetPlayerHandicapBJ takes player whichPlayer, real handicapPercent returns nothing
+		private void SetPlayerHandicapBJ(player whichPlayer, float handicapPercent) {//function SetPlayerHandicapBJ takes player whichPlayer, real handicapPercent returns nothing
 			SetPlayerHandicap(whichPlayer, handicapPercent * 0.01);//call SetPlayerHandicap(whichPlayer, handicapPercent * 0.01)
 		}//endfunction
 		//
-		private real GetPlayerHandicapBJ() {//function GetPlayerHandicapBJ takes player whichPlayer returns real
+		private float GetPlayerHandicapBJ(player whichPlayer) {//function GetPlayerHandicapBJ takes player whichPlayer returns real
 			return GetPlayerHandicap(whichPlayer) * 100;//return GetPlayerHandicap(whichPlayer) * 100
 		}//endfunction
 		//
@@ -1772,7 +1772,7 @@ namespace Jass {
 			}//endif
 		}//endfunction
 		//
-		private bool UnitDropItemPointBJ(int whichUnit, item whichItem, real x, real y) {//function UnitDropItemPointBJ takes unit whichUnit, item whichItem, real x, real y returns boolean
+		private bool UnitDropItemPointBJ(int whichUnit, item whichItem, float x, float y) {//function UnitDropItemPointBJ takes unit whichUnit, item whichItem, real x, real y returns boolean
 			return UnitDropItemPoint(whichUnit, whichItem, x, y);//return UnitDropItemPoint(whichUnit, whichItem, x, y)
 		}//endfunction
 		//
@@ -1835,7 +1835,7 @@ namespace Jass {
 			return GetInventoryIndexOfItemTypeBJ(whichUnit, itemId) > 0;//return GetInventoryIndexOfItemTypeBJ(whichUnit, itemId) > 0
 		}//endfunction
 		//
-		private int UnitInventoryCount() {//function UnitInventoryCount takes unit whichUnit returns integer
+		private int UnitInventoryCount(int whichUnit) {//function UnitInventoryCount takes unit whichUnit returns integer
 			int index = 0;//local integer index = 0
 			int count = 0;//local integer count = 0
 			while (true) {//loop
@@ -1848,7 +1848,7 @@ namespace Jass {
 			return count;//return count
 		}//endfunction
 		//
-		private int UnitInventorySizeBJ() {//function UnitInventorySizeBJ takes unit whichUnit returns integer
+		private int UnitInventorySizeBJ(int whichUnit) {//function UnitInventorySizeBJ takes unit whichUnit returns integer
 			return UnitInventorySize(whichUnit);//return UnitInventorySize(whichUnit)
 		}//endfunction
 		//
@@ -1872,11 +1872,11 @@ namespace Jass {
 			SetItemVisible(whichItem, show);//call SetItemVisible(whichItem, show)
 		}//endfunction
 		//
-		private bool IsItemHiddenBJ() {//function IsItemHiddenBJ takes item whichItem returns boolean
+		private bool IsItemHiddenBJ(item whichItem) {//function IsItemHiddenBJ takes item whichItem returns boolean
 			return not IsItemVisible(whichItem);//return not IsItemVisible(whichItem)
 		}//endfunction
 		//
-		private int ChooseRandomItemBJ() {//function ChooseRandomItemBJ takes integer level returns integer
+		private int ChooseRandomItemBJ(int level) {//function ChooseRandomItemBJ takes integer level returns integer
 			return ChooseRandomItem(level);//return ChooseRandomItem(level)
 		}//endfunction
 		//
@@ -1888,7 +1888,7 @@ namespace Jass {
 			return ChooseRandomNPBuilding();//return ChooseRandomNPBuilding()
 		}//endfunction
 		//
-		private int ChooseRandomCreepBJ() {//function ChooseRandomCreepBJ takes integer level returns integer
+		private int ChooseRandomCreepBJ(int level) {//function ChooseRandomCreepBJ takes integer level returns integer
 			return ChooseRandomCreep(level);//return ChooseRandomCreep(level)
 		}//endfunction
 		//
@@ -1917,7 +1917,7 @@ namespace Jass {
 		//
 		//
 		//
-		private item RandomItemInRectSimpleBJ() {//function RandomItemInRectSimpleBJ takes rect r returns item
+		private item RandomItemInRectSimpleBJ(rect r) {//function RandomItemInRectSimpleBJ takes rect r returns item
 			return RandomItemInRectBJ(r, null);//return RandomItemInRectBJ(r, null)
 		}//endfunction
 		//
@@ -1958,15 +1958,15 @@ namespace Jass {
 		//
 		//
 		//
-		private int UnitId2OrderIdBJ() {//function UnitId2OrderIdBJ takes integer unitId returns integer
+		private int UnitId2OrderIdBJ(int unitId) {//function UnitId2OrderIdBJ takes integer unitId returns integer
 			return unitId;//return unitId
 		}//endfunction
 		//
-		private int String2UnitIdBJ() {//function String2UnitIdBJ takes string unitIdString returns integer
+		private int String2UnitIdBJ(string unitIdString) {//function String2UnitIdBJ takes string unitIdString returns integer
 			return UnitId(unitIdString);//return UnitId(unitIdString)
 		}//endfunction
 		//
-		private string UnitId2StringBJ() {//function UnitId2StringBJ takes integer unitId returns string
+		private string UnitId2StringBJ(int unitId) {//function UnitId2StringBJ takes integer unitId returns string
 			string unitString = UnitId2String(unitId);//local string unitString = UnitId2String(unitId)
 			if ((unitString != null)) {//if (unitString != null) then
 				return unitString;//return unitString
@@ -1975,7 +1975,7 @@ namespace Jass {
 			return "";//return ""
 		}//endfunction
 		//
-		private int String2OrderIdBJ() {//function String2OrderIdBJ takes string orderIdString returns integer
+		private int String2OrderIdBJ(string orderIdString) {//function String2OrderIdBJ takes string orderIdString returns integer
 			int orderId;//local integer orderId
 			//
 			orderId = OrderId(orderIdString);//set orderId = OrderId(orderIdString)
@@ -1991,7 +1991,7 @@ namespace Jass {
 			return 0;//return 0
 		}//endfunction
 		//
-		private string OrderId2StringBJ() {//function OrderId2StringBJ takes integer orderId returns string
+		private string OrderId2StringBJ(int orderId) {//function OrderId2StringBJ takes integer orderId returns string
 			string orderString;//local string orderString
 			//
 			orderString = OrderId2String(orderId);//set orderString = OrderId2String(orderId)
@@ -2015,7 +2015,7 @@ namespace Jass {
 			return GetKillingUnit();//return GetKillingUnit()
 		}//endfunction
 		//
-		private int CreateUnitAtLocSaveLast(player id, int unitid, location loc, real face) {//function CreateUnitAtLocSaveLast takes player id, integer unitid, location loc, real face returns unit
+		private int CreateUnitAtLocSaveLast(player id, int unitid, location loc, float face) {//function CreateUnitAtLocSaveLast takes player id, integer unitid, location loc, real face returns unit
 			if ((unitid == 'ugol')) {//if (unitid == 'ugol') then
 				bj_lastCreatedUnit = CreateBlightedGoldmine(id, GetLocationX(loc), GetLocationY(loc), face);//set bj_lastCreatedUnit = CreateBlightedGoldmine(id, GetLocationX(loc), GetLocationY(loc), face)
 			} else {//else
@@ -2028,7 +2028,7 @@ namespace Jass {
 			return bj_lastCreatedUnit;//return bj_lastCreatedUnit
 		}//endfunction
 		//
-		private group CreateNUnitsAtLoc(int count, int unitId, player whichPlayer, location loc, real face) {//function CreateNUnitsAtLoc takes integer count, integer unitId, player whichPlayer, location loc, real face returns group
+		private group CreateNUnitsAtLoc(int count, int unitId, player whichPlayer, location loc, float face) {//function CreateNUnitsAtLoc takes integer count, integer unitId, player whichPlayer, location loc, real face returns group
 			GroupClear(bj_lastCreatedGroup);//call GroupClear(bj_lastCreatedGroup)
 			while (true) {//loop
 				count = count - 1;//set count = count - 1
@@ -2120,7 +2120,7 @@ namespace Jass {
 			TriggerAddAction(bj_delayedSuspendDecayTrig, function DelayedSuspendDecay);//call TriggerAddAction(bj_delayedSuspendDecayTrig, function DelayedSuspendDecay)
 		}//endfunction
 		//
-		private int CreatePermanentCorpseLocBJ(int style, int unitid, player whichPlayer, location loc, real facing) {//function CreatePermanentCorpseLocBJ takes integer style, integer unitid, player whichPlayer, location loc, real facing returns unit
+		private int CreatePermanentCorpseLocBJ(int style, int unitid, player whichPlayer, location loc, float facing) {//function CreatePermanentCorpseLocBJ takes integer style, integer unitid, player whichPlayer, location loc, real facing returns unit
 			bj_lastCreatedUnit = CreateCorpse(whichPlayer, unitid, GetLocationX(loc), GetLocationY(loc), facing);//set bj_lastCreatedUnit = CreateCorpse(whichPlayer, unitid, GetLocationX(loc), GetLocationY(loc), facing)
 			SetUnitBlendTime(bj_lastCreatedUnit, 0);//call SetUnitBlendTime(bj_lastCreatedUnit, 0)
 			if ((style == bj_CORPSETYPE_FLESH)) {//if (style == bj_CORPSETYPE_FLESH) then
@@ -2138,13 +2138,13 @@ namespace Jass {
 			return bj_lastCreatedUnit;//return bj_lastCreatedUnit
 		}//endfunction
 		//
-		private real GetUnitStateSwap(unitstate whichState, int whichUnit) {//function GetUnitStateSwap takes unitstate whichState, unit whichUnit returns real
+		private float GetUnitStateSwap(unitstate whichState, int whichUnit) {//function GetUnitStateSwap takes unitstate whichState, unit whichUnit returns real
 			return GetUnitState(whichUnit, whichState);//return GetUnitState(whichUnit, whichState)
 		}//endfunction
 		//
-		private real GetUnitStatePercent(int whichUnit, unitstate whichState, unitstate whichMaxState) {//function GetUnitStatePercent takes unit whichUnit, unitstate whichState, unitstate whichMaxState returns real
-			real value = GetUnitState(whichUnit, whichState);//local real value    = GetUnitState(whichUnit, whichState)
-			real maxValue = GetUnitState(whichUnit, whichMaxState);//local real maxValue = GetUnitState(whichUnit, whichMaxState)
+		private float GetUnitStatePercent(int whichUnit, unitstate whichState, unitstate whichMaxState) {//function GetUnitStatePercent takes unit whichUnit, unitstate whichState, unitstate whichMaxState returns real
+			float value = GetUnitState(whichUnit, whichState);//local real value    = GetUnitState(whichUnit, whichState)
+			float maxValue = GetUnitState(whichUnit, whichMaxState);//local real maxValue = GetUnitState(whichUnit, whichMaxState)
 			//
 			if ((whichUnit == null) || (maxValue == 0)) {//if (whichUnit == null) or (maxValue == 0) then
 				return 0.0;//return 0.0
@@ -2152,15 +2152,15 @@ namespace Jass {
 			return value / maxValue * 100.0;//return value / maxValue * 100.0
 		}//endfunction
 		//
-		private real GetUnitLifePercent() {//function GetUnitLifePercent takes unit whichUnit returns real
+		private float GetUnitLifePercent(int whichUnit) {//function GetUnitLifePercent takes unit whichUnit returns real
 			return GetUnitStatePercent(whichUnit, UNIT_STATE_LIFE, UNIT_STATE_MAX_LIFE);//return GetUnitStatePercent(whichUnit, UNIT_STATE_LIFE, UNIT_STATE_MAX_LIFE)
 		}//endfunction
 		//
-		private real GetUnitManaPercent() {//function GetUnitManaPercent takes unit whichUnit returns real
+		private float GetUnitManaPercent(int whichUnit) {//function GetUnitManaPercent takes unit whichUnit returns real
 			return GetUnitStatePercent(whichUnit, UNIT_STATE_MANA, UNIT_STATE_MAX_MANA);//return GetUnitStatePercent(whichUnit, UNIT_STATE_MANA, UNIT_STATE_MAX_MANA)
 		}//endfunction
 		//
-		private void SelectUnitSingle() {//function SelectUnitSingle takes unit whichUnit returns nothing
+		private void SelectUnitSingle(int whichUnit) {//function SelectUnitSingle takes unit whichUnit returns nothing
 			ClearSelection();//call ClearSelection()
 			SelectUnit(whichUnit, true);//call SelectUnit(whichUnit, true)
 		}//endfunction
@@ -2169,20 +2169,20 @@ namespace Jass {
 			SelectUnit(GetEnumUnit(), true);//call SelectUnit( GetEnumUnit(), true )
 		}//endfunction
 		//
-		private void SelectGroupBJ() {//function SelectGroupBJ takes group g returns nothing
+		private void SelectGroupBJ(group g) {//function SelectGroupBJ takes group g returns nothing
 			ClearSelection();//call ClearSelection()
 			ForGroup(g, function SelectGroupBJEnum);//call ForGroup( g, function SelectGroupBJEnum )
 		}//endfunction
 		//
-		private void SelectUnitAdd() {//function SelectUnitAdd takes unit whichUnit returns nothing
+		private void SelectUnitAdd(int whichUnit) {//function SelectUnitAdd takes unit whichUnit returns nothing
 			SelectUnit(whichUnit, true);//call SelectUnit(whichUnit, true)
 		}//endfunction
 		//
-		private void SelectUnitRemove() {//function SelectUnitRemove takes unit whichUnit returns nothing
+		private void SelectUnitRemove(int whichUnit) {//function SelectUnitRemove takes unit whichUnit returns nothing
 			SelectUnit(whichUnit, false);//call SelectUnit(whichUnit, false)
 		}//endfunction
 		//
-		private void ClearSelectionForPlayer() {//function ClearSelectionForPlayer takes player whichPlayer returns nothing
+		private void ClearSelectionForPlayer(player whichPlayer) {//function ClearSelectionForPlayer takes player whichPlayer returns nothing
 			if ((GetLocalPlayer() == whichPlayer)) {//if (GetLocalPlayer() == whichPlayer) then
 				//
 				ClearSelection();//call ClearSelection()
@@ -2219,27 +2219,27 @@ namespace Jass {
 			}//endif
 		}//endfunction
 		//
-		private void SetUnitLifeBJ(int whichUnit, real newValue) {//function SetUnitLifeBJ takes unit whichUnit, real newValue returns nothing
+		private void SetUnitLifeBJ(int whichUnit, float newValue) {//function SetUnitLifeBJ takes unit whichUnit, real newValue returns nothing
 			SetUnitState(whichUnit, UNIT_STATE_LIFE, RMaxBJ(0,newValue));//call SetUnitState(whichUnit, UNIT_STATE_LIFE, RMaxBJ(0,newValue))
 		}//endfunction
 		//
-		private void SetUnitManaBJ(int whichUnit, real newValue) {//function SetUnitManaBJ takes unit whichUnit, real newValue returns nothing
+		private void SetUnitManaBJ(int whichUnit, float newValue) {//function SetUnitManaBJ takes unit whichUnit, real newValue returns nothing
 			SetUnitState(whichUnit, UNIT_STATE_MANA, RMaxBJ(0,newValue));//call SetUnitState(whichUnit, UNIT_STATE_MANA, RMaxBJ(0,newValue))
 		}//endfunction
 		//
-		private void SetUnitLifePercentBJ(int whichUnit, real percent) {//function SetUnitLifePercentBJ takes unit whichUnit, real percent returns nothing
+		private void SetUnitLifePercentBJ(int whichUnit, float percent) {//function SetUnitLifePercentBJ takes unit whichUnit, real percent returns nothing
 			SetUnitState(whichUnit, UNIT_STATE_LIFE, GetUnitState(whichUnit, UNIT_STATE_MAX_LIFE) * RMaxBJ(0,percent) * 0.01);//call SetUnitState(whichUnit, UNIT_STATE_LIFE, GetUnitState(whichUnit, UNIT_STATE_MAX_LIFE) * RMaxBJ(0,percent) * 0.01)
 		}//endfunction
 		//
-		private void SetUnitManaPercentBJ(int whichUnit, real percent) {//function SetUnitManaPercentBJ takes unit whichUnit, real percent returns nothing
+		private void SetUnitManaPercentBJ(int whichUnit, float percent) {//function SetUnitManaPercentBJ takes unit whichUnit, real percent returns nothing
 			SetUnitState(whichUnit, UNIT_STATE_MANA, GetUnitState(whichUnit, UNIT_STATE_MAX_MANA) * RMaxBJ(0,percent) * 0.01);//call SetUnitState(whichUnit, UNIT_STATE_MANA, GetUnitState(whichUnit, UNIT_STATE_MAX_MANA) * RMaxBJ(0,percent) * 0.01)
 		}//endfunction
 		//
-		private bool IsUnitDeadBJ() {//function IsUnitDeadBJ takes unit whichUnit returns boolean
+		private bool IsUnitDeadBJ(int whichUnit) {//function IsUnitDeadBJ takes unit whichUnit returns boolean
 			return GetUnitState(whichUnit, UNIT_STATE_LIFE) <= 0;//return GetUnitState(whichUnit, UNIT_STATE_LIFE) <= 0
 		}//endfunction
 		//
-		private bool IsUnitAliveBJ() {//function IsUnitAliveBJ takes unit whichUnit returns boolean
+		private bool IsUnitAliveBJ(int whichUnit) {//function IsUnitAliveBJ takes unit whichUnit returns boolean
 			return not IsUnitDeadBJ(whichUnit);//return not IsUnitDeadBJ(whichUnit)
 		}//endfunction
 		//
@@ -2251,7 +2251,7 @@ namespace Jass {
 		//
 		//
 		//
-		private bool IsUnitGroupDeadBJ() {//function IsUnitGroupDeadBJ takes group g returns boolean
+		private bool IsUnitGroupDeadBJ(group g) {//function IsUnitGroupDeadBJ takes group g returns boolean
 			//
 			//
 			bool wantDestroy = bj_wantDestroyGroup;//local boolean wantDestroy = bj_wantDestroyGroup
@@ -2271,7 +2271,7 @@ namespace Jass {
 		//
 		//
 		//
-		private bool IsUnitGroupEmptyBJ() {//function IsUnitGroupEmptyBJ takes group g returns boolean
+		private bool IsUnitGroupEmptyBJ(group g) {//function IsUnitGroupEmptyBJ takes group g returns boolean
 			//
 			//
 			bool wantDestroy = bj_wantDestroyGroup;//local boolean wantDestroy = bj_wantDestroyGroup
@@ -2300,15 +2300,15 @@ namespace Jass {
 			return bj_isUnitGroupInRectResult;//return bj_isUnitGroupInRectResult
 		}//endfunction
 		//
-		private bool IsUnitHiddenBJ() {//function IsUnitHiddenBJ takes unit whichUnit returns boolean
+		private bool IsUnitHiddenBJ(int whichUnit) {//function IsUnitHiddenBJ takes unit whichUnit returns boolean
 			return IsUnitHidden(whichUnit);//return IsUnitHidden(whichUnit)
 		}//endfunction
 		//
-		private void ShowUnitHide() {//function ShowUnitHide takes unit whichUnit returns nothing
+		private void ShowUnitHide(int whichUnit) {//function ShowUnitHide takes unit whichUnit returns nothing
 			ShowUnit(whichUnit, false);//call ShowUnit(whichUnit, false)
 		}//endfunction
 		//
-		private void ShowUnitShow() {//function ShowUnitShow takes unit whichUnit returns nothing
+		private void ShowUnitShow(int whichUnit) {//function ShowUnitShow takes unit whichUnit returns nothing
 			//
 			if ((IsUnitType(whichUnit, UNIT_TYPE_HERO) && IsUnitDeadBJ(whichUnit))) {//if (IsUnitType(whichUnit, UNIT_TYPE_HERO) and IsUnitDeadBJ(whichUnit)) then
 				return;//return
@@ -2360,16 +2360,16 @@ namespace Jass {
 			return GetTriggerUnit();//return GetTriggerUnit()
 		}//endfunction
 		//
-		private void SetUnitFlyHeightBJ(int whichUnit, real newHeight, real rate) {//function SetUnitFlyHeightBJ takes unit whichUnit, real newHeight, real rate returns nothing
+		private void SetUnitFlyHeightBJ(int whichUnit, float newHeight, float rate) {//function SetUnitFlyHeightBJ takes unit whichUnit, real newHeight, real rate returns nothing
 			SetUnitFlyHeight(whichUnit, newHeight, rate);//call SetUnitFlyHeight(whichUnit, newHeight, rate)
 		}//endfunction
 		//
-		private void SetUnitTurnSpeedBJ(int whichUnit, real turnSpeed) {//function SetUnitTurnSpeedBJ takes unit whichUnit, real turnSpeed returns nothing
+		private void SetUnitTurnSpeedBJ(int whichUnit, float turnSpeed) {//function SetUnitTurnSpeedBJ takes unit whichUnit, real turnSpeed returns nothing
 			SetUnitTurnSpeed(whichUnit, turnSpeed);//call SetUnitTurnSpeed(whichUnit, turnSpeed)
 		}//endfunction
 		//
-		private void SetUnitPropWindowBJ(int whichUnit, real propWindow) {//function SetUnitPropWindowBJ takes unit whichUnit, real propWindow returns nothing
-			real angle = propWindow;//local real angle = propWindow
+		private void SetUnitPropWindowBJ(int whichUnit, float propWindow) {//function SetUnitPropWindowBJ takes unit whichUnit, real propWindow returns nothing
+			float angle = propWindow;//local real angle = propWindow
 			if ((angle <= 0)) {//if (angle <= 0) then
 				angle = 1;//set angle = 1
 			} else if ((angle >= 360)) {//elseif (angle >= 360) then
@@ -2379,19 +2379,19 @@ namespace Jass {
 			SetUnitPropWindow(whichUnit, angle);//call SetUnitPropWindow(whichUnit, angle)
 		}//endfunction
 		//
-		private real GetUnitPropWindowBJ() {//function GetUnitPropWindowBJ takes unit whichUnit returns real
+		private float GetUnitPropWindowBJ(int whichUnit) {//function GetUnitPropWindowBJ takes unit whichUnit returns real
 			return GetUnitPropWindow(whichUnit) * bj_RADTODEG;//return GetUnitPropWindow(whichUnit) * bj_RADTODEG
 		}//endfunction
 		//
-		private real GetUnitDefaultPropWindowBJ() {//function GetUnitDefaultPropWindowBJ takes unit whichUnit returns real
+		private float GetUnitDefaultPropWindowBJ(int whichUnit) {//function GetUnitDefaultPropWindowBJ takes unit whichUnit returns real
 			return GetUnitDefaultPropWindow(whichUnit);//return GetUnitDefaultPropWindow(whichUnit)
 		}//endfunction
 		//
-		private void SetUnitBlendTimeBJ(int whichUnit, real blendTime) {//function SetUnitBlendTimeBJ takes unit whichUnit, real blendTime returns nothing
+		private void SetUnitBlendTimeBJ(int whichUnit, float blendTime) {//function SetUnitBlendTimeBJ takes unit whichUnit, real blendTime returns nothing
 			SetUnitBlendTime(whichUnit, blendTime);//call SetUnitBlendTime(whichUnit, blendTime)
 		}//endfunction
 		//
-		private void SetUnitAcquireRangeBJ(int whichUnit, real acquireRange) {//function SetUnitAcquireRangeBJ takes unit whichUnit, real acquireRange returns nothing
+		private void SetUnitAcquireRangeBJ(int whichUnit, float acquireRange) {//function SetUnitAcquireRangeBJ takes unit whichUnit, real acquireRange returns nothing
 			SetUnitAcquireRange(whichUnit, acquireRange);//call SetUnitAcquireRange(whichUnit, acquireRange)
 		}//endfunction
 		//
@@ -2399,15 +2399,15 @@ namespace Jass {
 			UnitAddSleep(whichUnit, canSleep);//call UnitAddSleep(whichUnit, canSleep)
 		}//endfunction
 		//
-		private bool UnitCanSleepBJ() {//function UnitCanSleepBJ takes unit whichUnit returns boolean
+		private bool UnitCanSleepBJ(int whichUnit) {//function UnitCanSleepBJ takes unit whichUnit returns boolean
 			return UnitCanSleep(whichUnit);//return UnitCanSleep(whichUnit)
 		}//endfunction
 		//
-		private void UnitWakeUpBJ() {//function UnitWakeUpBJ takes unit whichUnit returns nothing
+		private void UnitWakeUpBJ(int whichUnit) {//function UnitWakeUpBJ takes unit whichUnit returns nothing
 			UnitWakeUp(whichUnit);//call UnitWakeUp(whichUnit)
 		}//endfunction
 		//
-		private bool UnitIsSleepingBJ() {//function UnitIsSleepingBJ takes unit whichUnit returns boolean
+		private bool UnitIsSleepingBJ(int whichUnit) {//function UnitIsSleepingBJ takes unit whichUnit returns boolean
 			return UnitIsSleeping(whichUnit);//return UnitIsSleeping(whichUnit)
 		}//endfunction
 		//
@@ -2415,14 +2415,14 @@ namespace Jass {
 			UnitWakeUp(GetEnumUnit());//call UnitWakeUp(GetEnumUnit())
 		}//endfunction
 		//
-		private void WakePlayerUnits() {//function WakePlayerUnits takes player whichPlayer returns nothing
+		private void WakePlayerUnits(player whichPlayer) {//function WakePlayerUnits takes player whichPlayer returns nothing
 			group g = CreateGroup();//local group g = CreateGroup()
 			GroupEnumUnitsOfPlayer(g, whichPlayer, null);//call GroupEnumUnitsOfPlayer(g, whichPlayer, null)
 			ForGroup(g, function WakePlayerUnitsEnum);//call ForGroup(g, function WakePlayerUnitsEnum)
 			DestroyGroup(g);//call DestroyGroup(g)
 		}//endfunction
 		//
-		private void EnableCreepSleepBJ() {//function EnableCreepSleepBJ takes boolean enable returns nothing
+		private void EnableCreepSleepBJ(bool enable) {//function EnableCreepSleepBJ takes boolean enable returns nothing
 			SetPlayerState(Player(PLAYER_NEUTRAL_AGGRESSIVE), PLAYER_STATE_NO_CREEP_SLEEP, IntegerTertiaryOp(enable, 0, 1));//call SetPlayerState(Player(PLAYER_NEUTRAL_AGGRESSIVE), PLAYER_STATE_NO_CREEP_SLEEP, IntegerTertiaryOp(enable, 0, 1))
 			//
 			if ((!enable)) {//if (not enable) then
@@ -2434,7 +2434,7 @@ namespace Jass {
 			return UnitIgnoreAlarm(whichUnit, not generate);//return UnitIgnoreAlarm(whichUnit, not generate)
 		}//endfunction
 		//
-		private bool DoesUnitGenerateAlarms() {//function DoesUnitGenerateAlarms takes unit whichUnit returns boolean
+		private bool DoesUnitGenerateAlarms(int whichUnit) {//function DoesUnitGenerateAlarms takes unit whichUnit returns boolean
 			return not UnitIgnoreAlarmToggled(whichUnit);//return not UnitIgnoreAlarmToggled(whichUnit)
 		}//endfunction
 		//
@@ -2443,7 +2443,7 @@ namespace Jass {
 		}//endfunction
 		//
 		//
-		private void PauseAllUnitsBJ() {//function PauseAllUnitsBJ takes boolean pause returns nothing
+		private void PauseAllUnitsBJ(bool pause) {//function PauseAllUnitsBJ takes boolean pause returns nothing
 			int index;//local integer index
 			player indexPlayer;//local player  indexPlayer
 			group g;//local group   g
@@ -2470,7 +2470,7 @@ namespace Jass {
 			PauseUnit(whichUnit, pause);//call PauseUnit(whichUnit, pause)
 		}//endfunction
 		//
-		private bool IsUnitPausedBJ() {//function IsUnitPausedBJ takes unit whichUnit returns boolean
+		private bool IsUnitPausedBJ(int whichUnit) {//function IsUnitPausedBJ takes unit whichUnit returns boolean
 			return IsUnitPaused(whichUnit);//return IsUnitPaused(whichUnit)
 		}//endfunction
 		//
@@ -2478,7 +2478,7 @@ namespace Jass {
 			UnitPauseTimedLife(whichUnit, flag);//call UnitPauseTimedLife(whichUnit, flag)
 		}//endfunction
 		//
-		private void UnitApplyTimedLifeBJ(real duration, int buffId, int whichUnit) {//function UnitApplyTimedLifeBJ takes real duration, integer buffId, unit whichUnit returns nothing
+		private void UnitApplyTimedLifeBJ(float duration, int buffId, int whichUnit) {//function UnitApplyTimedLifeBJ takes real duration, integer buffId, unit whichUnit returns nothing
 			UnitApplyTimedLife(whichUnit, buffId, duration);//call UnitApplyTimedLife(whichUnit, buffId, duration)
 		}//endfunction
 		//
@@ -2540,7 +2540,7 @@ namespace Jass {
 			SetUnitExploded(whichUnit, exploded);//call SetUnitExploded(whichUnit, exploded)
 		}//endfunction
 		//
-		private void ExplodeUnitBJ() {//function ExplodeUnitBJ takes unit whichUnit returns nothing
+		private void ExplodeUnitBJ(int whichUnit) {//function ExplodeUnitBJ takes unit whichUnit returns nothing
 			SetUnitExploded(whichUnit, true);//call SetUnitExploded(whichUnit, true)
 			KillUnit(whichUnit);//call KillUnit(whichUnit)
 		}//endfunction
@@ -2557,11 +2557,11 @@ namespace Jass {
 			return IsUnitInTransport(whichUnit, whichTransport);//return IsUnitInTransport(whichUnit, whichTransport)
 		}//endfunction
 		//
-		private bool IsUnitLoadedBJ() {//function IsUnitLoadedBJ takes unit whichUnit returns boolean
+		private bool IsUnitLoadedBJ(int whichUnit) {//function IsUnitLoadedBJ takes unit whichUnit returns boolean
 			return IsUnitLoaded(whichUnit);//return IsUnitLoaded(whichUnit)
 		}//endfunction
 		//
-		private bool IsUnitIllusionBJ() {//function IsUnitIllusionBJ takes unit whichUnit returns boolean
+		private bool IsUnitIllusionBJ(int whichUnit) {//function IsUnitIllusionBJ takes unit whichUnit returns boolean
 			return IsUnitIllusion(whichUnit);//return IsUnitIllusion(whichUnit)
 		}//endfunction
 		//
@@ -2574,7 +2574,7 @@ namespace Jass {
 			bool wasHidden;//local boolean wasHidden
 			int index;//local integer index
 			item indexItem;//local item    indexItem
-			real oldRatio;//local real    oldRatio
+			float oldRatio;//local real    oldRatio
 			//
 			if ((oldUnit == null)) {//if (oldUnit == null) then
 				bj_lastReplacedUnit = oldUnit;//set bj_lastReplacedUnit = oldUnit
@@ -2650,7 +2650,7 @@ namespace Jass {
 			return bj_lastReplacedUnit;//return bj_lastReplacedUnit
 		}//endfunction
 		//
-		private void SetUnitPositionLocFacingBJ(int whichUnit, location loc, real facing) {//function SetUnitPositionLocFacingBJ takes unit whichUnit, location loc, real facing returns nothing
+		private void SetUnitPositionLocFacingBJ(int whichUnit, location loc, float facing) {//function SetUnitPositionLocFacingBJ takes unit whichUnit, location loc, real facing returns nothing
 			SetUnitPositionLoc(whichUnit, loc);//call SetUnitPositionLoc(whichUnit, loc)
 			SetUnitFacing(whichUnit, facing);//call SetUnitFacing(whichUnit, facing)
 		}//endfunction
@@ -2680,11 +2680,11 @@ namespace Jass {
 			SetUnitUseFood(whichUnit, enable);//call SetUnitUseFood(whichUnit, enable)
 		}//endfunction
 		//
-		private bool UnitDamagePointLoc(int whichUnit, real delay, real radius, location loc, real amount, attacktype whichAttack, damagetype whichDamage) {//function UnitDamagePointLoc takes unit whichUnit, real delay, real radius, location loc, real amount, attacktype whichAttack, damagetype whichDamage returns boolean
+		private bool UnitDamagePointLoc(int whichUnit, float delay, float radius, location loc, float amount, attacktype whichAttack, damagetype whichDamage) {//function UnitDamagePointLoc takes unit whichUnit, real delay, real radius, location loc, real amount, attacktype whichAttack, damagetype whichDamage returns boolean
 			return UnitDamagePoint(whichUnit, delay, radius, GetLocationX(loc), GetLocationY(loc), amount, true, false, whichAttack, whichDamage, WEAPON_TYPE_WHOKNOWS);//return UnitDamagePoint(whichUnit, delay, radius, GetLocationX(loc), GetLocationY(loc), amount, true, false, whichAttack, whichDamage, WEAPON_TYPE_WHOKNOWS)
 		}//endfunction
 		//
-		private bool UnitDamageTargetBJ(int whichUnit, int target, real amount, attacktype whichAttack, damagetype whichDamage) {//function UnitDamageTargetBJ takes unit whichUnit, unit target, real amount, attacktype whichAttack, damagetype whichDamage returns boolean
+		private bool UnitDamageTargetBJ(int whichUnit, int target, float amount, attacktype whichAttack, damagetype whichDamage) {//function UnitDamageTargetBJ takes unit whichUnit, unit target, real amount, attacktype whichAttack, damagetype whichDamage returns boolean
 			return UnitDamageTarget(whichUnit, target, amount, true, false, whichAttack, whichDamage, WEAPON_TYPE_WHOKNOWS);//return UnitDamageTarget(whichUnit, target, amount, true, false, whichAttack, whichDamage, WEAPON_TYPE_WHOKNOWS)
 		}//endfunction
 		//
@@ -2693,12 +2693,12 @@ namespace Jass {
 		//
 		//
 		//
-		private destructable CreateDestructableLoc(int objectid, location loc, real facing, real scale, int variation) {//function CreateDestructableLoc takes integer objectid, location loc, real facing, real scale, integer variation returns destructable
+		private destructable CreateDestructableLoc(int objectid, location loc, float facing, float scale, int variation) {//function CreateDestructableLoc takes integer objectid, location loc, real facing, real scale, integer variation returns destructable
 			bj_lastCreatedDestructable = CreateDestructable(objectid, GetLocationX(loc), GetLocationY(loc), facing, scale, variation);//set bj_lastCreatedDestructable = CreateDestructable(objectid, GetLocationX(loc), GetLocationY(loc), facing, scale, variation)
 			return bj_lastCreatedDestructable;//return bj_lastCreatedDestructable
 		}//endfunction
 		//
-		private destructable CreateDeadDestructableLocBJ(int objectid, location loc, real facing, real scale, int variation) {//function CreateDeadDestructableLocBJ takes integer objectid, location loc, real facing, real scale, integer variation returns destructable
+		private destructable CreateDeadDestructableLocBJ(int objectid, location loc, float facing, float scale, int variation) {//function CreateDeadDestructableLocBJ takes integer objectid, location loc, real facing, real scale, integer variation returns destructable
 			bj_lastCreatedDestructable = CreateDeadDestructable(objectid, GetLocationX(loc), GetLocationY(loc), facing, scale, variation);//set bj_lastCreatedDestructable = CreateDeadDestructable(objectid, GetLocationX(loc), GetLocationY(loc), facing, scale, variation)
 			return bj_lastCreatedDestructable;//return bj_lastCreatedDestructable
 		}//endfunction
@@ -2715,11 +2715,11 @@ namespace Jass {
 			SetDestructableInvulnerable(d, flag);//call SetDestructableInvulnerable(d, flag)
 		}//endfunction
 		//
-		private bool IsDestructableInvulnerableBJ() {//function IsDestructableInvulnerableBJ takes destructable d returns boolean
+		private bool IsDestructableInvulnerableBJ(destructable d) {//function IsDestructableInvulnerableBJ takes destructable d returns boolean
 			return IsDestructableInvulnerable(d);//return IsDestructableInvulnerable(d)
 		}//endfunction
 		//
-		private location GetDestructableLoc() {//function GetDestructableLoc takes destructable whichDestructable returns location
+		private location GetDestructableLoc(destructable whichDestructable) {//function GetDestructableLoc takes destructable whichDestructable returns location
 			return Location(GetDestructableX(whichDestructable), GetDestructableY(whichDestructable));//return Location(GetDestructableX(whichDestructable), GetDestructableY(whichDestructable))
 		}//endfunction
 		//
@@ -2735,11 +2735,11 @@ namespace Jass {
 			return result;//return result
 		}//endfunction
 		//
-		private bool IsDestructableDeadBJ() {//function IsDestructableDeadBJ takes destructable d returns boolean
+		private bool IsDestructableDeadBJ(destructable d) {//function IsDestructableDeadBJ takes destructable d returns boolean
 			return GetDestructableLife(d) <= 0;//return GetDestructableLife(d) <= 0
 		}//endfunction
 		//
-		private bool IsDestructableAliveBJ() {//function IsDestructableAliveBJ takes destructable d returns boolean
+		private bool IsDestructableAliveBJ(destructable d) {//function IsDestructableAliveBJ takes destructable d returns boolean
 			return not IsDestructableDeadBJ(d);//return not IsDestructableDeadBJ(d)
 		}//endfunction
 		//
@@ -2764,14 +2764,14 @@ namespace Jass {
 		//
 		//
 		//
-		private destructable RandomDestructableInRectSimpleBJ() {//function RandomDestructableInRectSimpleBJ takes rect r returns destructable
+		private destructable RandomDestructableInRectSimpleBJ(rect r) {//function RandomDestructableInRectSimpleBJ takes rect r returns destructable
 			return RandomDestructableInRectBJ(r, null);//return RandomDestructableInRectBJ(r, null)
 		}//endfunction
 		//
 		//
 		//
 		//
-		private void EnumDestructablesInCircleBJ(real radius, location loc, code actionFunc) {//function EnumDestructablesInCircleBJ takes real radius, location loc, code actionFunc returns nothing
+		private void EnumDestructablesInCircleBJ(float radius, location loc, code actionFunc) {//function EnumDestructablesInCircleBJ takes real radius, location loc, code actionFunc returns nothing
 			rect r;//local rect r
 			if ((radius >= 0)) {//if (radius >= 0) then
 				bj_enumDestructableCenter = loc;//set bj_enumDestructableCenter = loc
@@ -2782,11 +2782,11 @@ namespace Jass {
 			}//endif
 		}//endfunction
 		//
-		private void SetDestructableLifePercentBJ(destructable d, real percent) {//function SetDestructableLifePercentBJ takes destructable d, real percent returns nothing
+		private void SetDestructableLifePercentBJ(destructable d, float percent) {//function SetDestructableLifePercentBJ takes destructable d, real percent returns nothing
 			SetDestructableLife(d, GetDestructableMaxLife(d) * percent * 0.01);//call SetDestructableLife(d, GetDestructableMaxLife(d) * percent * 0.01)
 		}//endfunction
 		//
-		private void SetDestructableMaxLifeBJ(destructable d, real max) {//function SetDestructableMaxLifeBJ takes destructable d, real max returns nothing
+		private void SetDestructableMaxLifeBJ(destructable d, float max) {//function SetDestructableMaxLifeBJ takes destructable d, real max returns nothing
 			SetDestructableMaxLife(d, max);//call SetDestructableMaxLife(d, max)
 		}//endfunction
 		//
@@ -2813,7 +2813,7 @@ namespace Jass {
 		//
 		//
 		//
-		private int GetElevatorHeight() {//function GetElevatorHeight takes destructable d returns integer
+		private int GetElevatorHeight(destructable d) {//function GetElevatorHeight takes destructable d returns integer
 			int height;//local integer height
 			height = 1 + R2I(GetDestructableOccluderHeight(d) / bj_CLIFFHEIGHT);//set height = 1 + R2I(GetDestructableOccluderHeight(d) / bj_CLIFFHEIGHT)
 			if ((height < 1) || (height > 3)) {//if (height < 1) or (height > 3) then
@@ -2891,7 +2891,7 @@ namespace Jass {
 		//
 		//
 		//
-		private void NudgeObjectsInRect() {//function NudgeObjectsInRect takes rect nudgeArea returns nothing
+		private void NudgeObjectsInRect(rect nudgeArea) {//function NudgeObjectsInRect takes rect nudgeArea returns nothing
 			group g;//local group        g
 			g = CreateGroup();//set g = CreateGroup()
 			GroupEnumUnitsInRect(g, nudgeArea, null);//call GroupEnumUnitsInRect(g, nudgeArea, null)
@@ -2908,8 +2908,8 @@ namespace Jass {
 			}//endif
 		}//endfunction
 		//
-		private bool NearbyElevatorExists(real x, real y) {//function NearbyElevatorExists takes real x, real y returns boolean
-			real findThreshold = 32;//local real findThreshold = 32
+		private bool NearbyElevatorExists(float x, float y) {//function NearbyElevatorExists takes real x, real y returns boolean
+			float findThreshold = 32;//local real findThreshold = 32
 			rect r;//local rect r
 			//
 			r = Rect(x - findThreshold, y - findThreshold, x + findThreshold, y + findThreshold);//set r = Rect(x - findThreshold, y - findThreshold, x + findThreshold, y + findThreshold)
@@ -2927,11 +2927,11 @@ namespace Jass {
 		//
 		//
 		//
-		private void ChangeElevatorWallBlocker(real x, real y, real facing, bool open) {//function ChangeElevatorWallBlocker takes real x, real y, real facing, boolean open returns nothing
+		private void ChangeElevatorWallBlocker(float x, float y, float facing, bool open) {//function ChangeElevatorWallBlocker takes real x, real y, real facing, boolean open returns nothing
 			destructable blocker = null;//local destructable blocker = null
-			real findThreshold = 32;//local real         findThreshold = 32
-			real nudgeLength = 4.25 * bj_CELLWIDTH;//local real         nudgeLength   = 4.25 * bj_CELLWIDTH
-			real nudgeWidth = 1.25 * bj_CELLWIDTH;//local real         nudgeWidth    = 1.25 * bj_CELLWIDTH
+			float findThreshold = 32;//local real         findThreshold = 32
+			float nudgeLength = 4.25 * bj_CELLWIDTH;//local real         nudgeLength   = 4.25 * bj_CELLWIDTH
+			float nudgeWidth = 1.25 * bj_CELLWIDTH;//local real         nudgeWidth    = 1.25 * bj_CELLWIDTH
 			rect r;//local rect         r
 			//
 			r = Rect(x - findThreshold, y - findThreshold, x + findThreshold, y + findThreshold);//set r = Rect(x - findThreshold, y - findThreshold, x + findThreshold, y + findThreshold)
@@ -2974,10 +2974,10 @@ namespace Jass {
 		}//endfunction
 		//
 		private void ChangeElevatorWalls(bool open, int walls, destructable d) {//function ChangeElevatorWalls takes boolean open, integer walls, destructable d returns nothing
-			real x = GetDestructableX(d);//local real x = GetDestructableX(d)
-			real y = GetDestructableY(d);//local real y = GetDestructableY(d)
-			real distToBlocker = 192;//local real distToBlocker = 192
-			real distToNeighbor = 256;//local real distToNeighbor = 256
+			float x = GetDestructableX(d);//local real x = GetDestructableX(d)
+			float y = GetDestructableY(d);//local real y = GetDestructableY(d)
+			float distToBlocker = 192;//local real distToBlocker = 192
+			float distToNeighbor = 256;//local real distToNeighbor = 256
 			if ((walls == bj_ELEVATOR_WALL_TYPE_ALL) || (walls == bj_ELEVATOR_WALL_TYPE_EAST)) {//if (walls == bj_ELEVATOR_WALL_TYPE_ALL) or (walls == bj_ELEVATOR_WALL_TYPE_EAST) then
 				if ((!NearbyElevatorExists(x + distToNeighbor, y))) {//if (not NearbyElevatorExists(x + distToNeighbor, y)) then
 					ChangeElevatorWallBlocker(x + distToBlocker, y, 0, open);//call ChangeElevatorWallBlocker(x + distToBlocker, y, 0, open)
@@ -3009,7 +3009,7 @@ namespace Jass {
 			WaygateActivate(waygate, activate);//call WaygateActivate(waygate, activate)
 		}//endfunction
 		//
-		private bool WaygateIsActiveBJ() {//function WaygateIsActiveBJ takes unit waygate returns boolean
+		private bool WaygateIsActiveBJ(int waygate) {//function WaygateIsActiveBJ takes unit waygate returns boolean
 			return WaygateIsActive(waygate);//return WaygateIsActive(waygate)
 		}//endfunction
 		//
@@ -3017,7 +3017,7 @@ namespace Jass {
 			WaygateSetDestination(waygate, GetLocationX(loc), GetLocationY(loc));//call WaygateSetDestination(waygate, GetLocationX(loc), GetLocationY(loc))
 		}//endfunction
 		//
-		private location WaygateGetDestinationLocBJ() {//function WaygateGetDestinationLocBJ takes unit waygate returns location
+		private location WaygateGetDestinationLocBJ(int waygate) {//function WaygateGetDestinationLocBJ takes unit waygate returns location
 			return Location(WaygateGetDestinationX(waygate), WaygateGetDestinationY(waygate));//return Location(WaygateGetDestinationX(waygate), WaygateGetDestinationY(waygate))
 		}//endfunction
 		//
@@ -3037,7 +3037,7 @@ namespace Jass {
 			}//endif
 		}//endfunction
 		//
-		private void ForceUICancelBJ() {//function ForceUICancelBJ takes player whichPlayer returns nothing
+		private void ForceUICancelBJ(player whichPlayer) {//function ForceUICancelBJ takes player whichPlayer returns nothing
 			if ((GetLocalPlayer() == whichPlayer)) {//if (GetLocalPlayer() == whichPlayer) then
 				//
 				ForceUICancel();//call ForceUICancel()
@@ -3126,7 +3126,7 @@ namespace Jass {
 		//
 		//
 		//
-		private int GroupPickRandomUnit() {//function GroupPickRandomUnit takes group whichGroup returns unit
+		private int GroupPickRandomUnit(group whichGroup) {//function GroupPickRandomUnit takes group whichGroup returns unit
 			//
 			//
 			bool wantDestroy = bj_wantDestroyGroup;//local boolean wantDestroy = bj_wantDestroyGroup
@@ -3152,7 +3152,7 @@ namespace Jass {
 		//
 		//
 		//
-		private player ForcePickRandomPlayer() {//function ForcePickRandomPlayer takes force whichForce returns player
+		private player ForcePickRandomPlayer(force whichForce) {//function ForcePickRandomPlayer takes force whichForce returns player
 			bj_forceRandomConsidered = 0;//set bj_forceRandomConsidered = 0
 			bj_forceRandomCurrentPick = null;//set bj_forceRandomCurrentPick = null
 			ForForce(whichForce, function ForcePickRandomPlayerEnum);//call ForForce(whichForce, function ForcePickRandomPlayerEnum)
@@ -3175,7 +3175,7 @@ namespace Jass {
 			return g;//return g
 		}//endfunction
 		//
-		private group GetUnitsInRectAll() {//function GetUnitsInRectAll takes rect r returns group
+		private group GetUnitsInRectAll(rect r) {//function GetUnitsInRectAll takes rect r returns group
 			return GetUnitsInRectMatching(r, null);//return GetUnitsInRectMatching(r, null)
 		}//endfunction
 		//
@@ -3190,14 +3190,14 @@ namespace Jass {
 			return g;//return g
 		}//endfunction
 		//
-		private group GetUnitsInRangeOfLocMatching(real radius, location whichLocation, boolexpr filter) {//function GetUnitsInRangeOfLocMatching takes real radius, location whichLocation, boolexpr filter returns group
+		private group GetUnitsInRangeOfLocMatching(float radius, location whichLocation, boolexpr filter) {//function GetUnitsInRangeOfLocMatching takes real radius, location whichLocation, boolexpr filter returns group
 			group g = CreateGroup();//local group g = CreateGroup()
 			GroupEnumUnitsInRangeOfLoc(g, whichLocation, radius, filter);//call GroupEnumUnitsInRangeOfLoc(g, whichLocation, radius, filter)
 			DestroyBoolExpr(filter);//call DestroyBoolExpr(filter)
 			return g;//return g
 		}//endfunction
 		//
-		private group GetUnitsInRangeOfLocAll(real radius, location whichLocation) {//function GetUnitsInRangeOfLocAll takes real radius, location whichLocation returns group
+		private group GetUnitsInRangeOfLocAll(float radius, location whichLocation) {//function GetUnitsInRangeOfLocAll takes real radius, location whichLocation returns group
 			return GetUnitsInRangeOfLocMatching(radius, whichLocation, null);//return GetUnitsInRangeOfLocMatching(radius, whichLocation, null)
 		}//endfunction
 		//
@@ -3205,7 +3205,7 @@ namespace Jass {
 			return GetUnitTypeId(GetFilterUnit()) == bj_groupEnumTypeId;//return GetUnitTypeId(GetFilterUnit()) == bj_groupEnumTypeId
 		}//endfunction
 		//
-		private group GetUnitsOfTypeIdAll() {//function GetUnitsOfTypeIdAll takes integer unitid returns group
+		private group GetUnitsOfTypeIdAll(int unitid) {//function GetUnitsOfTypeIdAll takes integer unitid returns group
 			group result = CreateGroup();//local group   result = CreateGroup()
 			group g = CreateGroup();//local group   g      = CreateGroup()
 			int index;//local integer index
@@ -3229,7 +3229,7 @@ namespace Jass {
 			return g;//return g
 		}//endfunction
 		//
-		private group GetUnitsOfPlayerAll() {//function GetUnitsOfPlayerAll takes player whichPlayer returns group
+		private group GetUnitsOfPlayerAll(player whichPlayer) {//function GetUnitsOfPlayerAll takes player whichPlayer returns group
 			return GetUnitsOfPlayerMatching(whichPlayer, null);//return GetUnitsOfPlayerMatching(whichPlayer, null)
 		}//endfunction
 		//
@@ -3244,14 +3244,14 @@ namespace Jass {
 			return g;//return g
 		}//endfunction
 		//
-		private group GetUnitsSelectedAll() {//function GetUnitsSelectedAll takes player whichPlayer returns group
+		private group GetUnitsSelectedAll(player whichPlayer) {//function GetUnitsSelectedAll takes player whichPlayer returns group
 			group g = CreateGroup();//local group g = CreateGroup()
 			SyncSelections();//call SyncSelections()
 			GroupEnumUnitsSelected(g, whichPlayer, null);//call GroupEnumUnitsSelected(g, whichPlayer, null)
 			return g;//return g
 		}//endfunction
 		//
-		private force GetForceOfPlayer() {//function GetForceOfPlayer takes player whichPlayer returns force
+		private force GetForceOfPlayer(player whichPlayer) {//function GetForceOfPlayer takes player whichPlayer returns force
 			force f = CreateForce();//local force f = CreateForce()
 			ForceAddPlayer(f, whichPlayer);//call ForceAddPlayer(f, whichPlayer)
 			return f;//return f
@@ -3261,7 +3261,7 @@ namespace Jass {
 			return bj_FORCE_ALL_PLAYERS;//return bj_FORCE_ALL_PLAYERS
 		}//endfunction
 		//
-		private force GetPlayersByMapControl() {//function GetPlayersByMapControl takes mapcontrol whichControl returns force
+		private force GetPlayersByMapControl(mapcontrol whichControl) {//function GetPlayersByMapControl takes mapcontrol whichControl returns force
 			force f = CreateForce();//local force f = CreateForce()
 			int playerIndex;//local integer playerIndex
 			player indexPlayer;//local player  indexPlayer
@@ -3277,19 +3277,19 @@ namespace Jass {
 			return f;//return f
 		}//endfunction
 		//
-		private force GetPlayersAllies() {//function GetPlayersAllies takes player whichPlayer returns force
+		private force GetPlayersAllies(player whichPlayer) {//function GetPlayersAllies takes player whichPlayer returns force
 			force f = CreateForce();//local force f = CreateForce()
 			ForceEnumAllies(f, whichPlayer, null);//call ForceEnumAllies(f, whichPlayer, null)
 			return f;//return f
 		}//endfunction
 		//
-		private force GetPlayersEnemies() {//function GetPlayersEnemies takes player whichPlayer returns force
+		private force GetPlayersEnemies(player whichPlayer) {//function GetPlayersEnemies takes player whichPlayer returns force
 			force f = CreateForce();//local force f = CreateForce()
 			ForceEnumEnemies(f, whichPlayer, null);//call ForceEnumEnemies(f, whichPlayer, null)
 			return f;//return f
 		}//endfunction
 		//
-		private force GetPlayersMatching() {//function GetPlayersMatching takes boolexpr filter returns force
+		private force GetPlayersMatching(boolexpr filter) {//function GetPlayersMatching takes boolexpr filter returns force
 			force f = CreateForce();//local force f = CreateForce()
 			ForceEnumPlayers(f, filter);//call ForceEnumPlayers(f, filter)
 			DestroyBoolExpr(filter);//call DestroyBoolExpr(filter)
@@ -3300,7 +3300,7 @@ namespace Jass {
 			bj_groupCountUnits = bj_groupCountUnits + 1;//set bj_groupCountUnits = bj_groupCountUnits + 1
 		}//endfunction
 		//
-		private int CountUnitsInGroup() {//function CountUnitsInGroup takes group g returns integer
+		private int CountUnitsInGroup(group g) {//function CountUnitsInGroup takes group g returns integer
 			//
 			//
 			bool wantDestroy = bj_wantDestroyGroup;//local boolean wantDestroy = bj_wantDestroyGroup
@@ -3318,7 +3318,7 @@ namespace Jass {
 			bj_forceCountPlayers = bj_forceCountPlayers + 1;//set bj_forceCountPlayers = bj_forceCountPlayers + 1
 		}//endfunction
 		//
-		private int CountPlayersInForceBJ() {//function CountPlayersInForceBJ takes force f returns integer
+		private int CountPlayersInForceBJ(force f) {//function CountPlayersInForceBJ takes force f returns integer
 			bj_forceCountPlayers = 0;//set bj_forceCountPlayers = 0
 			ForForce(f, function CountPlayersInForceEnum);//call ForForce(f, function CountPlayersInForceEnum)
 			return bj_forceCountPlayers;//return bj_forceCountPlayers
@@ -3369,15 +3369,15 @@ namespace Jass {
 		//
 		//
 		//
-		private void ResetUnitAnimation() {//function ResetUnitAnimation takes unit whichUnit returns nothing
+		private void ResetUnitAnimation(int whichUnit) {//function ResetUnitAnimation takes unit whichUnit returns nothing
 			SetUnitAnimation(whichUnit, "stand");//call SetUnitAnimation(whichUnit, "stand")
 		}//endfunction
 		//
-		private void SetUnitTimeScalePercent(int whichUnit, real percentScale) {//function SetUnitTimeScalePercent takes unit whichUnit, real percentScale returns nothing
+		private void SetUnitTimeScalePercent(int whichUnit, float percentScale) {//function SetUnitTimeScalePercent takes unit whichUnit, real percentScale returns nothing
 			SetUnitTimeScale(whichUnit, percentScale * 0.01);//call SetUnitTimeScale(whichUnit, percentScale * 0.01)
 		}//endfunction
 		//
-		private void SetUnitScalePercent(int whichUnit, real percentScaleX, real percentScaleY, real percentScaleZ) {//function SetUnitScalePercent takes unit whichUnit, real percentScaleX, real percentScaleY, real percentScaleZ returns nothing
+		private void SetUnitScalePercent(int whichUnit, float percentScaleX, float percentScaleY, float percentScaleZ) {//function SetUnitScalePercent takes unit whichUnit, real percentScaleX, real percentScaleY, real percentScaleZ returns nothing
 			SetUnitScale(whichUnit, percentScaleX * 0.01, percentScaleY * 0.01, percentScaleZ * 0.01);//call SetUnitScale(whichUnit, percentScaleX * 0.01, percentScaleY * 0.01, percentScaleZ * 0.01)
 		}//endfunction
 		//
@@ -3385,25 +3385,25 @@ namespace Jass {
 		//
 		//
 		//
-		private void SetUnitVertexColorBJ(int whichUnit, real red, real green, real blue, real transparency) {//function SetUnitVertexColorBJ takes unit whichUnit, real red, real green, real blue, real transparency returns nothing
+		private void SetUnitVertexColorBJ(int whichUnit, float red, float green, float blue, float transparency) {//function SetUnitVertexColorBJ takes unit whichUnit, real red, real green, real blue, real transparency returns nothing
 			SetUnitVertexColor(whichUnit, PercentTo255(red), PercentTo255(green), PercentTo255(blue), PercentTo255(100.0-transparency));//call SetUnitVertexColor(whichUnit, PercentTo255(red), PercentTo255(green), PercentTo255(blue), PercentTo255(100.0-transparency))
 		}//endfunction
 		//
-		private void UnitAddIndicatorBJ(int whichUnit, real red, real green, real blue, real transparency) {//function UnitAddIndicatorBJ takes unit whichUnit, real red, real green, real blue, real transparency returns nothing
+		private void UnitAddIndicatorBJ(int whichUnit, float red, float green, float blue, float transparency) {//function UnitAddIndicatorBJ takes unit whichUnit, real red, real green, real blue, real transparency returns nothing
 			AddIndicator(whichUnit, PercentTo255(red), PercentTo255(green), PercentTo255(blue), PercentTo255(100.0-transparency));//call AddIndicator(whichUnit, PercentTo255(red), PercentTo255(green), PercentTo255(blue), PercentTo255(100.0-transparency))
 		}//endfunction
 		//
-		private void DestructableAddIndicatorBJ(destructable whichDestructable, real red, real green, real blue, real transparency) {//function DestructableAddIndicatorBJ takes destructable whichDestructable, real red, real green, real blue, real transparency returns nothing
+		private void DestructableAddIndicatorBJ(destructable whichDestructable, float red, float green, float blue, float transparency) {//function DestructableAddIndicatorBJ takes destructable whichDestructable, real red, real green, real blue, real transparency returns nothing
 			AddIndicator(whichDestructable, PercentTo255(red), PercentTo255(green), PercentTo255(blue), PercentTo255(100.0-transparency));//call AddIndicator(whichDestructable, PercentTo255(red), PercentTo255(green), PercentTo255(blue), PercentTo255(100.0-transparency))
 		}//endfunction
 		//
-		private void ItemAddIndicatorBJ(item whichItem, real red, real green, real blue, real transparency) {//function ItemAddIndicatorBJ takes item whichItem, real red, real green, real blue, real transparency returns nothing
+		private void ItemAddIndicatorBJ(item whichItem, float red, float green, float blue, float transparency) {//function ItemAddIndicatorBJ takes item whichItem, real red, real green, real blue, real transparency returns nothing
 			AddIndicator(whichItem, PercentTo255(red), PercentTo255(green), PercentTo255(blue), PercentTo255(100.0-transparency));//call AddIndicator(whichItem, PercentTo255(red), PercentTo255(green), PercentTo255(blue), PercentTo255(100.0-transparency))
 		}//endfunction
 		//
 		//
 		//
-		private void SetUnitFacingToFaceLocTimed(int whichUnit, location target, real duration) {//function SetUnitFacingToFaceLocTimed takes unit whichUnit, location target, real duration returns nothing
+		private void SetUnitFacingToFaceLocTimed(int whichUnit, location target, float duration) {//function SetUnitFacingToFaceLocTimed takes unit whichUnit, location target, real duration returns nothing
 			location unitLoc = GetUnitLoc(whichUnit);//local location unitLoc = GetUnitLoc(whichUnit)
 			SetUnitFacingTimed(whichUnit, AngleBetweenPoints(unitLoc, target), duration);//call SetUnitFacingTimed(whichUnit, AngleBetweenPoints(unitLoc, target), duration)
 			RemoveLocation(unitLoc);//call RemoveLocation(unitLoc)
@@ -3411,7 +3411,7 @@ namespace Jass {
 		//
 		//
 		//
-		private void SetUnitFacingToFaceUnitTimed(int whichUnit, int target, real duration) {//function SetUnitFacingToFaceUnitTimed takes unit whichUnit, unit target, real duration returns nothing
+		private void SetUnitFacingToFaceUnitTimed(int whichUnit, int target, float duration) {//function SetUnitFacingToFaceUnitTimed takes unit whichUnit, unit target, real duration returns nothing
 			location unitLoc = GetUnitLoc(target);//local location unitLoc = GetUnitLoc(target)
 			SetUnitFacingToFaceLocTimed(whichUnit, unitLoc, duration);//call SetUnitFacingToFaceLocTimed(whichUnit, unitLoc, duration)
 			RemoveLocation(unitLoc);//call RemoveLocation(unitLoc)
@@ -3429,7 +3429,7 @@ namespace Jass {
 			QueueDestructableAnimation(d, whichAnimation);//call QueueDestructableAnimation(d, whichAnimation)
 		}//endfunction
 		//
-		private void SetDestAnimationSpeedPercent(destructable d, real percentScale) {//function SetDestAnimationSpeedPercent takes destructable d, real percentScale returns nothing
+		private void SetDestAnimationSpeedPercent(destructable d, float percentScale) {//function SetDestAnimationSpeedPercent takes destructable d, real percentScale returns nothing
 			SetDestructableAnimationSpeed(d, percentScale * 0.01);//call SetDestructableAnimationSpeed(d, percentScale * 0.01)
 		}//endfunction
 		//
@@ -3456,7 +3456,7 @@ namespace Jass {
 			return bj_lastCreatedButton;//return bj_lastCreatedButton
 		}//endfunction
 		//
-		private void DialogClearBJ() {//function DialogClearBJ takes dialog whichDialog returns nothing
+		private void DialogClearBJ(dialog whichDialog) {//function DialogClearBJ takes dialog whichDialog returns nothing
 			DialogClear(whichDialog);//call DialogClear(whichDialog)
 		}//endfunction
 		//
@@ -3607,7 +3607,7 @@ namespace Jass {
 		//
 		//
 		//
-		private void ShareEverythingWithTeamAI() {//function ShareEverythingWithTeamAI takes player whichPlayer returns nothing
+		private void ShareEverythingWithTeamAI(player whichPlayer) {//function ShareEverythingWithTeamAI takes player whichPlayer returns nothing
 			int playerIndex;//local integer playerIndex
 			player indexPlayer;//local player  indexPlayer
 			playerIndex = 0;//set playerIndex = 0
@@ -3627,7 +3627,7 @@ namespace Jass {
 		//
 		//
 		//
-		private void ShareEverythingWithTeam() {//function ShareEverythingWithTeam takes player whichPlayer returns nothing
+		private void ShareEverythingWithTeam(player whichPlayer) {//function ShareEverythingWithTeam takes player whichPlayer returns nothing
 			int playerIndex;//local integer playerIndex
 			player indexPlayer;//local player  indexPlayer
 			playerIndex = 0;//set playerIndex = 0
@@ -3673,7 +3673,7 @@ namespace Jass {
 		//
 		//
 		//
-		private void MakeUnitsPassiveForPlayer() {//function MakeUnitsPassiveForPlayer takes player whichPlayer returns nothing
+		private void MakeUnitsPassiveForPlayer(player whichPlayer) {//function MakeUnitsPassiveForPlayer takes player whichPlayer returns nothing
 			group playerUnits = CreateGroup();//local group   playerUnits = CreateGroup()
 			CachePlayerHeroData(whichPlayer);//call CachePlayerHeroData(whichPlayer)
 			GroupEnumUnitsOfPlayer(playerUnits, whichPlayer, null);//call GroupEnumUnitsOfPlayer(playerUnits, whichPlayer, null)
@@ -3683,7 +3683,7 @@ namespace Jass {
 		//
 		//
 		//
-		private void MakeUnitsPassiveForTeam() {//function MakeUnitsPassiveForTeam takes player whichPlayer returns nothing
+		private void MakeUnitsPassiveForTeam(player whichPlayer) {//function MakeUnitsPassiveForTeam takes player whichPlayer returns nothing
 			int playerIndex;//local integer playerIndex
 			player indexPlayer;//local player  indexPlayer
 			playerIndex = 0;//set playerIndex = 0
@@ -3699,7 +3699,7 @@ namespace Jass {
 		//
 		//
 		//
-		private bool AllowVictoryDefeat() {//function AllowVictoryDefeat takes playergameresult gameResult returns boolean
+		private bool AllowVictoryDefeat(playergameresult gameResult) {//function AllowVictoryDefeat takes playergameresult gameResult returns boolean
 			if ((gameResult == PLAYER_GAME_RESULT_VICTORY)) {//if (gameResult == PLAYER_GAME_RESULT_VICTORY) then
 				return not IsNoVictoryCheat();//return not IsNoVictoryCheat()
 			}//endif
@@ -3778,62 +3778,20 @@ namespace Jass {
 		private void RemovePlayerPreserveUnitsBJ(player whichPlayer, playergameresult gameResult, bool leftGame) {//function RemovePlayerPreserveUnitsBJ takes player whichPlayer, playergameresult gameResult, boolean leftGame returns nothing
 			if (AllowVictoryDefeat(gameResult)) {//if AllowVictoryDefeat(gameResult) then
 				RemovePlayer(whichPlayer, gameResult);//call RemovePlayer(whichPlayer, gameResult)
-				MeleeVictoryDialogBJ(whichPlayer, leftGame);//call MeleeVictoryDialogBJ( whichPlayer, leftGame )
-				return;//return
-				MeleeDefeatDialogBJ(whichPlayer, leftGame);//call MeleeDefeatDialogBJ( whichPlayer, leftGame )
-			} else {//else
-				GameOverDialogBJ(whichPlayer, leftGame);//call GameOverDialogBJ( whichPlayer, leftGame )
+				if (( gameResult == PLAYER_GAME_RESULT_VICTORY )) {//if( gameResult == PLAYER_GAME_RESULT_VICTORY ) then
+					MeleeVictoryDialogBJ(whichPlayer, leftGame);//call MeleeVictoryDialogBJ( whichPlayer, leftGame )
+					return;//return
+				} else if (( gameResult == PLAYER_GAME_RESULT_DEFEAT )) {//elseif( gameResult == PLAYER_GAME_RESULT_DEFEAT ) then
+					MeleeDefeatDialogBJ(whichPlayer, leftGame);//call MeleeDefeatDialogBJ( whichPlayer, leftGame )
+				} else {//else
+					GameOverDialogBJ(whichPlayer, leftGame);//call GameOverDialogBJ( whichPlayer, leftGame )
+				}//endif
 			}//endif
-		}//endif
-	}//endfunction
-	//
-	private void CustomVictoryOkBJ() {//function CustomVictoryOkBJ takes nothing returns nothing
-		if (bj_isSinglePlayer) {//if bj_isSinglePlayer then
-			PauseGame(false);//call PauseGame( false )
-			//
-			SetGameDifficulty(GetDefaultDifficulty());//call SetGameDifficulty(GetDefaultDifficulty())
-		}//endif
-		if ((bj_changeLevelMapName == null)) {//if (bj_changeLevelMapName == null) then
-			EndGame(bj_changeLevelShowScores);//call EndGame( bj_changeLevelShowScores )
-		} else {//else
-			ChangeLevel(bj_changeLevelMapName, bj_changeLevelShowScores);//call ChangeLevel( bj_changeLevelMapName, bj_changeLevelShowScores )
-		}//endif
-	}//endfunction
-	//
-	private void CustomVictoryQuitBJ() {//function CustomVictoryQuitBJ takes nothing returns nothing
-		if (bj_isSinglePlayer) {//if bj_isSinglePlayer then
-			PauseGame(false);//call PauseGame( false )
-			//
-			SetGameDifficulty(GetDefaultDifficulty());//call SetGameDifficulty(GetDefaultDifficulty())
-		}//endif
-		EndGame(bj_changeLevelShowScores);//call EndGame( bj_changeLevelShowScores )
-	}//endfunction
-	//
-	private void CustomVictoryDialogBJ() {//function CustomVictoryDialogBJ takes player whichPlayer returns nothing
-		trigger t = CreateTrigger();//local trigger t = CreateTrigger()
-		dialog d = DialogCreate();//local dialog  d = DialogCreate()
-		DialogSetMessage(d, GetLocalizedString( "GAMEOVER_VICTORY_MSG" ));//call DialogSetMessage( d, GetLocalizedString( "GAMEOVER_VICTORY_MSG" ) )
-		t = CreateTrigger();//set t = CreateTrigger()
-		TriggerRegisterDialogButtonEvent(t, DialogAddButton( d, GetLocalizedString( "GAMEOVER_CONTINUE" ), GetLocalizedHotkey("GAMEOVER_CONTINUE") ));//call TriggerRegisterDialogButtonEvent( t, DialogAddButton( d, GetLocalizedString( "GAMEOVER_CONTINUE" ), GetLocalizedHotkey("GAMEOVER_CONTINUE") ) )
-		TriggerAddAction(t, function CustomVictoryOkBJ);//call TriggerAddAction( t, function CustomVictoryOkBJ )
-		t = CreateTrigger();//set t = CreateTrigger()
-		TriggerRegisterDialogButtonEvent(t, DialogAddButton( d, GetLocalizedString( "GAMEOVER_QUIT_MISSION" ), GetLocalizedHotkey("GAMEOVER_QUIT_MISSION") ));//call TriggerRegisterDialogButtonEvent( t, DialogAddButton( d, GetLocalizedString( "GAMEOVER_QUIT_MISSION" ), GetLocalizedHotkey("GAMEOVER_QUIT_MISSION") ) )
-		TriggerAddAction(t, function CustomVictoryQuitBJ);//call TriggerAddAction( t, function CustomVictoryQuitBJ )
-		if ((GetLocalPlayer() == whichPlayer)) {//if (GetLocalPlayer() == whichPlayer) then
-			EnableUserControl(true);//call EnableUserControl( true )
+		}//endfunction
+		//
+		private void CustomVictoryOkBJ() {//function CustomVictoryOkBJ takes nothing returns nothing
 			if (bj_isSinglePlayer) {//if bj_isSinglePlayer then
-				PauseGame(true);//call PauseGame( true )
-			}//endif
-			EnableUserUI(false);//call EnableUserUI(false)
-		}//endif
-		DialogDisplay(whichPlayer, d, true);//call DialogDisplay( whichPlayer, d, true )
-		VolumeGroupSetVolumeForPlayerBJ(whichPlayer, SOUND_VOLUMEGROUP_UI, 1.0);//call VolumeGroupSetVolumeForPlayerBJ( whichPlayer, SOUND_VOLUMEGROUP_UI, 1.0 )
-		StartSoundForPlayerBJ(whichPlayer, bj_victoryDialogSound);//call StartSoundForPlayerBJ( whichPlayer, bj_victoryDialogSound )
-	}//endfunction
-	//
-	private void CustomVictorySkipBJ() {//function CustomVictorySkipBJ takes player whichPlayer returns nothing
-		if ((GetLocalPlayer() == whichPlayer)) {//if (GetLocalPlayer() == whichPlayer) then
-			if (bj_isSinglePlayer) {//if bj_isSinglePlayer then
+				PauseGame(false);//call PauseGame( false )
 				//
 				SetGameDifficulty(GetDefaultDifficulty());//call SetGameDifficulty(GetDefaultDifficulty())
 			}//endif
@@ -3842,3406 +3800,3330 @@ namespace Jass {
 			} else {//else
 				ChangeLevel(bj_changeLevelMapName, bj_changeLevelShowScores);//call ChangeLevel( bj_changeLevelMapName, bj_changeLevelShowScores )
 			}//endif
-		}//endif
-	}//endfunction
-	//
-	private void CustomVictoryBJ(player whichPlayer, bool showDialog, bool showScores) {//function CustomVictoryBJ takes player whichPlayer, boolean showDialog, boolean showScores returns nothing
-		if (AllowVictoryDefeat( PLAYER_GAME_RESULT_VICTORY )) {//if AllowVictoryDefeat( PLAYER_GAME_RESULT_VICTORY ) then
-			RemovePlayer(whichPlayer, PLAYER_GAME_RESULT_VICTORY);//call RemovePlayer( whichPlayer, PLAYER_GAME_RESULT_VICTORY )
-			if (!bj_isSinglePlayer) {//if not bj_isSinglePlayer then
-				DisplayTimedTextFromPlayer(whichPlayer, 0, 0, 60, GetLocalizedString( "PLAYER_VICTORIOUS" ));//call DisplayTimedTextFromPlayer(whichPlayer, 0, 0, 60, GetLocalizedString( "PLAYER_VICTORIOUS" ) )
+		}//endfunction
+		//
+		private void CustomVictoryQuitBJ() {//function CustomVictoryQuitBJ takes nothing returns nothing
+			if (bj_isSinglePlayer) {//if bj_isSinglePlayer then
+				PauseGame(false);//call PauseGame( false )
+				//
+				SetGameDifficulty(GetDefaultDifficulty());//call SetGameDifficulty(GetDefaultDifficulty())
 			}//endif
-			//
-			if ((GetPlayerController(whichPlayer) == MAP_CONTROL_USER)) {//if (GetPlayerController(whichPlayer) == MAP_CONTROL_USER) then
-				bj_changeLevelShowScores = showScores;//set bj_changeLevelShowScores = showScores
-				if (showDialog) {//if showDialog then
-					CustomVictoryDialogBJ(whichPlayer);//call CustomVictoryDialogBJ( whichPlayer )
+			EndGame(bj_changeLevelShowScores);//call EndGame( bj_changeLevelShowScores )
+		}//endfunction
+		//
+		private void CustomVictoryDialogBJ(player whichPlayer) {//function CustomVictoryDialogBJ takes player whichPlayer returns nothing
+			trigger t = CreateTrigger();//local trigger t = CreateTrigger()
+			dialog d = DialogCreate();//local dialog  d = DialogCreate()
+			DialogSetMessage(d, GetLocalizedString( "GAMEOVER_VICTORY_MSG" ));//call DialogSetMessage( d, GetLocalizedString( "GAMEOVER_VICTORY_MSG" ) )
+			t = CreateTrigger();//set t = CreateTrigger()
+			TriggerRegisterDialogButtonEvent(t, DialogAddButton( d, GetLocalizedString( "GAMEOVER_CONTINUE" ), GetLocalizedHotkey("GAMEOVER_CONTINUE") ));//call TriggerRegisterDialogButtonEvent( t, DialogAddButton( d, GetLocalizedString( "GAMEOVER_CONTINUE" ), GetLocalizedHotkey("GAMEOVER_CONTINUE") ) )
+			TriggerAddAction(t, function CustomVictoryOkBJ);//call TriggerAddAction( t, function CustomVictoryOkBJ )
+			t = CreateTrigger();//set t = CreateTrigger()
+			TriggerRegisterDialogButtonEvent(t, DialogAddButton( d, GetLocalizedString( "GAMEOVER_QUIT_MISSION" ), GetLocalizedHotkey("GAMEOVER_QUIT_MISSION") ));//call TriggerRegisterDialogButtonEvent( t, DialogAddButton( d, GetLocalizedString( "GAMEOVER_QUIT_MISSION" ), GetLocalizedHotkey("GAMEOVER_QUIT_MISSION") ) )
+			TriggerAddAction(t, function CustomVictoryQuitBJ);//call TriggerAddAction( t, function CustomVictoryQuitBJ )
+			if ((GetLocalPlayer() == whichPlayer)) {//if (GetLocalPlayer() == whichPlayer) then
+				EnableUserControl(true);//call EnableUserControl( true )
+				if (bj_isSinglePlayer) {//if bj_isSinglePlayer then
+					PauseGame(true);//call PauseGame( true )
+				}//endif
+				EnableUserUI(false);//call EnableUserUI(false)
+			}//endif
+			DialogDisplay(whichPlayer, d, true);//call DialogDisplay( whichPlayer, d, true )
+			VolumeGroupSetVolumeForPlayerBJ(whichPlayer, SOUND_VOLUMEGROUP_UI, 1.0);//call VolumeGroupSetVolumeForPlayerBJ( whichPlayer, SOUND_VOLUMEGROUP_UI, 1.0 )
+			StartSoundForPlayerBJ(whichPlayer, bj_victoryDialogSound);//call StartSoundForPlayerBJ( whichPlayer, bj_victoryDialogSound )
+		}//endfunction
+		//
+		private void CustomVictorySkipBJ(player whichPlayer) {//function CustomVictorySkipBJ takes player whichPlayer returns nothing
+			if ((GetLocalPlayer() == whichPlayer)) {//if (GetLocalPlayer() == whichPlayer) then
+				if (bj_isSinglePlayer) {//if bj_isSinglePlayer then
+					//
+					SetGameDifficulty(GetDefaultDifficulty());//call SetGameDifficulty(GetDefaultDifficulty())
+				}//endif
+				if ((bj_changeLevelMapName == null)) {//if (bj_changeLevelMapName == null) then
+					EndGame(bj_changeLevelShowScores);//call EndGame( bj_changeLevelShowScores )
 				} else {//else
-					CustomVictorySkipBJ(whichPlayer);//call CustomVictorySkipBJ( whichPlayer )
+					ChangeLevel(bj_changeLevelMapName, bj_changeLevelShowScores);//call ChangeLevel( bj_changeLevelMapName, bj_changeLevelShowScores )
 				}//endif
 			}//endif
-		}//endif
-	}//endfunction
-	//
-	private void CustomDefeatRestartBJ() {//function CustomDefeatRestartBJ takes nothing returns nothing
-		PauseGame(false);//call PauseGame( false )
-		RestartGame(true);//call RestartGame( true )
-	}//endfunction
-	//
-	private void CustomDefeatReduceDifficultyBJ() {//function CustomDefeatReduceDifficultyBJ takes nothing returns nothing
-		gamedifficulty diff = GetGameDifficulty();//local gamedifficulty diff = GetGameDifficulty()
-		PauseGame(false);//call PauseGame( false )
+		}//endfunction
 		//
-		if ((diff == MAP_DIFFICULTY_EASY)) {//if (diff == MAP_DIFFICULTY_EASY) then
-			//
-		} else if ((diff == MAP_DIFFICULTY_NORMAL)) {//elseif (diff == MAP_DIFFICULTY_NORMAL) then
-			SetGameDifficulty(MAP_DIFFICULTY_EASY);//call SetGameDifficulty(MAP_DIFFICULTY_EASY)
-		} else if ((diff == MAP_DIFFICULTY_HARD)) {//elseif (diff == MAP_DIFFICULTY_HARD) then
-			SetGameDifficulty(MAP_DIFFICULTY_NORMAL);//call SetGameDifficulty(MAP_DIFFICULTY_NORMAL)
-		} else {//else
-			//
-		}//endif
-		RestartGame(true);//call RestartGame( true )
-	}//endfunction
-	//
-	private void CustomDefeatLoadBJ() {//function CustomDefeatLoadBJ takes nothing returns nothing
-		PauseGame(false);//call PauseGame( false )
-		DisplayLoadDialog();//call DisplayLoadDialog()
-	}//endfunction
-	//
-	private void CustomDefeatQuitBJ() {//function CustomDefeatQuitBJ takes nothing returns nothing
-		if (bj_isSinglePlayer) {//if bj_isSinglePlayer then
+		private void CustomVictoryBJ(player whichPlayer, bool showDialog, bool showScores) {//function CustomVictoryBJ takes player whichPlayer, boolean showDialog, boolean showScores returns nothing
+			if (AllowVictoryDefeat( PLAYER_GAME_RESULT_VICTORY )) {//if AllowVictoryDefeat( PLAYER_GAME_RESULT_VICTORY ) then
+				RemovePlayer(whichPlayer, PLAYER_GAME_RESULT_VICTORY);//call RemovePlayer( whichPlayer, PLAYER_GAME_RESULT_VICTORY )
+				if (!bj_isSinglePlayer) {//if not bj_isSinglePlayer then
+					DisplayTimedTextFromPlayer(whichPlayer, 0, 0, 60, GetLocalizedString( "PLAYER_VICTORIOUS" ));//call DisplayTimedTextFromPlayer(whichPlayer, 0, 0, 60, GetLocalizedString( "PLAYER_VICTORIOUS" ) )
+				}//endif
+				//
+				if ((GetPlayerController(whichPlayer) == MAP_CONTROL_USER)) {//if (GetPlayerController(whichPlayer) == MAP_CONTROL_USER) then
+					bj_changeLevelShowScores = showScores;//set bj_changeLevelShowScores = showScores
+					if (showDialog) {//if showDialog then
+						CustomVictoryDialogBJ(whichPlayer);//call CustomVictoryDialogBJ( whichPlayer )
+					} else {//else
+						CustomVictorySkipBJ(whichPlayer);//call CustomVictorySkipBJ( whichPlayer )
+					}//endif
+				}//endif
+			}//endif
+		}//endfunction
+		//
+		private void CustomDefeatRestartBJ() {//function CustomDefeatRestartBJ takes nothing returns nothing
 			PauseGame(false);//call PauseGame( false )
-		}//endif
+			RestartGame(true);//call RestartGame( true )
+		}//endfunction
 		//
-		SetGameDifficulty(GetDefaultDifficulty());//call SetGameDifficulty(GetDefaultDifficulty())
-		EndGame(true);//call EndGame( true )
-	}//endfunction
-	//
-	private void CustomDefeatDialogBJ(player whichPlayer, string message) {//function CustomDefeatDialogBJ takes player whichPlayer, string message returns nothing
-		trigger t = CreateTrigger();//local trigger t = CreateTrigger()
-		dialog d = DialogCreate();//local dialog  d = DialogCreate()
-		DialogSetMessage(d, message);//call DialogSetMessage( d, message )
-		if (bj_isSinglePlayer) {//if bj_isSinglePlayer then
-			t = CreateTrigger();//set t = CreateTrigger()
-			TriggerRegisterDialogButtonEvent(t, DialogAddButton( d, GetLocalizedString( "GAMEOVER_RESTART" ), GetLocalizedHotkey("GAMEOVER_RESTART") ));//call TriggerRegisterDialogButtonEvent( t, DialogAddButton( d, GetLocalizedString( "GAMEOVER_RESTART" ), GetLocalizedHotkey("GAMEOVER_RESTART") ) )
-			TriggerAddAction(t, function CustomDefeatRestartBJ);//call TriggerAddAction( t, function CustomDefeatRestartBJ )
-			if ((GetGameDifficulty() != MAP_DIFFICULTY_EASY)) {//if (GetGameDifficulty() != MAP_DIFFICULTY_EASY) then
-				t = CreateTrigger();//set t = CreateTrigger()
-				TriggerRegisterDialogButtonEvent(t, DialogAddButton( d, GetLocalizedString( "GAMEOVER_REDUCE_DIFFICULTY" ), GetLocalizedHotkey("GAMEOVER_REDUCE_DIFFICULTY") ));//call TriggerRegisterDialogButtonEvent( t, DialogAddButton( d, GetLocalizedString( "GAMEOVER_REDUCE_DIFFICULTY" ), GetLocalizedHotkey("GAMEOVER_REDUCE_DIFFICULTY") ) )
-				TriggerAddAction(t, function CustomDefeatReduceDifficultyBJ);//call TriggerAddAction( t, function CustomDefeatReduceDifficultyBJ )
+		private void CustomDefeatReduceDifficultyBJ() {//function CustomDefeatReduceDifficultyBJ takes nothing returns nothing
+			gamedifficulty diff = GetGameDifficulty();//local gamedifficulty diff = GetGameDifficulty()
+			PauseGame(false);//call PauseGame( false )
+			//
+			if ((diff == MAP_DIFFICULTY_EASY)) {//if (diff == MAP_DIFFICULTY_EASY) then
+				//
+			} else if ((diff == MAP_DIFFICULTY_NORMAL)) {//elseif (diff == MAP_DIFFICULTY_NORMAL) then
+				SetGameDifficulty(MAP_DIFFICULTY_EASY);//call SetGameDifficulty(MAP_DIFFICULTY_EASY)
+			} else if ((diff == MAP_DIFFICULTY_HARD)) {//elseif (diff == MAP_DIFFICULTY_HARD) then
+				SetGameDifficulty(MAP_DIFFICULTY_NORMAL);//call SetGameDifficulty(MAP_DIFFICULTY_NORMAL)
+			} else {//else
+				//
 			}//endif
-			t = CreateTrigger();//set t = CreateTrigger()
-			TriggerRegisterDialogButtonEvent(t, DialogAddButton( d, GetLocalizedString( "GAMEOVER_LOAD" ), GetLocalizedHotkey("GAMEOVER_LOAD") ));//call TriggerRegisterDialogButtonEvent( t, DialogAddButton( d, GetLocalizedString( "GAMEOVER_LOAD" ), GetLocalizedHotkey("GAMEOVER_LOAD") ) )
-			TriggerAddAction(t, function CustomDefeatLoadBJ);//call TriggerAddAction( t, function CustomDefeatLoadBJ )
-		}//endif
-		t = CreateTrigger();//set t = CreateTrigger()
-		TriggerRegisterDialogButtonEvent(t, DialogAddButton( d, GetLocalizedString( "GAMEOVER_QUIT_MISSION" ), GetLocalizedHotkey("GAMEOVER_QUIT_MISSION") ));//call TriggerRegisterDialogButtonEvent( t, DialogAddButton( d, GetLocalizedString( "GAMEOVER_QUIT_MISSION" ), GetLocalizedHotkey("GAMEOVER_QUIT_MISSION") ) )
-		TriggerAddAction(t, function CustomDefeatQuitBJ);//call TriggerAddAction( t, function CustomDefeatQuitBJ )
-		if ((GetLocalPlayer() == whichPlayer)) {//if (GetLocalPlayer() == whichPlayer) then
-			EnableUserControl(true);//call EnableUserControl( true )
+			RestartGame(true);//call RestartGame( true )
+		}//endfunction
+		//
+		private void CustomDefeatLoadBJ() {//function CustomDefeatLoadBJ takes nothing returns nothing
+			PauseGame(false);//call PauseGame( false )
+			DisplayLoadDialog();//call DisplayLoadDialog()
+		}//endfunction
+		//
+		private void CustomDefeatQuitBJ() {//function CustomDefeatQuitBJ takes nothing returns nothing
 			if (bj_isSinglePlayer) {//if bj_isSinglePlayer then
-				PauseGame(true);//call PauseGame( true )
-			}//endif
-			EnableUserUI(false);//call EnableUserUI(false)
-		}//endif
-		DialogDisplay(whichPlayer, d, true);//call DialogDisplay( whichPlayer, d, true )
-		VolumeGroupSetVolumeForPlayerBJ(whichPlayer, SOUND_VOLUMEGROUP_UI, 1.0);//call VolumeGroupSetVolumeForPlayerBJ( whichPlayer, SOUND_VOLUMEGROUP_UI, 1.0 )
-		StartSoundForPlayerBJ(whichPlayer, bj_defeatDialogSound);//call StartSoundForPlayerBJ( whichPlayer, bj_defeatDialogSound )
-	}//endfunction
-	//
-	private void CustomDefeatBJ(player whichPlayer, string message) {//function CustomDefeatBJ takes player whichPlayer, string message returns nothing
-		if (AllowVictoryDefeat( PLAYER_GAME_RESULT_DEFEAT )) {//if AllowVictoryDefeat( PLAYER_GAME_RESULT_DEFEAT ) then
-			RemovePlayer(whichPlayer, PLAYER_GAME_RESULT_DEFEAT);//call RemovePlayer( whichPlayer, PLAYER_GAME_RESULT_DEFEAT )
-			if (!bj_isSinglePlayer) {//if not bj_isSinglePlayer then
-				DisplayTimedTextFromPlayer(whichPlayer, 0, 0, 60, GetLocalizedString( "PLAYER_DEFEATED" ));//call DisplayTimedTextFromPlayer(whichPlayer, 0, 0, 60, GetLocalizedString( "PLAYER_DEFEATED" ) )
+				PauseGame(false);//call PauseGame( false )
 			}//endif
 			//
-			if ((GetPlayerController(whichPlayer) == MAP_CONTROL_USER)) {//if (GetPlayerController(whichPlayer) == MAP_CONTROL_USER) then
-				CustomDefeatDialogBJ(whichPlayer, message);//call CustomDefeatDialogBJ( whichPlayer, message )
+			SetGameDifficulty(GetDefaultDifficulty());//call SetGameDifficulty(GetDefaultDifficulty())
+			EndGame(true);//call EndGame( true )
+		}//endfunction
+		//
+		private void CustomDefeatDialogBJ(player whichPlayer, string message) {//function CustomDefeatDialogBJ takes player whichPlayer, string message returns nothing
+			trigger t = CreateTrigger();//local trigger t = CreateTrigger()
+			dialog d = DialogCreate();//local dialog  d = DialogCreate()
+			DialogSetMessage(d, message);//call DialogSetMessage( d, message )
+			if (bj_isSinglePlayer) {//if bj_isSinglePlayer then
+				t = CreateTrigger();//set t = CreateTrigger()
+				TriggerRegisterDialogButtonEvent(t, DialogAddButton( d, GetLocalizedString( "GAMEOVER_RESTART" ), GetLocalizedHotkey("GAMEOVER_RESTART") ));//call TriggerRegisterDialogButtonEvent( t, DialogAddButton( d, GetLocalizedString( "GAMEOVER_RESTART" ), GetLocalizedHotkey("GAMEOVER_RESTART") ) )
+				TriggerAddAction(t, function CustomDefeatRestartBJ);//call TriggerAddAction( t, function CustomDefeatRestartBJ )
+				if ((GetGameDifficulty() != MAP_DIFFICULTY_EASY)) {//if (GetGameDifficulty() != MAP_DIFFICULTY_EASY) then
+					t = CreateTrigger();//set t = CreateTrigger()
+					TriggerRegisterDialogButtonEvent(t, DialogAddButton( d, GetLocalizedString( "GAMEOVER_REDUCE_DIFFICULTY" ), GetLocalizedHotkey("GAMEOVER_REDUCE_DIFFICULTY") ));//call TriggerRegisterDialogButtonEvent( t, DialogAddButton( d, GetLocalizedString( "GAMEOVER_REDUCE_DIFFICULTY" ), GetLocalizedHotkey("GAMEOVER_REDUCE_DIFFICULTY") ) )
+					TriggerAddAction(t, function CustomDefeatReduceDifficultyBJ);//call TriggerAddAction( t, function CustomDefeatReduceDifficultyBJ )
+				}//endif
+				t = CreateTrigger();//set t = CreateTrigger()
+				TriggerRegisterDialogButtonEvent(t, DialogAddButton( d, GetLocalizedString( "GAMEOVER_LOAD" ), GetLocalizedHotkey("GAMEOVER_LOAD") ));//call TriggerRegisterDialogButtonEvent( t, DialogAddButton( d, GetLocalizedString( "GAMEOVER_LOAD" ), GetLocalizedHotkey("GAMEOVER_LOAD") ) )
+				TriggerAddAction(t, function CustomDefeatLoadBJ);//call TriggerAddAction( t, function CustomDefeatLoadBJ )
 			}//endif
-		}//endif
-	}//endfunction
-	//
-	private void SetNextLevelBJ() {//function SetNextLevelBJ takes string nextLevel returns nothing
-		if ((nextLevel == "")) {//if (nextLevel == "") then
-			bj_changeLevelMapName = null;//set bj_changeLevelMapName = null
-		} else {//else
-			bj_changeLevelMapName = nextLevel;//set bj_changeLevelMapName = nextLevel
-		}//endif
-	}//endfunction
-	//
-	private void SetPlayerOnScoreScreenBJ(bool flag, player whichPlayer) {//function SetPlayerOnScoreScreenBJ takes boolean flag, player whichPlayer returns nothing
-		SetPlayerOnScoreScreen(whichPlayer, flag);//call SetPlayerOnScoreScreen(whichPlayer, flag)
-	}//endfunction
-	//
-	//
-	//
-	//
-	//
-	//
-	private quest CreateQuestBJ(int questType, string title, string description, string iconPath) {//function CreateQuestBJ takes integer questType, string title, string description, string iconPath returns quest
-		bool required = (questType == bj_QUESTTYPE_REQ_DISCOVERED) or (questType == bj_QUESTTYPE_REQ_UNDISCOVERED);//local boolean required   = (questType == bj_QUESTTYPE_REQ_DISCOVERED) or (questType == bj_QUESTTYPE_REQ_UNDISCOVERED)
-		bool discovered = (questType == bj_QUESTTYPE_REQ_DISCOVERED) or (questType == bj_QUESTTYPE_OPT_DISCOVERED);//local boolean discovered = (questType == bj_QUESTTYPE_REQ_DISCOVERED) or (questType == bj_QUESTTYPE_OPT_DISCOVERED)
-		bj_lastCreatedQuest = CreateQuest();//set bj_lastCreatedQuest = CreateQuest()
-		QuestSetTitle(bj_lastCreatedQuest, title);//call QuestSetTitle(bj_lastCreatedQuest, title)
-		QuestSetDescription(bj_lastCreatedQuest, description);//call QuestSetDescription(bj_lastCreatedQuest, description)
-		QuestSetIconPath(bj_lastCreatedQuest, iconPath);//call QuestSetIconPath(bj_lastCreatedQuest, iconPath)
-		QuestSetRequired(bj_lastCreatedQuest, required);//call QuestSetRequired(bj_lastCreatedQuest, required)
-		QuestSetDiscovered(bj_lastCreatedQuest, discovered);//call QuestSetDiscovered(bj_lastCreatedQuest, discovered)
-		QuestSetCompleted(bj_lastCreatedQuest, false);//call QuestSetCompleted(bj_lastCreatedQuest, false)
-		return bj_lastCreatedQuest;//return bj_lastCreatedQuest
-	}//endfunction
-	//
-	private void DestroyQuestBJ() {//function DestroyQuestBJ takes quest whichQuest returns nothing
-		DestroyQuest(whichQuest);//call DestroyQuest(whichQuest)
-	}//endfunction
-	//
-	private void QuestSetEnabledBJ(bool enabled, quest whichQuest) {//function QuestSetEnabledBJ takes boolean enabled, quest whichQuest returns nothing
-		QuestSetEnabled(whichQuest, enabled);//call QuestSetEnabled(whichQuest, enabled)
-	}//endfunction
-	//
-	private void QuestSetTitleBJ(quest whichQuest, string title) {//function QuestSetTitleBJ takes quest whichQuest, string title returns nothing
-		QuestSetTitle(whichQuest, title);//call QuestSetTitle(whichQuest, title)
-	}//endfunction
-	//
-	private void QuestSetDescriptionBJ(quest whichQuest, string description) {//function QuestSetDescriptionBJ takes quest whichQuest, string description returns nothing
-		QuestSetDescription(whichQuest, description);//call QuestSetDescription(whichQuest, description)
-	}//endfunction
-	//
-	private void QuestSetCompletedBJ(quest whichQuest, bool completed) {//function QuestSetCompletedBJ takes quest whichQuest, boolean completed returns nothing
-		QuestSetCompleted(whichQuest, completed);//call QuestSetCompleted(whichQuest, completed)
-	}//endfunction
-	//
-	private void QuestSetFailedBJ(quest whichQuest, bool failed) {//function QuestSetFailedBJ takes quest whichQuest, boolean failed returns nothing
-		QuestSetFailed(whichQuest, failed);//call QuestSetFailed(whichQuest, failed)
-	}//endfunction
-	//
-	private void QuestSetDiscoveredBJ(quest whichQuest, bool discovered) {//function QuestSetDiscoveredBJ takes quest whichQuest, boolean discovered returns nothing
-		QuestSetDiscovered(whichQuest, discovered);//call QuestSetDiscovered(whichQuest, discovered)
-	}//endfunction
-	//
-	private quest GetLastCreatedQuestBJ() {//function GetLastCreatedQuestBJ takes nothing returns quest
-		return bj_lastCreatedQuest;//return bj_lastCreatedQuest
-	}//endfunction
-	//
-	private questitem CreateQuestItemBJ(quest whichQuest, string description) {//function CreateQuestItemBJ takes quest whichQuest, string description returns questitem
-		bj_lastCreatedQuestItem = QuestCreateItem(whichQuest);//set bj_lastCreatedQuestItem = QuestCreateItem(whichQuest)
-		QuestItemSetDescription(bj_lastCreatedQuestItem, description);//call QuestItemSetDescription(bj_lastCreatedQuestItem, description)
-		QuestItemSetCompleted(bj_lastCreatedQuestItem, false);//call QuestItemSetCompleted(bj_lastCreatedQuestItem, false)
-		return bj_lastCreatedQuestItem;//return bj_lastCreatedQuestItem
-	}//endfunction
-	//
-	private void QuestItemSetDescriptionBJ(questitem whichQuestItem, string description) {//function QuestItemSetDescriptionBJ takes questitem whichQuestItem, string description returns nothing
-		QuestItemSetDescription(whichQuestItem, description);//call QuestItemSetDescription(whichQuestItem, description)
-	}//endfunction
-	//
-	private void QuestItemSetCompletedBJ(questitem whichQuestItem, bool completed) {//function QuestItemSetCompletedBJ takes questitem whichQuestItem, boolean completed returns nothing
-		QuestItemSetCompleted(whichQuestItem, completed);//call QuestItemSetCompleted(whichQuestItem, completed)
-	}//endfunction
-	//
-	private questitem GetLastCreatedQuestItemBJ() {//function GetLastCreatedQuestItemBJ takes nothing returns questitem
-		return bj_lastCreatedQuestItem;//return bj_lastCreatedQuestItem
-	}//endfunction
-	//
-	private defeatcondition CreateDefeatConditionBJ() {//function CreateDefeatConditionBJ takes string description returns defeatcondition
-		bj_lastCreatedDefeatCondition = CreateDefeatCondition();//set bj_lastCreatedDefeatCondition = CreateDefeatCondition()
-		DefeatConditionSetDescription(bj_lastCreatedDefeatCondition, description);//call DefeatConditionSetDescription(bj_lastCreatedDefeatCondition, description)
-		return bj_lastCreatedDefeatCondition;//return bj_lastCreatedDefeatCondition
-	}//endfunction
-	//
-	private void DestroyDefeatConditionBJ() {//function DestroyDefeatConditionBJ takes defeatcondition whichCondition returns nothing
-		DestroyDefeatCondition(whichCondition);//call DestroyDefeatCondition(whichCondition)
-	}//endfunction
-	//
-	private void DefeatConditionSetDescriptionBJ(defeatcondition whichCondition, string description) {//function DefeatConditionSetDescriptionBJ takes defeatcondition whichCondition, string description returns nothing
-		DefeatConditionSetDescription(whichCondition, description);//call DefeatConditionSetDescription(whichCondition, description)
-	}//endfunction
-	//
-	private defeatcondition GetLastCreatedDefeatConditionBJ() {//function GetLastCreatedDefeatConditionBJ takes nothing returns defeatcondition
-		return bj_lastCreatedDefeatCondition;//return bj_lastCreatedDefeatCondition
-	}//endfunction
-	//
-	private void FlashQuestDialogButtonBJ() {//function FlashQuestDialogButtonBJ takes nothing returns nothing
-		FlashQuestDialogButton();//call FlashQuestDialogButton()
-	}//endfunction
-	//
-	private void QuestMessageBJ(force f, int messageType, string message) {//function QuestMessageBJ takes force f, integer messageType, string message returns nothing
-		if ((IsPlayerInForce(GetLocalPlayer(), f))) {//if (IsPlayerInForce(GetLocalPlayer(), f)) then
-			//
-			if ((messageType == bj_QUESTMESSAGE_DISCOVERED)) {//if (messageType == bj_QUESTMESSAGE_DISCOVERED) then
-				DisplayTimedTextToPlayer(GetLocalPlayer(), 0, 0, bj_TEXT_DELAY_QUEST, " ");//call DisplayTimedTextToPlayer(GetLocalPlayer(), 0, 0, bj_TEXT_DELAY_QUEST, " ")
-				DisplayTimedTextToPlayer(GetLocalPlayer(), 0, 0, bj_TEXT_DELAY_QUEST, message);//call DisplayTimedTextToPlayer(GetLocalPlayer(), 0, 0, bj_TEXT_DELAY_QUEST, message)
-				StartSound(bj_questDiscoveredSound);//call StartSound(bj_questDiscoveredSound)
-				FlashQuestDialogButton();//call FlashQuestDialogButton()
-			} else if ((messageType == bj_QUESTMESSAGE_UPDATED)) {//elseif (messageType == bj_QUESTMESSAGE_UPDATED) then
-				DisplayTimedTextToPlayer(GetLocalPlayer(), 0, 0, bj_TEXT_DELAY_QUESTUPDATE, " ");//call DisplayTimedTextToPlayer(GetLocalPlayer(), 0, 0, bj_TEXT_DELAY_QUESTUPDATE, " ")
-				DisplayTimedTextToPlayer(GetLocalPlayer(), 0, 0, bj_TEXT_DELAY_QUESTUPDATE, message);//call DisplayTimedTextToPlayer(GetLocalPlayer(), 0, 0, bj_TEXT_DELAY_QUESTUPDATE, message)
-				StartSound(bj_questUpdatedSound);//call StartSound(bj_questUpdatedSound)
-				FlashQuestDialogButton();//call FlashQuestDialogButton()
-			} else if ((messageType == bj_QUESTMESSAGE_COMPLETED)) {//elseif (messageType == bj_QUESTMESSAGE_COMPLETED) then
-				DisplayTimedTextToPlayer(GetLocalPlayer(), 0, 0, bj_TEXT_DELAY_QUESTDONE, " ");//call DisplayTimedTextToPlayer(GetLocalPlayer(), 0, 0, bj_TEXT_DELAY_QUESTDONE, " ")
-				DisplayTimedTextToPlayer(GetLocalPlayer(), 0, 0, bj_TEXT_DELAY_QUESTDONE, message);//call DisplayTimedTextToPlayer(GetLocalPlayer(), 0, 0, bj_TEXT_DELAY_QUESTDONE, message)
-				StartSound(bj_questCompletedSound);//call StartSound(bj_questCompletedSound)
-				FlashQuestDialogButton();//call FlashQuestDialogButton()
-			} else if ((messageType == bj_QUESTMESSAGE_FAILED)) {//elseif (messageType == bj_QUESTMESSAGE_FAILED) then
-				DisplayTimedTextToPlayer(GetLocalPlayer(), 0, 0, bj_TEXT_DELAY_QUESTFAILED, " ");//call DisplayTimedTextToPlayer(GetLocalPlayer(), 0, 0, bj_TEXT_DELAY_QUESTFAILED, " ")
-				DisplayTimedTextToPlayer(GetLocalPlayer(), 0, 0, bj_TEXT_DELAY_QUESTFAILED, message);//call DisplayTimedTextToPlayer(GetLocalPlayer(), 0, 0, bj_TEXT_DELAY_QUESTFAILED, message)
-				StartSound(bj_questFailedSound);//call StartSound(bj_questFailedSound)
-				FlashQuestDialogButton();//call FlashQuestDialogButton()
-			} else if ((messageType == bj_QUESTMESSAGE_REQUIREMENT)) {//elseif (messageType == bj_QUESTMESSAGE_REQUIREMENT) then
-				DisplayTimedTextToPlayer(GetLocalPlayer(), 0, 0, bj_TEXT_DELAY_QUESTREQUIREMENT, message);//call DisplayTimedTextToPlayer(GetLocalPlayer(), 0, 0, bj_TEXT_DELAY_QUESTREQUIREMENT, message)
-			} else if ((messageType == bj_QUESTMESSAGE_MISSIONFAILED)) {//elseif (messageType == bj_QUESTMESSAGE_MISSIONFAILED) then
-				DisplayTimedTextToPlayer(GetLocalPlayer(), 0, 0, bj_TEXT_DELAY_MISSIONFAILED, " ");//call DisplayTimedTextToPlayer(GetLocalPlayer(), 0, 0, bj_TEXT_DELAY_MISSIONFAILED, " ")
-				DisplayTimedTextToPlayer(GetLocalPlayer(), 0, 0, bj_TEXT_DELAY_MISSIONFAILED, message);//call DisplayTimedTextToPlayer(GetLocalPlayer(), 0, 0, bj_TEXT_DELAY_MISSIONFAILED, message)
-				StartSound(bj_questFailedSound);//call StartSound(bj_questFailedSound)
-			} else if ((messageType == bj_QUESTMESSAGE_HINT)) {//elseif (messageType == bj_QUESTMESSAGE_HINT) then
-				DisplayTimedTextToPlayer(GetLocalPlayer(), 0, 0, bj_TEXT_DELAY_HINT, " ");//call DisplayTimedTextToPlayer(GetLocalPlayer(), 0, 0, bj_TEXT_DELAY_HINT, " ")
-				DisplayTimedTextToPlayer(GetLocalPlayer(), 0, 0, bj_TEXT_DELAY_HINT, message);//call DisplayTimedTextToPlayer(GetLocalPlayer(), 0, 0, bj_TEXT_DELAY_HINT, message)
-				StartSound(bj_questHintSound);//call StartSound(bj_questHintSound)
-			} else if ((messageType == bj_QUESTMESSAGE_ALWAYSHINT)) {//elseif (messageType == bj_QUESTMESSAGE_ALWAYSHINT) then
-				DisplayTimedTextToPlayer(GetLocalPlayer(), 0, 0, bj_TEXT_DELAY_ALWAYSHINT, " ");//call DisplayTimedTextToPlayer(GetLocalPlayer(), 0, 0, bj_TEXT_DELAY_ALWAYSHINT, " ")
-				DisplayTimedTextToPlayer(GetLocalPlayer(), 0, 0, bj_TEXT_DELAY_ALWAYSHINT, message);//call DisplayTimedTextToPlayer(GetLocalPlayer(), 0, 0, bj_TEXT_DELAY_ALWAYSHINT, message)
-				StartSound(bj_questHintSound);//call StartSound(bj_questHintSound)
-			} else if ((messageType == bj_QUESTMESSAGE_SECRET)) {//elseif (messageType == bj_QUESTMESSAGE_SECRET) then
-				DisplayTimedTextToPlayer(GetLocalPlayer(), 0, 0, bj_TEXT_DELAY_SECRET, " ");//call DisplayTimedTextToPlayer(GetLocalPlayer(), 0, 0, bj_TEXT_DELAY_SECRET, " ")
-				DisplayTimedTextToPlayer(GetLocalPlayer(), 0, 0, bj_TEXT_DELAY_SECRET, message);//call DisplayTimedTextToPlayer(GetLocalPlayer(), 0, 0, bj_TEXT_DELAY_SECRET, message)
-				StartSound(bj_questSecretSound);//call StartSound(bj_questSecretSound)
-			} else if ((messageType == bj_QUESTMESSAGE_UNITACQUIRED)) {//elseif (messageType == bj_QUESTMESSAGE_UNITACQUIRED) then
-				DisplayTimedTextToPlayer(GetLocalPlayer(), 0, 0, bj_TEXT_DELAY_UNITACQUIRED, " ");//call DisplayTimedTextToPlayer(GetLocalPlayer(), 0, 0, bj_TEXT_DELAY_UNITACQUIRED, " ")
-				DisplayTimedTextToPlayer(GetLocalPlayer(), 0, 0, bj_TEXT_DELAY_UNITACQUIRED, message);//call DisplayTimedTextToPlayer(GetLocalPlayer(), 0, 0, bj_TEXT_DELAY_UNITACQUIRED, message)
-				StartSound(bj_questHintSound);//call StartSound(bj_questHintSound)
-			} else if ((messageType == bj_QUESTMESSAGE_UNITAVAILABLE)) {//elseif (messageType == bj_QUESTMESSAGE_UNITAVAILABLE) then
-				DisplayTimedTextToPlayer(GetLocalPlayer(), 0, 0, bj_TEXT_DELAY_UNITAVAILABLE, " ");//call DisplayTimedTextToPlayer(GetLocalPlayer(), 0, 0, bj_TEXT_DELAY_UNITAVAILABLE, " ")
-				DisplayTimedTextToPlayer(GetLocalPlayer(), 0, 0, bj_TEXT_DELAY_UNITAVAILABLE, message);//call DisplayTimedTextToPlayer(GetLocalPlayer(), 0, 0, bj_TEXT_DELAY_UNITAVAILABLE, message)
-				StartSound(bj_questHintSound);//call StartSound(bj_questHintSound)
-			} else if ((messageType == bj_QUESTMESSAGE_ITEMACQUIRED)) {//elseif (messageType == bj_QUESTMESSAGE_ITEMACQUIRED) then
-				DisplayTimedTextToPlayer(GetLocalPlayer(), 0, 0, bj_TEXT_DELAY_ITEMACQUIRED, " ");//call DisplayTimedTextToPlayer(GetLocalPlayer(), 0, 0, bj_TEXT_DELAY_ITEMACQUIRED, " ")
-				DisplayTimedTextToPlayer(GetLocalPlayer(), 0, 0, bj_TEXT_DELAY_ITEMACQUIRED, message);//call DisplayTimedTextToPlayer(GetLocalPlayer(), 0, 0, bj_TEXT_DELAY_ITEMACQUIRED, message)
-				StartSound(bj_questItemAcquiredSound);//call StartSound(bj_questItemAcquiredSound)
-			} else if ((messageType == bj_QUESTMESSAGE_WARNING)) {//elseif (messageType == bj_QUESTMESSAGE_WARNING) then
-				DisplayTimedTextToPlayer(GetLocalPlayer(), 0, 0, bj_TEXT_DELAY_WARNING, " ");//call DisplayTimedTextToPlayer(GetLocalPlayer(), 0, 0, bj_TEXT_DELAY_WARNING, " ")
-				DisplayTimedTextToPlayer(GetLocalPlayer(), 0, 0, bj_TEXT_DELAY_WARNING, message);//call DisplayTimedTextToPlayer(GetLocalPlayer(), 0, 0, bj_TEXT_DELAY_WARNING, message)
-				StartSound(bj_questWarningSound);//call StartSound(bj_questWarningSound)
-			} else {//else
+			t = CreateTrigger();//set t = CreateTrigger()
+			TriggerRegisterDialogButtonEvent(t, DialogAddButton( d, GetLocalizedString( "GAMEOVER_QUIT_MISSION" ), GetLocalizedHotkey("GAMEOVER_QUIT_MISSION") ));//call TriggerRegisterDialogButtonEvent( t, DialogAddButton( d, GetLocalizedString( "GAMEOVER_QUIT_MISSION" ), GetLocalizedHotkey("GAMEOVER_QUIT_MISSION") ) )
+			TriggerAddAction(t, function CustomDefeatQuitBJ);//call TriggerAddAction( t, function CustomDefeatQuitBJ )
+			if ((GetLocalPlayer() == whichPlayer)) {//if (GetLocalPlayer() == whichPlayer) then
+				EnableUserControl(true);//call EnableUserControl( true )
+				if (bj_isSinglePlayer) {//if bj_isSinglePlayer then
+					PauseGame(true);//call PauseGame( true )
+				}//endif
+				EnableUserUI(false);//call EnableUserUI(false)
+			}//endif
+			DialogDisplay(whichPlayer, d, true);//call DialogDisplay( whichPlayer, d, true )
+			VolumeGroupSetVolumeForPlayerBJ(whichPlayer, SOUND_VOLUMEGROUP_UI, 1.0);//call VolumeGroupSetVolumeForPlayerBJ( whichPlayer, SOUND_VOLUMEGROUP_UI, 1.0 )
+			StartSoundForPlayerBJ(whichPlayer, bj_defeatDialogSound);//call StartSoundForPlayerBJ( whichPlayer, bj_defeatDialogSound )
+		}//endfunction
+		//
+		private void CustomDefeatBJ(player whichPlayer, string message) {//function CustomDefeatBJ takes player whichPlayer, string message returns nothing
+			if (AllowVictoryDefeat( PLAYER_GAME_RESULT_DEFEAT )) {//if AllowVictoryDefeat( PLAYER_GAME_RESULT_DEFEAT ) then
+				RemovePlayer(whichPlayer, PLAYER_GAME_RESULT_DEFEAT);//call RemovePlayer( whichPlayer, PLAYER_GAME_RESULT_DEFEAT )
+				if (!bj_isSinglePlayer) {//if not bj_isSinglePlayer then
+					DisplayTimedTextFromPlayer(whichPlayer, 0, 0, 60, GetLocalizedString( "PLAYER_DEFEATED" ));//call DisplayTimedTextFromPlayer(whichPlayer, 0, 0, 60, GetLocalizedString( "PLAYER_DEFEATED" ) )
+				}//endif
 				//
+				if ((GetPlayerController(whichPlayer) == MAP_CONTROL_USER)) {//if (GetPlayerController(whichPlayer) == MAP_CONTROL_USER) then
+					CustomDefeatDialogBJ(whichPlayer, message);//call CustomDefeatDialogBJ( whichPlayer, message )
+				}//endif
 			}//endif
-		}//endif
-	}//endfunction
-	//
-	//
-	//
-	//
-	//
-	//
-	private timer StartTimerBJ(timer t, bool periodic, real timeout) {//function StartTimerBJ takes timer t, boolean periodic, real timeout returns timer
-		bj_lastStartedTimer = t;//set bj_lastStartedTimer = t
-		TimerStart(t, timeout, periodic, null);//call TimerStart(t, timeout, periodic, null)
-		return bj_lastStartedTimer;//return bj_lastStartedTimer
-	}//endfunction
-	//
-	private timer CreateTimerBJ(bool periodic, real timeout) {//function CreateTimerBJ takes boolean periodic, real timeout returns timer
-		bj_lastStartedTimer = CreateTimer();//set bj_lastStartedTimer = CreateTimer()
-		TimerStart(bj_lastStartedTimer, timeout, periodic, null);//call TimerStart(bj_lastStartedTimer, timeout, periodic, null)
-		return bj_lastStartedTimer;//return bj_lastStartedTimer
-	}//endfunction
-	//
-	private void DestroyTimerBJ() {//function DestroyTimerBJ takes timer whichTimer returns nothing
-		DestroyTimer(whichTimer);//call DestroyTimer(whichTimer)
-	}//endfunction
-	//
-	private void PauseTimerBJ(bool pause, timer whichTimer) {//function PauseTimerBJ takes boolean pause, timer whichTimer returns nothing
-		if (pause) {//if pause then
-			PauseTimer(whichTimer);//call PauseTimer(whichTimer)
-		} else {//else
-			ResumeTimer(whichTimer);//call ResumeTimer(whichTimer)
-		}//endif
-	}//endfunction
-	//
-	private timer GetLastCreatedTimerBJ() {//function GetLastCreatedTimerBJ takes nothing returns timer
-		return bj_lastStartedTimer;//return bj_lastStartedTimer
-	}//endfunction
-	//
-	private timerdialog CreateTimerDialogBJ(timer t, string title) {//function CreateTimerDialogBJ takes timer t, string title returns timerdialog
-		bj_lastCreatedTimerDialog = CreateTimerDialog(t);//set bj_lastCreatedTimerDialog = CreateTimerDialog(t)
-		TimerDialogSetTitle(bj_lastCreatedTimerDialog, title);//call TimerDialogSetTitle(bj_lastCreatedTimerDialog, title)
-		TimerDialogDisplay(bj_lastCreatedTimerDialog, true);//call TimerDialogDisplay(bj_lastCreatedTimerDialog, true)
-		return bj_lastCreatedTimerDialog;//return bj_lastCreatedTimerDialog
-	}//endfunction
-	//
-	private void DestroyTimerDialogBJ() {//function DestroyTimerDialogBJ takes timerdialog td returns nothing
-		DestroyTimerDialog(td);//call DestroyTimerDialog(td)
-	}//endfunction
-	//
-	private void TimerDialogSetTitleBJ(timerdialog td, string title) {//function TimerDialogSetTitleBJ takes timerdialog td, string title returns nothing
-		TimerDialogSetTitle(td, title);//call TimerDialogSetTitle(td, title)
-	}//endfunction
-	//
-	private void TimerDialogSetTitleColorBJ(timerdialog td, real red, real green, real blue, real transparency) {//function TimerDialogSetTitleColorBJ takes timerdialog td, real red, real green, real blue, real transparency returns nothing
-		TimerDialogSetTitleColor(td, PercentTo255(red), PercentTo255(green), PercentTo255(blue), PercentTo255(100.0-transparency));//call TimerDialogSetTitleColor(td, PercentTo255(red), PercentTo255(green), PercentTo255(blue), PercentTo255(100.0-transparency))
-	}//endfunction
-	//
-	private void TimerDialogSetTimeColorBJ(timerdialog td, real red, real green, real blue, real transparency) {//function TimerDialogSetTimeColorBJ takes timerdialog td, real red, real green, real blue, real transparency returns nothing
-		TimerDialogSetTimeColor(td, PercentTo255(red), PercentTo255(green), PercentTo255(blue), PercentTo255(100.0-transparency));//call TimerDialogSetTimeColor(td, PercentTo255(red), PercentTo255(green), PercentTo255(blue), PercentTo255(100.0-transparency))
-	}//endfunction
-	//
-	private void TimerDialogSetSpeedBJ(timerdialog td, real speedMultFactor) {//function TimerDialogSetSpeedBJ takes timerdialog td, real speedMultFactor returns nothing
-		TimerDialogSetSpeed(td, speedMultFactor);//call TimerDialogSetSpeed(td, speedMultFactor)
-	}//endfunction
-	//
-	private void TimerDialogDisplayForPlayerBJ(bool show, timerdialog td, player whichPlayer) {//function TimerDialogDisplayForPlayerBJ takes boolean show, timerdialog td, player whichPlayer returns nothing
-		if ((GetLocalPlayer() == whichPlayer)) {//if (GetLocalPlayer() == whichPlayer) then
-			//
+		}//endfunction
+		//
+		private void SetNextLevelBJ(string nextLevel) {//function SetNextLevelBJ takes string nextLevel returns nothing
+			if ((nextLevel == "")) {//if (nextLevel == "") then
+				bj_changeLevelMapName = null;//set bj_changeLevelMapName = null
+			} else {//else
+				bj_changeLevelMapName = nextLevel;//set bj_changeLevelMapName = nextLevel
+			}//endif
+		}//endfunction
+		//
+		private void SetPlayerOnScoreScreenBJ(bool flag, player whichPlayer) {//function SetPlayerOnScoreScreenBJ takes boolean flag, player whichPlayer returns nothing
+			SetPlayerOnScoreScreen(whichPlayer, flag);//call SetPlayerOnScoreScreen(whichPlayer, flag)
+		}//endfunction
+		//
+		//
+		//
+		//
+		//
+		//
+		private quest CreateQuestBJ(int questType, string title, string description, string iconPath) {//function CreateQuestBJ takes integer questType, string title, string description, string iconPath returns quest
+			bool required = (questType == bj_QUESTTYPE_REQ_DISCOVERED) or (questType == bj_QUESTTYPE_REQ_UNDISCOVERED);//local boolean required   = (questType == bj_QUESTTYPE_REQ_DISCOVERED) or (questType == bj_QUESTTYPE_REQ_UNDISCOVERED)
+			bool discovered = (questType == bj_QUESTTYPE_REQ_DISCOVERED) or (questType == bj_QUESTTYPE_OPT_DISCOVERED);//local boolean discovered = (questType == bj_QUESTTYPE_REQ_DISCOVERED) or (questType == bj_QUESTTYPE_OPT_DISCOVERED)
+			bj_lastCreatedQuest = CreateQuest();//set bj_lastCreatedQuest = CreateQuest()
+			QuestSetTitle(bj_lastCreatedQuest, title);//call QuestSetTitle(bj_lastCreatedQuest, title)
+			QuestSetDescription(bj_lastCreatedQuest, description);//call QuestSetDescription(bj_lastCreatedQuest, description)
+			QuestSetIconPath(bj_lastCreatedQuest, iconPath);//call QuestSetIconPath(bj_lastCreatedQuest, iconPath)
+			QuestSetRequired(bj_lastCreatedQuest, required);//call QuestSetRequired(bj_lastCreatedQuest, required)
+			QuestSetDiscovered(bj_lastCreatedQuest, discovered);//call QuestSetDiscovered(bj_lastCreatedQuest, discovered)
+			QuestSetCompleted(bj_lastCreatedQuest, false);//call QuestSetCompleted(bj_lastCreatedQuest, false)
+			return bj_lastCreatedQuest;//return bj_lastCreatedQuest
+		}//endfunction
+		//
+		private void DestroyQuestBJ(quest whichQuest) {//function DestroyQuestBJ takes quest whichQuest returns nothing
+			DestroyQuest(whichQuest);//call DestroyQuest(whichQuest)
+		}//endfunction
+		//
+		private void QuestSetEnabledBJ(bool enabled, quest whichQuest) {//function QuestSetEnabledBJ takes boolean enabled, quest whichQuest returns nothing
+			QuestSetEnabled(whichQuest, enabled);//call QuestSetEnabled(whichQuest, enabled)
+		}//endfunction
+		//
+		private void QuestSetTitleBJ(quest whichQuest, string title) {//function QuestSetTitleBJ takes quest whichQuest, string title returns nothing
+			QuestSetTitle(whichQuest, title);//call QuestSetTitle(whichQuest, title)
+		}//endfunction
+		//
+		private void QuestSetDescriptionBJ(quest whichQuest, string description) {//function QuestSetDescriptionBJ takes quest whichQuest, string description returns nothing
+			QuestSetDescription(whichQuest, description);//call QuestSetDescription(whichQuest, description)
+		}//endfunction
+		//
+		private void QuestSetCompletedBJ(quest whichQuest, bool completed) {//function QuestSetCompletedBJ takes quest whichQuest, boolean completed returns nothing
+			QuestSetCompleted(whichQuest, completed);//call QuestSetCompleted(whichQuest, completed)
+		}//endfunction
+		//
+		private void QuestSetFailedBJ(quest whichQuest, bool failed) {//function QuestSetFailedBJ takes quest whichQuest, boolean failed returns nothing
+			QuestSetFailed(whichQuest, failed);//call QuestSetFailed(whichQuest, failed)
+		}//endfunction
+		//
+		private void QuestSetDiscoveredBJ(quest whichQuest, bool discovered) {//function QuestSetDiscoveredBJ takes quest whichQuest, boolean discovered returns nothing
+			QuestSetDiscovered(whichQuest, discovered);//call QuestSetDiscovered(whichQuest, discovered)
+		}//endfunction
+		//
+		private quest GetLastCreatedQuestBJ() {//function GetLastCreatedQuestBJ takes nothing returns quest
+			return bj_lastCreatedQuest;//return bj_lastCreatedQuest
+		}//endfunction
+		//
+		private questitem CreateQuestItemBJ(quest whichQuest, string description) {//function CreateQuestItemBJ takes quest whichQuest, string description returns questitem
+			bj_lastCreatedQuestItem = QuestCreateItem(whichQuest);//set bj_lastCreatedQuestItem = QuestCreateItem(whichQuest)
+			QuestItemSetDescription(bj_lastCreatedQuestItem, description);//call QuestItemSetDescription(bj_lastCreatedQuestItem, description)
+			QuestItemSetCompleted(bj_lastCreatedQuestItem, false);//call QuestItemSetCompleted(bj_lastCreatedQuestItem, false)
+			return bj_lastCreatedQuestItem;//return bj_lastCreatedQuestItem
+		}//endfunction
+		//
+		private void QuestItemSetDescriptionBJ(questitem whichQuestItem, string description) {//function QuestItemSetDescriptionBJ takes questitem whichQuestItem, string description returns nothing
+			QuestItemSetDescription(whichQuestItem, description);//call QuestItemSetDescription(whichQuestItem, description)
+		}//endfunction
+		//
+		private void QuestItemSetCompletedBJ(questitem whichQuestItem, bool completed) {//function QuestItemSetCompletedBJ takes questitem whichQuestItem, boolean completed returns nothing
+			QuestItemSetCompleted(whichQuestItem, completed);//call QuestItemSetCompleted(whichQuestItem, completed)
+		}//endfunction
+		//
+		private questitem GetLastCreatedQuestItemBJ() {//function GetLastCreatedQuestItemBJ takes nothing returns questitem
+			return bj_lastCreatedQuestItem;//return bj_lastCreatedQuestItem
+		}//endfunction
+		//
+		private defeatcondition CreateDefeatConditionBJ(string description) {//function CreateDefeatConditionBJ takes string description returns defeatcondition
+			bj_lastCreatedDefeatCondition = CreateDefeatCondition();//set bj_lastCreatedDefeatCondition = CreateDefeatCondition()
+			DefeatConditionSetDescription(bj_lastCreatedDefeatCondition, description);//call DefeatConditionSetDescription(bj_lastCreatedDefeatCondition, description)
+			return bj_lastCreatedDefeatCondition;//return bj_lastCreatedDefeatCondition
+		}//endfunction
+		//
+		private void DestroyDefeatConditionBJ(defeatcondition whichCondition) {//function DestroyDefeatConditionBJ takes defeatcondition whichCondition returns nothing
+			DestroyDefeatCondition(whichCondition);//call DestroyDefeatCondition(whichCondition)
+		}//endfunction
+		//
+		private void DefeatConditionSetDescriptionBJ(defeatcondition whichCondition, string description) {//function DefeatConditionSetDescriptionBJ takes defeatcondition whichCondition, string description returns nothing
+			DefeatConditionSetDescription(whichCondition, description);//call DefeatConditionSetDescription(whichCondition, description)
+		}//endfunction
+		//
+		private defeatcondition GetLastCreatedDefeatConditionBJ() {//function GetLastCreatedDefeatConditionBJ takes nothing returns defeatcondition
+			return bj_lastCreatedDefeatCondition;//return bj_lastCreatedDefeatCondition
+		}//endfunction
+		//
+		private void FlashQuestDialogButtonBJ() {//function FlashQuestDialogButtonBJ takes nothing returns nothing
+			FlashQuestDialogButton();//call FlashQuestDialogButton()
+		}//endfunction
+		//
+		private void QuestMessageBJ(force f, int messageType, string message) {//function QuestMessageBJ takes force f, integer messageType, string message returns nothing
+			if ((IsPlayerInForce(GetLocalPlayer(), f))) {//if (IsPlayerInForce(GetLocalPlayer(), f)) then
+				//
+				if ((messageType == bj_QUESTMESSAGE_DISCOVERED)) {//if (messageType == bj_QUESTMESSAGE_DISCOVERED) then
+					DisplayTimedTextToPlayer(GetLocalPlayer(), 0, 0, bj_TEXT_DELAY_QUEST, " ");//call DisplayTimedTextToPlayer(GetLocalPlayer(), 0, 0, bj_TEXT_DELAY_QUEST, " ")
+					DisplayTimedTextToPlayer(GetLocalPlayer(), 0, 0, bj_TEXT_DELAY_QUEST, message);//call DisplayTimedTextToPlayer(GetLocalPlayer(), 0, 0, bj_TEXT_DELAY_QUEST, message)
+					StartSound(bj_questDiscoveredSound);//call StartSound(bj_questDiscoveredSound)
+					FlashQuestDialogButton();//call FlashQuestDialogButton()
+				} else if ((messageType == bj_QUESTMESSAGE_UPDATED)) {//elseif (messageType == bj_QUESTMESSAGE_UPDATED) then
+					DisplayTimedTextToPlayer(GetLocalPlayer(), 0, 0, bj_TEXT_DELAY_QUESTUPDATE, " ");//call DisplayTimedTextToPlayer(GetLocalPlayer(), 0, 0, bj_TEXT_DELAY_QUESTUPDATE, " ")
+					DisplayTimedTextToPlayer(GetLocalPlayer(), 0, 0, bj_TEXT_DELAY_QUESTUPDATE, message);//call DisplayTimedTextToPlayer(GetLocalPlayer(), 0, 0, bj_TEXT_DELAY_QUESTUPDATE, message)
+					StartSound(bj_questUpdatedSound);//call StartSound(bj_questUpdatedSound)
+					FlashQuestDialogButton();//call FlashQuestDialogButton()
+				} else if ((messageType == bj_QUESTMESSAGE_COMPLETED)) {//elseif (messageType == bj_QUESTMESSAGE_COMPLETED) then
+					DisplayTimedTextToPlayer(GetLocalPlayer(), 0, 0, bj_TEXT_DELAY_QUESTDONE, " ");//call DisplayTimedTextToPlayer(GetLocalPlayer(), 0, 0, bj_TEXT_DELAY_QUESTDONE, " ")
+					DisplayTimedTextToPlayer(GetLocalPlayer(), 0, 0, bj_TEXT_DELAY_QUESTDONE, message);//call DisplayTimedTextToPlayer(GetLocalPlayer(), 0, 0, bj_TEXT_DELAY_QUESTDONE, message)
+					StartSound(bj_questCompletedSound);//call StartSound(bj_questCompletedSound)
+					FlashQuestDialogButton();//call FlashQuestDialogButton()
+				} else if ((messageType == bj_QUESTMESSAGE_FAILED)) {//elseif (messageType == bj_QUESTMESSAGE_FAILED) then
+					DisplayTimedTextToPlayer(GetLocalPlayer(), 0, 0, bj_TEXT_DELAY_QUESTFAILED, " ");//call DisplayTimedTextToPlayer(GetLocalPlayer(), 0, 0, bj_TEXT_DELAY_QUESTFAILED, " ")
+					DisplayTimedTextToPlayer(GetLocalPlayer(), 0, 0, bj_TEXT_DELAY_QUESTFAILED, message);//call DisplayTimedTextToPlayer(GetLocalPlayer(), 0, 0, bj_TEXT_DELAY_QUESTFAILED, message)
+					StartSound(bj_questFailedSound);//call StartSound(bj_questFailedSound)
+					FlashQuestDialogButton();//call FlashQuestDialogButton()
+				} else if ((messageType == bj_QUESTMESSAGE_REQUIREMENT)) {//elseif (messageType == bj_QUESTMESSAGE_REQUIREMENT) then
+					DisplayTimedTextToPlayer(GetLocalPlayer(), 0, 0, bj_TEXT_DELAY_QUESTREQUIREMENT, message);//call DisplayTimedTextToPlayer(GetLocalPlayer(), 0, 0, bj_TEXT_DELAY_QUESTREQUIREMENT, message)
+				} else if ((messageType == bj_QUESTMESSAGE_MISSIONFAILED)) {//elseif (messageType == bj_QUESTMESSAGE_MISSIONFAILED) then
+					DisplayTimedTextToPlayer(GetLocalPlayer(), 0, 0, bj_TEXT_DELAY_MISSIONFAILED, " ");//call DisplayTimedTextToPlayer(GetLocalPlayer(), 0, 0, bj_TEXT_DELAY_MISSIONFAILED, " ")
+					DisplayTimedTextToPlayer(GetLocalPlayer(), 0, 0, bj_TEXT_DELAY_MISSIONFAILED, message);//call DisplayTimedTextToPlayer(GetLocalPlayer(), 0, 0, bj_TEXT_DELAY_MISSIONFAILED, message)
+					StartSound(bj_questFailedSound);//call StartSound(bj_questFailedSound)
+				} else if ((messageType == bj_QUESTMESSAGE_HINT)) {//elseif (messageType == bj_QUESTMESSAGE_HINT) then
+					DisplayTimedTextToPlayer(GetLocalPlayer(), 0, 0, bj_TEXT_DELAY_HINT, " ");//call DisplayTimedTextToPlayer(GetLocalPlayer(), 0, 0, bj_TEXT_DELAY_HINT, " ")
+					DisplayTimedTextToPlayer(GetLocalPlayer(), 0, 0, bj_TEXT_DELAY_HINT, message);//call DisplayTimedTextToPlayer(GetLocalPlayer(), 0, 0, bj_TEXT_DELAY_HINT, message)
+					StartSound(bj_questHintSound);//call StartSound(bj_questHintSound)
+				} else if ((messageType == bj_QUESTMESSAGE_ALWAYSHINT)) {//elseif (messageType == bj_QUESTMESSAGE_ALWAYSHINT) then
+					DisplayTimedTextToPlayer(GetLocalPlayer(), 0, 0, bj_TEXT_DELAY_ALWAYSHINT, " ");//call DisplayTimedTextToPlayer(GetLocalPlayer(), 0, 0, bj_TEXT_DELAY_ALWAYSHINT, " ")
+					DisplayTimedTextToPlayer(GetLocalPlayer(), 0, 0, bj_TEXT_DELAY_ALWAYSHINT, message);//call DisplayTimedTextToPlayer(GetLocalPlayer(), 0, 0, bj_TEXT_DELAY_ALWAYSHINT, message)
+					StartSound(bj_questHintSound);//call StartSound(bj_questHintSound)
+				} else if ((messageType == bj_QUESTMESSAGE_SECRET)) {//elseif (messageType == bj_QUESTMESSAGE_SECRET) then
+					DisplayTimedTextToPlayer(GetLocalPlayer(), 0, 0, bj_TEXT_DELAY_SECRET, " ");//call DisplayTimedTextToPlayer(GetLocalPlayer(), 0, 0, bj_TEXT_DELAY_SECRET, " ")
+					DisplayTimedTextToPlayer(GetLocalPlayer(), 0, 0, bj_TEXT_DELAY_SECRET, message);//call DisplayTimedTextToPlayer(GetLocalPlayer(), 0, 0, bj_TEXT_DELAY_SECRET, message)
+					StartSound(bj_questSecretSound);//call StartSound(bj_questSecretSound)
+				} else if ((messageType == bj_QUESTMESSAGE_UNITACQUIRED)) {//elseif (messageType == bj_QUESTMESSAGE_UNITACQUIRED) then
+					DisplayTimedTextToPlayer(GetLocalPlayer(), 0, 0, bj_TEXT_DELAY_UNITACQUIRED, " ");//call DisplayTimedTextToPlayer(GetLocalPlayer(), 0, 0, bj_TEXT_DELAY_UNITACQUIRED, " ")
+					DisplayTimedTextToPlayer(GetLocalPlayer(), 0, 0, bj_TEXT_DELAY_UNITACQUIRED, message);//call DisplayTimedTextToPlayer(GetLocalPlayer(), 0, 0, bj_TEXT_DELAY_UNITACQUIRED, message)
+					StartSound(bj_questHintSound);//call StartSound(bj_questHintSound)
+				} else if ((messageType == bj_QUESTMESSAGE_UNITAVAILABLE)) {//elseif (messageType == bj_QUESTMESSAGE_UNITAVAILABLE) then
+					DisplayTimedTextToPlayer(GetLocalPlayer(), 0, 0, bj_TEXT_DELAY_UNITAVAILABLE, " ");//call DisplayTimedTextToPlayer(GetLocalPlayer(), 0, 0, bj_TEXT_DELAY_UNITAVAILABLE, " ")
+					DisplayTimedTextToPlayer(GetLocalPlayer(), 0, 0, bj_TEXT_DELAY_UNITAVAILABLE, message);//call DisplayTimedTextToPlayer(GetLocalPlayer(), 0, 0, bj_TEXT_DELAY_UNITAVAILABLE, message)
+					StartSound(bj_questHintSound);//call StartSound(bj_questHintSound)
+				} else if ((messageType == bj_QUESTMESSAGE_ITEMACQUIRED)) {//elseif (messageType == bj_QUESTMESSAGE_ITEMACQUIRED) then
+					DisplayTimedTextToPlayer(GetLocalPlayer(), 0, 0, bj_TEXT_DELAY_ITEMACQUIRED, " ");//call DisplayTimedTextToPlayer(GetLocalPlayer(), 0, 0, bj_TEXT_DELAY_ITEMACQUIRED, " ")
+					DisplayTimedTextToPlayer(GetLocalPlayer(), 0, 0, bj_TEXT_DELAY_ITEMACQUIRED, message);//call DisplayTimedTextToPlayer(GetLocalPlayer(), 0, 0, bj_TEXT_DELAY_ITEMACQUIRED, message)
+					StartSound(bj_questItemAcquiredSound);//call StartSound(bj_questItemAcquiredSound)
+				} else if ((messageType == bj_QUESTMESSAGE_WARNING)) {//elseif (messageType == bj_QUESTMESSAGE_WARNING) then
+					DisplayTimedTextToPlayer(GetLocalPlayer(), 0, 0, bj_TEXT_DELAY_WARNING, " ");//call DisplayTimedTextToPlayer(GetLocalPlayer(), 0, 0, bj_TEXT_DELAY_WARNING, " ")
+					DisplayTimedTextToPlayer(GetLocalPlayer(), 0, 0, bj_TEXT_DELAY_WARNING, message);//call DisplayTimedTextToPlayer(GetLocalPlayer(), 0, 0, bj_TEXT_DELAY_WARNING, message)
+					StartSound(bj_questWarningSound);//call StartSound(bj_questWarningSound)
+				} else {//else
+					//
+				}//endif
+			}//endif
+		}//endfunction
+		//
+		//
+		//
+		//
+		//
+		//
+		private timer StartTimerBJ(timer t, bool periodic, float timeout) {//function StartTimerBJ takes timer t, boolean periodic, real timeout returns timer
+			bj_lastStartedTimer = t;//set bj_lastStartedTimer = t
+			TimerStart(t, timeout, periodic, null);//call TimerStart(t, timeout, periodic, null)
+			return bj_lastStartedTimer;//return bj_lastStartedTimer
+		}//endfunction
+		//
+		private timer CreateTimerBJ(bool periodic, float timeout) {//function CreateTimerBJ takes boolean periodic, real timeout returns timer
+			bj_lastStartedTimer = CreateTimer();//set bj_lastStartedTimer = CreateTimer()
+			TimerStart(bj_lastStartedTimer, timeout, periodic, null);//call TimerStart(bj_lastStartedTimer, timeout, periodic, null)
+			return bj_lastStartedTimer;//return bj_lastStartedTimer
+		}//endfunction
+		//
+		private void DestroyTimerBJ(timer whichTimer) {//function DestroyTimerBJ takes timer whichTimer returns nothing
+			DestroyTimer(whichTimer);//call DestroyTimer(whichTimer)
+		}//endfunction
+		//
+		private void PauseTimerBJ(bool pause, timer whichTimer) {//function PauseTimerBJ takes boolean pause, timer whichTimer returns nothing
+			if (pause) {//if pause then
+				PauseTimer(whichTimer);//call PauseTimer(whichTimer)
+			} else {//else
+				ResumeTimer(whichTimer);//call ResumeTimer(whichTimer)
+			}//endif
+		}//endfunction
+		//
+		private timer GetLastCreatedTimerBJ() {//function GetLastCreatedTimerBJ takes nothing returns timer
+			return bj_lastStartedTimer;//return bj_lastStartedTimer
+		}//endfunction
+		//
+		private timerdialog CreateTimerDialogBJ(timer t, string title) {//function CreateTimerDialogBJ takes timer t, string title returns timerdialog
+			bj_lastCreatedTimerDialog = CreateTimerDialog(t);//set bj_lastCreatedTimerDialog = CreateTimerDialog(t)
+			TimerDialogSetTitle(bj_lastCreatedTimerDialog, title);//call TimerDialogSetTitle(bj_lastCreatedTimerDialog, title)
+			TimerDialogDisplay(bj_lastCreatedTimerDialog, true);//call TimerDialogDisplay(bj_lastCreatedTimerDialog, true)
+			return bj_lastCreatedTimerDialog;//return bj_lastCreatedTimerDialog
+		}//endfunction
+		//
+		private void DestroyTimerDialogBJ(timerdialog td) {//function DestroyTimerDialogBJ takes timerdialog td returns nothing
+			DestroyTimerDialog(td);//call DestroyTimerDialog(td)
+		}//endfunction
+		//
+		private void TimerDialogSetTitleBJ(timerdialog td, string title) {//function TimerDialogSetTitleBJ takes timerdialog td, string title returns nothing
+			TimerDialogSetTitle(td, title);//call TimerDialogSetTitle(td, title)
+		}//endfunction
+		//
+		private void TimerDialogSetTitleColorBJ(timerdialog td, float red, float green, float blue, float transparency) {//function TimerDialogSetTitleColorBJ takes timerdialog td, real red, real green, real blue, real transparency returns nothing
+			TimerDialogSetTitleColor(td, PercentTo255(red), PercentTo255(green), PercentTo255(blue), PercentTo255(100.0-transparency));//call TimerDialogSetTitleColor(td, PercentTo255(red), PercentTo255(green), PercentTo255(blue), PercentTo255(100.0-transparency))
+		}//endfunction
+		//
+		private void TimerDialogSetTimeColorBJ(timerdialog td, float red, float green, float blue, float transparency) {//function TimerDialogSetTimeColorBJ takes timerdialog td, real red, real green, real blue, real transparency returns nothing
+			TimerDialogSetTimeColor(td, PercentTo255(red), PercentTo255(green), PercentTo255(blue), PercentTo255(100.0-transparency));//call TimerDialogSetTimeColor(td, PercentTo255(red), PercentTo255(green), PercentTo255(blue), PercentTo255(100.0-transparency))
+		}//endfunction
+		//
+		private void TimerDialogSetSpeedBJ(timerdialog td, float speedMultFactor) {//function TimerDialogSetSpeedBJ takes timerdialog td, real speedMultFactor returns nothing
+			TimerDialogSetSpeed(td, speedMultFactor);//call TimerDialogSetSpeed(td, speedMultFactor)
+		}//endfunction
+		//
+		private void TimerDialogDisplayForPlayerBJ(bool show, timerdialog td, player whichPlayer) {//function TimerDialogDisplayForPlayerBJ takes boolean show, timerdialog td, player whichPlayer returns nothing
+			if ((GetLocalPlayer() == whichPlayer)) {//if (GetLocalPlayer() == whichPlayer) then
+				//
+				TimerDialogDisplay(td, show);//call TimerDialogDisplay(td, show)
+			}//endif
+		}//endfunction
+		//
+		private void TimerDialogDisplayBJ(bool show, timerdialog td) {//function TimerDialogDisplayBJ takes boolean show, timerdialog td returns nothing
 			TimerDialogDisplay(td, show);//call TimerDialogDisplay(td, show)
-		}//endif
-	}//endfunction
-	//
-	private void TimerDialogDisplayBJ(bool show, timerdialog td) {//function TimerDialogDisplayBJ takes boolean show, timerdialog td returns nothing
-		TimerDialogDisplay(td, show);//call TimerDialogDisplay(td, show)
-	}//endfunction
-	//
-	private timerdialog GetLastCreatedTimerDialogBJ() {//function GetLastCreatedTimerDialogBJ takes nothing returns timerdialog
-		return bj_lastCreatedTimerDialog;//return bj_lastCreatedTimerDialog
-	}//endfunction
-	//
-	//
-	//
-	//
-	//
-	//
-	private void LeaderboardResizeBJ() {//function LeaderboardResizeBJ takes leaderboard lb returns nothing
-		int size = LeaderboardGetItemCount(lb);//local integer size = LeaderboardGetItemCount(lb)
-		if ((LeaderboardGetLabelText(lb) == "")) {//if (LeaderboardGetLabelText(lb) == "") then
-			size = size - 1;//set size = size - 1
-		}//endif
-		LeaderboardSetSizeByItemCount(lb, size);//call LeaderboardSetSizeByItemCount(lb, size)
-	}//endfunction
-	//
-	private void LeaderboardSetPlayerItemValueBJ(player whichPlayer, leaderboard lb, int val) {//function LeaderboardSetPlayerItemValueBJ takes player whichPlayer, leaderboard lb, integer val returns nothing
-		LeaderboardSetItemValue(lb, LeaderboardGetPlayerIndex(lb, whichPlayer), val);//call LeaderboardSetItemValue(lb, LeaderboardGetPlayerIndex(lb, whichPlayer), val)
-	}//endfunction
-	//
-	private void LeaderboardSetPlayerItemLabelBJ(player whichPlayer, leaderboard lb, string val) {//function LeaderboardSetPlayerItemLabelBJ takes player whichPlayer, leaderboard lb, string val returns nothing
-		LeaderboardSetItemLabel(lb, LeaderboardGetPlayerIndex(lb, whichPlayer), val);//call LeaderboardSetItemLabel(lb, LeaderboardGetPlayerIndex(lb, whichPlayer), val)
-	}//endfunction
-	//
-	private void LeaderboardSetPlayerItemStyleBJ(player whichPlayer, leaderboard lb, bool showLabel, bool showValue, bool showIcon) {//function LeaderboardSetPlayerItemStyleBJ takes player whichPlayer, leaderboard lb, boolean showLabel, boolean showValue, boolean showIcon returns nothing
-		LeaderboardSetItemStyle(lb, LeaderboardGetPlayerIndex(lb, whichPlayer), showLabel, showValue, showIcon);//call LeaderboardSetItemStyle(lb, LeaderboardGetPlayerIndex(lb, whichPlayer), showLabel, showValue, showIcon)
-	}//endfunction
-	//
-	private void LeaderboardSetPlayerItemLabelColorBJ(player whichPlayer, leaderboard lb, real red, real green, real blue, real transparency) {//function LeaderboardSetPlayerItemLabelColorBJ takes player whichPlayer, leaderboard lb, real red, real green, real blue, real transparency returns nothing
-		LeaderboardSetItemLabelColor(lb, LeaderboardGetPlayerIndex(lb, whichPlayer), PercentTo255(red), PercentTo255(green), PercentTo255(blue), PercentTo255(100.0-transparency));//call LeaderboardSetItemLabelColor(lb, LeaderboardGetPlayerIndex(lb, whichPlayer), PercentTo255(red), PercentTo255(green), PercentTo255(blue), PercentTo255(100.0-transparency))
-	}//endfunction
-	//
-	private void LeaderboardSetPlayerItemValueColorBJ(player whichPlayer, leaderboard lb, real red, real green, real blue, real transparency) {//function LeaderboardSetPlayerItemValueColorBJ takes player whichPlayer, leaderboard lb, real red, real green, real blue, real transparency returns nothing
-		LeaderboardSetItemValueColor(lb, LeaderboardGetPlayerIndex(lb, whichPlayer), PercentTo255(red), PercentTo255(green), PercentTo255(blue), PercentTo255(100.0-transparency));//call LeaderboardSetItemValueColor(lb, LeaderboardGetPlayerIndex(lb, whichPlayer), PercentTo255(red), PercentTo255(green), PercentTo255(blue), PercentTo255(100.0-transparency))
-	}//endfunction
-	//
-	private void LeaderboardSetLabelColorBJ(leaderboard lb, real red, real green, real blue, real transparency) {//function LeaderboardSetLabelColorBJ takes leaderboard lb, real red, real green, real blue, real transparency returns nothing
-		LeaderboardSetLabelColor(lb, PercentTo255(red), PercentTo255(green), PercentTo255(blue), PercentTo255(100.0-transparency));//call LeaderboardSetLabelColor(lb, PercentTo255(red), PercentTo255(green), PercentTo255(blue), PercentTo255(100.0-transparency))
-	}//endfunction
-	//
-	private void LeaderboardSetValueColorBJ(leaderboard lb, real red, real green, real blue, real transparency) {//function LeaderboardSetValueColorBJ takes leaderboard lb, real red, real green, real blue, real transparency returns nothing
-		LeaderboardSetValueColor(lb, PercentTo255(red), PercentTo255(green), PercentTo255(blue), PercentTo255(100.0-transparency));//call LeaderboardSetValueColor(lb, PercentTo255(red), PercentTo255(green), PercentTo255(blue), PercentTo255(100.0-transparency))
-	}//endfunction
-	//
-	private void LeaderboardSetLabelBJ(leaderboard lb, string label) {//function LeaderboardSetLabelBJ takes leaderboard lb, string label returns nothing
-		LeaderboardSetLabel(lb, label);//call LeaderboardSetLabel(lb, label)
-		LeaderboardResizeBJ(lb);//call LeaderboardResizeBJ(lb)
-	}//endfunction
-	//
-	private void LeaderboardSetStyleBJ(leaderboard lb, bool showLabel, bool showNames, bool showValues, bool showIcons) {//function LeaderboardSetStyleBJ takes leaderboard lb, boolean showLabel, boolean showNames, boolean showValues, boolean showIcons returns nothing
-		LeaderboardSetStyle(lb, showLabel, showNames, showValues, showIcons);//call LeaderboardSetStyle(lb, showLabel, showNames, showValues, showIcons)
-	}//endfunction
-	//
-	private int LeaderboardGetItemCountBJ() {//function LeaderboardGetItemCountBJ takes leaderboard lb returns integer
-		return LeaderboardGetItemCount(lb);//return LeaderboardGetItemCount(lb)
-	}//endfunction
-	//
-	private bool LeaderboardHasPlayerItemBJ(leaderboard lb, player whichPlayer) {//function LeaderboardHasPlayerItemBJ takes leaderboard lb, player whichPlayer returns boolean
-		return LeaderboardHasPlayerItem(lb, whichPlayer);//return LeaderboardHasPlayerItem(lb, whichPlayer)
-	}//endfunction
-	//
-	private void ForceSetLeaderboardBJ(leaderboard lb, force toForce) {//function ForceSetLeaderboardBJ takes leaderboard lb, force toForce returns nothing
-		int index;//local integer index
-		player indexPlayer;//local player  indexPlayer
-		index = 0;//set index = 0
-		while (true) {//loop
-			indexPlayer = Player(index);//set indexPlayer = Player(index)
-			if (IsPlayerInForce(indexPlayer, toForce)) {//if IsPlayerInForce(indexPlayer, toForce) then
-				PlayerSetLeaderboard(indexPlayer, lb);//call PlayerSetLeaderboard(indexPlayer, lb)
-			}//endif
-			index = index + 1;//set index = index + 1
-			if (index == bj_MAX_PLAYERS) { break; }//exitwhen index == bj_MAX_PLAYERS
-		}//endloop
-	}//endfunction
-	//
-	private leaderboard CreateLeaderboardBJ(force toForce, string label) {//function CreateLeaderboardBJ takes force toForce, string label returns leaderboard
-		bj_lastCreatedLeaderboard = CreateLeaderboard();//set bj_lastCreatedLeaderboard = CreateLeaderboard()
-		LeaderboardSetLabel(bj_lastCreatedLeaderboard, label);//call LeaderboardSetLabel(bj_lastCreatedLeaderboard, label)
-		ForceSetLeaderboardBJ(bj_lastCreatedLeaderboard, toForce);//call ForceSetLeaderboardBJ(bj_lastCreatedLeaderboard, toForce)
-		LeaderboardDisplay(bj_lastCreatedLeaderboard, true);//call LeaderboardDisplay(bj_lastCreatedLeaderboard, true)
-		return bj_lastCreatedLeaderboard;//return bj_lastCreatedLeaderboard
-	}//endfunction
-	//
-	private void DestroyLeaderboardBJ() {//function DestroyLeaderboardBJ takes leaderboard lb returns nothing
-		DestroyLeaderboard(lb);//call DestroyLeaderboard(lb)
-	}//endfunction
-	//
-	private void LeaderboardDisplayBJ(bool show, leaderboard lb) {//function LeaderboardDisplayBJ takes boolean show, leaderboard lb returns nothing
-		LeaderboardDisplay(lb, show);//call LeaderboardDisplay(lb, show)
-	}//endfunction
-	//
-	private void LeaderboardAddItemBJ(player whichPlayer, leaderboard lb, string label, int value) {//function LeaderboardAddItemBJ takes player whichPlayer, leaderboard lb, string label, integer value returns nothing
-		if ((LeaderboardHasPlayerItem(lb, whichPlayer))) {//if (LeaderboardHasPlayerItem(lb, whichPlayer)) then
-			LeaderboardRemovePlayerItem(lb, whichPlayer);//call LeaderboardRemovePlayerItem(lb, whichPlayer)
-		}//endif
-		LeaderboardAddItem(lb, label, value, whichPlayer);//call LeaderboardAddItem(lb, label, value, whichPlayer)
-		LeaderboardResizeBJ(lb);//call LeaderboardResizeBJ(lb)
+		}//endfunction
 		//
-	}//endfunction
-	//
-	private void LeaderboardRemovePlayerItemBJ(player whichPlayer, leaderboard lb) {//function LeaderboardRemovePlayerItemBJ takes player whichPlayer, leaderboard lb returns nothing
-		LeaderboardRemovePlayerItem(lb, whichPlayer);//call LeaderboardRemovePlayerItem(lb, whichPlayer)
-		LeaderboardResizeBJ(lb);//call LeaderboardResizeBJ(lb)
-	}//endfunction
-	//
-	private void LeaderboardSortItemsBJ(leaderboard lb, int sortType, bool ascending) {//function LeaderboardSortItemsBJ takes leaderboard lb, integer sortType, boolean ascending returns nothing
-		if ((sortType == bj_SORTTYPE_SORTBYVALUE)) {//if (sortType == bj_SORTTYPE_SORTBYVALUE) then
-			LeaderboardSortItemsByValue(lb, ascending);//call LeaderboardSortItemsByValue(lb, ascending)
-		} else if ((sortType == bj_SORTTYPE_SORTBYPLAYER)) {//elseif (sortType == bj_SORTTYPE_SORTBYPLAYER) then
-			LeaderboardSortItemsByPlayer(lb, ascending);//call LeaderboardSortItemsByPlayer(lb, ascending)
-		} else if ((sortType == bj_SORTTYPE_SORTBYLABEL)) {//elseif (sortType == bj_SORTTYPE_SORTBYLABEL) then
-			LeaderboardSortItemsByLabel(lb, ascending);//call LeaderboardSortItemsByLabel(lb, ascending)
-		} else {//else
-			//
-		}//endif
-	}//endfunction
-	//
-	private void LeaderboardSortItemsByPlayerBJ(leaderboard lb, bool ascending) {//function LeaderboardSortItemsByPlayerBJ takes leaderboard lb, boolean ascending returns nothing
-		LeaderboardSortItemsByPlayer(lb, ascending);//call LeaderboardSortItemsByPlayer(lb, ascending)
-	}//endfunction
-	//
-	private void LeaderboardSortItemsByLabelBJ(leaderboard lb, bool ascending) {//function LeaderboardSortItemsByLabelBJ takes leaderboard lb, boolean ascending returns nothing
-		LeaderboardSortItemsByLabel(lb, ascending);//call LeaderboardSortItemsByLabel(lb, ascending)
-	}//endfunction
-	//
-	private int LeaderboardGetPlayerIndexBJ(player whichPlayer, leaderboard lb) {//function LeaderboardGetPlayerIndexBJ takes player whichPlayer, leaderboard lb returns integer
-		return LeaderboardGetPlayerIndex(lb, whichPlayer) + 1;//return LeaderboardGetPlayerIndex(lb, whichPlayer) + 1
-	}//endfunction
-	//
-	//
-	//
-	//
-	private player LeaderboardGetIndexedPlayerBJ(int position, leaderboard lb) {//function LeaderboardGetIndexedPlayerBJ takes integer position, leaderboard lb returns player
-		int index;//local integer index
-		player indexPlayer;//local player  indexPlayer
-		index = 0;//set index = 0
-		while (true) {//loop
-			indexPlayer = Player(index);//set indexPlayer = Player(index)
-			if ((LeaderboardGetPlayerIndex(lb, indexPlayer) == position - 1)) {//if (LeaderboardGetPlayerIndex(lb, indexPlayer) == position - 1) then
-				return indexPlayer;//return indexPlayer
-			}//endif
-			index = index + 1;//set index = index + 1
-			if (index == bj_MAX_PLAYERS) { break; }//exitwhen index == bj_MAX_PLAYERS
-		}//endloop
-		return Player(PLAYER_NEUTRAL_PASSIVE);//return Player(PLAYER_NEUTRAL_PASSIVE)
-	}//endfunction
-	//
-	private leaderboard PlayerGetLeaderboardBJ() {//function PlayerGetLeaderboardBJ takes player whichPlayer returns leaderboard
-		return PlayerGetLeaderboard(whichPlayer);//return PlayerGetLeaderboard(whichPlayer)
-	}//endfunction
-	//
-	private leaderboard GetLastCreatedLeaderboard() {//function GetLastCreatedLeaderboard takes nothing returns leaderboard
-		return bj_lastCreatedLeaderboard;//return bj_lastCreatedLeaderboard
-	}//endfunction
-	//
-	//
-	//
-	//
-	//
-	//
-	private multiboard CreateMultiboardBJ(int cols, int rows, string title) {//function CreateMultiboardBJ takes integer cols, integer rows, string title returns multiboard
-		bj_lastCreatedMultiboard = CreateMultiboard();//set bj_lastCreatedMultiboard = CreateMultiboard()
-		MultiboardSetRowCount(bj_lastCreatedMultiboard, rows);//call MultiboardSetRowCount(bj_lastCreatedMultiboard, rows)
-		MultiboardSetColumnCount(bj_lastCreatedMultiboard, cols);//call MultiboardSetColumnCount(bj_lastCreatedMultiboard, cols)
-		MultiboardSetTitleText(bj_lastCreatedMultiboard, title);//call MultiboardSetTitleText(bj_lastCreatedMultiboard, title)
-		MultiboardDisplay(bj_lastCreatedMultiboard, true);//call MultiboardDisplay(bj_lastCreatedMultiboard, true)
-		return bj_lastCreatedMultiboard;//return bj_lastCreatedMultiboard
-	}//endfunction
-	//
-	private void DestroyMultiboardBJ() {//function DestroyMultiboardBJ takes multiboard mb returns nothing
-		DestroyMultiboard(mb);//call DestroyMultiboard(mb)
-	}//endfunction
-	//
-	private multiboard GetLastCreatedMultiboard() {//function GetLastCreatedMultiboard takes nothing returns multiboard
-		return bj_lastCreatedMultiboard;//return bj_lastCreatedMultiboard
-	}//endfunction
-	//
-	private void MultiboardDisplayBJ(bool show, multiboard mb) {//function MultiboardDisplayBJ takes boolean show, multiboard mb returns nothing
-		MultiboardDisplay(mb, show);//call MultiboardDisplay(mb, show)
-	}//endfunction
-	//
-	private void MultiboardMinimizeBJ(bool minimize, multiboard mb) {//function MultiboardMinimizeBJ takes boolean minimize, multiboard mb returns nothing
-		MultiboardMinimize(mb, minimize);//call MultiboardMinimize(mb, minimize)
-	}//endfunction
-	//
-	private void MultiboardSetTitleTextColorBJ(multiboard mb, real red, real green, real blue, real transparency) {//function MultiboardSetTitleTextColorBJ takes multiboard mb, real red, real green, real blue, real transparency returns nothing
-		MultiboardSetTitleTextColor(mb, PercentTo255(red), PercentTo255(green), PercentTo255(blue), PercentTo255(100.0-transparency));//call MultiboardSetTitleTextColor(mb, PercentTo255(red), PercentTo255(green), PercentTo255(blue), PercentTo255(100.0-transparency))
-	}//endfunction
-	//
-	private void MultiboardAllowDisplayBJ() {//function MultiboardAllowDisplayBJ takes boolean flag returns nothing
-		MultiboardSuppressDisplay(not flag);//call MultiboardSuppressDisplay(not flag)
-	}//endfunction
-	//
-	private void MultiboardSetItemStyleBJ(multiboard mb, int col, int row, bool showValue, bool showIcon) {//function MultiboardSetItemStyleBJ takes multiboard mb, integer col, integer row, boolean showValue, boolean showIcon returns nothing
-		int curRow = 0;//local integer curRow = 0
-		int curCol = 0;//local integer curCol = 0
-		int numRows = MultiboardGetRowCount(mb);//local integer numRows = MultiboardGetRowCount(mb)
-		int numCols = MultiboardGetColumnCount(mb);//local integer numCols = MultiboardGetColumnCount(mb)
-		multiboarditem mbitem = null;//local multiboarditem mbitem = null
+		private timerdialog GetLastCreatedTimerDialogBJ() {//function GetLastCreatedTimerDialogBJ takes nothing returns timerdialog
+			return bj_lastCreatedTimerDialog;//return bj_lastCreatedTimerDialog
+		}//endfunction
 		//
-		while (true) {//loop
-			curRow = curRow + 1;//set curRow = curRow + 1
-			if (curRow > numRows) { break; }//exitwhen curRow > numRows
-			//
-			if ((row == 0 || row == curRow)) {//if (row == 0 or row == curRow) then
-				//
-				curCol = 0;//set curCol = 0
-				while (true) {//loop
-					curCol = curCol + 1;//set curCol = curCol + 1
-					if (curCol > numCols) { break; }//exitwhen curCol > numCols
-					//
-					if ((col == 0 || col == curCol)) {//if (col == 0 or col == curCol) then
-						mbitem = MultiboardGetItem(mb, curRow - 1, curCol - 1);//set mbitem = MultiboardGetItem(mb, curRow - 1, curCol - 1)
-						MultiboardSetItemStyle(mbitem, showValue, showIcon);//call MultiboardSetItemStyle(mbitem, showValue, showIcon)
-						MultiboardReleaseItem(mbitem);//call MultiboardReleaseItem(mbitem)
-					}//endif
-				}//endloop
-			}//endif
-		}//endloop
-	}//endfunction
-	//
-	private void MultiboardSetItemValueBJ(multiboard mb, int col, int row, string val) {//function MultiboardSetItemValueBJ takes multiboard mb, integer col, integer row, string val returns nothing
-		int curRow = 0;//local integer curRow = 0
-		int curCol = 0;//local integer curCol = 0
-		int numRows = MultiboardGetRowCount(mb);//local integer numRows = MultiboardGetRowCount(mb)
-		int numCols = MultiboardGetColumnCount(mb);//local integer numCols = MultiboardGetColumnCount(mb)
-		multiboarditem mbitem = null;//local multiboarditem mbitem = null
 		//
-		while (true) {//loop
-			curRow = curRow + 1;//set curRow = curRow + 1
-			if (curRow > numRows) { break; }//exitwhen curRow > numRows
-			//
-			if ((row == 0 || row == curRow)) {//if (row == 0 or row == curRow) then
-				//
-				curCol = 0;//set curCol = 0
-				while (true) {//loop
-					curCol = curCol + 1;//set curCol = curCol + 1
-					if (curCol > numCols) { break; }//exitwhen curCol > numCols
-					//
-					if ((col == 0 || col == curCol)) {//if (col == 0 or col == curCol) then
-						mbitem = MultiboardGetItem(mb, curRow - 1, curCol - 1);//set mbitem = MultiboardGetItem(mb, curRow - 1, curCol - 1)
-						MultiboardSetItemValue(mbitem, val);//call MultiboardSetItemValue(mbitem, val)
-						MultiboardReleaseItem(mbitem);//call MultiboardReleaseItem(mbitem)
-					}//endif
-				}//endloop
-			}//endif
-		}//endloop
-	}//endfunction
-	//
-	private void MultiboardSetItemColorBJ(multiboard mb, int col, int row, real red, real green, real blue, real transparency) {//function MultiboardSetItemColorBJ takes multiboard mb, integer col, integer row, real red, real green, real blue, real transparency returns nothing
-		int curRow = 0;//local integer curRow = 0
-		int curCol = 0;//local integer curCol = 0
-		int numRows = MultiboardGetRowCount(mb);//local integer numRows = MultiboardGetRowCount(mb)
-		int numCols = MultiboardGetColumnCount(mb);//local integer numCols = MultiboardGetColumnCount(mb)
-		multiboarditem mbitem = null;//local multiboarditem mbitem = null
 		//
-		while (true) {//loop
-			curRow = curRow + 1;//set curRow = curRow + 1
-			if (curRow > numRows) { break; }//exitwhen curRow > numRows
-			//
-			if ((row == 0 || row == curRow)) {//if (row == 0 or row == curRow) then
-				//
-				curCol = 0;//set curCol = 0
-				while (true) {//loop
-					curCol = curCol + 1;//set curCol = curCol + 1
-					if (curCol > numCols) { break; }//exitwhen curCol > numCols
-					//
-					if ((col == 0 || col == curCol)) {//if (col == 0 or col == curCol) then
-						mbitem = MultiboardGetItem(mb, curRow - 1, curCol - 1);//set mbitem = MultiboardGetItem(mb, curRow - 1, curCol - 1)
-						MultiboardSetItemValueColor(mbitem, PercentTo255(red), PercentTo255(green), PercentTo255(blue), PercentTo255(100.0-transparency));//call MultiboardSetItemValueColor(mbitem, PercentTo255(red), PercentTo255(green), PercentTo255(blue), PercentTo255(100.0-transparency))
-						MultiboardReleaseItem(mbitem);//call MultiboardReleaseItem(mbitem)
-					}//endif
-				}//endloop
-			}//endif
-		}//endloop
-	}//endfunction
-	//
-	private void MultiboardSetItemWidthBJ(multiboard mb, int col, int row, real width) {//function MultiboardSetItemWidthBJ takes multiboard mb, integer col, integer row, real width returns nothing
-		int curRow = 0;//local integer curRow = 0
-		int curCol = 0;//local integer curCol = 0
-		int numRows = MultiboardGetRowCount(mb);//local integer numRows = MultiboardGetRowCount(mb)
-		int numCols = MultiboardGetColumnCount(mb);//local integer numCols = MultiboardGetColumnCount(mb)
-		multiboarditem mbitem = null;//local multiboarditem mbitem = null
 		//
-		while (true) {//loop
-			curRow = curRow + 1;//set curRow = curRow + 1
-			if (curRow > numRows) { break; }//exitwhen curRow > numRows
-			//
-			if ((row == 0 || row == curRow)) {//if (row == 0 or row == curRow) then
-				//
-				curCol = 0;//set curCol = 0
-				while (true) {//loop
-					curCol = curCol + 1;//set curCol = curCol + 1
-					if (curCol > numCols) { break; }//exitwhen curCol > numCols
-					//
-					if ((col == 0 || col == curCol)) {//if (col == 0 or col == curCol) then
-						mbitem = MultiboardGetItem(mb, curRow - 1, curCol - 1);//set mbitem = MultiboardGetItem(mb, curRow - 1, curCol - 1)
-						MultiboardSetItemWidth(mbitem, width/100.0);//call MultiboardSetItemWidth(mbitem, width/100.0)
-						MultiboardReleaseItem(mbitem);//call MultiboardReleaseItem(mbitem)
-					}//endif
-				}//endloop
-			}//endif
-		}//endloop
-	}//endfunction
-	//
-	private void MultiboardSetItemIconBJ(multiboard mb, int col, int row, string iconFileName) {//function MultiboardSetItemIconBJ takes multiboard mb, integer col, integer row, string iconFileName returns nothing
-		int curRow = 0;//local integer curRow = 0
-		int curCol = 0;//local integer curCol = 0
-		int numRows = MultiboardGetRowCount(mb);//local integer numRows = MultiboardGetRowCount(mb)
-		int numCols = MultiboardGetColumnCount(mb);//local integer numCols = MultiboardGetColumnCount(mb)
-		multiboarditem mbitem = null;//local multiboarditem mbitem = null
 		//
-		while (true) {//loop
-			curRow = curRow + 1;//set curRow = curRow + 1
-			if (curRow > numRows) { break; }//exitwhen curRow > numRows
-			//
-			if ((row == 0 || row == curRow)) {//if (row == 0 or row == curRow) then
-				//
-				curCol = 0;//set curCol = 0
-				while (true) {//loop
-					curCol = curCol + 1;//set curCol = curCol + 1
-					if (curCol > numCols) { break; }//exitwhen curCol > numCols
-					//
-					if ((col == 0 || col == curCol)) {//if (col == 0 or col == curCol) then
-						mbitem = MultiboardGetItem(mb, curRow - 1, curCol - 1);//set mbitem = MultiboardGetItem(mb, curRow - 1, curCol - 1)
-						MultiboardSetItemIcon(mbitem, iconFileName);//call MultiboardSetItemIcon(mbitem, iconFileName)
-						MultiboardReleaseItem(mbitem);//call MultiboardReleaseItem(mbitem)
-					}//endif
-				}//endloop
+		//
+		private void LeaderboardResizeBJ(leaderboard lb) {//function LeaderboardResizeBJ takes leaderboard lb returns nothing
+			int size = LeaderboardGetItemCount(lb);//local integer size = LeaderboardGetItemCount(lb)
+			if ((LeaderboardGetLabelText(lb) == "")) {//if (LeaderboardGetLabelText(lb) == "") then
+				size = size - 1;//set size = size - 1
 			}//endif
-		}//endloop
-	}//endfunction
-	//
-	//
-	//
-	//
-	//
-	//
-	//
-	//
-	//
-	private real TextTagSize2Height() {//function TextTagSize2Height takes real size returns real
-		return size * 0.023 / 10;//return size * 0.023 / 10
-	}//endfunction
-	//
-	//
-	//
-	//
-	private real TextTagSpeed2Velocity() {//function TextTagSpeed2Velocity takes real speed returns real
-		return speed * 0.071 / 128;//return speed * 0.071 / 128
-	}//endfunction
-	//
-	private void SetTextTagColorBJ(texttag tt, real red, real green, real blue, real transparency) {//function SetTextTagColorBJ takes texttag tt, real red, real green, real blue, real transparency returns nothing
-		SetTextTagColor(tt, PercentTo255(red), PercentTo255(green), PercentTo255(blue), PercentTo255(100.0-transparency));//call SetTextTagColor(tt, PercentTo255(red), PercentTo255(green), PercentTo255(blue), PercentTo255(100.0-transparency))
-	}//endfunction
-	//
-	private void SetTextTagVelocityBJ(texttag tt, real speed, real angle) {//function SetTextTagVelocityBJ takes texttag tt, real speed, real angle returns nothing
-		real vel = TextTagSpeed2Velocity(speed);//local real vel = TextTagSpeed2Velocity(speed)
-		real xvel = vel * Cos(angle * bj_DEGTORAD);//local real xvel = vel * Cos(angle * bj_DEGTORAD)
-		real yvel = vel * Sin(angle * bj_DEGTORAD);//local real yvel = vel * Sin(angle * bj_DEGTORAD)
-		SetTextTagVelocity(tt, xvel, yvel);//call SetTextTagVelocity(tt, xvel, yvel)
-	}//endfunction
-	//
-	private void SetTextTagTextBJ(texttag tt, string s, real size) {//function SetTextTagTextBJ takes texttag tt, string s, real size returns nothing
-		real textHeight = TextTagSize2Height(size);//local real textHeight = TextTagSize2Height(size)
-		SetTextTagText(tt, s, textHeight);//call SetTextTagText(tt, s, textHeight)
-	}//endfunction
-	//
-	private void SetTextTagPosBJ(texttag tt, location loc, real zOffset) {//function SetTextTagPosBJ takes texttag tt, location loc, real zOffset returns nothing
-		SetTextTagPos(tt, GetLocationX(loc), GetLocationY(loc), zOffset);//call SetTextTagPos(tt, GetLocationX(loc), GetLocationY(loc), zOffset)
-	}//endfunction
-	//
-	private void SetTextTagPosUnitBJ(texttag tt, int whichUnit, real zOffset) {//function SetTextTagPosUnitBJ takes texttag tt, unit whichUnit, real zOffset returns nothing
-		SetTextTagPosUnit(tt, whichUnit, zOffset);//call SetTextTagPosUnit(tt, whichUnit, zOffset)
-	}//endfunction
-	//
-	private void SetTextTagSuspendedBJ(texttag tt, bool flag) {//function SetTextTagSuspendedBJ takes texttag tt, boolean flag returns nothing
-		SetTextTagSuspended(tt, flag);//call SetTextTagSuspended(tt, flag)
-	}//endfunction
-	//
-	private void SetTextTagPermanentBJ(texttag tt, bool flag) {//function SetTextTagPermanentBJ takes texttag tt, boolean flag returns nothing
-		SetTextTagPermanent(tt, flag);//call SetTextTagPermanent(tt, flag)
-	}//endfunction
-	//
-	private void SetTextTagAgeBJ(texttag tt, real age) {//function SetTextTagAgeBJ takes texttag tt, real age returns nothing
-		SetTextTagAge(tt, age);//call SetTextTagAge(tt, age)
-	}//endfunction
-	//
-	private void SetTextTagLifespanBJ(texttag tt, real lifespan) {//function SetTextTagLifespanBJ takes texttag tt, real lifespan returns nothing
-		SetTextTagLifespan(tt, lifespan);//call SetTextTagLifespan(tt, lifespan)
-	}//endfunction
-	//
-	private void SetTextTagFadepointBJ(texttag tt, real fadepoint) {//function SetTextTagFadepointBJ takes texttag tt, real fadepoint returns nothing
-		SetTextTagFadepoint(tt, fadepoint);//call SetTextTagFadepoint(tt, fadepoint)
-	}//endfunction
-	//
-	private texttag CreateTextTagLocBJ(string s, location loc, real zOffset, real size, real red, real green, real blue, real transparency) {//function CreateTextTagLocBJ takes string s, location loc, real zOffset, real size, real red, real green, real blue, real transparency returns texttag
-		bj_lastCreatedTextTag = CreateTextTag();//set bj_lastCreatedTextTag = CreateTextTag()
-		SetTextTagTextBJ(bj_lastCreatedTextTag, s, size);//call SetTextTagTextBJ(bj_lastCreatedTextTag, s, size)
-		SetTextTagPosBJ(bj_lastCreatedTextTag, loc, zOffset);//call SetTextTagPosBJ(bj_lastCreatedTextTag, loc, zOffset)
-		SetTextTagColorBJ(bj_lastCreatedTextTag, red, green, blue, transparency);//call SetTextTagColorBJ(bj_lastCreatedTextTag, red, green, blue, transparency)
-		return bj_lastCreatedTextTag;//return bj_lastCreatedTextTag
-	}//endfunction
-	//
-	private texttag CreateTextTagUnitBJ(string s, int whichUnit, real zOffset, real size, real red, real green, real blue, real transparency) {//function CreateTextTagUnitBJ takes string s, unit whichUnit, real zOffset, real size, real red, real green, real blue, real transparency returns texttag
-		bj_lastCreatedTextTag = CreateTextTag();//set bj_lastCreatedTextTag = CreateTextTag()
-		SetTextTagTextBJ(bj_lastCreatedTextTag, s, size);//call SetTextTagTextBJ(bj_lastCreatedTextTag, s, size)
-		SetTextTagPosUnitBJ(bj_lastCreatedTextTag, whichUnit, zOffset);//call SetTextTagPosUnitBJ(bj_lastCreatedTextTag, whichUnit, zOffset)
-		SetTextTagColorBJ(bj_lastCreatedTextTag, red, green, blue, transparency);//call SetTextTagColorBJ(bj_lastCreatedTextTag, red, green, blue, transparency)
-		return bj_lastCreatedTextTag;//return bj_lastCreatedTextTag
-	}//endfunction
-	//
-	private void DestroyTextTagBJ() {//function DestroyTextTagBJ takes texttag tt returns nothing
-		DestroyTextTag(tt);//call DestroyTextTag(tt)
-	}//endfunction
-	//
-	private void ShowTextTagForceBJ(bool show, texttag tt, force whichForce) {//function ShowTextTagForceBJ takes boolean show, texttag tt, force whichForce returns nothing
-		if ((IsPlayerInForce(GetLocalPlayer(), whichForce))) {//if (IsPlayerInForce(GetLocalPlayer(), whichForce)) then
-			//
-			SetTextTagVisibility(tt, show);//call SetTextTagVisibility(tt, show)
-		}//endif
-	}//endfunction
-	//
-	private texttag GetLastCreatedTextTag() {//function GetLastCreatedTextTag takes nothing returns texttag
-		return bj_lastCreatedTextTag;//return bj_lastCreatedTextTag
-	}//endfunction
-	//
-	//
-	//
-	//
-	//
-	//
-	private void PauseGameOn() {//function PauseGameOn takes nothing returns nothing
-		PauseGame(true);//call PauseGame(true)
-	}//endfunction
-	//
-	private void PauseGameOff() {//function PauseGameOff takes nothing returns nothing
-		PauseGame(false);//call PauseGame(false)
-	}//endfunction
-	//
-	private void SetUserControlForceOn() {//function SetUserControlForceOn takes force whichForce returns nothing
-		if ((IsPlayerInForce(GetLocalPlayer(), whichForce))) {//if (IsPlayerInForce(GetLocalPlayer(), whichForce)) then
-			//
-			EnableUserControl(true);//call EnableUserControl(true)
-		}//endif
-	}//endfunction
-	//
-	private void SetUserControlForceOff() {//function SetUserControlForceOff takes force whichForce returns nothing
-		if ((IsPlayerInForce(GetLocalPlayer(), whichForce))) {//if (IsPlayerInForce(GetLocalPlayer(), whichForce)) then
-			//
-			EnableUserControl(false);//call EnableUserControl(false)
-		}//endif
-	}//endfunction
-	//
-	private void ShowInterfaceForceOn(force whichForce, real fadeDuration) {//function ShowInterfaceForceOn takes force whichForce, real fadeDuration returns nothing
-		if ((IsPlayerInForce(GetLocalPlayer(), whichForce))) {//if (IsPlayerInForce(GetLocalPlayer(), whichForce)) then
-			//
-			ShowInterface(true, fadeDuration);//call ShowInterface(true, fadeDuration)
-		}//endif
-	}//endfunction
-	//
-	private void ShowInterfaceForceOff(force whichForce, real fadeDuration) {//function ShowInterfaceForceOff takes force whichForce, real fadeDuration returns nothing
-		if ((IsPlayerInForce(GetLocalPlayer(), whichForce))) {//if (IsPlayerInForce(GetLocalPlayer(), whichForce)) then
-			//
-			ShowInterface(false, fadeDuration);//call ShowInterface(false, fadeDuration)
-		}//endif
-	}//endfunction
-	//
-	private void PingMinimapForForce(force whichForce, real x, real y, real duration) {//function PingMinimapForForce takes force whichForce, real x, real y, real duration returns nothing
-		if ((IsPlayerInForce(GetLocalPlayer(), whichForce))) {//if (IsPlayerInForce(GetLocalPlayer(), whichForce)) then
-			//
-			PingMinimap(x, y, duration);//call PingMinimap(x, y, duration)
-			//
-		}//endif
-	}//endfunction
-	//
-	private void PingMinimapLocForForce(force whichForce, location loc, real duration) {//function PingMinimapLocForForce takes force whichForce, location loc, real duration returns nothing
-		PingMinimapForForce(whichForce, GetLocationX(loc), GetLocationY(loc), duration);//call PingMinimapForForce(whichForce, GetLocationX(loc), GetLocationY(loc), duration)
-	}//endfunction
-	//
-	private void PingMinimapForPlayer(player whichPlayer, real x, real y, real duration) {//function PingMinimapForPlayer takes player whichPlayer, real x, real y, real duration returns nothing
-		if ((GetLocalPlayer() == whichPlayer)) {//if (GetLocalPlayer() == whichPlayer) then
-			//
-			PingMinimap(x, y, duration);//call PingMinimap(x, y, duration)
-			//
-		}//endif
-	}//endfunction
-	//
-	private void PingMinimapLocForPlayer(player whichPlayer, location loc, real duration) {//function PingMinimapLocForPlayer takes player whichPlayer, location loc, real duration returns nothing
-		PingMinimapForPlayer(whichPlayer, GetLocationX(loc), GetLocationY(loc), duration);//call PingMinimapForPlayer(whichPlayer, GetLocationX(loc), GetLocationY(loc), duration)
-	}//endfunction
-	//
-	private void PingMinimapForForceEx(force whichForce, real x, real y, real duration, int style, real red, real green, real blue) {//function PingMinimapForForceEx takes force whichForce, real x, real y, real duration, integer style, real red, real green, real blue returns nothing
-		int red255 = PercentTo255(red);//local integer red255   = PercentTo255(red)
-		int green255 = PercentTo255(green);//local integer green255 = PercentTo255(green)
-		int blue255 = PercentTo255(blue);//local integer blue255  = PercentTo255(blue)
-		if ((IsPlayerInForce(GetLocalPlayer(), whichForce))) {//if (IsPlayerInForce(GetLocalPlayer(), whichForce)) then
-			//
-			//
-			if ((red255 == 255) && (green255 == 0) && (blue255 == 0)) {//if (red255 == 255) and (green255 == 0) and (blue255 == 0) then
-				red255 = 254;//set red255 = 254
-			}//endif
-			if ((style == bj_MINIMAPPINGSTYLE_SIMPLE)) {//if (style == bj_MINIMAPPINGSTYLE_SIMPLE) then
-				PingMinimapEx(x, y, duration, red255, green255, blue255, false);//call PingMinimapEx(x, y, duration, red255, green255, blue255, false)
-			} else if ((style == bj_MINIMAPPINGSTYLE_FLASHY)) {//elseif (style == bj_MINIMAPPINGSTYLE_FLASHY) then
-				PingMinimapEx(x, y, duration, red255, green255, blue255, true);//call PingMinimapEx(x, y, duration, red255, green255, blue255, true)
-			} else if ((style == bj_MINIMAPPINGSTYLE_ATTACK)) {//elseif (style == bj_MINIMAPPINGSTYLE_ATTACK) then
-				PingMinimapEx(x, y, duration, 255, 0, 0, false);//call PingMinimapEx(x, y, duration, 255, 0, 0, false)
-			} else {//else
-				//
-			}//endif
-			//
-		}//endif
-	}//endfunction
-	//
-	private void PingMinimapLocForForceEx(force whichForce, location loc, real duration, int style, real red, real green, real blue) {//function PingMinimapLocForForceEx takes force whichForce, location loc, real duration, integer style, real red, real green, real blue returns nothing
-		PingMinimapForForceEx(whichForce, GetLocationX(loc), GetLocationY(loc), duration, style, red, green, blue);//call PingMinimapForForceEx(whichForce, GetLocationX(loc), GetLocationY(loc), duration, style, red, green, blue)
-	}//endfunction
-	//
-	private void EnableWorldFogBoundaryBJ(bool enable, force f) {//function EnableWorldFogBoundaryBJ takes boolean enable, force f returns nothing
-		if ((IsPlayerInForce(GetLocalPlayer(), f))) {//if (IsPlayerInForce(GetLocalPlayer(), f)) then
-			//
-			EnableWorldFogBoundary(enable);//call EnableWorldFogBoundary(enable)
-		}//endif
-	}//endfunction
-	//
-	private void EnableOcclusionBJ(bool enable, force f) {//function EnableOcclusionBJ takes boolean enable, force f returns nothing
-		if ((IsPlayerInForce(GetLocalPlayer(), f))) {//if (IsPlayerInForce(GetLocalPlayer(), f)) then
-			//
-			EnableOcclusion(enable);//call EnableOcclusion(enable)
-		}//endif
-	}//endfunction
-	//
-	//
-	//
-	//
-	//
-	//
-	//
-	//
-	private void CancelCineSceneBJ() {//function CancelCineSceneBJ takes nothing returns nothing
-		StopSoundBJ(bj_cineSceneLastSound, true);//call StopSoundBJ(bj_cineSceneLastSound, true)
-		EndCinematicScene();//call EndCinematicScene()
-	}//endfunction
-	//
-	//
-	//
-	//
-	//
-	//
-	private void TryInitCinematicBehaviorBJ() {//function TryInitCinematicBehaviorBJ takes nothing returns nothing
-		int index;//local integer index
-		if ((bj_cineSceneBeingSkipped == null)) {//if (bj_cineSceneBeingSkipped == null) then
-			bj_cineSceneBeingSkipped = CreateTrigger();//set bj_cineSceneBeingSkipped = CreateTrigger()
+			LeaderboardSetSizeByItemCount(lb, size);//call LeaderboardSetSizeByItemCount(lb, size)
+		}//endfunction
+		//
+		private void LeaderboardSetPlayerItemValueBJ(player whichPlayer, leaderboard lb, int val) {//function LeaderboardSetPlayerItemValueBJ takes player whichPlayer, leaderboard lb, integer val returns nothing
+			LeaderboardSetItemValue(lb, LeaderboardGetPlayerIndex(lb, whichPlayer), val);//call LeaderboardSetItemValue(lb, LeaderboardGetPlayerIndex(lb, whichPlayer), val)
+		}//endfunction
+		//
+		private void LeaderboardSetPlayerItemLabelBJ(player whichPlayer, leaderboard lb, string val) {//function LeaderboardSetPlayerItemLabelBJ takes player whichPlayer, leaderboard lb, string val returns nothing
+			LeaderboardSetItemLabel(lb, LeaderboardGetPlayerIndex(lb, whichPlayer), val);//call LeaderboardSetItemLabel(lb, LeaderboardGetPlayerIndex(lb, whichPlayer), val)
+		}//endfunction
+		//
+		private void LeaderboardSetPlayerItemStyleBJ(player whichPlayer, leaderboard lb, bool showLabel, bool showValue, bool showIcon) {//function LeaderboardSetPlayerItemStyleBJ takes player whichPlayer, leaderboard lb, boolean showLabel, boolean showValue, boolean showIcon returns nothing
+			LeaderboardSetItemStyle(lb, LeaderboardGetPlayerIndex(lb, whichPlayer), showLabel, showValue, showIcon);//call LeaderboardSetItemStyle(lb, LeaderboardGetPlayerIndex(lb, whichPlayer), showLabel, showValue, showIcon)
+		}//endfunction
+		//
+		private void LeaderboardSetPlayerItemLabelColorBJ(player whichPlayer, leaderboard lb, float red, float green, float blue, float transparency) {//function LeaderboardSetPlayerItemLabelColorBJ takes player whichPlayer, leaderboard lb, real red, real green, real blue, real transparency returns nothing
+			LeaderboardSetItemLabelColor(lb, LeaderboardGetPlayerIndex(lb, whichPlayer), PercentTo255(red), PercentTo255(green), PercentTo255(blue), PercentTo255(100.0-transparency));//call LeaderboardSetItemLabelColor(lb, LeaderboardGetPlayerIndex(lb, whichPlayer), PercentTo255(red), PercentTo255(green), PercentTo255(blue), PercentTo255(100.0-transparency))
+		}//endfunction
+		//
+		private void LeaderboardSetPlayerItemValueColorBJ(player whichPlayer, leaderboard lb, float red, float green, float blue, float transparency) {//function LeaderboardSetPlayerItemValueColorBJ takes player whichPlayer, leaderboard lb, real red, real green, real blue, real transparency returns nothing
+			LeaderboardSetItemValueColor(lb, LeaderboardGetPlayerIndex(lb, whichPlayer), PercentTo255(red), PercentTo255(green), PercentTo255(blue), PercentTo255(100.0-transparency));//call LeaderboardSetItemValueColor(lb, LeaderboardGetPlayerIndex(lb, whichPlayer), PercentTo255(red), PercentTo255(green), PercentTo255(blue), PercentTo255(100.0-transparency))
+		}//endfunction
+		//
+		private void LeaderboardSetLabelColorBJ(leaderboard lb, float red, float green, float blue, float transparency) {//function LeaderboardSetLabelColorBJ takes leaderboard lb, real red, real green, real blue, real transparency returns nothing
+			LeaderboardSetLabelColor(lb, PercentTo255(red), PercentTo255(green), PercentTo255(blue), PercentTo255(100.0-transparency));//call LeaderboardSetLabelColor(lb, PercentTo255(red), PercentTo255(green), PercentTo255(blue), PercentTo255(100.0-transparency))
+		}//endfunction
+		//
+		private void LeaderboardSetValueColorBJ(leaderboard lb, float red, float green, float blue, float transparency) {//function LeaderboardSetValueColorBJ takes leaderboard lb, real red, real green, real blue, real transparency returns nothing
+			LeaderboardSetValueColor(lb, PercentTo255(red), PercentTo255(green), PercentTo255(blue), PercentTo255(100.0-transparency));//call LeaderboardSetValueColor(lb, PercentTo255(red), PercentTo255(green), PercentTo255(blue), PercentTo255(100.0-transparency))
+		}//endfunction
+		//
+		private void LeaderboardSetLabelBJ(leaderboard lb, string label) {//function LeaderboardSetLabelBJ takes leaderboard lb, string label returns nothing
+			LeaderboardSetLabel(lb, label);//call LeaderboardSetLabel(lb, label)
+			LeaderboardResizeBJ(lb);//call LeaderboardResizeBJ(lb)
+		}//endfunction
+		//
+		private void LeaderboardSetStyleBJ(leaderboard lb, bool showLabel, bool showNames, bool showValues, bool showIcons) {//function LeaderboardSetStyleBJ takes leaderboard lb, boolean showLabel, boolean showNames, boolean showValues, boolean showIcons returns nothing
+			LeaderboardSetStyle(lb, showLabel, showNames, showValues, showIcons);//call LeaderboardSetStyle(lb, showLabel, showNames, showValues, showIcons)
+		}//endfunction
+		//
+		private int LeaderboardGetItemCountBJ(leaderboard lb) {//function LeaderboardGetItemCountBJ takes leaderboard lb returns integer
+			return LeaderboardGetItemCount(lb);//return LeaderboardGetItemCount(lb)
+		}//endfunction
+		//
+		private bool LeaderboardHasPlayerItemBJ(leaderboard lb, player whichPlayer) {//function LeaderboardHasPlayerItemBJ takes leaderboard lb, player whichPlayer returns boolean
+			return LeaderboardHasPlayerItem(lb, whichPlayer);//return LeaderboardHasPlayerItem(lb, whichPlayer)
+		}//endfunction
+		//
+		private void ForceSetLeaderboardBJ(leaderboard lb, force toForce) {//function ForceSetLeaderboardBJ takes leaderboard lb, force toForce returns nothing
+			int index;//local integer index
+			player indexPlayer;//local player  indexPlayer
 			index = 0;//set index = 0
 			while (true) {//loop
-				TriggerRegisterPlayerEvent(bj_cineSceneBeingSkipped, Player(index), EVENT_PLAYER_END_CINEMATIC);//call TriggerRegisterPlayerEvent(bj_cineSceneBeingSkipped, Player(index), EVENT_PLAYER_END_CINEMATIC)
+				indexPlayer = Player(index);//set indexPlayer = Player(index)
+				if (IsPlayerInForce(indexPlayer, toForce)) {//if IsPlayerInForce(indexPlayer, toForce) then
+					PlayerSetLeaderboard(indexPlayer, lb);//call PlayerSetLeaderboard(indexPlayer, lb)
+				}//endif
 				index = index + 1;//set index = index + 1
 				if (index == bj_MAX_PLAYERS) { break; }//exitwhen index == bj_MAX_PLAYERS
 			}//endloop
-			TriggerAddAction(bj_cineSceneBeingSkipped, function CancelCineSceneBJ);//call TriggerAddAction(bj_cineSceneBeingSkipped, function CancelCineSceneBJ)
-		}//endif
-	}//endfunction
-	//
-	private void SetCinematicSceneBJ(sound soundHandle, int portraitUnitId, playercolor color, string speakerTitle, string text, real sceneDuration, real voiceoverDuration) {//function SetCinematicSceneBJ takes sound soundHandle, integer portraitUnitId, playercolor color, string speakerTitle, string text, real sceneDuration, real voiceoverDuration returns nothing
-		bj_cineSceneLastSound = soundHandle;//set bj_cineSceneLastSound = soundHandle
-		PlaySoundBJ(soundHandle);//call PlaySoundBJ(soundHandle)
-		SetCinematicScene(portraitUnitId, color, speakerTitle, text, sceneDuration, voiceoverDuration);//call SetCinematicScene(portraitUnitId, color, speakerTitle, text, sceneDuration, voiceoverDuration)
-	}//endfunction
-	//
-	private real GetTransmissionDuration(sound soundHandle, int timeType, real timeVal) {//function GetTransmissionDuration takes sound soundHandle, integer timeType, real timeVal returns real
-		real duration;//local real duration
-		if ((timeType == bj_TIMETYPE_ADD)) {//if (timeType == bj_TIMETYPE_ADD) then
-			duration = GetSoundDurationBJ(soundHandle) + timeVal;//set duration = GetSoundDurationBJ(soundHandle) + timeVal
-		} else if ((timeType == bj_TIMETYPE_SET)) {//elseif (timeType == bj_TIMETYPE_SET) then
-			duration = timeVal;//set duration = timeVal
-		} else if ((timeType == bj_TIMETYPE_SUB)) {//elseif (timeType == bj_TIMETYPE_SUB) then
-			duration = GetSoundDurationBJ(soundHandle) - timeVal;//set duration = GetSoundDurationBJ(soundHandle) - timeVal
-		} else {//else
-			//
-			duration = GetSoundDurationBJ(soundHandle);//set duration = GetSoundDurationBJ(soundHandle)
-		}//endif
+		}//endfunction
 		//
-		if ((duration < 0)) {//if (duration < 0) then
-			duration = 0;//set duration = 0
-		}//endif
-		return duration;//return duration
-	}//endfunction
-	//
-	private void WaitTransmissionDuration(sound soundHandle, int timeType, real timeVal) {//function WaitTransmissionDuration takes sound soundHandle, integer timeType, real timeVal returns nothing
-		if ((timeType == bj_TIMETYPE_SET)) {//if (timeType == bj_TIMETYPE_SET) then
-			//
-			TriggerSleepAction(timeVal);//call TriggerSleepAction(timeVal)
-		} else if ((soundHandle == null)) {//elseif (soundHandle == null) then
-			//
-			TriggerSleepAction(bj_NOTHING_SOUND_DURATION);//call TriggerSleepAction(bj_NOTHING_SOUND_DURATION)
-		} else if ((timeType == bj_TIMETYPE_SUB)) {//elseif (timeType == bj_TIMETYPE_SUB) then
-			//
-			//
-			WaitForSoundBJ(soundHandle, timeVal);//call WaitForSoundBJ(soundHandle, timeVal)
-		} else if ((timeType == bj_TIMETYPE_ADD)) {//elseif (timeType == bj_TIMETYPE_ADD) then
-			//
-			//
-			WaitForSoundBJ(soundHandle, 0);//call WaitForSoundBJ(soundHandle, 0)
-			TriggerSleepAction(timeVal);//call TriggerSleepAction(timeVal)
-		} else {//else
-			//
-		}//endif
-	}//endfunction
-	//
-	private void DoTransmissionBasicsXYBJ(int unitId, playercolor color, real x, real y, sound soundHandle, string unitName, string message, real duration) {//function DoTransmissionBasicsXYBJ takes integer unitId, playercolor color, real x, real y, sound soundHandle, string unitName, string message, real duration returns nothing
-		SetCinematicSceneBJ(soundHandle, unitId, color, unitName, message, duration + bj_TRANSMISSION_PORT_HANGTIME, duration);//call SetCinematicSceneBJ(soundHandle, unitId, color, unitName, message, duration + bj_TRANSMISSION_PORT_HANGTIME, duration)
-		if ((unitId != 0)) {//if (unitId != 0) then
-			PingMinimap(x, y, bj_TRANSMISSION_PING_TIME);//call PingMinimap(x, y, bj_TRANSMISSION_PING_TIME)
-			//
-		}//endif
-	}//endfunction
-	//
-	//
-	//
-	//
-	//
-	//
-	//
-	//
-	//
-	//
-	private void TransmissionFromUnitWithNameBJ(force toForce, int whichUnit, string unitName, sound soundHandle, string message, int timeType, real timeVal, bool wait) {//function TransmissionFromUnitWithNameBJ takes force toForce, unit whichUnit, string unitName, sound soundHandle, string message, integer timeType, real timeVal, boolean wait returns nothing
-		TryInitCinematicBehaviorBJ();//call TryInitCinematicBehaviorBJ()
+		private leaderboard CreateLeaderboardBJ(force toForce, string label) {//function CreateLeaderboardBJ takes force toForce, string label returns leaderboard
+			bj_lastCreatedLeaderboard = CreateLeaderboard();//set bj_lastCreatedLeaderboard = CreateLeaderboard()
+			LeaderboardSetLabel(bj_lastCreatedLeaderboard, label);//call LeaderboardSetLabel(bj_lastCreatedLeaderboard, label)
+			ForceSetLeaderboardBJ(bj_lastCreatedLeaderboard, toForce);//call ForceSetLeaderboardBJ(bj_lastCreatedLeaderboard, toForce)
+			LeaderboardDisplay(bj_lastCreatedLeaderboard, true);//call LeaderboardDisplay(bj_lastCreatedLeaderboard, true)
+			return bj_lastCreatedLeaderboard;//return bj_lastCreatedLeaderboard
+		}//endfunction
 		//
-		timeVal = RMaxBJ(timeVal, 0);//set timeVal = RMaxBJ(timeVal, 0)
-		bj_lastTransmissionDuration = GetTransmissionDuration(soundHandle, timeType, timeVal);//set bj_lastTransmissionDuration = GetTransmissionDuration(soundHandle, timeType, timeVal)
-		bj_lastPlayedSound = soundHandle;//set bj_lastPlayedSound = soundHandle
-		if ((IsPlayerInForce(GetLocalPlayer(), toForce))) {//if (IsPlayerInForce(GetLocalPlayer(), toForce)) then
+		private void DestroyLeaderboardBJ(leaderboard lb) {//function DestroyLeaderboardBJ takes leaderboard lb returns nothing
+			DestroyLeaderboard(lb);//call DestroyLeaderboard(lb)
+		}//endfunction
+		//
+		private void LeaderboardDisplayBJ(bool show, leaderboard lb) {//function LeaderboardDisplayBJ takes boolean show, leaderboard lb returns nothing
+			LeaderboardDisplay(lb, show);//call LeaderboardDisplay(lb, show)
+		}//endfunction
+		//
+		private void LeaderboardAddItemBJ(player whichPlayer, leaderboard lb, string label, int value) {//function LeaderboardAddItemBJ takes player whichPlayer, leaderboard lb, string label, integer value returns nothing
+			if ((LeaderboardHasPlayerItem(lb, whichPlayer))) {//if (LeaderboardHasPlayerItem(lb, whichPlayer)) then
+				LeaderboardRemovePlayerItem(lb, whichPlayer);//call LeaderboardRemovePlayerItem(lb, whichPlayer)
+			}//endif
+			LeaderboardAddItem(lb, label, value, whichPlayer);//call LeaderboardAddItem(lb, label, value, whichPlayer)
+			LeaderboardResizeBJ(lb);//call LeaderboardResizeBJ(lb)
 			//
-			if ((whichUnit == null)) {//if (whichUnit == null) then
-				//
-				DoTransmissionBasicsXYBJ(0, PLAYER_COLOR_RED, 0, 0, soundHandle, unitName, message, bj_lastTransmissionDuration);//call DoTransmissionBasicsXYBJ(0, PLAYER_COLOR_RED, 0, 0, soundHandle, unitName, message, bj_lastTransmissionDuration)
+		}//endfunction
+		//
+		private void LeaderboardRemovePlayerItemBJ(player whichPlayer, leaderboard lb) {//function LeaderboardRemovePlayerItemBJ takes player whichPlayer, leaderboard lb returns nothing
+			LeaderboardRemovePlayerItem(lb, whichPlayer);//call LeaderboardRemovePlayerItem(lb, whichPlayer)
+			LeaderboardResizeBJ(lb);//call LeaderboardResizeBJ(lb)
+		}//endfunction
+		//
+		private void LeaderboardSortItemsBJ(leaderboard lb, int sortType, bool ascending) {//function LeaderboardSortItemsBJ takes leaderboard lb, integer sortType, boolean ascending returns nothing
+			if ((sortType == bj_SORTTYPE_SORTBYVALUE)) {//if (sortType == bj_SORTTYPE_SORTBYVALUE) then
+				LeaderboardSortItemsByValue(lb, ascending);//call LeaderboardSortItemsByValue(lb, ascending)
+			} else if ((sortType == bj_SORTTYPE_SORTBYPLAYER)) {//elseif (sortType == bj_SORTTYPE_SORTBYPLAYER) then
+				LeaderboardSortItemsByPlayer(lb, ascending);//call LeaderboardSortItemsByPlayer(lb, ascending)
+			} else if ((sortType == bj_SORTTYPE_SORTBYLABEL)) {//elseif (sortType == bj_SORTTYPE_SORTBYLABEL) then
+				LeaderboardSortItemsByLabel(lb, ascending);//call LeaderboardSortItemsByLabel(lb, ascending)
 			} else {//else
-				DoTransmissionBasicsXYBJ(GetUnitTypeId(whichUnit), GetPlayerColor(GetOwningPlayer(whichUnit)), GetUnitX(whichUnit), GetUnitY(whichUnit), soundHandle, unitName, message, bj_lastTransmissionDuration);//call DoTransmissionBasicsXYBJ(GetUnitTypeId(whichUnit), GetPlayerColor(GetOwningPlayer(whichUnit)), GetUnitX(whichUnit), GetUnitY(whichUnit), soundHandle, unitName, message, bj_lastTransmissionDuration)
-				if ((!IsUnitHidden(whichUnit))) {//if (not IsUnitHidden(whichUnit)) then
-					UnitAddIndicator(whichUnit, bj_TRANSMISSION_IND_RED, bj_TRANSMISSION_IND_BLUE, bj_TRANSMISSION_IND_GREEN, bj_TRANSMISSION_IND_ALPHA);//call UnitAddIndicator(whichUnit, bj_TRANSMISSION_IND_RED, bj_TRANSMISSION_IND_BLUE, bj_TRANSMISSION_IND_GREEN, bj_TRANSMISSION_IND_ALPHA)
-				}//endif
-			}//endif
-		}//endif
-		if (wait && (bj_lastTransmissionDuration > 0)) {//if wait and (bj_lastTransmissionDuration > 0) then
-			//
-			WaitTransmissionDuration(soundHandle, timeType, timeVal);//call WaitTransmissionDuration(soundHandle, timeType, timeVal)
-		}//endif
-	}//endfunction
-	//
-	//
-	//
-	//
-	private void TransmissionFromUnitTypeWithNameBJ(force toForce, player fromPlayer, int unitId, string unitName, location loc, sound soundHandle, string message, int timeType, real timeVal, bool wait) {//function TransmissionFromUnitTypeWithNameBJ takes force toForce, player fromPlayer, integer unitId, string unitName, location loc, sound soundHandle, string message, integer timeType, real timeVal, boolean wait returns nothing
-		TryInitCinematicBehaviorBJ();//call TryInitCinematicBehaviorBJ()
-		//
-		timeVal = RMaxBJ(timeVal, 0);//set timeVal = RMaxBJ(timeVal, 0)
-		bj_lastTransmissionDuration = GetTransmissionDuration(soundHandle, timeType, timeVal);//set bj_lastTransmissionDuration = GetTransmissionDuration(soundHandle, timeType, timeVal)
-		bj_lastPlayedSound = soundHandle;//set bj_lastPlayedSound = soundHandle
-		if ((IsPlayerInForce(GetLocalPlayer(), toForce))) {//if (IsPlayerInForce(GetLocalPlayer(), toForce)) then
-			//
-			DoTransmissionBasicsXYBJ(unitId, GetPlayerColor(fromPlayer), GetLocationX(loc), GetLocationY(loc), soundHandle, unitName, message, bj_lastTransmissionDuration);//call DoTransmissionBasicsXYBJ(unitId, GetPlayerColor(fromPlayer), GetLocationX(loc), GetLocationY(loc), soundHandle, unitName, message, bj_lastTransmissionDuration)
-		}//endif
-		if (wait && (bj_lastTransmissionDuration > 0)) {//if wait and (bj_lastTransmissionDuration > 0) then
-			//
-			WaitTransmissionDuration(soundHandle, timeType, timeVal);//call WaitTransmissionDuration(soundHandle, timeType, timeVal)
-		}//endif
-	}//endfunction
-	//
-	private real GetLastTransmissionDurationBJ() {//function GetLastTransmissionDurationBJ takes nothing returns real
-		return bj_lastTransmissionDuration;//return bj_lastTransmissionDuration
-	}//endfunction
-	//
-	private void ForceCinematicSubtitlesBJ() {//function ForceCinematicSubtitlesBJ takes boolean flag returns nothing
-		ForceCinematicSubtitles(flag);//call ForceCinematicSubtitles(flag)
-	}//endfunction
-	//
-	//
-	//
-	//
-	//
-	//
-	//
-	//
-	//
-	//
-	//
-	//
-	//
-	//
-	//
-	//
-	//
-	//
-	//
-	//
-	//
-	//
-	//
-	//
-	private void CinematicModeExBJ(bool cineMode, force forForce, real interfaceFadeTime) {//function CinematicModeExBJ takes boolean cineMode, force forForce, real interfaceFadeTime returns nothing
-		//
-		if ((!bj_gameStarted)) {//if (not bj_gameStarted) then
-			interfaceFadeTime = 0;//set interfaceFadeTime = 0
-		}//endif
-		if ((cineMode)) {//if (cineMode) then
-			//
-			if ((!bj_cineModeAlreadyIn)) {//if (not bj_cineModeAlreadyIn) then
-				bj_cineModeAlreadyIn = true;//set bj_cineModeAlreadyIn = true
-				bj_cineModePriorSpeed = GetGameSpeed();//set bj_cineModePriorSpeed = GetGameSpeed()
-				bj_cineModePriorFogSetting = IsFogEnabled();//set bj_cineModePriorFogSetting = IsFogEnabled()
-				bj_cineModePriorMaskSetting = IsFogMaskEnabled();//set bj_cineModePriorMaskSetting = IsFogMaskEnabled()
-				bj_cineModePriorDawnDusk = IsDawnDuskEnabled();//set bj_cineModePriorDawnDusk = IsDawnDuskEnabled()
-				bj_cineModeSavedSeed = GetRandomInt(0, 1000000);//set bj_cineModeSavedSeed = GetRandomInt(0, 1000000)
-			}//endif
-			//
-			if ((IsPlayerInForce(GetLocalPlayer(), forForce))) {//if (IsPlayerInForce(GetLocalPlayer(), forForce)) then
 				//
-				ClearTextMessages();//call ClearTextMessages()
-				ShowInterface(false, interfaceFadeTime);//call ShowInterface(false, interfaceFadeTime)
-				EnableUserControl(false);//call EnableUserControl(false)
-				EnableOcclusion(false);//call EnableOcclusion(false)
-				SetCineModeVolumeGroupsBJ();//call SetCineModeVolumeGroupsBJ()
 			}//endif
-			//
-			SetGameSpeed(bj_CINEMODE_GAMESPEED);//call SetGameSpeed(bj_CINEMODE_GAMESPEED)
-			SetMapFlag(MAP_LOCK_SPEED, true);//call SetMapFlag(MAP_LOCK_SPEED, true)
-			FogMaskEnable(false);//call FogMaskEnable(false)
-			FogEnable(false);//call FogEnable(false)
-			EnableWorldFogBoundary(false);//call EnableWorldFogBoundary(false)
-			EnableDawnDusk(false);//call EnableDawnDusk(false)
-			//
-			SetRandomSeed(0);//call SetRandomSeed(0)
-		} else {//else
-			bj_cineModeAlreadyIn = false;//set bj_cineModeAlreadyIn = false
-			//
-			if ((IsPlayerInForce(GetLocalPlayer(), forForce))) {//if (IsPlayerInForce(GetLocalPlayer(), forForce)) then
-				//
-				ShowInterface(true, interfaceFadeTime);//call ShowInterface(true, interfaceFadeTime)
-				EnableUserControl(true);//call EnableUserControl(true)
-				EnableOcclusion(true);//call EnableOcclusion(true)
-				VolumeGroupReset();//call VolumeGroupReset()
-				EndThematicMusic();//call EndThematicMusic()
-				CameraResetSmoothingFactorBJ();//call CameraResetSmoothingFactorBJ()
-			}//endif
-			//
-			SetMapFlag(MAP_LOCK_SPEED, false);//call SetMapFlag(MAP_LOCK_SPEED, false)
-			SetGameSpeed(bj_cineModePriorSpeed);//call SetGameSpeed(bj_cineModePriorSpeed)
-			FogMaskEnable(bj_cineModePriorMaskSetting);//call FogMaskEnable(bj_cineModePriorMaskSetting)
-			FogEnable(bj_cineModePriorFogSetting);//call FogEnable(bj_cineModePriorFogSetting)
-			EnableWorldFogBoundary(true);//call EnableWorldFogBoundary(true)
-			EnableDawnDusk(bj_cineModePriorDawnDusk);//call EnableDawnDusk(bj_cineModePriorDawnDusk)
-			SetRandomSeed(bj_cineModeSavedSeed);//call SetRandomSeed(bj_cineModeSavedSeed)
-		}//endif
-	}//endfunction
-	//
-	private void CinematicModeBJ(bool cineMode, force forForce) {//function CinematicModeBJ takes boolean cineMode, force forForce returns nothing
-		CinematicModeExBJ(cineMode, forForce, bj_CINEMODE_INTERFACEFADE);//call CinematicModeExBJ(cineMode, forForce, bj_CINEMODE_INTERFACEFADE)
-	}//endfunction
-	//
-	//
-	//
-	//
-	//
-	//
-	private void DisplayCineFilterBJ() {//function DisplayCineFilterBJ takes boolean flag returns nothing
-		DisplayCineFilter(flag);//call DisplayCineFilter(flag)
-	}//endfunction
-	//
-	private void CinematicFadeCommonBJ(real red, real green, real blue, real duration, string tex, real startTrans, real endTrans) {//function CinematicFadeCommonBJ takes real red, real green, real blue, real duration, string tex, real startTrans, real endTrans returns nothing
-		if ((duration == 0)) {//if (duration == 0) then
-			//
-			//
-			startTrans = endTrans;//set startTrans = endTrans
-		}//endif
-		EnableUserUI(false);//call EnableUserUI(false)
-		SetCineFilterTexture(tex);//call SetCineFilterTexture(tex)
-		SetCineFilterBlendMode(BLEND_MODE_BLEND);//call SetCineFilterBlendMode(BLEND_MODE_BLEND)
-		SetCineFilterTexMapFlags(TEXMAP_FLAG_NONE);//call SetCineFilterTexMapFlags(TEXMAP_FLAG_NONE)
-		SetCineFilterStartUV(0, 0, 1, 1);//call SetCineFilterStartUV(0, 0, 1, 1)
-		SetCineFilterEndUV(0, 0, 1, 1);//call SetCineFilterEndUV(0, 0, 1, 1)
-		SetCineFilterStartColor(PercentTo255(red), PercentTo255(green), PercentTo255(blue), PercentTo255(100-startTrans));//call SetCineFilterStartColor(PercentTo255(red), PercentTo255(green), PercentTo255(blue), PercentTo255(100-startTrans))
-		SetCineFilterEndColor(PercentTo255(red), PercentTo255(green), PercentTo255(blue), PercentTo255(100-endTrans));//call SetCineFilterEndColor(PercentTo255(red), PercentTo255(green), PercentTo255(blue), PercentTo255(100-endTrans))
-		SetCineFilterDuration(duration);//call SetCineFilterDuration(duration)
-		DisplayCineFilter(true);//call DisplayCineFilter(true)
-	}//endfunction
-	//
-	private void FinishCinematicFadeBJ() {//function FinishCinematicFadeBJ takes nothing returns nothing
-		DestroyTimer(bj_cineFadeFinishTimer);//call DestroyTimer(bj_cineFadeFinishTimer)
-		bj_cineFadeFinishTimer = null;//set bj_cineFadeFinishTimer = null
-		DisplayCineFilter(false);//call DisplayCineFilter(false)
-		EnableUserUI(true);//call EnableUserUI(true)
-	}//endfunction
-	//
-	private void FinishCinematicFadeAfterBJ() {//function FinishCinematicFadeAfterBJ takes real duration returns nothing
+		}//endfunction
 		//
-		bj_cineFadeFinishTimer = CreateTimer();//set bj_cineFadeFinishTimer = CreateTimer()
-		TimerStart(bj_cineFadeFinishTimer, duration, false, function FinishCinematicFadeBJ);//call TimerStart(bj_cineFadeFinishTimer, duration, false, function FinishCinematicFadeBJ)
-	}//endfunction
-	//
-	private void ContinueCinematicFadeBJ() {//function ContinueCinematicFadeBJ takes nothing returns nothing
-		DestroyTimer(bj_cineFadeContinueTimer);//call DestroyTimer(bj_cineFadeContinueTimer)
-		bj_cineFadeContinueTimer = null;//set bj_cineFadeContinueTimer = null
-		CinematicFadeCommonBJ(bj_cineFadeContinueRed, bj_cineFadeContinueGreen, bj_cineFadeContinueBlue, bj_cineFadeContinueDuration, bj_cineFadeContinueTex, bj_cineFadeContinueTrans, 100);//call CinematicFadeCommonBJ(bj_cineFadeContinueRed, bj_cineFadeContinueGreen, bj_cineFadeContinueBlue, bj_cineFadeContinueDuration, bj_cineFadeContinueTex, bj_cineFadeContinueTrans, 100)
-	}//endfunction
-	//
-	private void ContinueCinematicFadeAfterBJ(real duration, real red, real green, real blue, real trans, string tex) {//function ContinueCinematicFadeAfterBJ takes real duration, real red, real green, real blue, real trans, string tex returns nothing
-		bj_cineFadeContinueRed = red;//set bj_cineFadeContinueRed = red
-		bj_cineFadeContinueGreen = green;//set bj_cineFadeContinueGreen = green
-		bj_cineFadeContinueBlue = blue;//set bj_cineFadeContinueBlue = blue
-		bj_cineFadeContinueTrans = trans;//set bj_cineFadeContinueTrans = trans
-		bj_cineFadeContinueDuration = duration;//set bj_cineFadeContinueDuration = duration
-		bj_cineFadeContinueTex = tex;//set bj_cineFadeContinueTex = tex
+		private void LeaderboardSortItemsByPlayerBJ(leaderboard lb, bool ascending) {//function LeaderboardSortItemsByPlayerBJ takes leaderboard lb, boolean ascending returns nothing
+			LeaderboardSortItemsByPlayer(lb, ascending);//call LeaderboardSortItemsByPlayer(lb, ascending)
+		}//endfunction
 		//
-		bj_cineFadeContinueTimer = CreateTimer();//set bj_cineFadeContinueTimer = CreateTimer()
-		TimerStart(bj_cineFadeContinueTimer, duration, false, function ContinueCinematicFadeBJ);//call TimerStart(bj_cineFadeContinueTimer, duration, false, function ContinueCinematicFadeBJ)
-	}//endfunction
-	//
-	private void AbortCinematicFadeBJ() {//function AbortCinematicFadeBJ takes nothing returns nothing
-		if ((bj_cineFadeContinueTimer != null)) {//if (bj_cineFadeContinueTimer != null) then
-			DestroyTimer(bj_cineFadeContinueTimer);//call DestroyTimer(bj_cineFadeContinueTimer)
-		}//endif
-		if ((bj_cineFadeFinishTimer != null)) {//if (bj_cineFadeFinishTimer != null) then
-			DestroyTimer(bj_cineFadeFinishTimer);//call DestroyTimer(bj_cineFadeFinishTimer)
-		}//endif
-	}//endfunction
-	//
-	private void CinematicFadeBJ(int fadetype, real duration, string tex, real red, real green, real blue, real trans) {//function CinematicFadeBJ takes integer fadetype, real duration, string tex, real red, real green, real blue, real trans returns nothing
-		if ((fadetype == bj_CINEFADETYPE_FADEOUT)) {//if (fadetype == bj_CINEFADETYPE_FADEOUT) then
-			//
-			AbortCinematicFadeBJ();//call AbortCinematicFadeBJ()
-			CinematicFadeCommonBJ(red, green, blue, duration, tex, 100, trans);//call CinematicFadeCommonBJ(red, green, blue, duration, tex, 100, trans)
-		} else if ((fadetype == bj_CINEFADETYPE_FADEIN)) {//elseif (fadetype == bj_CINEFADETYPE_FADEIN) then
-			//
-			AbortCinematicFadeBJ();//call AbortCinematicFadeBJ()
-			CinematicFadeCommonBJ(red, green, blue, duration, tex, trans, 100);//call CinematicFadeCommonBJ(red, green, blue, duration, tex, trans, 100)
-			FinishCinematicFadeAfterBJ(duration);//call FinishCinematicFadeAfterBJ(duration)
-		} else if ((fadetype == bj_CINEFADETYPE_FADEOUTIN)) {//elseif (fadetype == bj_CINEFADETYPE_FADEOUTIN) then
-			//
-			if ((duration > 0)) {//if (duration > 0) then
-				AbortCinematicFadeBJ();//call AbortCinematicFadeBJ()
-				CinematicFadeCommonBJ(red, green, blue, duration * 0.5, tex, 100, trans);//call CinematicFadeCommonBJ(red, green, blue, duration * 0.5, tex, 100, trans)
-				ContinueCinematicFadeAfterBJ(duration * 0.5, red, green, blue, trans, tex);//call ContinueCinematicFadeAfterBJ(duration * 0.5, red, green, blue, trans, tex)
-				FinishCinematicFadeAfterBJ(duration);//call FinishCinematicFadeAfterBJ(duration)
-			}//endif
-		} else {//else
-			//
-		}//endif
-	}//endfunction
-	//
-	private void CinematicFilterGenericBJ(real duration, blendmode bmode, string tex, real red0, real green0, real blue0, real trans0, real red1, real green1, real blue1, real trans1) {//function CinematicFilterGenericBJ takes real duration, blendmode bmode, string tex, real red0, real green0, real blue0, real trans0, real red1, real green1, real blue1, real trans1 returns nothing
-		AbortCinematicFadeBJ();//call AbortCinematicFadeBJ()
-		SetCineFilterTexture(tex);//call SetCineFilterTexture(tex)
-		SetCineFilterBlendMode(bmode);//call SetCineFilterBlendMode(bmode)
-		SetCineFilterTexMapFlags(TEXMAP_FLAG_NONE);//call SetCineFilterTexMapFlags(TEXMAP_FLAG_NONE)
-		SetCineFilterStartUV(0, 0, 1, 1);//call SetCineFilterStartUV(0, 0, 1, 1)
-		SetCineFilterEndUV(0, 0, 1, 1);//call SetCineFilterEndUV(0, 0, 1, 1)
-		SetCineFilterStartColor(PercentTo255(red0), PercentTo255(green0), PercentTo255(blue0), PercentTo255(100-trans0));//call SetCineFilterStartColor(PercentTo255(red0), PercentTo255(green0), PercentTo255(blue0), PercentTo255(100-trans0))
-		SetCineFilterEndColor(PercentTo255(red1), PercentTo255(green1), PercentTo255(blue1), PercentTo255(100-trans1));//call SetCineFilterEndColor(PercentTo255(red1), PercentTo255(green1), PercentTo255(blue1), PercentTo255(100-trans1))
-		SetCineFilterDuration(duration);//call SetCineFilterDuration(duration)
-		DisplayCineFilter(true);//call DisplayCineFilter(true)
-	}//endfunction
-	//
-	//
-	//
-	//
-	//
-	//
-	//
-	//
-	//
-	//
-	private void RescueUnitBJ(int whichUnit, player rescuer, bool changeColor) {//function RescueUnitBJ takes unit whichUnit, player rescuer, boolean changeColor returns nothing
-		if (IsUnitDeadBJ(whichUnit) || (GetOwningPlayer(whichUnit) == rescuer)) {//if IsUnitDeadBJ(whichUnit) or (GetOwningPlayer(whichUnit) == rescuer) then
-			return;//return
-		}//endif
-		StartSound(bj_rescueSound);//call StartSound(bj_rescueSound)
-		SetUnitOwner(whichUnit, rescuer, changeColor);//call SetUnitOwner(whichUnit, rescuer, changeColor)
-		UnitAddIndicator(whichUnit, 0, 255, 0, 255);//call UnitAddIndicator(whichUnit, 0, 255, 0, 255)
-		PingMinimapForPlayer(rescuer, GetUnitX(whichUnit), GetUnitY(whichUnit), bj_RESCUE_PING_TIME);//call PingMinimapForPlayer(rescuer, GetUnitX(whichUnit), GetUnitY(whichUnit), bj_RESCUE_PING_TIME)
-	}//endfunction
-	//
-	private void TriggerActionUnitRescuedBJ() {//function TriggerActionUnitRescuedBJ takes nothing returns nothing
-		int theUnit = GetTriggerUnit();//local unit theUnit = GetTriggerUnit()
-		if (IsUnitType(theUnit, UNIT_TYPE_STRUCTURE)) {//if IsUnitType(theUnit, UNIT_TYPE_STRUCTURE) then
-			RescueUnitBJ(theUnit, GetOwningPlayer(GetRescuer()), bj_rescueChangeColorBldg);//call RescueUnitBJ(theUnit, GetOwningPlayer(GetRescuer()), bj_rescueChangeColorBldg)
-		} else {//else
-			RescueUnitBJ(theUnit, GetOwningPlayer(GetRescuer()), bj_rescueChangeColorUnit);//call RescueUnitBJ(theUnit, GetOwningPlayer(GetRescuer()), bj_rescueChangeColorUnit)
-		}//endif
-	}//endfunction
-	//
-	//
-	//
-	//
-	//
-	private void TryInitRescuableTriggersBJ() {//function TryInitRescuableTriggersBJ takes nothing returns nothing
-		int index;//local integer index
-		if ((bj_rescueUnitBehavior == null)) {//if (bj_rescueUnitBehavior == null) then
-			bj_rescueUnitBehavior = CreateTrigger();//set bj_rescueUnitBehavior = CreateTrigger()
+		private void LeaderboardSortItemsByLabelBJ(leaderboard lb, bool ascending) {//function LeaderboardSortItemsByLabelBJ takes leaderboard lb, boolean ascending returns nothing
+			LeaderboardSortItemsByLabel(lb, ascending);//call LeaderboardSortItemsByLabel(lb, ascending)
+		}//endfunction
+		//
+		private int LeaderboardGetPlayerIndexBJ(player whichPlayer, leaderboard lb) {//function LeaderboardGetPlayerIndexBJ takes player whichPlayer, leaderboard lb returns integer
+			return LeaderboardGetPlayerIndex(lb, whichPlayer) + 1;//return LeaderboardGetPlayerIndex(lb, whichPlayer) + 1
+		}//endfunction
+		//
+		//
+		//
+		//
+		private player LeaderboardGetIndexedPlayerBJ(int position, leaderboard lb) {//function LeaderboardGetIndexedPlayerBJ takes integer position, leaderboard lb returns player
+			int index;//local integer index
+			player indexPlayer;//local player  indexPlayer
 			index = 0;//set index = 0
 			while (true) {//loop
-				TriggerRegisterPlayerUnitEvent(bj_rescueUnitBehavior, Player(index), EVENT_PLAYER_UNIT_RESCUED, null);//call TriggerRegisterPlayerUnitEvent(bj_rescueUnitBehavior, Player(index), EVENT_PLAYER_UNIT_RESCUED, null)
+				indexPlayer = Player(index);//set indexPlayer = Player(index)
+				if ((LeaderboardGetPlayerIndex(lb, indexPlayer) == position - 1)) {//if (LeaderboardGetPlayerIndex(lb, indexPlayer) == position - 1) then
+					return indexPlayer;//return indexPlayer
+				}//endif
+				index = index + 1;//set index = index + 1
+				if (index == bj_MAX_PLAYERS) { break; }//exitwhen index == bj_MAX_PLAYERS
+			}//endloop
+			return Player(PLAYER_NEUTRAL_PASSIVE);//return Player(PLAYER_NEUTRAL_PASSIVE)
+		}//endfunction
+		//
+		private leaderboard PlayerGetLeaderboardBJ(player whichPlayer) {//function PlayerGetLeaderboardBJ takes player whichPlayer returns leaderboard
+			return PlayerGetLeaderboard(whichPlayer);//return PlayerGetLeaderboard(whichPlayer)
+		}//endfunction
+		//
+		private leaderboard GetLastCreatedLeaderboard() {//function GetLastCreatedLeaderboard takes nothing returns leaderboard
+			return bj_lastCreatedLeaderboard;//return bj_lastCreatedLeaderboard
+		}//endfunction
+		//
+		//
+		//
+		//
+		//
+		//
+		private multiboard CreateMultiboardBJ(int cols, int rows, string title) {//function CreateMultiboardBJ takes integer cols, integer rows, string title returns multiboard
+			bj_lastCreatedMultiboard = CreateMultiboard();//set bj_lastCreatedMultiboard = CreateMultiboard()
+			MultiboardSetRowCount(bj_lastCreatedMultiboard, rows);//call MultiboardSetRowCount(bj_lastCreatedMultiboard, rows)
+			MultiboardSetColumnCount(bj_lastCreatedMultiboard, cols);//call MultiboardSetColumnCount(bj_lastCreatedMultiboard, cols)
+			MultiboardSetTitleText(bj_lastCreatedMultiboard, title);//call MultiboardSetTitleText(bj_lastCreatedMultiboard, title)
+			MultiboardDisplay(bj_lastCreatedMultiboard, true);//call MultiboardDisplay(bj_lastCreatedMultiboard, true)
+			return bj_lastCreatedMultiboard;//return bj_lastCreatedMultiboard
+		}//endfunction
+		//
+		private void DestroyMultiboardBJ(multiboard mb) {//function DestroyMultiboardBJ takes multiboard mb returns nothing
+			DestroyMultiboard(mb);//call DestroyMultiboard(mb)
+		}//endfunction
+		//
+		private multiboard GetLastCreatedMultiboard() {//function GetLastCreatedMultiboard takes nothing returns multiboard
+			return bj_lastCreatedMultiboard;//return bj_lastCreatedMultiboard
+		}//endfunction
+		//
+		private void MultiboardDisplayBJ(bool show, multiboard mb) {//function MultiboardDisplayBJ takes boolean show, multiboard mb returns nothing
+			MultiboardDisplay(mb, show);//call MultiboardDisplay(mb, show)
+		}//endfunction
+		//
+		private void MultiboardMinimizeBJ(bool minimize, multiboard mb) {//function MultiboardMinimizeBJ takes boolean minimize, multiboard mb returns nothing
+			MultiboardMinimize(mb, minimize);//call MultiboardMinimize(mb, minimize)
+		}//endfunction
+		//
+		private void MultiboardSetTitleTextColorBJ(multiboard mb, float red, float green, float blue, float transparency) {//function MultiboardSetTitleTextColorBJ takes multiboard mb, real red, real green, real blue, real transparency returns nothing
+			MultiboardSetTitleTextColor(mb, PercentTo255(red), PercentTo255(green), PercentTo255(blue), PercentTo255(100.0-transparency));//call MultiboardSetTitleTextColor(mb, PercentTo255(red), PercentTo255(green), PercentTo255(blue), PercentTo255(100.0-transparency))
+		}//endfunction
+		//
+		private void MultiboardAllowDisplayBJ(bool flag) {//function MultiboardAllowDisplayBJ takes boolean flag returns nothing
+			MultiboardSuppressDisplay(not flag);//call MultiboardSuppressDisplay(not flag)
+		}//endfunction
+		//
+		private void MultiboardSetItemStyleBJ(multiboard mb, int col, int row, bool showValue, bool showIcon) {//function MultiboardSetItemStyleBJ takes multiboard mb, integer col, integer row, boolean showValue, boolean showIcon returns nothing
+			int curRow = 0;//local integer curRow = 0
+			int curCol = 0;//local integer curCol = 0
+			int numRows = MultiboardGetRowCount(mb);//local integer numRows = MultiboardGetRowCount(mb)
+			int numCols = MultiboardGetColumnCount(mb);//local integer numCols = MultiboardGetColumnCount(mb)
+			multiboarditem mbitem = null;//local multiboarditem mbitem = null
+			//
+			while (true) {//loop
+				curRow = curRow + 1;//set curRow = curRow + 1
+				if (curRow > numRows) { break; }//exitwhen curRow > numRows
+				//
+				if ((row == 0 || row == curRow)) {//if (row == 0 or row == curRow) then
+					//
+					curCol = 0;//set curCol = 0
+					while (true) {//loop
+						curCol = curCol + 1;//set curCol = curCol + 1
+						if (curCol > numCols) { break; }//exitwhen curCol > numCols
+						//
+						if ((col == 0 || col == curCol)) {//if (col == 0 or col == curCol) then
+							mbitem = MultiboardGetItem(mb, curRow - 1, curCol - 1);//set mbitem = MultiboardGetItem(mb, curRow - 1, curCol - 1)
+							MultiboardSetItemStyle(mbitem, showValue, showIcon);//call MultiboardSetItemStyle(mbitem, showValue, showIcon)
+							MultiboardReleaseItem(mbitem);//call MultiboardReleaseItem(mbitem)
+						}//endif
+					}//endloop
+				}//endif
+			}//endloop
+		}//endfunction
+		//
+		private void MultiboardSetItemValueBJ(multiboard mb, int col, int row, string val) {//function MultiboardSetItemValueBJ takes multiboard mb, integer col, integer row, string val returns nothing
+			int curRow = 0;//local integer curRow = 0
+			int curCol = 0;//local integer curCol = 0
+			int numRows = MultiboardGetRowCount(mb);//local integer numRows = MultiboardGetRowCount(mb)
+			int numCols = MultiboardGetColumnCount(mb);//local integer numCols = MultiboardGetColumnCount(mb)
+			multiboarditem mbitem = null;//local multiboarditem mbitem = null
+			//
+			while (true) {//loop
+				curRow = curRow + 1;//set curRow = curRow + 1
+				if (curRow > numRows) { break; }//exitwhen curRow > numRows
+				//
+				if ((row == 0 || row == curRow)) {//if (row == 0 or row == curRow) then
+					//
+					curCol = 0;//set curCol = 0
+					while (true) {//loop
+						curCol = curCol + 1;//set curCol = curCol + 1
+						if (curCol > numCols) { break; }//exitwhen curCol > numCols
+						//
+						if ((col == 0 || col == curCol)) {//if (col == 0 or col == curCol) then
+							mbitem = MultiboardGetItem(mb, curRow - 1, curCol - 1);//set mbitem = MultiboardGetItem(mb, curRow - 1, curCol - 1)
+							MultiboardSetItemValue(mbitem, val);//call MultiboardSetItemValue(mbitem, val)
+							MultiboardReleaseItem(mbitem);//call MultiboardReleaseItem(mbitem)
+						}//endif
+					}//endloop
+				}//endif
+			}//endloop
+		}//endfunction
+		//
+		private void MultiboardSetItemColorBJ(multiboard mb, int col, int row, float red, float green, float blue, float transparency) {//function MultiboardSetItemColorBJ takes multiboard mb, integer col, integer row, real red, real green, real blue, real transparency returns nothing
+			int curRow = 0;//local integer curRow = 0
+			int curCol = 0;//local integer curCol = 0
+			int numRows = MultiboardGetRowCount(mb);//local integer numRows = MultiboardGetRowCount(mb)
+			int numCols = MultiboardGetColumnCount(mb);//local integer numCols = MultiboardGetColumnCount(mb)
+			multiboarditem mbitem = null;//local multiboarditem mbitem = null
+			//
+			while (true) {//loop
+				curRow = curRow + 1;//set curRow = curRow + 1
+				if (curRow > numRows) { break; }//exitwhen curRow > numRows
+				//
+				if ((row == 0 || row == curRow)) {//if (row == 0 or row == curRow) then
+					//
+					curCol = 0;//set curCol = 0
+					while (true) {//loop
+						curCol = curCol + 1;//set curCol = curCol + 1
+						if (curCol > numCols) { break; }//exitwhen curCol > numCols
+						//
+						if ((col == 0 || col == curCol)) {//if (col == 0 or col == curCol) then
+							mbitem = MultiboardGetItem(mb, curRow - 1, curCol - 1);//set mbitem = MultiboardGetItem(mb, curRow - 1, curCol - 1)
+							MultiboardSetItemValueColor(mbitem, PercentTo255(red), PercentTo255(green), PercentTo255(blue), PercentTo255(100.0-transparency));//call MultiboardSetItemValueColor(mbitem, PercentTo255(red), PercentTo255(green), PercentTo255(blue), PercentTo255(100.0-transparency))
+							MultiboardReleaseItem(mbitem);//call MultiboardReleaseItem(mbitem)
+						}//endif
+					}//endloop
+				}//endif
+			}//endloop
+		}//endfunction
+		//
+		private void MultiboardSetItemWidthBJ(multiboard mb, int col, int row, float width) {//function MultiboardSetItemWidthBJ takes multiboard mb, integer col, integer row, real width returns nothing
+			int curRow = 0;//local integer curRow = 0
+			int curCol = 0;//local integer curCol = 0
+			int numRows = MultiboardGetRowCount(mb);//local integer numRows = MultiboardGetRowCount(mb)
+			int numCols = MultiboardGetColumnCount(mb);//local integer numCols = MultiboardGetColumnCount(mb)
+			multiboarditem mbitem = null;//local multiboarditem mbitem = null
+			//
+			while (true) {//loop
+				curRow = curRow + 1;//set curRow = curRow + 1
+				if (curRow > numRows) { break; }//exitwhen curRow > numRows
+				//
+				if ((row == 0 || row == curRow)) {//if (row == 0 or row == curRow) then
+					//
+					curCol = 0;//set curCol = 0
+					while (true) {//loop
+						curCol = curCol + 1;//set curCol = curCol + 1
+						if (curCol > numCols) { break; }//exitwhen curCol > numCols
+						//
+						if ((col == 0 || col == curCol)) {//if (col == 0 or col == curCol) then
+							mbitem = MultiboardGetItem(mb, curRow - 1, curCol - 1);//set mbitem = MultiboardGetItem(mb, curRow - 1, curCol - 1)
+							MultiboardSetItemWidth(mbitem, width/100.0);//call MultiboardSetItemWidth(mbitem, width/100.0)
+							MultiboardReleaseItem(mbitem);//call MultiboardReleaseItem(mbitem)
+						}//endif
+					}//endloop
+				}//endif
+			}//endloop
+		}//endfunction
+		//
+		private void MultiboardSetItemIconBJ(multiboard mb, int col, int row, string iconFileName) {//function MultiboardSetItemIconBJ takes multiboard mb, integer col, integer row, string iconFileName returns nothing
+			int curRow = 0;//local integer curRow = 0
+			int curCol = 0;//local integer curCol = 0
+			int numRows = MultiboardGetRowCount(mb);//local integer numRows = MultiboardGetRowCount(mb)
+			int numCols = MultiboardGetColumnCount(mb);//local integer numCols = MultiboardGetColumnCount(mb)
+			multiboarditem mbitem = null;//local multiboarditem mbitem = null
+			//
+			while (true) {//loop
+				curRow = curRow + 1;//set curRow = curRow + 1
+				if (curRow > numRows) { break; }//exitwhen curRow > numRows
+				//
+				if ((row == 0 || row == curRow)) {//if (row == 0 or row == curRow) then
+					//
+					curCol = 0;//set curCol = 0
+					while (true) {//loop
+						curCol = curCol + 1;//set curCol = curCol + 1
+						if (curCol > numCols) { break; }//exitwhen curCol > numCols
+						//
+						if ((col == 0 || col == curCol)) {//if (col == 0 or col == curCol) then
+							mbitem = MultiboardGetItem(mb, curRow - 1, curCol - 1);//set mbitem = MultiboardGetItem(mb, curRow - 1, curCol - 1)
+							MultiboardSetItemIcon(mbitem, iconFileName);//call MultiboardSetItemIcon(mbitem, iconFileName)
+							MultiboardReleaseItem(mbitem);//call MultiboardReleaseItem(mbitem)
+						}//endif
+					}//endloop
+				}//endif
+			}//endloop
+		}//endfunction
+		//
+		//
+		//
+		//
+		//
+		//
+		//
+		//
+		//
+		private float TextTagSize2Height(float size) {//function TextTagSize2Height takes real size returns real
+			return size * 0.023 / 10;//return size * 0.023 / 10
+		}//endfunction
+		//
+		//
+		//
+		//
+		private float TextTagSpeed2Velocity(float speed) {//function TextTagSpeed2Velocity takes real speed returns real
+			return speed * 0.071 / 128;//return speed * 0.071 / 128
+		}//endfunction
+		//
+		private void SetTextTagColorBJ(texttag tt, float red, float green, float blue, float transparency) {//function SetTextTagColorBJ takes texttag tt, real red, real green, real blue, real transparency returns nothing
+			SetTextTagColor(tt, PercentTo255(red), PercentTo255(green), PercentTo255(blue), PercentTo255(100.0-transparency));//call SetTextTagColor(tt, PercentTo255(red), PercentTo255(green), PercentTo255(blue), PercentTo255(100.0-transparency))
+		}//endfunction
+		//
+		private void SetTextTagVelocityBJ(texttag tt, float speed, float angle) {//function SetTextTagVelocityBJ takes texttag tt, real speed, real angle returns nothing
+			float vel = TextTagSpeed2Velocity(speed);//local real vel = TextTagSpeed2Velocity(speed)
+			float xvel = vel * Cos(angle * bj_DEGTORAD);//local real xvel = vel * Cos(angle * bj_DEGTORAD)
+			float yvel = vel * Sin(angle * bj_DEGTORAD);//local real yvel = vel * Sin(angle * bj_DEGTORAD)
+			SetTextTagVelocity(tt, xvel, yvel);//call SetTextTagVelocity(tt, xvel, yvel)
+		}//endfunction
+		//
+		private void SetTextTagTextBJ(texttag tt, string s, float size) {//function SetTextTagTextBJ takes texttag tt, string s, real size returns nothing
+			float textHeight = TextTagSize2Height(size);//local real textHeight = TextTagSize2Height(size)
+			SetTextTagText(tt, s, textHeight);//call SetTextTagText(tt, s, textHeight)
+		}//endfunction
+		//
+		private void SetTextTagPosBJ(texttag tt, location loc, float zOffset) {//function SetTextTagPosBJ takes texttag tt, location loc, real zOffset returns nothing
+			SetTextTagPos(tt, GetLocationX(loc), GetLocationY(loc), zOffset);//call SetTextTagPos(tt, GetLocationX(loc), GetLocationY(loc), zOffset)
+		}//endfunction
+		//
+		private void SetTextTagPosUnitBJ(texttag tt, int whichUnit, float zOffset) {//function SetTextTagPosUnitBJ takes texttag tt, unit whichUnit, real zOffset returns nothing
+			SetTextTagPosUnit(tt, whichUnit, zOffset);//call SetTextTagPosUnit(tt, whichUnit, zOffset)
+		}//endfunction
+		//
+		private void SetTextTagSuspendedBJ(texttag tt, bool flag) {//function SetTextTagSuspendedBJ takes texttag tt, boolean flag returns nothing
+			SetTextTagSuspended(tt, flag);//call SetTextTagSuspended(tt, flag)
+		}//endfunction
+		//
+		private void SetTextTagPermanentBJ(texttag tt, bool flag) {//function SetTextTagPermanentBJ takes texttag tt, boolean flag returns nothing
+			SetTextTagPermanent(tt, flag);//call SetTextTagPermanent(tt, flag)
+		}//endfunction
+		//
+		private void SetTextTagAgeBJ(texttag tt, float age) {//function SetTextTagAgeBJ takes texttag tt, real age returns nothing
+			SetTextTagAge(tt, age);//call SetTextTagAge(tt, age)
+		}//endfunction
+		//
+		private void SetTextTagLifespanBJ(texttag tt, float lifespan) {//function SetTextTagLifespanBJ takes texttag tt, real lifespan returns nothing
+			SetTextTagLifespan(tt, lifespan);//call SetTextTagLifespan(tt, lifespan)
+		}//endfunction
+		//
+		private void SetTextTagFadepointBJ(texttag tt, float fadepoint) {//function SetTextTagFadepointBJ takes texttag tt, real fadepoint returns nothing
+			SetTextTagFadepoint(tt, fadepoint);//call SetTextTagFadepoint(tt, fadepoint)
+		}//endfunction
+		//
+		private texttag CreateTextTagLocBJ(string s, location loc, float zOffset, float size, float red, float green, float blue, float transparency) {//function CreateTextTagLocBJ takes string s, location loc, real zOffset, real size, real red, real green, real blue, real transparency returns texttag
+			bj_lastCreatedTextTag = CreateTextTag();//set bj_lastCreatedTextTag = CreateTextTag()
+			SetTextTagTextBJ(bj_lastCreatedTextTag, s, size);//call SetTextTagTextBJ(bj_lastCreatedTextTag, s, size)
+			SetTextTagPosBJ(bj_lastCreatedTextTag, loc, zOffset);//call SetTextTagPosBJ(bj_lastCreatedTextTag, loc, zOffset)
+			SetTextTagColorBJ(bj_lastCreatedTextTag, red, green, blue, transparency);//call SetTextTagColorBJ(bj_lastCreatedTextTag, red, green, blue, transparency)
+			return bj_lastCreatedTextTag;//return bj_lastCreatedTextTag
+		}//endfunction
+		//
+		private texttag CreateTextTagUnitBJ(string s, int whichUnit, float zOffset, float size, float red, float green, float blue, float transparency) {//function CreateTextTagUnitBJ takes string s, unit whichUnit, real zOffset, real size, real red, real green, real blue, real transparency returns texttag
+			bj_lastCreatedTextTag = CreateTextTag();//set bj_lastCreatedTextTag = CreateTextTag()
+			SetTextTagTextBJ(bj_lastCreatedTextTag, s, size);//call SetTextTagTextBJ(bj_lastCreatedTextTag, s, size)
+			SetTextTagPosUnitBJ(bj_lastCreatedTextTag, whichUnit, zOffset);//call SetTextTagPosUnitBJ(bj_lastCreatedTextTag, whichUnit, zOffset)
+			SetTextTagColorBJ(bj_lastCreatedTextTag, red, green, blue, transparency);//call SetTextTagColorBJ(bj_lastCreatedTextTag, red, green, blue, transparency)
+			return bj_lastCreatedTextTag;//return bj_lastCreatedTextTag
+		}//endfunction
+		//
+		private void DestroyTextTagBJ(texttag tt) {//function DestroyTextTagBJ takes texttag tt returns nothing
+			DestroyTextTag(tt);//call DestroyTextTag(tt)
+		}//endfunction
+		//
+		private void ShowTextTagForceBJ(bool show, texttag tt, force whichForce) {//function ShowTextTagForceBJ takes boolean show, texttag tt, force whichForce returns nothing
+			if ((IsPlayerInForce(GetLocalPlayer(), whichForce))) {//if (IsPlayerInForce(GetLocalPlayer(), whichForce)) then
+				//
+				SetTextTagVisibility(tt, show);//call SetTextTagVisibility(tt, show)
+			}//endif
+		}//endfunction
+		//
+		private texttag GetLastCreatedTextTag() {//function GetLastCreatedTextTag takes nothing returns texttag
+			return bj_lastCreatedTextTag;//return bj_lastCreatedTextTag
+		}//endfunction
+		//
+		//
+		//
+		//
+		//
+		//
+		private void PauseGameOn() {//function PauseGameOn takes nothing returns nothing
+			PauseGame(true);//call PauseGame(true)
+		}//endfunction
+		//
+		private void PauseGameOff() {//function PauseGameOff takes nothing returns nothing
+			PauseGame(false);//call PauseGame(false)
+		}//endfunction
+		//
+		private void SetUserControlForceOn(force whichForce) {//function SetUserControlForceOn takes force whichForce returns nothing
+			if ((IsPlayerInForce(GetLocalPlayer(), whichForce))) {//if (IsPlayerInForce(GetLocalPlayer(), whichForce)) then
+				//
+				EnableUserControl(true);//call EnableUserControl(true)
+			}//endif
+		}//endfunction
+		//
+		private void SetUserControlForceOff(force whichForce) {//function SetUserControlForceOff takes force whichForce returns nothing
+			if ((IsPlayerInForce(GetLocalPlayer(), whichForce))) {//if (IsPlayerInForce(GetLocalPlayer(), whichForce)) then
+				//
+				EnableUserControl(false);//call EnableUserControl(false)
+			}//endif
+		}//endfunction
+		//
+		private void ShowInterfaceForceOn(force whichForce, float fadeDuration) {//function ShowInterfaceForceOn takes force whichForce, real fadeDuration returns nothing
+			if ((IsPlayerInForce(GetLocalPlayer(), whichForce))) {//if (IsPlayerInForce(GetLocalPlayer(), whichForce)) then
+				//
+				ShowInterface(true, fadeDuration);//call ShowInterface(true, fadeDuration)
+			}//endif
+		}//endfunction
+		//
+		private void ShowInterfaceForceOff(force whichForce, float fadeDuration) {//function ShowInterfaceForceOff takes force whichForce, real fadeDuration returns nothing
+			if ((IsPlayerInForce(GetLocalPlayer(), whichForce))) {//if (IsPlayerInForce(GetLocalPlayer(), whichForce)) then
+				//
+				ShowInterface(false, fadeDuration);//call ShowInterface(false, fadeDuration)
+			}//endif
+		}//endfunction
+		//
+		private void PingMinimapForForce(force whichForce, float x, float y, float duration) {//function PingMinimapForForce takes force whichForce, real x, real y, real duration returns nothing
+			if ((IsPlayerInForce(GetLocalPlayer(), whichForce))) {//if (IsPlayerInForce(GetLocalPlayer(), whichForce)) then
+				//
+				PingMinimap(x, y, duration);//call PingMinimap(x, y, duration)
+				//
+			}//endif
+		}//endfunction
+		//
+		private void PingMinimapLocForForce(force whichForce, location loc, float duration) {//function PingMinimapLocForForce takes force whichForce, location loc, real duration returns nothing
+			PingMinimapForForce(whichForce, GetLocationX(loc), GetLocationY(loc), duration);//call PingMinimapForForce(whichForce, GetLocationX(loc), GetLocationY(loc), duration)
+		}//endfunction
+		//
+		private void PingMinimapForPlayer(player whichPlayer, float x, float y, float duration) {//function PingMinimapForPlayer takes player whichPlayer, real x, real y, real duration returns nothing
+			if ((GetLocalPlayer() == whichPlayer)) {//if (GetLocalPlayer() == whichPlayer) then
+				//
+				PingMinimap(x, y, duration);//call PingMinimap(x, y, duration)
+				//
+			}//endif
+		}//endfunction
+		//
+		private void PingMinimapLocForPlayer(player whichPlayer, location loc, float duration) {//function PingMinimapLocForPlayer takes player whichPlayer, location loc, real duration returns nothing
+			PingMinimapForPlayer(whichPlayer, GetLocationX(loc), GetLocationY(loc), duration);//call PingMinimapForPlayer(whichPlayer, GetLocationX(loc), GetLocationY(loc), duration)
+		}//endfunction
+		//
+		private void PingMinimapForForceEx(force whichForce, float x, float y, float duration, int style, float red, float green, float blue) {//function PingMinimapForForceEx takes force whichForce, real x, real y, real duration, integer style, real red, real green, real blue returns nothing
+			int red255 = PercentTo255(red);//local integer red255   = PercentTo255(red)
+			int green255 = PercentTo255(green);//local integer green255 = PercentTo255(green)
+			int blue255 = PercentTo255(blue);//local integer blue255  = PercentTo255(blue)
+			if ((IsPlayerInForce(GetLocalPlayer(), whichForce))) {//if (IsPlayerInForce(GetLocalPlayer(), whichForce)) then
+				//
+				//
+				if ((red255 == 255) && (green255 == 0) && (blue255 == 0)) {//if (red255 == 255) and (green255 == 0) and (blue255 == 0) then
+					red255 = 254;//set red255 = 254
+				}//endif
+				if ((style == bj_MINIMAPPINGSTYLE_SIMPLE)) {//if (style == bj_MINIMAPPINGSTYLE_SIMPLE) then
+					PingMinimapEx(x, y, duration, red255, green255, blue255, false);//call PingMinimapEx(x, y, duration, red255, green255, blue255, false)
+				} else if ((style == bj_MINIMAPPINGSTYLE_FLASHY)) {//elseif (style == bj_MINIMAPPINGSTYLE_FLASHY) then
+					PingMinimapEx(x, y, duration, red255, green255, blue255, true);//call PingMinimapEx(x, y, duration, red255, green255, blue255, true)
+				} else if ((style == bj_MINIMAPPINGSTYLE_ATTACK)) {//elseif (style == bj_MINIMAPPINGSTYLE_ATTACK) then
+					PingMinimapEx(x, y, duration, 255, 0, 0, false);//call PingMinimapEx(x, y, duration, 255, 0, 0, false)
+				} else {//else
+					//
+				}//endif
+				//
+			}//endif
+		}//endfunction
+		//
+		private void PingMinimapLocForForceEx(force whichForce, location loc, float duration, int style, float red, float green, float blue) {//function PingMinimapLocForForceEx takes force whichForce, location loc, real duration, integer style, real red, real green, real blue returns nothing
+			PingMinimapForForceEx(whichForce, GetLocationX(loc), GetLocationY(loc), duration, style, red, green, blue);//call PingMinimapForForceEx(whichForce, GetLocationX(loc), GetLocationY(loc), duration, style, red, green, blue)
+		}//endfunction
+		//
+		private void EnableWorldFogBoundaryBJ(bool enable, force f) {//function EnableWorldFogBoundaryBJ takes boolean enable, force f returns nothing
+			if ((IsPlayerInForce(GetLocalPlayer(), f))) {//if (IsPlayerInForce(GetLocalPlayer(), f)) then
+				//
+				EnableWorldFogBoundary(enable);//call EnableWorldFogBoundary(enable)
+			}//endif
+		}//endfunction
+		//
+		private void EnableOcclusionBJ(bool enable, force f) {//function EnableOcclusionBJ takes boolean enable, force f returns nothing
+			if ((IsPlayerInForce(GetLocalPlayer(), f))) {//if (IsPlayerInForce(GetLocalPlayer(), f)) then
+				//
+				EnableOcclusion(enable);//call EnableOcclusion(enable)
+			}//endif
+		}//endfunction
+		//
+		//
+		//
+		//
+		//
+		//
+		//
+		//
+		private void CancelCineSceneBJ() {//function CancelCineSceneBJ takes nothing returns nothing
+			StopSoundBJ(bj_cineSceneLastSound, true);//call StopSoundBJ(bj_cineSceneLastSound, true)
+			EndCinematicScene();//call EndCinematicScene()
+		}//endfunction
+		//
+		//
+		//
+		//
+		//
+		//
+		private void TryInitCinematicBehaviorBJ() {//function TryInitCinematicBehaviorBJ takes nothing returns nothing
+			int index;//local integer index
+			if ((bj_cineSceneBeingSkipped == null)) {//if (bj_cineSceneBeingSkipped == null) then
+				bj_cineSceneBeingSkipped = CreateTrigger();//set bj_cineSceneBeingSkipped = CreateTrigger()
+				index = 0;//set index = 0
+				while (true) {//loop
+					TriggerRegisterPlayerEvent(bj_cineSceneBeingSkipped, Player(index), EVENT_PLAYER_END_CINEMATIC);//call TriggerRegisterPlayerEvent(bj_cineSceneBeingSkipped, Player(index), EVENT_PLAYER_END_CINEMATIC)
+					index = index + 1;//set index = index + 1
+					if (index == bj_MAX_PLAYERS) { break; }//exitwhen index == bj_MAX_PLAYERS
+				}//endloop
+				TriggerAddAction(bj_cineSceneBeingSkipped, function CancelCineSceneBJ);//call TriggerAddAction(bj_cineSceneBeingSkipped, function CancelCineSceneBJ)
+			}//endif
+		}//endfunction
+		//
+		private void SetCinematicSceneBJ(sound soundHandle, int portraitUnitId, playercolor color, string speakerTitle, string text, float sceneDuration, float voiceoverDuration) {//function SetCinematicSceneBJ takes sound soundHandle, integer portraitUnitId, playercolor color, string speakerTitle, string text, real sceneDuration, real voiceoverDuration returns nothing
+			bj_cineSceneLastSound = soundHandle;//set bj_cineSceneLastSound = soundHandle
+			PlaySoundBJ(soundHandle);//call PlaySoundBJ(soundHandle)
+			SetCinematicScene(portraitUnitId, color, speakerTitle, text, sceneDuration, voiceoverDuration);//call SetCinematicScene(portraitUnitId, color, speakerTitle, text, sceneDuration, voiceoverDuration)
+		}//endfunction
+		//
+		private float GetTransmissionDuration(sound soundHandle, int timeType, float timeVal) {//function GetTransmissionDuration takes sound soundHandle, integer timeType, real timeVal returns real
+			float duration;//local real duration
+			if ((timeType == bj_TIMETYPE_ADD)) {//if (timeType == bj_TIMETYPE_ADD) then
+				duration = GetSoundDurationBJ(soundHandle) + timeVal;//set duration = GetSoundDurationBJ(soundHandle) + timeVal
+			} else if ((timeType == bj_TIMETYPE_SET)) {//elseif (timeType == bj_TIMETYPE_SET) then
+				duration = timeVal;//set duration = timeVal
+			} else if ((timeType == bj_TIMETYPE_SUB)) {//elseif (timeType == bj_TIMETYPE_SUB) then
+				duration = GetSoundDurationBJ(soundHandle) - timeVal;//set duration = GetSoundDurationBJ(soundHandle) - timeVal
+			} else {//else
+				//
+				duration = GetSoundDurationBJ(soundHandle);//set duration = GetSoundDurationBJ(soundHandle)
+			}//endif
+			//
+			if ((duration < 0)) {//if (duration < 0) then
+				duration = 0;//set duration = 0
+			}//endif
+			return duration;//return duration
+		}//endfunction
+		//
+		private void WaitTransmissionDuration(sound soundHandle, int timeType, float timeVal) {//function WaitTransmissionDuration takes sound soundHandle, integer timeType, real timeVal returns nothing
+			if ((timeType == bj_TIMETYPE_SET)) {//if (timeType == bj_TIMETYPE_SET) then
+				//
+				TriggerSleepAction(timeVal);//call TriggerSleepAction(timeVal)
+			} else if ((soundHandle == null)) {//elseif (soundHandle == null) then
+				//
+				TriggerSleepAction(bj_NOTHING_SOUND_DURATION);//call TriggerSleepAction(bj_NOTHING_SOUND_DURATION)
+			} else if ((timeType == bj_TIMETYPE_SUB)) {//elseif (timeType == bj_TIMETYPE_SUB) then
+				//
+				//
+				WaitForSoundBJ(soundHandle, timeVal);//call WaitForSoundBJ(soundHandle, timeVal)
+			} else if ((timeType == bj_TIMETYPE_ADD)) {//elseif (timeType == bj_TIMETYPE_ADD) then
+				//
+				//
+				WaitForSoundBJ(soundHandle, 0);//call WaitForSoundBJ(soundHandle, 0)
+				TriggerSleepAction(timeVal);//call TriggerSleepAction(timeVal)
+			} else {//else
+				//
+			}//endif
+		}//endfunction
+		//
+		private void DoTransmissionBasicsXYBJ(int unitId, playercolor color, float x, float y, sound soundHandle, string unitName, string message, float duration) {//function DoTransmissionBasicsXYBJ takes integer unitId, playercolor color, real x, real y, sound soundHandle, string unitName, string message, real duration returns nothing
+			SetCinematicSceneBJ(soundHandle, unitId, color, unitName, message, duration + bj_TRANSMISSION_PORT_HANGTIME, duration);//call SetCinematicSceneBJ(soundHandle, unitId, color, unitName, message, duration + bj_TRANSMISSION_PORT_HANGTIME, duration)
+			if ((unitId != 0)) {//if (unitId != 0) then
+				PingMinimap(x, y, bj_TRANSMISSION_PING_TIME);//call PingMinimap(x, y, bj_TRANSMISSION_PING_TIME)
+				//
+			}//endif
+		}//endfunction
+		//
+		//
+		//
+		//
+		//
+		//
+		//
+		//
+		//
+		//
+		private void TransmissionFromUnitWithNameBJ(force toForce, int whichUnit, string unitName, sound soundHandle, string message, int timeType, float timeVal, bool wait) {//function TransmissionFromUnitWithNameBJ takes force toForce, unit whichUnit, string unitName, sound soundHandle, string message, integer timeType, real timeVal, boolean wait returns nothing
+			TryInitCinematicBehaviorBJ();//call TryInitCinematicBehaviorBJ()
+			//
+			timeVal = RMaxBJ(timeVal, 0);//set timeVal = RMaxBJ(timeVal, 0)
+			bj_lastTransmissionDuration = GetTransmissionDuration(soundHandle, timeType, timeVal);//set bj_lastTransmissionDuration = GetTransmissionDuration(soundHandle, timeType, timeVal)
+			bj_lastPlayedSound = soundHandle;//set bj_lastPlayedSound = soundHandle
+			if ((IsPlayerInForce(GetLocalPlayer(), toForce))) {//if (IsPlayerInForce(GetLocalPlayer(), toForce)) then
+				//
+				if ((whichUnit == null)) {//if (whichUnit == null) then
+					//
+					DoTransmissionBasicsXYBJ(0, PLAYER_COLOR_RED, 0, 0, soundHandle, unitName, message, bj_lastTransmissionDuration);//call DoTransmissionBasicsXYBJ(0, PLAYER_COLOR_RED, 0, 0, soundHandle, unitName, message, bj_lastTransmissionDuration)
+				} else {//else
+					DoTransmissionBasicsXYBJ(GetUnitTypeId(whichUnit), GetPlayerColor(GetOwningPlayer(whichUnit)), GetUnitX(whichUnit), GetUnitY(whichUnit), soundHandle, unitName, message, bj_lastTransmissionDuration);//call DoTransmissionBasicsXYBJ(GetUnitTypeId(whichUnit), GetPlayerColor(GetOwningPlayer(whichUnit)), GetUnitX(whichUnit), GetUnitY(whichUnit), soundHandle, unitName, message, bj_lastTransmissionDuration)
+					if ((!IsUnitHidden(whichUnit))) {//if (not IsUnitHidden(whichUnit)) then
+						UnitAddIndicator(whichUnit, bj_TRANSMISSION_IND_RED, bj_TRANSMISSION_IND_BLUE, bj_TRANSMISSION_IND_GREEN, bj_TRANSMISSION_IND_ALPHA);//call UnitAddIndicator(whichUnit, bj_TRANSMISSION_IND_RED, bj_TRANSMISSION_IND_BLUE, bj_TRANSMISSION_IND_GREEN, bj_TRANSMISSION_IND_ALPHA)
+					}//endif
+				}//endif
+			}//endif
+			if (wait && (bj_lastTransmissionDuration > 0)) {//if wait and (bj_lastTransmissionDuration > 0) then
+				//
+				WaitTransmissionDuration(soundHandle, timeType, timeVal);//call WaitTransmissionDuration(soundHandle, timeType, timeVal)
+			}//endif
+		}//endfunction
+		//
+		//
+		//
+		//
+		private void TransmissionFromUnitTypeWithNameBJ(force toForce, player fromPlayer, int unitId, string unitName, location loc, sound soundHandle, string message, int timeType, float timeVal, bool wait) {//function TransmissionFromUnitTypeWithNameBJ takes force toForce, player fromPlayer, integer unitId, string unitName, location loc, sound soundHandle, string message, integer timeType, real timeVal, boolean wait returns nothing
+			TryInitCinematicBehaviorBJ();//call TryInitCinematicBehaviorBJ()
+			//
+			timeVal = RMaxBJ(timeVal, 0);//set timeVal = RMaxBJ(timeVal, 0)
+			bj_lastTransmissionDuration = GetTransmissionDuration(soundHandle, timeType, timeVal);//set bj_lastTransmissionDuration = GetTransmissionDuration(soundHandle, timeType, timeVal)
+			bj_lastPlayedSound = soundHandle;//set bj_lastPlayedSound = soundHandle
+			if ((IsPlayerInForce(GetLocalPlayer(), toForce))) {//if (IsPlayerInForce(GetLocalPlayer(), toForce)) then
+				//
+				DoTransmissionBasicsXYBJ(unitId, GetPlayerColor(fromPlayer), GetLocationX(loc), GetLocationY(loc), soundHandle, unitName, message, bj_lastTransmissionDuration);//call DoTransmissionBasicsXYBJ(unitId, GetPlayerColor(fromPlayer), GetLocationX(loc), GetLocationY(loc), soundHandle, unitName, message, bj_lastTransmissionDuration)
+			}//endif
+			if (wait && (bj_lastTransmissionDuration > 0)) {//if wait and (bj_lastTransmissionDuration > 0) then
+				//
+				WaitTransmissionDuration(soundHandle, timeType, timeVal);//call WaitTransmissionDuration(soundHandle, timeType, timeVal)
+			}//endif
+		}//endfunction
+		//
+		private float GetLastTransmissionDurationBJ() {//function GetLastTransmissionDurationBJ takes nothing returns real
+			return bj_lastTransmissionDuration;//return bj_lastTransmissionDuration
+		}//endfunction
+		//
+		private void ForceCinematicSubtitlesBJ(bool flag) {//function ForceCinematicSubtitlesBJ takes boolean flag returns nothing
+			ForceCinematicSubtitles(flag);//call ForceCinematicSubtitles(flag)
+		}//endfunction
+		//
+		//
+		//
+		//
+		//
+		//
+		//
+		//
+		//
+		//
+		//
+		//
+		//
+		//
+		//
+		//
+		//
+		//
+		//
+		//
+		//
+		//
+		//
+		//
+		private void CinematicModeExBJ(bool cineMode, force forForce, float interfaceFadeTime) {//function CinematicModeExBJ takes boolean cineMode, force forForce, real interfaceFadeTime returns nothing
+			//
+			if ((!bj_gameStarted)) {//if (not bj_gameStarted) then
+				interfaceFadeTime = 0;//set interfaceFadeTime = 0
+			}//endif
+			if ((cineMode)) {//if (cineMode) then
+				//
+				if ((!bj_cineModeAlreadyIn)) {//if (not bj_cineModeAlreadyIn) then
+					bj_cineModeAlreadyIn = true;//set bj_cineModeAlreadyIn = true
+					bj_cineModePriorSpeed = GetGameSpeed();//set bj_cineModePriorSpeed = GetGameSpeed()
+					bj_cineModePriorFogSetting = IsFogEnabled();//set bj_cineModePriorFogSetting = IsFogEnabled()
+					bj_cineModePriorMaskSetting = IsFogMaskEnabled();//set bj_cineModePriorMaskSetting = IsFogMaskEnabled()
+					bj_cineModePriorDawnDusk = IsDawnDuskEnabled();//set bj_cineModePriorDawnDusk = IsDawnDuskEnabled()
+					bj_cineModeSavedSeed = GetRandomInt(0, 1000000);//set bj_cineModeSavedSeed = GetRandomInt(0, 1000000)
+				}//endif
+				//
+				if ((IsPlayerInForce(GetLocalPlayer(), forForce))) {//if (IsPlayerInForce(GetLocalPlayer(), forForce)) then
+					//
+					ClearTextMessages();//call ClearTextMessages()
+					ShowInterface(false, interfaceFadeTime);//call ShowInterface(false, interfaceFadeTime)
+					EnableUserControl(false);//call EnableUserControl(false)
+					EnableOcclusion(false);//call EnableOcclusion(false)
+					SetCineModeVolumeGroupsBJ();//call SetCineModeVolumeGroupsBJ()
+				}//endif
+				//
+				SetGameSpeed(bj_CINEMODE_GAMESPEED);//call SetGameSpeed(bj_CINEMODE_GAMESPEED)
+				SetMapFlag(MAP_LOCK_SPEED, true);//call SetMapFlag(MAP_LOCK_SPEED, true)
+				FogMaskEnable(false);//call FogMaskEnable(false)
+				FogEnable(false);//call FogEnable(false)
+				EnableWorldFogBoundary(false);//call EnableWorldFogBoundary(false)
+				EnableDawnDusk(false);//call EnableDawnDusk(false)
+				//
+				SetRandomSeed(0);//call SetRandomSeed(0)
+			} else {//else
+				bj_cineModeAlreadyIn = false;//set bj_cineModeAlreadyIn = false
+				//
+				if ((IsPlayerInForce(GetLocalPlayer(), forForce))) {//if (IsPlayerInForce(GetLocalPlayer(), forForce)) then
+					//
+					ShowInterface(true, interfaceFadeTime);//call ShowInterface(true, interfaceFadeTime)
+					EnableUserControl(true);//call EnableUserControl(true)
+					EnableOcclusion(true);//call EnableOcclusion(true)
+					VolumeGroupReset();//call VolumeGroupReset()
+					EndThematicMusic();//call EndThematicMusic()
+					CameraResetSmoothingFactorBJ();//call CameraResetSmoothingFactorBJ()
+				}//endif
+				//
+				SetMapFlag(MAP_LOCK_SPEED, false);//call SetMapFlag(MAP_LOCK_SPEED, false)
+				SetGameSpeed(bj_cineModePriorSpeed);//call SetGameSpeed(bj_cineModePriorSpeed)
+				FogMaskEnable(bj_cineModePriorMaskSetting);//call FogMaskEnable(bj_cineModePriorMaskSetting)
+				FogEnable(bj_cineModePriorFogSetting);//call FogEnable(bj_cineModePriorFogSetting)
+				EnableWorldFogBoundary(true);//call EnableWorldFogBoundary(true)
+				EnableDawnDusk(bj_cineModePriorDawnDusk);//call EnableDawnDusk(bj_cineModePriorDawnDusk)
+				SetRandomSeed(bj_cineModeSavedSeed);//call SetRandomSeed(bj_cineModeSavedSeed)
+			}//endif
+		}//endfunction
+		//
+		private void CinematicModeBJ(bool cineMode, force forForce) {//function CinematicModeBJ takes boolean cineMode, force forForce returns nothing
+			CinematicModeExBJ(cineMode, forForce, bj_CINEMODE_INTERFACEFADE);//call CinematicModeExBJ(cineMode, forForce, bj_CINEMODE_INTERFACEFADE)
+		}//endfunction
+		//
+		//
+		//
+		//
+		//
+		//
+		private void DisplayCineFilterBJ(bool flag) {//function DisplayCineFilterBJ takes boolean flag returns nothing
+			DisplayCineFilter(flag);//call DisplayCineFilter(flag)
+		}//endfunction
+		//
+		private void CinematicFadeCommonBJ(float red, float green, float blue, float duration, string tex, float startTrans, float endTrans) {//function CinematicFadeCommonBJ takes real red, real green, real blue, real duration, string tex, real startTrans, real endTrans returns nothing
+			if ((duration == 0)) {//if (duration == 0) then
+				//
+				//
+				startTrans = endTrans;//set startTrans = endTrans
+			}//endif
+			EnableUserUI(false);//call EnableUserUI(false)
+			SetCineFilterTexture(tex);//call SetCineFilterTexture(tex)
+			SetCineFilterBlendMode(BLEND_MODE_BLEND);//call SetCineFilterBlendMode(BLEND_MODE_BLEND)
+			SetCineFilterTexMapFlags(TEXMAP_FLAG_NONE);//call SetCineFilterTexMapFlags(TEXMAP_FLAG_NONE)
+			SetCineFilterStartUV(0, 0, 1, 1);//call SetCineFilterStartUV(0, 0, 1, 1)
+			SetCineFilterEndUV(0, 0, 1, 1);//call SetCineFilterEndUV(0, 0, 1, 1)
+			SetCineFilterStartColor(PercentTo255(red), PercentTo255(green), PercentTo255(blue), PercentTo255(100-startTrans));//call SetCineFilterStartColor(PercentTo255(red), PercentTo255(green), PercentTo255(blue), PercentTo255(100-startTrans))
+			SetCineFilterEndColor(PercentTo255(red), PercentTo255(green), PercentTo255(blue), PercentTo255(100-endTrans));//call SetCineFilterEndColor(PercentTo255(red), PercentTo255(green), PercentTo255(blue), PercentTo255(100-endTrans))
+			SetCineFilterDuration(duration);//call SetCineFilterDuration(duration)
+			DisplayCineFilter(true);//call DisplayCineFilter(true)
+		}//endfunction
+		//
+		private void FinishCinematicFadeBJ() {//function FinishCinematicFadeBJ takes nothing returns nothing
+			DestroyTimer(bj_cineFadeFinishTimer);//call DestroyTimer(bj_cineFadeFinishTimer)
+			bj_cineFadeFinishTimer = null;//set bj_cineFadeFinishTimer = null
+			DisplayCineFilter(false);//call DisplayCineFilter(false)
+			EnableUserUI(true);//call EnableUserUI(true)
+		}//endfunction
+		//
+		private void FinishCinematicFadeAfterBJ(float duration) {//function FinishCinematicFadeAfterBJ takes real duration returns nothing
+			//
+			bj_cineFadeFinishTimer = CreateTimer();//set bj_cineFadeFinishTimer = CreateTimer()
+			TimerStart(bj_cineFadeFinishTimer, duration, false, function FinishCinematicFadeBJ);//call TimerStart(bj_cineFadeFinishTimer, duration, false, function FinishCinematicFadeBJ)
+		}//endfunction
+		//
+		private void ContinueCinematicFadeBJ() {//function ContinueCinematicFadeBJ takes nothing returns nothing
+			DestroyTimer(bj_cineFadeContinueTimer);//call DestroyTimer(bj_cineFadeContinueTimer)
+			bj_cineFadeContinueTimer = null;//set bj_cineFadeContinueTimer = null
+			CinematicFadeCommonBJ(bj_cineFadeContinueRed, bj_cineFadeContinueGreen, bj_cineFadeContinueBlue, bj_cineFadeContinueDuration, bj_cineFadeContinueTex, bj_cineFadeContinueTrans, 100);//call CinematicFadeCommonBJ(bj_cineFadeContinueRed, bj_cineFadeContinueGreen, bj_cineFadeContinueBlue, bj_cineFadeContinueDuration, bj_cineFadeContinueTex, bj_cineFadeContinueTrans, 100)
+		}//endfunction
+		//
+		private void ContinueCinematicFadeAfterBJ(float duration, float red, float green, float blue, float trans, string tex) {//function ContinueCinematicFadeAfterBJ takes real duration, real red, real green, real blue, real trans, string tex returns nothing
+			bj_cineFadeContinueRed = red;//set bj_cineFadeContinueRed = red
+			bj_cineFadeContinueGreen = green;//set bj_cineFadeContinueGreen = green
+			bj_cineFadeContinueBlue = blue;//set bj_cineFadeContinueBlue = blue
+			bj_cineFadeContinueTrans = trans;//set bj_cineFadeContinueTrans = trans
+			bj_cineFadeContinueDuration = duration;//set bj_cineFadeContinueDuration = duration
+			bj_cineFadeContinueTex = tex;//set bj_cineFadeContinueTex = tex
+			//
+			bj_cineFadeContinueTimer = CreateTimer();//set bj_cineFadeContinueTimer = CreateTimer()
+			TimerStart(bj_cineFadeContinueTimer, duration, false, function ContinueCinematicFadeBJ);//call TimerStart(bj_cineFadeContinueTimer, duration, false, function ContinueCinematicFadeBJ)
+		}//endfunction
+		//
+		private void AbortCinematicFadeBJ() {//function AbortCinematicFadeBJ takes nothing returns nothing
+			if ((bj_cineFadeContinueTimer != null)) {//if (bj_cineFadeContinueTimer != null) then
+				DestroyTimer(bj_cineFadeContinueTimer);//call DestroyTimer(bj_cineFadeContinueTimer)
+			}//endif
+			if ((bj_cineFadeFinishTimer != null)) {//if (bj_cineFadeFinishTimer != null) then
+				DestroyTimer(bj_cineFadeFinishTimer);//call DestroyTimer(bj_cineFadeFinishTimer)
+			}//endif
+		}//endfunction
+		//
+		private void CinematicFadeBJ(int fadetype, float duration, string tex, float red, float green, float blue, float trans) {//function CinematicFadeBJ takes integer fadetype, real duration, string tex, real red, real green, real blue, real trans returns nothing
+			if ((fadetype == bj_CINEFADETYPE_FADEOUT)) {//if (fadetype == bj_CINEFADETYPE_FADEOUT) then
+				//
+				AbortCinematicFadeBJ();//call AbortCinematicFadeBJ()
+				CinematicFadeCommonBJ(red, green, blue, duration, tex, 100, trans);//call CinematicFadeCommonBJ(red, green, blue, duration, tex, 100, trans)
+			} else if ((fadetype == bj_CINEFADETYPE_FADEIN)) {//elseif (fadetype == bj_CINEFADETYPE_FADEIN) then
+				//
+				AbortCinematicFadeBJ();//call AbortCinematicFadeBJ()
+				CinematicFadeCommonBJ(red, green, blue, duration, tex, trans, 100);//call CinematicFadeCommonBJ(red, green, blue, duration, tex, trans, 100)
+				FinishCinematicFadeAfterBJ(duration);//call FinishCinematicFadeAfterBJ(duration)
+			} else if ((fadetype == bj_CINEFADETYPE_FADEOUTIN)) {//elseif (fadetype == bj_CINEFADETYPE_FADEOUTIN) then
+				//
+				if ((duration > 0)) {//if (duration > 0) then
+					AbortCinematicFadeBJ();//call AbortCinematicFadeBJ()
+					CinematicFadeCommonBJ(red, green, blue, duration * 0.5, tex, 100, trans);//call CinematicFadeCommonBJ(red, green, blue, duration * 0.5, tex, 100, trans)
+					ContinueCinematicFadeAfterBJ(duration * 0.5, red, green, blue, trans, tex);//call ContinueCinematicFadeAfterBJ(duration * 0.5, red, green, blue, trans, tex)
+					FinishCinematicFadeAfterBJ(duration);//call FinishCinematicFadeAfterBJ(duration)
+				}//endif
+			} else {//else
+				//
+			}//endif
+		}//endfunction
+		//
+		private void CinematicFilterGenericBJ(float duration, blendmode bmode, string tex, float red0, float green0, float blue0, float trans0, float red1, float green1, float blue1, float trans1) {//function CinematicFilterGenericBJ takes real duration, blendmode bmode, string tex, real red0, real green0, real blue0, real trans0, real red1, real green1, real blue1, real trans1 returns nothing
+			AbortCinematicFadeBJ();//call AbortCinematicFadeBJ()
+			SetCineFilterTexture(tex);//call SetCineFilterTexture(tex)
+			SetCineFilterBlendMode(bmode);//call SetCineFilterBlendMode(bmode)
+			SetCineFilterTexMapFlags(TEXMAP_FLAG_NONE);//call SetCineFilterTexMapFlags(TEXMAP_FLAG_NONE)
+			SetCineFilterStartUV(0, 0, 1, 1);//call SetCineFilterStartUV(0, 0, 1, 1)
+			SetCineFilterEndUV(0, 0, 1, 1);//call SetCineFilterEndUV(0, 0, 1, 1)
+			SetCineFilterStartColor(PercentTo255(red0), PercentTo255(green0), PercentTo255(blue0), PercentTo255(100-trans0));//call SetCineFilterStartColor(PercentTo255(red0), PercentTo255(green0), PercentTo255(blue0), PercentTo255(100-trans0))
+			SetCineFilterEndColor(PercentTo255(red1), PercentTo255(green1), PercentTo255(blue1), PercentTo255(100-trans1));//call SetCineFilterEndColor(PercentTo255(red1), PercentTo255(green1), PercentTo255(blue1), PercentTo255(100-trans1))
+			SetCineFilterDuration(duration);//call SetCineFilterDuration(duration)
+			DisplayCineFilter(true);//call DisplayCineFilter(true)
+		}//endfunction
+		//
+		//
+		//
+		//
+		//
+		//
+		//
+		//
+		//
+		//
+		private void RescueUnitBJ(int whichUnit, player rescuer, bool changeColor) {//function RescueUnitBJ takes unit whichUnit, player rescuer, boolean changeColor returns nothing
+			if (IsUnitDeadBJ(whichUnit) || (GetOwningPlayer(whichUnit) == rescuer)) {//if IsUnitDeadBJ(whichUnit) or (GetOwningPlayer(whichUnit) == rescuer) then
+				return;//return
+			}//endif
+			StartSound(bj_rescueSound);//call StartSound(bj_rescueSound)
+			SetUnitOwner(whichUnit, rescuer, changeColor);//call SetUnitOwner(whichUnit, rescuer, changeColor)
+			UnitAddIndicator(whichUnit, 0, 255, 0, 255);//call UnitAddIndicator(whichUnit, 0, 255, 0, 255)
+			PingMinimapForPlayer(rescuer, GetUnitX(whichUnit), GetUnitY(whichUnit), bj_RESCUE_PING_TIME);//call PingMinimapForPlayer(rescuer, GetUnitX(whichUnit), GetUnitY(whichUnit), bj_RESCUE_PING_TIME)
+		}//endfunction
+		//
+		private void TriggerActionUnitRescuedBJ() {//function TriggerActionUnitRescuedBJ takes nothing returns nothing
+			int theUnit = GetTriggerUnit();//local unit theUnit = GetTriggerUnit()
+			if (IsUnitType(theUnit, UNIT_TYPE_STRUCTURE)) {//if IsUnitType(theUnit, UNIT_TYPE_STRUCTURE) then
+				RescueUnitBJ(theUnit, GetOwningPlayer(GetRescuer()), bj_rescueChangeColorBldg);//call RescueUnitBJ(theUnit, GetOwningPlayer(GetRescuer()), bj_rescueChangeColorBldg)
+			} else {//else
+				RescueUnitBJ(theUnit, GetOwningPlayer(GetRescuer()), bj_rescueChangeColorUnit);//call RescueUnitBJ(theUnit, GetOwningPlayer(GetRescuer()), bj_rescueChangeColorUnit)
+			}//endif
+		}//endfunction
+		//
+		//
+		//
+		//
+		//
+		private void TryInitRescuableTriggersBJ() {//function TryInitRescuableTriggersBJ takes nothing returns nothing
+			int index;//local integer index
+			if ((bj_rescueUnitBehavior == null)) {//if (bj_rescueUnitBehavior == null) then
+				bj_rescueUnitBehavior = CreateTrigger();//set bj_rescueUnitBehavior = CreateTrigger()
+				index = 0;//set index = 0
+				while (true) {//loop
+					TriggerRegisterPlayerUnitEvent(bj_rescueUnitBehavior, Player(index), EVENT_PLAYER_UNIT_RESCUED, null);//call TriggerRegisterPlayerUnitEvent(bj_rescueUnitBehavior, Player(index), EVENT_PLAYER_UNIT_RESCUED, null)
+					index = index + 1;//set index = index + 1
+					if (index == bj_MAX_PLAYER_SLOTS) { break; }//exitwhen index == bj_MAX_PLAYER_SLOTS
+				}//endloop
+				TriggerAddAction(bj_rescueUnitBehavior, function TriggerActionUnitRescuedBJ);//call TriggerAddAction(bj_rescueUnitBehavior, function TriggerActionUnitRescuedBJ)
+			}//endif
+		}//endfunction
+		//
+		//
+		//
+		//
+		private void SetRescueUnitColorChangeBJ(bool changeColor) {//function SetRescueUnitColorChangeBJ takes boolean changeColor returns nothing
+			bj_rescueChangeColorUnit = changeColor;//set bj_rescueChangeColorUnit = changeColor
+		}//endfunction
+		//
+		//
+		//
+		//
+		private void SetRescueBuildingColorChangeBJ(bool changeColor) {//function SetRescueBuildingColorChangeBJ takes boolean changeColor returns nothing
+			bj_rescueChangeColorBldg = changeColor;//set bj_rescueChangeColorBldg = changeColor
+		}//endfunction
+		//
+		private void MakeUnitRescuableToForceBJEnum() {//function MakeUnitRescuableToForceBJEnum takes nothing returns nothing
+			TryInitRescuableTriggersBJ();//call TryInitRescuableTriggersBJ()
+			SetUnitRescuable(bj_makeUnitRescuableUnit, GetEnumPlayer(), bj_makeUnitRescuableFlag);//call SetUnitRescuable(bj_makeUnitRescuableUnit, GetEnumPlayer(), bj_makeUnitRescuableFlag)
+		}//endfunction
+		//
+		private void MakeUnitRescuableToForceBJ(int whichUnit, bool isRescuable, force whichForce) {//function MakeUnitRescuableToForceBJ takes unit whichUnit, boolean isRescuable, force whichForce returns nothing
+			//
+			bj_makeUnitRescuableUnit = whichUnit;//set bj_makeUnitRescuableUnit = whichUnit
+			bj_makeUnitRescuableFlag = isRescuable;//set bj_makeUnitRescuableFlag = isRescuable
+			ForForce(whichForce, function MakeUnitRescuableToForceBJEnum);//call ForForce(whichForce, function MakeUnitRescuableToForceBJEnum)
+		}//endfunction
+		//
+		private void InitRescuableBehaviorBJ() {//function InitRescuableBehaviorBJ takes nothing returns nothing
+			int index;//local integer index
+			index = 0;//set index = 0
+			while (true) {//loop
+				//
+				//
+				if ((GetPlayerController(Player(index)) == MAP_CONTROL_RESCUABLE)) {//if (GetPlayerController(Player(index)) == MAP_CONTROL_RESCUABLE) then
+					TryInitRescuableTriggersBJ();//call TryInitRescuableTriggersBJ()
+					return;//return
+				}//endif
+				index = index + 1;//set index = index + 1
+				if (index == bj_MAX_PLAYERS) { break; }//exitwhen index == bj_MAX_PLAYERS
+			}//endloop
+		}//endfunction
+		//
+		//
+		//
+		//
+		//
+		//
+		private void SetPlayerTechResearchedSwap(int techid, int levels, player whichPlayer) {//function SetPlayerTechResearchedSwap takes integer techid, integer levels, player whichPlayer returns nothing
+			SetPlayerTechResearched(whichPlayer, techid, levels);//call SetPlayerTechResearched(whichPlayer, techid, levels)
+		}//endfunction
+		//
+		private void SetPlayerTechMaxAllowedSwap(int techid, int maximum, player whichPlayer) {//function SetPlayerTechMaxAllowedSwap takes integer techid, integer maximum, player whichPlayer returns nothing
+			SetPlayerTechMaxAllowed(whichPlayer, techid, maximum);//call SetPlayerTechMaxAllowed(whichPlayer, techid, maximum)
+		}//endfunction
+		//
+		private void SetPlayerMaxHeroesAllowed(int maximum, player whichPlayer) {//function SetPlayerMaxHeroesAllowed takes integer maximum, player whichPlayer returns nothing
+			SetPlayerTechMaxAllowed(whichPlayer, 'HERO', maximum);//call SetPlayerTechMaxAllowed(whichPlayer, 'HERO', maximum)
+		}//endfunction
+		//
+		private int GetPlayerTechCountSimple(int techid, player whichPlayer) {//function GetPlayerTechCountSimple takes integer techid, player whichPlayer returns integer
+			return GetPlayerTechCount(whichPlayer, techid, true);//return GetPlayerTechCount(whichPlayer, techid, true)
+		}//endfunction
+		//
+		private int GetPlayerTechMaxAllowedSwap(int techid, player whichPlayer) {//function GetPlayerTechMaxAllowedSwap takes integer techid, player whichPlayer returns integer
+			return GetPlayerTechMaxAllowed(whichPlayer, techid);//return GetPlayerTechMaxAllowed(whichPlayer, techid)
+		}//endfunction
+		//
+		private void SetPlayerAbilityAvailableBJ(bool avail, int abilid, player whichPlayer) {//function SetPlayerAbilityAvailableBJ takes boolean avail, integer abilid, player whichPlayer returns nothing
+			SetPlayerAbilityAvailable(whichPlayer, abilid, avail);//call SetPlayerAbilityAvailable(whichPlayer, abilid, avail)
+		}//endfunction
+		//
+		//
+		//
+		//
+		//
+		private void SetCampaignMenuRaceBJ(int campaignNumber) {//function SetCampaignMenuRaceBJ takes integer campaignNumber returns nothing
+			if ((campaignNumber == bj_CAMPAIGN_INDEX_T)) {//if (campaignNumber == bj_CAMPAIGN_INDEX_T) then
+				SetCampaignMenuRace(RACE_OTHER);//call SetCampaignMenuRace(RACE_OTHER)
+			} else if ((campaignNumber == bj_CAMPAIGN_INDEX_H)) {//elseif (campaignNumber == bj_CAMPAIGN_INDEX_H) then
+				SetCampaignMenuRace(RACE_HUMAN);//call SetCampaignMenuRace(RACE_HUMAN)
+			} else if ((campaignNumber == bj_CAMPAIGN_INDEX_U)) {//elseif (campaignNumber == bj_CAMPAIGN_INDEX_U) then
+				SetCampaignMenuRace(RACE_UNDEAD);//call SetCampaignMenuRace(RACE_UNDEAD)
+			} else if ((campaignNumber == bj_CAMPAIGN_INDEX_O)) {//elseif (campaignNumber == bj_CAMPAIGN_INDEX_O) then
+				SetCampaignMenuRace(RACE_ORC);//call SetCampaignMenuRace(RACE_ORC)
+			} else if ((campaignNumber == bj_CAMPAIGN_INDEX_N)) {//elseif (campaignNumber == bj_CAMPAIGN_INDEX_N) then
+				SetCampaignMenuRace(RACE_NIGHTELF);//call SetCampaignMenuRace(RACE_NIGHTELF)
+			} else if ((campaignNumber == bj_CAMPAIGN_INDEX_XN)) {//elseif (campaignNumber == bj_CAMPAIGN_INDEX_XN) then
+				SetCampaignMenuRaceEx(bj_CAMPAIGN_OFFSET_XN);//call SetCampaignMenuRaceEx(bj_CAMPAIGN_OFFSET_XN)
+			} else if ((campaignNumber == bj_CAMPAIGN_INDEX_XH)) {//elseif (campaignNumber == bj_CAMPAIGN_INDEX_XH) then
+				SetCampaignMenuRaceEx(bj_CAMPAIGN_OFFSET_XH);//call SetCampaignMenuRaceEx(bj_CAMPAIGN_OFFSET_XH)
+			} else if ((campaignNumber == bj_CAMPAIGN_INDEX_XU)) {//elseif (campaignNumber == bj_CAMPAIGN_INDEX_XU) then
+				SetCampaignMenuRaceEx(bj_CAMPAIGN_OFFSET_XU);//call SetCampaignMenuRaceEx(bj_CAMPAIGN_OFFSET_XU)
+			} else if ((campaignNumber == bj_CAMPAIGN_INDEX_XO)) {//elseif (campaignNumber == bj_CAMPAIGN_INDEX_XO) then
+				SetCampaignMenuRaceEx(bj_CAMPAIGN_OFFSET_XO);//call SetCampaignMenuRaceEx(bj_CAMPAIGN_OFFSET_XO)
+			} else {//else
+				//
+			}//endif
+		}//endfunction
+		//
+		//
+		//
+		//
+		//
+		//
+		//
+		private void SetMissionAvailableBJ(bool available, int missionIndex) {//function SetMissionAvailableBJ takes boolean available, integer missionIndex returns nothing
+			int campaignNumber = missionIndex / 1000;//local integer campaignNumber = missionIndex / 1000
+			int missionNumber = missionIndex - campaignNumber * 1000;//local integer missionNumber = missionIndex - campaignNumber * 1000
+			SetMissionAvailable(campaignNumber, missionNumber, available);//call SetMissionAvailable(campaignNumber, missionNumber, available)
+		}//endfunction
+		//
+		private void SetCampaignAvailableBJ(bool available, int campaignNumber) {//function SetCampaignAvailableBJ takes boolean available, integer campaignNumber returns nothing
+			int campaignOffset;//local integer campaignOffset
+			if ((campaignNumber == bj_CAMPAIGN_INDEX_H)) {//if (campaignNumber == bj_CAMPAIGN_INDEX_H) then
+				SetTutorialCleared(true);//call SetTutorialCleared(true)
+			}//endif
+			if ((campaignNumber == bj_CAMPAIGN_INDEX_XN)) {//if (campaignNumber == bj_CAMPAIGN_INDEX_XN) then
+				campaignOffset = bj_CAMPAIGN_OFFSET_XN;//set campaignOffset = bj_CAMPAIGN_OFFSET_XN
+			} else if ((campaignNumber == bj_CAMPAIGN_INDEX_XH)) {//elseif (campaignNumber == bj_CAMPAIGN_INDEX_XH) then
+				campaignOffset = bj_CAMPAIGN_OFFSET_XH;//set campaignOffset = bj_CAMPAIGN_OFFSET_XH
+			} else if ((campaignNumber == bj_CAMPAIGN_INDEX_XU)) {//elseif (campaignNumber == bj_CAMPAIGN_INDEX_XU) then
+				campaignOffset = bj_CAMPAIGN_OFFSET_XU;//set campaignOffset = bj_CAMPAIGN_OFFSET_XU
+			} else if ((campaignNumber == bj_CAMPAIGN_INDEX_XO)) {//elseif (campaignNumber == bj_CAMPAIGN_INDEX_XO) then
+				campaignOffset = bj_CAMPAIGN_OFFSET_XO;//set campaignOffset = bj_CAMPAIGN_OFFSET_XO
+			} else {//else
+				campaignOffset = campaignNumber;//set campaignOffset = campaignNumber
+			}//endif
+			SetCampaignAvailable(campaignOffset, available);//call SetCampaignAvailable(campaignOffset, available)
+			SetCampaignMenuRaceBJ(campaignNumber);//call SetCampaignMenuRaceBJ(campaignNumber)
+			ForceCampaignSelectScreen();//call ForceCampaignSelectScreen()
+		}//endfunction
+		//
+		private void SetCinematicAvailableBJ(bool available, int cinematicIndex) {//function SetCinematicAvailableBJ takes boolean available, integer cinematicIndex returns nothing
+			if (( cinematicIndex == bj_CINEMATICINDEX_TOP )) {//if ( cinematicIndex == bj_CINEMATICINDEX_TOP ) then
+				SetOpCinematicAvailable(bj_CAMPAIGN_INDEX_T, available);//call SetOpCinematicAvailable( bj_CAMPAIGN_INDEX_T, available )
+				PlayCinematic("TutorialOp");//call PlayCinematic( "TutorialOp" )
+			} else if ((cinematicIndex == bj_CINEMATICINDEX_HOP)) {//elseif (cinematicIndex == bj_CINEMATICINDEX_HOP) then
+				SetOpCinematicAvailable(bj_CAMPAIGN_INDEX_H, available);//call SetOpCinematicAvailable( bj_CAMPAIGN_INDEX_H, available )
+				PlayCinematic("HumanOp");//call PlayCinematic( "HumanOp" )
+			} else if ((cinematicIndex == bj_CINEMATICINDEX_HED)) {//elseif (cinematicIndex == bj_CINEMATICINDEX_HED) then
+				SetEdCinematicAvailable(bj_CAMPAIGN_INDEX_H, available);//call SetEdCinematicAvailable( bj_CAMPAIGN_INDEX_H, available )
+				PlayCinematic("HumanEd");//call PlayCinematic( "HumanEd" )
+			} else if ((cinematicIndex == bj_CINEMATICINDEX_OOP)) {//elseif (cinematicIndex == bj_CINEMATICINDEX_OOP) then
+				SetOpCinematicAvailable(bj_CAMPAIGN_INDEX_O, available);//call SetOpCinematicAvailable( bj_CAMPAIGN_INDEX_O, available )
+				PlayCinematic("OrcOp");//call PlayCinematic( "OrcOp" )
+			} else if ((cinematicIndex == bj_CINEMATICINDEX_OED)) {//elseif (cinematicIndex == bj_CINEMATICINDEX_OED) then
+				SetEdCinematicAvailable(bj_CAMPAIGN_INDEX_O, available);//call SetEdCinematicAvailable( bj_CAMPAIGN_INDEX_O, available )
+				PlayCinematic("OrcEd");//call PlayCinematic( "OrcEd" )
+			} else if ((cinematicIndex == bj_CINEMATICINDEX_UOP)) {//elseif (cinematicIndex == bj_CINEMATICINDEX_UOP) then
+				SetEdCinematicAvailable(bj_CAMPAIGN_INDEX_U, available);//call SetEdCinematicAvailable( bj_CAMPAIGN_INDEX_U, available )
+				PlayCinematic("UndeadOp");//call PlayCinematic( "UndeadOp" )
+			} else if ((cinematicIndex == bj_CINEMATICINDEX_UED)) {//elseif (cinematicIndex == bj_CINEMATICINDEX_UED) then
+				SetEdCinematicAvailable(bj_CAMPAIGN_INDEX_U, available);//call SetEdCinematicAvailable( bj_CAMPAIGN_INDEX_U, available )
+				PlayCinematic("UndeadEd");//call PlayCinematic( "UndeadEd" )
+			} else if ((cinematicIndex == bj_CINEMATICINDEX_NOP)) {//elseif (cinematicIndex == bj_CINEMATICINDEX_NOP) then
+				SetEdCinematicAvailable(bj_CAMPAIGN_INDEX_N, available);//call SetEdCinematicAvailable( bj_CAMPAIGN_INDEX_N, available )
+				PlayCinematic("NightElfOp");//call PlayCinematic( "NightElfOp" )
+			} else if ((cinematicIndex == bj_CINEMATICINDEX_NED)) {//elseif (cinematicIndex == bj_CINEMATICINDEX_NED) then
+				SetEdCinematicAvailable(bj_CAMPAIGN_INDEX_N, available);//call SetEdCinematicAvailable( bj_CAMPAIGN_INDEX_N, available )
+				PlayCinematic("NightElfEd");//call PlayCinematic( "NightElfEd" )
+			} else if ((cinematicIndex == bj_CINEMATICINDEX_XOP)) {//elseif (cinematicIndex == bj_CINEMATICINDEX_XOP) then
+				SetOpCinematicAvailable(bj_CAMPAIGN_OFFSET_XN, available);//call SetOpCinematicAvailable( bj_CAMPAIGN_OFFSET_XN, available )
+				PlayCinematic("IntroX");//call PlayCinematic( "IntroX" )
+			} else if ((cinematicIndex == bj_CINEMATICINDEX_XED)) {//elseif (cinematicIndex == bj_CINEMATICINDEX_XED) then
+				SetEdCinematicAvailable(bj_CAMPAIGN_OFFSET_XU, available);//call SetEdCinematicAvailable( bj_CAMPAIGN_OFFSET_XU, available )
+				PlayCinematic("OutroX");//call PlayCinematic( "OutroX" )
+			} else {//else
+				//
+			}//endif
+		}//endfunction
+		//
+		private gamecache InitGameCacheBJ(string campaignFile) {//function InitGameCacheBJ takes string campaignFile returns gamecache
+			bj_lastCreatedGameCache = InitGameCache(campaignFile);//set bj_lastCreatedGameCache = InitGameCache(campaignFile)
+			return bj_lastCreatedGameCache;//return bj_lastCreatedGameCache
+		}//endfunction
+		//
+		private bool SaveGameCacheBJ(gamecache cache) {//function SaveGameCacheBJ takes gamecache cache returns boolean
+			return SaveGameCache(cache);//return SaveGameCache(cache)
+		}//endfunction
+		//
+		private gamecache GetLastCreatedGameCacheBJ() {//function GetLastCreatedGameCacheBJ takes nothing returns gamecache
+			return bj_lastCreatedGameCache;//return bj_lastCreatedGameCache
+		}//endfunction
+		//
+		private hashtable InitHashtableBJ() {//function InitHashtableBJ takes nothing returns hashtable
+			bj_lastCreatedHashtable = InitHashtable();//set bj_lastCreatedHashtable = InitHashtable()
+			return bj_lastCreatedHashtable;//return bj_lastCreatedHashtable
+		}//endfunction
+		//
+		private hashtable GetLastCreatedHashtableBJ() {//function GetLastCreatedHashtableBJ takes nothing returns hashtable
+			return bj_lastCreatedHashtable;//return bj_lastCreatedHashtable
+		}//endfunction
+		//
+		private void StoreRealBJ(float value, string key, string missionKey, gamecache cache) {//function StoreRealBJ takes real value, string key, string missionKey, gamecache cache returns nothing
+			StoreReal(cache, missionKey, key, value);//call StoreReal(cache, missionKey, key, value)
+		}//endfunction
+		//
+		private void StoreIntegerBJ(int value, string key, string missionKey, gamecache cache) {//function StoreIntegerBJ takes integer value, string key, string missionKey, gamecache cache returns nothing
+			StoreInteger(cache, missionKey, key, value);//call StoreInteger(cache, missionKey, key, value)
+		}//endfunction
+		//
+		private void StoreBooleanBJ(bool value, string key, string missionKey, gamecache cache) {//function StoreBooleanBJ takes boolean value, string key, string missionKey, gamecache cache returns nothing
+			StoreBoolean(cache, missionKey, key, value);//call StoreBoolean(cache, missionKey, key, value)
+		}//endfunction
+		//
+		private bool StoreStringBJ(string value, string key, string missionKey, gamecache cache) {//function StoreStringBJ takes string value, string key, string missionKey, gamecache cache returns boolean
+			return StoreString(cache, missionKey, key, value);//return StoreString(cache, missionKey, key, value)
+		}//endfunction
+		//
+		private bool StoreUnitBJ(int whichUnit, string key, string missionKey, gamecache cache) {//function StoreUnitBJ takes unit whichUnit, string key, string missionKey, gamecache cache returns boolean
+			return StoreUnit(cache, missionKey, key, whichUnit);//return StoreUnit(cache, missionKey, key, whichUnit)
+		}//endfunction
+		//
+		private void SaveRealBJ(float value, int key, int missionKey, hashtable table) {//function SaveRealBJ takes real value, integer key, integer missionKey, hashtable table returns nothing
+			SaveReal(table, missionKey, key, value);//call SaveReal(table, missionKey, key, value)
+		}//endfunction
+		//
+		private void SaveIntegerBJ(int value, int key, int missionKey, hashtable table) {//function SaveIntegerBJ takes integer value, integer key, integer missionKey, hashtable table returns nothing
+			SaveInteger(table, missionKey, key, value);//call SaveInteger(table, missionKey, key, value)
+		}//endfunction
+		//
+		private void SaveBooleanBJ(bool value, int key, int missionKey, hashtable table) {//function SaveBooleanBJ takes boolean value, integer key, integer missionKey, hashtable table returns nothing
+			SaveBoolean(table, missionKey, key, value);//call SaveBoolean(table, missionKey, key, value)
+		}//endfunction
+		//
+		private bool SaveStringBJ(string value, int key, int missionKey, hashtable table) {//function SaveStringBJ takes string value, integer key, integer missionKey, hashtable table returns boolean
+			return SaveStr(table, missionKey, key, value);//return SaveStr(table, missionKey, key, value)
+		}//endfunction
+		//
+		private bool SavePlayerHandleBJ(player whichPlayer, int key, int missionKey, hashtable table) {//function SavePlayerHandleBJ takes player whichPlayer, integer key, integer missionKey, hashtable table returns boolean
+			return SavePlayerHandle(table, missionKey, key, whichPlayer);//return SavePlayerHandle(table, missionKey, key, whichPlayer)
+		}//endfunction
+		//
+		private bool SaveWidgetHandleBJ(widget whichWidget, int key, int missionKey, hashtable table) {//function SaveWidgetHandleBJ takes widget whichWidget, integer key, integer missionKey, hashtable table returns boolean
+			return SaveWidgetHandle(table, missionKey, key, whichWidget);//return SaveWidgetHandle(table, missionKey, key, whichWidget)
+		}//endfunction
+		//
+		private bool SaveDestructableHandleBJ(destructable whichDestructable, int key, int missionKey, hashtable table) {//function SaveDestructableHandleBJ takes destructable whichDestructable, integer key, integer missionKey, hashtable table returns boolean
+			return SaveDestructableHandle(table, missionKey, key, whichDestructable);//return SaveDestructableHandle(table, missionKey, key, whichDestructable)
+		}//endfunction
+		//
+		private bool SaveItemHandleBJ(item whichItem, int key, int missionKey, hashtable table) {//function SaveItemHandleBJ takes item whichItem, integer key, integer missionKey, hashtable table returns boolean
+			return SaveItemHandle(table, missionKey, key, whichItem);//return SaveItemHandle(table, missionKey, key, whichItem)
+		}//endfunction
+		//
+		private bool SaveUnitHandleBJ(int whichUnit, int key, int missionKey, hashtable table) {//function SaveUnitHandleBJ takes unit whichUnit, integer key, integer missionKey, hashtable table returns boolean
+			return SaveUnitHandle(table, missionKey, key, whichUnit);//return SaveUnitHandle(table, missionKey, key, whichUnit)
+		}//endfunction
+		//
+		private bool SaveAbilityHandleBJ(ability whichAbility, int key, int missionKey, hashtable table) {//function SaveAbilityHandleBJ takes ability whichAbility, integer key, integer missionKey, hashtable table returns boolean
+			return SaveAbilityHandle(table, missionKey, key, whichAbility);//return SaveAbilityHandle(table, missionKey, key, whichAbility)
+		}//endfunction
+		//
+		private bool SaveTimerHandleBJ(timer whichTimer, int key, int missionKey, hashtable table) {//function SaveTimerHandleBJ takes timer whichTimer, integer key, integer missionKey, hashtable table returns boolean
+			return SaveTimerHandle(table, missionKey, key, whichTimer);//return SaveTimerHandle(table, missionKey, key, whichTimer)
+		}//endfunction
+		//
+		private bool SaveTriggerHandleBJ(trigger whichTrigger, int key, int missionKey, hashtable table) {//function SaveTriggerHandleBJ takes trigger whichTrigger, integer key, integer missionKey, hashtable table returns boolean
+			return SaveTriggerHandle(table, missionKey, key, whichTrigger);//return SaveTriggerHandle(table, missionKey, key, whichTrigger)
+		}//endfunction
+		//
+		private bool SaveTriggerConditionHandleBJ(triggercondition whichTriggercondition, int key, int missionKey, hashtable table) {//function SaveTriggerConditionHandleBJ takes triggercondition whichTriggercondition, integer key, integer missionKey, hashtable table returns boolean
+			return SaveTriggerConditionHandle(table, missionKey, key, whichTriggercondition);//return SaveTriggerConditionHandle(table, missionKey, key, whichTriggercondition)
+		}//endfunction
+		//
+		private bool SaveTriggerActionHandleBJ(triggeraction whichTriggeraction, int key, int missionKey, hashtable table) {//function SaveTriggerActionHandleBJ takes triggeraction whichTriggeraction, integer key, integer missionKey, hashtable table returns boolean
+			return SaveTriggerActionHandle(table, missionKey, key, whichTriggeraction);//return SaveTriggerActionHandle(table, missionKey, key, whichTriggeraction)
+		}//endfunction
+		//
+		private bool SaveTriggerEventHandleBJ(event whichEvent, int key, int missionKey, hashtable table) {//function SaveTriggerEventHandleBJ takes event whichEvent, integer key, integer missionKey, hashtable table returns boolean
+			return SaveTriggerEventHandle(table, missionKey, key, whichEvent);//return SaveTriggerEventHandle(table, missionKey, key, whichEvent)
+		}//endfunction
+		//
+		private bool SaveForceHandleBJ(force whichForce, int key, int missionKey, hashtable table) {//function SaveForceHandleBJ takes force whichForce, integer key, integer missionKey, hashtable table returns boolean
+			return SaveForceHandle(table, missionKey, key, whichForce);//return SaveForceHandle(table, missionKey, key, whichForce)
+		}//endfunction
+		//
+		private bool SaveGroupHandleBJ(group whichGroup, int key, int missionKey, hashtable table) {//function SaveGroupHandleBJ takes group whichGroup, integer key, integer missionKey, hashtable table returns boolean
+			return SaveGroupHandle(table, missionKey, key, whichGroup);//return SaveGroupHandle(table, missionKey, key, whichGroup)
+		}//endfunction
+		//
+		private bool SaveLocationHandleBJ(location whichLocation, int key, int missionKey, hashtable table) {//function SaveLocationHandleBJ takes location whichLocation, integer key, integer missionKey, hashtable table returns boolean
+			return SaveLocationHandle(table, missionKey, key, whichLocation);//return SaveLocationHandle(table, missionKey, key, whichLocation)
+		}//endfunction
+		//
+		private bool SaveRectHandleBJ(rect whichRect, int key, int missionKey, hashtable table) {//function SaveRectHandleBJ takes rect whichRect, integer key, integer missionKey, hashtable table returns boolean
+			return SaveRectHandle(table, missionKey, key, whichRect);//return SaveRectHandle(table, missionKey, key, whichRect)
+		}//endfunction
+		//
+		private bool SaveBooleanExprHandleBJ(boolexpr whichBoolexpr, int key, int missionKey, hashtable table) {//function SaveBooleanExprHandleBJ takes boolexpr whichBoolexpr, integer key, integer missionKey, hashtable table returns boolean
+			return SaveBooleanExprHandle(table, missionKey, key, whichBoolexpr);//return SaveBooleanExprHandle(table, missionKey, key, whichBoolexpr)
+		}//endfunction
+		//
+		private bool SaveSoundHandleBJ(sound whichSound, int key, int missionKey, hashtable table) {//function SaveSoundHandleBJ takes sound whichSound, integer key, integer missionKey, hashtable table returns boolean
+			return SaveSoundHandle(table, missionKey, key, whichSound);//return SaveSoundHandle(table, missionKey, key, whichSound)
+		}//endfunction
+		//
+		private bool SaveEffectHandleBJ(effect whichEffect, int key, int missionKey, hashtable table) {//function SaveEffectHandleBJ takes effect whichEffect, integer key, integer missionKey, hashtable table returns boolean
+			return SaveEffectHandle(table, missionKey, key, whichEffect);//return SaveEffectHandle(table, missionKey, key, whichEffect)
+		}//endfunction
+		//
+		private bool SaveUnitPoolHandleBJ(unitpool whichUnitpool, int key, int missionKey, hashtable table) {//function SaveUnitPoolHandleBJ takes unitpool whichUnitpool, integer key, integer missionKey, hashtable table returns boolean
+			return SaveUnitPoolHandle(table, missionKey, key, whichUnitpool);//return SaveUnitPoolHandle(table, missionKey, key, whichUnitpool)
+		}//endfunction
+		//
+		private bool SaveItemPoolHandleBJ(itempool whichItempool, int key, int missionKey, hashtable table) {//function SaveItemPoolHandleBJ takes itempool whichItempool, integer key, integer missionKey, hashtable table returns boolean
+			return SaveItemPoolHandle(table, missionKey, key, whichItempool);//return SaveItemPoolHandle(table, missionKey, key, whichItempool)
+		}//endfunction
+		//
+		private bool SaveQuestHandleBJ(quest whichQuest, int key, int missionKey, hashtable table) {//function SaveQuestHandleBJ takes quest whichQuest, integer key, integer missionKey, hashtable table returns boolean
+			return SaveQuestHandle(table, missionKey, key, whichQuest);//return SaveQuestHandle(table, missionKey, key, whichQuest)
+		}//endfunction
+		//
+		private bool SaveQuestItemHandleBJ(questitem whichQuestitem, int key, int missionKey, hashtable table) {//function SaveQuestItemHandleBJ takes questitem whichQuestitem, integer key, integer missionKey, hashtable table returns boolean
+			return SaveQuestItemHandle(table, missionKey, key, whichQuestitem);//return SaveQuestItemHandle(table, missionKey, key, whichQuestitem)
+		}//endfunction
+		//
+		private bool SaveDefeatConditionHandleBJ(defeatcondition whichDefeatcondition, int key, int missionKey, hashtable table) {//function SaveDefeatConditionHandleBJ takes defeatcondition whichDefeatcondition, integer key, integer missionKey, hashtable table returns boolean
+			return SaveDefeatConditionHandle(table, missionKey, key, whichDefeatcondition);//return SaveDefeatConditionHandle(table, missionKey, key, whichDefeatcondition)
+		}//endfunction
+		//
+		private bool SaveTimerDialogHandleBJ(timerdialog whichTimerdialog, int key, int missionKey, hashtable table) {//function SaveTimerDialogHandleBJ takes timerdialog whichTimerdialog, integer key, integer missionKey, hashtable table returns boolean
+			return SaveTimerDialogHandle(table, missionKey, key, whichTimerdialog);//return SaveTimerDialogHandle(table, missionKey, key, whichTimerdialog)
+		}//endfunction
+		//
+		private bool SaveLeaderboardHandleBJ(leaderboard whichLeaderboard, int key, int missionKey, hashtable table) {//function SaveLeaderboardHandleBJ takes leaderboard whichLeaderboard, integer key, integer missionKey, hashtable table returns boolean
+			return SaveLeaderboardHandle(table, missionKey, key, whichLeaderboard);//return SaveLeaderboardHandle(table, missionKey, key, whichLeaderboard)
+		}//endfunction
+		//
+		private bool SaveMultiboardHandleBJ(multiboard whichMultiboard, int key, int missionKey, hashtable table) {//function SaveMultiboardHandleBJ takes multiboard whichMultiboard, integer key, integer missionKey, hashtable table returns boolean
+			return SaveMultiboardHandle(table, missionKey, key, whichMultiboard);//return SaveMultiboardHandle(table, missionKey, key, whichMultiboard)
+		}//endfunction
+		//
+		private bool SaveMultiboardItemHandleBJ(multiboarditem whichMultiboarditem, int key, int missionKey, hashtable table) {//function SaveMultiboardItemHandleBJ takes multiboarditem whichMultiboarditem, integer key, integer missionKey, hashtable table returns boolean
+			return SaveMultiboardItemHandle(table, missionKey, key, whichMultiboarditem);//return SaveMultiboardItemHandle(table, missionKey, key, whichMultiboarditem)
+		}//endfunction
+		//
+		private bool SaveTrackableHandleBJ(trackable whichTrackable, int key, int missionKey, hashtable table) {//function SaveTrackableHandleBJ takes trackable whichTrackable, integer key, integer missionKey, hashtable table returns boolean
+			return SaveTrackableHandle(table, missionKey, key, whichTrackable);//return SaveTrackableHandle(table, missionKey, key, whichTrackable)
+		}//endfunction
+		//
+		private bool SaveDialogHandleBJ(dialog whichDialog, int key, int missionKey, hashtable table) {//function SaveDialogHandleBJ takes dialog whichDialog, integer key, integer missionKey, hashtable table returns boolean
+			return SaveDialogHandle(table, missionKey, key, whichDialog);//return SaveDialogHandle(table, missionKey, key, whichDialog)
+		}//endfunction
+		//
+		private bool SaveButtonHandleBJ(button whichButton, int key, int missionKey, hashtable table) {//function SaveButtonHandleBJ takes button whichButton, integer key, integer missionKey, hashtable table returns boolean
+			return SaveButtonHandle(table, missionKey, key, whichButton);//return SaveButtonHandle(table, missionKey, key, whichButton)
+		}//endfunction
+		//
+		private bool SaveTextTagHandleBJ(texttag whichTexttag, int key, int missionKey, hashtable table) {//function SaveTextTagHandleBJ takes texttag whichTexttag, integer key, integer missionKey, hashtable table returns boolean
+			return SaveTextTagHandle(table, missionKey, key, whichTexttag);//return SaveTextTagHandle(table, missionKey, key, whichTexttag)
+		}//endfunction
+		//
+		private bool SaveLightningHandleBJ(lightning whichLightning, int key, int missionKey, hashtable table) {//function SaveLightningHandleBJ takes lightning whichLightning, integer key, integer missionKey, hashtable table returns boolean
+			return SaveLightningHandle(table, missionKey, key, whichLightning);//return SaveLightningHandle(table, missionKey, key, whichLightning)
+		}//endfunction
+		//
+		private bool SaveImageHandleBJ(image whichImage, int key, int missionKey, hashtable table) {//function SaveImageHandleBJ takes image whichImage, integer key, integer missionKey, hashtable table returns boolean
+			return SaveImageHandle(table, missionKey, key, whichImage);//return SaveImageHandle(table, missionKey, key, whichImage)
+		}//endfunction
+		//
+		private bool SaveUbersplatHandleBJ(ubersplat whichUbersplat, int key, int missionKey, hashtable table) {//function SaveUbersplatHandleBJ takes ubersplat whichUbersplat, integer key, integer missionKey, hashtable table returns boolean
+			return SaveUbersplatHandle(table, missionKey, key, whichUbersplat);//return SaveUbersplatHandle(table, missionKey, key, whichUbersplat)
+		}//endfunction
+		//
+		private bool SaveRegionHandleBJ(region whichRegion, int key, int missionKey, hashtable table) {//function SaveRegionHandleBJ takes region whichRegion, integer key, integer missionKey, hashtable table returns boolean
+			return SaveRegionHandle(table, missionKey, key, whichRegion);//return SaveRegionHandle(table, missionKey, key, whichRegion)
+		}//endfunction
+		//
+		private bool SaveFogStateHandleBJ(fogstate whichFogState, int key, int missionKey, hashtable table) {//function SaveFogStateHandleBJ takes fogstate whichFogState, integer key, integer missionKey, hashtable table returns boolean
+			return SaveFogStateHandle(table, missionKey, key, whichFogState);//return SaveFogStateHandle(table, missionKey, key, whichFogState)
+		}//endfunction
+		//
+		private bool SaveFogModifierHandleBJ(fogmodifier whichFogModifier, int key, int missionKey, hashtable table) {//function SaveFogModifierHandleBJ takes fogmodifier whichFogModifier, integer key, integer missionKey, hashtable table returns boolean
+			return SaveFogModifierHandle(table, missionKey, key, whichFogModifier);//return SaveFogModifierHandle(table, missionKey, key, whichFogModifier)
+		}//endfunction
+		//
+		private bool SaveAgentHandleBJ(agent whichAgent, int key, int missionKey, hashtable table) {//function SaveAgentHandleBJ takes agent whichAgent, integer key, integer missionKey, hashtable table returns boolean
+			return SaveAgentHandle(table, missionKey, key, whichAgent);//return SaveAgentHandle(table, missionKey, key, whichAgent)
+		}//endfunction
+		//
+		private bool SaveHashtableHandleBJ(hashtable whichHashtable, int key, int missionKey, hashtable table) {//function SaveHashtableHandleBJ takes hashtable whichHashtable, integer key, integer missionKey, hashtable table returns boolean
+			return SaveHashtableHandle(table, missionKey, key, whichHashtable);//return SaveHashtableHandle(table, missionKey, key, whichHashtable)
+		}//endfunction
+		//
+		private float GetStoredRealBJ(string key, string missionKey, gamecache cache) {//function GetStoredRealBJ takes string key, string missionKey, gamecache cache returns real
+			//
+			return GetStoredReal(cache, missionKey, key);//return GetStoredReal(cache, missionKey, key)
+		}//endfunction
+		//
+		private int GetStoredIntegerBJ(string key, string missionKey, gamecache cache) {//function GetStoredIntegerBJ takes string key, string missionKey, gamecache cache returns integer
+			//
+			return GetStoredInteger(cache, missionKey, key);//return GetStoredInteger(cache, missionKey, key)
+		}//endfunction
+		//
+		private bool GetStoredBooleanBJ(string key, string missionKey, gamecache cache) {//function GetStoredBooleanBJ takes string key, string missionKey, gamecache cache returns boolean
+			//
+			return GetStoredBoolean(cache, missionKey, key);//return GetStoredBoolean(cache, missionKey, key)
+		}//endfunction
+		//
+		private string GetStoredStringBJ(string key, string missionKey, gamecache cache) {//function GetStoredStringBJ takes string key, string missionKey, gamecache cache returns string
+			string s;//local string s
+			//
+			s = GetStoredString(cache, missionKey, key);//set s = GetStoredString(cache, missionKey, key)
+			if ((s == null)) {//if (s == null) then
+				return "";//return ""
+			} else {//else
+				return s;//return s
+			}//endif
+		}//endfunction
+		//
+		private float LoadRealBJ(int key, int missionKey, hashtable table) {//function LoadRealBJ takes integer key, integer missionKey, hashtable table returns real
+			//
+			return LoadReal(table, missionKey, key);//return LoadReal(table, missionKey, key)
+		}//endfunction
+		//
+		private int LoadIntegerBJ(int key, int missionKey, hashtable table) {//function LoadIntegerBJ takes integer key, integer missionKey, hashtable table returns integer
+			//
+			return LoadInteger(table, missionKey, key);//return LoadInteger(table, missionKey, key)
+		}//endfunction
+		//
+		private bool LoadBooleanBJ(int key, int missionKey, hashtable table) {//function LoadBooleanBJ takes integer key, integer missionKey, hashtable table returns boolean
+			//
+			return LoadBoolean(table, missionKey, key);//return LoadBoolean(table, missionKey, key)
+		}//endfunction
+		//
+		private string LoadStringBJ(int key, int missionKey, hashtable table) {//function LoadStringBJ takes integer key, integer missionKey, hashtable table returns string
+			string s;//local string s
+			//
+			s = LoadStr(table, missionKey, key);//set s = LoadStr(table, missionKey, key)
+			if ((s == null)) {//if (s == null) then
+				return "";//return ""
+			} else {//else
+				return s;//return s
+			}//endif
+		}//endfunction
+		//
+		private player LoadPlayerHandleBJ(int key, int missionKey, hashtable table) {//function LoadPlayerHandleBJ takes integer key, integer missionKey, hashtable table returns player
+			return LoadPlayerHandle(table, missionKey, key);//return LoadPlayerHandle(table, missionKey, key)
+		}//endfunction
+		//
+		private widget LoadWidgetHandleBJ(int key, int missionKey, hashtable table) {//function LoadWidgetHandleBJ takes integer key, integer missionKey, hashtable table returns widget
+			return LoadWidgetHandle(table, missionKey, key);//return LoadWidgetHandle(table, missionKey, key)
+		}//endfunction
+		//
+		private destructable LoadDestructableHandleBJ(int key, int missionKey, hashtable table) {//function LoadDestructableHandleBJ takes integer key, integer missionKey, hashtable table returns destructable
+			return LoadDestructableHandle(table, missionKey, key);//return LoadDestructableHandle(table, missionKey, key)
+		}//endfunction
+		//
+		private item LoadItemHandleBJ(int key, int missionKey, hashtable table) {//function LoadItemHandleBJ takes integer key, integer missionKey, hashtable table returns item
+			return LoadItemHandle(table, missionKey, key);//return LoadItemHandle(table, missionKey, key)
+		}//endfunction
+		//
+		private int LoadUnitHandleBJ(int key, int missionKey, hashtable table) {//function LoadUnitHandleBJ takes integer key, integer missionKey, hashtable table returns unit
+			return LoadUnitHandle(table, missionKey, key);//return LoadUnitHandle(table, missionKey, key)
+		}//endfunction
+		//
+		private ability LoadAbilityHandleBJ(int key, int missionKey, hashtable table) {//function LoadAbilityHandleBJ takes integer key, integer missionKey, hashtable table returns ability
+			return LoadAbilityHandle(table, missionKey, key);//return LoadAbilityHandle(table, missionKey, key)
+		}//endfunction
+		//
+		private timer LoadTimerHandleBJ(int key, int missionKey, hashtable table) {//function LoadTimerHandleBJ takes integer key, integer missionKey, hashtable table returns timer
+			return LoadTimerHandle(table, missionKey, key);//return LoadTimerHandle(table, missionKey, key)
+		}//endfunction
+		//
+		private trigger LoadTriggerHandleBJ(int key, int missionKey, hashtable table) {//function LoadTriggerHandleBJ takes integer key, integer missionKey, hashtable table returns trigger
+			return LoadTriggerHandle(table, missionKey, key);//return LoadTriggerHandle(table, missionKey, key)
+		}//endfunction
+		//
+		private triggercondition LoadTriggerConditionHandleBJ(int key, int missionKey, hashtable table) {//function LoadTriggerConditionHandleBJ takes integer key, integer missionKey, hashtable table returns triggercondition
+			return LoadTriggerConditionHandle(table, missionKey, key);//return LoadTriggerConditionHandle(table, missionKey, key)
+		}//endfunction
+		//
+		private triggeraction LoadTriggerActionHandleBJ(int key, int missionKey, hashtable table) {//function LoadTriggerActionHandleBJ takes integer key, integer missionKey, hashtable table returns triggeraction
+			return LoadTriggerActionHandle(table, missionKey, key);//return LoadTriggerActionHandle(table, missionKey, key)
+		}//endfunction
+		//
+		private event LoadTriggerEventHandleBJ(int key, int missionKey, hashtable table) {//function LoadTriggerEventHandleBJ takes integer key, integer missionKey, hashtable table returns event
+			return LoadTriggerEventHandle(table, missionKey, key);//return LoadTriggerEventHandle(table, missionKey, key)
+		}//endfunction
+		//
+		private force LoadForceHandleBJ(int key, int missionKey, hashtable table) {//function LoadForceHandleBJ takes integer key, integer missionKey, hashtable table returns force
+			return LoadForceHandle(table, missionKey, key);//return LoadForceHandle(table, missionKey, key)
+		}//endfunction
+		//
+		private group LoadGroupHandleBJ(int key, int missionKey, hashtable table) {//function LoadGroupHandleBJ takes integer key, integer missionKey, hashtable table returns group
+			return LoadGroupHandle(table, missionKey, key);//return LoadGroupHandle(table, missionKey, key)
+		}//endfunction
+		//
+		private location LoadLocationHandleBJ(int key, int missionKey, hashtable table) {//function LoadLocationHandleBJ takes integer key, integer missionKey, hashtable table returns location
+			return LoadLocationHandle(table, missionKey, key);//return LoadLocationHandle(table, missionKey, key)
+		}//endfunction
+		//
+		private rect LoadRectHandleBJ(int key, int missionKey, hashtable table) {//function LoadRectHandleBJ takes integer key, integer missionKey, hashtable table returns rect
+			return LoadRectHandle(table, missionKey, key);//return LoadRectHandle(table, missionKey, key)
+		}//endfunction
+		//
+		private boolexpr LoadBooleanExprHandleBJ(int key, int missionKey, hashtable table) {//function LoadBooleanExprHandleBJ takes integer key, integer missionKey, hashtable table returns boolexpr
+			return LoadBooleanExprHandle(table, missionKey, key);//return LoadBooleanExprHandle(table, missionKey, key)
+		}//endfunction
+		//
+		private sound LoadSoundHandleBJ(int key, int missionKey, hashtable table) {//function LoadSoundHandleBJ takes integer key, integer missionKey, hashtable table returns sound
+			return LoadSoundHandle(table, missionKey, key);//return LoadSoundHandle(table, missionKey, key)
+		}//endfunction
+		//
+		private effect LoadEffectHandleBJ(int key, int missionKey, hashtable table) {//function LoadEffectHandleBJ takes integer key, integer missionKey, hashtable table returns effect
+			return LoadEffectHandle(table, missionKey, key);//return LoadEffectHandle(table, missionKey, key)
+		}//endfunction
+		//
+		private unitpool LoadUnitPoolHandleBJ(int key, int missionKey, hashtable table) {//function LoadUnitPoolHandleBJ takes integer key, integer missionKey, hashtable table returns unitpool
+			return LoadUnitPoolHandle(table, missionKey, key);//return LoadUnitPoolHandle(table, missionKey, key)
+		}//endfunction
+		//
+		private itempool LoadItemPoolHandleBJ(int key, int missionKey, hashtable table) {//function LoadItemPoolHandleBJ takes integer key, integer missionKey, hashtable table returns itempool
+			return LoadItemPoolHandle(table, missionKey, key);//return LoadItemPoolHandle(table, missionKey, key)
+		}//endfunction
+		//
+		private quest LoadQuestHandleBJ(int key, int missionKey, hashtable table) {//function LoadQuestHandleBJ takes integer key, integer missionKey, hashtable table returns quest
+			return LoadQuestHandle(table, missionKey, key);//return LoadQuestHandle(table, missionKey, key)
+		}//endfunction
+		//
+		private questitem LoadQuestItemHandleBJ(int key, int missionKey, hashtable table) {//function LoadQuestItemHandleBJ takes integer key, integer missionKey, hashtable table returns questitem
+			return LoadQuestItemHandle(table, missionKey, key);//return LoadQuestItemHandle(table, missionKey, key)
+		}//endfunction
+		//
+		private defeatcondition LoadDefeatConditionHandleBJ(int key, int missionKey, hashtable table) {//function LoadDefeatConditionHandleBJ takes integer key, integer missionKey, hashtable table returns defeatcondition
+			return LoadDefeatConditionHandle(table, missionKey, key);//return LoadDefeatConditionHandle(table, missionKey, key)
+		}//endfunction
+		//
+		private timerdialog LoadTimerDialogHandleBJ(int key, int missionKey, hashtable table) {//function LoadTimerDialogHandleBJ takes integer key, integer missionKey, hashtable table returns timerdialog
+			return LoadTimerDialogHandle(table, missionKey, key);//return LoadTimerDialogHandle(table, missionKey, key)
+		}//endfunction
+		//
+		private leaderboard LoadLeaderboardHandleBJ(int key, int missionKey, hashtable table) {//function LoadLeaderboardHandleBJ takes integer key, integer missionKey, hashtable table returns leaderboard
+			return LoadLeaderboardHandle(table, missionKey, key);//return LoadLeaderboardHandle(table, missionKey, key)
+		}//endfunction
+		//
+		private multiboard LoadMultiboardHandleBJ(int key, int missionKey, hashtable table) {//function LoadMultiboardHandleBJ takes integer key, integer missionKey, hashtable table returns multiboard
+			return LoadMultiboardHandle(table, missionKey, key);//return LoadMultiboardHandle(table, missionKey, key)
+		}//endfunction
+		//
+		private multiboarditem LoadMultiboardItemHandleBJ(int key, int missionKey, hashtable table) {//function LoadMultiboardItemHandleBJ takes integer key, integer missionKey, hashtable table returns multiboarditem
+			return LoadMultiboardItemHandle(table, missionKey, key);//return LoadMultiboardItemHandle(table, missionKey, key)
+		}//endfunction
+		//
+		private trackable LoadTrackableHandleBJ(int key, int missionKey, hashtable table) {//function LoadTrackableHandleBJ takes integer key, integer missionKey, hashtable table returns trackable
+			return LoadTrackableHandle(table, missionKey, key);//return LoadTrackableHandle(table, missionKey, key)
+		}//endfunction
+		//
+		private dialog LoadDialogHandleBJ(int key, int missionKey, hashtable table) {//function LoadDialogHandleBJ takes integer key, integer missionKey, hashtable table returns dialog
+			return LoadDialogHandle(table, missionKey, key);//return LoadDialogHandle(table, missionKey, key)
+		}//endfunction
+		//
+		private button LoadButtonHandleBJ(int key, int missionKey, hashtable table) {//function LoadButtonHandleBJ takes integer key, integer missionKey, hashtable table returns button
+			return LoadButtonHandle(table, missionKey, key);//return LoadButtonHandle(table, missionKey, key)
+		}//endfunction
+		//
+		private texttag LoadTextTagHandleBJ(int key, int missionKey, hashtable table) {//function LoadTextTagHandleBJ takes integer key, integer missionKey, hashtable table returns texttag
+			return LoadTextTagHandle(table, missionKey, key);//return LoadTextTagHandle(table, missionKey, key)
+		}//endfunction
+		//
+		private lightning LoadLightningHandleBJ(int key, int missionKey, hashtable table) {//function LoadLightningHandleBJ takes integer key, integer missionKey, hashtable table returns lightning
+			return LoadLightningHandle(table, missionKey, key);//return LoadLightningHandle(table, missionKey, key)
+		}//endfunction
+		//
+		private image LoadImageHandleBJ(int key, int missionKey, hashtable table) {//function LoadImageHandleBJ takes integer key, integer missionKey, hashtable table returns image
+			return LoadImageHandle(table, missionKey, key);//return LoadImageHandle(table, missionKey, key)
+		}//endfunction
+		//
+		private ubersplat LoadUbersplatHandleBJ(int key, int missionKey, hashtable table) {//function LoadUbersplatHandleBJ takes integer key, integer missionKey, hashtable table returns ubersplat
+			return LoadUbersplatHandle(table, missionKey, key);//return LoadUbersplatHandle(table, missionKey, key)
+		}//endfunction
+		//
+		private region LoadRegionHandleBJ(int key, int missionKey, hashtable table) {//function LoadRegionHandleBJ takes integer key, integer missionKey, hashtable table returns region
+			return LoadRegionHandle(table, missionKey, key);//return LoadRegionHandle(table, missionKey, key)
+		}//endfunction
+		//
+		private fogstate LoadFogStateHandleBJ(int key, int missionKey, hashtable table) {//function LoadFogStateHandleBJ takes integer key, integer missionKey, hashtable table returns fogstate
+			return LoadFogStateHandle(table, missionKey, key);//return LoadFogStateHandle(table, missionKey, key)
+		}//endfunction
+		//
+		private fogmodifier LoadFogModifierHandleBJ(int key, int missionKey, hashtable table) {//function LoadFogModifierHandleBJ takes integer key, integer missionKey, hashtable table returns fogmodifier
+			return LoadFogModifierHandle(table, missionKey, key);//return LoadFogModifierHandle(table, missionKey, key)
+		}//endfunction
+		//
+		private hashtable LoadHashtableHandleBJ(int key, int missionKey, hashtable table) {//function LoadHashtableHandleBJ takes integer key, integer missionKey, hashtable table returns hashtable
+			return LoadHashtableHandle(table, missionKey, key);//return LoadHashtableHandle(table, missionKey, key)
+		}//endfunction
+		//
+		private int RestoreUnitLocFacingAngleBJ(string key, string missionKey, gamecache cache, player forWhichPlayer, location loc, float facing) {//function RestoreUnitLocFacingAngleBJ takes string key, string missionKey, gamecache cache, player forWhichPlayer, location loc, real facing returns unit
+			//
+			bj_lastLoadedUnit = RestoreUnit(cache, missionKey, key, forWhichPlayer, GetLocationX(loc), GetLocationY(loc), facing);//set bj_lastLoadedUnit = RestoreUnit(cache, missionKey, key, forWhichPlayer, GetLocationX(loc), GetLocationY(loc), facing)
+			return bj_lastLoadedUnit;//return bj_lastLoadedUnit
+		}//endfunction
+		//
+		private int RestoreUnitLocFacingPointBJ(string key, string missionKey, gamecache cache, player forWhichPlayer, location loc, location lookAt) {//function RestoreUnitLocFacingPointBJ takes string key, string missionKey, gamecache cache, player forWhichPlayer, location loc, location lookAt returns unit
+			//
+			return RestoreUnitLocFacingAngleBJ(key, missionKey, cache, forWhichPlayer, loc, AngleBetweenPoints(loc, lookAt));//return RestoreUnitLocFacingAngleBJ(key, missionKey, cache, forWhichPlayer, loc, AngleBetweenPoints(loc, lookAt))
+		}//endfunction
+		//
+		private int GetLastRestoredUnitBJ() {//function GetLastRestoredUnitBJ takes nothing returns unit
+			return bj_lastLoadedUnit;//return bj_lastLoadedUnit
+		}//endfunction
+		//
+		private void FlushGameCacheBJ(gamecache cache) {//function FlushGameCacheBJ takes gamecache cache returns nothing
+			FlushGameCache(cache);//call FlushGameCache(cache)
+		}//endfunction
+		//
+		private void FlushStoredMissionBJ(string missionKey, gamecache cache) {//function FlushStoredMissionBJ takes string missionKey, gamecache cache returns nothing
+			FlushStoredMission(cache, missionKey);//call FlushStoredMission(cache, missionKey)
+		}//endfunction
+		//
+		private void FlushParentHashtableBJ(hashtable table) {//function FlushParentHashtableBJ takes hashtable table returns nothing
+			FlushParentHashtable(table);//call FlushParentHashtable(table)
+		}//endfunction
+		//
+		private void FlushChildHashtableBJ(int missionKey, hashtable table) {//function FlushChildHashtableBJ takes integer missionKey, hashtable table returns nothing
+			FlushChildHashtable(table, missionKey);//call FlushChildHashtable(table, missionKey)
+		}//endfunction
+		//
+		private bool HaveStoredValue(string key, int valueType, string missionKey, gamecache cache) {//function HaveStoredValue takes string key, integer valueType, string missionKey, gamecache cache returns boolean
+			if ((valueType == bj_GAMECACHE_BOOLEAN)) {//if (valueType == bj_GAMECACHE_BOOLEAN) then
+				return HaveStoredBoolean(cache, missionKey, key);//return HaveStoredBoolean(cache, missionKey, key)
+			} else if ((valueType == bj_GAMECACHE_INTEGER)) {//elseif (valueType == bj_GAMECACHE_INTEGER) then
+				return HaveStoredInteger(cache, missionKey, key);//return HaveStoredInteger(cache, missionKey, key)
+			} else if ((valueType == bj_GAMECACHE_REAL)) {//elseif (valueType == bj_GAMECACHE_REAL) then
+				return HaveStoredReal(cache, missionKey, key);//return HaveStoredReal(cache, missionKey, key)
+			} else if ((valueType == bj_GAMECACHE_UNIT)) {//elseif (valueType == bj_GAMECACHE_UNIT) then
+				return HaveStoredUnit(cache, missionKey, key);//return HaveStoredUnit(cache, missionKey, key)
+			} else if ((valueType == bj_GAMECACHE_STRING)) {//elseif (valueType == bj_GAMECACHE_STRING) then
+				return HaveStoredString(cache, missionKey, key);//return HaveStoredString(cache, missionKey, key)
+			} else {//else
+				//
+				return false;//return false
+			}//endif
+		}//endfunction
+		//
+		private bool HaveSavedValue(int key, int valueType, int missionKey, hashtable table) {//function HaveSavedValue takes integer key, integer valueType, integer missionKey, hashtable table returns boolean
+			if ((valueType == bj_HASHTABLE_BOOLEAN)) {//if (valueType == bj_HASHTABLE_BOOLEAN) then
+				return HaveSavedBoolean(table, missionKey, key);//return HaveSavedBoolean(table, missionKey, key)
+			} else if ((valueType == bj_HASHTABLE_INTEGER)) {//elseif (valueType == bj_HASHTABLE_INTEGER) then
+				return HaveSavedInteger(table, missionKey, key);//return HaveSavedInteger(table, missionKey, key)
+			} else if ((valueType == bj_HASHTABLE_REAL)) {//elseif (valueType == bj_HASHTABLE_REAL) then
+				return HaveSavedReal(table, missionKey, key);//return HaveSavedReal(table, missionKey, key)
+			} else if ((valueType == bj_HASHTABLE_STRING)) {//elseif (valueType == bj_HASHTABLE_STRING) then
+				return HaveSavedString(table, missionKey, key);//return HaveSavedString(table, missionKey, key)
+			} else if ((valueType == bj_HASHTABLE_HANDLE)) {//elseif (valueType == bj_HASHTABLE_HANDLE) then
+				return HaveSavedHandle(table, missionKey, key);//return HaveSavedHandle(table, missionKey, key)
+			} else {//else
+				//
+				return false;//return false
+			}//endif
+		}//endfunction
+		//
+		private void ShowCustomCampaignButton(bool show, int whichButton) {//function ShowCustomCampaignButton takes boolean show, integer whichButton returns nothing
+			SetCustomCampaignButtonVisible(whichButton - 1, show);//call SetCustomCampaignButtonVisible(whichButton - 1, show)
+		}//endfunction
+		//
+		private bool IsCustomCampaignButtonVisibile(int whichButton) {//function IsCustomCampaignButtonVisibile takes integer whichButton returns boolean
+			return GetCustomCampaignButtonVisible(whichButton - 1);//return GetCustomCampaignButtonVisible(whichButton - 1)
+		}//endfunction
+		//
+		private void LoadGameBJ(string loadFileName, bool doScoreScreen) {//function LoadGameBJ takes string loadFileName, boolean doScoreScreen returns nothing
+			LoadGame(loadFileName, doScoreScreen);//call LoadGame(loadFileName, doScoreScreen)
+		}//endfunction
+		//
+		private void SaveAndChangeLevelBJ(string saveFileName, string newLevel, bool doScoreScreen) {//function SaveAndChangeLevelBJ takes string saveFileName, string newLevel, boolean doScoreScreen returns nothing
+			SaveGame(saveFileName);//call SaveGame(saveFileName)
+			ChangeLevel(newLevel, doScoreScreen);//call ChangeLevel(newLevel, doScoreScreen)
+		}//endfunction
+		//
+		private void SaveAndLoadGameBJ(string saveFileName, string loadFileName, bool doScoreScreen) {//function SaveAndLoadGameBJ takes string saveFileName, string loadFileName, boolean doScoreScreen returns nothing
+			SaveGame(saveFileName);//call SaveGame(saveFileName)
+			LoadGame(loadFileName, doScoreScreen);//call LoadGame(loadFileName, doScoreScreen)
+		}//endfunction
+		//
+		private bool RenameSaveDirectoryBJ(string sourceDirName, string destDirName) {//function RenameSaveDirectoryBJ takes string sourceDirName, string destDirName returns boolean
+			return RenameSaveDirectory(sourceDirName, destDirName);//return RenameSaveDirectory(sourceDirName, destDirName)
+		}//endfunction
+		//
+		private bool RemoveSaveDirectoryBJ(string sourceDirName) {//function RemoveSaveDirectoryBJ takes string sourceDirName returns boolean
+			return RemoveSaveDirectory(sourceDirName);//return RemoveSaveDirectory(sourceDirName)
+		}//endfunction
+		//
+		private bool CopySaveGameBJ(string sourceSaveName, string destSaveName) {//function CopySaveGameBJ takes string sourceSaveName, string destSaveName returns boolean
+			return CopySaveGame(sourceSaveName, destSaveName);//return CopySaveGame(sourceSaveName, destSaveName)
+		}//endfunction
+		//
+		//
+		//
+		//
+		//
+		//
+		private float GetPlayerStartLocationX(player whichPlayer) {//function GetPlayerStartLocationX takes player whichPlayer returns real
+			return GetStartLocationX(GetPlayerStartLocation(whichPlayer));//return GetStartLocationX(GetPlayerStartLocation(whichPlayer))
+		}//endfunction
+		//
+		private float GetPlayerStartLocationY(player whichPlayer) {//function GetPlayerStartLocationY takes player whichPlayer returns real
+			return GetStartLocationY(GetPlayerStartLocation(whichPlayer));//return GetStartLocationY(GetPlayerStartLocation(whichPlayer))
+		}//endfunction
+		//
+		private location GetPlayerStartLocationLoc(player whichPlayer) {//function GetPlayerStartLocationLoc takes player whichPlayer returns location
+			return GetStartLocationLoc(GetPlayerStartLocation(whichPlayer));//return GetStartLocationLoc(GetPlayerStartLocation(whichPlayer))
+		}//endfunction
+		//
+		private location GetRectCenter(rect whichRect) {//function GetRectCenter takes rect whichRect returns location
+			return Location(GetRectCenterX(whichRect), GetRectCenterY(whichRect));//return Location(GetRectCenterX(whichRect), GetRectCenterY(whichRect))
+		}//endfunction
+		//
+		private bool IsPlayerSlotState(player whichPlayer, playerslotstate whichState) {//function IsPlayerSlotState takes player whichPlayer, playerslotstate whichState returns boolean
+			return GetPlayerSlotState(whichPlayer) == whichState;//return GetPlayerSlotState(whichPlayer) == whichState
+		}//endfunction
+		//
+		private int GetFadeFromSeconds(float seconds) {//function GetFadeFromSeconds takes real seconds returns integer
+			if ((seconds != 0)) {//if (seconds != 0) then
+				return 128 / R2I(seconds);//return 128 / R2I(seconds)
+			}//endif
+			return 10000;//return 10000
+		}//endfunction
+		//
+		private float GetFadeFromSecondsAsReal(float seconds) {//function GetFadeFromSecondsAsReal takes real seconds returns real
+			if ((seconds != 0)) {//if (seconds != 0) then
+				return 128.00 / seconds;//return 128.00 / seconds
+			}//endif
+			return 10000.00;//return 10000.00
+		}//endfunction
+		//
+		private void AdjustPlayerStateSimpleBJ(player whichPlayer, playerstate whichPlayerState, int delta) {//function AdjustPlayerStateSimpleBJ takes player whichPlayer, playerstate whichPlayerState, integer delta returns nothing
+			SetPlayerState(whichPlayer, whichPlayerState, GetPlayerState(whichPlayer, whichPlayerState) + delta);//call SetPlayerState(whichPlayer, whichPlayerState, GetPlayerState(whichPlayer, whichPlayerState) + delta)
+		}//endfunction
+		//
+		private void AdjustPlayerStateBJ(int delta, player whichPlayer, playerstate whichPlayerState) {//function AdjustPlayerStateBJ takes integer delta, player whichPlayer, playerstate whichPlayerState returns nothing
+			//
+			//
+			if ((delta > 0)) {//if (delta > 0) then
+				if ((whichPlayerState == PLAYER_STATE_RESOURCE_GOLD)) {//if (whichPlayerState == PLAYER_STATE_RESOURCE_GOLD) then
+					AdjustPlayerStateSimpleBJ(whichPlayer, PLAYER_STATE_GOLD_GATHERED, delta);//call AdjustPlayerStateSimpleBJ(whichPlayer, PLAYER_STATE_GOLD_GATHERED, delta)
+				} else if ((whichPlayerState == PLAYER_STATE_RESOURCE_LUMBER)) {//elseif (whichPlayerState == PLAYER_STATE_RESOURCE_LUMBER) then
+					AdjustPlayerStateSimpleBJ(whichPlayer, PLAYER_STATE_LUMBER_GATHERED, delta);//call AdjustPlayerStateSimpleBJ(whichPlayer, PLAYER_STATE_LUMBER_GATHERED, delta)
+				}//endif
+			}//endif
+			AdjustPlayerStateSimpleBJ(whichPlayer, whichPlayerState, delta);//call AdjustPlayerStateSimpleBJ(whichPlayer, whichPlayerState, delta)
+		}//endfunction
+		//
+		private void SetPlayerStateBJ(player whichPlayer, playerstate whichPlayerState, int value) {//function SetPlayerStateBJ takes player whichPlayer, playerstate whichPlayerState, integer value returns nothing
+			int oldValue = GetPlayerState(whichPlayer, whichPlayerState);//local integer oldValue = GetPlayerState(whichPlayer, whichPlayerState)
+			AdjustPlayerStateBJ(value - oldValue, whichPlayer, whichPlayerState);//call AdjustPlayerStateBJ(value - oldValue, whichPlayer, whichPlayerState)
+		}//endfunction
+		//
+		private void SetPlayerFlagBJ(playerstate whichPlayerFlag, bool flag, player whichPlayer) {//function SetPlayerFlagBJ takes playerstate whichPlayerFlag, boolean flag, player whichPlayer returns nothing
+			SetPlayerState(whichPlayer, whichPlayerFlag, IntegerTertiaryOp(flag, 1, 0));//call SetPlayerState(whichPlayer, whichPlayerFlag, IntegerTertiaryOp(flag, 1, 0))
+		}//endfunction
+		//
+		private void SetPlayerTaxRateBJ(int rate, playerstate whichResource, player sourcePlayer, player otherPlayer) {//function SetPlayerTaxRateBJ takes integer rate, playerstate whichResource, player sourcePlayer, player otherPlayer returns nothing
+			SetPlayerTaxRate(sourcePlayer, otherPlayer, whichResource, rate);//call SetPlayerTaxRate(sourcePlayer, otherPlayer, whichResource, rate)
+		}//endfunction
+		//
+		private int GetPlayerTaxRateBJ(playerstate whichResource, player sourcePlayer, player otherPlayer) {//function GetPlayerTaxRateBJ takes playerstate whichResource, player sourcePlayer, player otherPlayer returns integer
+			return GetPlayerTaxRate(sourcePlayer, otherPlayer, whichResource);//return GetPlayerTaxRate(sourcePlayer, otherPlayer, whichResource)
+		}//endfunction
+		//
+		private bool IsPlayerFlagSetBJ(playerstate whichPlayerFlag, player whichPlayer) {//function IsPlayerFlagSetBJ takes playerstate whichPlayerFlag, player whichPlayer returns boolean
+			return GetPlayerState(whichPlayer, whichPlayerFlag) == 1;//return GetPlayerState(whichPlayer, whichPlayerFlag) == 1
+		}//endfunction
+		//
+		private void AddResourceAmountBJ(int delta, int whichUnit) {//function AddResourceAmountBJ takes integer delta, unit whichUnit returns nothing
+			AddResourceAmount(whichUnit, delta);//call AddResourceAmount(whichUnit, delta)
+		}//endfunction
+		//
+		private int GetConvertedPlayerId(player whichPlayer) {//function GetConvertedPlayerId takes player whichPlayer returns integer
+			return GetPlayerId(whichPlayer) + 1;//return GetPlayerId(whichPlayer) + 1
+		}//endfunction
+		//
+		private player ConvertedPlayer(int convertedPlayerId) {//function ConvertedPlayer takes integer convertedPlayerId returns player
+			return Player(convertedPlayerId - 1);//return Player(convertedPlayerId - 1)
+		}//endfunction
+		//
+		private float GetRectWidthBJ(rect r) {//function GetRectWidthBJ takes rect r returns real
+			return GetRectMaxX(r) - GetRectMinX(r);//return GetRectMaxX(r) - GetRectMinX(r)
+		}//endfunction
+		//
+		private float GetRectHeightBJ(rect r) {//function GetRectHeightBJ takes rect r returns real
+			return GetRectMaxY(r) - GetRectMinY(r);//return GetRectMaxY(r) - GetRectMinY(r)
+		}//endfunction
+		//
+		//
+		//
+		private int BlightGoldMineForPlayerBJ(int goldMine, player whichPlayer) {//function BlightGoldMineForPlayerBJ takes unit goldMine, player whichPlayer returns unit
+			float mineX;//local real    mineX
+			float mineY;//local real    mineY
+			int mineGold;//local integer mineGold
+			int newMine;//local unit    newMine
+			//
+			if (GetUnitTypeId(goldMine) != 'ngol') {//if GetUnitTypeId(goldMine) != 'ngol' then
+				return null;//return null
+			}//endif
+			//
+			mineX = GetUnitX(goldMine);//set mineX    = GetUnitX(goldMine)
+			mineY = GetUnitY(goldMine);//set mineY    = GetUnitY(goldMine)
+			mineGold = GetResourceAmount(goldMine);//set mineGold = GetResourceAmount(goldMine)
+			RemoveUnit(goldMine);//call RemoveUnit(goldMine)
+			//
+			newMine = CreateBlightedGoldmine(whichPlayer, mineX, mineY, bj_UNIT_FACING);//set newMine = CreateBlightedGoldmine(whichPlayer, mineX, mineY, bj_UNIT_FACING)
+			SetResourceAmount(newMine, mineGold);//call SetResourceAmount(newMine, mineGold)
+			return newMine;//return newMine
+		}//endfunction
+		//
+		private int BlightGoldMineForPlayer(int goldMine, player whichPlayer) {//function BlightGoldMineForPlayer takes unit goldMine, player whichPlayer returns unit
+			bj_lastHauntedGoldMine = BlightGoldMineForPlayerBJ(goldMine, whichPlayer);//set bj_lastHauntedGoldMine = BlightGoldMineForPlayerBJ(goldMine, whichPlayer)
+			return bj_lastHauntedGoldMine;//return bj_lastHauntedGoldMine
+		}//endfunction
+		//
+		private int GetLastHauntedGoldMine() {//function GetLastHauntedGoldMine takes nothing returns unit
+			return bj_lastHauntedGoldMine;//return bj_lastHauntedGoldMine
+		}//endfunction
+		//
+		private bool IsPointBlightedBJ(location where) {//function IsPointBlightedBJ takes location where returns boolean
+			return IsPointBlighted(GetLocationX(where), GetLocationY(where));//return IsPointBlighted(GetLocationX(where), GetLocationY(where))
+		}//endfunction
+		//
+		private void SetPlayerColorBJEnum() {//function SetPlayerColorBJEnum takes nothing returns nothing
+			SetUnitColor(GetEnumUnit(), bj_setPlayerTargetColor);//call SetUnitColor(GetEnumUnit(), bj_setPlayerTargetColor)
+		}//endfunction
+		//
+		private void SetPlayerColorBJ(player whichPlayer, playercolor color, bool changeExisting) {//function SetPlayerColorBJ takes player whichPlayer, playercolor color, boolean changeExisting returns nothing
+			group g;//local group g
+			SetPlayerColor(whichPlayer, color);//call SetPlayerColor(whichPlayer, color)
+			if (changeExisting) {//if changeExisting then
+				bj_setPlayerTargetColor = color;//set bj_setPlayerTargetColor = color
+				g = CreateGroup();//set g = CreateGroup()
+				GroupEnumUnitsOfPlayer(g, whichPlayer, null);//call GroupEnumUnitsOfPlayer(g, whichPlayer, null)
+				ForGroup(g, function SetPlayerColorBJEnum);//call ForGroup(g, function SetPlayerColorBJEnum)
+				DestroyGroup(g);//call DestroyGroup(g)
+			}//endif
+		}//endfunction
+		//
+		private void SetPlayerUnitAvailableBJ(int unitId, bool allowed, player whichPlayer) {//function SetPlayerUnitAvailableBJ takes integer unitId, boolean allowed, player whichPlayer returns nothing
+			if (allowed) {//if allowed then
+				SetPlayerTechMaxAllowed(whichPlayer, unitId, -1);//call SetPlayerTechMaxAllowed(whichPlayer, unitId, -1)
+			} else {//else
+				SetPlayerTechMaxAllowed(whichPlayer, unitId, 0);//call SetPlayerTechMaxAllowed(whichPlayer, unitId, 0)
+			}//endif
+		}//endfunction
+		//
+		private void LockGameSpeedBJ() {//function LockGameSpeedBJ takes nothing returns nothing
+			SetMapFlag(MAP_LOCK_SPEED, true);//call SetMapFlag(MAP_LOCK_SPEED, true)
+		}//endfunction
+		//
+		private void UnlockGameSpeedBJ() {//function UnlockGameSpeedBJ takes nothing returns nothing
+			SetMapFlag(MAP_LOCK_SPEED, false);//call SetMapFlag(MAP_LOCK_SPEED, false)
+		}//endfunction
+		//
+		private bool IssueTargetOrderBJ(int whichUnit, string order, widget targetWidget) {//function IssueTargetOrderBJ takes unit whichUnit, string order, widget targetWidget returns boolean
+			return IssueTargetOrder( whichUnit, order, targetWidget );//return IssueTargetOrder( whichUnit, order, targetWidget )
+		}//endfunction
+		//
+		private bool IssuePointOrderLocBJ(int whichUnit, string order, location whichLocation) {//function IssuePointOrderLocBJ takes unit whichUnit, string order, location whichLocation returns boolean
+			return IssuePointOrderLoc( whichUnit, order, whichLocation );//return IssuePointOrderLoc( whichUnit, order, whichLocation )
+		}//endfunction
+		//
+		//
+		//
+		//
+		private bool IssueTargetDestructableOrder(int whichUnit, string order, widget targetWidget) {//function IssueTargetDestructableOrder takes unit whichUnit, string order, widget targetWidget returns boolean
+			return IssueTargetOrder( whichUnit, order, targetWidget );//return IssueTargetOrder( whichUnit, order, targetWidget )
+		}//endfunction
+		private bool IssueTargetItemOrder(int whichUnit, string order, widget targetWidget) {//function IssueTargetItemOrder takes unit whichUnit, string order, widget targetWidget returns boolean
+			return IssueTargetOrder( whichUnit, order, targetWidget );//return IssueTargetOrder( whichUnit, order, targetWidget )
+		}//endfunction
+		//
+		private bool IssueImmediateOrderBJ(int whichUnit, string order) {//function IssueImmediateOrderBJ takes unit whichUnit, string order returns boolean
+			return IssueImmediateOrder( whichUnit, order );//return IssueImmediateOrder( whichUnit, order )
+		}//endfunction
+		//
+		private bool GroupTargetOrderBJ(group whichGroup, string order, widget targetWidget) {//function GroupTargetOrderBJ takes group whichGroup, string order, widget targetWidget returns boolean
+			return GroupTargetOrder( whichGroup, order, targetWidget );//return GroupTargetOrder( whichGroup, order, targetWidget )
+		}//endfunction
+		//
+		private bool GroupPointOrderLocBJ(group whichGroup, string order, location whichLocation) {//function GroupPointOrderLocBJ takes group whichGroup, string order, location whichLocation returns boolean
+			return GroupPointOrderLoc( whichGroup, order, whichLocation );//return GroupPointOrderLoc( whichGroup, order, whichLocation )
+		}//endfunction
+		//
+		private bool GroupImmediateOrderBJ(group whichGroup, string order) {//function GroupImmediateOrderBJ takes group whichGroup, string order returns boolean
+			return GroupImmediateOrder( whichGroup, order );//return GroupImmediateOrder( whichGroup, order )
+		}//endfunction
+		//
+		//
+		//
+		//
+		private bool GroupTargetDestructableOrder(group whichGroup, string order, widget targetWidget) {//function GroupTargetDestructableOrder takes group whichGroup, string order, widget targetWidget returns boolean
+			return GroupTargetOrder( whichGroup, order, targetWidget );//return GroupTargetOrder( whichGroup, order, targetWidget )
+		}//endfunction
+		private bool GroupTargetItemOrder(group whichGroup, string order, widget targetWidget) {//function GroupTargetItemOrder takes group whichGroup, string order, widget targetWidget returns boolean
+			return GroupTargetOrder( whichGroup, order, targetWidget );//return GroupTargetOrder( whichGroup, order, targetWidget )
+		}//endfunction
+		//
+		private destructable GetDyingDestructable() {//function GetDyingDestructable takes nothing returns destructable
+			return GetTriggerDestructable();//return GetTriggerDestructable()
+		}//endfunction
+		//
+		//
+		//
+		private void SetUnitRallyPoint(int whichUnit, location targPos) {//function SetUnitRallyPoint takes unit whichUnit, location targPos returns nothing
+			IssuePointOrderLocBJ(whichUnit, "setrally", targPos);//call IssuePointOrderLocBJ(whichUnit, "setrally", targPos)
+		}//endfunction
+		//
+		private void SetUnitRallyUnit(int whichUnit, int targUnit) {//function SetUnitRallyUnit takes unit whichUnit, unit targUnit returns nothing
+			IssueTargetOrder(whichUnit, "setrally", targUnit);//call IssueTargetOrder(whichUnit, "setrally", targUnit)
+		}//endfunction
+		//
+		private void SetUnitRallyDestructable(int whichUnit, destructable targDest) {//function SetUnitRallyDestructable takes unit whichUnit, destructable targDest returns nothing
+			IssueTargetOrder(whichUnit, "setrally", targDest);//call IssueTargetOrder(whichUnit, "setrally", targDest)
+		}//endfunction
+		//
+		//
+		//
+		//
+		//
+		private void SaveDyingWidget() {//function SaveDyingWidget takes nothing returns nothing
+			bj_lastDyingWidget = GetTriggerWidget();//set bj_lastDyingWidget = GetTriggerWidget()
+		}//endfunction
+		//
+		private void SetBlightRectBJ(bool addBlight, player whichPlayer, rect r) {//function SetBlightRectBJ takes boolean addBlight, player whichPlayer, rect r returns nothing
+			SetBlightRect(whichPlayer, r, addBlight);//call SetBlightRect(whichPlayer, r, addBlight)
+		}//endfunction
+		//
+		private void SetBlightRadiusLocBJ(bool addBlight, player whichPlayer, location loc, float radius) {//function SetBlightRadiusLocBJ takes boolean addBlight, player whichPlayer, location loc, real radius returns nothing
+			SetBlightLoc(whichPlayer, loc, radius, addBlight);//call SetBlightLoc(whichPlayer, loc, radius, addBlight)
+		}//endfunction
+		//
+		private string GetAbilityName(int abilcode) {//function GetAbilityName takes integer abilcode returns string
+			return GetObjectName(abilcode);//return GetObjectName(abilcode)
+		}//endfunction
+		//
+		//
+		//
+		//
+		//
+		//
+		private void MeleeStartingVisibility() {//function MeleeStartingVisibility takes nothing returns nothing
+			//
+			SetFloatGameState(GAME_STATE_TIME_OF_DAY, bj_MELEE_STARTING_TOD);//call SetFloatGameState(GAME_STATE_TIME_OF_DAY, bj_MELEE_STARTING_TOD)
+			//
+			//
+		}//endfunction
+		//
+		//
+		//
+		//
+		//
+		//
+		private void MeleeStartingResources() {//function MeleeStartingResources takes nothing returns nothing
+			int index;//local integer index
+			player indexPlayer;//local player  indexPlayer
+			version v;//local version v
+			int startingGold;//local integer startingGold
+			int startingLumber;//local integer startingLumber
+			v = VersionGet();//set v = VersionGet()
+			if ((v == VERSION_REIGN_OF_CHAOS)) {//if (v == VERSION_REIGN_OF_CHAOS) then
+				startingGold = bj_MELEE_STARTING_GOLD_V0;//set startingGold = bj_MELEE_STARTING_GOLD_V0
+				startingLumber = bj_MELEE_STARTING_LUMBER_V0;//set startingLumber = bj_MELEE_STARTING_LUMBER_V0
+			} else {//else
+				startingGold = bj_MELEE_STARTING_GOLD_V1;//set startingGold = bj_MELEE_STARTING_GOLD_V1
+				startingLumber = bj_MELEE_STARTING_LUMBER_V1;//set startingLumber = bj_MELEE_STARTING_LUMBER_V1
+			}//endif
+			//
+			index = 0;//set index = 0
+			while (true) {//loop
+				indexPlayer = Player(index);//set indexPlayer = Player(index)
+				if ((GetPlayerSlotState(indexPlayer) == PLAYER_SLOT_STATE_PLAYING)) {//if (GetPlayerSlotState(indexPlayer) == PLAYER_SLOT_STATE_PLAYING) then
+					SetPlayerState(indexPlayer, PLAYER_STATE_RESOURCE_GOLD, startingGold);//call SetPlayerState(indexPlayer, PLAYER_STATE_RESOURCE_GOLD, startingGold)
+					SetPlayerState(indexPlayer, PLAYER_STATE_RESOURCE_LUMBER, startingLumber);//call SetPlayerState(indexPlayer, PLAYER_STATE_RESOURCE_LUMBER, startingLumber)
+				}//endif
+				index = index + 1;//set index = index + 1
+				if (index == bj_MAX_PLAYERS) { break; }//exitwhen index == bj_MAX_PLAYERS
+			}//endloop
+		}//endfunction
+		//
+		//
+		//
+		//
+		//
+		//
+		private void ReducePlayerTechMaxAllowed(player whichPlayer, int techId, int limit) {//function ReducePlayerTechMaxAllowed takes player whichPlayer, integer techId, integer limit returns nothing
+			int oldMax = GetPlayerTechMaxAllowed(whichPlayer, techId);//local integer oldMax = GetPlayerTechMaxAllowed(whichPlayer, techId)
+			//
+			if ((oldMax < 0 || oldMax > limit)) {//if (oldMax < 0 or oldMax > limit) then
+				SetPlayerTechMaxAllowed(whichPlayer, techId, limit);//call SetPlayerTechMaxAllowed(whichPlayer, techId, limit)
+			}//endif
+		}//endfunction
+		//
+		private void MeleeStartingHeroLimit() {//function MeleeStartingHeroLimit takes nothing returns nothing
+			int index;//local integer index
+			index = 0;//set index = 0
+			while (true) {//loop
+				//
+				SetPlayerMaxHeroesAllowed(bj_MELEE_HERO_LIMIT, Player(index));//call SetPlayerMaxHeroesAllowed(bj_MELEE_HERO_LIMIT, Player(index))
+				//
+				ReducePlayerTechMaxAllowed(Player(index), 'Hamg', bj_MELEE_HERO_TYPE_LIMIT);//call ReducePlayerTechMaxAllowed(Player(index), 'Hamg', bj_MELEE_HERO_TYPE_LIMIT)
+				ReducePlayerTechMaxAllowed(Player(index), 'Hmkg', bj_MELEE_HERO_TYPE_LIMIT);//call ReducePlayerTechMaxAllowed(Player(index), 'Hmkg', bj_MELEE_HERO_TYPE_LIMIT)
+				ReducePlayerTechMaxAllowed(Player(index), 'Hpal', bj_MELEE_HERO_TYPE_LIMIT);//call ReducePlayerTechMaxAllowed(Player(index), 'Hpal', bj_MELEE_HERO_TYPE_LIMIT)
+				ReducePlayerTechMaxAllowed(Player(index), 'Hblm', bj_MELEE_HERO_TYPE_LIMIT);//call ReducePlayerTechMaxAllowed(Player(index), 'Hblm', bj_MELEE_HERO_TYPE_LIMIT)
+				ReducePlayerTechMaxAllowed(Player(index), 'Obla', bj_MELEE_HERO_TYPE_LIMIT);//call ReducePlayerTechMaxAllowed(Player(index), 'Obla', bj_MELEE_HERO_TYPE_LIMIT)
+				ReducePlayerTechMaxAllowed(Player(index), 'Ofar', bj_MELEE_HERO_TYPE_LIMIT);//call ReducePlayerTechMaxAllowed(Player(index), 'Ofar', bj_MELEE_HERO_TYPE_LIMIT)
+				ReducePlayerTechMaxAllowed(Player(index), 'Otch', bj_MELEE_HERO_TYPE_LIMIT);//call ReducePlayerTechMaxAllowed(Player(index), 'Otch', bj_MELEE_HERO_TYPE_LIMIT)
+				ReducePlayerTechMaxAllowed(Player(index), 'Oshd', bj_MELEE_HERO_TYPE_LIMIT);//call ReducePlayerTechMaxAllowed(Player(index), 'Oshd', bj_MELEE_HERO_TYPE_LIMIT)
+				ReducePlayerTechMaxAllowed(Player(index), 'Edem', bj_MELEE_HERO_TYPE_LIMIT);//call ReducePlayerTechMaxAllowed(Player(index), 'Edem', bj_MELEE_HERO_TYPE_LIMIT)
+				ReducePlayerTechMaxAllowed(Player(index), 'Ekee', bj_MELEE_HERO_TYPE_LIMIT);//call ReducePlayerTechMaxAllowed(Player(index), 'Ekee', bj_MELEE_HERO_TYPE_LIMIT)
+				ReducePlayerTechMaxAllowed(Player(index), 'Emoo', bj_MELEE_HERO_TYPE_LIMIT);//call ReducePlayerTechMaxAllowed(Player(index), 'Emoo', bj_MELEE_HERO_TYPE_LIMIT)
+				ReducePlayerTechMaxAllowed(Player(index), 'Ewar', bj_MELEE_HERO_TYPE_LIMIT);//call ReducePlayerTechMaxAllowed(Player(index), 'Ewar', bj_MELEE_HERO_TYPE_LIMIT)
+				ReducePlayerTechMaxAllowed(Player(index), 'Udea', bj_MELEE_HERO_TYPE_LIMIT);//call ReducePlayerTechMaxAllowed(Player(index), 'Udea', bj_MELEE_HERO_TYPE_LIMIT)
+				ReducePlayerTechMaxAllowed(Player(index), 'Udre', bj_MELEE_HERO_TYPE_LIMIT);//call ReducePlayerTechMaxAllowed(Player(index), 'Udre', bj_MELEE_HERO_TYPE_LIMIT)
+				ReducePlayerTechMaxAllowed(Player(index), 'Ulic', bj_MELEE_HERO_TYPE_LIMIT);//call ReducePlayerTechMaxAllowed(Player(index), 'Ulic', bj_MELEE_HERO_TYPE_LIMIT)
+				ReducePlayerTechMaxAllowed(Player(index), 'Ucrl', bj_MELEE_HERO_TYPE_LIMIT);//call ReducePlayerTechMaxAllowed(Player(index), 'Ucrl', bj_MELEE_HERO_TYPE_LIMIT)
+				ReducePlayerTechMaxAllowed(Player(index), 'Npbm', bj_MELEE_HERO_TYPE_LIMIT);//call ReducePlayerTechMaxAllowed(Player(index), 'Npbm', bj_MELEE_HERO_TYPE_LIMIT)
+				ReducePlayerTechMaxAllowed(Player(index), 'Nbrn', bj_MELEE_HERO_TYPE_LIMIT);//call ReducePlayerTechMaxAllowed(Player(index), 'Nbrn', bj_MELEE_HERO_TYPE_LIMIT)
+				ReducePlayerTechMaxAllowed(Player(index), 'Nngs', bj_MELEE_HERO_TYPE_LIMIT);//call ReducePlayerTechMaxAllowed(Player(index), 'Nngs', bj_MELEE_HERO_TYPE_LIMIT)
+				ReducePlayerTechMaxAllowed(Player(index), 'Nplh', bj_MELEE_HERO_TYPE_LIMIT);//call ReducePlayerTechMaxAllowed(Player(index), 'Nplh', bj_MELEE_HERO_TYPE_LIMIT)
+				ReducePlayerTechMaxAllowed(Player(index), 'Nbst', bj_MELEE_HERO_TYPE_LIMIT);//call ReducePlayerTechMaxAllowed(Player(index), 'Nbst', bj_MELEE_HERO_TYPE_LIMIT)
+				ReducePlayerTechMaxAllowed(Player(index), 'Nalc', bj_MELEE_HERO_TYPE_LIMIT);//call ReducePlayerTechMaxAllowed(Player(index), 'Nalc', bj_MELEE_HERO_TYPE_LIMIT)
+				ReducePlayerTechMaxAllowed(Player(index), 'Ntin', bj_MELEE_HERO_TYPE_LIMIT);//call ReducePlayerTechMaxAllowed(Player(index), 'Ntin', bj_MELEE_HERO_TYPE_LIMIT)
+				ReducePlayerTechMaxAllowed(Player(index), 'Nfir', bj_MELEE_HERO_TYPE_LIMIT);//call ReducePlayerTechMaxAllowed(Player(index), 'Nfir', bj_MELEE_HERO_TYPE_LIMIT)
+				index = index + 1;//set index = index + 1
+				if (index == bj_MAX_PLAYERS) { break; }//exitwhen index == bj_MAX_PLAYERS
+			}//endloop
+		}//endfunction
+		//
+		//
+		//
+		//
+		//
+		//
+		private bool MeleeTrainedUnitIsHeroBJFilter() {//function MeleeTrainedUnitIsHeroBJFilter takes nothing returns boolean
+			return IsUnitType(GetFilterUnit(), UNIT_TYPE_HERO);//return IsUnitType(GetFilterUnit(), UNIT_TYPE_HERO)
+		}//endfunction
+		//
+		//
+		//
+		//
+		//
+		private void MeleeGrantItemsToHero(int whichUnit) {//function MeleeGrantItemsToHero takes unit whichUnit returns nothing
+			int owner = GetPlayerId(GetOwningPlayer(whichUnit));//local integer owner   = GetPlayerId(GetOwningPlayer(whichUnit))
+			//
+			if ((bj_meleeTwinkedHeroes[owner] < bj_MELEE_MAX_TWINKED_HEROES)) {//if (bj_meleeTwinkedHeroes[owner] < bj_MELEE_MAX_TWINKED_HEROES) then
+				UnitAddItemById(whichUnit, 'stwp');//call UnitAddItemById(whichUnit, 'stwp')
+				bj_meleeTwinkedHeroes[owner] = bj_meleeTwinkedHeroes[owner] + 1;//set bj_meleeTwinkedHeroes[owner] = bj_meleeTwinkedHeroes[owner] + 1
+			}//endif
+		}//endfunction
+		//
+		private void MeleeGrantItemsToTrainedHero() {//function MeleeGrantItemsToTrainedHero takes nothing returns nothing
+			MeleeGrantItemsToHero(GetTrainedUnit());//call MeleeGrantItemsToHero(GetTrainedUnit())
+		}//endfunction
+		//
+		private void MeleeGrantItemsToHiredHero() {//function MeleeGrantItemsToHiredHero takes nothing returns nothing
+			MeleeGrantItemsToHero(GetSoldUnit());//call MeleeGrantItemsToHero(GetSoldUnit())
+		}//endfunction
+		//
+		private void MeleeGrantHeroItems() {//function MeleeGrantHeroItems takes nothing returns nothing
+			int index;//local integer index
+			trigger trig;//local trigger trig
+			//
+			index = 0;//set index = 0
+			while (true) {//loop
+				bj_meleeTwinkedHeroes[index] = 0;//set bj_meleeTwinkedHeroes[index] = 0
 				index = index + 1;//set index = index + 1
 				if (index == bj_MAX_PLAYER_SLOTS) { break; }//exitwhen index == bj_MAX_PLAYER_SLOTS
 			}//endloop
-			TriggerAddAction(bj_rescueUnitBehavior, function TriggerActionUnitRescuedBJ);//call TriggerAddAction(bj_rescueUnitBehavior, function TriggerActionUnitRescuedBJ)
-		}//endif
-	}//endfunction
-	//
-	//
-	//
-	//
-	private void SetRescueUnitColorChangeBJ() {//function SetRescueUnitColorChangeBJ takes boolean changeColor returns nothing
-		bj_rescueChangeColorUnit = changeColor;//set bj_rescueChangeColorUnit = changeColor
-	}//endfunction
-	//
-	//
-	//
-	//
-	private void SetRescueBuildingColorChangeBJ() {//function SetRescueBuildingColorChangeBJ takes boolean changeColor returns nothing
-		bj_rescueChangeColorBldg = changeColor;//set bj_rescueChangeColorBldg = changeColor
-	}//endfunction
-	//
-	private void MakeUnitRescuableToForceBJEnum() {//function MakeUnitRescuableToForceBJEnum takes nothing returns nothing
-		TryInitRescuableTriggersBJ();//call TryInitRescuableTriggersBJ()
-		SetUnitRescuable(bj_makeUnitRescuableUnit, GetEnumPlayer(), bj_makeUnitRescuableFlag);//call SetUnitRescuable(bj_makeUnitRescuableUnit, GetEnumPlayer(), bj_makeUnitRescuableFlag)
-	}//endfunction
-	//
-	private void MakeUnitRescuableToForceBJ(int whichUnit, bool isRescuable, force whichForce) {//function MakeUnitRescuableToForceBJ takes unit whichUnit, boolean isRescuable, force whichForce returns nothing
-		//
-		bj_makeUnitRescuableUnit = whichUnit;//set bj_makeUnitRescuableUnit = whichUnit
-		bj_makeUnitRescuableFlag = isRescuable;//set bj_makeUnitRescuableFlag = isRescuable
-		ForForce(whichForce, function MakeUnitRescuableToForceBJEnum);//call ForForce(whichForce, function MakeUnitRescuableToForceBJEnum)
-	}//endfunction
-	//
-	private void InitRescuableBehaviorBJ() {//function InitRescuableBehaviorBJ takes nothing returns nothing
-		int index;//local integer index
-		index = 0;//set index = 0
-		while (true) {//loop
 			//
 			//
-			if ((GetPlayerController(Player(index)) == MAP_CONTROL_RESCUABLE)) {//if (GetPlayerController(Player(index)) == MAP_CONTROL_RESCUABLE) then
-				TryInitRescuableTriggersBJ();//call TryInitRescuableTriggersBJ()
-				return;//return
-			}//endif
-			index = index + 1;//set index = index + 1
-			if (index == bj_MAX_PLAYERS) { break; }//exitwhen index == bj_MAX_PLAYERS
-		}//endloop
-	}//endfunction
-	//
-	//
-	//
-	//
-	//
-	//
-	private void SetPlayerTechResearchedSwap(int techid, int levels, player whichPlayer) {//function SetPlayerTechResearchedSwap takes integer techid, integer levels, player whichPlayer returns nothing
-		SetPlayerTechResearched(whichPlayer, techid, levels);//call SetPlayerTechResearched(whichPlayer, techid, levels)
-	}//endfunction
-	//
-	private void SetPlayerTechMaxAllowedSwap(int techid, int maximum, player whichPlayer) {//function SetPlayerTechMaxAllowedSwap takes integer techid, integer maximum, player whichPlayer returns nothing
-		SetPlayerTechMaxAllowed(whichPlayer, techid, maximum);//call SetPlayerTechMaxAllowed(whichPlayer, techid, maximum)
-	}//endfunction
-	//
-	private void SetPlayerMaxHeroesAllowed(int maximum, player whichPlayer) {//function SetPlayerMaxHeroesAllowed takes integer maximum, player whichPlayer returns nothing
-		SetPlayerTechMaxAllowed(whichPlayer, 'HERO', maximum);//call SetPlayerTechMaxAllowed(whichPlayer, 'HERO', maximum)
-	}//endfunction
-	//
-	private int GetPlayerTechCountSimple(int techid, player whichPlayer) {//function GetPlayerTechCountSimple takes integer techid, player whichPlayer returns integer
-		return GetPlayerTechCount(whichPlayer, techid, true);//return GetPlayerTechCount(whichPlayer, techid, true)
-	}//endfunction
-	//
-	private int GetPlayerTechMaxAllowedSwap(int techid, player whichPlayer) {//function GetPlayerTechMaxAllowedSwap takes integer techid, player whichPlayer returns integer
-		return GetPlayerTechMaxAllowed(whichPlayer, techid);//return GetPlayerTechMaxAllowed(whichPlayer, techid)
-	}//endfunction
-	//
-	private void SetPlayerAbilityAvailableBJ(bool avail, int abilid, player whichPlayer) {//function SetPlayerAbilityAvailableBJ takes boolean avail, integer abilid, player whichPlayer returns nothing
-		SetPlayerAbilityAvailable(whichPlayer, abilid, avail);//call SetPlayerAbilityAvailable(whichPlayer, abilid, avail)
-	}//endfunction
-	//
-	//
-	//
-	//
-	//
-	private void SetCampaignMenuRaceBJ() {//function SetCampaignMenuRaceBJ takes integer campaignNumber returns nothing
-		if ((campaignNumber == bj_CAMPAIGN_INDEX_T)) {//if (campaignNumber == bj_CAMPAIGN_INDEX_T) then
-			SetCampaignMenuRace(RACE_OTHER);//call SetCampaignMenuRace(RACE_OTHER)
-		} else if ((campaignNumber == bj_CAMPAIGN_INDEX_H)) {//elseif (campaignNumber == bj_CAMPAIGN_INDEX_H) then
-			SetCampaignMenuRace(RACE_HUMAN);//call SetCampaignMenuRace(RACE_HUMAN)
-		} else if ((campaignNumber == bj_CAMPAIGN_INDEX_U)) {//elseif (campaignNumber == bj_CAMPAIGN_INDEX_U) then
-			SetCampaignMenuRace(RACE_UNDEAD);//call SetCampaignMenuRace(RACE_UNDEAD)
-		} else if ((campaignNumber == bj_CAMPAIGN_INDEX_O)) {//elseif (campaignNumber == bj_CAMPAIGN_INDEX_O) then
-			SetCampaignMenuRace(RACE_ORC);//call SetCampaignMenuRace(RACE_ORC)
-		} else if ((campaignNumber == bj_CAMPAIGN_INDEX_N)) {//elseif (campaignNumber == bj_CAMPAIGN_INDEX_N) then
-			SetCampaignMenuRace(RACE_NIGHTELF);//call SetCampaignMenuRace(RACE_NIGHTELF)
-		} else if ((campaignNumber == bj_CAMPAIGN_INDEX_XN)) {//elseif (campaignNumber == bj_CAMPAIGN_INDEX_XN) then
-			SetCampaignMenuRaceEx(bj_CAMPAIGN_OFFSET_XN);//call SetCampaignMenuRaceEx(bj_CAMPAIGN_OFFSET_XN)
-		} else if ((campaignNumber == bj_CAMPAIGN_INDEX_XH)) {//elseif (campaignNumber == bj_CAMPAIGN_INDEX_XH) then
-			SetCampaignMenuRaceEx(bj_CAMPAIGN_OFFSET_XH);//call SetCampaignMenuRaceEx(bj_CAMPAIGN_OFFSET_XH)
-		} else if ((campaignNumber == bj_CAMPAIGN_INDEX_XU)) {//elseif (campaignNumber == bj_CAMPAIGN_INDEX_XU) then
-			SetCampaignMenuRaceEx(bj_CAMPAIGN_OFFSET_XU);//call SetCampaignMenuRaceEx(bj_CAMPAIGN_OFFSET_XU)
-		} else if ((campaignNumber == bj_CAMPAIGN_INDEX_XO)) {//elseif (campaignNumber == bj_CAMPAIGN_INDEX_XO) then
-			SetCampaignMenuRaceEx(bj_CAMPAIGN_OFFSET_XO);//call SetCampaignMenuRaceEx(bj_CAMPAIGN_OFFSET_XO)
-		} else {//else
+			index = 0;//set index = 0
+			while (true) {//loop
+				trig = CreateTrigger();//set trig = CreateTrigger()
+				TriggerRegisterPlayerUnitEvent(trig, Player(index), EVENT_PLAYER_UNIT_TRAIN_FINISH, filterMeleeTrainedUnitIsHeroBJ);//call TriggerRegisterPlayerUnitEvent(trig, Player(index), EVENT_PLAYER_UNIT_TRAIN_FINISH, filterMeleeTrainedUnitIsHeroBJ)
+				TriggerAddAction(trig, function MeleeGrantItemsToTrainedHero);//call TriggerAddAction(trig, function MeleeGrantItemsToTrainedHero)
+				index = index + 1;//set index = index + 1
+				if (index == bj_MAX_PLAYERS) { break; }//exitwhen index == bj_MAX_PLAYERS
+			}//endloop
 			//
-		}//endif
-	}//endfunction
-	//
-	//
-	//
-	//
-	//
-	//
-	//
-	private void SetMissionAvailableBJ(bool available, int missionIndex) {//function SetMissionAvailableBJ takes boolean available, integer missionIndex returns nothing
-		int campaignNumber = missionIndex / 1000;//local integer campaignNumber = missionIndex / 1000
-		int missionNumber = missionIndex - campaignNumber * 1000;//local integer missionNumber = missionIndex - campaignNumber * 1000
-		SetMissionAvailable(campaignNumber, missionNumber, available);//call SetMissionAvailable(campaignNumber, missionNumber, available)
-	}//endfunction
-	//
-	private void SetCampaignAvailableBJ(bool available, int campaignNumber) {//function SetCampaignAvailableBJ takes boolean available, integer campaignNumber returns nothing
-		int campaignOffset;//local integer campaignOffset
-		if ((campaignNumber == bj_CAMPAIGN_INDEX_H)) {//if (campaignNumber == bj_CAMPAIGN_INDEX_H) then
-			SetTutorialCleared(true);//call SetTutorialCleared(true)
-		}//endif
-		if ((campaignNumber == bj_CAMPAIGN_INDEX_XN)) {//if (campaignNumber == bj_CAMPAIGN_INDEX_XN) then
-			campaignOffset = bj_CAMPAIGN_OFFSET_XN;//set campaignOffset = bj_CAMPAIGN_OFFSET_XN
-		} else if ((campaignNumber == bj_CAMPAIGN_INDEX_XH)) {//elseif (campaignNumber == bj_CAMPAIGN_INDEX_XH) then
-			campaignOffset = bj_CAMPAIGN_OFFSET_XH;//set campaignOffset = bj_CAMPAIGN_OFFSET_XH
-		} else if ((campaignNumber == bj_CAMPAIGN_INDEX_XU)) {//elseif (campaignNumber == bj_CAMPAIGN_INDEX_XU) then
-			campaignOffset = bj_CAMPAIGN_OFFSET_XU;//set campaignOffset = bj_CAMPAIGN_OFFSET_XU
-		} else if ((campaignNumber == bj_CAMPAIGN_INDEX_XO)) {//elseif (campaignNumber == bj_CAMPAIGN_INDEX_XO) then
-			campaignOffset = bj_CAMPAIGN_OFFSET_XO;//set campaignOffset = bj_CAMPAIGN_OFFSET_XO
-		} else {//else
-			campaignOffset = campaignNumber;//set campaignOffset = campaignNumber
-		}//endif
-		SetCampaignAvailable(campaignOffset, available);//call SetCampaignAvailable(campaignOffset, available)
-		SetCampaignMenuRaceBJ(campaignNumber);//call SetCampaignMenuRaceBJ(campaignNumber)
-		ForceCampaignSelectScreen();//call ForceCampaignSelectScreen()
-	}//endfunction
-	//
-	private void SetCinematicAvailableBJ(bool available, int cinematicIndex) {//function SetCinematicAvailableBJ takes boolean available, integer cinematicIndex returns nothing
-		if (( cinematicIndex == bj_CINEMATICINDEX_TOP )) {//if ( cinematicIndex == bj_CINEMATICINDEX_TOP ) then
-			SetOpCinematicAvailable(bj_CAMPAIGN_INDEX_T, available);//call SetOpCinematicAvailable( bj_CAMPAIGN_INDEX_T, available )
-			PlayCinematic("TutorialOp");//call PlayCinematic( "TutorialOp" )
-		} else if ((cinematicIndex == bj_CINEMATICINDEX_HOP)) {//elseif (cinematicIndex == bj_CINEMATICINDEX_HOP) then
-			SetOpCinematicAvailable(bj_CAMPAIGN_INDEX_H, available);//call SetOpCinematicAvailable( bj_CAMPAIGN_INDEX_H, available )
-			PlayCinematic("HumanOp");//call PlayCinematic( "HumanOp" )
-		} else if ((cinematicIndex == bj_CINEMATICINDEX_HED)) {//elseif (cinematicIndex == bj_CINEMATICINDEX_HED) then
-			SetEdCinematicAvailable(bj_CAMPAIGN_INDEX_H, available);//call SetEdCinematicAvailable( bj_CAMPAIGN_INDEX_H, available )
-			PlayCinematic("HumanEd");//call PlayCinematic( "HumanEd" )
-		} else if ((cinematicIndex == bj_CINEMATICINDEX_OOP)) {//elseif (cinematicIndex == bj_CINEMATICINDEX_OOP) then
-			SetOpCinematicAvailable(bj_CAMPAIGN_INDEX_O, available);//call SetOpCinematicAvailable( bj_CAMPAIGN_INDEX_O, available )
-			PlayCinematic("OrcOp");//call PlayCinematic( "OrcOp" )
-		} else if ((cinematicIndex == bj_CINEMATICINDEX_OED)) {//elseif (cinematicIndex == bj_CINEMATICINDEX_OED) then
-			SetEdCinematicAvailable(bj_CAMPAIGN_INDEX_O, available);//call SetEdCinematicAvailable( bj_CAMPAIGN_INDEX_O, available )
-			PlayCinematic("OrcEd");//call PlayCinematic( "OrcEd" )
-		} else if ((cinematicIndex == bj_CINEMATICINDEX_UOP)) {//elseif (cinematicIndex == bj_CINEMATICINDEX_UOP) then
-			SetEdCinematicAvailable(bj_CAMPAIGN_INDEX_U, available);//call SetEdCinematicAvailable( bj_CAMPAIGN_INDEX_U, available )
-			PlayCinematic("UndeadOp");//call PlayCinematic( "UndeadOp" )
-		} else if ((cinematicIndex == bj_CINEMATICINDEX_UED)) {//elseif (cinematicIndex == bj_CINEMATICINDEX_UED) then
-			SetEdCinematicAvailable(bj_CAMPAIGN_INDEX_U, available);//call SetEdCinematicAvailable( bj_CAMPAIGN_INDEX_U, available )
-			PlayCinematic("UndeadEd");//call PlayCinematic( "UndeadEd" )
-		} else if ((cinematicIndex == bj_CINEMATICINDEX_NOP)) {//elseif (cinematicIndex == bj_CINEMATICINDEX_NOP) then
-			SetEdCinematicAvailable(bj_CAMPAIGN_INDEX_N, available);//call SetEdCinematicAvailable( bj_CAMPAIGN_INDEX_N, available )
-			PlayCinematic("NightElfOp");//call PlayCinematic( "NightElfOp" )
-		} else if ((cinematicIndex == bj_CINEMATICINDEX_NED)) {//elseif (cinematicIndex == bj_CINEMATICINDEX_NED) then
-			SetEdCinematicAvailable(bj_CAMPAIGN_INDEX_N, available);//call SetEdCinematicAvailable( bj_CAMPAIGN_INDEX_N, available )
-			PlayCinematic("NightElfEd");//call PlayCinematic( "NightElfEd" )
-		} else if ((cinematicIndex == bj_CINEMATICINDEX_XOP)) {//elseif (cinematicIndex == bj_CINEMATICINDEX_XOP) then
-			SetOpCinematicAvailable(bj_CAMPAIGN_OFFSET_XN, available);//call SetOpCinematicAvailable( bj_CAMPAIGN_OFFSET_XN, available )
-			PlayCinematic("IntroX");//call PlayCinematic( "IntroX" )
-		} else if ((cinematicIndex == bj_CINEMATICINDEX_XED)) {//elseif (cinematicIndex == bj_CINEMATICINDEX_XED) then
-			SetEdCinematicAvailable(bj_CAMPAIGN_OFFSET_XU, available);//call SetEdCinematicAvailable( bj_CAMPAIGN_OFFSET_XU, available )
-			PlayCinematic("OutroX");//call PlayCinematic( "OutroX" )
-		} else {//else
 			//
-		}//endif
-	}//endfunction
-	//
-	private gamecache InitGameCacheBJ() {//function InitGameCacheBJ takes string campaignFile returns gamecache
-		bj_lastCreatedGameCache = InitGameCache(campaignFile);//set bj_lastCreatedGameCache = InitGameCache(campaignFile)
-		return bj_lastCreatedGameCache;//return bj_lastCreatedGameCache
-	}//endfunction
-	//
-	private bool SaveGameCacheBJ() {//function SaveGameCacheBJ takes gamecache cache returns boolean
-		return SaveGameCache(cache);//return SaveGameCache(cache)
-	}//endfunction
-	//
-	private gamecache GetLastCreatedGameCacheBJ() {//function GetLastCreatedGameCacheBJ takes nothing returns gamecache
-		return bj_lastCreatedGameCache;//return bj_lastCreatedGameCache
-	}//endfunction
-	//
-	private hashtable InitHashtableBJ() {//function InitHashtableBJ takes nothing returns hashtable
-		bj_lastCreatedHashtable = InitHashtable();//set bj_lastCreatedHashtable = InitHashtable()
-		return bj_lastCreatedHashtable;//return bj_lastCreatedHashtable
-	}//endfunction
-	//
-	private hashtable GetLastCreatedHashtableBJ() {//function GetLastCreatedHashtableBJ takes nothing returns hashtable
-		return bj_lastCreatedHashtable;//return bj_lastCreatedHashtable
-	}//endfunction
-	//
-	private void StoreRealBJ(real value, string key, string missionKey, gamecache cache) {//function StoreRealBJ takes real value, string key, string missionKey, gamecache cache returns nothing
-		StoreReal(cache, missionKey, key, value);//call StoreReal(cache, missionKey, key, value)
-	}//endfunction
-	//
-	private void StoreIntegerBJ(int value, string key, string missionKey, gamecache cache) {//function StoreIntegerBJ takes integer value, string key, string missionKey, gamecache cache returns nothing
-		StoreInteger(cache, missionKey, key, value);//call StoreInteger(cache, missionKey, key, value)
-	}//endfunction
-	//
-	private void StoreBooleanBJ(bool value, string key, string missionKey, gamecache cache) {//function StoreBooleanBJ takes boolean value, string key, string missionKey, gamecache cache returns nothing
-		StoreBoolean(cache, missionKey, key, value);//call StoreBoolean(cache, missionKey, key, value)
-	}//endfunction
-	//
-	private bool StoreStringBJ(string value, string key, string missionKey, gamecache cache) {//function StoreStringBJ takes string value, string key, string missionKey, gamecache cache returns boolean
-		return StoreString(cache, missionKey, key, value);//return StoreString(cache, missionKey, key, value)
-	}//endfunction
-	//
-	private bool StoreUnitBJ(int whichUnit, string key, string missionKey, gamecache cache) {//function StoreUnitBJ takes unit whichUnit, string key, string missionKey, gamecache cache returns boolean
-		return StoreUnit(cache, missionKey, key, whichUnit);//return StoreUnit(cache, missionKey, key, whichUnit)
-	}//endfunction
-	//
-	private void SaveRealBJ(real value, int key, int missionKey, hashtable table) {//function SaveRealBJ takes real value, integer key, integer missionKey, hashtable table returns nothing
-		SaveReal(table, missionKey, key, value);//call SaveReal(table, missionKey, key, value)
-	}//endfunction
-	//
-	private void SaveIntegerBJ(int value, int key, int missionKey, hashtable table) {//function SaveIntegerBJ takes integer value, integer key, integer missionKey, hashtable table returns nothing
-		SaveInteger(table, missionKey, key, value);//call SaveInteger(table, missionKey, key, value)
-	}//endfunction
-	//
-	private void SaveBooleanBJ(bool value, int key, int missionKey, hashtable table) {//function SaveBooleanBJ takes boolean value, integer key, integer missionKey, hashtable table returns nothing
-		SaveBoolean(table, missionKey, key, value);//call SaveBoolean(table, missionKey, key, value)
-	}//endfunction
-	//
-	private bool SaveStringBJ(string value, int key, int missionKey, hashtable table) {//function SaveStringBJ takes string value, integer key, integer missionKey, hashtable table returns boolean
-		return SaveStr(table, missionKey, key, value);//return SaveStr(table, missionKey, key, value)
-	}//endfunction
-	//
-	private bool SavePlayerHandleBJ(player whichPlayer, int key, int missionKey, hashtable table) {//function SavePlayerHandleBJ takes player whichPlayer, integer key, integer missionKey, hashtable table returns boolean
-		return SavePlayerHandle(table, missionKey, key, whichPlayer);//return SavePlayerHandle(table, missionKey, key, whichPlayer)
-	}//endfunction
-	//
-	private bool SaveWidgetHandleBJ(widget whichWidget, int key, int missionKey, hashtable table) {//function SaveWidgetHandleBJ takes widget whichWidget, integer key, integer missionKey, hashtable table returns boolean
-		return SaveWidgetHandle(table, missionKey, key, whichWidget);//return SaveWidgetHandle(table, missionKey, key, whichWidget)
-	}//endfunction
-	//
-	private bool SaveDestructableHandleBJ(destructable whichDestructable, int key, int missionKey, hashtable table) {//function SaveDestructableHandleBJ takes destructable whichDestructable, integer key, integer missionKey, hashtable table returns boolean
-		return SaveDestructableHandle(table, missionKey, key, whichDestructable);//return SaveDestructableHandle(table, missionKey, key, whichDestructable)
-	}//endfunction
-	//
-	private bool SaveItemHandleBJ(item whichItem, int key, int missionKey, hashtable table) {//function SaveItemHandleBJ takes item whichItem, integer key, integer missionKey, hashtable table returns boolean
-		return SaveItemHandle(table, missionKey, key, whichItem);//return SaveItemHandle(table, missionKey, key, whichItem)
-	}//endfunction
-	//
-	private bool SaveUnitHandleBJ(int whichUnit, int key, int missionKey, hashtable table) {//function SaveUnitHandleBJ takes unit whichUnit, integer key, integer missionKey, hashtable table returns boolean
-		return SaveUnitHandle(table, missionKey, key, whichUnit);//return SaveUnitHandle(table, missionKey, key, whichUnit)
-	}//endfunction
-	//
-	private bool SaveAbilityHandleBJ(ability whichAbility, int key, int missionKey, hashtable table) {//function SaveAbilityHandleBJ takes ability whichAbility, integer key, integer missionKey, hashtable table returns boolean
-		return SaveAbilityHandle(table, missionKey, key, whichAbility);//return SaveAbilityHandle(table, missionKey, key, whichAbility)
-	}//endfunction
-	//
-	private bool SaveTimerHandleBJ(timer whichTimer, int key, int missionKey, hashtable table) {//function SaveTimerHandleBJ takes timer whichTimer, integer key, integer missionKey, hashtable table returns boolean
-		return SaveTimerHandle(table, missionKey, key, whichTimer);//return SaveTimerHandle(table, missionKey, key, whichTimer)
-	}//endfunction
-	//
-	private bool SaveTriggerHandleBJ(trigger whichTrigger, int key, int missionKey, hashtable table) {//function SaveTriggerHandleBJ takes trigger whichTrigger, integer key, integer missionKey, hashtable table returns boolean
-		return SaveTriggerHandle(table, missionKey, key, whichTrigger);//return SaveTriggerHandle(table, missionKey, key, whichTrigger)
-	}//endfunction
-	//
-	private bool SaveTriggerConditionHandleBJ(triggercondition whichTriggercondition, int key, int missionKey, hashtable table) {//function SaveTriggerConditionHandleBJ takes triggercondition whichTriggercondition, integer key, integer missionKey, hashtable table returns boolean
-		return SaveTriggerConditionHandle(table, missionKey, key, whichTriggercondition);//return SaveTriggerConditionHandle(table, missionKey, key, whichTriggercondition)
-	}//endfunction
-	//
-	private bool SaveTriggerActionHandleBJ(triggeraction whichTriggeraction, int key, int missionKey, hashtable table) {//function SaveTriggerActionHandleBJ takes triggeraction whichTriggeraction, integer key, integer missionKey, hashtable table returns boolean
-		return SaveTriggerActionHandle(table, missionKey, key, whichTriggeraction);//return SaveTriggerActionHandle(table, missionKey, key, whichTriggeraction)
-	}//endfunction
-	//
-	private bool SaveTriggerEventHandleBJ(event whichEvent, int key, int missionKey, hashtable table) {//function SaveTriggerEventHandleBJ takes event whichEvent, integer key, integer missionKey, hashtable table returns boolean
-		return SaveTriggerEventHandle(table, missionKey, key, whichEvent);//return SaveTriggerEventHandle(table, missionKey, key, whichEvent)
-	}//endfunction
-	//
-	private bool SaveForceHandleBJ(force whichForce, int key, int missionKey, hashtable table) {//function SaveForceHandleBJ takes force whichForce, integer key, integer missionKey, hashtable table returns boolean
-		return SaveForceHandle(table, missionKey, key, whichForce);//return SaveForceHandle(table, missionKey, key, whichForce)
-	}//endfunction
-	//
-	private bool SaveGroupHandleBJ(group whichGroup, int key, int missionKey, hashtable table) {//function SaveGroupHandleBJ takes group whichGroup, integer key, integer missionKey, hashtable table returns boolean
-		return SaveGroupHandle(table, missionKey, key, whichGroup);//return SaveGroupHandle(table, missionKey, key, whichGroup)
-	}//endfunction
-	//
-	private bool SaveLocationHandleBJ(location whichLocation, int key, int missionKey, hashtable table) {//function SaveLocationHandleBJ takes location whichLocation, integer key, integer missionKey, hashtable table returns boolean
-		return SaveLocationHandle(table, missionKey, key, whichLocation);//return SaveLocationHandle(table, missionKey, key, whichLocation)
-	}//endfunction
-	//
-	private bool SaveRectHandleBJ(rect whichRect, int key, int missionKey, hashtable table) {//function SaveRectHandleBJ takes rect whichRect, integer key, integer missionKey, hashtable table returns boolean
-		return SaveRectHandle(table, missionKey, key, whichRect);//return SaveRectHandle(table, missionKey, key, whichRect)
-	}//endfunction
-	//
-	private bool SaveBooleanExprHandleBJ(boolexpr whichBoolexpr, int key, int missionKey, hashtable table) {//function SaveBooleanExprHandleBJ takes boolexpr whichBoolexpr, integer key, integer missionKey, hashtable table returns boolean
-		return SaveBooleanExprHandle(table, missionKey, key, whichBoolexpr);//return SaveBooleanExprHandle(table, missionKey, key, whichBoolexpr)
-	}//endfunction
-	//
-	private bool SaveSoundHandleBJ(sound whichSound, int key, int missionKey, hashtable table) {//function SaveSoundHandleBJ takes sound whichSound, integer key, integer missionKey, hashtable table returns boolean
-		return SaveSoundHandle(table, missionKey, key, whichSound);//return SaveSoundHandle(table, missionKey, key, whichSound)
-	}//endfunction
-	//
-	private bool SaveEffectHandleBJ(effect whichEffect, int key, int missionKey, hashtable table) {//function SaveEffectHandleBJ takes effect whichEffect, integer key, integer missionKey, hashtable table returns boolean
-		return SaveEffectHandle(table, missionKey, key, whichEffect);//return SaveEffectHandle(table, missionKey, key, whichEffect)
-	}//endfunction
-	//
-	private bool SaveUnitPoolHandleBJ(unitpool whichUnitpool, int key, int missionKey, hashtable table) {//function SaveUnitPoolHandleBJ takes unitpool whichUnitpool, integer key, integer missionKey, hashtable table returns boolean
-		return SaveUnitPoolHandle(table, missionKey, key, whichUnitpool);//return SaveUnitPoolHandle(table, missionKey, key, whichUnitpool)
-	}//endfunction
-	//
-	private bool SaveItemPoolHandleBJ(itempool whichItempool, int key, int missionKey, hashtable table) {//function SaveItemPoolHandleBJ takes itempool whichItempool, integer key, integer missionKey, hashtable table returns boolean
-		return SaveItemPoolHandle(table, missionKey, key, whichItempool);//return SaveItemPoolHandle(table, missionKey, key, whichItempool)
-	}//endfunction
-	//
-	private bool SaveQuestHandleBJ(quest whichQuest, int key, int missionKey, hashtable table) {//function SaveQuestHandleBJ takes quest whichQuest, integer key, integer missionKey, hashtable table returns boolean
-		return SaveQuestHandle(table, missionKey, key, whichQuest);//return SaveQuestHandle(table, missionKey, key, whichQuest)
-	}//endfunction
-	//
-	private bool SaveQuestItemHandleBJ(questitem whichQuestitem, int key, int missionKey, hashtable table) {//function SaveQuestItemHandleBJ takes questitem whichQuestitem, integer key, integer missionKey, hashtable table returns boolean
-		return SaveQuestItemHandle(table, missionKey, key, whichQuestitem);//return SaveQuestItemHandle(table, missionKey, key, whichQuestitem)
-	}//endfunction
-	//
-	private bool SaveDefeatConditionHandleBJ(defeatcondition whichDefeatcondition, int key, int missionKey, hashtable table) {//function SaveDefeatConditionHandleBJ takes defeatcondition whichDefeatcondition, integer key, integer missionKey, hashtable table returns boolean
-		return SaveDefeatConditionHandle(table, missionKey, key, whichDefeatcondition);//return SaveDefeatConditionHandle(table, missionKey, key, whichDefeatcondition)
-	}//endfunction
-	//
-	private bool SaveTimerDialogHandleBJ(timerdialog whichTimerdialog, int key, int missionKey, hashtable table) {//function SaveTimerDialogHandleBJ takes timerdialog whichTimerdialog, integer key, integer missionKey, hashtable table returns boolean
-		return SaveTimerDialogHandle(table, missionKey, key, whichTimerdialog);//return SaveTimerDialogHandle(table, missionKey, key, whichTimerdialog)
-	}//endfunction
-	//
-	private bool SaveLeaderboardHandleBJ(leaderboard whichLeaderboard, int key, int missionKey, hashtable table) {//function SaveLeaderboardHandleBJ takes leaderboard whichLeaderboard, integer key, integer missionKey, hashtable table returns boolean
-		return SaveLeaderboardHandle(table, missionKey, key, whichLeaderboard);//return SaveLeaderboardHandle(table, missionKey, key, whichLeaderboard)
-	}//endfunction
-	//
-	private bool SaveMultiboardHandleBJ(multiboard whichMultiboard, int key, int missionKey, hashtable table) {//function SaveMultiboardHandleBJ takes multiboard whichMultiboard, integer key, integer missionKey, hashtable table returns boolean
-		return SaveMultiboardHandle(table, missionKey, key, whichMultiboard);//return SaveMultiboardHandle(table, missionKey, key, whichMultiboard)
-	}//endfunction
-	//
-	private bool SaveMultiboardItemHandleBJ(multiboarditem whichMultiboarditem, int key, int missionKey, hashtable table) {//function SaveMultiboardItemHandleBJ takes multiboarditem whichMultiboarditem, integer key, integer missionKey, hashtable table returns boolean
-		return SaveMultiboardItemHandle(table, missionKey, key, whichMultiboarditem);//return SaveMultiboardItemHandle(table, missionKey, key, whichMultiboarditem)
-	}//endfunction
-	//
-	private bool SaveTrackableHandleBJ(trackable whichTrackable, int key, int missionKey, hashtable table) {//function SaveTrackableHandleBJ takes trackable whichTrackable, integer key, integer missionKey, hashtable table returns boolean
-		return SaveTrackableHandle(table, missionKey, key, whichTrackable);//return SaveTrackableHandle(table, missionKey, key, whichTrackable)
-	}//endfunction
-	//
-	private bool SaveDialogHandleBJ(dialog whichDialog, int key, int missionKey, hashtable table) {//function SaveDialogHandleBJ takes dialog whichDialog, integer key, integer missionKey, hashtable table returns boolean
-		return SaveDialogHandle(table, missionKey, key, whichDialog);//return SaveDialogHandle(table, missionKey, key, whichDialog)
-	}//endfunction
-	//
-	private bool SaveButtonHandleBJ(button whichButton, int key, int missionKey, hashtable table) {//function SaveButtonHandleBJ takes button whichButton, integer key, integer missionKey, hashtable table returns boolean
-		return SaveButtonHandle(table, missionKey, key, whichButton);//return SaveButtonHandle(table, missionKey, key, whichButton)
-	}//endfunction
-	//
-	private bool SaveTextTagHandleBJ(texttag whichTexttag, int key, int missionKey, hashtable table) {//function SaveTextTagHandleBJ takes texttag whichTexttag, integer key, integer missionKey, hashtable table returns boolean
-		return SaveTextTagHandle(table, missionKey, key, whichTexttag);//return SaveTextTagHandle(table, missionKey, key, whichTexttag)
-	}//endfunction
-	//
-	private bool SaveLightningHandleBJ(lightning whichLightning, int key, int missionKey, hashtable table) {//function SaveLightningHandleBJ takes lightning whichLightning, integer key, integer missionKey, hashtable table returns boolean
-		return SaveLightningHandle(table, missionKey, key, whichLightning);//return SaveLightningHandle(table, missionKey, key, whichLightning)
-	}//endfunction
-	//
-	private bool SaveImageHandleBJ(image whichImage, int key, int missionKey, hashtable table) {//function SaveImageHandleBJ takes image whichImage, integer key, integer missionKey, hashtable table returns boolean
-		return SaveImageHandle(table, missionKey, key, whichImage);//return SaveImageHandle(table, missionKey, key, whichImage)
-	}//endfunction
-	//
-	private bool SaveUbersplatHandleBJ(ubersplat whichUbersplat, int key, int missionKey, hashtable table) {//function SaveUbersplatHandleBJ takes ubersplat whichUbersplat, integer key, integer missionKey, hashtable table returns boolean
-		return SaveUbersplatHandle(table, missionKey, key, whichUbersplat);//return SaveUbersplatHandle(table, missionKey, key, whichUbersplat)
-	}//endfunction
-	//
-	private bool SaveRegionHandleBJ(region whichRegion, int key, int missionKey, hashtable table) {//function SaveRegionHandleBJ takes region whichRegion, integer key, integer missionKey, hashtable table returns boolean
-		return SaveRegionHandle(table, missionKey, key, whichRegion);//return SaveRegionHandle(table, missionKey, key, whichRegion)
-	}//endfunction
-	//
-	private bool SaveFogStateHandleBJ(fogstate whichFogState, int key, int missionKey, hashtable table) {//function SaveFogStateHandleBJ takes fogstate whichFogState, integer key, integer missionKey, hashtable table returns boolean
-		return SaveFogStateHandle(table, missionKey, key, whichFogState);//return SaveFogStateHandle(table, missionKey, key, whichFogState)
-	}//endfunction
-	//
-	private bool SaveFogModifierHandleBJ(fogmodifier whichFogModifier, int key, int missionKey, hashtable table) {//function SaveFogModifierHandleBJ takes fogmodifier whichFogModifier, integer key, integer missionKey, hashtable table returns boolean
-		return SaveFogModifierHandle(table, missionKey, key, whichFogModifier);//return SaveFogModifierHandle(table, missionKey, key, whichFogModifier)
-	}//endfunction
-	//
-	private bool SaveAgentHandleBJ(agent whichAgent, int key, int missionKey, hashtable table) {//function SaveAgentHandleBJ takes agent whichAgent, integer key, integer missionKey, hashtable table returns boolean
-		return SaveAgentHandle(table, missionKey, key, whichAgent);//return SaveAgentHandle(table, missionKey, key, whichAgent)
-	}//endfunction
-	//
-	private bool SaveHashtableHandleBJ(hashtable whichHashtable, int key, int missionKey, hashtable table) {//function SaveHashtableHandleBJ takes hashtable whichHashtable, integer key, integer missionKey, hashtable table returns boolean
-		return SaveHashtableHandle(table, missionKey, key, whichHashtable);//return SaveHashtableHandle(table, missionKey, key, whichHashtable)
-	}//endfunction
-	//
-	private real GetStoredRealBJ(string key, string missionKey, gamecache cache) {//function GetStoredRealBJ takes string key, string missionKey, gamecache cache returns real
-		//
-		return GetStoredReal(cache, missionKey, key);//return GetStoredReal(cache, missionKey, key)
-	}//endfunction
-	//
-	private int GetStoredIntegerBJ(string key, string missionKey, gamecache cache) {//function GetStoredIntegerBJ takes string key, string missionKey, gamecache cache returns integer
-		//
-		return GetStoredInteger(cache, missionKey, key);//return GetStoredInteger(cache, missionKey, key)
-	}//endfunction
-	//
-	private bool GetStoredBooleanBJ(string key, string missionKey, gamecache cache) {//function GetStoredBooleanBJ takes string key, string missionKey, gamecache cache returns boolean
-		//
-		return GetStoredBoolean(cache, missionKey, key);//return GetStoredBoolean(cache, missionKey, key)
-	}//endfunction
-	//
-	private string GetStoredStringBJ(string key, string missionKey, gamecache cache) {//function GetStoredStringBJ takes string key, string missionKey, gamecache cache returns string
-		string s;//local string s
-		//
-		s = GetStoredString(cache, missionKey, key);//set s = GetStoredString(cache, missionKey, key)
-		if ((s == null)) {//if (s == null) then
-			return "";//return ""
-		} else {//else
-			return s;//return s
-		}//endif
-	}//endfunction
-	//
-	private real LoadRealBJ(int key, int missionKey, hashtable table) {//function LoadRealBJ takes integer key, integer missionKey, hashtable table returns real
-		//
-		return LoadReal(table, missionKey, key);//return LoadReal(table, missionKey, key)
-	}//endfunction
-	//
-	private int LoadIntegerBJ(int key, int missionKey, hashtable table) {//function LoadIntegerBJ takes integer key, integer missionKey, hashtable table returns integer
-		//
-		return LoadInteger(table, missionKey, key);//return LoadInteger(table, missionKey, key)
-	}//endfunction
-	//
-	private bool LoadBooleanBJ(int key, int missionKey, hashtable table) {//function LoadBooleanBJ takes integer key, integer missionKey, hashtable table returns boolean
-		//
-		return LoadBoolean(table, missionKey, key);//return LoadBoolean(table, missionKey, key)
-	}//endfunction
-	//
-	private string LoadStringBJ(int key, int missionKey, hashtable table) {//function LoadStringBJ takes integer key, integer missionKey, hashtable table returns string
-		string s;//local string s
-		//
-		s = LoadStr(table, missionKey, key);//set s = LoadStr(table, missionKey, key)
-		if ((s == null)) {//if (s == null) then
-			return "";//return ""
-		} else {//else
-			return s;//return s
-		}//endif
-	}//endfunction
-	//
-	private player LoadPlayerHandleBJ(int key, int missionKey, hashtable table) {//function LoadPlayerHandleBJ takes integer key, integer missionKey, hashtable table returns player
-		return LoadPlayerHandle(table, missionKey, key);//return LoadPlayerHandle(table, missionKey, key)
-	}//endfunction
-	//
-	private widget LoadWidgetHandleBJ(int key, int missionKey, hashtable table) {//function LoadWidgetHandleBJ takes integer key, integer missionKey, hashtable table returns widget
-		return LoadWidgetHandle(table, missionKey, key);//return LoadWidgetHandle(table, missionKey, key)
-	}//endfunction
-	//
-	private destructable LoadDestructableHandleBJ(int key, int missionKey, hashtable table) {//function LoadDestructableHandleBJ takes integer key, integer missionKey, hashtable table returns destructable
-		return LoadDestructableHandle(table, missionKey, key);//return LoadDestructableHandle(table, missionKey, key)
-	}//endfunction
-	//
-	private item LoadItemHandleBJ(int key, int missionKey, hashtable table) {//function LoadItemHandleBJ takes integer key, integer missionKey, hashtable table returns item
-		return LoadItemHandle(table, missionKey, key);//return LoadItemHandle(table, missionKey, key)
-	}//endfunction
-	//
-	private int LoadUnitHandleBJ(int key, int missionKey, hashtable table) {//function LoadUnitHandleBJ takes integer key, integer missionKey, hashtable table returns unit
-		return LoadUnitHandle(table, missionKey, key);//return LoadUnitHandle(table, missionKey, key)
-	}//endfunction
-	//
-	private ability LoadAbilityHandleBJ(int key, int missionKey, hashtable table) {//function LoadAbilityHandleBJ takes integer key, integer missionKey, hashtable table returns ability
-		return LoadAbilityHandle(table, missionKey, key);//return LoadAbilityHandle(table, missionKey, key)
-	}//endfunction
-	//
-	private timer LoadTimerHandleBJ(int key, int missionKey, hashtable table) {//function LoadTimerHandleBJ takes integer key, integer missionKey, hashtable table returns timer
-		return LoadTimerHandle(table, missionKey, key);//return LoadTimerHandle(table, missionKey, key)
-	}//endfunction
-	//
-	private trigger LoadTriggerHandleBJ(int key, int missionKey, hashtable table) {//function LoadTriggerHandleBJ takes integer key, integer missionKey, hashtable table returns trigger
-		return LoadTriggerHandle(table, missionKey, key);//return LoadTriggerHandle(table, missionKey, key)
-	}//endfunction
-	//
-	private triggercondition LoadTriggerConditionHandleBJ(int key, int missionKey, hashtable table) {//function LoadTriggerConditionHandleBJ takes integer key, integer missionKey, hashtable table returns triggercondition
-		return LoadTriggerConditionHandle(table, missionKey, key);//return LoadTriggerConditionHandle(table, missionKey, key)
-	}//endfunction
-	//
-	private triggeraction LoadTriggerActionHandleBJ(int key, int missionKey, hashtable table) {//function LoadTriggerActionHandleBJ takes integer key, integer missionKey, hashtable table returns triggeraction
-		return LoadTriggerActionHandle(table, missionKey, key);//return LoadTriggerActionHandle(table, missionKey, key)
-	}//endfunction
-	//
-	private event LoadTriggerEventHandleBJ(int key, int missionKey, hashtable table) {//function LoadTriggerEventHandleBJ takes integer key, integer missionKey, hashtable table returns event
-		return LoadTriggerEventHandle(table, missionKey, key);//return LoadTriggerEventHandle(table, missionKey, key)
-	}//endfunction
-	//
-	private force LoadForceHandleBJ(int key, int missionKey, hashtable table) {//function LoadForceHandleBJ takes integer key, integer missionKey, hashtable table returns force
-		return LoadForceHandle(table, missionKey, key);//return LoadForceHandle(table, missionKey, key)
-	}//endfunction
-	//
-	private group LoadGroupHandleBJ(int key, int missionKey, hashtable table) {//function LoadGroupHandleBJ takes integer key, integer missionKey, hashtable table returns group
-		return LoadGroupHandle(table, missionKey, key);//return LoadGroupHandle(table, missionKey, key)
-	}//endfunction
-	//
-	private location LoadLocationHandleBJ(int key, int missionKey, hashtable table) {//function LoadLocationHandleBJ takes integer key, integer missionKey, hashtable table returns location
-		return LoadLocationHandle(table, missionKey, key);//return LoadLocationHandle(table, missionKey, key)
-	}//endfunction
-	//
-	private rect LoadRectHandleBJ(int key, int missionKey, hashtable table) {//function LoadRectHandleBJ takes integer key, integer missionKey, hashtable table returns rect
-		return LoadRectHandle(table, missionKey, key);//return LoadRectHandle(table, missionKey, key)
-	}//endfunction
-	//
-	private boolexpr LoadBooleanExprHandleBJ(int key, int missionKey, hashtable table) {//function LoadBooleanExprHandleBJ takes integer key, integer missionKey, hashtable table returns boolexpr
-		return LoadBooleanExprHandle(table, missionKey, key);//return LoadBooleanExprHandle(table, missionKey, key)
-	}//endfunction
-	//
-	private sound LoadSoundHandleBJ(int key, int missionKey, hashtable table) {//function LoadSoundHandleBJ takes integer key, integer missionKey, hashtable table returns sound
-		return LoadSoundHandle(table, missionKey, key);//return LoadSoundHandle(table, missionKey, key)
-	}//endfunction
-	//
-	private effect LoadEffectHandleBJ(int key, int missionKey, hashtable table) {//function LoadEffectHandleBJ takes integer key, integer missionKey, hashtable table returns effect
-		return LoadEffectHandle(table, missionKey, key);//return LoadEffectHandle(table, missionKey, key)
-	}//endfunction
-	//
-	private unitpool LoadUnitPoolHandleBJ(int key, int missionKey, hashtable table) {//function LoadUnitPoolHandleBJ takes integer key, integer missionKey, hashtable table returns unitpool
-		return LoadUnitPoolHandle(table, missionKey, key);//return LoadUnitPoolHandle(table, missionKey, key)
-	}//endfunction
-	//
-	private itempool LoadItemPoolHandleBJ(int key, int missionKey, hashtable table) {//function LoadItemPoolHandleBJ takes integer key, integer missionKey, hashtable table returns itempool
-		return LoadItemPoolHandle(table, missionKey, key);//return LoadItemPoolHandle(table, missionKey, key)
-	}//endfunction
-	//
-	private quest LoadQuestHandleBJ(int key, int missionKey, hashtable table) {//function LoadQuestHandleBJ takes integer key, integer missionKey, hashtable table returns quest
-		return LoadQuestHandle(table, missionKey, key);//return LoadQuestHandle(table, missionKey, key)
-	}//endfunction
-	//
-	private questitem LoadQuestItemHandleBJ(int key, int missionKey, hashtable table) {//function LoadQuestItemHandleBJ takes integer key, integer missionKey, hashtable table returns questitem
-		return LoadQuestItemHandle(table, missionKey, key);//return LoadQuestItemHandle(table, missionKey, key)
-	}//endfunction
-	//
-	private defeatcondition LoadDefeatConditionHandleBJ(int key, int missionKey, hashtable table) {//function LoadDefeatConditionHandleBJ takes integer key, integer missionKey, hashtable table returns defeatcondition
-		return LoadDefeatConditionHandle(table, missionKey, key);//return LoadDefeatConditionHandle(table, missionKey, key)
-	}//endfunction
-	//
-	private timerdialog LoadTimerDialogHandleBJ(int key, int missionKey, hashtable table) {//function LoadTimerDialogHandleBJ takes integer key, integer missionKey, hashtable table returns timerdialog
-		return LoadTimerDialogHandle(table, missionKey, key);//return LoadTimerDialogHandle(table, missionKey, key)
-	}//endfunction
-	//
-	private leaderboard LoadLeaderboardHandleBJ(int key, int missionKey, hashtable table) {//function LoadLeaderboardHandleBJ takes integer key, integer missionKey, hashtable table returns leaderboard
-		return LoadLeaderboardHandle(table, missionKey, key);//return LoadLeaderboardHandle(table, missionKey, key)
-	}//endfunction
-	//
-	private multiboard LoadMultiboardHandleBJ(int key, int missionKey, hashtable table) {//function LoadMultiboardHandleBJ takes integer key, integer missionKey, hashtable table returns multiboard
-		return LoadMultiboardHandle(table, missionKey, key);//return LoadMultiboardHandle(table, missionKey, key)
-	}//endfunction
-	//
-	private multiboarditem LoadMultiboardItemHandleBJ(int key, int missionKey, hashtable table) {//function LoadMultiboardItemHandleBJ takes integer key, integer missionKey, hashtable table returns multiboarditem
-		return LoadMultiboardItemHandle(table, missionKey, key);//return LoadMultiboardItemHandle(table, missionKey, key)
-	}//endfunction
-	//
-	private trackable LoadTrackableHandleBJ(int key, int missionKey, hashtable table) {//function LoadTrackableHandleBJ takes integer key, integer missionKey, hashtable table returns trackable
-		return LoadTrackableHandle(table, missionKey, key);//return LoadTrackableHandle(table, missionKey, key)
-	}//endfunction
-	//
-	private dialog LoadDialogHandleBJ(int key, int missionKey, hashtable table) {//function LoadDialogHandleBJ takes integer key, integer missionKey, hashtable table returns dialog
-		return LoadDialogHandle(table, missionKey, key);//return LoadDialogHandle(table, missionKey, key)
-	}//endfunction
-	//
-	private button LoadButtonHandleBJ(int key, int missionKey, hashtable table) {//function LoadButtonHandleBJ takes integer key, integer missionKey, hashtable table returns button
-		return LoadButtonHandle(table, missionKey, key);//return LoadButtonHandle(table, missionKey, key)
-	}//endfunction
-	//
-	private texttag LoadTextTagHandleBJ(int key, int missionKey, hashtable table) {//function LoadTextTagHandleBJ takes integer key, integer missionKey, hashtable table returns texttag
-		return LoadTextTagHandle(table, missionKey, key);//return LoadTextTagHandle(table, missionKey, key)
-	}//endfunction
-	//
-	private lightning LoadLightningHandleBJ(int key, int missionKey, hashtable table) {//function LoadLightningHandleBJ takes integer key, integer missionKey, hashtable table returns lightning
-		return LoadLightningHandle(table, missionKey, key);//return LoadLightningHandle(table, missionKey, key)
-	}//endfunction
-	//
-	private image LoadImageHandleBJ(int key, int missionKey, hashtable table) {//function LoadImageHandleBJ takes integer key, integer missionKey, hashtable table returns image
-		return LoadImageHandle(table, missionKey, key);//return LoadImageHandle(table, missionKey, key)
-	}//endfunction
-	//
-	private ubersplat LoadUbersplatHandleBJ(int key, int missionKey, hashtable table) {//function LoadUbersplatHandleBJ takes integer key, integer missionKey, hashtable table returns ubersplat
-		return LoadUbersplatHandle(table, missionKey, key);//return LoadUbersplatHandle(table, missionKey, key)
-	}//endfunction
-	//
-	private region LoadRegionHandleBJ(int key, int missionKey, hashtable table) {//function LoadRegionHandleBJ takes integer key, integer missionKey, hashtable table returns region
-		return LoadRegionHandle(table, missionKey, key);//return LoadRegionHandle(table, missionKey, key)
-	}//endfunction
-	//
-	private fogstate LoadFogStateHandleBJ(int key, int missionKey, hashtable table) {//function LoadFogStateHandleBJ takes integer key, integer missionKey, hashtable table returns fogstate
-		return LoadFogStateHandle(table, missionKey, key);//return LoadFogStateHandle(table, missionKey, key)
-	}//endfunction
-	//
-	private fogmodifier LoadFogModifierHandleBJ(int key, int missionKey, hashtable table) {//function LoadFogModifierHandleBJ takes integer key, integer missionKey, hashtable table returns fogmodifier
-		return LoadFogModifierHandle(table, missionKey, key);//return LoadFogModifierHandle(table, missionKey, key)
-	}//endfunction
-	//
-	private hashtable LoadHashtableHandleBJ(int key, int missionKey, hashtable table) {//function LoadHashtableHandleBJ takes integer key, integer missionKey, hashtable table returns hashtable
-		return LoadHashtableHandle(table, missionKey, key);//return LoadHashtableHandle(table, missionKey, key)
-	}//endfunction
-	//
-	private int RestoreUnitLocFacingAngleBJ(string key, string missionKey, gamecache cache, player forWhichPlayer, location loc, real facing) {//function RestoreUnitLocFacingAngleBJ takes string key, string missionKey, gamecache cache, player forWhichPlayer, location loc, real facing returns unit
-		//
-		bj_lastLoadedUnit = RestoreUnit(cache, missionKey, key, forWhichPlayer, GetLocationX(loc), GetLocationY(loc), facing);//set bj_lastLoadedUnit = RestoreUnit(cache, missionKey, key, forWhichPlayer, GetLocationX(loc), GetLocationY(loc), facing)
-		return bj_lastLoadedUnit;//return bj_lastLoadedUnit
-	}//endfunction
-	//
-	private int RestoreUnitLocFacingPointBJ(string key, string missionKey, gamecache cache, player forWhichPlayer, location loc, location lookAt) {//function RestoreUnitLocFacingPointBJ takes string key, string missionKey, gamecache cache, player forWhichPlayer, location loc, location lookAt returns unit
-		//
-		return RestoreUnitLocFacingAngleBJ(key, missionKey, cache, forWhichPlayer, loc, AngleBetweenPoints(loc, lookAt));//return RestoreUnitLocFacingAngleBJ(key, missionKey, cache, forWhichPlayer, loc, AngleBetweenPoints(loc, lookAt))
-	}//endfunction
-	//
-	private int GetLastRestoredUnitBJ() {//function GetLastRestoredUnitBJ takes nothing returns unit
-		return bj_lastLoadedUnit;//return bj_lastLoadedUnit
-	}//endfunction
-	//
-	private void FlushGameCacheBJ() {//function FlushGameCacheBJ takes gamecache cache returns nothing
-		FlushGameCache(cache);//call FlushGameCache(cache)
-	}//endfunction
-	//
-	private void FlushStoredMissionBJ(string missionKey, gamecache cache) {//function FlushStoredMissionBJ takes string missionKey, gamecache cache returns nothing
-		FlushStoredMission(cache, missionKey);//call FlushStoredMission(cache, missionKey)
-	}//endfunction
-	//
-	private void FlushParentHashtableBJ() {//function FlushParentHashtableBJ takes hashtable table returns nothing
-		FlushParentHashtable(table);//call FlushParentHashtable(table)
-	}//endfunction
-	//
-	private void FlushChildHashtableBJ(int missionKey, hashtable table) {//function FlushChildHashtableBJ takes integer missionKey, hashtable table returns nothing
-		FlushChildHashtable(table, missionKey);//call FlushChildHashtable(table, missionKey)
-	}//endfunction
-	//
-	private bool HaveStoredValue(string key, int valueType, string missionKey, gamecache cache) {//function HaveStoredValue takes string key, integer valueType, string missionKey, gamecache cache returns boolean
-		if ((valueType == bj_GAMECACHE_BOOLEAN)) {//if (valueType == bj_GAMECACHE_BOOLEAN) then
-			return HaveStoredBoolean(cache, missionKey, key);//return HaveStoredBoolean(cache, missionKey, key)
-		} else if ((valueType == bj_GAMECACHE_INTEGER)) {//elseif (valueType == bj_GAMECACHE_INTEGER) then
-			return HaveStoredInteger(cache, missionKey, key);//return HaveStoredInteger(cache, missionKey, key)
-		} else if ((valueType == bj_GAMECACHE_REAL)) {//elseif (valueType == bj_GAMECACHE_REAL) then
-			return HaveStoredReal(cache, missionKey, key);//return HaveStoredReal(cache, missionKey, key)
-		} else if ((valueType == bj_GAMECACHE_UNIT)) {//elseif (valueType == bj_GAMECACHE_UNIT) then
-			return HaveStoredUnit(cache, missionKey, key);//return HaveStoredUnit(cache, missionKey, key)
-		} else if ((valueType == bj_GAMECACHE_STRING)) {//elseif (valueType == bj_GAMECACHE_STRING) then
-			return HaveStoredString(cache, missionKey, key);//return HaveStoredString(cache, missionKey, key)
-		} else {//else
-			//
-			return false;//return false
-		}//endif
-	}//endfunction
-	//
-	private bool HaveSavedValue(int key, int valueType, int missionKey, hashtable table) {//function HaveSavedValue takes integer key, integer valueType, integer missionKey, hashtable table returns boolean
-		if ((valueType == bj_HASHTABLE_BOOLEAN)) {//if (valueType == bj_HASHTABLE_BOOLEAN) then
-			return HaveSavedBoolean(table, missionKey, key);//return HaveSavedBoolean(table, missionKey, key)
-		} else if ((valueType == bj_HASHTABLE_INTEGER)) {//elseif (valueType == bj_HASHTABLE_INTEGER) then
-			return HaveSavedInteger(table, missionKey, key);//return HaveSavedInteger(table, missionKey, key)
-		} else if ((valueType == bj_HASHTABLE_REAL)) {//elseif (valueType == bj_HASHTABLE_REAL) then
-			return HaveSavedReal(table, missionKey, key);//return HaveSavedReal(table, missionKey, key)
-		} else if ((valueType == bj_HASHTABLE_STRING)) {//elseif (valueType == bj_HASHTABLE_STRING) then
-			return HaveSavedString(table, missionKey, key);//return HaveSavedString(table, missionKey, key)
-		} else if ((valueType == bj_HASHTABLE_HANDLE)) {//elseif (valueType == bj_HASHTABLE_HANDLE) then
-			return HaveSavedHandle(table, missionKey, key);//return HaveSavedHandle(table, missionKey, key)
-		} else {//else
-			//
-			return false;//return false
-		}//endif
-	}//endfunction
-	//
-	private void ShowCustomCampaignButton(bool show, int whichButton) {//function ShowCustomCampaignButton takes boolean show, integer whichButton returns nothing
-		SetCustomCampaignButtonVisible(whichButton - 1, show);//call SetCustomCampaignButtonVisible(whichButton - 1, show)
-	}//endfunction
-	//
-	private bool IsCustomCampaignButtonVisibile() {//function IsCustomCampaignButtonVisibile takes integer whichButton returns boolean
-		return GetCustomCampaignButtonVisible(whichButton - 1);//return GetCustomCampaignButtonVisible(whichButton - 1)
-	}//endfunction
-	//
-	private void LoadGameBJ(string loadFileName, bool doScoreScreen) {//function LoadGameBJ takes string loadFileName, boolean doScoreScreen returns nothing
-		LoadGame(loadFileName, doScoreScreen);//call LoadGame(loadFileName, doScoreScreen)
-	}//endfunction
-	//
-	private void SaveAndChangeLevelBJ(string saveFileName, string newLevel, bool doScoreScreen) {//function SaveAndChangeLevelBJ takes string saveFileName, string newLevel, boolean doScoreScreen returns nothing
-		SaveGame(saveFileName);//call SaveGame(saveFileName)
-		ChangeLevel(newLevel, doScoreScreen);//call ChangeLevel(newLevel, doScoreScreen)
-	}//endfunction
-	//
-	private void SaveAndLoadGameBJ(string saveFileName, string loadFileName, bool doScoreScreen) {//function SaveAndLoadGameBJ takes string saveFileName, string loadFileName, boolean doScoreScreen returns nothing
-		SaveGame(saveFileName);//call SaveGame(saveFileName)
-		LoadGame(loadFileName, doScoreScreen);//call LoadGame(loadFileName, doScoreScreen)
-	}//endfunction
-	//
-	private bool RenameSaveDirectoryBJ(string sourceDirName, string destDirName) {//function RenameSaveDirectoryBJ takes string sourceDirName, string destDirName returns boolean
-		return RenameSaveDirectory(sourceDirName, destDirName);//return RenameSaveDirectory(sourceDirName, destDirName)
-	}//endfunction
-	//
-	private bool RemoveSaveDirectoryBJ() {//function RemoveSaveDirectoryBJ takes string sourceDirName returns boolean
-		return RemoveSaveDirectory(sourceDirName);//return RemoveSaveDirectory(sourceDirName)
-	}//endfunction
-	//
-	private bool CopySaveGameBJ(string sourceSaveName, string destSaveName) {//function CopySaveGameBJ takes string sourceSaveName, string destSaveName returns boolean
-		return CopySaveGame(sourceSaveName, destSaveName);//return CopySaveGame(sourceSaveName, destSaveName)
-	}//endfunction
-	//
-	//
-	//
-	//
-	//
-	//
-	private real GetPlayerStartLocationX() {//function GetPlayerStartLocationX takes player whichPlayer returns real
-		return GetStartLocationX(GetPlayerStartLocation(whichPlayer));//return GetStartLocationX(GetPlayerStartLocation(whichPlayer))
-	}//endfunction
-	//
-	private real GetPlayerStartLocationY() {//function GetPlayerStartLocationY takes player whichPlayer returns real
-		return GetStartLocationY(GetPlayerStartLocation(whichPlayer));//return GetStartLocationY(GetPlayerStartLocation(whichPlayer))
-	}//endfunction
-	//
-	private location GetPlayerStartLocationLoc() {//function GetPlayerStartLocationLoc takes player whichPlayer returns location
-		return GetStartLocationLoc(GetPlayerStartLocation(whichPlayer));//return GetStartLocationLoc(GetPlayerStartLocation(whichPlayer))
-	}//endfunction
-	//
-	private location GetRectCenter() {//function GetRectCenter takes rect whichRect returns location
-		return Location(GetRectCenterX(whichRect), GetRectCenterY(whichRect));//return Location(GetRectCenterX(whichRect), GetRectCenterY(whichRect))
-	}//endfunction
-	//
-	private bool IsPlayerSlotState(player whichPlayer, playerslotstate whichState) {//function IsPlayerSlotState takes player whichPlayer, playerslotstate whichState returns boolean
-		return GetPlayerSlotState(whichPlayer) == whichState;//return GetPlayerSlotState(whichPlayer) == whichState
-	}//endfunction
-	//
-	private int GetFadeFromSeconds() {//function GetFadeFromSeconds takes real seconds returns integer
-		if ((seconds != 0)) {//if (seconds != 0) then
-			return 128 / R2I(seconds);//return 128 / R2I(seconds)
-		}//endif
-		return 10000;//return 10000
-	}//endfunction
-	//
-	private real GetFadeFromSecondsAsReal() {//function GetFadeFromSecondsAsReal takes real seconds returns real
-		if ((seconds != 0)) {//if (seconds != 0) then
-			return 128.00 / seconds;//return 128.00 / seconds
-		}//endif
-		return 10000.00;//return 10000.00
-	}//endfunction
-	//
-	private void AdjustPlayerStateSimpleBJ(player whichPlayer, playerstate whichPlayerState, int delta) {//function AdjustPlayerStateSimpleBJ takes player whichPlayer, playerstate whichPlayerState, integer delta returns nothing
-		SetPlayerState(whichPlayer, whichPlayerState, GetPlayerState(whichPlayer, whichPlayerState) + delta);//call SetPlayerState(whichPlayer, whichPlayerState, GetPlayerState(whichPlayer, whichPlayerState) + delta)
-	}//endfunction
-	//
-	private void AdjustPlayerStateBJ(int delta, player whichPlayer, playerstate whichPlayerState) {//function AdjustPlayerStateBJ takes integer delta, player whichPlayer, playerstate whichPlayerState returns nothing
-		//
-		//
-		if ((delta > 0)) {//if (delta > 0) then
-			if ((whichPlayerState == PLAYER_STATE_RESOURCE_GOLD)) {//if (whichPlayerState == PLAYER_STATE_RESOURCE_GOLD) then
-				AdjustPlayerStateSimpleBJ(whichPlayer, PLAYER_STATE_GOLD_GATHERED, delta);//call AdjustPlayerStateSimpleBJ(whichPlayer, PLAYER_STATE_GOLD_GATHERED, delta)
-			} else if ((whichPlayerState == PLAYER_STATE_RESOURCE_LUMBER)) {//elseif (whichPlayerState == PLAYER_STATE_RESOURCE_LUMBER) then
-				AdjustPlayerStateSimpleBJ(whichPlayer, PLAYER_STATE_LUMBER_GATHERED, delta);//call AdjustPlayerStateSimpleBJ(whichPlayer, PLAYER_STATE_LUMBER_GATHERED, delta)
-			}//endif
-		}//endif
-		AdjustPlayerStateSimpleBJ(whichPlayer, whichPlayerState, delta);//call AdjustPlayerStateSimpleBJ(whichPlayer, whichPlayerState, delta)
-	}//endfunction
-	//
-	private void SetPlayerStateBJ(player whichPlayer, playerstate whichPlayerState, int value) {//function SetPlayerStateBJ takes player whichPlayer, playerstate whichPlayerState, integer value returns nothing
-		int oldValue = GetPlayerState(whichPlayer, whichPlayerState);//local integer oldValue = GetPlayerState(whichPlayer, whichPlayerState)
-		AdjustPlayerStateBJ(value - oldValue, whichPlayer, whichPlayerState);//call AdjustPlayerStateBJ(value - oldValue, whichPlayer, whichPlayerState)
-	}//endfunction
-	//
-	private void SetPlayerFlagBJ(playerstate whichPlayerFlag, bool flag, player whichPlayer) {//function SetPlayerFlagBJ takes playerstate whichPlayerFlag, boolean flag, player whichPlayer returns nothing
-		SetPlayerState(whichPlayer, whichPlayerFlag, IntegerTertiaryOp(flag, 1, 0));//call SetPlayerState(whichPlayer, whichPlayerFlag, IntegerTertiaryOp(flag, 1, 0))
-	}//endfunction
-	//
-	private void SetPlayerTaxRateBJ(int rate, playerstate whichResource, player sourcePlayer, player otherPlayer) {//function SetPlayerTaxRateBJ takes integer rate, playerstate whichResource, player sourcePlayer, player otherPlayer returns nothing
-		SetPlayerTaxRate(sourcePlayer, otherPlayer, whichResource, rate);//call SetPlayerTaxRate(sourcePlayer, otherPlayer, whichResource, rate)
-	}//endfunction
-	//
-	private int GetPlayerTaxRateBJ(playerstate whichResource, player sourcePlayer, player otherPlayer) {//function GetPlayerTaxRateBJ takes playerstate whichResource, player sourcePlayer, player otherPlayer returns integer
-		return GetPlayerTaxRate(sourcePlayer, otherPlayer, whichResource);//return GetPlayerTaxRate(sourcePlayer, otherPlayer, whichResource)
-	}//endfunction
-	//
-	private bool IsPlayerFlagSetBJ(playerstate whichPlayerFlag, player whichPlayer) {//function IsPlayerFlagSetBJ takes playerstate whichPlayerFlag, player whichPlayer returns boolean
-		return GetPlayerState(whichPlayer, whichPlayerFlag) == 1;//return GetPlayerState(whichPlayer, whichPlayerFlag) == 1
-	}//endfunction
-	//
-	private void AddResourceAmountBJ(int delta, int whichUnit) {//function AddResourceAmountBJ takes integer delta, unit whichUnit returns nothing
-		AddResourceAmount(whichUnit, delta);//call AddResourceAmount(whichUnit, delta)
-	}//endfunction
-	//
-	private int GetConvertedPlayerId() {//function GetConvertedPlayerId takes player whichPlayer returns integer
-		return GetPlayerId(whichPlayer) + 1;//return GetPlayerId(whichPlayer) + 1
-	}//endfunction
-	//
-	private player ConvertedPlayer() {//function ConvertedPlayer takes integer convertedPlayerId returns player
-		return Player(convertedPlayerId - 1);//return Player(convertedPlayerId - 1)
-	}//endfunction
-	//
-	private real GetRectWidthBJ() {//function GetRectWidthBJ takes rect r returns real
-		return GetRectMaxX(r) - GetRectMinX(r);//return GetRectMaxX(r) - GetRectMinX(r)
-	}//endfunction
-	//
-	private real GetRectHeightBJ() {//function GetRectHeightBJ takes rect r returns real
-		return GetRectMaxY(r) - GetRectMinY(r);//return GetRectMaxY(r) - GetRectMinY(r)
-	}//endfunction
-	//
-	//
-	//
-	private int BlightGoldMineForPlayerBJ(int goldMine, player whichPlayer) {//function BlightGoldMineForPlayerBJ takes unit goldMine, player whichPlayer returns unit
-		real mineX;//local real    mineX
-		real mineY;//local real    mineY
-		int mineGold;//local integer mineGold
-		int newMine;//local unit    newMine
-		//
-		if (GetUnitTypeId(goldMine) != 'ngol') {//if GetUnitTypeId(goldMine) != 'ngol' then
-			return null;//return null
-		}//endif
-		//
-		mineX = GetUnitX(goldMine);//set mineX    = GetUnitX(goldMine)
-		mineY = GetUnitY(goldMine);//set mineY    = GetUnitY(goldMine)
-		mineGold = GetResourceAmount(goldMine);//set mineGold = GetResourceAmount(goldMine)
-		RemoveUnit(goldMine);//call RemoveUnit(goldMine)
-		//
-		newMine = CreateBlightedGoldmine(whichPlayer, mineX, mineY, bj_UNIT_FACING);//set newMine = CreateBlightedGoldmine(whichPlayer, mineX, mineY, bj_UNIT_FACING)
-		SetResourceAmount(newMine, mineGold);//call SetResourceAmount(newMine, mineGold)
-		return newMine;//return newMine
-	}//endfunction
-	//
-	private int BlightGoldMineForPlayer(int goldMine, player whichPlayer) {//function BlightGoldMineForPlayer takes unit goldMine, player whichPlayer returns unit
-		bj_lastHauntedGoldMine = BlightGoldMineForPlayerBJ(goldMine, whichPlayer);//set bj_lastHauntedGoldMine = BlightGoldMineForPlayerBJ(goldMine, whichPlayer)
-		return bj_lastHauntedGoldMine;//return bj_lastHauntedGoldMine
-	}//endfunction
-	//
-	private int GetLastHauntedGoldMine() {//function GetLastHauntedGoldMine takes nothing returns unit
-		return bj_lastHauntedGoldMine;//return bj_lastHauntedGoldMine
-	}//endfunction
-	//
-	private bool IsPointBlightedBJ() {//function IsPointBlightedBJ takes location where returns boolean
-		return IsPointBlighted(GetLocationX(where), GetLocationY(where));//return IsPointBlighted(GetLocationX(where), GetLocationY(where))
-	}//endfunction
-	//
-	private void SetPlayerColorBJEnum() {//function SetPlayerColorBJEnum takes nothing returns nothing
-		SetUnitColor(GetEnumUnit(), bj_setPlayerTargetColor);//call SetUnitColor(GetEnumUnit(), bj_setPlayerTargetColor)
-	}//endfunction
-	//
-	private void SetPlayerColorBJ(player whichPlayer, playercolor color, bool changeExisting) {//function SetPlayerColorBJ takes player whichPlayer, playercolor color, boolean changeExisting returns nothing
-		group g;//local group g
-		SetPlayerColor(whichPlayer, color);//call SetPlayerColor(whichPlayer, color)
-		if (changeExisting) {//if changeExisting then
-			bj_setPlayerTargetColor = color;//set bj_setPlayerTargetColor = color
-			g = CreateGroup();//set g = CreateGroup()
-			GroupEnumUnitsOfPlayer(g, whichPlayer, null);//call GroupEnumUnitsOfPlayer(g, whichPlayer, null)
-			ForGroup(g, function SetPlayerColorBJEnum);//call ForGroup(g, function SetPlayerColorBJEnum)
-			DestroyGroup(g);//call DestroyGroup(g)
-		}//endif
-	}//endfunction
-	//
-	private void SetPlayerUnitAvailableBJ(int unitId, bool allowed, player whichPlayer) {//function SetPlayerUnitAvailableBJ takes integer unitId, boolean allowed, player whichPlayer returns nothing
-		if (allowed) {//if allowed then
-			SetPlayerTechMaxAllowed(whichPlayer, unitId, -1);//call SetPlayerTechMaxAllowed(whichPlayer, unitId, -1)
-		} else {//else
-			SetPlayerTechMaxAllowed(whichPlayer, unitId, 0);//call SetPlayerTechMaxAllowed(whichPlayer, unitId, 0)
-		}//endif
-	}//endfunction
-	//
-	private void LockGameSpeedBJ() {//function LockGameSpeedBJ takes nothing returns nothing
-		SetMapFlag(MAP_LOCK_SPEED, true);//call SetMapFlag(MAP_LOCK_SPEED, true)
-	}//endfunction
-	//
-	private void UnlockGameSpeedBJ() {//function UnlockGameSpeedBJ takes nothing returns nothing
-		SetMapFlag(MAP_LOCK_SPEED, false);//call SetMapFlag(MAP_LOCK_SPEED, false)
-	}//endfunction
-	//
-	private bool IssueTargetOrderBJ(int whichUnit, string order, widget targetWidget) {//function IssueTargetOrderBJ takes unit whichUnit, string order, widget targetWidget returns boolean
-		return IssueTargetOrder( whichUnit, order, targetWidget );//return IssueTargetOrder( whichUnit, order, targetWidget )
-	}//endfunction
-	//
-	private bool IssuePointOrderLocBJ(int whichUnit, string order, location whichLocation) {//function IssuePointOrderLocBJ takes unit whichUnit, string order, location whichLocation returns boolean
-		return IssuePointOrderLoc( whichUnit, order, whichLocation );//return IssuePointOrderLoc( whichUnit, order, whichLocation )
-	}//endfunction
-	//
-	//
-	//
-	//
-	private bool IssueTargetDestructableOrder(int whichUnit, string order, widget targetWidget) {//function IssueTargetDestructableOrder takes unit whichUnit, string order, widget targetWidget returns boolean
-		return IssueTargetOrder( whichUnit, order, targetWidget );//return IssueTargetOrder( whichUnit, order, targetWidget )
-	}//endfunction
-	private bool IssueTargetItemOrder(int whichUnit, string order, widget targetWidget) {//function IssueTargetItemOrder takes unit whichUnit, string order, widget targetWidget returns boolean
-		return IssueTargetOrder( whichUnit, order, targetWidget );//return IssueTargetOrder( whichUnit, order, targetWidget )
-	}//endfunction
-	//
-	private bool IssueImmediateOrderBJ(int whichUnit, string order) {//function IssueImmediateOrderBJ takes unit whichUnit, string order returns boolean
-		return IssueImmediateOrder( whichUnit, order );//return IssueImmediateOrder( whichUnit, order )
-	}//endfunction
-	//
-	private bool GroupTargetOrderBJ(group whichGroup, string order, widget targetWidget) {//function GroupTargetOrderBJ takes group whichGroup, string order, widget targetWidget returns boolean
-		return GroupTargetOrder( whichGroup, order, targetWidget );//return GroupTargetOrder( whichGroup, order, targetWidget )
-	}//endfunction
-	//
-	private bool GroupPointOrderLocBJ(group whichGroup, string order, location whichLocation) {//function GroupPointOrderLocBJ takes group whichGroup, string order, location whichLocation returns boolean
-		return GroupPointOrderLoc( whichGroup, order, whichLocation );//return GroupPointOrderLoc( whichGroup, order, whichLocation )
-	}//endfunction
-	//
-	private bool GroupImmediateOrderBJ(group whichGroup, string order) {//function GroupImmediateOrderBJ takes group whichGroup, string order returns boolean
-		return GroupImmediateOrder( whichGroup, order );//return GroupImmediateOrder( whichGroup, order )
-	}//endfunction
-	//
-	//
-	//
-	//
-	private bool GroupTargetDestructableOrder(group whichGroup, string order, widget targetWidget) {//function GroupTargetDestructableOrder takes group whichGroup, string order, widget targetWidget returns boolean
-		return GroupTargetOrder( whichGroup, order, targetWidget );//return GroupTargetOrder( whichGroup, order, targetWidget )
-	}//endfunction
-	private bool GroupTargetItemOrder(group whichGroup, string order, widget targetWidget) {//function GroupTargetItemOrder takes group whichGroup, string order, widget targetWidget returns boolean
-		return GroupTargetOrder( whichGroup, order, targetWidget );//return GroupTargetOrder( whichGroup, order, targetWidget )
-	}//endfunction
-	//
-	private destructable GetDyingDestructable() {//function GetDyingDestructable takes nothing returns destructable
-		return GetTriggerDestructable();//return GetTriggerDestructable()
-	}//endfunction
-	//
-	//
-	//
-	private void SetUnitRallyPoint(int whichUnit, location targPos) {//function SetUnitRallyPoint takes unit whichUnit, location targPos returns nothing
-		IssuePointOrderLocBJ(whichUnit, "setrally", targPos);//call IssuePointOrderLocBJ(whichUnit, "setrally", targPos)
-	}//endfunction
-	//
-	private void SetUnitRallyUnit(int whichUnit, int targUnit) {//function SetUnitRallyUnit takes unit whichUnit, unit targUnit returns nothing
-		IssueTargetOrder(whichUnit, "setrally", targUnit);//call IssueTargetOrder(whichUnit, "setrally", targUnit)
-	}//endfunction
-	//
-	private void SetUnitRallyDestructable(int whichUnit, destructable targDest) {//function SetUnitRallyDestructable takes unit whichUnit, destructable targDest returns nothing
-		IssueTargetOrder(whichUnit, "setrally", targDest);//call IssueTargetOrder(whichUnit, "setrally", targDest)
-	}//endfunction
-	//
-	//
-	//
-	//
-	//
-	private void SaveDyingWidget() {//function SaveDyingWidget takes nothing returns nothing
-		bj_lastDyingWidget = GetTriggerWidget();//set bj_lastDyingWidget = GetTriggerWidget()
-	}//endfunction
-	//
-	private void SetBlightRectBJ(bool addBlight, player whichPlayer, rect r) {//function SetBlightRectBJ takes boolean addBlight, player whichPlayer, rect r returns nothing
-		SetBlightRect(whichPlayer, r, addBlight);//call SetBlightRect(whichPlayer, r, addBlight)
-	}//endfunction
-	//
-	private void SetBlightRadiusLocBJ(bool addBlight, player whichPlayer, location loc, real radius) {//function SetBlightRadiusLocBJ takes boolean addBlight, player whichPlayer, location loc, real radius returns nothing
-		SetBlightLoc(whichPlayer, loc, radius, addBlight);//call SetBlightLoc(whichPlayer, loc, radius, addBlight)
-	}//endfunction
-	//
-	private string GetAbilityName() {//function GetAbilityName takes integer abilcode returns string
-		return GetObjectName(abilcode);//return GetObjectName(abilcode)
-	}//endfunction
-	//
-	//
-	//
-	//
-	//
-	//
-	private void MeleeStartingVisibility() {//function MeleeStartingVisibility takes nothing returns nothing
-		//
-		SetFloatGameState(GAME_STATE_TIME_OF_DAY, bj_MELEE_STARTING_TOD);//call SetFloatGameState(GAME_STATE_TIME_OF_DAY, bj_MELEE_STARTING_TOD)
-		//
-		//
-	}//endfunction
-	//
-	//
-	//
-	//
-	//
-	//
-	private void MeleeStartingResources() {//function MeleeStartingResources takes nothing returns nothing
-		int index;//local integer index
-		player indexPlayer;//local player  indexPlayer
-		version v;//local version v
-		int startingGold;//local integer startingGold
-		int startingLumber;//local integer startingLumber
-		v = VersionGet();//set v = VersionGet()
-		if ((v == VERSION_REIGN_OF_CHAOS)) {//if (v == VERSION_REIGN_OF_CHAOS) then
-			startingGold = bj_MELEE_STARTING_GOLD_V0;//set startingGold = bj_MELEE_STARTING_GOLD_V0
-			startingLumber = bj_MELEE_STARTING_LUMBER_V0;//set startingLumber = bj_MELEE_STARTING_LUMBER_V0
-		} else {//else
-			startingGold = bj_MELEE_STARTING_GOLD_V1;//set startingGold = bj_MELEE_STARTING_GOLD_V1
-			startingLumber = bj_MELEE_STARTING_LUMBER_V1;//set startingLumber = bj_MELEE_STARTING_LUMBER_V1
-		}//endif
-		//
-		index = 0;//set index = 0
-		while (true) {//loop
-			indexPlayer = Player(index);//set indexPlayer = Player(index)
-			if ((GetPlayerSlotState(indexPlayer) == PLAYER_SLOT_STATE_PLAYING)) {//if (GetPlayerSlotState(indexPlayer) == PLAYER_SLOT_STATE_PLAYING) then
-				SetPlayerState(indexPlayer, PLAYER_STATE_RESOURCE_GOLD, startingGold);//call SetPlayerState(indexPlayer, PLAYER_STATE_RESOURCE_GOLD, startingGold)
-				SetPlayerState(indexPlayer, PLAYER_STATE_RESOURCE_LUMBER, startingLumber);//call SetPlayerState(indexPlayer, PLAYER_STATE_RESOURCE_LUMBER, startingLumber)
-			}//endif
-			index = index + 1;//set index = index + 1
-			if (index == bj_MAX_PLAYERS) { break; }//exitwhen index == bj_MAX_PLAYERS
-		}//endloop
-	}//endfunction
-	//
-	//
-	//
-	//
-	//
-	//
-	private void ReducePlayerTechMaxAllowed(player whichPlayer, int techId, int limit) {//function ReducePlayerTechMaxAllowed takes player whichPlayer, integer techId, integer limit returns nothing
-		int oldMax = GetPlayerTechMaxAllowed(whichPlayer, techId);//local integer oldMax = GetPlayerTechMaxAllowed(whichPlayer, techId)
-		//
-		if ((oldMax < 0 || oldMax > limit)) {//if (oldMax < 0 or oldMax > limit) then
-			SetPlayerTechMaxAllowed(whichPlayer, techId, limit);//call SetPlayerTechMaxAllowed(whichPlayer, techId, limit)
-		}//endif
-	}//endfunction
-	//
-	private void MeleeStartingHeroLimit() {//function MeleeStartingHeroLimit takes nothing returns nothing
-		int index;//local integer index
-		index = 0;//set index = 0
-		while (true) {//loop
-			//
-			SetPlayerMaxHeroesAllowed(bj_MELEE_HERO_LIMIT, Player(index));//call SetPlayerMaxHeroesAllowed(bj_MELEE_HERO_LIMIT, Player(index))
-			//
-			ReducePlayerTechMaxAllowed(Player(index), 'Hamg', bj_MELEE_HERO_TYPE_LIMIT);//call ReducePlayerTechMaxAllowed(Player(index), 'Hamg', bj_MELEE_HERO_TYPE_LIMIT)
-			ReducePlayerTechMaxAllowed(Player(index), 'Hmkg', bj_MELEE_HERO_TYPE_LIMIT);//call ReducePlayerTechMaxAllowed(Player(index), 'Hmkg', bj_MELEE_HERO_TYPE_LIMIT)
-			ReducePlayerTechMaxAllowed(Player(index), 'Hpal', bj_MELEE_HERO_TYPE_LIMIT);//call ReducePlayerTechMaxAllowed(Player(index), 'Hpal', bj_MELEE_HERO_TYPE_LIMIT)
-			ReducePlayerTechMaxAllowed(Player(index), 'Hblm', bj_MELEE_HERO_TYPE_LIMIT);//call ReducePlayerTechMaxAllowed(Player(index), 'Hblm', bj_MELEE_HERO_TYPE_LIMIT)
-			ReducePlayerTechMaxAllowed(Player(index), 'Obla', bj_MELEE_HERO_TYPE_LIMIT);//call ReducePlayerTechMaxAllowed(Player(index), 'Obla', bj_MELEE_HERO_TYPE_LIMIT)
-			ReducePlayerTechMaxAllowed(Player(index), 'Ofar', bj_MELEE_HERO_TYPE_LIMIT);//call ReducePlayerTechMaxAllowed(Player(index), 'Ofar', bj_MELEE_HERO_TYPE_LIMIT)
-			ReducePlayerTechMaxAllowed(Player(index), 'Otch', bj_MELEE_HERO_TYPE_LIMIT);//call ReducePlayerTechMaxAllowed(Player(index), 'Otch', bj_MELEE_HERO_TYPE_LIMIT)
-			ReducePlayerTechMaxAllowed(Player(index), 'Oshd', bj_MELEE_HERO_TYPE_LIMIT);//call ReducePlayerTechMaxAllowed(Player(index), 'Oshd', bj_MELEE_HERO_TYPE_LIMIT)
-			ReducePlayerTechMaxAllowed(Player(index), 'Edem', bj_MELEE_HERO_TYPE_LIMIT);//call ReducePlayerTechMaxAllowed(Player(index), 'Edem', bj_MELEE_HERO_TYPE_LIMIT)
-			ReducePlayerTechMaxAllowed(Player(index), 'Ekee', bj_MELEE_HERO_TYPE_LIMIT);//call ReducePlayerTechMaxAllowed(Player(index), 'Ekee', bj_MELEE_HERO_TYPE_LIMIT)
-			ReducePlayerTechMaxAllowed(Player(index), 'Emoo', bj_MELEE_HERO_TYPE_LIMIT);//call ReducePlayerTechMaxAllowed(Player(index), 'Emoo', bj_MELEE_HERO_TYPE_LIMIT)
-			ReducePlayerTechMaxAllowed(Player(index), 'Ewar', bj_MELEE_HERO_TYPE_LIMIT);//call ReducePlayerTechMaxAllowed(Player(index), 'Ewar', bj_MELEE_HERO_TYPE_LIMIT)
-			ReducePlayerTechMaxAllowed(Player(index), 'Udea', bj_MELEE_HERO_TYPE_LIMIT);//call ReducePlayerTechMaxAllowed(Player(index), 'Udea', bj_MELEE_HERO_TYPE_LIMIT)
-			ReducePlayerTechMaxAllowed(Player(index), 'Udre', bj_MELEE_HERO_TYPE_LIMIT);//call ReducePlayerTechMaxAllowed(Player(index), 'Udre', bj_MELEE_HERO_TYPE_LIMIT)
-			ReducePlayerTechMaxAllowed(Player(index), 'Ulic', bj_MELEE_HERO_TYPE_LIMIT);//call ReducePlayerTechMaxAllowed(Player(index), 'Ulic', bj_MELEE_HERO_TYPE_LIMIT)
-			ReducePlayerTechMaxAllowed(Player(index), 'Ucrl', bj_MELEE_HERO_TYPE_LIMIT);//call ReducePlayerTechMaxAllowed(Player(index), 'Ucrl', bj_MELEE_HERO_TYPE_LIMIT)
-			ReducePlayerTechMaxAllowed(Player(index), 'Npbm', bj_MELEE_HERO_TYPE_LIMIT);//call ReducePlayerTechMaxAllowed(Player(index), 'Npbm', bj_MELEE_HERO_TYPE_LIMIT)
-			ReducePlayerTechMaxAllowed(Player(index), 'Nbrn', bj_MELEE_HERO_TYPE_LIMIT);//call ReducePlayerTechMaxAllowed(Player(index), 'Nbrn', bj_MELEE_HERO_TYPE_LIMIT)
-			ReducePlayerTechMaxAllowed(Player(index), 'Nngs', bj_MELEE_HERO_TYPE_LIMIT);//call ReducePlayerTechMaxAllowed(Player(index), 'Nngs', bj_MELEE_HERO_TYPE_LIMIT)
-			ReducePlayerTechMaxAllowed(Player(index), 'Nplh', bj_MELEE_HERO_TYPE_LIMIT);//call ReducePlayerTechMaxAllowed(Player(index), 'Nplh', bj_MELEE_HERO_TYPE_LIMIT)
-			ReducePlayerTechMaxAllowed(Player(index), 'Nbst', bj_MELEE_HERO_TYPE_LIMIT);//call ReducePlayerTechMaxAllowed(Player(index), 'Nbst', bj_MELEE_HERO_TYPE_LIMIT)
-			ReducePlayerTechMaxAllowed(Player(index), 'Nalc', bj_MELEE_HERO_TYPE_LIMIT);//call ReducePlayerTechMaxAllowed(Player(index), 'Nalc', bj_MELEE_HERO_TYPE_LIMIT)
-			ReducePlayerTechMaxAllowed(Player(index), 'Ntin', bj_MELEE_HERO_TYPE_LIMIT);//call ReducePlayerTechMaxAllowed(Player(index), 'Ntin', bj_MELEE_HERO_TYPE_LIMIT)
-			ReducePlayerTechMaxAllowed(Player(index), 'Nfir', bj_MELEE_HERO_TYPE_LIMIT);//call ReducePlayerTechMaxAllowed(Player(index), 'Nfir', bj_MELEE_HERO_TYPE_LIMIT)
-			index = index + 1;//set index = index + 1
-			if (index == bj_MAX_PLAYERS) { break; }//exitwhen index == bj_MAX_PLAYERS
-		}//endloop
-	}//endfunction
-	//
-	//
-	//
-	//
-	//
-	//
-	private bool MeleeTrainedUnitIsHeroBJFilter() {//function MeleeTrainedUnitIsHeroBJFilter takes nothing returns boolean
-		return IsUnitType(GetFilterUnit(), UNIT_TYPE_HERO);//return IsUnitType(GetFilterUnit(), UNIT_TYPE_HERO)
-	}//endfunction
-	//
-	//
-	//
-	//
-	//
-	private void MeleeGrantItemsToHero() {//function MeleeGrantItemsToHero takes unit whichUnit returns nothing
-		int owner = GetPlayerId(GetOwningPlayer(whichUnit));//local integer owner   = GetPlayerId(GetOwningPlayer(whichUnit))
-		//
-		if ((bj_meleeTwinkedHeroes[owner] < bj_MELEE_MAX_TWINKED_HEROES)) {//if (bj_meleeTwinkedHeroes[owner] < bj_MELEE_MAX_TWINKED_HEROES) then
-			UnitAddItemById(whichUnit, 'stwp');//call UnitAddItemById(whichUnit, 'stwp')
-			bj_meleeTwinkedHeroes[owner] = bj_meleeTwinkedHeroes[owner] + 1;//set bj_meleeTwinkedHeroes[owner] = bj_meleeTwinkedHeroes[owner] + 1
-		}//endif
-	}//endfunction
-	//
-	private void MeleeGrantItemsToTrainedHero() {//function MeleeGrantItemsToTrainedHero takes nothing returns nothing
-		MeleeGrantItemsToHero(GetTrainedUnit());//call MeleeGrantItemsToHero(GetTrainedUnit())
-	}//endfunction
-	//
-	private void MeleeGrantItemsToHiredHero() {//function MeleeGrantItemsToHiredHero takes nothing returns nothing
-		MeleeGrantItemsToHero(GetSoldUnit());//call MeleeGrantItemsToHero(GetSoldUnit())
-	}//endfunction
-	//
-	private void MeleeGrantHeroItems() {//function MeleeGrantHeroItems takes nothing returns nothing
-		int index;//local integer index
-		trigger trig;//local trigger trig
-		//
-		index = 0;//set index = 0
-		while (true) {//loop
-			bj_meleeTwinkedHeroes[index] = 0;//set bj_meleeTwinkedHeroes[index] = 0
-			index = index + 1;//set index = index + 1
-			if (index == bj_MAX_PLAYER_SLOTS) { break; }//exitwhen index == bj_MAX_PLAYER_SLOTS
-		}//endloop
-		//
-		//
-		index = 0;//set index = 0
-		while (true) {//loop
 			trig = CreateTrigger();//set trig = CreateTrigger()
-			TriggerRegisterPlayerUnitEvent(trig, Player(index), EVENT_PLAYER_UNIT_TRAIN_FINISH, filterMeleeTrainedUnitIsHeroBJ);//call TriggerRegisterPlayerUnitEvent(trig, Player(index), EVENT_PLAYER_UNIT_TRAIN_FINISH, filterMeleeTrainedUnitIsHeroBJ)
-			TriggerAddAction(trig, function MeleeGrantItemsToTrainedHero);//call TriggerAddAction(trig, function MeleeGrantItemsToTrainedHero)
-			index = index + 1;//set index = index + 1
-			if (index == bj_MAX_PLAYERS) { break; }//exitwhen index == bj_MAX_PLAYERS
-		}//endloop
+			TriggerRegisterPlayerUnitEvent(trig, Player(PLAYER_NEUTRAL_PASSIVE), EVENT_PLAYER_UNIT_SELL, filterMeleeTrainedUnitIsHeroBJ);//call TriggerRegisterPlayerUnitEvent(trig, Player(PLAYER_NEUTRAL_PASSIVE), EVENT_PLAYER_UNIT_SELL, filterMeleeTrainedUnitIsHeroBJ)
+			TriggerAddAction(trig, function MeleeGrantItemsToHiredHero);//call TriggerAddAction(trig, function MeleeGrantItemsToHiredHero)
+			//
+			//
+			bj_meleeGrantHeroItems = true;//set bj_meleeGrantHeroItems = true
+		}//endfunction
 		//
 		//
-		trig = CreateTrigger();//set trig = CreateTrigger()
-		TriggerRegisterPlayerUnitEvent(trig, Player(PLAYER_NEUTRAL_PASSIVE), EVENT_PLAYER_UNIT_SELL, filterMeleeTrainedUnitIsHeroBJ);//call TriggerRegisterPlayerUnitEvent(trig, Player(PLAYER_NEUTRAL_PASSIVE), EVENT_PLAYER_UNIT_SELL, filterMeleeTrainedUnitIsHeroBJ)
-		TriggerAddAction(trig, function MeleeGrantItemsToHiredHero);//call TriggerAddAction(trig, function MeleeGrantItemsToHiredHero)
 		//
 		//
-		bj_meleeGrantHeroItems = true;//set bj_meleeGrantHeroItems = true
-	}//endfunction
-	//
-	//
-	//
-	//
-	//
-	//
-	private void MeleeClearExcessUnit() {//function MeleeClearExcessUnit takes nothing returns nothing
-		int theUnit = GetEnumUnit();//local unit    theUnit = GetEnumUnit()
-		int owner = GetPlayerId(GetOwningPlayer(theUnit));//local integer owner   = GetPlayerId(GetOwningPlayer(theUnit))
-		if ((owner == PLAYER_NEUTRAL_AGGRESSIVE)) {//if (owner == PLAYER_NEUTRAL_AGGRESSIVE) then
-			//
-			RemoveUnit(GetEnumUnit());//call RemoveUnit(GetEnumUnit())
-		} else if ((owner == PLAYER_NEUTRAL_PASSIVE)) {//elseif (owner == PLAYER_NEUTRAL_PASSIVE) then
-			//
-			if (!IsUnitType(theUnit, UNIT_TYPE_STRUCTURE)) {//if not IsUnitType(theUnit, UNIT_TYPE_STRUCTURE) then
-				RemoveUnit(GetEnumUnit());//call RemoveUnit(GetEnumUnit())
-			}//endif
-		}//endif
-	}//endfunction
-	//
-	private void MeleeClearNearbyUnits(real x, real y, real range) {//function MeleeClearNearbyUnits takes real x, real y, real range returns nothing
-		group nearbyUnits;//local group nearbyUnits
-		nearbyUnits = CreateGroup();//set nearbyUnits = CreateGroup()
-		GroupEnumUnitsInRange(nearbyUnits, x, y, range, null);//call GroupEnumUnitsInRange(nearbyUnits, x, y, range, null)
-		ForGroup(nearbyUnits, function MeleeClearExcessUnit);//call ForGroup(nearbyUnits, function MeleeClearExcessUnit)
-		DestroyGroup(nearbyUnits);//call DestroyGroup(nearbyUnits)
-	}//endfunction
-	//
-	private void MeleeClearExcessUnits() {//function MeleeClearExcessUnits takes nothing returns nothing
-		int index;//local integer index
-		real locX;//local real    locX
-		real locY;//local real    locY
-		player indexPlayer;//local player  indexPlayer
-		index = 0;//set index = 0
-		while (true) {//loop
-			indexPlayer = Player(index);//set indexPlayer = Player(index)
-			//
-			if ((GetPlayerSlotState(indexPlayer) == PLAYER_SLOT_STATE_PLAYING)) {//if (GetPlayerSlotState(indexPlayer) == PLAYER_SLOT_STATE_PLAYING) then
-				locX = GetStartLocationX(GetPlayerStartLocation(indexPlayer));//set locX = GetStartLocationX(GetPlayerStartLocation(indexPlayer))
-				locY = GetStartLocationY(GetPlayerStartLocation(indexPlayer));//set locY = GetStartLocationY(GetPlayerStartLocation(indexPlayer))
-				MeleeClearNearbyUnits(locX, locY, bj_MELEE_CLEAR_UNITS_RADIUS);//call MeleeClearNearbyUnits(locX, locY, bj_MELEE_CLEAR_UNITS_RADIUS)
-			}//endif
-			index = index + 1;//set index = index + 1
-			if (index == bj_MAX_PLAYERS) { break; }//exitwhen index == bj_MAX_PLAYERS
-		}//endloop
-	}//endfunction
-	//
-	//
-	//
-	//
-	//
-	//
-	private void MeleeEnumFindNearestMine() {//function MeleeEnumFindNearestMine takes nothing returns nothing
-		int enumUnit = GetEnumUnit();//local unit enumUnit = GetEnumUnit()
-		real dist;//local real dist
-		location unitLoc;//local location unitLoc
-		if ((GetUnitTypeId(enumUnit) == 'ngol')) {//if (GetUnitTypeId(enumUnit) == 'ngol') then
-			unitLoc = GetUnitLoc(enumUnit);//set unitLoc = GetUnitLoc(enumUnit)
-			dist = DistanceBetweenPoints(unitLoc, bj_meleeNearestMineToLoc);//set dist = DistanceBetweenPoints(unitLoc, bj_meleeNearestMineToLoc)
-			RemoveLocation(unitLoc);//call RemoveLocation(unitLoc)
-			//
-			if ((bj_meleeNearestMineDist < 0) || (dist < bj_meleeNearestMineDist)) {//if (bj_meleeNearestMineDist < 0) or (dist < bj_meleeNearestMineDist) then
-				bj_meleeNearestMine = enumUnit;//set bj_meleeNearestMine = enumUnit
-				bj_meleeNearestMineDist = dist;//set bj_meleeNearestMineDist = dist
-			}//endif
-		}//endif
-	}//endfunction
-	//
-	private int MeleeFindNearestMine(location src, real range) {//function MeleeFindNearestMine takes location src, real range returns unit
-		group nearbyMines;//local group nearbyMines
-		bj_meleeNearestMine = null;//set bj_meleeNearestMine = null
-		bj_meleeNearestMineDist = -1;//set bj_meleeNearestMineDist = -1
-		bj_meleeNearestMineToLoc = src;//set bj_meleeNearestMineToLoc = src
-		nearbyMines = CreateGroup();//set nearbyMines = CreateGroup()
-		GroupEnumUnitsInRangeOfLoc(nearbyMines, src, range, null);//call GroupEnumUnitsInRangeOfLoc(nearbyMines, src, range, null)
-		ForGroup(nearbyMines, function MeleeEnumFindNearestMine);//call ForGroup(nearbyMines, function MeleeEnumFindNearestMine)
-		DestroyGroup(nearbyMines);//call DestroyGroup(nearbyMines)
-		return bj_meleeNearestMine;//return bj_meleeNearestMine
-	}//endfunction
-	//
-	private int MeleeRandomHeroLoc(player p, int id1, int id2, int id3, int id4, location loc) {//function MeleeRandomHeroLoc takes player p, integer id1, integer id2, integer id3, integer id4, location loc returns unit
-		int hero = null;//local unit    hero = null
-		int roll;//local integer roll
-		int pick;//local integer pick
-		version v;//local version v
 		//
-		v = VersionGet();//set v = VersionGet()
-		if ((v == VERSION_REIGN_OF_CHAOS)) {//if (v == VERSION_REIGN_OF_CHAOS) then
-			roll = GetRandomInt(1,3);//set roll = GetRandomInt(1,3)
-		} else {//else
-			roll = GetRandomInt(1,4);//set roll = GetRandomInt(1,4)
-		}//endif
 		//
-		if (roll == 1) {//if roll == 1 then
-			pick = id1;//set pick = id1
-		} else if (roll == 2) {//elseif roll == 2 then
-			pick = id2;//set pick = id2
-		} else if (roll == 3) {//elseif roll == 3 then
-			pick = id3;//set pick = id3
-		} else if (roll == 4) {//elseif roll == 4 then
-			pick = id4;//set pick = id4
-		} else {//else
-			//
-			pick = id1;//set pick = id1
-		}//endif
-		//
-		hero = CreateUnitAtLoc(p, pick, loc, bj_UNIT_FACING);//set hero = CreateUnitAtLoc(p, pick, loc, bj_UNIT_FACING)
-		if (bj_meleeGrantHeroItems) {//if bj_meleeGrantHeroItems then
-			MeleeGrantItemsToHero(hero);//call MeleeGrantItemsToHero(hero)
-		}//endif
-		return hero;//return hero
-	}//endfunction
-	//
-	//
-	//
-	private location MeleeGetProjectedLoc(location src, location targ, real distance, real deltaAngle) {//function MeleeGetProjectedLoc takes location src, location targ, real distance, real deltaAngle returns location
-		real srcX = GetLocationX(src);//local real srcX = GetLocationX(src)
-		real srcY = GetLocationY(src);//local real srcY = GetLocationY(src)
-		real direction = Atan2(GetLocationY(targ) - srcY, GetLocationX(targ) - srcX) + deltaAngle;//local real direction = Atan2(GetLocationY(targ) - srcY, GetLocationX(targ) - srcX) + deltaAngle
-		return Location(srcX + distance * Cos(direction), srcY + distance * Sin(direction));//return Location(srcX + distance * Cos(direction), srcY + distance * Sin(direction))
-	}//endfunction
-	//
-	private real MeleeGetNearestValueWithin(real val, real minVal, real maxVal) {//function MeleeGetNearestValueWithin takes real val, real minVal, real maxVal returns real
-		if ((val < minVal)) {//if (val < minVal) then
-			return minVal;//return minVal
-		} else if ((val > maxVal)) {//elseif (val > maxVal) then
-			return maxVal;//return maxVal
-		} else {//else
-			return val;//return val
-		}//endif
-	}//endfunction
-	//
-	private location MeleeGetLocWithinRect(location src, rect r) {//function MeleeGetLocWithinRect takes location src, rect r returns location
-		real withinX = MeleeGetNearestValueWithin(GetLocationX(src), GetRectMinX(r), GetRectMaxX(r));//local real withinX = MeleeGetNearestValueWithin(GetLocationX(src), GetRectMinX(r), GetRectMaxX(r))
-		real withinY = MeleeGetNearestValueWithin(GetLocationY(src), GetRectMinY(r), GetRectMaxY(r));//local real withinY = MeleeGetNearestValueWithin(GetLocationY(src), GetRectMinY(r), GetRectMaxY(r))
-		return Location(withinX, withinY);//return Location(withinX, withinY)
-	}//endfunction
-	//
-	//
-	//
-	//
-	//
-	private void MeleeStartingUnitsHuman(player whichPlayer, location startLoc, bool doHeroes, bool doCamera, bool doPreload) {//function MeleeStartingUnitsHuman takes player whichPlayer, location startLoc, boolean doHeroes, boolean doCamera, boolean doPreload returns nothing
-		bool useRandomHero = IsMapFlagSet(MAP_RANDOM_HERO);//local boolean  useRandomHero = IsMapFlagSet(MAP_RANDOM_HERO)
-		real unitSpacing = 64.00;//local real     unitSpacing   = 64.00
-		int nearestMine;//local unit     nearestMine
-		location nearMineLoc;//local location nearMineLoc
-		location heroLoc;//local location heroLoc
-		real peonX;//local real     peonX
-		real peonY;//local real     peonY
-		int townHall = null;//local unit     townHall = null
-		if ((doPreload)) {//if (doPreload) then
-			Preloader("scripts\\HumanMelee.pld");//call Preloader( "scripts\\HumanMelee.pld" )
-		}//endif
-		nearestMine = MeleeFindNearestMine(startLoc, bj_MELEE_MINE_SEARCH_RADIUS);//set nearestMine = MeleeFindNearestMine(startLoc, bj_MELEE_MINE_SEARCH_RADIUS)
-		if ((nearestMine != null)) {//if (nearestMine != null) then
-			//
-			townHall = CreateUnitAtLoc(whichPlayer, 'htow', startLoc, bj_UNIT_FACING);//set townHall = CreateUnitAtLoc(whichPlayer, 'htow', startLoc, bj_UNIT_FACING)
-			//
-			nearMineLoc = MeleeGetProjectedLoc(GetUnitLoc(nearestMine), startLoc, 320, 0);//set nearMineLoc = MeleeGetProjectedLoc(GetUnitLoc(nearestMine), startLoc, 320, 0)
-			peonX = GetLocationX(nearMineLoc);//set peonX = GetLocationX(nearMineLoc)
-			peonY = GetLocationY(nearMineLoc);//set peonY = GetLocationY(nearMineLoc)
-			CreateUnit(whichPlayer, 'hpea', peonX + 0.00 * unitSpacing, peonY + 1.00 * unitSpacing, bj_UNIT_FACING);//call CreateUnit(whichPlayer, 'hpea', peonX + 0.00 * unitSpacing, peonY + 1.00 * unitSpacing, bj_UNIT_FACING)
-			CreateUnit(whichPlayer, 'hpea', peonX + 1.00 * unitSpacing, peonY + 0.15 * unitSpacing, bj_UNIT_FACING);//call CreateUnit(whichPlayer, 'hpea', peonX + 1.00 * unitSpacing, peonY + 0.15 * unitSpacing, bj_UNIT_FACING)
-			CreateUnit(whichPlayer, 'hpea', peonX - 1.00 * unitSpacing, peonY + 0.15 * unitSpacing, bj_UNIT_FACING);//call CreateUnit(whichPlayer, 'hpea', peonX - 1.00 * unitSpacing, peonY + 0.15 * unitSpacing, bj_UNIT_FACING)
-			CreateUnit(whichPlayer, 'hpea', peonX + 0.60 * unitSpacing, peonY - 1.00 * unitSpacing, bj_UNIT_FACING);//call CreateUnit(whichPlayer, 'hpea', peonX + 0.60 * unitSpacing, peonY - 1.00 * unitSpacing, bj_UNIT_FACING)
-			CreateUnit(whichPlayer, 'hpea', peonX - 0.60 * unitSpacing, peonY - 1.00 * unitSpacing, bj_UNIT_FACING);//call CreateUnit(whichPlayer, 'hpea', peonX - 0.60 * unitSpacing, peonY - 1.00 * unitSpacing, bj_UNIT_FACING)
-			//
-			heroLoc = MeleeGetProjectedLoc(GetUnitLoc(nearestMine), startLoc, 384, 45);//set heroLoc = MeleeGetProjectedLoc(GetUnitLoc(nearestMine), startLoc, 384, 45)
-		} else {//else
-			//
-			townHall = CreateUnitAtLoc(whichPlayer, 'htow', startLoc, bj_UNIT_FACING);//set townHall = CreateUnitAtLoc(whichPlayer, 'htow', startLoc, bj_UNIT_FACING)
-			//
-			peonX = GetLocationX(startLoc);//set peonX = GetLocationX(startLoc)
-			peonY = GetLocationY(startLoc) - 224.00;//set peonY = GetLocationY(startLoc) - 224.00
-			CreateUnit(whichPlayer, 'hpea', peonX + 2.00 * unitSpacing, peonY + 0.00 * unitSpacing, bj_UNIT_FACING);//call CreateUnit(whichPlayer, 'hpea', peonX + 2.00 * unitSpacing, peonY + 0.00 * unitSpacing, bj_UNIT_FACING)
-			CreateUnit(whichPlayer, 'hpea', peonX + 1.00 * unitSpacing, peonY + 0.00 * unitSpacing, bj_UNIT_FACING);//call CreateUnit(whichPlayer, 'hpea', peonX + 1.00 * unitSpacing, peonY + 0.00 * unitSpacing, bj_UNIT_FACING)
-			CreateUnit(whichPlayer, 'hpea', peonX + 0.00 * unitSpacing, peonY + 0.00 * unitSpacing, bj_UNIT_FACING);//call CreateUnit(whichPlayer, 'hpea', peonX + 0.00 * unitSpacing, peonY + 0.00 * unitSpacing, bj_UNIT_FACING)
-			CreateUnit(whichPlayer, 'hpea', peonX - 1.00 * unitSpacing, peonY + 0.00 * unitSpacing, bj_UNIT_FACING);//call CreateUnit(whichPlayer, 'hpea', peonX - 1.00 * unitSpacing, peonY + 0.00 * unitSpacing, bj_UNIT_FACING)
-			CreateUnit(whichPlayer, 'hpea', peonX - 2.00 * unitSpacing, peonY + 0.00 * unitSpacing, bj_UNIT_FACING);//call CreateUnit(whichPlayer, 'hpea', peonX - 2.00 * unitSpacing, peonY + 0.00 * unitSpacing, bj_UNIT_FACING)
-			//
-			heroLoc = Location(peonX, peonY - 2.00 * unitSpacing);//set heroLoc = Location(peonX, peonY - 2.00 * unitSpacing)
-		}//endif
-		if ((townHall != null)) {//if (townHall != null) then
-			UnitAddAbilityBJ('Amic', townHall);//call UnitAddAbilityBJ('Amic', townHall)
-			UnitMakeAbilityPermanentBJ(true, 'Amic', townHall);//call UnitMakeAbilityPermanentBJ(true, 'Amic', townHall)
-		}//endif
-		if ((doHeroes)) {//if (doHeroes) then
-			//
-			//
-			if (useRandomHero) {//if useRandomHero then
-				MeleeRandomHeroLoc(whichPlayer, 'Hamg', 'Hmkg', 'Hpal', 'Hblm', heroLoc);//call MeleeRandomHeroLoc(whichPlayer, 'Hamg', 'Hmkg', 'Hpal', 'Hblm', heroLoc)
-			} else {//else
-				SetPlayerState(whichPlayer, PLAYER_STATE_RESOURCE_HERO_TOKENS, bj_MELEE_STARTING_HERO_TOKENS);//call SetPlayerState(whichPlayer, PLAYER_STATE_RESOURCE_HERO_TOKENS, bj_MELEE_STARTING_HERO_TOKENS)
-			}//endif
-		}//endif
-		if ((doCamera)) {//if (doCamera) then
-			//
-			SetCameraPositionForPlayer(whichPlayer, peonX, peonY);//call SetCameraPositionForPlayer(whichPlayer, peonX, peonY)
-			SetCameraQuickPositionForPlayer(whichPlayer, peonX, peonY);//call SetCameraQuickPositionForPlayer(whichPlayer, peonX, peonY)
-		}//endif
-	}//endfunction
-	//
-	//
-	//
-	//
-	//
-	private void MeleeStartingUnitsOrc(player whichPlayer, location startLoc, bool doHeroes, bool doCamera, bool doPreload) {//function MeleeStartingUnitsOrc takes player whichPlayer, location startLoc, boolean doHeroes, boolean doCamera, boolean doPreload returns nothing
-		bool useRandomHero = IsMapFlagSet(MAP_RANDOM_HERO);//local boolean  useRandomHero = IsMapFlagSet(MAP_RANDOM_HERO)
-		real unitSpacing = 64.00;//local real     unitSpacing   = 64.00
-		int nearestMine;//local unit     nearestMine
-		location nearMineLoc;//local location nearMineLoc
-		location heroLoc;//local location heroLoc
-		real peonX;//local real     peonX
-		real peonY;//local real     peonY
-		if ((doPreload)) {//if (doPreload) then
-			Preloader("scripts\\OrcMelee.pld");//call Preloader( "scripts\\OrcMelee.pld" )
-		}//endif
-		nearestMine = MeleeFindNearestMine(startLoc, bj_MELEE_MINE_SEARCH_RADIUS);//set nearestMine = MeleeFindNearestMine(startLoc, bj_MELEE_MINE_SEARCH_RADIUS)
-		if ((nearestMine != null)) {//if (nearestMine != null) then
-			//
-			CreateUnitAtLoc(whichPlayer, 'ogre', startLoc, bj_UNIT_FACING);//call CreateUnitAtLoc(whichPlayer, 'ogre', startLoc, bj_UNIT_FACING)
-			//
-			nearMineLoc = MeleeGetProjectedLoc(GetUnitLoc(nearestMine), startLoc, 320, 0);//set nearMineLoc = MeleeGetProjectedLoc(GetUnitLoc(nearestMine), startLoc, 320, 0)
-			peonX = GetLocationX(nearMineLoc);//set peonX = GetLocationX(nearMineLoc)
-			peonY = GetLocationY(nearMineLoc);//set peonY = GetLocationY(nearMineLoc)
-			CreateUnit(whichPlayer, 'opeo', peonX + 0.00 * unitSpacing, peonY + 1.00 * unitSpacing, bj_UNIT_FACING);//call CreateUnit(whichPlayer, 'opeo', peonX + 0.00 * unitSpacing, peonY + 1.00 * unitSpacing, bj_UNIT_FACING)
-			CreateUnit(whichPlayer, 'opeo', peonX + 1.00 * unitSpacing, peonY + 0.15 * unitSpacing, bj_UNIT_FACING);//call CreateUnit(whichPlayer, 'opeo', peonX + 1.00 * unitSpacing, peonY + 0.15 * unitSpacing, bj_UNIT_FACING)
-			CreateUnit(whichPlayer, 'opeo', peonX - 1.00 * unitSpacing, peonY + 0.15 * unitSpacing, bj_UNIT_FACING);//call CreateUnit(whichPlayer, 'opeo', peonX - 1.00 * unitSpacing, peonY + 0.15 * unitSpacing, bj_UNIT_FACING)
-			CreateUnit(whichPlayer, 'opeo', peonX + 0.60 * unitSpacing, peonY - 1.00 * unitSpacing, bj_UNIT_FACING);//call CreateUnit(whichPlayer, 'opeo', peonX + 0.60 * unitSpacing, peonY - 1.00 * unitSpacing, bj_UNIT_FACING)
-			CreateUnit(whichPlayer, 'opeo', peonX - 0.60 * unitSpacing, peonY - 1.00 * unitSpacing, bj_UNIT_FACING);//call CreateUnit(whichPlayer, 'opeo', peonX - 0.60 * unitSpacing, peonY - 1.00 * unitSpacing, bj_UNIT_FACING)
-			//
-			heroLoc = MeleeGetProjectedLoc(GetUnitLoc(nearestMine), startLoc, 384, 45);//set heroLoc = MeleeGetProjectedLoc(GetUnitLoc(nearestMine), startLoc, 384, 45)
-		} else {//else
-			//
-			CreateUnitAtLoc(whichPlayer, 'ogre', startLoc, bj_UNIT_FACING);//call CreateUnitAtLoc(whichPlayer, 'ogre', startLoc, bj_UNIT_FACING)
-			//
-			peonX = GetLocationX(startLoc);//set peonX = GetLocationX(startLoc)
-			peonY = GetLocationY(startLoc) - 224.00;//set peonY = GetLocationY(startLoc) - 224.00
-			CreateUnit(whichPlayer, 'opeo', peonX + 2.00 * unitSpacing, peonY + 0.00 * unitSpacing, bj_UNIT_FACING);//call CreateUnit(whichPlayer, 'opeo', peonX + 2.00 * unitSpacing, peonY + 0.00 * unitSpacing, bj_UNIT_FACING)
-			CreateUnit(whichPlayer, 'opeo', peonX + 1.00 * unitSpacing, peonY + 0.00 * unitSpacing, bj_UNIT_FACING);//call CreateUnit(whichPlayer, 'opeo', peonX + 1.00 * unitSpacing, peonY + 0.00 * unitSpacing, bj_UNIT_FACING)
-			CreateUnit(whichPlayer, 'opeo', peonX + 0.00 * unitSpacing, peonY + 0.00 * unitSpacing, bj_UNIT_FACING);//call CreateUnit(whichPlayer, 'opeo', peonX + 0.00 * unitSpacing, peonY + 0.00 * unitSpacing, bj_UNIT_FACING)
-			CreateUnit(whichPlayer, 'opeo', peonX - 1.00 * unitSpacing, peonY + 0.00 * unitSpacing, bj_UNIT_FACING);//call CreateUnit(whichPlayer, 'opeo', peonX - 1.00 * unitSpacing, peonY + 0.00 * unitSpacing, bj_UNIT_FACING)
-			CreateUnit(whichPlayer, 'opeo', peonX - 2.00 * unitSpacing, peonY + 0.00 * unitSpacing, bj_UNIT_FACING);//call CreateUnit(whichPlayer, 'opeo', peonX - 2.00 * unitSpacing, peonY + 0.00 * unitSpacing, bj_UNIT_FACING)
-			//
-			heroLoc = Location(peonX, peonY - 2.00 * unitSpacing);//set heroLoc = Location(peonX, peonY - 2.00 * unitSpacing)
-		}//endif
-		if ((doHeroes)) {//if (doHeroes) then
-			//
-			//
-			if (useRandomHero) {//if useRandomHero then
-				MeleeRandomHeroLoc(whichPlayer, 'Obla', 'Ofar', 'Otch', 'Oshd', heroLoc);//call MeleeRandomHeroLoc(whichPlayer, 'Obla', 'Ofar', 'Otch', 'Oshd', heroLoc)
-			} else {//else
-				SetPlayerState(whichPlayer, PLAYER_STATE_RESOURCE_HERO_TOKENS, bj_MELEE_STARTING_HERO_TOKENS);//call SetPlayerState(whichPlayer, PLAYER_STATE_RESOURCE_HERO_TOKENS, bj_MELEE_STARTING_HERO_TOKENS)
-			}//endif
-		}//endif
-		if ((doCamera)) {//if (doCamera) then
-			//
-			SetCameraPositionForPlayer(whichPlayer, peonX, peonY);//call SetCameraPositionForPlayer(whichPlayer, peonX, peonY)
-			SetCameraQuickPositionForPlayer(whichPlayer, peonX, peonY);//call SetCameraQuickPositionForPlayer(whichPlayer, peonX, peonY)
-		}//endif
-	}//endfunction
-	//
-	//
-	//
-	//
-	//
-	//
-	//
-	//
-	private void MeleeStartingUnitsUndead(player whichPlayer, location startLoc, bool doHeroes, bool doCamera, bool doPreload) {//function MeleeStartingUnitsUndead takes player whichPlayer, location startLoc, boolean doHeroes, boolean doCamera, boolean doPreload returns nothing
-		bool useRandomHero = IsMapFlagSet(MAP_RANDOM_HERO);//local boolean  useRandomHero = IsMapFlagSet(MAP_RANDOM_HERO)
-		real unitSpacing = 64.00;//local real     unitSpacing   = 64.00
-		int nearestMine;//local unit     nearestMine
-		location nearMineLoc;//local location nearMineLoc
-		location nearTownLoc;//local location nearTownLoc
-		location heroLoc;//local location heroLoc
-		real peonX;//local real     peonX
-		real peonY;//local real     peonY
-		real ghoulX;//local real     ghoulX
-		real ghoulY;//local real     ghoulY
-		if ((doPreload)) {//if (doPreload) then
-			Preloader("scripts\\UndeadMelee.pld");//call Preloader( "scripts\\UndeadMelee.pld" )
-		}//endif
-		nearestMine = MeleeFindNearestMine(startLoc, bj_MELEE_MINE_SEARCH_RADIUS);//set nearestMine = MeleeFindNearestMine(startLoc, bj_MELEE_MINE_SEARCH_RADIUS)
-		if ((nearestMine != null)) {//if (nearestMine != null) then
-			//
-			CreateUnitAtLoc(whichPlayer, 'unpl', startLoc, bj_UNIT_FACING);//call CreateUnitAtLoc(whichPlayer, 'unpl', startLoc, bj_UNIT_FACING)
-			//
-			nearestMine = BlightGoldMineForPlayerBJ(nearestMine, whichPlayer);//set nearestMine = BlightGoldMineForPlayerBJ(nearestMine, whichPlayer)
-			//
-			nearTownLoc = MeleeGetProjectedLoc(startLoc, GetUnitLoc(nearestMine), 288, 0);//set nearTownLoc = MeleeGetProjectedLoc(startLoc, GetUnitLoc(nearestMine), 288, 0)
-			ghoulX = GetLocationX(nearTownLoc);//set ghoulX = GetLocationX(nearTownLoc)
-			ghoulY = GetLocationY(nearTownLoc);//set ghoulY = GetLocationY(nearTownLoc)
-			//
-			nearMineLoc = MeleeGetProjectedLoc(GetUnitLoc(nearestMine), startLoc, 320, 0);//set nearMineLoc = MeleeGetProjectedLoc(GetUnitLoc(nearestMine), startLoc, 320, 0)
-			peonX = GetLocationX(nearMineLoc);//set peonX = GetLocationX(nearMineLoc)
-			peonY = GetLocationY(nearMineLoc);//set peonY = GetLocationY(nearMineLoc)
-			CreateUnit(whichPlayer, 'uaco', peonX + 0.00 * unitSpacing, peonY + 0.50 * unitSpacing, bj_UNIT_FACING);//call CreateUnit(whichPlayer, 'uaco', peonX + 0.00 * unitSpacing, peonY + 0.50 * unitSpacing, bj_UNIT_FACING)
-			CreateUnit(whichPlayer, 'uaco', peonX + 0.65 * unitSpacing, peonY - 0.50 * unitSpacing, bj_UNIT_FACING);//call CreateUnit(whichPlayer, 'uaco', peonX + 0.65 * unitSpacing, peonY - 0.50 * unitSpacing, bj_UNIT_FACING)
-			CreateUnit(whichPlayer, 'uaco', peonX - 0.65 * unitSpacing, peonY - 0.50 * unitSpacing, bj_UNIT_FACING);//call CreateUnit(whichPlayer, 'uaco', peonX - 0.65 * unitSpacing, peonY - 0.50 * unitSpacing, bj_UNIT_FACING)
-			//
-			SetBlightLoc(whichPlayer,nearMineLoc, 768, true);//call SetBlightLoc(whichPlayer,nearMineLoc, 768, true)
-			//
-			heroLoc = MeleeGetProjectedLoc(GetUnitLoc(nearestMine), startLoc, 384, 45);//set heroLoc = MeleeGetProjectedLoc(GetUnitLoc(nearestMine), startLoc, 384, 45)
-		} else {//else
-			//
-			CreateUnitAtLoc(whichPlayer, 'unpl', startLoc, bj_UNIT_FACING);//call CreateUnitAtLoc(whichPlayer, 'unpl', startLoc, bj_UNIT_FACING)
-			//
-			peonX = GetLocationX(startLoc);//set peonX = GetLocationX(startLoc)
-			peonY = GetLocationY(startLoc) - 224.00;//set peonY = GetLocationY(startLoc) - 224.00
-			CreateUnit(whichPlayer, 'uaco', peonX - 1.50 * unitSpacing, peonY + 0.00 * unitSpacing, bj_UNIT_FACING);//call CreateUnit(whichPlayer, 'uaco', peonX - 1.50 * unitSpacing, peonY + 0.00 * unitSpacing, bj_UNIT_FACING)
-			CreateUnit(whichPlayer, 'uaco', peonX - 0.50 * unitSpacing, peonY + 0.00 * unitSpacing, bj_UNIT_FACING);//call CreateUnit(whichPlayer, 'uaco', peonX - 0.50 * unitSpacing, peonY + 0.00 * unitSpacing, bj_UNIT_FACING)
-			CreateUnit(whichPlayer, 'uaco', peonX + 0.50 * unitSpacing, peonY + 0.00 * unitSpacing, bj_UNIT_FACING);//call CreateUnit(whichPlayer, 'uaco', peonX + 0.50 * unitSpacing, peonY + 0.00 * unitSpacing, bj_UNIT_FACING)
-			CreateUnit(whichPlayer, 'ugho', peonX + 1.50 * unitSpacing, peonY + 0.00 * unitSpacing, bj_UNIT_FACING);//call CreateUnit(whichPlayer, 'ugho', peonX + 1.50 * unitSpacing, peonY + 0.00 * unitSpacing, bj_UNIT_FACING)
-			//
-			SetBlightLoc(whichPlayer,startLoc, 768, true);//call SetBlightLoc(whichPlayer,startLoc, 768, true)
-			//
-			heroLoc = Location(peonX, peonY - 2.00 * unitSpacing);//set heroLoc = Location(peonX, peonY - 2.00 * unitSpacing)
-		}//endif
-		if ((doHeroes)) {//if (doHeroes) then
-			//
-			//
-			if (useRandomHero) {//if useRandomHero then
-				MeleeRandomHeroLoc(whichPlayer, 'Udea', 'Udre', 'Ulic', 'Ucrl', heroLoc);//call MeleeRandomHeroLoc(whichPlayer, 'Udea', 'Udre', 'Ulic', 'Ucrl', heroLoc)
-			} else {//else
-				SetPlayerState(whichPlayer, PLAYER_STATE_RESOURCE_HERO_TOKENS, bj_MELEE_STARTING_HERO_TOKENS);//call SetPlayerState(whichPlayer, PLAYER_STATE_RESOURCE_HERO_TOKENS, bj_MELEE_STARTING_HERO_TOKENS)
-			}//endif
-		}//endif
-		if ((doCamera)) {//if (doCamera) then
-			//
-			SetCameraPositionForPlayer(whichPlayer, peonX, peonY);//call SetCameraPositionForPlayer(whichPlayer, peonX, peonY)
-			SetCameraQuickPositionForPlayer(whichPlayer, peonX, peonY);//call SetCameraQuickPositionForPlayer(whichPlayer, peonX, peonY)
-		}//endif
-	}//endfunction
-	//
-	//
-	//
-	//
-	//
-	private void MeleeStartingUnitsNightElf(player whichPlayer, location startLoc, bool doHeroes, bool doCamera, bool doPreload) {//function MeleeStartingUnitsNightElf takes player whichPlayer, location startLoc, boolean doHeroes, boolean doCamera, boolean doPreload returns nothing
-		bool useRandomHero = IsMapFlagSet(MAP_RANDOM_HERO);//local boolean  useRandomHero = IsMapFlagSet(MAP_RANDOM_HERO)
-		real unitSpacing = 64.00;//local real     unitSpacing   = 64.00
-		real minTreeDist = 3.50 * bj_CELLWIDTH;//local real     minTreeDist   = 3.50 * bj_CELLWIDTH
-		real minWispDist = 1.75 * bj_CELLWIDTH;//local real     minWispDist   = 1.75 * bj_CELLWIDTH
-		int nearestMine;//local unit     nearestMine
-		location nearMineLoc;//local location nearMineLoc
-		location wispLoc;//local location wispLoc
-		location heroLoc;//local location heroLoc
-		real peonX;//local real     peonX
-		real peonY;//local real     peonY
-		int tree;//local unit     tree
-		if ((doPreload)) {//if (doPreload) then
-			Preloader("scripts\\NightElfMelee.pld");//call Preloader( "scripts\\NightElfMelee.pld" )
-		}//endif
-		nearestMine = MeleeFindNearestMine(startLoc, bj_MELEE_MINE_SEARCH_RADIUS);//set nearestMine = MeleeFindNearestMine(startLoc, bj_MELEE_MINE_SEARCH_RADIUS)
-		if ((nearestMine != null)) {//if (nearestMine != null) then
-			//
-			//
-			//
-			nearMineLoc = MeleeGetProjectedLoc(GetUnitLoc(nearestMine), startLoc, 650, 0);//set nearMineLoc = MeleeGetProjectedLoc(GetUnitLoc(nearestMine), startLoc, 650, 0)
-			nearMineLoc = MeleeGetLocWithinRect(nearMineLoc, GetRectFromCircleBJ(GetUnitLoc(nearestMine), minTreeDist));//set nearMineLoc = MeleeGetLocWithinRect(nearMineLoc, GetRectFromCircleBJ(GetUnitLoc(nearestMine), minTreeDist))
-			tree = CreateUnitAtLoc(whichPlayer, 'etol', nearMineLoc, bj_UNIT_FACING);//set tree = CreateUnitAtLoc(whichPlayer, 'etol', nearMineLoc, bj_UNIT_FACING)
-			IssueTargetOrder(tree, "entangleinstant", nearestMine);//call IssueTargetOrder(tree, "entangleinstant", nearestMine)
-			//
-			wispLoc = MeleeGetProjectedLoc(GetUnitLoc(nearestMine), startLoc, 320, 0);//set wispLoc = MeleeGetProjectedLoc(GetUnitLoc(nearestMine), startLoc, 320, 0)
-			wispLoc = MeleeGetLocWithinRect(wispLoc, GetRectFromCircleBJ(GetUnitLoc(nearestMine), minWispDist));//set wispLoc = MeleeGetLocWithinRect(wispLoc, GetRectFromCircleBJ(GetUnitLoc(nearestMine), minWispDist))
-			peonX = GetLocationX(wispLoc);//set peonX = GetLocationX(wispLoc)
-			peonY = GetLocationY(wispLoc);//set peonY = GetLocationY(wispLoc)
-			CreateUnit(whichPlayer, 'ewsp', peonX + 0.00 * unitSpacing, peonY + 1.00 * unitSpacing, bj_UNIT_FACING);//call CreateUnit(whichPlayer, 'ewsp', peonX + 0.00 * unitSpacing, peonY + 1.00 * unitSpacing, bj_UNIT_FACING)
-			CreateUnit(whichPlayer, 'ewsp', peonX + 1.00 * unitSpacing, peonY + 0.15 * unitSpacing, bj_UNIT_FACING);//call CreateUnit(whichPlayer, 'ewsp', peonX + 1.00 * unitSpacing, peonY + 0.15 * unitSpacing, bj_UNIT_FACING)
-			CreateUnit(whichPlayer, 'ewsp', peonX - 1.00 * unitSpacing, peonY + 0.15 * unitSpacing, bj_UNIT_FACING);//call CreateUnit(whichPlayer, 'ewsp', peonX - 1.00 * unitSpacing, peonY + 0.15 * unitSpacing, bj_UNIT_FACING)
-			CreateUnit(whichPlayer, 'ewsp', peonX + 0.58 * unitSpacing, peonY - 1.00 * unitSpacing, bj_UNIT_FACING);//call CreateUnit(whichPlayer, 'ewsp', peonX + 0.58 * unitSpacing, peonY - 1.00 * unitSpacing, bj_UNIT_FACING)
-			CreateUnit(whichPlayer, 'ewsp', peonX - 0.58 * unitSpacing, peonY - 1.00 * unitSpacing, bj_UNIT_FACING);//call CreateUnit(whichPlayer, 'ewsp', peonX - 0.58 * unitSpacing, peonY - 1.00 * unitSpacing, bj_UNIT_FACING)
-			//
-			heroLoc = MeleeGetProjectedLoc(GetUnitLoc(nearestMine), startLoc, 384, 45);//set heroLoc = MeleeGetProjectedLoc(GetUnitLoc(nearestMine), startLoc, 384, 45)
-		} else {//else
-			//
-			CreateUnitAtLoc(whichPlayer, 'etol', startLoc, bj_UNIT_FACING);//call CreateUnitAtLoc(whichPlayer, 'etol', startLoc, bj_UNIT_FACING)
-			//
-			peonX = GetLocationX(startLoc);//set peonX = GetLocationX(startLoc)
-			peonY = GetLocationY(startLoc) - 224.00;//set peonY = GetLocationY(startLoc) - 224.00
-			CreateUnit(whichPlayer, 'ewsp', peonX - 2.00 * unitSpacing, peonY + 0.00 * unitSpacing, bj_UNIT_FACING);//call CreateUnit(whichPlayer, 'ewsp', peonX - 2.00 * unitSpacing, peonY + 0.00 * unitSpacing, bj_UNIT_FACING)
-			CreateUnit(whichPlayer, 'ewsp', peonX - 1.00 * unitSpacing, peonY + 0.00 * unitSpacing, bj_UNIT_FACING);//call CreateUnit(whichPlayer, 'ewsp', peonX - 1.00 * unitSpacing, peonY + 0.00 * unitSpacing, bj_UNIT_FACING)
-			CreateUnit(whichPlayer, 'ewsp', peonX + 0.00 * unitSpacing, peonY + 0.00 * unitSpacing, bj_UNIT_FACING);//call CreateUnit(whichPlayer, 'ewsp', peonX + 0.00 * unitSpacing, peonY + 0.00 * unitSpacing, bj_UNIT_FACING)
-			CreateUnit(whichPlayer, 'ewsp', peonX + 1.00 * unitSpacing, peonY + 0.00 * unitSpacing, bj_UNIT_FACING);//call CreateUnit(whichPlayer, 'ewsp', peonX + 1.00 * unitSpacing, peonY + 0.00 * unitSpacing, bj_UNIT_FACING)
-			CreateUnit(whichPlayer, 'ewsp', peonX + 2.00 * unitSpacing, peonY + 0.00 * unitSpacing, bj_UNIT_FACING);//call CreateUnit(whichPlayer, 'ewsp', peonX + 2.00 * unitSpacing, peonY + 0.00 * unitSpacing, bj_UNIT_FACING)
-			//
-			heroLoc = Location(peonX, peonY - 2.00 * unitSpacing);//set heroLoc = Location(peonX, peonY - 2.00 * unitSpacing)
-		}//endif
-		if ((doHeroes)) {//if (doHeroes) then
-			//
-			//
-			if (useRandomHero) {//if useRandomHero then
-				MeleeRandomHeroLoc(whichPlayer, 'Edem', 'Ekee', 'Emoo', 'Ewar', heroLoc);//call MeleeRandomHeroLoc(whichPlayer, 'Edem', 'Ekee', 'Emoo', 'Ewar', heroLoc)
-			} else {//else
-				SetPlayerState(whichPlayer, PLAYER_STATE_RESOURCE_HERO_TOKENS, bj_MELEE_STARTING_HERO_TOKENS);//call SetPlayerState(whichPlayer, PLAYER_STATE_RESOURCE_HERO_TOKENS, bj_MELEE_STARTING_HERO_TOKENS)
-			}//endif
-		}//endif
-		if ((doCamera)) {//if (doCamera) then
-			//
-			SetCameraPositionForPlayer(whichPlayer, peonX, peonY);//call SetCameraPositionForPlayer(whichPlayer, peonX, peonY)
-			SetCameraQuickPositionForPlayer(whichPlayer, peonX, peonY);//call SetCameraQuickPositionForPlayer(whichPlayer, peonX, peonY)
-		}//endif
-	}//endfunction
-	//
-	//
-	//
-	//
-	private void MeleeStartingUnitsUnknownRace(player whichPlayer, location startLoc, bool doHeroes, bool doCamera, bool doPreload) {//function MeleeStartingUnitsUnknownRace takes player whichPlayer, location startLoc, boolean doHeroes, boolean doCamera, boolean doPreload returns nothing
-		int index;//local integer index
-		if ((doPreload)) {//if (doPreload) then
-		}//endif
-		index = 0;//set index = 0
-		while (true) {//loop
-			CreateUnit(whichPlayer, 'nshe', GetLocationX(startLoc) + GetRandomReal(-256, 256), GetLocationY(startLoc) + GetRandomReal(-256, 256), GetRandomReal(0, 360));//call CreateUnit(whichPlayer, 'nshe', GetLocationX(startLoc) + GetRandomReal(-256, 256), GetLocationY(startLoc) + GetRandomReal(-256, 256), GetRandomReal(0, 360))
-			index = index + 1;//set index = index + 1
-			if (index == 12) { break; }//exitwhen index == 12
-		}//endloop
-		if ((doHeroes)) {//if (doHeroes) then
-			//
-			SetPlayerState(whichPlayer, PLAYER_STATE_RESOURCE_HERO_TOKENS, bj_MELEE_STARTING_HERO_TOKENS);//call SetPlayerState(whichPlayer, PLAYER_STATE_RESOURCE_HERO_TOKENS, bj_MELEE_STARTING_HERO_TOKENS)
-		}//endif
-		if ((doCamera)) {//if (doCamera) then
-			//
-			SetCameraPositionLocForPlayer(whichPlayer, startLoc);//call SetCameraPositionLocForPlayer(whichPlayer, startLoc)
-			SetCameraQuickPositionLocForPlayer(whichPlayer, startLoc);//call SetCameraQuickPositionLocForPlayer(whichPlayer, startLoc)
-		}//endif
-	}//endfunction
-	//
-	private void MeleeStartingUnits() {//function MeleeStartingUnits takes nothing returns nothing
-		int index;//local integer  index
-		player indexPlayer;//local player   indexPlayer
-		location indexStartLoc;//local location indexStartLoc
-		race indexRace;//local race     indexRace
-		Preloader("scripts\\SharedMelee.pld");//call Preloader( "scripts\\SharedMelee.pld" )
-		index = 0;//set index = 0
-		while (true) {//loop
-			indexPlayer = Player(index);//set indexPlayer = Player(index)
-			if ((GetPlayerSlotState(indexPlayer) == PLAYER_SLOT_STATE_PLAYING)) {//if (GetPlayerSlotState(indexPlayer) == PLAYER_SLOT_STATE_PLAYING) then
-				indexStartLoc = GetStartLocationLoc(GetPlayerStartLocation(indexPlayer));//set indexStartLoc = GetStartLocationLoc(GetPlayerStartLocation(indexPlayer))
-				indexRace = GetPlayerRace(indexPlayer);//set indexRace = GetPlayerRace(indexPlayer)
+		private void MeleeClearExcessUnit() {//function MeleeClearExcessUnit takes nothing returns nothing
+			int theUnit = GetEnumUnit();//local unit    theUnit = GetEnumUnit()
+			int owner = GetPlayerId(GetOwningPlayer(theUnit));//local integer owner   = GetPlayerId(GetOwningPlayer(theUnit))
+			if ((owner == PLAYER_NEUTRAL_AGGRESSIVE)) {//if (owner == PLAYER_NEUTRAL_AGGRESSIVE) then
 				//
-				if ((indexRace == RACE_HUMAN)) {//if (indexRace == RACE_HUMAN) then
-					MeleeStartingUnitsHuman(indexPlayer, indexStartLoc, true, true, true);//call MeleeStartingUnitsHuman(indexPlayer, indexStartLoc, true, true, true)
-				} else if ((indexRace == RACE_ORC)) {//elseif (indexRace == RACE_ORC) then
-					MeleeStartingUnitsOrc(indexPlayer, indexStartLoc, true, true, true);//call MeleeStartingUnitsOrc(indexPlayer, indexStartLoc, true, true, true)
-				} else if ((indexRace == RACE_UNDEAD)) {//elseif (indexRace == RACE_UNDEAD) then
-					MeleeStartingUnitsUndead(indexPlayer, indexStartLoc, true, true, true);//call MeleeStartingUnitsUndead(indexPlayer, indexStartLoc, true, true, true)
-				} else if ((indexRace == RACE_NIGHTELF)) {//elseif (indexRace == RACE_NIGHTELF) then
-					MeleeStartingUnitsNightElf(indexPlayer, indexStartLoc, true, true, true);//call MeleeStartingUnitsNightElf(indexPlayer, indexStartLoc, true, true, true)
-				} else {//else
-					MeleeStartingUnitsUnknownRace(indexPlayer, indexStartLoc, true, true, true);//call MeleeStartingUnitsUnknownRace(indexPlayer, indexStartLoc, true, true, true)
+				RemoveUnit(GetEnumUnit());//call RemoveUnit(GetEnumUnit())
+			} else if ((owner == PLAYER_NEUTRAL_PASSIVE)) {//elseif (owner == PLAYER_NEUTRAL_PASSIVE) then
+				//
+				if (!IsUnitType(theUnit, UNIT_TYPE_STRUCTURE)) {//if not IsUnitType(theUnit, UNIT_TYPE_STRUCTURE) then
+					RemoveUnit(GetEnumUnit());//call RemoveUnit(GetEnumUnit())
 				}//endif
 			}//endif
-			index = index + 1;//set index = index + 1
-			if (index == bj_MAX_PLAYERS) { break; }//exitwhen index == bj_MAX_PLAYERS
-		}//endloop
-	}//endfunction
-	//
-	private void MeleeStartingUnitsForPlayer(race whichRace, player whichPlayer, location loc, bool doHeroes) {//function MeleeStartingUnitsForPlayer takes race whichRace, player whichPlayer, location loc, boolean doHeroes returns nothing
+		}//endfunction
 		//
-		if ((whichRace == RACE_HUMAN)) {//if (whichRace == RACE_HUMAN) then
-			MeleeStartingUnitsHuman(whichPlayer, loc, doHeroes, false, false);//call MeleeStartingUnitsHuman(whichPlayer, loc, doHeroes, false, false)
-		} else if ((whichRace == RACE_ORC)) {//elseif (whichRace == RACE_ORC) then
-			MeleeStartingUnitsOrc(whichPlayer, loc, doHeroes, false, false);//call MeleeStartingUnitsOrc(whichPlayer, loc, doHeroes, false, false)
-		} else if ((whichRace == RACE_UNDEAD)) {//elseif (whichRace == RACE_UNDEAD) then
-			MeleeStartingUnitsUndead(whichPlayer, loc, doHeroes, false, false);//call MeleeStartingUnitsUndead(whichPlayer, loc, doHeroes, false, false)
-		} else if ((whichRace == RACE_NIGHTELF)) {//elseif (whichRace == RACE_NIGHTELF) then
-			MeleeStartingUnitsNightElf(whichPlayer, loc, doHeroes, false, false);//call MeleeStartingUnitsNightElf(whichPlayer, loc, doHeroes, false, false)
-		} else {//else
+		private void MeleeClearNearbyUnits(float x, float y, float range) {//function MeleeClearNearbyUnits takes real x, real y, real range returns nothing
+			group nearbyUnits;//local group nearbyUnits
+			nearbyUnits = CreateGroup();//set nearbyUnits = CreateGroup()
+			GroupEnumUnitsInRange(nearbyUnits, x, y, range, null);//call GroupEnumUnitsInRange(nearbyUnits, x, y, range, null)
+			ForGroup(nearbyUnits, function MeleeClearExcessUnit);//call ForGroup(nearbyUnits, function MeleeClearExcessUnit)
+			DestroyGroup(nearbyUnits);//call DestroyGroup(nearbyUnits)
+		}//endfunction
+		//
+		private void MeleeClearExcessUnits() {//function MeleeClearExcessUnits takes nothing returns nothing
+			int index;//local integer index
+			float locX;//local real    locX
+			float locY;//local real    locY
+			player indexPlayer;//local player  indexPlayer
+			index = 0;//set index = 0
+			while (true) {//loop
+				indexPlayer = Player(index);//set indexPlayer = Player(index)
+				//
+				if ((GetPlayerSlotState(indexPlayer) == PLAYER_SLOT_STATE_PLAYING)) {//if (GetPlayerSlotState(indexPlayer) == PLAYER_SLOT_STATE_PLAYING) then
+					locX = GetStartLocationX(GetPlayerStartLocation(indexPlayer));//set locX = GetStartLocationX(GetPlayerStartLocation(indexPlayer))
+					locY = GetStartLocationY(GetPlayerStartLocation(indexPlayer));//set locY = GetStartLocationY(GetPlayerStartLocation(indexPlayer))
+					MeleeClearNearbyUnits(locX, locY, bj_MELEE_CLEAR_UNITS_RADIUS);//call MeleeClearNearbyUnits(locX, locY, bj_MELEE_CLEAR_UNITS_RADIUS)
+				}//endif
+				index = index + 1;//set index = index + 1
+				if (index == bj_MAX_PLAYERS) { break; }//exitwhen index == bj_MAX_PLAYERS
+			}//endloop
+		}//endfunction
+		//
+		//
+		//
+		//
+		//
+		//
+		private void MeleeEnumFindNearestMine() {//function MeleeEnumFindNearestMine takes nothing returns nothing
+			int enumUnit = GetEnumUnit();//local unit enumUnit = GetEnumUnit()
+			float dist;//local real dist
+			location unitLoc;//local location unitLoc
+			if ((GetUnitTypeId(enumUnit) == 'ngol')) {//if (GetUnitTypeId(enumUnit) == 'ngol') then
+				unitLoc = GetUnitLoc(enumUnit);//set unitLoc = GetUnitLoc(enumUnit)
+				dist = DistanceBetweenPoints(unitLoc, bj_meleeNearestMineToLoc);//set dist = DistanceBetweenPoints(unitLoc, bj_meleeNearestMineToLoc)
+				RemoveLocation(unitLoc);//call RemoveLocation(unitLoc)
+				//
+				if ((bj_meleeNearestMineDist < 0) || (dist < bj_meleeNearestMineDist)) {//if (bj_meleeNearestMineDist < 0) or (dist < bj_meleeNearestMineDist) then
+					bj_meleeNearestMine = enumUnit;//set bj_meleeNearestMine = enumUnit
+					bj_meleeNearestMineDist = dist;//set bj_meleeNearestMineDist = dist
+				}//endif
+			}//endif
+		}//endfunction
+		//
+		private int MeleeFindNearestMine(location src, float range) {//function MeleeFindNearestMine takes location src, real range returns unit
+			group nearbyMines;//local group nearbyMines
+			bj_meleeNearestMine = null;//set bj_meleeNearestMine = null
+			bj_meleeNearestMineDist = -1;//set bj_meleeNearestMineDist = -1
+			bj_meleeNearestMineToLoc = src;//set bj_meleeNearestMineToLoc = src
+			nearbyMines = CreateGroup();//set nearbyMines = CreateGroup()
+			GroupEnumUnitsInRangeOfLoc(nearbyMines, src, range, null);//call GroupEnumUnitsInRangeOfLoc(nearbyMines, src, range, null)
+			ForGroup(nearbyMines, function MeleeEnumFindNearestMine);//call ForGroup(nearbyMines, function MeleeEnumFindNearestMine)
+			DestroyGroup(nearbyMines);//call DestroyGroup(nearbyMines)
+			return bj_meleeNearestMine;//return bj_meleeNearestMine
+		}//endfunction
+		//
+		private int MeleeRandomHeroLoc(player p, int id1, int id2, int id3, int id4, location loc) {//function MeleeRandomHeroLoc takes player p, integer id1, integer id2, integer id3, integer id4, location loc returns unit
+			int hero = null;//local unit    hero = null
+			int roll;//local integer roll
+			int pick;//local integer pick
+			version v;//local version v
 			//
-		}//endif
-	}//endfunction
-	//
-	//
-	//
-	//
-	//
-	//
-	private void PickMeleeAI(player num, string s1, string s2, string s3) {//function PickMeleeAI takes player num, string s1, string s2, string s3 returns nothing
-		int pick;//local integer pick
+			v = VersionGet();//set v = VersionGet()
+			if ((v == VERSION_REIGN_OF_CHAOS)) {//if (v == VERSION_REIGN_OF_CHAOS) then
+				roll = GetRandomInt(1,3);//set roll = GetRandomInt(1,3)
+			} else {//else
+				roll = GetRandomInt(1,4);//set roll = GetRandomInt(1,4)
+			}//endif
+			//
+			if (roll == 1) {//if roll == 1 then
+				pick = id1;//set pick = id1
+			} else if (roll == 2) {//elseif roll == 2 then
+				pick = id2;//set pick = id2
+			} else if (roll == 3) {//elseif roll == 3 then
+				pick = id3;//set pick = id3
+			} else if (roll == 4) {//elseif roll == 4 then
+				pick = id4;//set pick = id4
+			} else {//else
+				//
+				pick = id1;//set pick = id1
+			}//endif
+			//
+			hero = CreateUnitAtLoc(p, pick, loc, bj_UNIT_FACING);//set hero = CreateUnitAtLoc(p, pick, loc, bj_UNIT_FACING)
+			if (bj_meleeGrantHeroItems) {//if bj_meleeGrantHeroItems then
+				MeleeGrantItemsToHero(hero);//call MeleeGrantItemsToHero(hero)
+			}//endif
+			return hero;//return hero
+		}//endfunction
 		//
 		//
 		//
-		if (GetAIDifficulty(num) == AI_DIFFICULTY_NEWBIE) {//if GetAIDifficulty(num) == AI_DIFFICULTY_NEWBIE then
-			StartMeleeAI(num,s1);//call StartMeleeAI(num,s1)
-			return;//return
-		}//endif
-		if (s2 == null) {//if s2 == null then
-			pick = 1;//set pick = 1
-		} else if (s3 == null) {//elseif s3 == null then
-			pick = GetRandomInt(1,2);//set pick = GetRandomInt(1,2)
-		} else {//else
-			pick = GetRandomInt(1,3);//set pick = GetRandomInt(1,3)
-		}//endif
-		if (pick == 1) {//if pick == 1 then
-			StartMeleeAI(num,s1);//call StartMeleeAI(num,s1)
-		} else if (pick == 2) {//elseif pick == 2 then
-			StartMeleeAI(num,s2);//call StartMeleeAI(num,s2)
-		} else {//else
-			StartMeleeAI(num,s3);//call StartMeleeAI(num,s3)
-		}//endif
-	}//endfunction
-	//
-	private void MeleeStartingAI() {//function MeleeStartingAI takes nothing returns nothing
-		int index;//local integer index
-		player indexPlayer;//local player  indexPlayer
-		race indexRace;//local race    indexRace
-		index = 0;//set index = 0
-		while (true) {//loop
-			indexPlayer = Player(index);//set indexPlayer = Player(index)
-			if ((GetPlayerSlotState(indexPlayer) == PLAYER_SLOT_STATE_PLAYING)) {//if (GetPlayerSlotState(indexPlayer) == PLAYER_SLOT_STATE_PLAYING) then
-				indexRace = GetPlayerRace(indexPlayer);//set indexRace = GetPlayerRace(indexPlayer)
-				if ((GetPlayerController(indexPlayer) == MAP_CONTROL_COMPUTER)) {//if (GetPlayerController(indexPlayer) == MAP_CONTROL_COMPUTER) then
+		private location MeleeGetProjectedLoc(location src, location targ, float distance, float deltaAngle) {//function MeleeGetProjectedLoc takes location src, location targ, real distance, real deltaAngle returns location
+			float srcX = GetLocationX(src);//local real srcX = GetLocationX(src)
+			float srcY = GetLocationY(src);//local real srcY = GetLocationY(src)
+			float direction = Atan2(GetLocationY(targ) - srcY, GetLocationX(targ) - srcX) + deltaAngle;//local real direction = Atan2(GetLocationY(targ) - srcY, GetLocationX(targ) - srcX) + deltaAngle
+			return Location(srcX + distance * Cos(direction), srcY + distance * Sin(direction));//return Location(srcX + distance * Cos(direction), srcY + distance * Sin(direction))
+		}//endfunction
+		//
+		private float MeleeGetNearestValueWithin(float val, float minVal, float maxVal) {//function MeleeGetNearestValueWithin takes real val, real minVal, real maxVal returns real
+			if ((val < minVal)) {//if (val < minVal) then
+				return minVal;//return minVal
+			} else if ((val > maxVal)) {//elseif (val > maxVal) then
+				return maxVal;//return maxVal
+			} else {//else
+				return val;//return val
+			}//endif
+		}//endfunction
+		//
+		private location MeleeGetLocWithinRect(location src, rect r) {//function MeleeGetLocWithinRect takes location src, rect r returns location
+			float withinX = MeleeGetNearestValueWithin(GetLocationX(src), GetRectMinX(r), GetRectMaxX(r));//local real withinX = MeleeGetNearestValueWithin(GetLocationX(src), GetRectMinX(r), GetRectMaxX(r))
+			float withinY = MeleeGetNearestValueWithin(GetLocationY(src), GetRectMinY(r), GetRectMaxY(r));//local real withinY = MeleeGetNearestValueWithin(GetLocationY(src), GetRectMinY(r), GetRectMaxY(r))
+			return Location(withinX, withinY);//return Location(withinX, withinY)
+		}//endfunction
+		//
+		//
+		//
+		//
+		//
+		private void MeleeStartingUnitsHuman(player whichPlayer, location startLoc, bool doHeroes, bool doCamera, bool doPreload) {//function MeleeStartingUnitsHuman takes player whichPlayer, location startLoc, boolean doHeroes, boolean doCamera, boolean doPreload returns nothing
+			bool useRandomHero = IsMapFlagSet(MAP_RANDOM_HERO);//local boolean  useRandomHero = IsMapFlagSet(MAP_RANDOM_HERO)
+			float unitSpacing = 64.00;//local real     unitSpacing   = 64.00
+			int nearestMine;//local unit     nearestMine
+			location nearMineLoc;//local location nearMineLoc
+			location heroLoc;//local location heroLoc
+			float peonX;//local real     peonX
+			float peonY;//local real     peonY
+			int townHall = null;//local unit     townHall = null
+			if ((doPreload)) {//if (doPreload) then
+				Preloader("scripts\\HumanMelee.pld");//call Preloader( "scripts\\HumanMelee.pld" )
+			}//endif
+			nearestMine = MeleeFindNearestMine(startLoc, bj_MELEE_MINE_SEARCH_RADIUS);//set nearestMine = MeleeFindNearestMine(startLoc, bj_MELEE_MINE_SEARCH_RADIUS)
+			if ((nearestMine != null)) {//if (nearestMine != null) then
+				//
+				townHall = CreateUnitAtLoc(whichPlayer, 'htow', startLoc, bj_UNIT_FACING);//set townHall = CreateUnitAtLoc(whichPlayer, 'htow', startLoc, bj_UNIT_FACING)
+				//
+				nearMineLoc = MeleeGetProjectedLoc(GetUnitLoc(nearestMine), startLoc, 320, 0);//set nearMineLoc = MeleeGetProjectedLoc(GetUnitLoc(nearestMine), startLoc, 320, 0)
+				peonX = GetLocationX(nearMineLoc);//set peonX = GetLocationX(nearMineLoc)
+				peonY = GetLocationY(nearMineLoc);//set peonY = GetLocationY(nearMineLoc)
+				CreateUnit(whichPlayer, 'hpea', peonX + 0.00 * unitSpacing, peonY + 1.00 * unitSpacing, bj_UNIT_FACING);//call CreateUnit(whichPlayer, 'hpea', peonX + 0.00 * unitSpacing, peonY + 1.00 * unitSpacing, bj_UNIT_FACING)
+				CreateUnit(whichPlayer, 'hpea', peonX + 1.00 * unitSpacing, peonY + 0.15 * unitSpacing, bj_UNIT_FACING);//call CreateUnit(whichPlayer, 'hpea', peonX + 1.00 * unitSpacing, peonY + 0.15 * unitSpacing, bj_UNIT_FACING)
+				CreateUnit(whichPlayer, 'hpea', peonX - 1.00 * unitSpacing, peonY + 0.15 * unitSpacing, bj_UNIT_FACING);//call CreateUnit(whichPlayer, 'hpea', peonX - 1.00 * unitSpacing, peonY + 0.15 * unitSpacing, bj_UNIT_FACING)
+				CreateUnit(whichPlayer, 'hpea', peonX + 0.60 * unitSpacing, peonY - 1.00 * unitSpacing, bj_UNIT_FACING);//call CreateUnit(whichPlayer, 'hpea', peonX + 0.60 * unitSpacing, peonY - 1.00 * unitSpacing, bj_UNIT_FACING)
+				CreateUnit(whichPlayer, 'hpea', peonX - 0.60 * unitSpacing, peonY - 1.00 * unitSpacing, bj_UNIT_FACING);//call CreateUnit(whichPlayer, 'hpea', peonX - 0.60 * unitSpacing, peonY - 1.00 * unitSpacing, bj_UNIT_FACING)
+				//
+				heroLoc = MeleeGetProjectedLoc(GetUnitLoc(nearestMine), startLoc, 384, 45);//set heroLoc = MeleeGetProjectedLoc(GetUnitLoc(nearestMine), startLoc, 384, 45)
+			} else {//else
+				//
+				townHall = CreateUnitAtLoc(whichPlayer, 'htow', startLoc, bj_UNIT_FACING);//set townHall = CreateUnitAtLoc(whichPlayer, 'htow', startLoc, bj_UNIT_FACING)
+				//
+				peonX = GetLocationX(startLoc);//set peonX = GetLocationX(startLoc)
+				peonY = GetLocationY(startLoc) - 224.00;//set peonY = GetLocationY(startLoc) - 224.00
+				CreateUnit(whichPlayer, 'hpea', peonX + 2.00 * unitSpacing, peonY + 0.00 * unitSpacing, bj_UNIT_FACING);//call CreateUnit(whichPlayer, 'hpea', peonX + 2.00 * unitSpacing, peonY + 0.00 * unitSpacing, bj_UNIT_FACING)
+				CreateUnit(whichPlayer, 'hpea', peonX + 1.00 * unitSpacing, peonY + 0.00 * unitSpacing, bj_UNIT_FACING);//call CreateUnit(whichPlayer, 'hpea', peonX + 1.00 * unitSpacing, peonY + 0.00 * unitSpacing, bj_UNIT_FACING)
+				CreateUnit(whichPlayer, 'hpea', peonX + 0.00 * unitSpacing, peonY + 0.00 * unitSpacing, bj_UNIT_FACING);//call CreateUnit(whichPlayer, 'hpea', peonX + 0.00 * unitSpacing, peonY + 0.00 * unitSpacing, bj_UNIT_FACING)
+				CreateUnit(whichPlayer, 'hpea', peonX - 1.00 * unitSpacing, peonY + 0.00 * unitSpacing, bj_UNIT_FACING);//call CreateUnit(whichPlayer, 'hpea', peonX - 1.00 * unitSpacing, peonY + 0.00 * unitSpacing, bj_UNIT_FACING)
+				CreateUnit(whichPlayer, 'hpea', peonX - 2.00 * unitSpacing, peonY + 0.00 * unitSpacing, bj_UNIT_FACING);//call CreateUnit(whichPlayer, 'hpea', peonX - 2.00 * unitSpacing, peonY + 0.00 * unitSpacing, bj_UNIT_FACING)
+				//
+				heroLoc = Location(peonX, peonY - 2.00 * unitSpacing);//set heroLoc = Location(peonX, peonY - 2.00 * unitSpacing)
+			}//endif
+			if ((townHall != null)) {//if (townHall != null) then
+				UnitAddAbilityBJ('Amic', townHall);//call UnitAddAbilityBJ('Amic', townHall)
+				UnitMakeAbilityPermanentBJ(true, 'Amic', townHall);//call UnitMakeAbilityPermanentBJ(true, 'Amic', townHall)
+			}//endif
+			if ((doHeroes)) {//if (doHeroes) then
+				//
+				//
+				if (useRandomHero) {//if useRandomHero then
+					MeleeRandomHeroLoc(whichPlayer, 'Hamg', 'Hmkg', 'Hpal', 'Hblm', heroLoc);//call MeleeRandomHeroLoc(whichPlayer, 'Hamg', 'Hmkg', 'Hpal', 'Hblm', heroLoc)
+				} else {//else
+					SetPlayerState(whichPlayer, PLAYER_STATE_RESOURCE_HERO_TOKENS, bj_MELEE_STARTING_HERO_TOKENS);//call SetPlayerState(whichPlayer, PLAYER_STATE_RESOURCE_HERO_TOKENS, bj_MELEE_STARTING_HERO_TOKENS)
+				}//endif
+			}//endif
+			if ((doCamera)) {//if (doCamera) then
+				//
+				SetCameraPositionForPlayer(whichPlayer, peonX, peonY);//call SetCameraPositionForPlayer(whichPlayer, peonX, peonY)
+				SetCameraQuickPositionForPlayer(whichPlayer, peonX, peonY);//call SetCameraQuickPositionForPlayer(whichPlayer, peonX, peonY)
+			}//endif
+		}//endfunction
+		//
+		//
+		//
+		//
+		//
+		private void MeleeStartingUnitsOrc(player whichPlayer, location startLoc, bool doHeroes, bool doCamera, bool doPreload) {//function MeleeStartingUnitsOrc takes player whichPlayer, location startLoc, boolean doHeroes, boolean doCamera, boolean doPreload returns nothing
+			bool useRandomHero = IsMapFlagSet(MAP_RANDOM_HERO);//local boolean  useRandomHero = IsMapFlagSet(MAP_RANDOM_HERO)
+			float unitSpacing = 64.00;//local real     unitSpacing   = 64.00
+			int nearestMine;//local unit     nearestMine
+			location nearMineLoc;//local location nearMineLoc
+			location heroLoc;//local location heroLoc
+			float peonX;//local real     peonX
+			float peonY;//local real     peonY
+			if ((doPreload)) {//if (doPreload) then
+				Preloader("scripts\\OrcMelee.pld");//call Preloader( "scripts\\OrcMelee.pld" )
+			}//endif
+			nearestMine = MeleeFindNearestMine(startLoc, bj_MELEE_MINE_SEARCH_RADIUS);//set nearestMine = MeleeFindNearestMine(startLoc, bj_MELEE_MINE_SEARCH_RADIUS)
+			if ((nearestMine != null)) {//if (nearestMine != null) then
+				//
+				CreateUnitAtLoc(whichPlayer, 'ogre', startLoc, bj_UNIT_FACING);//call CreateUnitAtLoc(whichPlayer, 'ogre', startLoc, bj_UNIT_FACING)
+				//
+				nearMineLoc = MeleeGetProjectedLoc(GetUnitLoc(nearestMine), startLoc, 320, 0);//set nearMineLoc = MeleeGetProjectedLoc(GetUnitLoc(nearestMine), startLoc, 320, 0)
+				peonX = GetLocationX(nearMineLoc);//set peonX = GetLocationX(nearMineLoc)
+				peonY = GetLocationY(nearMineLoc);//set peonY = GetLocationY(nearMineLoc)
+				CreateUnit(whichPlayer, 'opeo', peonX + 0.00 * unitSpacing, peonY + 1.00 * unitSpacing, bj_UNIT_FACING);//call CreateUnit(whichPlayer, 'opeo', peonX + 0.00 * unitSpacing, peonY + 1.00 * unitSpacing, bj_UNIT_FACING)
+				CreateUnit(whichPlayer, 'opeo', peonX + 1.00 * unitSpacing, peonY + 0.15 * unitSpacing, bj_UNIT_FACING);//call CreateUnit(whichPlayer, 'opeo', peonX + 1.00 * unitSpacing, peonY + 0.15 * unitSpacing, bj_UNIT_FACING)
+				CreateUnit(whichPlayer, 'opeo', peonX - 1.00 * unitSpacing, peonY + 0.15 * unitSpacing, bj_UNIT_FACING);//call CreateUnit(whichPlayer, 'opeo', peonX - 1.00 * unitSpacing, peonY + 0.15 * unitSpacing, bj_UNIT_FACING)
+				CreateUnit(whichPlayer, 'opeo', peonX + 0.60 * unitSpacing, peonY - 1.00 * unitSpacing, bj_UNIT_FACING);//call CreateUnit(whichPlayer, 'opeo', peonX + 0.60 * unitSpacing, peonY - 1.00 * unitSpacing, bj_UNIT_FACING)
+				CreateUnit(whichPlayer, 'opeo', peonX - 0.60 * unitSpacing, peonY - 1.00 * unitSpacing, bj_UNIT_FACING);//call CreateUnit(whichPlayer, 'opeo', peonX - 0.60 * unitSpacing, peonY - 1.00 * unitSpacing, bj_UNIT_FACING)
+				//
+				heroLoc = MeleeGetProjectedLoc(GetUnitLoc(nearestMine), startLoc, 384, 45);//set heroLoc = MeleeGetProjectedLoc(GetUnitLoc(nearestMine), startLoc, 384, 45)
+			} else {//else
+				//
+				CreateUnitAtLoc(whichPlayer, 'ogre', startLoc, bj_UNIT_FACING);//call CreateUnitAtLoc(whichPlayer, 'ogre', startLoc, bj_UNIT_FACING)
+				//
+				peonX = GetLocationX(startLoc);//set peonX = GetLocationX(startLoc)
+				peonY = GetLocationY(startLoc) - 224.00;//set peonY = GetLocationY(startLoc) - 224.00
+				CreateUnit(whichPlayer, 'opeo', peonX + 2.00 * unitSpacing, peonY + 0.00 * unitSpacing, bj_UNIT_FACING);//call CreateUnit(whichPlayer, 'opeo', peonX + 2.00 * unitSpacing, peonY + 0.00 * unitSpacing, bj_UNIT_FACING)
+				CreateUnit(whichPlayer, 'opeo', peonX + 1.00 * unitSpacing, peonY + 0.00 * unitSpacing, bj_UNIT_FACING);//call CreateUnit(whichPlayer, 'opeo', peonX + 1.00 * unitSpacing, peonY + 0.00 * unitSpacing, bj_UNIT_FACING)
+				CreateUnit(whichPlayer, 'opeo', peonX + 0.00 * unitSpacing, peonY + 0.00 * unitSpacing, bj_UNIT_FACING);//call CreateUnit(whichPlayer, 'opeo', peonX + 0.00 * unitSpacing, peonY + 0.00 * unitSpacing, bj_UNIT_FACING)
+				CreateUnit(whichPlayer, 'opeo', peonX - 1.00 * unitSpacing, peonY + 0.00 * unitSpacing, bj_UNIT_FACING);//call CreateUnit(whichPlayer, 'opeo', peonX - 1.00 * unitSpacing, peonY + 0.00 * unitSpacing, bj_UNIT_FACING)
+				CreateUnit(whichPlayer, 'opeo', peonX - 2.00 * unitSpacing, peonY + 0.00 * unitSpacing, bj_UNIT_FACING);//call CreateUnit(whichPlayer, 'opeo', peonX - 2.00 * unitSpacing, peonY + 0.00 * unitSpacing, bj_UNIT_FACING)
+				//
+				heroLoc = Location(peonX, peonY - 2.00 * unitSpacing);//set heroLoc = Location(peonX, peonY - 2.00 * unitSpacing)
+			}//endif
+			if ((doHeroes)) {//if (doHeroes) then
+				//
+				//
+				if (useRandomHero) {//if useRandomHero then
+					MeleeRandomHeroLoc(whichPlayer, 'Obla', 'Ofar', 'Otch', 'Oshd', heroLoc);//call MeleeRandomHeroLoc(whichPlayer, 'Obla', 'Ofar', 'Otch', 'Oshd', heroLoc)
+				} else {//else
+					SetPlayerState(whichPlayer, PLAYER_STATE_RESOURCE_HERO_TOKENS, bj_MELEE_STARTING_HERO_TOKENS);//call SetPlayerState(whichPlayer, PLAYER_STATE_RESOURCE_HERO_TOKENS, bj_MELEE_STARTING_HERO_TOKENS)
+				}//endif
+			}//endif
+			if ((doCamera)) {//if (doCamera) then
+				//
+				SetCameraPositionForPlayer(whichPlayer, peonX, peonY);//call SetCameraPositionForPlayer(whichPlayer, peonX, peonY)
+				SetCameraQuickPositionForPlayer(whichPlayer, peonX, peonY);//call SetCameraQuickPositionForPlayer(whichPlayer, peonX, peonY)
+			}//endif
+		}//endfunction
+		//
+		//
+		//
+		//
+		//
+		//
+		//
+		//
+		private void MeleeStartingUnitsUndead(player whichPlayer, location startLoc, bool doHeroes, bool doCamera, bool doPreload) {//function MeleeStartingUnitsUndead takes player whichPlayer, location startLoc, boolean doHeroes, boolean doCamera, boolean doPreload returns nothing
+			bool useRandomHero = IsMapFlagSet(MAP_RANDOM_HERO);//local boolean  useRandomHero = IsMapFlagSet(MAP_RANDOM_HERO)
+			float unitSpacing = 64.00;//local real     unitSpacing   = 64.00
+			int nearestMine;//local unit     nearestMine
+			location nearMineLoc;//local location nearMineLoc
+			location nearTownLoc;//local location nearTownLoc
+			location heroLoc;//local location heroLoc
+			float peonX;//local real     peonX
+			float peonY;//local real     peonY
+			float ghoulX;//local real     ghoulX
+			float ghoulY;//local real     ghoulY
+			if ((doPreload)) {//if (doPreload) then
+				Preloader("scripts\\UndeadMelee.pld");//call Preloader( "scripts\\UndeadMelee.pld" )
+			}//endif
+			nearestMine = MeleeFindNearestMine(startLoc, bj_MELEE_MINE_SEARCH_RADIUS);//set nearestMine = MeleeFindNearestMine(startLoc, bj_MELEE_MINE_SEARCH_RADIUS)
+			if ((nearestMine != null)) {//if (nearestMine != null) then
+				//
+				CreateUnitAtLoc(whichPlayer, 'unpl', startLoc, bj_UNIT_FACING);//call CreateUnitAtLoc(whichPlayer, 'unpl', startLoc, bj_UNIT_FACING)
+				//
+				nearestMine = BlightGoldMineForPlayerBJ(nearestMine, whichPlayer);//set nearestMine = BlightGoldMineForPlayerBJ(nearestMine, whichPlayer)
+				//
+				nearTownLoc = MeleeGetProjectedLoc(startLoc, GetUnitLoc(nearestMine), 288, 0);//set nearTownLoc = MeleeGetProjectedLoc(startLoc, GetUnitLoc(nearestMine), 288, 0)
+				ghoulX = GetLocationX(nearTownLoc);//set ghoulX = GetLocationX(nearTownLoc)
+				ghoulY = GetLocationY(nearTownLoc);//set ghoulY = GetLocationY(nearTownLoc)
+				bj_ghoul[GetPlayerId(whichPlayer)] = CreateUnit(whichPlayer, 'ugho', ghoulX + 0.00 * unitSpacing, ghoulY + 0.00 * unitSpacing, bj_UNIT_FACING);//set bj_ghoul[GetPlayerId(whichPlayer)] = CreateUnit(whichPlayer, 'ugho', ghoulX + 0.00 * unitSpacing, ghoulY + 0.00 * unitSpacing, bj_UNIT_FACING)
+				//
+				nearMineLoc = MeleeGetProjectedLoc(GetUnitLoc(nearestMine), startLoc, 320, 0);//set nearMineLoc = MeleeGetProjectedLoc(GetUnitLoc(nearestMine), startLoc, 320, 0)
+				peonX = GetLocationX(nearMineLoc);//set peonX = GetLocationX(nearMineLoc)
+				peonY = GetLocationY(nearMineLoc);//set peonY = GetLocationY(nearMineLoc)
+				CreateUnit(whichPlayer, 'uaco', peonX + 0.00 * unitSpacing, peonY + 0.50 * unitSpacing, bj_UNIT_FACING);//call CreateUnit(whichPlayer, 'uaco', peonX + 0.00 * unitSpacing, peonY + 0.50 * unitSpacing, bj_UNIT_FACING)
+				CreateUnit(whichPlayer, 'uaco', peonX + 0.65 * unitSpacing, peonY - 0.50 * unitSpacing, bj_UNIT_FACING);//call CreateUnit(whichPlayer, 'uaco', peonX + 0.65 * unitSpacing, peonY - 0.50 * unitSpacing, bj_UNIT_FACING)
+				CreateUnit(whichPlayer, 'uaco', peonX - 0.65 * unitSpacing, peonY - 0.50 * unitSpacing, bj_UNIT_FACING);//call CreateUnit(whichPlayer, 'uaco', peonX - 0.65 * unitSpacing, peonY - 0.50 * unitSpacing, bj_UNIT_FACING)
+				//
+				SetBlightLoc(whichPlayer,nearMineLoc, 768, true);//call SetBlightLoc(whichPlayer,nearMineLoc, 768, true)
+				//
+				heroLoc = MeleeGetProjectedLoc(GetUnitLoc(nearestMine), startLoc, 384, 45);//set heroLoc = MeleeGetProjectedLoc(GetUnitLoc(nearestMine), startLoc, 384, 45)
+			} else {//else
+				//
+				CreateUnitAtLoc(whichPlayer, 'unpl', startLoc, bj_UNIT_FACING);//call CreateUnitAtLoc(whichPlayer, 'unpl', startLoc, bj_UNIT_FACING)
+				//
+				peonX = GetLocationX(startLoc);//set peonX = GetLocationX(startLoc)
+				peonY = GetLocationY(startLoc) - 224.00;//set peonY = GetLocationY(startLoc) - 224.00
+				CreateUnit(whichPlayer, 'uaco', peonX - 1.50 * unitSpacing, peonY + 0.00 * unitSpacing, bj_UNIT_FACING);//call CreateUnit(whichPlayer, 'uaco', peonX - 1.50 * unitSpacing, peonY + 0.00 * unitSpacing, bj_UNIT_FACING)
+				CreateUnit(whichPlayer, 'uaco', peonX - 0.50 * unitSpacing, peonY + 0.00 * unitSpacing, bj_UNIT_FACING);//call CreateUnit(whichPlayer, 'uaco', peonX - 0.50 * unitSpacing, peonY + 0.00 * unitSpacing, bj_UNIT_FACING)
+				CreateUnit(whichPlayer, 'uaco', peonX + 0.50 * unitSpacing, peonY + 0.00 * unitSpacing, bj_UNIT_FACING);//call CreateUnit(whichPlayer, 'uaco', peonX + 0.50 * unitSpacing, peonY + 0.00 * unitSpacing, bj_UNIT_FACING)
+				CreateUnit(whichPlayer, 'ugho', peonX + 1.50 * unitSpacing, peonY + 0.00 * unitSpacing, bj_UNIT_FACING);//call CreateUnit(whichPlayer, 'ugho', peonX + 1.50 * unitSpacing, peonY + 0.00 * unitSpacing, bj_UNIT_FACING)
+				//
+				SetBlightLoc(whichPlayer,startLoc, 768, true);//call SetBlightLoc(whichPlayer,startLoc, 768, true)
+				//
+				heroLoc = Location(peonX, peonY - 2.00 * unitSpacing);//set heroLoc = Location(peonX, peonY - 2.00 * unitSpacing)
+			}//endif
+			if ((doHeroes)) {//if (doHeroes) then
+				//
+				//
+				if (useRandomHero) {//if useRandomHero then
+					MeleeRandomHeroLoc(whichPlayer, 'Udea', 'Udre', 'Ulic', 'Ucrl', heroLoc);//call MeleeRandomHeroLoc(whichPlayer, 'Udea', 'Udre', 'Ulic', 'Ucrl', heroLoc)
+				} else {//else
+					SetPlayerState(whichPlayer, PLAYER_STATE_RESOURCE_HERO_TOKENS, bj_MELEE_STARTING_HERO_TOKENS);//call SetPlayerState(whichPlayer, PLAYER_STATE_RESOURCE_HERO_TOKENS, bj_MELEE_STARTING_HERO_TOKENS)
+				}//endif
+			}//endif
+			if ((doCamera)) {//if (doCamera) then
+				//
+				SetCameraPositionForPlayer(whichPlayer, peonX, peonY);//call SetCameraPositionForPlayer(whichPlayer, peonX, peonY)
+				SetCameraQuickPositionForPlayer(whichPlayer, peonX, peonY);//call SetCameraQuickPositionForPlayer(whichPlayer, peonX, peonY)
+			}//endif
+		}//endfunction
+		//
+		//
+		//
+		//
+		//
+		private void MeleeStartingUnitsNightElf(player whichPlayer, location startLoc, bool doHeroes, bool doCamera, bool doPreload) {//function MeleeStartingUnitsNightElf takes player whichPlayer, location startLoc, boolean doHeroes, boolean doCamera, boolean doPreload returns nothing
+			bool useRandomHero = IsMapFlagSet(MAP_RANDOM_HERO);//local boolean  useRandomHero = IsMapFlagSet(MAP_RANDOM_HERO)
+			float unitSpacing = 64.00;//local real     unitSpacing   = 64.00
+			float minTreeDist = 3.50 * bj_CELLWIDTH;//local real     minTreeDist   = 3.50 * bj_CELLWIDTH
+			float minWispDist = 1.75 * bj_CELLWIDTH;//local real     minWispDist   = 1.75 * bj_CELLWIDTH
+			int nearestMine;//local unit     nearestMine
+			location nearMineLoc;//local location nearMineLoc
+			location wispLoc;//local location wispLoc
+			location heroLoc;//local location heroLoc
+			float peonX;//local real     peonX
+			float peonY;//local real     peonY
+			int tree;//local unit     tree
+			if ((doPreload)) {//if (doPreload) then
+				Preloader("scripts\\NightElfMelee.pld");//call Preloader( "scripts\\NightElfMelee.pld" )
+			}//endif
+			nearestMine = MeleeFindNearestMine(startLoc, bj_MELEE_MINE_SEARCH_RADIUS);//set nearestMine = MeleeFindNearestMine(startLoc, bj_MELEE_MINE_SEARCH_RADIUS)
+			if ((nearestMine != null)) {//if (nearestMine != null) then
+				//
+				//
+				//
+				nearMineLoc = MeleeGetProjectedLoc(GetUnitLoc(nearestMine), startLoc, 650, 0);//set nearMineLoc = MeleeGetProjectedLoc(GetUnitLoc(nearestMine), startLoc, 650, 0)
+				nearMineLoc = MeleeGetLocWithinRect(nearMineLoc, GetRectFromCircleBJ(GetUnitLoc(nearestMine), minTreeDist));//set nearMineLoc = MeleeGetLocWithinRect(nearMineLoc, GetRectFromCircleBJ(GetUnitLoc(nearestMine), minTreeDist))
+				tree = CreateUnitAtLoc(whichPlayer, 'etol', nearMineLoc, bj_UNIT_FACING);//set tree = CreateUnitAtLoc(whichPlayer, 'etol', nearMineLoc, bj_UNIT_FACING)
+				IssueTargetOrder(tree, "entangleinstant", nearestMine);//call IssueTargetOrder(tree, "entangleinstant", nearestMine)
+				//
+				wispLoc = MeleeGetProjectedLoc(GetUnitLoc(nearestMine), startLoc, 320, 0);//set wispLoc = MeleeGetProjectedLoc(GetUnitLoc(nearestMine), startLoc, 320, 0)
+				wispLoc = MeleeGetLocWithinRect(wispLoc, GetRectFromCircleBJ(GetUnitLoc(nearestMine), minWispDist));//set wispLoc = MeleeGetLocWithinRect(wispLoc, GetRectFromCircleBJ(GetUnitLoc(nearestMine), minWispDist))
+				peonX = GetLocationX(wispLoc);//set peonX = GetLocationX(wispLoc)
+				peonY = GetLocationY(wispLoc);//set peonY = GetLocationY(wispLoc)
+				CreateUnit(whichPlayer, 'ewsp', peonX + 0.00 * unitSpacing, peonY + 1.00 * unitSpacing, bj_UNIT_FACING);//call CreateUnit(whichPlayer, 'ewsp', peonX + 0.00 * unitSpacing, peonY + 1.00 * unitSpacing, bj_UNIT_FACING)
+				CreateUnit(whichPlayer, 'ewsp', peonX + 1.00 * unitSpacing, peonY + 0.15 * unitSpacing, bj_UNIT_FACING);//call CreateUnit(whichPlayer, 'ewsp', peonX + 1.00 * unitSpacing, peonY + 0.15 * unitSpacing, bj_UNIT_FACING)
+				CreateUnit(whichPlayer, 'ewsp', peonX - 1.00 * unitSpacing, peonY + 0.15 * unitSpacing, bj_UNIT_FACING);//call CreateUnit(whichPlayer, 'ewsp', peonX - 1.00 * unitSpacing, peonY + 0.15 * unitSpacing, bj_UNIT_FACING)
+				CreateUnit(whichPlayer, 'ewsp', peonX + 0.58 * unitSpacing, peonY - 1.00 * unitSpacing, bj_UNIT_FACING);//call CreateUnit(whichPlayer, 'ewsp', peonX + 0.58 * unitSpacing, peonY - 1.00 * unitSpacing, bj_UNIT_FACING)
+				CreateUnit(whichPlayer, 'ewsp', peonX - 0.58 * unitSpacing, peonY - 1.00 * unitSpacing, bj_UNIT_FACING);//call CreateUnit(whichPlayer, 'ewsp', peonX - 0.58 * unitSpacing, peonY - 1.00 * unitSpacing, bj_UNIT_FACING)
+				//
+				heroLoc = MeleeGetProjectedLoc(GetUnitLoc(nearestMine), startLoc, 384, 45);//set heroLoc = MeleeGetProjectedLoc(GetUnitLoc(nearestMine), startLoc, 384, 45)
+			} else {//else
+				//
+				CreateUnitAtLoc(whichPlayer, 'etol', startLoc, bj_UNIT_FACING);//call CreateUnitAtLoc(whichPlayer, 'etol', startLoc, bj_UNIT_FACING)
+				//
+				peonX = GetLocationX(startLoc);//set peonX = GetLocationX(startLoc)
+				peonY = GetLocationY(startLoc) - 224.00;//set peonY = GetLocationY(startLoc) - 224.00
+				CreateUnit(whichPlayer, 'ewsp', peonX - 2.00 * unitSpacing, peonY + 0.00 * unitSpacing, bj_UNIT_FACING);//call CreateUnit(whichPlayer, 'ewsp', peonX - 2.00 * unitSpacing, peonY + 0.00 * unitSpacing, bj_UNIT_FACING)
+				CreateUnit(whichPlayer, 'ewsp', peonX - 1.00 * unitSpacing, peonY + 0.00 * unitSpacing, bj_UNIT_FACING);//call CreateUnit(whichPlayer, 'ewsp', peonX - 1.00 * unitSpacing, peonY + 0.00 * unitSpacing, bj_UNIT_FACING)
+				CreateUnit(whichPlayer, 'ewsp', peonX + 0.00 * unitSpacing, peonY + 0.00 * unitSpacing, bj_UNIT_FACING);//call CreateUnit(whichPlayer, 'ewsp', peonX + 0.00 * unitSpacing, peonY + 0.00 * unitSpacing, bj_UNIT_FACING)
+				CreateUnit(whichPlayer, 'ewsp', peonX + 1.00 * unitSpacing, peonY + 0.00 * unitSpacing, bj_UNIT_FACING);//call CreateUnit(whichPlayer, 'ewsp', peonX + 1.00 * unitSpacing, peonY + 0.00 * unitSpacing, bj_UNIT_FACING)
+				CreateUnit(whichPlayer, 'ewsp', peonX + 2.00 * unitSpacing, peonY + 0.00 * unitSpacing, bj_UNIT_FACING);//call CreateUnit(whichPlayer, 'ewsp', peonX + 2.00 * unitSpacing, peonY + 0.00 * unitSpacing, bj_UNIT_FACING)
+				//
+				heroLoc = Location(peonX, peonY - 2.00 * unitSpacing);//set heroLoc = Location(peonX, peonY - 2.00 * unitSpacing)
+			}//endif
+			if ((doHeroes)) {//if (doHeroes) then
+				//
+				//
+				if (useRandomHero) {//if useRandomHero then
+					MeleeRandomHeroLoc(whichPlayer, 'Edem', 'Ekee', 'Emoo', 'Ewar', heroLoc);//call MeleeRandomHeroLoc(whichPlayer, 'Edem', 'Ekee', 'Emoo', 'Ewar', heroLoc)
+				} else {//else
+					SetPlayerState(whichPlayer, PLAYER_STATE_RESOURCE_HERO_TOKENS, bj_MELEE_STARTING_HERO_TOKENS);//call SetPlayerState(whichPlayer, PLAYER_STATE_RESOURCE_HERO_TOKENS, bj_MELEE_STARTING_HERO_TOKENS)
+				}//endif
+			}//endif
+			if ((doCamera)) {//if (doCamera) then
+				//
+				SetCameraPositionForPlayer(whichPlayer, peonX, peonY);//call SetCameraPositionForPlayer(whichPlayer, peonX, peonY)
+				SetCameraQuickPositionForPlayer(whichPlayer, peonX, peonY);//call SetCameraQuickPositionForPlayer(whichPlayer, peonX, peonY)
+			}//endif
+		}//endfunction
+		//
+		//
+		//
+		//
+		private void MeleeStartingUnitsUnknownRace(player whichPlayer, location startLoc, bool doHeroes, bool doCamera, bool doPreload) {//function MeleeStartingUnitsUnknownRace takes player whichPlayer, location startLoc, boolean doHeroes, boolean doCamera, boolean doPreload returns nothing
+			int index;//local integer index
+			if ((doPreload)) {//if (doPreload) then
+			}//endif
+			index = 0;//set index = 0
+			while (true) {//loop
+				CreateUnit(whichPlayer, 'nshe', GetLocationX(startLoc) + GetRandomReal(-256, 256), GetLocationY(startLoc) + GetRandomReal(-256, 256), GetRandomReal(0, 360));//call CreateUnit(whichPlayer, 'nshe', GetLocationX(startLoc) + GetRandomReal(-256, 256), GetLocationY(startLoc) + GetRandomReal(-256, 256), GetRandomReal(0, 360))
+				index = index + 1;//set index = index + 1
+				if (index == 12) { break; }//exitwhen index == 12
+			}//endloop
+			if ((doHeroes)) {//if (doHeroes) then
+				//
+				SetPlayerState(whichPlayer, PLAYER_STATE_RESOURCE_HERO_TOKENS, bj_MELEE_STARTING_HERO_TOKENS);//call SetPlayerState(whichPlayer, PLAYER_STATE_RESOURCE_HERO_TOKENS, bj_MELEE_STARTING_HERO_TOKENS)
+			}//endif
+			if ((doCamera)) {//if (doCamera) then
+				//
+				SetCameraPositionLocForPlayer(whichPlayer, startLoc);//call SetCameraPositionLocForPlayer(whichPlayer, startLoc)
+				SetCameraQuickPositionLocForPlayer(whichPlayer, startLoc);//call SetCameraQuickPositionLocForPlayer(whichPlayer, startLoc)
+			}//endif
+		}//endfunction
+		//
+		private void MeleeStartingUnits() {//function MeleeStartingUnits takes nothing returns nothing
+			int index;//local integer  index
+			player indexPlayer;//local player   indexPlayer
+			location indexStartLoc;//local location indexStartLoc
+			race indexRace;//local race     indexRace
+			Preloader("scripts\\SharedMelee.pld");//call Preloader( "scripts\\SharedMelee.pld" )
+			index = 0;//set index = 0
+			while (true) {//loop
+				indexPlayer = Player(index);//set indexPlayer = Player(index)
+				if ((GetPlayerSlotState(indexPlayer) == PLAYER_SLOT_STATE_PLAYING)) {//if (GetPlayerSlotState(indexPlayer) == PLAYER_SLOT_STATE_PLAYING) then
+					indexStartLoc = GetStartLocationLoc(GetPlayerStartLocation(indexPlayer));//set indexStartLoc = GetStartLocationLoc(GetPlayerStartLocation(indexPlayer))
+					indexRace = GetPlayerRace(indexPlayer);//set indexRace = GetPlayerRace(indexPlayer)
 					//
 					if ((indexRace == RACE_HUMAN)) {//if (indexRace == RACE_HUMAN) then
-						PickMeleeAI(indexPlayer, "human.ai", null, null);//call PickMeleeAI(indexPlayer, "human.ai", null, null)
+						MeleeStartingUnitsHuman(indexPlayer, indexStartLoc, true, true, true);//call MeleeStartingUnitsHuman(indexPlayer, indexStartLoc, true, true, true)
 					} else if ((indexRace == RACE_ORC)) {//elseif (indexRace == RACE_ORC) then
-						PickMeleeAI(indexPlayer, "orc.ai", null, null);//call PickMeleeAI(indexPlayer, "orc.ai", null, null)
+						MeleeStartingUnitsOrc(indexPlayer, indexStartLoc, true, true, true);//call MeleeStartingUnitsOrc(indexPlayer, indexStartLoc, true, true, true)
 					} else if ((indexRace == RACE_UNDEAD)) {//elseif (indexRace == RACE_UNDEAD) then
-						PickMeleeAI(indexPlayer, "undead.ai", null, null);//call PickMeleeAI(indexPlayer, "undead.ai", null, null)
-						RecycleGuardPosition(bj_ghoul[index]);//call RecycleGuardPosition(bj_ghoul[index])
+						MeleeStartingUnitsUndead(indexPlayer, indexStartLoc, true, true, true);//call MeleeStartingUnitsUndead(indexPlayer, indexStartLoc, true, true, true)
 					} else if ((indexRace == RACE_NIGHTELF)) {//elseif (indexRace == RACE_NIGHTELF) then
-						PickMeleeAI(indexPlayer, "elf.ai", null, null);//call PickMeleeAI(indexPlayer, "elf.ai", null, null)
+						MeleeStartingUnitsNightElf(indexPlayer, indexStartLoc, true, true, true);//call MeleeStartingUnitsNightElf(indexPlayer, indexStartLoc, true, true, true)
 					} else {//else
-						//
-					}//endif
-					ShareEverythingWithTeamAI(indexPlayer);//call ShareEverythingWithTeamAI(indexPlayer)
-				}//endif
-			}//endif
-			index = index + 1;//set index = index + 1
-			if (index == bj_MAX_PLAYERS) { break; }//exitwhen index == bj_MAX_PLAYERS
-		}//endloop
-	}//endfunction
-	private void LockGuardPosition() {//function LockGuardPosition takes unit targ returns nothing
-		SetUnitCreepGuard(targ,true);//call SetUnitCreepGuard(targ,true)
-	}//endfunction
-	//
-	//
-	//
-	//
-	//
-	//
-	private bool MeleePlayerIsOpponent(int playerIndex, int opponentIndex) {//function MeleePlayerIsOpponent takes integer playerIndex, integer opponentIndex returns boolean
-		player thePlayer = Player(playerIndex);//local player thePlayer = Player(playerIndex)
-		player theOpponent = Player(opponentIndex);//local player theOpponent = Player(opponentIndex)
-		//
-		if ((playerIndex == opponentIndex)) {//if (playerIndex == opponentIndex) then
-			return false;//return false
-		}//endif
-		//
-		if ((GetPlayerSlotState(theOpponent) != PLAYER_SLOT_STATE_PLAYING)) {//if (GetPlayerSlotState(theOpponent) != PLAYER_SLOT_STATE_PLAYING) then
-			return false;//return false
-		}//endif
-		//
-		if ((bj_meleeDefeated[opponentIndex])) {//if (bj_meleeDefeated[opponentIndex]) then
-			return false;//return false
-		}//endif
-		//
-		if (GetPlayerAlliance(thePlayer, theOpponent, ALLIANCE_PASSIVE)) {//if GetPlayerAlliance(thePlayer, theOpponent, ALLIANCE_PASSIVE) then
-			if (GetPlayerAlliance(theOpponent, thePlayer, ALLIANCE_PASSIVE)) {//if GetPlayerAlliance(theOpponent, thePlayer, ALLIANCE_PASSIVE) then
-				if ((GetPlayerState(thePlayer, PLAYER_STATE_ALLIED_VICTORY) == 1)) {//if (GetPlayerState(thePlayer, PLAYER_STATE_ALLIED_VICTORY) == 1) then
-					if ((GetPlayerState(theOpponent, PLAYER_STATE_ALLIED_VICTORY) == 1)) {//if (GetPlayerState(theOpponent, PLAYER_STATE_ALLIED_VICTORY) == 1) then
-						return false;//return false
+						MeleeStartingUnitsUnknownRace(indexPlayer, indexStartLoc, true, true, true);//call MeleeStartingUnitsUnknownRace(indexPlayer, indexStartLoc, true, true, true)
 					}//endif
 				}//endif
-			}//endif
-		}//endif
-		return true;//return true
-	}//endfunction
-	//
-	//
-	//
-	private int MeleeGetAllyStructureCount() {//function MeleeGetAllyStructureCount takes player whichPlayer returns integer
-		int playerIndex;//local integer    playerIndex
-		int buildingCount;//local integer    buildingCount
-		player indexPlayer;//local player     indexPlayer
-		//
-		buildingCount = 0;//set buildingCount = 0
-		playerIndex = 0;//set playerIndex = 0
-		while (true) {//loop
-			indexPlayer = Player(playerIndex);//set indexPlayer = Player(playerIndex)
-			//
-			//
-			if ((PlayersAreCoAllied(whichPlayer, indexPlayer))) {//if (PlayersAreCoAllied(whichPlayer, indexPlayer)) then
-				buildingCount = buildingCount + GetPlayerStructureCount(indexPlayer, true);//set buildingCount = buildingCount + GetPlayerStructureCount(indexPlayer, true)
-			}//endif
-			playerIndex = playerIndex + 1;//set playerIndex = playerIndex + 1
-			if (playerIndex == bj_MAX_PLAYERS) { break; }//exitwhen playerIndex == bj_MAX_PLAYERS
-		}//endloop
-		return buildingCount;//return buildingCount
-	}//endfunction
-	//
-	//
-	//
-	private int MeleeGetAllyCount() {//function MeleeGetAllyCount takes player whichPlayer returns integer
-		int playerIndex;//local integer playerIndex
-		int playerCount;//local integer playerCount
-		player indexPlayer;//local player  indexPlayer
-		//
-		playerCount = 0;//set playerCount = 0
-		playerIndex = 0;//set playerIndex = 0
-		while (true) {//loop
-			indexPlayer = Player(playerIndex);//set indexPlayer = Player(playerIndex)
-			if (PlayersAreCoAllied(whichPlayer, indexPlayer) && !bj_meleeDefeated[playerIndex] && (whichPlayer != indexPlayer)) {//if PlayersAreCoAllied(whichPlayer, indexPlayer) and not bj_meleeDefeated[playerIndex] and (whichPlayer != indexPlayer) then
-				playerCount = playerCount + 1;//set playerCount = playerCount + 1
-			}//endif
-			playerIndex = playerIndex + 1;//set playerIndex = playerIndex + 1
-			if (playerIndex == bj_MAX_PLAYERS) { break; }//exitwhen playerIndex == bj_MAX_PLAYERS
-		}//endloop
-		return playerCount;//return playerCount
-	}//endfunction
-	//
-	//
-	//
-	//
-	//
-	//
-	private int MeleeGetAllyKeyStructureCount() {//function MeleeGetAllyKeyStructureCount takes player whichPlayer returns integer
-		int playerIndex;//local integer    playerIndex
-		player indexPlayer;//local player     indexPlayer
-		int keyStructs;//local integer    keyStructs
-		//
-		keyStructs = 0;//set keyStructs = 0
-		playerIndex = 0;//set playerIndex = 0
-		while (true) {//loop
-			indexPlayer = Player(playerIndex);//set indexPlayer = Player(playerIndex)
-			if ((PlayersAreCoAllied(whichPlayer, indexPlayer))) {//if (PlayersAreCoAllied(whichPlayer, indexPlayer)) then
-				keyStructs = keyStructs + GetPlayerTypedUnitCount(indexPlayer, "townhall", true, true);//set keyStructs = keyStructs + GetPlayerTypedUnitCount(indexPlayer, "townhall", true, true)
-				keyStructs = keyStructs + GetPlayerTypedUnitCount(indexPlayer, "greathall", true, true);//set keyStructs = keyStructs + GetPlayerTypedUnitCount(indexPlayer, "greathall", true, true)
-				keyStructs = keyStructs + GetPlayerTypedUnitCount(indexPlayer, "treeoflife", true, true);//set keyStructs = keyStructs + GetPlayerTypedUnitCount(indexPlayer, "treeoflife", true, true)
-				keyStructs = keyStructs + GetPlayerTypedUnitCount(indexPlayer, "necropolis", true, true);//set keyStructs = keyStructs + GetPlayerTypedUnitCount(indexPlayer, "necropolis", true, true)
-			}//endif
-			playerIndex = playerIndex + 1;//set playerIndex = playerIndex + 1
-			if (playerIndex == bj_MAX_PLAYERS) { break; }//exitwhen playerIndex == bj_MAX_PLAYERS
-		}//endloop
-		return keyStructs;//return keyStructs
-	}//endfunction
-	//
-	//
-	//
-	private void MeleeDoDrawEnum() {//function MeleeDoDrawEnum takes nothing returns nothing
-		player thePlayer = GetEnumPlayer();//local player thePlayer = GetEnumPlayer()
-		CachePlayerHeroData(thePlayer);//call CachePlayerHeroData(thePlayer)
-		RemovePlayerPreserveUnitsBJ(thePlayer, PLAYER_GAME_RESULT_TIE, false);//call RemovePlayerPreserveUnitsBJ(thePlayer, PLAYER_GAME_RESULT_TIE, false)
-	}//endfunction
-	//
-	//
-	//
-	private void MeleeDoVictoryEnum() {//function MeleeDoVictoryEnum takes nothing returns nothing
-		player thePlayer = GetEnumPlayer();//local player thePlayer = GetEnumPlayer()
-		int playerIndex = GetPlayerId(thePlayer);//local integer playerIndex = GetPlayerId(thePlayer)
-		if ((!bj_meleeVictoried[playerIndex])) {//if (not bj_meleeVictoried[playerIndex]) then
-			bj_meleeVictoried[playerIndex] = true;//set bj_meleeVictoried[playerIndex] = true
-			CachePlayerHeroData(thePlayer);//call CachePlayerHeroData(thePlayer)
-			RemovePlayerPreserveUnitsBJ(thePlayer, PLAYER_GAME_RESULT_VICTORY, false);//call RemovePlayerPreserveUnitsBJ(thePlayer, PLAYER_GAME_RESULT_VICTORY, false)
-		}//endif
-	}//endfunction
-	//
-	//
-	//
-	private void MeleeDoDefeat() {//function MeleeDoDefeat takes player whichPlayer returns nothing
-		RemovePlayerPreserveUnitsBJ(whichPlayer, PLAYER_GAME_RESULT_DEFEAT, false);//call RemovePlayerPreserveUnitsBJ(whichPlayer, PLAYER_GAME_RESULT_DEFEAT, false)
-	}//endfunction
-	//
-	//
-	//
-	private void MeleeDoDefeatEnum() {//function MeleeDoDefeatEnum takes nothing returns nothing
-		player thePlayer = GetEnumPlayer();//local player thePlayer = GetEnumPlayer()
-		//
-		CachePlayerHeroData(thePlayer);//call CachePlayerHeroData(thePlayer)
-		MakeUnitsPassiveForTeam(thePlayer);//call MakeUnitsPassiveForTeam(thePlayer)
-		MeleeDoDefeat(thePlayer);//call MeleeDoDefeat(thePlayer)
-	}//endfunction
-	//
-	//
-	//
-	private void MeleeDoLeave() {//function MeleeDoLeave takes player whichPlayer returns nothing
-		if ((GetIntegerGameState(GAME_STATE_DISCONNECTED) != 0)) {//if (GetIntegerGameState(GAME_STATE_DISCONNECTED) != 0) then
-			GameOverDialogBJ(whichPlayer, true);//call GameOverDialogBJ( whichPlayer, true )
-		} else {//else
-			RemovePlayerPreserveUnitsBJ(whichPlayer, PLAYER_GAME_RESULT_DEFEAT, true);//call RemovePlayerPreserveUnitsBJ(whichPlayer, PLAYER_GAME_RESULT_DEFEAT, true)
-		}//endif
-	}//endfunction
-	//
-	//
-	//
-	private void MeleeRemoveObservers() {//function MeleeRemoveObservers takes nothing returns nothing
-		int playerIndex;//local integer    playerIndex
-		player indexPlayer;//local player     indexPlayer
-		//
-		playerIndex = 0;//set playerIndex = 0
-		while (true) {//loop
-			indexPlayer = Player(playerIndex);//set indexPlayer = Player(playerIndex)
-			if ((IsPlayerObserver(indexPlayer))) {//if (IsPlayerObserver(indexPlayer)) then
-				RemovePlayerPreserveUnitsBJ(indexPlayer, PLAYER_GAME_RESULT_NEUTRAL, false);//call RemovePlayerPreserveUnitsBJ(indexPlayer, PLAYER_GAME_RESULT_NEUTRAL, false)
-			}//endif
-			playerIndex = playerIndex + 1;//set playerIndex = playerIndex + 1
-			if (playerIndex == bj_MAX_PLAYERS) { break; }//exitwhen playerIndex == bj_MAX_PLAYERS
-		}//endloop
-	}//endfunction
-	//
-	//
-	//
-	//
-	//
-	//
-	private force MeleeCheckForVictors() {//function MeleeCheckForVictors takes nothing returns force
-		int playerIndex;//local integer    playerIndex
-		int opponentIndex;//local integer    opponentIndex
-		force opponentlessPlayers = CreateForce();//local force      opponentlessPlayers = CreateForce()
-		bool gameOver = false;//local boolean    gameOver = false
-		//
-		playerIndex = 0;//set playerIndex = 0
-		while (true) {//loop
-			if ((!bj_meleeDefeated[playerIndex])) {//if (not bj_meleeDefeated[playerIndex]) then
-				//
-				opponentIndex = 0;//set opponentIndex = 0
-				while (true) {//loop
-					//
-					if (MeleePlayerIsOpponent(playerIndex, opponentIndex)) {//if MeleePlayerIsOpponent(playerIndex, opponentIndex) then
-						return CreateForce();//return CreateForce()
-					}//endif
-					opponentIndex = opponentIndex + 1;//set opponentIndex = opponentIndex + 1
-					if (opponentIndex == bj_MAX_PLAYERS) { break; }//exitwhen opponentIndex == bj_MAX_PLAYERS
-				}//endloop
-				//
-				//
-				ForceAddPlayer(opponentlessPlayers, Player(playerIndex));//call ForceAddPlayer(opponentlessPlayers, Player(playerIndex))
-				gameOver = true;//set gameOver = true
-			}//endif
-			playerIndex = playerIndex + 1;//set playerIndex = playerIndex + 1
-			if (playerIndex == bj_MAX_PLAYERS) { break; }//exitwhen playerIndex == bj_MAX_PLAYERS
-		}//endloop
-		//
-		bj_meleeGameOver = gameOver;//set bj_meleeGameOver = gameOver
-		return opponentlessPlayers;//return opponentlessPlayers
-	}//endfunction
-	//
-	//
-	//
-	private void MeleeCheckForLosersAndVictors() {//function MeleeCheckForLosersAndVictors takes nothing returns nothing
-		int playerIndex;//local integer    playerIndex
-		player indexPlayer;//local player     indexPlayer
-		force defeatedPlayers = CreateForce();//local force      defeatedPlayers = CreateForce()
-		force victoriousPlayers;//local force      victoriousPlayers
-		bool gameOver = false;//local boolean    gameOver = false
-		//
-		if ((bj_meleeGameOver)) {//if (bj_meleeGameOver) then
-			return;//return
-		}//endif
-		//
-		//
-		//
-		if ((GetIntegerGameState(GAME_STATE_DISCONNECTED) != 0)) {//if (GetIntegerGameState(GAME_STATE_DISCONNECTED) != 0) then
-			bj_meleeGameOver = true;//set bj_meleeGameOver = true
-			return;//return
-		}//endif
-		//
-		playerIndex = 0;//set playerIndex = 0
-		while (true) {//loop
-			indexPlayer = Player(playerIndex);//set indexPlayer = Player(playerIndex)
-			if ((!bj_meleeDefeated[playerIndex] && !bj_meleeVictoried[playerIndex])) {//if (not bj_meleeDefeated[playerIndex] and not bj_meleeVictoried[playerIndex]) then
-				//
-				if ((MeleeGetAllyStructureCount(indexPlayer) <= 0)) {//if (MeleeGetAllyStructureCount(indexPlayer) <= 0) then
-					//
-					//
-					ForceAddPlayer(defeatedPlayers, Player(playerIndex));//call ForceAddPlayer(defeatedPlayers, Player(playerIndex))
-					//
-					//
-					bj_meleeDefeated[playerIndex] = true;//set bj_meleeDefeated[playerIndex] = true
-				}//endif
-			}//endif
-			playerIndex = playerIndex + 1;//set playerIndex = playerIndex + 1
-			if (playerIndex == bj_MAX_PLAYERS) { break; }//exitwhen playerIndex == bj_MAX_PLAYERS
-		}//endloop
-		//
-		victoriousPlayers = MeleeCheckForVictors();//set victoriousPlayers = MeleeCheckForVictors()
-		//
-		ForForce(defeatedPlayers, function MeleeDoDefeatEnum);//call ForForce(defeatedPlayers, function MeleeDoDefeatEnum)
-		//
-		ForForce(victoriousPlayers, function MeleeDoVictoryEnum);//call ForForce(victoriousPlayers, function MeleeDoVictoryEnum)
-		//
-		if ((bj_meleeGameOver)) {//if (bj_meleeGameOver) then
-			MeleeRemoveObservers();//call MeleeRemoveObservers()
-		}//endif
-	}//endfunction
-	//
-	//
-	//
-	private string MeleeGetCrippledWarningMessage() {//function MeleeGetCrippledWarningMessage takes player whichPlayer returns string
-		race r = GetPlayerRace(whichPlayer);//local race r = GetPlayerRace(whichPlayer)
-		if ((r == RACE_HUMAN)) {//if (r == RACE_HUMAN) then
-			return GetLocalizedString("CRIPPLE_WARNING_HUMAN");//return GetLocalizedString("CRIPPLE_WARNING_HUMAN")
-		} else if ((r == RACE_ORC)) {//elseif (r == RACE_ORC) then
-			return GetLocalizedString("CRIPPLE_WARNING_ORC");//return GetLocalizedString("CRIPPLE_WARNING_ORC")
-		} else if ((r == RACE_NIGHTELF)) {//elseif (r == RACE_NIGHTELF) then
-			return GetLocalizedString("CRIPPLE_WARNING_NIGHTELF");//return GetLocalizedString("CRIPPLE_WARNING_NIGHTELF")
-		} else if ((r == RACE_UNDEAD)) {//elseif (r == RACE_UNDEAD) then
-			return GetLocalizedString("CRIPPLE_WARNING_UNDEAD");//return GetLocalizedString("CRIPPLE_WARNING_UNDEAD")
-		} else {//else
-			//
-			return "";//return ""
-		}//endif
-	}//endfunction
-	//
-	//
-	//
-	private string MeleeGetCrippledTimerMessage() {//function MeleeGetCrippledTimerMessage takes player whichPlayer returns string
-		race r = GetPlayerRace(whichPlayer);//local race r = GetPlayerRace(whichPlayer)
-		if ((r == RACE_HUMAN)) {//if (r == RACE_HUMAN) then
-			return GetLocalizedString("CRIPPLE_TIMER_HUMAN");//return GetLocalizedString("CRIPPLE_TIMER_HUMAN")
-		} else if ((r == RACE_ORC)) {//elseif (r == RACE_ORC) then
-			return GetLocalizedString("CRIPPLE_TIMER_ORC");//return GetLocalizedString("CRIPPLE_TIMER_ORC")
-		} else if ((r == RACE_NIGHTELF)) {//elseif (r == RACE_NIGHTELF) then
-			return GetLocalizedString("CRIPPLE_TIMER_NIGHTELF");//return GetLocalizedString("CRIPPLE_TIMER_NIGHTELF")
-		} else if ((r == RACE_UNDEAD)) {//elseif (r == RACE_UNDEAD) then
-			return GetLocalizedString("CRIPPLE_TIMER_UNDEAD");//return GetLocalizedString("CRIPPLE_TIMER_UNDEAD")
-		} else {//else
-			//
-			return "";//return ""
-		}//endif
-	}//endfunction
-	//
-	//
-	//
-	private string MeleeGetCrippledRevealedMessage() {//function MeleeGetCrippledRevealedMessage takes player whichPlayer returns string
-		return GetLocalizedString("CRIPPLE_REVEALING_PREFIX") + GetPlayerName(whichPlayer) + GetLocalizedString("CRIPPLE_REVEALING_POSTFIX");//return GetLocalizedString("CRIPPLE_REVEALING_PREFIX") + GetPlayerName(whichPlayer) + GetLocalizedString("CRIPPLE_REVEALING_POSTFIX")
-	}//endfunction
-	//
-	private void MeleeExposePlayer(player whichPlayer, bool expose) {//function MeleeExposePlayer takes player whichPlayer, boolean expose returns nothing
-		int playerIndex;//local integer playerIndex
-		player indexPlayer;//local player  indexPlayer
-		force toExposeTo = CreateForce();//local force   toExposeTo = CreateForce()
-		CripplePlayer(whichPlayer, toExposeTo, false);//call CripplePlayer( whichPlayer, toExposeTo, false )
-		playerIndex = 0;//set playerIndex = 0
-		while (true) {//loop
-			indexPlayer = Player(playerIndex);//set indexPlayer = Player(playerIndex)
-			if ((!PlayersAreCoAllied(whichPlayer, indexPlayer))) {//if (not PlayersAreCoAllied(whichPlayer, indexPlayer)) then
-				ForceAddPlayer(toExposeTo, indexPlayer);//call ForceAddPlayer( toExposeTo, indexPlayer )
-			}//endif
-			playerIndex = playerIndex + 1;//set playerIndex = playerIndex + 1
-			if (playerIndex == bj_MAX_PLAYERS) { break; }//exitwhen playerIndex == bj_MAX_PLAYERS
-		}//endloop
-		CripplePlayer(whichPlayer, toExposeTo, expose);//call CripplePlayer( whichPlayer, toExposeTo, expose )
-		DestroyForce(toExposeTo);//call DestroyForce(toExposeTo)
-	}//endfunction
-	//
-	private void MeleeExposeAllPlayers() {//function MeleeExposeAllPlayers takes nothing returns nothing
-		int playerIndex;//local integer playerIndex
-		player indexPlayer;//local player  indexPlayer
-		int playerIndex2;//local integer playerIndex2
-		player indexPlayer2;//local player  indexPlayer2
-		force toExposeTo = CreateForce();//local force   toExposeTo = CreateForce()
-		playerIndex = 0;//set playerIndex = 0
-		while (true) {//loop
-			indexPlayer = Player(playerIndex);//set indexPlayer = Player(playerIndex)
-			ForceClear(toExposeTo);//call ForceClear( toExposeTo )
-			CripplePlayer(indexPlayer, toExposeTo, false);//call CripplePlayer( indexPlayer, toExposeTo, false )
-			playerIndex2 = 0;//set playerIndex2 = 0
-			while (true) {//loop
-				indexPlayer2 = Player(playerIndex2);//set indexPlayer2 = Player(playerIndex2)
-				if (playerIndex != playerIndex2) {//if playerIndex != playerIndex2 then
-					if ((!PlayersAreCoAllied(indexPlayer, indexPlayer2))) {//if (not PlayersAreCoAllied(indexPlayer, indexPlayer2)) then
-						ForceAddPlayer(toExposeTo, indexPlayer2);//call ForceAddPlayer( toExposeTo, indexPlayer2 )
-					}//endif
-				}//endif
-				playerIndex2 = playerIndex2 + 1;//set playerIndex2 = playerIndex2 + 1
-				if (playerIndex2 == bj_MAX_PLAYERS) { break; }//exitwhen playerIndex2 == bj_MAX_PLAYERS
+				index = index + 1;//set index = index + 1
+				if (index == bj_MAX_PLAYERS) { break; }//exitwhen index == bj_MAX_PLAYERS
 			}//endloop
-			CripplePlayer(indexPlayer, toExposeTo, true);//call CripplePlayer( indexPlayer, toExposeTo, true )
-			playerIndex = playerIndex + 1;//set playerIndex = playerIndex + 1
-			if (playerIndex == bj_MAX_PLAYERS) { break; }//exitwhen playerIndex == bj_MAX_PLAYERS
-		}//endloop
-		DestroyForce(toExposeTo);//call DestroyForce( toExposeTo )
-	}//endfunction
-	//
-	private void MeleeCrippledPlayerTimeout() {//function MeleeCrippledPlayerTimeout takes nothing returns nothing
-		timer expiredTimer = GetExpiredTimer();//local timer expiredTimer = GetExpiredTimer()
-		int playerIndex;//local integer playerIndex
-		player exposedPlayer;//local player  exposedPlayer
+		}//endfunction
 		//
-		playerIndex = 0;//set playerIndex = 0
-		while (true) {//loop
-			if ((bj_crippledTimer[playerIndex] == expiredTimer)) {//if (bj_crippledTimer[playerIndex] == expiredTimer) then
-				if (true) { break; }//exitwhen true
+		private void MeleeStartingUnitsForPlayer(race whichRace, player whichPlayer, location loc, bool doHeroes) {//function MeleeStartingUnitsForPlayer takes race whichRace, player whichPlayer, location loc, boolean doHeroes returns nothing
+			//
+			if ((whichRace == RACE_HUMAN)) {//if (whichRace == RACE_HUMAN) then
+				MeleeStartingUnitsHuman(whichPlayer, loc, doHeroes, false, false);//call MeleeStartingUnitsHuman(whichPlayer, loc, doHeroes, false, false)
+			} else if ((whichRace == RACE_ORC)) {//elseif (whichRace == RACE_ORC) then
+				MeleeStartingUnitsOrc(whichPlayer, loc, doHeroes, false, false);//call MeleeStartingUnitsOrc(whichPlayer, loc, doHeroes, false, false)
+			} else if ((whichRace == RACE_UNDEAD)) {//elseif (whichRace == RACE_UNDEAD) then
+				MeleeStartingUnitsUndead(whichPlayer, loc, doHeroes, false, false);//call MeleeStartingUnitsUndead(whichPlayer, loc, doHeroes, false, false)
+			} else if ((whichRace == RACE_NIGHTELF)) {//elseif (whichRace == RACE_NIGHTELF) then
+				MeleeStartingUnitsNightElf(whichPlayer, loc, doHeroes, false, false);//call MeleeStartingUnitsNightElf(whichPlayer, loc, doHeroes, false, false)
+			} else {//else
+				//
 			}//endif
-			playerIndex = playerIndex + 1;//set playerIndex = playerIndex + 1
-			if (playerIndex == bj_MAX_PLAYERS) { break; }//exitwhen playerIndex == bj_MAX_PLAYERS
-		}//endloop
-		if ((playerIndex == bj_MAX_PLAYERS)) {//if (playerIndex == bj_MAX_PLAYERS) then
-			return;//return
-		}//endif
-		exposedPlayer = Player(playerIndex);//set exposedPlayer = Player(playerIndex)
-		if ((GetLocalPlayer() == exposedPlayer)) {//if (GetLocalPlayer() == exposedPlayer) then
+		}//endfunction
+		//
+		//
+		//
+		//
+		//
+		//
+		private void PickMeleeAI(player num, string s1, string s2, string s3) {//function PickMeleeAI takes player num, string s1, string s2, string s3 returns nothing
+			int pick;//local integer pick
 			//
 			//
-			TimerDialogDisplay(bj_crippledTimerWindows[playerIndex], false);//call TimerDialogDisplay(bj_crippledTimerWindows[playerIndex], false)
-		}//endif
+			//
+			if (GetAIDifficulty(num) == AI_DIFFICULTY_NEWBIE) {//if GetAIDifficulty(num) == AI_DIFFICULTY_NEWBIE then
+				StartMeleeAI(num,s1);//call StartMeleeAI(num,s1)
+				return;//return
+			}//endif
+			if (s2 == null) {//if s2 == null then
+				pick = 1;//set pick = 1
+			} else if (s3 == null) {//elseif s3 == null then
+				pick = GetRandomInt(1,2);//set pick = GetRandomInt(1,2)
+			} else {//else
+				pick = GetRandomInt(1,3);//set pick = GetRandomInt(1,3)
+			}//endif
+			if (pick == 1) {//if pick == 1 then
+				StartMeleeAI(num,s1);//call StartMeleeAI(num,s1)
+			} else if (pick == 2) {//elseif pick == 2 then
+				StartMeleeAI(num,s2);//call StartMeleeAI(num,s2)
+			} else {//else
+				StartMeleeAI(num,s3);//call StartMeleeAI(num,s3)
+			}//endif
+		}//endfunction
 		//
-		DisplayTimedTextToPlayer(GetLocalPlayer(), 0, 0, bj_MELEE_CRIPPLE_MSG_DURATION, MeleeGetCrippledRevealedMessage(exposedPlayer));//call DisplayTimedTextToPlayer(GetLocalPlayer(), 0, 0, bj_MELEE_CRIPPLE_MSG_DURATION, MeleeGetCrippledRevealedMessage(exposedPlayer))
-		//
-		MeleeExposePlayer(exposedPlayer, true);//call MeleeExposePlayer(exposedPlayer, true)
-	}//endfunction
-	//
-	private bool MeleePlayerIsCrippled() {//function MeleePlayerIsCrippled takes player whichPlayer returns boolean
-		int allyStructures = MeleeGetAllyStructureCount(whichPlayer);//local integer allyStructures    = MeleeGetAllyStructureCount(whichPlayer)
-		int allyKeyStructures = MeleeGetAllyKeyStructureCount(whichPlayer);//local integer allyKeyStructures = MeleeGetAllyKeyStructureCount(whichPlayer)
-		//
-		return (allyStructures > 0) and (allyKeyStructures <= 0);//return (allyStructures > 0) and (allyKeyStructures <= 0)
-	}//endfunction
-	//
-	//
-	//
-	private void MeleeCheckForCrippledPlayers() {//function MeleeCheckForCrippledPlayers takes nothing returns nothing
-		int playerIndex;//local integer    playerIndex
-		player indexPlayer;//local player     indexPlayer
-		force crippledPlayers = CreateForce();//local force      crippledPlayers = CreateForce()
-		bool isNowCrippled;//local boolean    isNowCrippled
-		race indexRace;//local race       indexRace
-		//
-		if (bj_finishSoonAllExposed) {//if bj_finishSoonAllExposed then
-			return;//return
-		}//endif
-		//
-		playerIndex = 0;//set playerIndex = 0
-		while (true) {//loop
-			indexPlayer = Player(playerIndex);//set indexPlayer = Player(playerIndex)
-			isNowCrippled = MeleePlayerIsCrippled(indexPlayer);//set isNowCrippled = MeleePlayerIsCrippled(indexPlayer)
-			if ((!bj_playerIsCrippled[playerIndex] && isNowCrippled)) {//if (not bj_playerIsCrippled[playerIndex] and isNowCrippled) then
-				//
-				bj_playerIsCrippled[playerIndex] = true;//set bj_playerIsCrippled[playerIndex] = true
-				TimerStart(bj_crippledTimer[playerIndex], bj_MELEE_CRIPPLE_TIMEOUT, false, function MeleeCrippledPlayerTimeout);//call TimerStart(bj_crippledTimer[playerIndex], bj_MELEE_CRIPPLE_TIMEOUT, false, function MeleeCrippledPlayerTimeout)
-				if ((GetLocalPlayer() == indexPlayer)) {//if (GetLocalPlayer() == indexPlayer) then
-					//
-					//
-					TimerDialogDisplay(bj_crippledTimerWindows[playerIndex], true);//call TimerDialogDisplay(bj_crippledTimerWindows[playerIndex], true)
-					//
-					DisplayTimedTextToPlayer(indexPlayer, 0, 0, bj_MELEE_CRIPPLE_MSG_DURATION, MeleeGetCrippledWarningMessage(indexPlayer));//call DisplayTimedTextToPlayer(indexPlayer, 0, 0, bj_MELEE_CRIPPLE_MSG_DURATION, MeleeGetCrippledWarningMessage(indexPlayer))
-				}//endif
-			} else if ((bj_playerIsCrippled[playerIndex] && !isNowCrippled)) {//elseif (bj_playerIsCrippled[playerIndex] and not isNowCrippled) then
-				//
-				bj_playerIsCrippled[playerIndex] = false;//set bj_playerIsCrippled[playerIndex] = false
-				PauseTimer(bj_crippledTimer[playerIndex]);//call PauseTimer(bj_crippledTimer[playerIndex])
-				if ((GetLocalPlayer() == indexPlayer)) {//if (GetLocalPlayer() == indexPlayer) then
-					//
-					//
-					TimerDialogDisplay(bj_crippledTimerWindows[playerIndex], false);//call TimerDialogDisplay(bj_crippledTimerWindows[playerIndex], false)
-					//
-					if ((MeleeGetAllyStructureCount(indexPlayer) > 0)) {//if (MeleeGetAllyStructureCount(indexPlayer) > 0) then
-						if ((bj_playerIsExposed[playerIndex])) {//if (bj_playerIsExposed[playerIndex]) then
-							DisplayTimedTextToPlayer(indexPlayer, 0, 0, bj_MELEE_CRIPPLE_MSG_DURATION, GetLocalizedString("CRIPPLE_UNREVEALED"));//call DisplayTimedTextToPlayer(indexPlayer, 0, 0, bj_MELEE_CRIPPLE_MSG_DURATION, GetLocalizedString("CRIPPLE_UNREVEALED"))
+		private void MeleeStartingAI() {//function MeleeStartingAI takes nothing returns nothing
+			int index;//local integer index
+			player indexPlayer;//local player  indexPlayer
+			race indexRace;//local race    indexRace
+			index = 0;//set index = 0
+			while (true) {//loop
+				indexPlayer = Player(index);//set indexPlayer = Player(index)
+				if ((GetPlayerSlotState(indexPlayer) == PLAYER_SLOT_STATE_PLAYING)) {//if (GetPlayerSlotState(indexPlayer) == PLAYER_SLOT_STATE_PLAYING) then
+					indexRace = GetPlayerRace(indexPlayer);//set indexRace = GetPlayerRace(indexPlayer)
+					if ((GetPlayerController(indexPlayer) == MAP_CONTROL_COMPUTER)) {//if (GetPlayerController(indexPlayer) == MAP_CONTROL_COMPUTER) then
+						//
+						if ((indexRace == RACE_HUMAN)) {//if (indexRace == RACE_HUMAN) then
+							PickMeleeAI(indexPlayer, "human.ai", null, null);//call PickMeleeAI(indexPlayer, "human.ai", null, null)
+						} else if ((indexRace == RACE_ORC)) {//elseif (indexRace == RACE_ORC) then
+							PickMeleeAI(indexPlayer, "orc.ai", null, null);//call PickMeleeAI(indexPlayer, "orc.ai", null, null)
+						} else if ((indexRace == RACE_UNDEAD)) {//elseif (indexRace == RACE_UNDEAD) then
+							PickMeleeAI(indexPlayer, "undead.ai", null, null);//call PickMeleeAI(indexPlayer, "undead.ai", null, null)
+							RecycleGuardPosition(bj_ghoul[index]);//call RecycleGuardPosition(bj_ghoul[index])
+						} else if ((indexRace == RACE_NIGHTELF)) {//elseif (indexRace == RACE_NIGHTELF) then
+							PickMeleeAI(indexPlayer, "elf.ai", null, null);//call PickMeleeAI(indexPlayer, "elf.ai", null, null)
 						} else {//else
-							DisplayTimedTextToPlayer(indexPlayer, 0, 0, bj_MELEE_CRIPPLE_MSG_DURATION, GetLocalizedString("CRIPPLE_UNCRIPPLED"));//call DisplayTimedTextToPlayer(indexPlayer, 0, 0, bj_MELEE_CRIPPLE_MSG_DURATION, GetLocalizedString("CRIPPLE_UNCRIPPLED"))
+							//
+						}//endif
+						ShareEverythingWithTeamAI(indexPlayer);//call ShareEverythingWithTeamAI(indexPlayer)
+					}//endif
+				}//endif
+				index = index + 1;//set index = index + 1
+				if (index == bj_MAX_PLAYERS) { break; }//exitwhen index == bj_MAX_PLAYERS
+			}//endloop
+		}//endfunction
+		private void LockGuardPosition(int targ) {//function LockGuardPosition takes unit targ returns nothing
+			SetUnitCreepGuard(targ,true);//call SetUnitCreepGuard(targ,true)
+		}//endfunction
+		//
+		//
+		//
+		//
+		//
+		//
+		private bool MeleePlayerIsOpponent(int playerIndex, int opponentIndex) {//function MeleePlayerIsOpponent takes integer playerIndex, integer opponentIndex returns boolean
+			player thePlayer = Player(playerIndex);//local player thePlayer = Player(playerIndex)
+			player theOpponent = Player(opponentIndex);//local player theOpponent = Player(opponentIndex)
+			//
+			if ((playerIndex == opponentIndex)) {//if (playerIndex == opponentIndex) then
+				return false;//return false
+			}//endif
+			//
+			if ((GetPlayerSlotState(theOpponent) != PLAYER_SLOT_STATE_PLAYING)) {//if (GetPlayerSlotState(theOpponent) != PLAYER_SLOT_STATE_PLAYING) then
+				return false;//return false
+			}//endif
+			//
+			if ((bj_meleeDefeated[opponentIndex])) {//if (bj_meleeDefeated[opponentIndex]) then
+				return false;//return false
+			}//endif
+			//
+			if (GetPlayerAlliance(thePlayer, theOpponent, ALLIANCE_PASSIVE)) {//if GetPlayerAlliance(thePlayer, theOpponent, ALLIANCE_PASSIVE) then
+				if (GetPlayerAlliance(theOpponent, thePlayer, ALLIANCE_PASSIVE)) {//if GetPlayerAlliance(theOpponent, thePlayer, ALLIANCE_PASSIVE) then
+					if ((GetPlayerState(thePlayer, PLAYER_STATE_ALLIED_VICTORY) == 1)) {//if (GetPlayerState(thePlayer, PLAYER_STATE_ALLIED_VICTORY) == 1) then
+						if ((GetPlayerState(theOpponent, PLAYER_STATE_ALLIED_VICTORY) == 1)) {//if (GetPlayerState(theOpponent, PLAYER_STATE_ALLIED_VICTORY) == 1) then
+							return false;//return false
 						}//endif
 					}//endif
 				}//endif
+			}//endif
+			return true;//return true
+		}//endfunction
+		//
+		//
+		//
+		private int MeleeGetAllyStructureCount(player whichPlayer) {//function MeleeGetAllyStructureCount takes player whichPlayer returns integer
+			int playerIndex;//local integer    playerIndex
+			int buildingCount;//local integer    buildingCount
+			player indexPlayer;//local player     indexPlayer
+			//
+			buildingCount = 0;//set buildingCount = 0
+			playerIndex = 0;//set playerIndex = 0
+			while (true) {//loop
+				indexPlayer = Player(playerIndex);//set indexPlayer = Player(playerIndex)
 				//
-				MeleeExposePlayer(indexPlayer, false);//call MeleeExposePlayer(indexPlayer, false)
+				//
+				if ((PlayersAreCoAllied(whichPlayer, indexPlayer))) {//if (PlayersAreCoAllied(whichPlayer, indexPlayer)) then
+					buildingCount = buildingCount + GetPlayerStructureCount(indexPlayer, true);//set buildingCount = buildingCount + GetPlayerStructureCount(indexPlayer, true)
+				}//endif
+				playerIndex = playerIndex + 1;//set playerIndex = playerIndex + 1
+				if (playerIndex == bj_MAX_PLAYERS) { break; }//exitwhen playerIndex == bj_MAX_PLAYERS
+			}//endloop
+			return buildingCount;//return buildingCount
+		}//endfunction
+		//
+		//
+		//
+		private int MeleeGetAllyCount(player whichPlayer) {//function MeleeGetAllyCount takes player whichPlayer returns integer
+			int playerIndex;//local integer playerIndex
+			int playerCount;//local integer playerCount
+			player indexPlayer;//local player  indexPlayer
+			//
+			playerCount = 0;//set playerCount = 0
+			playerIndex = 0;//set playerIndex = 0
+			while (true) {//loop
+				indexPlayer = Player(playerIndex);//set indexPlayer = Player(playerIndex)
+				if (PlayersAreCoAllied(whichPlayer, indexPlayer) && !bj_meleeDefeated[playerIndex] && (whichPlayer != indexPlayer)) {//if PlayersAreCoAllied(whichPlayer, indexPlayer) and not bj_meleeDefeated[playerIndex] and (whichPlayer != indexPlayer) then
+					playerCount = playerCount + 1;//set playerCount = playerCount + 1
+				}//endif
+				playerIndex = playerIndex + 1;//set playerIndex = playerIndex + 1
+				if (playerIndex == bj_MAX_PLAYERS) { break; }//exitwhen playerIndex == bj_MAX_PLAYERS
+			}//endloop
+			return playerCount;//return playerCount
+		}//endfunction
+		//
+		//
+		//
+		//
+		//
+		//
+		private int MeleeGetAllyKeyStructureCount(player whichPlayer) {//function MeleeGetAllyKeyStructureCount takes player whichPlayer returns integer
+			int playerIndex;//local integer    playerIndex
+			player indexPlayer;//local player     indexPlayer
+			int keyStructs;//local integer    keyStructs
+			//
+			keyStructs = 0;//set keyStructs = 0
+			playerIndex = 0;//set playerIndex = 0
+			while (true) {//loop
+				indexPlayer = Player(playerIndex);//set indexPlayer = Player(playerIndex)
+				if ((PlayersAreCoAllied(whichPlayer, indexPlayer))) {//if (PlayersAreCoAllied(whichPlayer, indexPlayer)) then
+					keyStructs = keyStructs + GetPlayerTypedUnitCount(indexPlayer, "townhall", true, true);//set keyStructs = keyStructs + GetPlayerTypedUnitCount(indexPlayer, "townhall", true, true)
+					keyStructs = keyStructs + GetPlayerTypedUnitCount(indexPlayer, "greathall", true, true);//set keyStructs = keyStructs + GetPlayerTypedUnitCount(indexPlayer, "greathall", true, true)
+					keyStructs = keyStructs + GetPlayerTypedUnitCount(indexPlayer, "treeoflife", true, true);//set keyStructs = keyStructs + GetPlayerTypedUnitCount(indexPlayer, "treeoflife", true, true)
+					keyStructs = keyStructs + GetPlayerTypedUnitCount(indexPlayer, "necropolis", true, true);//set keyStructs = keyStructs + GetPlayerTypedUnitCount(indexPlayer, "necropolis", true, true)
+				}//endif
+				playerIndex = playerIndex + 1;//set playerIndex = playerIndex + 1
+				if (playerIndex == bj_MAX_PLAYERS) { break; }//exitwhen playerIndex == bj_MAX_PLAYERS
+			}//endloop
+			return keyStructs;//return keyStructs
+		}//endfunction
+		//
+		//
+		//
+		private void MeleeDoDrawEnum() {//function MeleeDoDrawEnum takes nothing returns nothing
+			player thePlayer = GetEnumPlayer();//local player thePlayer = GetEnumPlayer()
+			CachePlayerHeroData(thePlayer);//call CachePlayerHeroData(thePlayer)
+			RemovePlayerPreserveUnitsBJ(thePlayer, PLAYER_GAME_RESULT_TIE, false);//call RemovePlayerPreserveUnitsBJ(thePlayer, PLAYER_GAME_RESULT_TIE, false)
+		}//endfunction
+		//
+		//
+		//
+		private void MeleeDoVictoryEnum() {//function MeleeDoVictoryEnum takes nothing returns nothing
+			player thePlayer = GetEnumPlayer();//local player thePlayer = GetEnumPlayer()
+			int playerIndex = GetPlayerId(thePlayer);//local integer playerIndex = GetPlayerId(thePlayer)
+			if ((!bj_meleeVictoried[playerIndex])) {//if (not bj_meleeVictoried[playerIndex]) then
+				bj_meleeVictoried[playerIndex] = true;//set bj_meleeVictoried[playerIndex] = true
+				CachePlayerHeroData(thePlayer);//call CachePlayerHeroData(thePlayer)
+				RemovePlayerPreserveUnitsBJ(thePlayer, PLAYER_GAME_RESULT_VICTORY, false);//call RemovePlayerPreserveUnitsBJ(thePlayer, PLAYER_GAME_RESULT_VICTORY, false)
 			}//endif
-			playerIndex = playerIndex + 1;//set playerIndex = playerIndex + 1
-			if (playerIndex == bj_MAX_PLAYERS) { break; }//exitwhen playerIndex == bj_MAX_PLAYERS
-		}//endloop
-	}//endfunction
-	//
-	//
-	//
-	private void MeleeCheckLostUnit() {//function MeleeCheckLostUnit takes unit lostUnit returns nothing
-		player lostUnitOwner = GetOwningPlayer(lostUnit);//local player lostUnitOwner = GetOwningPlayer(lostUnit)
-		//
-		if ((GetPlayerStructureCount(lostUnitOwner, true) <= 0)) {//if (GetPlayerStructureCount(lostUnitOwner, true) <= 0) then
-			MeleeCheckForLosersAndVictors();//call MeleeCheckForLosersAndVictors()
-		}//endif
+		}//endfunction
 		//
 		//
-		MeleeCheckForCrippledPlayers();//call MeleeCheckForCrippledPlayers()
-	}//endfunction
-	//
-	//
-	//
-	//
-	private void MeleeCheckAddedUnit() {//function MeleeCheckAddedUnit takes unit addedUnit returns nothing
-		player addedUnitOwner = GetOwningPlayer(addedUnit);//local player addedUnitOwner = GetOwningPlayer(addedUnit)
 		//
-		if ((bj_playerIsCrippled[GetPlayerId(addedUnitOwner)])) {//if (bj_playerIsCrippled[GetPlayerId(addedUnitOwner)]) then
-			MeleeCheckForCrippledPlayers();//call MeleeCheckForCrippledPlayers()
-		}//endif
-	}//endfunction
-	//
-	private void MeleeTriggerActionConstructCancel() {//function MeleeTriggerActionConstructCancel takes nothing returns nothing
-		MeleeCheckLostUnit(GetCancelledStructure());//call MeleeCheckLostUnit(GetCancelledStructure())
-	}//endfunction
-	//
-	private void MeleeTriggerActionUnitDeath() {//function MeleeTriggerActionUnitDeath takes nothing returns nothing
-		if ((IsUnitType(GetDyingUnit(), UNIT_TYPE_STRUCTURE))) {//if (IsUnitType(GetDyingUnit(), UNIT_TYPE_STRUCTURE)) then
-			MeleeCheckLostUnit(GetDyingUnit());//call MeleeCheckLostUnit(GetDyingUnit())
-		}//endif
-	}//endfunction
-	//
-	private void MeleeTriggerActionUnitConstructionStart() {//function MeleeTriggerActionUnitConstructionStart takes nothing returns nothing
-		MeleeCheckAddedUnit(GetConstructingStructure());//call MeleeCheckAddedUnit(GetConstructingStructure())
-	}//endfunction
-	//
-	private void MeleeTriggerActionPlayerDefeated() {//function MeleeTriggerActionPlayerDefeated takes nothing returns nothing
-		player thePlayer = GetTriggerPlayer();//local player thePlayer = GetTriggerPlayer()
-		CachePlayerHeroData(thePlayer);//call CachePlayerHeroData(thePlayer)
-		if ((MeleeGetAllyCount(thePlayer) > 0)) {//if (MeleeGetAllyCount(thePlayer) > 0) then
+		private void MeleeDoDefeat(player whichPlayer) {//function MeleeDoDefeat takes player whichPlayer returns nothing
+			bj_meleeDefeated[GetPlayerId(whichPlayer)] = true;//set bj_meleeDefeated[GetPlayerId(whichPlayer)] = true
+			RemovePlayerPreserveUnitsBJ(whichPlayer, PLAYER_GAME_RESULT_DEFEAT, false);//call RemovePlayerPreserveUnitsBJ(whichPlayer, PLAYER_GAME_RESULT_DEFEAT, false)
+		}//endfunction
+		//
+		//
+		//
+		private void MeleeDoDefeatEnum() {//function MeleeDoDefeatEnum takes nothing returns nothing
+			player thePlayer = GetEnumPlayer();//local player thePlayer = GetEnumPlayer()
 			//
-			//
-			ShareEverythingWithTeam(thePlayer);//call ShareEverythingWithTeam(thePlayer)
-			if ((!bj_meleeDefeated[GetPlayerId(thePlayer)])) {//if (not bj_meleeDefeated[GetPlayerId(thePlayer)]) then
-				MeleeDoDefeat(thePlayer);//call MeleeDoDefeat(thePlayer)
-			}//endif
-		} else {//else
-			//
-			//
+			CachePlayerHeroData(thePlayer);//call CachePlayerHeroData(thePlayer)
 			MakeUnitsPassiveForTeam(thePlayer);//call MakeUnitsPassiveForTeam(thePlayer)
-			if ((!bj_meleeDefeated[GetPlayerId(thePlayer)])) {//if (not bj_meleeDefeated[GetPlayerId(thePlayer)]) then
-				MeleeDoDefeat(thePlayer);//call MeleeDoDefeat(thePlayer)
+			MeleeDoDefeat(thePlayer);//call MeleeDoDefeat(thePlayer)
+		}//endfunction
+		//
+		//
+		//
+		private void MeleeDoLeave(player whichPlayer) {//function MeleeDoLeave takes player whichPlayer returns nothing
+			if ((GetIntegerGameState(GAME_STATE_DISCONNECTED) != 0)) {//if (GetIntegerGameState(GAME_STATE_DISCONNECTED) != 0) then
+				GameOverDialogBJ(whichPlayer, true);//call GameOverDialogBJ( whichPlayer, true )
+			} else {//else
+				bj_meleeDefeated[GetPlayerId(whichPlayer)] = true;//set bj_meleeDefeated[GetPlayerId(whichPlayer)] = true
+				RemovePlayerPreserveUnitsBJ(whichPlayer, PLAYER_GAME_RESULT_DEFEAT, true);//call RemovePlayerPreserveUnitsBJ(whichPlayer, PLAYER_GAME_RESULT_DEFEAT, true)
 			}//endif
-		}//endif
-		MeleeCheckForLosersAndVictors();//call MeleeCheckForLosersAndVictors()
-	}//endfunction
-	//
-	private void MeleeTriggerActionPlayerLeft() {//function MeleeTriggerActionPlayerLeft takes nothing returns nothing
-		player thePlayer = GetTriggerPlayer();//local player thePlayer = GetTriggerPlayer()
-		//
-		if ((IsPlayerObserver(thePlayer))) {//if (IsPlayerObserver(thePlayer)) then
-			RemovePlayerPreserveUnitsBJ(thePlayer, PLAYER_GAME_RESULT_NEUTRAL, false);//call RemovePlayerPreserveUnitsBJ(thePlayer, PLAYER_GAME_RESULT_NEUTRAL, false)
-			return;//return
-		}//endif
-		CachePlayerHeroData(thePlayer);//call CachePlayerHeroData(thePlayer)
+		}//endfunction
 		//
 		//
-		if ((MeleeGetAllyCount(thePlayer) > 0)) {//if (MeleeGetAllyCount(thePlayer) > 0) then
-			//
-			//
-			ShareEverythingWithTeam(thePlayer);//call ShareEverythingWithTeam(thePlayer)
-			MeleeDoLeave(thePlayer);//call MeleeDoLeave(thePlayer)
-		} else {//else
-			//
-			//
-			MakeUnitsPassiveForTeam(thePlayer);//call MakeUnitsPassiveForTeam(thePlayer)
-			MeleeDoLeave(thePlayer);//call MeleeDoLeave(thePlayer)
-		}//endif
-		MeleeCheckForLosersAndVictors();//call MeleeCheckForLosersAndVictors()
-	}//endfunction
-	//
-	private void MeleeTriggerActionAllianceChange() {//function MeleeTriggerActionAllianceChange takes nothing returns nothing
-		MeleeCheckForLosersAndVictors();//call MeleeCheckForLosersAndVictors()
-		MeleeCheckForCrippledPlayers();//call MeleeCheckForCrippledPlayers()
-	}//endfunction
-	//
-	private void MeleeTriggerTournamentFinishSoon() {//function MeleeTriggerTournamentFinishSoon takes nothing returns nothing
 		//
-		int playerIndex;//local integer    playerIndex
-		player indexPlayer;//local player     indexPlayer
-		real timeRemaining = GetTournamentFinishSoonTimeRemaining();//local real       timeRemaining = GetTournamentFinishSoonTimeRemaining()
-		if (!bj_finishSoonAllExposed) {//if not bj_finishSoonAllExposed then
-			bj_finishSoonAllExposed = true;//set bj_finishSoonAllExposed = true
+		private void MeleeRemoveObservers() {//function MeleeRemoveObservers takes nothing returns nothing
+			int playerIndex;//local integer    playerIndex
+			player indexPlayer;//local player     indexPlayer
 			//
 			playerIndex = 0;//set playerIndex = 0
 			while (true) {//loop
 				indexPlayer = Player(playerIndex);//set indexPlayer = Player(playerIndex)
-				if (bj_playerIsCrippled[playerIndex]) {//if bj_playerIsCrippled[playerIndex] then
+				if ((IsPlayerObserver(indexPlayer))) {//if (IsPlayerObserver(indexPlayer)) then
+					RemovePlayerPreserveUnitsBJ(indexPlayer, PLAYER_GAME_RESULT_NEUTRAL, false);//call RemovePlayerPreserveUnitsBJ(indexPlayer, PLAYER_GAME_RESULT_NEUTRAL, false)
+				}//endif
+				playerIndex = playerIndex + 1;//set playerIndex = playerIndex + 1
+				if (playerIndex == bj_MAX_PLAYERS) { break; }//exitwhen playerIndex == bj_MAX_PLAYERS
+			}//endloop
+		}//endfunction
+		//
+		//
+		//
+		//
+		//
+		//
+		private force MeleeCheckForVictors() {//function MeleeCheckForVictors takes nothing returns force
+			int playerIndex;//local integer    playerIndex
+			int opponentIndex;//local integer    opponentIndex
+			force opponentlessPlayers = CreateForce();//local force      opponentlessPlayers = CreateForce()
+			bool gameOver = false;//local boolean    gameOver = false
+			//
+			playerIndex = 0;//set playerIndex = 0
+			while (true) {//loop
+				if ((!bj_meleeDefeated[playerIndex])) {//if (not bj_meleeDefeated[playerIndex]) then
+					//
+					opponentIndex = 0;//set opponentIndex = 0
+					while (true) {//loop
+						//
+						if (MeleePlayerIsOpponent(playerIndex, opponentIndex)) {//if MeleePlayerIsOpponent(playerIndex, opponentIndex) then
+							return CreateForce();//return CreateForce()
+						}//endif
+						opponentIndex = opponentIndex + 1;//set opponentIndex = opponentIndex + 1
+						if (opponentIndex == bj_MAX_PLAYERS) { break; }//exitwhen opponentIndex == bj_MAX_PLAYERS
+					}//endloop
+					//
+					//
+					ForceAddPlayer(opponentlessPlayers, Player(playerIndex));//call ForceAddPlayer(opponentlessPlayers, Player(playerIndex))
+					gameOver = true;//set gameOver = true
+				}//endif
+				playerIndex = playerIndex + 1;//set playerIndex = playerIndex + 1
+				if (playerIndex == bj_MAX_PLAYERS) { break; }//exitwhen playerIndex == bj_MAX_PLAYERS
+			}//endloop
+			//
+			bj_meleeGameOver = gameOver;//set bj_meleeGameOver = gameOver
+			return opponentlessPlayers;//return opponentlessPlayers
+		}//endfunction
+		//
+		//
+		//
+		private void MeleeCheckForLosersAndVictors() {//function MeleeCheckForLosersAndVictors takes nothing returns nothing
+			int playerIndex;//local integer    playerIndex
+			player indexPlayer;//local player     indexPlayer
+			force defeatedPlayers = CreateForce();//local force      defeatedPlayers = CreateForce()
+			force victoriousPlayers;//local force      victoriousPlayers
+			bool gameOver = false;//local boolean    gameOver = false
+			//
+			if ((bj_meleeGameOver)) {//if (bj_meleeGameOver) then
+				return;//return
+			}//endif
+			//
+			//
+			//
+			if ((GetIntegerGameState(GAME_STATE_DISCONNECTED) != 0)) {//if (GetIntegerGameState(GAME_STATE_DISCONNECTED) != 0) then
+				bj_meleeGameOver = true;//set bj_meleeGameOver = true
+				return;//return
+			}//endif
+			//
+			playerIndex = 0;//set playerIndex = 0
+			while (true) {//loop
+				indexPlayer = Player(playerIndex);//set indexPlayer = Player(playerIndex)
+				if ((!bj_meleeDefeated[playerIndex] && !bj_meleeVictoried[playerIndex])) {//if (not bj_meleeDefeated[playerIndex] and not bj_meleeVictoried[playerIndex]) then
+					//
+					if ((MeleeGetAllyStructureCount(indexPlayer) <= 0)) {//if (MeleeGetAllyStructureCount(indexPlayer) <= 0) then
+						//
+						//
+						ForceAddPlayer(defeatedPlayers, Player(playerIndex));//call ForceAddPlayer(defeatedPlayers, Player(playerIndex))
+						//
+						//
+						bj_meleeDefeated[playerIndex] = true;//set bj_meleeDefeated[playerIndex] = true
+					}//endif
+				}//endif
+				playerIndex = playerIndex + 1;//set playerIndex = playerIndex + 1
+				if (playerIndex == bj_MAX_PLAYERS) { break; }//exitwhen playerIndex == bj_MAX_PLAYERS
+			}//endloop
+			//
+			victoriousPlayers = MeleeCheckForVictors();//set victoriousPlayers = MeleeCheckForVictors()
+			//
+			ForForce(defeatedPlayers, function MeleeDoDefeatEnum);//call ForForce(defeatedPlayers, function MeleeDoDefeatEnum)
+			//
+			ForForce(victoriousPlayers, function MeleeDoVictoryEnum);//call ForForce(victoriousPlayers, function MeleeDoVictoryEnum)
+			//
+			if ((bj_meleeGameOver)) {//if (bj_meleeGameOver) then
+				MeleeRemoveObservers();//call MeleeRemoveObservers()
+			}//endif
+		}//endfunction
+		//
+		//
+		//
+		private string MeleeGetCrippledWarningMessage(player whichPlayer) {//function MeleeGetCrippledWarningMessage takes player whichPlayer returns string
+			race r = GetPlayerRace(whichPlayer);//local race r = GetPlayerRace(whichPlayer)
+			if ((r == RACE_HUMAN)) {//if (r == RACE_HUMAN) then
+				return GetLocalizedString("CRIPPLE_WARNING_HUMAN");//return GetLocalizedString("CRIPPLE_WARNING_HUMAN")
+			} else if ((r == RACE_ORC)) {//elseif (r == RACE_ORC) then
+				return GetLocalizedString("CRIPPLE_WARNING_ORC");//return GetLocalizedString("CRIPPLE_WARNING_ORC")
+			} else if ((r == RACE_NIGHTELF)) {//elseif (r == RACE_NIGHTELF) then
+				return GetLocalizedString("CRIPPLE_WARNING_NIGHTELF");//return GetLocalizedString("CRIPPLE_WARNING_NIGHTELF")
+			} else if ((r == RACE_UNDEAD)) {//elseif (r == RACE_UNDEAD) then
+				return GetLocalizedString("CRIPPLE_WARNING_UNDEAD");//return GetLocalizedString("CRIPPLE_WARNING_UNDEAD")
+			} else {//else
+				//
+				return "";//return ""
+			}//endif
+		}//endfunction
+		//
+		//
+		//
+		private string MeleeGetCrippledTimerMessage(player whichPlayer) {//function MeleeGetCrippledTimerMessage takes player whichPlayer returns string
+			race r = GetPlayerRace(whichPlayer);//local race r = GetPlayerRace(whichPlayer)
+			if ((r == RACE_HUMAN)) {//if (r == RACE_HUMAN) then
+				return GetLocalizedString("CRIPPLE_TIMER_HUMAN");//return GetLocalizedString("CRIPPLE_TIMER_HUMAN")
+			} else if ((r == RACE_ORC)) {//elseif (r == RACE_ORC) then
+				return GetLocalizedString("CRIPPLE_TIMER_ORC");//return GetLocalizedString("CRIPPLE_TIMER_ORC")
+			} else if ((r == RACE_NIGHTELF)) {//elseif (r == RACE_NIGHTELF) then
+				return GetLocalizedString("CRIPPLE_TIMER_NIGHTELF");//return GetLocalizedString("CRIPPLE_TIMER_NIGHTELF")
+			} else if ((r == RACE_UNDEAD)) {//elseif (r == RACE_UNDEAD) then
+				return GetLocalizedString("CRIPPLE_TIMER_UNDEAD");//return GetLocalizedString("CRIPPLE_TIMER_UNDEAD")
+			} else {//else
+				//
+				return "";//return ""
+			}//endif
+		}//endfunction
+		//
+		//
+		//
+		private string MeleeGetCrippledRevealedMessage(player whichPlayer) {//function MeleeGetCrippledRevealedMessage takes player whichPlayer returns string
+			return GetLocalizedString("CRIPPLE_REVEALING_PREFIX") + GetPlayerName(whichPlayer) + GetLocalizedString("CRIPPLE_REVEALING_POSTFIX");//return GetLocalizedString("CRIPPLE_REVEALING_PREFIX") + GetPlayerName(whichPlayer) + GetLocalizedString("CRIPPLE_REVEALING_POSTFIX")
+		}//endfunction
+		//
+		private void MeleeExposePlayer(player whichPlayer, bool expose) {//function MeleeExposePlayer takes player whichPlayer, boolean expose returns nothing
+			int playerIndex;//local integer playerIndex
+			player indexPlayer;//local player  indexPlayer
+			force toExposeTo = CreateForce();//local force   toExposeTo = CreateForce()
+			CripplePlayer(whichPlayer, toExposeTo, false);//call CripplePlayer( whichPlayer, toExposeTo, false )
+			bj_playerIsExposed[GetPlayerId(whichPlayer)] = expose;//set bj_playerIsExposed[GetPlayerId(whichPlayer)] = expose
+			playerIndex = 0;//set playerIndex = 0
+			while (true) {//loop
+				indexPlayer = Player(playerIndex);//set indexPlayer = Player(playerIndex)
+				if ((!PlayersAreCoAllied(whichPlayer, indexPlayer))) {//if (not PlayersAreCoAllied(whichPlayer, indexPlayer)) then
+					ForceAddPlayer(toExposeTo, indexPlayer);//call ForceAddPlayer( toExposeTo, indexPlayer )
+				}//endif
+				playerIndex = playerIndex + 1;//set playerIndex = playerIndex + 1
+				if (playerIndex == bj_MAX_PLAYERS) { break; }//exitwhen playerIndex == bj_MAX_PLAYERS
+			}//endloop
+			CripplePlayer(whichPlayer, toExposeTo, expose);//call CripplePlayer( whichPlayer, toExposeTo, expose )
+			DestroyForce(toExposeTo);//call DestroyForce(toExposeTo)
+		}//endfunction
+		//
+		private void MeleeExposeAllPlayers() {//function MeleeExposeAllPlayers takes nothing returns nothing
+			int playerIndex;//local integer playerIndex
+			player indexPlayer;//local player  indexPlayer
+			int playerIndex2;//local integer playerIndex2
+			player indexPlayer2;//local player  indexPlayer2
+			force toExposeTo = CreateForce();//local force   toExposeTo = CreateForce()
+			playerIndex = 0;//set playerIndex = 0
+			while (true) {//loop
+				indexPlayer = Player(playerIndex);//set indexPlayer = Player(playerIndex)
+				ForceClear(toExposeTo);//call ForceClear( toExposeTo )
+				CripplePlayer(indexPlayer, toExposeTo, false);//call CripplePlayer( indexPlayer, toExposeTo, false )
+				playerIndex2 = 0;//set playerIndex2 = 0
+				while (true) {//loop
+					indexPlayer2 = Player(playerIndex2);//set indexPlayer2 = Player(playerIndex2)
+					if (playerIndex != playerIndex2) {//if playerIndex != playerIndex2 then
+						if ((!PlayersAreCoAllied(indexPlayer, indexPlayer2))) {//if (not PlayersAreCoAllied(indexPlayer, indexPlayer2)) then
+							ForceAddPlayer(toExposeTo, indexPlayer2);//call ForceAddPlayer( toExposeTo, indexPlayer2 )
+						}//endif
+					}//endif
+					playerIndex2 = playerIndex2 + 1;//set playerIndex2 = playerIndex2 + 1
+					if (playerIndex2 == bj_MAX_PLAYERS) { break; }//exitwhen playerIndex2 == bj_MAX_PLAYERS
+				}//endloop
+				CripplePlayer(indexPlayer, toExposeTo, true);//call CripplePlayer( indexPlayer, toExposeTo, true )
+				playerIndex = playerIndex + 1;//set playerIndex = playerIndex + 1
+				if (playerIndex == bj_MAX_PLAYERS) { break; }//exitwhen playerIndex == bj_MAX_PLAYERS
+			}//endloop
+			DestroyForce(toExposeTo);//call DestroyForce( toExposeTo )
+		}//endfunction
+		//
+		private void MeleeCrippledPlayerTimeout() {//function MeleeCrippledPlayerTimeout takes nothing returns nothing
+			timer expiredTimer = GetExpiredTimer();//local timer expiredTimer = GetExpiredTimer()
+			int playerIndex;//local integer playerIndex
+			player exposedPlayer;//local player  exposedPlayer
+			//
+			playerIndex = 0;//set playerIndex = 0
+			while (true) {//loop
+				if ((bj_crippledTimer[playerIndex] == expiredTimer)) {//if (bj_crippledTimer[playerIndex] == expiredTimer) then
+					if (true) { break; }//exitwhen true
+				}//endif
+				playerIndex = playerIndex + 1;//set playerIndex = playerIndex + 1
+				if (playerIndex == bj_MAX_PLAYERS) { break; }//exitwhen playerIndex == bj_MAX_PLAYERS
+			}//endloop
+			if ((playerIndex == bj_MAX_PLAYERS)) {//if (playerIndex == bj_MAX_PLAYERS) then
+				return;//return
+			}//endif
+			exposedPlayer = Player(playerIndex);//set exposedPlayer = Player(playerIndex)
+			if ((GetLocalPlayer() == exposedPlayer)) {//if (GetLocalPlayer() == exposedPlayer) then
+				//
+				//
+				TimerDialogDisplay(bj_crippledTimerWindows[playerIndex], false);//call TimerDialogDisplay(bj_crippledTimerWindows[playerIndex], false)
+			}//endif
+			//
+			DisplayTimedTextToPlayer(GetLocalPlayer(), 0, 0, bj_MELEE_CRIPPLE_MSG_DURATION, MeleeGetCrippledRevealedMessage(exposedPlayer));//call DisplayTimedTextToPlayer(GetLocalPlayer(), 0, 0, bj_MELEE_CRIPPLE_MSG_DURATION, MeleeGetCrippledRevealedMessage(exposedPlayer))
+			//
+			MeleeExposePlayer(exposedPlayer, true);//call MeleeExposePlayer(exposedPlayer, true)
+		}//endfunction
+		//
+		private bool MeleePlayerIsCrippled(player whichPlayer) {//function MeleePlayerIsCrippled takes player whichPlayer returns boolean
+			int allyStructures = MeleeGetAllyStructureCount(whichPlayer);//local integer allyStructures    = MeleeGetAllyStructureCount(whichPlayer)
+			int allyKeyStructures = MeleeGetAllyKeyStructureCount(whichPlayer);//local integer allyKeyStructures = MeleeGetAllyKeyStructureCount(whichPlayer)
+			//
+			return (allyStructures > 0) and (allyKeyStructures <= 0);//return (allyStructures > 0) and (allyKeyStructures <= 0)
+		}//endfunction
+		//
+		//
+		//
+		private void MeleeCheckForCrippledPlayers() {//function MeleeCheckForCrippledPlayers takes nothing returns nothing
+			int playerIndex;//local integer    playerIndex
+			player indexPlayer;//local player     indexPlayer
+			force crippledPlayers = CreateForce();//local force      crippledPlayers = CreateForce()
+			bool isNowCrippled;//local boolean    isNowCrippled
+			race indexRace;//local race       indexRace
+			//
+			if (bj_finishSoonAllExposed) {//if bj_finishSoonAllExposed then
+				return;//return
+			}//endif
+			//
+			playerIndex = 0;//set playerIndex = 0
+			while (true) {//loop
+				indexPlayer = Player(playerIndex);//set indexPlayer = Player(playerIndex)
+				isNowCrippled = MeleePlayerIsCrippled(indexPlayer);//set isNowCrippled = MeleePlayerIsCrippled(indexPlayer)
+				if ((!bj_playerIsCrippled[playerIndex] && isNowCrippled)) {//if (not bj_playerIsCrippled[playerIndex] and isNowCrippled) then
+					//
+					bj_playerIsCrippled[playerIndex] = true;//set bj_playerIsCrippled[playerIndex] = true
+					TimerStart(bj_crippledTimer[playerIndex], bj_MELEE_CRIPPLE_TIMEOUT, false, function MeleeCrippledPlayerTimeout);//call TimerStart(bj_crippledTimer[playerIndex], bj_MELEE_CRIPPLE_TIMEOUT, false, function MeleeCrippledPlayerTimeout)
+					if ((GetLocalPlayer() == indexPlayer)) {//if (GetLocalPlayer() == indexPlayer) then
+						//
+						//
+						TimerDialogDisplay(bj_crippledTimerWindows[playerIndex], true);//call TimerDialogDisplay(bj_crippledTimerWindows[playerIndex], true)
+						//
+						DisplayTimedTextToPlayer(indexPlayer, 0, 0, bj_MELEE_CRIPPLE_MSG_DURATION, MeleeGetCrippledWarningMessage(indexPlayer));//call DisplayTimedTextToPlayer(indexPlayer, 0, 0, bj_MELEE_CRIPPLE_MSG_DURATION, MeleeGetCrippledWarningMessage(indexPlayer))
+					}//endif
+				} else if ((bj_playerIsCrippled[playerIndex] && !isNowCrippled)) {//elseif (bj_playerIsCrippled[playerIndex] and not isNowCrippled) then
 					//
 					bj_playerIsCrippled[playerIndex] = false;//set bj_playerIsCrippled[playerIndex] = false
 					PauseTimer(bj_crippledTimer[playerIndex]);//call PauseTimer(bj_crippledTimer[playerIndex])
@@ -7249,732 +7131,856 @@ namespace Jass {
 						//
 						//
 						TimerDialogDisplay(bj_crippledTimerWindows[playerIndex], false);//call TimerDialogDisplay(bj_crippledTimerWindows[playerIndex], false)
+						//
+						if ((MeleeGetAllyStructureCount(indexPlayer) > 0)) {//if (MeleeGetAllyStructureCount(indexPlayer) > 0) then
+							if ((bj_playerIsExposed[playerIndex])) {//if (bj_playerIsExposed[playerIndex]) then
+								DisplayTimedTextToPlayer(indexPlayer, 0, 0, bj_MELEE_CRIPPLE_MSG_DURATION, GetLocalizedString("CRIPPLE_UNREVEALED"));//call DisplayTimedTextToPlayer(indexPlayer, 0, 0, bj_MELEE_CRIPPLE_MSG_DURATION, GetLocalizedString("CRIPPLE_UNREVEALED"))
+							} else {//else
+								DisplayTimedTextToPlayer(indexPlayer, 0, 0, bj_MELEE_CRIPPLE_MSG_DURATION, GetLocalizedString("CRIPPLE_UNCRIPPLED"));//call DisplayTimedTextToPlayer(indexPlayer, 0, 0, bj_MELEE_CRIPPLE_MSG_DURATION, GetLocalizedString("CRIPPLE_UNCRIPPLED"))
+							}//endif
+						}//endif
 					}//endif
+					//
+					MeleeExposePlayer(indexPlayer, false);//call MeleeExposePlayer(indexPlayer, false)
 				}//endif
 				playerIndex = playerIndex + 1;//set playerIndex = playerIndex + 1
 				if (playerIndex == bj_MAX_PLAYERS) { break; }//exitwhen playerIndex == bj_MAX_PLAYERS
 			}//endloop
+		}//endfunction
+		//
+		//
+		//
+		private void MeleeCheckLostUnit(int lostUnit) {//function MeleeCheckLostUnit takes unit lostUnit returns nothing
+			player lostUnitOwner = GetOwningPlayer(lostUnit);//local player lostUnitOwner = GetOwningPlayer(lostUnit)
 			//
-			MeleeExposeAllPlayers();//call MeleeExposeAllPlayers()
-		}//endif
+			if ((GetPlayerStructureCount(lostUnitOwner, true) <= 0)) {//if (GetPlayerStructureCount(lostUnitOwner, true) <= 0) then
+				MeleeCheckForLosersAndVictors();//call MeleeCheckForLosersAndVictors()
+			}//endif
+			//
+			//
+			MeleeCheckForCrippledPlayers();//call MeleeCheckForCrippledPlayers()
+		}//endfunction
 		//
-		TimerDialogDisplay(bj_finishSoonTimerDialog, true);//call TimerDialogDisplay(bj_finishSoonTimerDialog, true)
-		TimerDialogSetRealTimeRemaining(bj_finishSoonTimerDialog, timeRemaining);//call TimerDialogSetRealTimeRemaining(bj_finishSoonTimerDialog, timeRemaining)
-	}//endfunction
-	//
-	private bool MeleeWasUserPlayer() {//function MeleeWasUserPlayer takes player whichPlayer returns boolean
-		playerslotstate slotState;//local playerslotstate slotState
-		if ((GetPlayerController(whichPlayer) != MAP_CONTROL_USER)) {//if (GetPlayerController(whichPlayer) != MAP_CONTROL_USER) then
-			return false;//return false
-		}//endif
-		slotState = GetPlayerSlotState(whichPlayer);//set slotState = GetPlayerSlotState(whichPlayer)
-		return (slotState == PLAYER_SLOT_STATE_PLAYING or slotState == PLAYER_SLOT_STATE_LEFT);//return (slotState == PLAYER_SLOT_STATE_PLAYING or slotState == PLAYER_SLOT_STATE_LEFT)
-	}//endfunction
-	//
-	private void MeleeTournamentFinishNowRuleA() {//function MeleeTournamentFinishNowRuleA takes integer multiplier returns nothing
-		int[] playerScore;//local integer array playerScore
-		int[] teamScore;//local integer array teamScore
-		force[] teamForce;//local force array   teamForce
-		int teamCount;//local integer       teamCount
-		int index;//local integer       index
-		player indexPlayer;//local player        indexPlayer
-		int index2;//local integer       index2
-		player indexPlayer2;//local player        indexPlayer2
-		int bestTeam;//local integer       bestTeam
-		int bestScore;//local integer       bestScore
-		bool draw;//local boolean       draw
 		//
-		index = 0;//set index = 0
-		while (true) {//loop
-			indexPlayer = Player(index);//set indexPlayer = Player(index)
-			if (MeleeWasUserPlayer(indexPlayer)) {//if MeleeWasUserPlayer(indexPlayer) then
-				playerScore[index] = GetTournamentScore(indexPlayer);//set playerScore[index] = GetTournamentScore(indexPlayer)
-				if (playerScore[index] <= 0) {//if playerScore[index] <= 0 then
-					playerScore[index] = 1;//set playerScore[index] = 1
+		//
+		//
+		private void MeleeCheckAddedUnit(int addedUnit) {//function MeleeCheckAddedUnit takes unit addedUnit returns nothing
+			player addedUnitOwner = GetOwningPlayer(addedUnit);//local player addedUnitOwner = GetOwningPlayer(addedUnit)
+			//
+			if ((bj_playerIsCrippled[GetPlayerId(addedUnitOwner)])) {//if (bj_playerIsCrippled[GetPlayerId(addedUnitOwner)]) then
+				MeleeCheckForCrippledPlayers();//call MeleeCheckForCrippledPlayers()
+			}//endif
+		}//endfunction
+		//
+		private void MeleeTriggerActionConstructCancel() {//function MeleeTriggerActionConstructCancel takes nothing returns nothing
+			MeleeCheckLostUnit(GetCancelledStructure());//call MeleeCheckLostUnit(GetCancelledStructure())
+		}//endfunction
+		//
+		private void MeleeTriggerActionUnitDeath() {//function MeleeTriggerActionUnitDeath takes nothing returns nothing
+			if ((IsUnitType(GetDyingUnit(), UNIT_TYPE_STRUCTURE))) {//if (IsUnitType(GetDyingUnit(), UNIT_TYPE_STRUCTURE)) then
+				MeleeCheckLostUnit(GetDyingUnit());//call MeleeCheckLostUnit(GetDyingUnit())
+			}//endif
+		}//endfunction
+		//
+		private void MeleeTriggerActionUnitConstructionStart() {//function MeleeTriggerActionUnitConstructionStart takes nothing returns nothing
+			MeleeCheckAddedUnit(GetConstructingStructure());//call MeleeCheckAddedUnit(GetConstructingStructure())
+		}//endfunction
+		//
+		private void MeleeTriggerActionPlayerDefeated() {//function MeleeTriggerActionPlayerDefeated takes nothing returns nothing
+			player thePlayer = GetTriggerPlayer();//local player thePlayer = GetTriggerPlayer()
+			CachePlayerHeroData(thePlayer);//call CachePlayerHeroData(thePlayer)
+			if ((MeleeGetAllyCount(thePlayer) > 0)) {//if (MeleeGetAllyCount(thePlayer) > 0) then
+				//
+				//
+				ShareEverythingWithTeam(thePlayer);//call ShareEverythingWithTeam(thePlayer)
+				if ((!bj_meleeDefeated[GetPlayerId(thePlayer)])) {//if (not bj_meleeDefeated[GetPlayerId(thePlayer)]) then
+					MeleeDoDefeat(thePlayer);//call MeleeDoDefeat(thePlayer)
 				}//endif
 			} else {//else
-				playerScore[index] = 0;//set playerScore[index] = 0
+				//
+				//
+				MakeUnitsPassiveForTeam(thePlayer);//call MakeUnitsPassiveForTeam(thePlayer)
+				if ((!bj_meleeDefeated[GetPlayerId(thePlayer)])) {//if (not bj_meleeDefeated[GetPlayerId(thePlayer)]) then
+					MeleeDoDefeat(thePlayer);//call MeleeDoDefeat(thePlayer)
+				}//endif
 			}//endif
-			index = index + 1;//set index = index + 1
-			if (index == bj_MAX_PLAYERS) { break; }//exitwhen index == bj_MAX_PLAYERS
-		}//endloop
+			MeleeCheckForLosersAndVictors();//call MeleeCheckForLosersAndVictors()
+		}//endfunction
 		//
-		teamCount = 0;//set teamCount = 0
-		index = 0;//set index = 0
-		while (true) {//loop
-			if (playerScore[index] != 0) {//if playerScore[index] != 0 then
-				indexPlayer = Player(index);//set indexPlayer = Player(index)
-				teamScore[teamCount] = 0;//set teamScore[teamCount] = 0
-				teamForce[teamCount] = CreateForce();//set teamForce[teamCount] = CreateForce()
-				index2 = index;//set index2 = index
+		private void MeleeTriggerActionPlayerLeft() {//function MeleeTriggerActionPlayerLeft takes nothing returns nothing
+			player thePlayer = GetTriggerPlayer();//local player thePlayer = GetTriggerPlayer()
+			//
+			if ((IsPlayerObserver(thePlayer))) {//if (IsPlayerObserver(thePlayer)) then
+				RemovePlayerPreserveUnitsBJ(thePlayer, PLAYER_GAME_RESULT_NEUTRAL, false);//call RemovePlayerPreserveUnitsBJ(thePlayer, PLAYER_GAME_RESULT_NEUTRAL, false)
+				return;//return
+			}//endif
+			CachePlayerHeroData(thePlayer);//call CachePlayerHeroData(thePlayer)
+			//
+			//
+			if ((MeleeGetAllyCount(thePlayer) > 0)) {//if (MeleeGetAllyCount(thePlayer) > 0) then
+				//
+				//
+				ShareEverythingWithTeam(thePlayer);//call ShareEverythingWithTeam(thePlayer)
+				MeleeDoLeave(thePlayer);//call MeleeDoLeave(thePlayer)
+			} else {//else
+				//
+				//
+				MakeUnitsPassiveForTeam(thePlayer);//call MakeUnitsPassiveForTeam(thePlayer)
+				MeleeDoLeave(thePlayer);//call MeleeDoLeave(thePlayer)
+			}//endif
+			MeleeCheckForLosersAndVictors();//call MeleeCheckForLosersAndVictors()
+		}//endfunction
+		//
+		private void MeleeTriggerActionAllianceChange() {//function MeleeTriggerActionAllianceChange takes nothing returns nothing
+			MeleeCheckForLosersAndVictors();//call MeleeCheckForLosersAndVictors()
+			MeleeCheckForCrippledPlayers();//call MeleeCheckForCrippledPlayers()
+		}//endfunction
+		//
+		private void MeleeTriggerTournamentFinishSoon() {//function MeleeTriggerTournamentFinishSoon takes nothing returns nothing
+			//
+			int playerIndex;//local integer    playerIndex
+			player indexPlayer;//local player     indexPlayer
+			float timeRemaining = GetTournamentFinishSoonTimeRemaining();//local real       timeRemaining = GetTournamentFinishSoonTimeRemaining()
+			if (!bj_finishSoonAllExposed) {//if not bj_finishSoonAllExposed then
+				bj_finishSoonAllExposed = true;//set bj_finishSoonAllExposed = true
+				//
+				playerIndex = 0;//set playerIndex = 0
 				while (true) {//loop
-					if (playerScore[index2] != 0) {//if playerScore[index2] != 0 then
-						indexPlayer2 = Player(index2);//set indexPlayer2 = Player(index2)
-						if (PlayersAreCoAllied(indexPlayer, indexPlayer2)) {//if PlayersAreCoAllied(indexPlayer, indexPlayer2) then
-							teamScore[teamCount] = teamScore[teamCount] + playerScore[index2];//set teamScore[teamCount] = teamScore[teamCount] + playerScore[index2]
-							ForceAddPlayer(teamForce[teamCount], indexPlayer2);//call ForceAddPlayer(teamForce[teamCount], indexPlayer2)
-							playerScore[index2] = 0;//set playerScore[index2] = 0
+					indexPlayer = Player(playerIndex);//set indexPlayer = Player(playerIndex)
+					if (bj_playerIsCrippled[playerIndex]) {//if bj_playerIsCrippled[playerIndex] then
+						//
+						bj_playerIsCrippled[playerIndex] = false;//set bj_playerIsCrippled[playerIndex] = false
+						PauseTimer(bj_crippledTimer[playerIndex]);//call PauseTimer(bj_crippledTimer[playerIndex])
+						if ((GetLocalPlayer() == indexPlayer)) {//if (GetLocalPlayer() == indexPlayer) then
+							//
+							//
+							TimerDialogDisplay(bj_crippledTimerWindows[playerIndex], false);//call TimerDialogDisplay(bj_crippledTimerWindows[playerIndex], false)
 						}//endif
 					}//endif
-					index2 = index2 + 1;//set index2 = index2 + 1
-					if (index2 == bj_MAX_PLAYERS) { break; }//exitwhen index2 == bj_MAX_PLAYERS
+					playerIndex = playerIndex + 1;//set playerIndex = playerIndex + 1
+					if (playerIndex == bj_MAX_PLAYERS) { break; }//exitwhen playerIndex == bj_MAX_PLAYERS
 				}//endloop
-				teamCount = teamCount + 1;//set teamCount = teamCount + 1
-			}//endif
-			index = index + 1;//set index = index + 1
-			if (index == bj_MAX_PLAYERS) { break; }//exitwhen index == bj_MAX_PLAYERS
-		}//endloop
-		//
-		bj_meleeGameOver = true;//set bj_meleeGameOver = true
-		//
-		if (teamCount != 0) {//if teamCount != 0 then
-			//
-			bestTeam = -1;//set bestTeam = -1
-			bestScore = -1;//set bestScore = -1
-			index = 0;//set index = 0
-			while (true) {//loop
-				if (teamScore[index] > bestScore) {//if teamScore[index] > bestScore then
-					bestTeam = index;//set bestTeam = index
-					bestScore = teamScore[index];//set bestScore = teamScore[index]
-				}//endif
-				index = index + 1;//set index = index + 1
-				if (index == teamCount) { break; }//exitwhen index == teamCount
-			}//endloop
-			//
-			//
-			//
-			draw = false;//set draw = false
-			index = 0;//set index = 0
-			while (true) {//loop
-				if (index != bestTeam) {//if index != bestTeam then
-					if (bestScore < (multiplier * teamScore[index])) {//if bestScore < (multiplier * teamScore[index]) then
-						draw = true;//set draw = true
-					}//endif
-				}//endif
-				index = index + 1;//set index = index + 1
-				if (index == teamCount) { break; }//exitwhen index == teamCount
-			}//endloop
-			if (draw) {//if draw then
 				//
+				MeleeExposeAllPlayers();//call MeleeExposeAllPlayers()
+			}//endif
+			//
+			TimerDialogDisplay(bj_finishSoonTimerDialog, true);//call TimerDialogDisplay(bj_finishSoonTimerDialog, true)
+			TimerDialogSetRealTimeRemaining(bj_finishSoonTimerDialog, timeRemaining);//call TimerDialogSetRealTimeRemaining(bj_finishSoonTimerDialog, timeRemaining)
+		}//endfunction
+		//
+		private bool MeleeWasUserPlayer(player whichPlayer) {//function MeleeWasUserPlayer takes player whichPlayer returns boolean
+			playerslotstate slotState;//local playerslotstate slotState
+			if ((GetPlayerController(whichPlayer) != MAP_CONTROL_USER)) {//if (GetPlayerController(whichPlayer) != MAP_CONTROL_USER) then
+				return false;//return false
+			}//endif
+			slotState = GetPlayerSlotState(whichPlayer);//set slotState = GetPlayerSlotState(whichPlayer)
+			return (slotState == PLAYER_SLOT_STATE_PLAYING or slotState == PLAYER_SLOT_STATE_LEFT);//return (slotState == PLAYER_SLOT_STATE_PLAYING or slotState == PLAYER_SLOT_STATE_LEFT)
+		}//endfunction
+		//
+		private void MeleeTournamentFinishNowRuleA(int multiplier) {//function MeleeTournamentFinishNowRuleA takes integer multiplier returns nothing
+			int[] playerScore;//local integer array playerScore
+			int[] teamScore;//local integer array teamScore
+			force[] teamForce;//local force array   teamForce
+			int teamCount;//local integer       teamCount
+			int index;//local integer       index
+			player indexPlayer;//local player        indexPlayer
+			int index2;//local integer       index2
+			player indexPlayer2;//local player        indexPlayer2
+			int bestTeam;//local integer       bestTeam
+			int bestScore;//local integer       bestScore
+			bool draw;//local boolean       draw
+			//
+			index = 0;//set index = 0
+			while (true) {//loop
+				indexPlayer = Player(index);//set indexPlayer = Player(index)
+				if (MeleeWasUserPlayer(indexPlayer)) {//if MeleeWasUserPlayer(indexPlayer) then
+					playerScore[index] = GetTournamentScore(indexPlayer);//set playerScore[index] = GetTournamentScore(indexPlayer)
+					if (playerScore[index] <= 0) {//if playerScore[index] <= 0 then
+						playerScore[index] = 1;//set playerScore[index] = 1
+					}//endif
+				} else {//else
+					playerScore[index] = 0;//set playerScore[index] = 0
+				}//endif
+				index = index + 1;//set index = index + 1
+				if (index == bj_MAX_PLAYERS) { break; }//exitwhen index == bj_MAX_PLAYERS
+			}//endloop
+			//
+			teamCount = 0;//set teamCount = 0
+			index = 0;//set index = 0
+			while (true) {//loop
+				if (playerScore[index] != 0) {//if playerScore[index] != 0 then
+					indexPlayer = Player(index);//set indexPlayer = Player(index)
+					teamScore[teamCount] = 0;//set teamScore[teamCount] = 0
+					teamForce[teamCount] = CreateForce();//set teamForce[teamCount] = CreateForce()
+					index2 = index;//set index2 = index
+					while (true) {//loop
+						if (playerScore[index2] != 0) {//if playerScore[index2] != 0 then
+							indexPlayer2 = Player(index2);//set indexPlayer2 = Player(index2)
+							if (PlayersAreCoAllied(indexPlayer, indexPlayer2)) {//if PlayersAreCoAllied(indexPlayer, indexPlayer2) then
+								teamScore[teamCount] = teamScore[teamCount] + playerScore[index2];//set teamScore[teamCount] = teamScore[teamCount] + playerScore[index2]
+								ForceAddPlayer(teamForce[teamCount], indexPlayer2);//call ForceAddPlayer(teamForce[teamCount], indexPlayer2)
+								playerScore[index2] = 0;//set playerScore[index2] = 0
+							}//endif
+						}//endif
+						index2 = index2 + 1;//set index2 = index2 + 1
+						if (index2 == bj_MAX_PLAYERS) { break; }//exitwhen index2 == bj_MAX_PLAYERS
+					}//endloop
+					teamCount = teamCount + 1;//set teamCount = teamCount + 1
+				}//endif
+				index = index + 1;//set index = index + 1
+				if (index == bj_MAX_PLAYERS) { break; }//exitwhen index == bj_MAX_PLAYERS
+			}//endloop
+			//
+			bj_meleeGameOver = true;//set bj_meleeGameOver = true
+			//
+			if (teamCount != 0) {//if teamCount != 0 then
+				//
+				bestTeam = -1;//set bestTeam = -1
+				bestScore = -1;//set bestScore = -1
 				index = 0;//set index = 0
 				while (true) {//loop
-					ForForce(teamForce[index], function MeleeDoDrawEnum);//call ForForce(teamForce[index], function MeleeDoDrawEnum)
+					if (teamScore[index] > bestScore) {//if teamScore[index] > bestScore then
+						bestTeam = index;//set bestTeam = index
+						bestScore = teamScore[index];//set bestScore = teamScore[index]
+					}//endif
 					index = index + 1;//set index = index + 1
 					if (index == teamCount) { break; }//exitwhen index == teamCount
 				}//endloop
-			} else {//else
 				//
+				//
+				//
+				draw = false;//set draw = false
 				index = 0;//set index = 0
 				while (true) {//loop
 					if (index != bestTeam) {//if index != bestTeam then
-						ForForce(teamForce[index], function MeleeDoDefeatEnum);//call ForForce(teamForce[index], function MeleeDoDefeatEnum)
+						if (bestScore < (multiplier * teamScore[index])) {//if bestScore < (multiplier * teamScore[index]) then
+							draw = true;//set draw = true
+						}//endif
 					}//endif
 					index = index + 1;//set index = index + 1
 					if (index == teamCount) { break; }//exitwhen index == teamCount
 				}//endloop
-				//
-				ForForce(teamForce[bestTeam], function MeleeDoVictoryEnum);//call ForForce(teamForce[bestTeam], function MeleeDoVictoryEnum)
+				if (draw) {//if draw then
+					//
+					index = 0;//set index = 0
+					while (true) {//loop
+						ForForce(teamForce[index], function MeleeDoDrawEnum);//call ForForce(teamForce[index], function MeleeDoDrawEnum)
+						index = index + 1;//set index = index + 1
+						if (index == teamCount) { break; }//exitwhen index == teamCount
+					}//endloop
+				} else {//else
+					//
+					index = 0;//set index = 0
+					while (true) {//loop
+						if (index != bestTeam) {//if index != bestTeam then
+							ForForce(teamForce[index], function MeleeDoDefeatEnum);//call ForForce(teamForce[index], function MeleeDoDefeatEnum)
+						}//endif
+						index = index + 1;//set index = index + 1
+						if (index == teamCount) { break; }//exitwhen index == teamCount
+					}//endloop
+					//
+					ForForce(teamForce[bestTeam], function MeleeDoVictoryEnum);//call ForForce(teamForce[bestTeam], function MeleeDoVictoryEnum)
+				}//endif
 			}//endif
-		}//endif
-	}//endfunction
-	//
-	private void MeleeTriggerTournamentFinishNow() {//function MeleeTriggerTournamentFinishNow takes nothing returns nothing
-		int rule = GetTournamentFinishNowRule();//local integer rule = GetTournamentFinishNowRule()
+		}//endfunction
 		//
-		if (bj_meleeGameOver) {//if bj_meleeGameOver then
-			return;//return
-		}//endif
-		if ((rule == 1)) {//if (rule == 1) then
+		private void MeleeTriggerTournamentFinishNow() {//function MeleeTriggerTournamentFinishNow takes nothing returns nothing
+			int rule = GetTournamentFinishNowRule();//local integer rule = GetTournamentFinishNowRule()
 			//
-			MeleeTournamentFinishNowRuleA(1);//call MeleeTournamentFinishNowRuleA(1)
-		} else {//else
-			//
-			MeleeTournamentFinishNowRuleA(3);//call MeleeTournamentFinishNowRuleA(3)
-		}//endif
-		//
-		MeleeRemoveObservers();//call MeleeRemoveObservers()
-	}//endfunction
-	//
-	private void MeleeInitVictoryDefeat() {//function MeleeInitVictoryDefeat takes nothing returns nothing
-		trigger trig;//local trigger    trig
-		int index;//local integer    index
-		player indexPlayer;//local player     indexPlayer
-		//
-		//
-		bj_finishSoonTimerDialog = CreateTimerDialog(null);//set bj_finishSoonTimerDialog = CreateTimerDialog(null)
-		//
-		trig = CreateTrigger();//set trig = CreateTrigger()
-		TriggerRegisterGameEvent(trig, EVENT_GAME_TOURNAMENT_FINISH_SOON);//call TriggerRegisterGameEvent(trig, EVENT_GAME_TOURNAMENT_FINISH_SOON)
-		TriggerAddAction(trig, function MeleeTriggerTournamentFinishSoon);//call TriggerAddAction(trig, function MeleeTriggerTournamentFinishSoon)
-		//
-		trig = CreateTrigger();//set trig = CreateTrigger()
-		TriggerRegisterGameEvent(trig, EVENT_GAME_TOURNAMENT_FINISH_NOW);//call TriggerRegisterGameEvent(trig, EVENT_GAME_TOURNAMENT_FINISH_NOW)
-		TriggerAddAction(trig, function MeleeTriggerTournamentFinishNow);//call TriggerAddAction(trig, function MeleeTriggerTournamentFinishNow)
-		//
-		index = 0;//set index = 0
-		while (true) {//loop
-			indexPlayer = Player(index);//set indexPlayer = Player(index)
-			//
-			if ((GetPlayerSlotState(indexPlayer) == PLAYER_SLOT_STATE_PLAYING)) {//if (GetPlayerSlotState(indexPlayer) == PLAYER_SLOT_STATE_PLAYING) then
-				bj_meleeDefeated[index] = false;//set bj_meleeDefeated[index] = false
-				bj_meleeVictoried[index] = false;//set bj_meleeVictoried[index] = false
+			if (bj_meleeGameOver) {//if bj_meleeGameOver then
+				return;//return
+			}//endif
+			if ((rule == 1)) {//if (rule == 1) then
 				//
-				bj_playerIsCrippled[index] = false;//set bj_playerIsCrippled[index] = false
-				bj_playerIsExposed[index] = false;//set bj_playerIsExposed[index] = false
-				bj_crippledTimer[index] = CreateTimer();//set bj_crippledTimer[index] = CreateTimer()
-				bj_crippledTimerWindows[index] = CreateTimerDialog(bj_crippledTimer[index]);//set bj_crippledTimerWindows[index] = CreateTimerDialog(bj_crippledTimer[index])
-				TimerDialogSetTitle(bj_crippledTimerWindows[index], MeleeGetCrippledTimerMessage(indexPlayer));//call TimerDialogSetTitle(bj_crippledTimerWindows[index], MeleeGetCrippledTimerMessage(indexPlayer))
-				//
-				trig = CreateTrigger();//set trig = CreateTrigger()
-				TriggerRegisterPlayerUnitEvent(trig, indexPlayer, EVENT_PLAYER_UNIT_CONSTRUCT_CANCEL, null);//call TriggerRegisterPlayerUnitEvent(trig, indexPlayer, EVENT_PLAYER_UNIT_CONSTRUCT_CANCEL, null)
-				TriggerAddAction(trig, function MeleeTriggerActionConstructCancel);//call TriggerAddAction(trig, function MeleeTriggerActionConstructCancel)
-				//
-				trig = CreateTrigger();//set trig = CreateTrigger()
-				TriggerRegisterPlayerUnitEvent(trig, indexPlayer, EVENT_PLAYER_UNIT_DEATH, null);//call TriggerRegisterPlayerUnitEvent(trig, indexPlayer, EVENT_PLAYER_UNIT_DEATH, null)
-				TriggerAddAction(trig, function MeleeTriggerActionUnitDeath);//call TriggerAddAction(trig, function MeleeTriggerActionUnitDeath)
-				//
-				trig = CreateTrigger();//set trig = CreateTrigger()
-				TriggerRegisterPlayerUnitEvent(trig, indexPlayer, EVENT_PLAYER_UNIT_CONSTRUCT_START, null);//call TriggerRegisterPlayerUnitEvent(trig, indexPlayer, EVENT_PLAYER_UNIT_CONSTRUCT_START, null)
-				TriggerAddAction(trig, function MeleeTriggerActionUnitConstructionStart);//call TriggerAddAction(trig, function MeleeTriggerActionUnitConstructionStart)
-				//
-				trig = CreateTrigger();//set trig = CreateTrigger()
-				TriggerRegisterPlayerEvent(trig, indexPlayer, EVENT_PLAYER_DEFEAT);//call TriggerRegisterPlayerEvent(trig, indexPlayer, EVENT_PLAYER_DEFEAT)
-				TriggerAddAction(trig, function MeleeTriggerActionPlayerDefeated);//call TriggerAddAction(trig, function MeleeTriggerActionPlayerDefeated)
-				//
-				trig = CreateTrigger();//set trig = CreateTrigger()
-				TriggerRegisterPlayerEvent(trig, indexPlayer, EVENT_PLAYER_LEAVE);//call TriggerRegisterPlayerEvent(trig, indexPlayer, EVENT_PLAYER_LEAVE)
-				TriggerAddAction(trig, function MeleeTriggerActionPlayerLeft);//call TriggerAddAction(trig, function MeleeTriggerActionPlayerLeft)
-				//
-				trig = CreateTrigger();//set trig = CreateTrigger()
-				TriggerRegisterPlayerAllianceChange(trig, indexPlayer, ALLIANCE_PASSIVE);//call TriggerRegisterPlayerAllianceChange(trig, indexPlayer, ALLIANCE_PASSIVE)
-				TriggerRegisterPlayerStateEvent(trig, indexPlayer, PLAYER_STATE_ALLIED_VICTORY, EQUAL, 1);//call TriggerRegisterPlayerStateEvent(trig, indexPlayer, PLAYER_STATE_ALLIED_VICTORY, EQUAL, 1)
-				TriggerAddAction(trig, function MeleeTriggerActionAllianceChange);//call TriggerAddAction(trig, function MeleeTriggerActionAllianceChange)
+				MeleeTournamentFinishNowRuleA(1);//call MeleeTournamentFinishNowRuleA(1)
 			} else {//else
-				bj_meleeDefeated[index] = true;//set bj_meleeDefeated[index] = true
-				bj_meleeVictoried[index] = false;//set bj_meleeVictoried[index] = false
 				//
-				if ((IsPlayerObserver(indexPlayer))) {//if (IsPlayerObserver(indexPlayer)) then
+				MeleeTournamentFinishNowRuleA(3);//call MeleeTournamentFinishNowRuleA(3)
+			}//endif
+			//
+			MeleeRemoveObservers();//call MeleeRemoveObservers()
+		}//endfunction
+		//
+		private void MeleeInitVictoryDefeat() {//function MeleeInitVictoryDefeat takes nothing returns nothing
+			trigger trig;//local trigger    trig
+			int index;//local integer    index
+			player indexPlayer;//local player     indexPlayer
+			//
+			//
+			bj_finishSoonTimerDialog = CreateTimerDialog(null);//set bj_finishSoonTimerDialog = CreateTimerDialog(null)
+			//
+			trig = CreateTrigger();//set trig = CreateTrigger()
+			TriggerRegisterGameEvent(trig, EVENT_GAME_TOURNAMENT_FINISH_SOON);//call TriggerRegisterGameEvent(trig, EVENT_GAME_TOURNAMENT_FINISH_SOON)
+			TriggerAddAction(trig, function MeleeTriggerTournamentFinishSoon);//call TriggerAddAction(trig, function MeleeTriggerTournamentFinishSoon)
+			//
+			trig = CreateTrigger();//set trig = CreateTrigger()
+			TriggerRegisterGameEvent(trig, EVENT_GAME_TOURNAMENT_FINISH_NOW);//call TriggerRegisterGameEvent(trig, EVENT_GAME_TOURNAMENT_FINISH_NOW)
+			TriggerAddAction(trig, function MeleeTriggerTournamentFinishNow);//call TriggerAddAction(trig, function MeleeTriggerTournamentFinishNow)
+			//
+			index = 0;//set index = 0
+			while (true) {//loop
+				indexPlayer = Player(index);//set indexPlayer = Player(index)
+				//
+				if ((GetPlayerSlotState(indexPlayer) == PLAYER_SLOT_STATE_PLAYING)) {//if (GetPlayerSlotState(indexPlayer) == PLAYER_SLOT_STATE_PLAYING) then
+					bj_meleeDefeated[index] = false;//set bj_meleeDefeated[index] = false
+					bj_meleeVictoried[index] = false;//set bj_meleeVictoried[index] = false
+					//
+					bj_playerIsCrippled[index] = false;//set bj_playerIsCrippled[index] = false
+					bj_playerIsExposed[index] = false;//set bj_playerIsExposed[index] = false
+					bj_crippledTimer[index] = CreateTimer();//set bj_crippledTimer[index] = CreateTimer()
+					bj_crippledTimerWindows[index] = CreateTimerDialog(bj_crippledTimer[index]);//set bj_crippledTimerWindows[index] = CreateTimerDialog(bj_crippledTimer[index])
+					TimerDialogSetTitle(bj_crippledTimerWindows[index], MeleeGetCrippledTimerMessage(indexPlayer));//call TimerDialogSetTitle(bj_crippledTimerWindows[index], MeleeGetCrippledTimerMessage(indexPlayer))
+					//
+					trig = CreateTrigger();//set trig = CreateTrigger()
+					TriggerRegisterPlayerUnitEvent(trig, indexPlayer, EVENT_PLAYER_UNIT_CONSTRUCT_CANCEL, null);//call TriggerRegisterPlayerUnitEvent(trig, indexPlayer, EVENT_PLAYER_UNIT_CONSTRUCT_CANCEL, null)
+					TriggerAddAction(trig, function MeleeTriggerActionConstructCancel);//call TriggerAddAction(trig, function MeleeTriggerActionConstructCancel)
+					//
+					trig = CreateTrigger();//set trig = CreateTrigger()
+					TriggerRegisterPlayerUnitEvent(trig, indexPlayer, EVENT_PLAYER_UNIT_DEATH, null);//call TriggerRegisterPlayerUnitEvent(trig, indexPlayer, EVENT_PLAYER_UNIT_DEATH, null)
+					TriggerAddAction(trig, function MeleeTriggerActionUnitDeath);//call TriggerAddAction(trig, function MeleeTriggerActionUnitDeath)
+					//
+					trig = CreateTrigger();//set trig = CreateTrigger()
+					TriggerRegisterPlayerUnitEvent(trig, indexPlayer, EVENT_PLAYER_UNIT_CONSTRUCT_START, null);//call TriggerRegisterPlayerUnitEvent(trig, indexPlayer, EVENT_PLAYER_UNIT_CONSTRUCT_START, null)
+					TriggerAddAction(trig, function MeleeTriggerActionUnitConstructionStart);//call TriggerAddAction(trig, function MeleeTriggerActionUnitConstructionStart)
+					//
+					trig = CreateTrigger();//set trig = CreateTrigger()
+					TriggerRegisterPlayerEvent(trig, indexPlayer, EVENT_PLAYER_DEFEAT);//call TriggerRegisterPlayerEvent(trig, indexPlayer, EVENT_PLAYER_DEFEAT)
+					TriggerAddAction(trig, function MeleeTriggerActionPlayerDefeated);//call TriggerAddAction(trig, function MeleeTriggerActionPlayerDefeated)
 					//
 					trig = CreateTrigger();//set trig = CreateTrigger()
 					TriggerRegisterPlayerEvent(trig, indexPlayer, EVENT_PLAYER_LEAVE);//call TriggerRegisterPlayerEvent(trig, indexPlayer, EVENT_PLAYER_LEAVE)
 					TriggerAddAction(trig, function MeleeTriggerActionPlayerLeft);//call TriggerAddAction(trig, function MeleeTriggerActionPlayerLeft)
+					//
+					trig = CreateTrigger();//set trig = CreateTrigger()
+					TriggerRegisterPlayerAllianceChange(trig, indexPlayer, ALLIANCE_PASSIVE);//call TriggerRegisterPlayerAllianceChange(trig, indexPlayer, ALLIANCE_PASSIVE)
+					TriggerRegisterPlayerStateEvent(trig, indexPlayer, PLAYER_STATE_ALLIED_VICTORY, EQUAL, 1);//call TriggerRegisterPlayerStateEvent(trig, indexPlayer, PLAYER_STATE_ALLIED_VICTORY, EQUAL, 1)
+					TriggerAddAction(trig, function MeleeTriggerActionAllianceChange);//call TriggerAddAction(trig, function MeleeTriggerActionAllianceChange)
+				} else {//else
+					bj_meleeDefeated[index] = true;//set bj_meleeDefeated[index] = true
+					bj_meleeVictoried[index] = false;//set bj_meleeVictoried[index] = false
+					//
+					if ((IsPlayerObserver(indexPlayer))) {//if (IsPlayerObserver(indexPlayer)) then
+						//
+						trig = CreateTrigger();//set trig = CreateTrigger()
+						TriggerRegisterPlayerEvent(trig, indexPlayer, EVENT_PLAYER_LEAVE);//call TriggerRegisterPlayerEvent(trig, indexPlayer, EVENT_PLAYER_LEAVE)
+						TriggerAddAction(trig, function MeleeTriggerActionPlayerLeft);//call TriggerAddAction(trig, function MeleeTriggerActionPlayerLeft)
+					}//endif
 				}//endif
-			}//endif
-			index = index + 1;//set index = index + 1
-			if (index == bj_MAX_PLAYERS) { break; }//exitwhen index == bj_MAX_PLAYERS
-		}//endloop
-		//
-		//
-		TimerStart(CreateTimer(), 2.0, false, function MeleeTriggerActionAllianceChange);//call TimerStart(CreateTimer(), 2.0, false, function MeleeTriggerActionAllianceChange)
-	}//endfunction
-	//
-	//
-	//
-	//
-	//
-	//
-	private void CheckInitPlayerSlotAvailability() {//function CheckInitPlayerSlotAvailability takes nothing returns nothing
-		int index;//local integer index
-		if ((!bj_slotControlReady)) {//if (not bj_slotControlReady) then
-			index = 0;//set index = 0
-			while (true) {//loop
-				bj_slotControlUsed[index] = false;//set bj_slotControlUsed[index] = false
-				bj_slotControl[index] = MAP_CONTROL_USER;//set bj_slotControl[index] = MAP_CONTROL_USER
 				index = index + 1;//set index = index + 1
 				if (index == bj_MAX_PLAYERS) { break; }//exitwhen index == bj_MAX_PLAYERS
 			}//endloop
-			bj_slotControlReady = true;//set bj_slotControlReady = true
-		}//endif
-	}//endfunction
-	//
-	private void SetPlayerSlotAvailable(player whichPlayer, mapcontrol control) {//function SetPlayerSlotAvailable takes player whichPlayer, mapcontrol control returns nothing
-		int playerIndex = GetPlayerId(whichPlayer);//local integer playerIndex = GetPlayerId(whichPlayer)
-		CheckInitPlayerSlotAvailability();//call CheckInitPlayerSlotAvailability()
-		bj_slotControlUsed[playerIndex] = true;//set bj_slotControlUsed[playerIndex] = true
-		bj_slotControl[playerIndex] = control;//set bj_slotControl[playerIndex] = control
-	}//endfunction
-	//
-	//
-	//
-	//
-	//
-	//
-	private void TeamInitPlayerSlots() {//function TeamInitPlayerSlots takes integer teamCount returns nothing
-		int index;//local integer index
-		player indexPlayer;//local player  indexPlayer
-		int team;//local integer team
-		SetTeams(teamCount);//call SetTeams(teamCount)
-		CheckInitPlayerSlotAvailability();//call CheckInitPlayerSlotAvailability()
-		index = 0;//set index = 0
-		team = 0;//set team = 0
-		while (true) {//loop
-			if ((bj_slotControlUsed[index])) {//if (bj_slotControlUsed[index]) then
-				indexPlayer = Player(index);//set indexPlayer = Player(index)
-				SetPlayerTeam(indexPlayer, team);//call SetPlayerTeam( indexPlayer, team )
-				team = team + 1;//set team = team + 1
-				if ((team >= teamCount)) {//if (team >= teamCount) then
-					team = 0;//set team = 0
+			//
+			//
+			TimerStart(CreateTimer(), 2.0, false, function MeleeTriggerActionAllianceChange);//call TimerStart(CreateTimer(), 2.0, false, function MeleeTriggerActionAllianceChange)
+		}//endfunction
+		//
+		//
+		//
+		//
+		//
+		//
+		private void CheckInitPlayerSlotAvailability() {//function CheckInitPlayerSlotAvailability takes nothing returns nothing
+			int index;//local integer index
+			if ((!bj_slotControlReady)) {//if (not bj_slotControlReady) then
+				index = 0;//set index = 0
+				while (true) {//loop
+					bj_slotControlUsed[index] = false;//set bj_slotControlUsed[index] = false
+					bj_slotControl[index] = MAP_CONTROL_USER;//set bj_slotControl[index] = MAP_CONTROL_USER
+					index = index + 1;//set index = index + 1
+					if (index == bj_MAX_PLAYERS) { break; }//exitwhen index == bj_MAX_PLAYERS
+				}//endloop
+				bj_slotControlReady = true;//set bj_slotControlReady = true
+			}//endif
+		}//endfunction
+		//
+		private void SetPlayerSlotAvailable(player whichPlayer, mapcontrol control) {//function SetPlayerSlotAvailable takes player whichPlayer, mapcontrol control returns nothing
+			int playerIndex = GetPlayerId(whichPlayer);//local integer playerIndex = GetPlayerId(whichPlayer)
+			CheckInitPlayerSlotAvailability();//call CheckInitPlayerSlotAvailability()
+			bj_slotControlUsed[playerIndex] = true;//set bj_slotControlUsed[playerIndex] = true
+			bj_slotControl[playerIndex] = control;//set bj_slotControl[playerIndex] = control
+		}//endfunction
+		//
+		//
+		//
+		//
+		//
+		//
+		private void TeamInitPlayerSlots(int teamCount) {//function TeamInitPlayerSlots takes integer teamCount returns nothing
+			int index;//local integer index
+			player indexPlayer;//local player  indexPlayer
+			int team;//local integer team
+			SetTeams(teamCount);//call SetTeams(teamCount)
+			CheckInitPlayerSlotAvailability();//call CheckInitPlayerSlotAvailability()
+			index = 0;//set index = 0
+			team = 0;//set team = 0
+			while (true) {//loop
+				if ((bj_slotControlUsed[index])) {//if (bj_slotControlUsed[index]) then
+					indexPlayer = Player(index);//set indexPlayer = Player(index)
+					SetPlayerTeam(indexPlayer, team);//call SetPlayerTeam( indexPlayer, team )
+					team = team + 1;//set team = team + 1
+					if ((team >= teamCount)) {//if (team >= teamCount) then
+						team = 0;//set team = 0
+					}//endif
 				}//endif
-			}//endif
-			index = index + 1;//set index = index + 1
-			if (index == bj_MAX_PLAYERS) { break; }//exitwhen index == bj_MAX_PLAYERS
-		}//endloop
-	}//endfunction
-	//
-	private void MeleeInitPlayerSlots() {//function MeleeInitPlayerSlots takes nothing returns nothing
-		TeamInitPlayerSlots(bj_MAX_PLAYERS);//call TeamInitPlayerSlots(bj_MAX_PLAYERS)
-	}//endfunction
-	//
-	private void FFAInitPlayerSlots() {//function FFAInitPlayerSlots takes nothing returns nothing
-		TeamInitPlayerSlots(bj_MAX_PLAYERS);//call TeamInitPlayerSlots(bj_MAX_PLAYERS)
-	}//endfunction
-	//
-	private void OneOnOneInitPlayerSlots() {//function OneOnOneInitPlayerSlots takes nothing returns nothing
+				index = index + 1;//set index = index + 1
+				if (index == bj_MAX_PLAYERS) { break; }//exitwhen index == bj_MAX_PLAYERS
+			}//endloop
+		}//endfunction
 		//
-		SetTeams(2);//call SetTeams(2)
-		SetPlayers(2);//call SetPlayers(2)
-		TeamInitPlayerSlots(2);//call TeamInitPlayerSlots(2)
-	}//endfunction
-	//
-	private void InitGenericPlayerSlots() {//function InitGenericPlayerSlots takes nothing returns nothing
-		gametype gType = GetGameTypeSelected();//local gametype gType = GetGameTypeSelected()
-		if ((gType == GAME_TYPE_MELEE)) {//if (gType == GAME_TYPE_MELEE) then
-			MeleeInitPlayerSlots();//call MeleeInitPlayerSlots()
-		} else if ((gType == GAME_TYPE_FFA)) {//elseif (gType == GAME_TYPE_FFA) then
-			FFAInitPlayerSlots();//call FFAInitPlayerSlots()
-		} else if ((gType == GAME_TYPE_USE_MAP_SETTINGS)) {//elseif (gType == GAME_TYPE_USE_MAP_SETTINGS) then
+		private void MeleeInitPlayerSlots() {//function MeleeInitPlayerSlots takes nothing returns nothing
+			TeamInitPlayerSlots(bj_MAX_PLAYERS);//call TeamInitPlayerSlots(bj_MAX_PLAYERS)
+		}//endfunction
+		//
+		private void FFAInitPlayerSlots() {//function FFAInitPlayerSlots takes nothing returns nothing
+			TeamInitPlayerSlots(bj_MAX_PLAYERS);//call TeamInitPlayerSlots(bj_MAX_PLAYERS)
+		}//endfunction
+		//
+		private void OneOnOneInitPlayerSlots() {//function OneOnOneInitPlayerSlots takes nothing returns nothing
 			//
-		} else if ((gType == GAME_TYPE_ONE_ON_ONE)) {//elseif (gType == GAME_TYPE_ONE_ON_ONE) then
-			OneOnOneInitPlayerSlots();//call OneOnOneInitPlayerSlots()
-		} else if ((gType == GAME_TYPE_TWO_TEAM_PLAY)) {//elseif (gType == GAME_TYPE_TWO_TEAM_PLAY) then
+			SetTeams(2);//call SetTeams(2)
+			SetPlayers(2);//call SetPlayers(2)
 			TeamInitPlayerSlots(2);//call TeamInitPlayerSlots(2)
-		} else if ((gType == GAME_TYPE_THREE_TEAM_PLAY)) {//elseif (gType == GAME_TYPE_THREE_TEAM_PLAY) then
-			TeamInitPlayerSlots(3);//call TeamInitPlayerSlots(3)
-		} else if ((gType == GAME_TYPE_FOUR_TEAM_PLAY)) {//elseif (gType == GAME_TYPE_FOUR_TEAM_PLAY) then
-			TeamInitPlayerSlots(4);//call TeamInitPlayerSlots(4)
-		} else {//else
-			//
-		}//endif
-	}//endfunction
-	//
-	//
-	//
-	//
-	//
-	//
-	private void SetDNCSoundsDawn() {//function SetDNCSoundsDawn takes nothing returns nothing
-		if (bj_useDawnDuskSounds) {//if bj_useDawnDuskSounds then
-			StartSound(bj_dawnSound);//call StartSound(bj_dawnSound)
-		}//endif
-	}//endfunction
-	//
-	private void SetDNCSoundsDusk() {//function SetDNCSoundsDusk takes nothing returns nothing
-		if (bj_useDawnDuskSounds) {//if bj_useDawnDuskSounds then
-			StartSound(bj_duskSound);//call StartSound(bj_duskSound)
-		}//endif
-	}//endfunction
-	//
-	private void SetDNCSoundsDay() {//function SetDNCSoundsDay takes nothing returns nothing
-		real ToD = GetTimeOfDay();//local real ToD = GetTimeOfDay()
-		if ((ToD >= bj_TOD_DAWN && ToD < bj_TOD_DUSK) && !bj_dncIsDaytime) {//if (ToD >= bj_TOD_DAWN and ToD < bj_TOD_DUSK) and not bj_dncIsDaytime then
-			bj_dncIsDaytime = true;//set bj_dncIsDaytime = true
-			//
-			StopSound(bj_nightAmbientSound, false, true);//call StopSound(bj_nightAmbientSound, false, true)
-			StartSound(bj_dayAmbientSound);//call StartSound(bj_dayAmbientSound)
-		}//endif
-	}//endfunction
-	//
-	private void SetDNCSoundsNight() {//function SetDNCSoundsNight takes nothing returns nothing
-		real ToD = GetTimeOfDay();//local real ToD = GetTimeOfDay()
-		if ((ToD < bj_TOD_DAWN || ToD >= bj_TOD_DUSK) && bj_dncIsDaytime) {//if (ToD < bj_TOD_DAWN or ToD >= bj_TOD_DUSK) and bj_dncIsDaytime then
-			bj_dncIsDaytime = false;//set bj_dncIsDaytime = false
-			//
-			StopSound(bj_dayAmbientSound, false, true);//call StopSound(bj_dayAmbientSound, false, true)
-			StartSound(bj_nightAmbientSound);//call StartSound(bj_nightAmbientSound)
-		}//endif
-	}//endfunction
-	//
-	private void InitDNCSounds() {//function InitDNCSounds takes nothing returns nothing
+		}//endfunction
 		//
-		bj_dawnSound = CreateSoundFromLabel("RoosterSound", false, false, false, 10000, 10000);//set bj_dawnSound = CreateSoundFromLabel("RoosterSound", false, false, false, 10000, 10000)
-		bj_duskSound = CreateSoundFromLabel("WolfSound", false, false, false, 10000, 10000);//set bj_duskSound = CreateSoundFromLabel("WolfSound", false, false, false, 10000, 10000)
-		//
-		bj_dncSoundsDawn = CreateTrigger();//set bj_dncSoundsDawn = CreateTrigger()
-		TriggerRegisterGameStateEvent(bj_dncSoundsDawn, GAME_STATE_TIME_OF_DAY, EQUAL, bj_TOD_DAWN);//call TriggerRegisterGameStateEvent(bj_dncSoundsDawn, GAME_STATE_TIME_OF_DAY, EQUAL, bj_TOD_DAWN)
-		TriggerAddAction(bj_dncSoundsDawn, function SetDNCSoundsDawn);//call TriggerAddAction(bj_dncSoundsDawn, function SetDNCSoundsDawn)
-		bj_dncSoundsDusk = CreateTrigger();//set bj_dncSoundsDusk = CreateTrigger()
-		TriggerRegisterGameStateEvent(bj_dncSoundsDusk, GAME_STATE_TIME_OF_DAY, EQUAL, bj_TOD_DUSK);//call TriggerRegisterGameStateEvent(bj_dncSoundsDusk, GAME_STATE_TIME_OF_DAY, EQUAL, bj_TOD_DUSK)
-		TriggerAddAction(bj_dncSoundsDusk, function SetDNCSoundsDusk);//call TriggerAddAction(bj_dncSoundsDusk, function SetDNCSoundsDusk)
-		//
-		bj_dncSoundsDay = CreateTrigger();//set bj_dncSoundsDay = CreateTrigger()
-		TriggerRegisterGameStateEvent(bj_dncSoundsDay,   GAME_STATE_TIME_OF_DAY, GREATER_THAN_OR_EQUAL, bj_TOD_DAWN);//call TriggerRegisterGameStateEvent(bj_dncSoundsDay,   GAME_STATE_TIME_OF_DAY, GREATER_THAN_OR_EQUAL, bj_TOD_DAWN)
-		TriggerRegisterGameStateEvent(bj_dncSoundsDay,   GAME_STATE_TIME_OF_DAY, LESS_THAN,             bj_TOD_DUSK);//call TriggerRegisterGameStateEvent(bj_dncSoundsDay,   GAME_STATE_TIME_OF_DAY, LESS_THAN,             bj_TOD_DUSK)
-		TriggerAddAction(bj_dncSoundsDay, function SetDNCSoundsDay);//call TriggerAddAction(bj_dncSoundsDay, function SetDNCSoundsDay)
-		bj_dncSoundsNight = CreateTrigger();//set bj_dncSoundsNight = CreateTrigger()
-		TriggerRegisterGameStateEvent(bj_dncSoundsNight, GAME_STATE_TIME_OF_DAY, LESS_THAN,             bj_TOD_DAWN);//call TriggerRegisterGameStateEvent(bj_dncSoundsNight, GAME_STATE_TIME_OF_DAY, LESS_THAN,             bj_TOD_DAWN)
-		TriggerRegisterGameStateEvent(bj_dncSoundsNight, GAME_STATE_TIME_OF_DAY, GREATER_THAN_OR_EQUAL, bj_TOD_DUSK);//call TriggerRegisterGameStateEvent(bj_dncSoundsNight, GAME_STATE_TIME_OF_DAY, GREATER_THAN_OR_EQUAL, bj_TOD_DUSK)
-		TriggerAddAction(bj_dncSoundsNight, function SetDNCSoundsNight);//call TriggerAddAction(bj_dncSoundsNight, function SetDNCSoundsNight)
-	}//endfunction
-	//
-	private void InitBlizzardGlobals() {//function InitBlizzardGlobals takes nothing returns nothing
-		int index;//local integer index
-		int userControlledPlayers;//local integer userControlledPlayers
-		version v;//local version v
-		//
-		filterIssueHauntOrderAtLocBJ = Filter(function IssueHauntOrderAtLocBJFilter);//set filterIssueHauntOrderAtLocBJ = Filter(function IssueHauntOrderAtLocBJFilter)
-		filterEnumDestructablesInCircleBJ = Filter(function EnumDestructablesInCircleBJFilter);//set filterEnumDestructablesInCircleBJ = Filter(function EnumDestructablesInCircleBJFilter)
-		filterGetUnitsInRectOfPlayer = Filter(function GetUnitsInRectOfPlayerFilter);//set filterGetUnitsInRectOfPlayer = Filter(function GetUnitsInRectOfPlayerFilter)
-		filterGetUnitsOfTypeIdAll = Filter(function GetUnitsOfTypeIdAllFilter);//set filterGetUnitsOfTypeIdAll = Filter(function GetUnitsOfTypeIdAllFilter)
-		filterGetUnitsOfPlayerAndTypeId = Filter(function GetUnitsOfPlayerAndTypeIdFilter);//set filterGetUnitsOfPlayerAndTypeId = Filter(function GetUnitsOfPlayerAndTypeIdFilter)
-		filterMeleeTrainedUnitIsHeroBJ = Filter(function MeleeTrainedUnitIsHeroBJFilter);//set filterMeleeTrainedUnitIsHeroBJ = Filter(function MeleeTrainedUnitIsHeroBJFilter)
-		filterLivingPlayerUnitsOfTypeId = Filter(function LivingPlayerUnitsOfTypeIdFilter);//set filterLivingPlayerUnitsOfTypeId = Filter(function LivingPlayerUnitsOfTypeIdFilter)
-		//
-		index = 0;//set index = 0
-		while (true) {//loop
-			if (index == bj_MAX_PLAYER_SLOTS) { break; }//exitwhen index == bj_MAX_PLAYER_SLOTS
-			bj_FORCE_PLAYER[index] = CreateForce();//set bj_FORCE_PLAYER[index] = CreateForce()
-			ForceAddPlayer(bj_FORCE_PLAYER[index], Player(index));//call ForceAddPlayer(bj_FORCE_PLAYER[index], Player(index))
-			index = index + 1;//set index = index + 1
-		}//endloop
-		bj_FORCE_ALL_PLAYERS = CreateForce();//set bj_FORCE_ALL_PLAYERS = CreateForce()
-		ForceEnumPlayers(bj_FORCE_ALL_PLAYERS, null);//call ForceEnumPlayers(bj_FORCE_ALL_PLAYERS, null)
-		//
-		bj_cineModePriorSpeed = GetGameSpeed();//set bj_cineModePriorSpeed = GetGameSpeed()
-		bj_cineModePriorFogSetting = IsFogEnabled();//set bj_cineModePriorFogSetting = IsFogEnabled()
-		bj_cineModePriorMaskSetting = IsFogMaskEnabled();//set bj_cineModePriorMaskSetting = IsFogMaskEnabled()
-		//
-		index = 0;//set index = 0
-		while (true) {//loop
-			if (index >= bj_MAX_QUEUED_TRIGGERS) { break; }//exitwhen index >= bj_MAX_QUEUED_TRIGGERS
-			bj_queuedExecTriggers[index] = null;//set bj_queuedExecTriggers[index] = null
-			bj_queuedExecUseConds[index] = false;//set bj_queuedExecUseConds[index] = false
-			index = index + 1;//set index = index + 1
-		}//endloop
-		//
-		bj_isSinglePlayer = false;//set bj_isSinglePlayer = false
-		userControlledPlayers = 0;//set userControlledPlayers = 0
-		index = 0;//set index = 0
-		while (true) {//loop
-			if (index >= bj_MAX_PLAYERS) { break; }//exitwhen index >= bj_MAX_PLAYERS
-			if ((GetPlayerController(Player(index)) == MAP_CONTROL_USER && GetPlayerSlotState(Player(index)) == PLAYER_SLOT_STATE_PLAYING)) {//if (GetPlayerController(Player(index)) == MAP_CONTROL_USER and GetPlayerSlotState(Player(index)) == PLAYER_SLOT_STATE_PLAYING) then
-				userControlledPlayers = userControlledPlayers + 1;//set userControlledPlayers = userControlledPlayers + 1
+		private void InitGenericPlayerSlots() {//function InitGenericPlayerSlots takes nothing returns nothing
+			gametype gType = GetGameTypeSelected();//local gametype gType = GetGameTypeSelected()
+			if ((gType == GAME_TYPE_MELEE)) {//if (gType == GAME_TYPE_MELEE) then
+				MeleeInitPlayerSlots();//call MeleeInitPlayerSlots()
+			} else if ((gType == GAME_TYPE_FFA)) {//elseif (gType == GAME_TYPE_FFA) then
+				FFAInitPlayerSlots();//call FFAInitPlayerSlots()
+			} else if ((gType == GAME_TYPE_USE_MAP_SETTINGS)) {//elseif (gType == GAME_TYPE_USE_MAP_SETTINGS) then
+				//
+			} else if ((gType == GAME_TYPE_ONE_ON_ONE)) {//elseif (gType == GAME_TYPE_ONE_ON_ONE) then
+				OneOnOneInitPlayerSlots();//call OneOnOneInitPlayerSlots()
+			} else if ((gType == GAME_TYPE_TWO_TEAM_PLAY)) {//elseif (gType == GAME_TYPE_TWO_TEAM_PLAY) then
+				TeamInitPlayerSlots(2);//call TeamInitPlayerSlots(2)
+			} else if ((gType == GAME_TYPE_THREE_TEAM_PLAY)) {//elseif (gType == GAME_TYPE_THREE_TEAM_PLAY) then
+				TeamInitPlayerSlots(3);//call TeamInitPlayerSlots(3)
+			} else if ((gType == GAME_TYPE_FOUR_TEAM_PLAY)) {//elseif (gType == GAME_TYPE_FOUR_TEAM_PLAY) then
+				TeamInitPlayerSlots(4);//call TeamInitPlayerSlots(4)
+			} else {//else
+				//
 			}//endif
-			index = index + 1;//set index = index + 1
-		}//endloop
-		bj_isSinglePlayer = (userControlledPlayers == 1);//set bj_isSinglePlayer = (userControlledPlayers == 1)
+		}//endfunction
 		//
 		//
-		bj_rescueSound = CreateSoundFromLabel("Rescue", false, false, false, 10000, 10000);//set bj_rescueSound = CreateSoundFromLabel("Rescue", false, false, false, 10000, 10000)
-		bj_questDiscoveredSound = CreateSoundFromLabel("QuestNew", false, false, false, 10000, 10000);//set bj_questDiscoveredSound = CreateSoundFromLabel("QuestNew", false, false, false, 10000, 10000)
-		bj_questUpdatedSound = CreateSoundFromLabel("QuestUpdate", false, false, false, 10000, 10000);//set bj_questUpdatedSound = CreateSoundFromLabel("QuestUpdate", false, false, false, 10000, 10000)
-		bj_questCompletedSound = CreateSoundFromLabel("QuestCompleted", false, false, false, 10000, 10000);//set bj_questCompletedSound = CreateSoundFromLabel("QuestCompleted", false, false, false, 10000, 10000)
-		bj_questFailedSound = CreateSoundFromLabel("QuestFailed", false, false, false, 10000, 10000);//set bj_questFailedSound = CreateSoundFromLabel("QuestFailed", false, false, false, 10000, 10000)
-		bj_questHintSound = CreateSoundFromLabel("Hint", false, false, false, 10000, 10000);//set bj_questHintSound = CreateSoundFromLabel("Hint", false, false, false, 10000, 10000)
-		bj_questSecretSound = CreateSoundFromLabel("SecretFound", false, false, false, 10000, 10000);//set bj_questSecretSound = CreateSoundFromLabel("SecretFound", false, false, false, 10000, 10000)
-		bj_questItemAcquiredSound = CreateSoundFromLabel("ItemReward", false, false, false, 10000, 10000);//set bj_questItemAcquiredSound = CreateSoundFromLabel("ItemReward", false, false, false, 10000, 10000)
-		bj_questWarningSound = CreateSoundFromLabel("Warning", false, false, false, 10000, 10000);//set bj_questWarningSound = CreateSoundFromLabel("Warning", false, false, false, 10000, 10000)
-		bj_victoryDialogSound = CreateSoundFromLabel("QuestCompleted", false, false, false, 10000, 10000);//set bj_victoryDialogSound = CreateSoundFromLabel("QuestCompleted", false, false, false, 10000, 10000)
-		bj_defeatDialogSound = CreateSoundFromLabel("QuestFailed", false, false, false, 10000, 10000);//set bj_defeatDialogSound = CreateSoundFromLabel("QuestFailed", false, false, false, 10000, 10000)
 		//
-		DelayedSuspendDecayCreate();//call DelayedSuspendDecayCreate()
 		//
-		v = VersionGet();//set v = VersionGet()
-		if ((v == VERSION_REIGN_OF_CHAOS)) {//if (v == VERSION_REIGN_OF_CHAOS) then
-			bj_MELEE_MAX_TWINKED_HEROES = bj_MELEE_MAX_TWINKED_HEROES_V0;//set bj_MELEE_MAX_TWINKED_HEROES = bj_MELEE_MAX_TWINKED_HEROES_V0
-		} else {//else
-			bj_MELEE_MAX_TWINKED_HEROES = bj_MELEE_MAX_TWINKED_HEROES_V1;//set bj_MELEE_MAX_TWINKED_HEROES = bj_MELEE_MAX_TWINKED_HEROES_V1
-		}//endif
-	}//endfunction
-	//
-	private void InitQueuedTriggers() {//function InitQueuedTriggers takes nothing returns nothing
-		bj_queuedExecTimeout = CreateTrigger();//set bj_queuedExecTimeout = CreateTrigger()
-		TriggerRegisterTimerExpireEvent(bj_queuedExecTimeout, bj_queuedExecTimeoutTimer);//call TriggerRegisterTimerExpireEvent(bj_queuedExecTimeout, bj_queuedExecTimeoutTimer)
-		TriggerAddAction(bj_queuedExecTimeout, function QueuedTriggerDoneBJ);//call TriggerAddAction(bj_queuedExecTimeout, function QueuedTriggerDoneBJ)
-	}//endfunction
-	//
-	private void InitMapRects() {//function InitMapRects takes nothing returns nothing
-		bj_mapInitialPlayableArea = Rect(GetCameraBoundMinX()-GetCameraMargin(CAMERA_MARGIN_LEFT), GetCameraBoundMinY()-GetCameraMargin(CAMERA_MARGIN_BOTTOM), GetCameraBoundMaxX()+GetCameraMargin(CAMERA_MARGIN_RIGHT), GetCameraBoundMaxY()+GetCameraMargin(CAMERA_MARGIN_TOP));//set bj_mapInitialPlayableArea = Rect(GetCameraBoundMinX()-GetCameraMargin(CAMERA_MARGIN_LEFT), GetCameraBoundMinY()-GetCameraMargin(CAMERA_MARGIN_BOTTOM), GetCameraBoundMaxX()+GetCameraMargin(CAMERA_MARGIN_RIGHT), GetCameraBoundMaxY()+GetCameraMargin(CAMERA_MARGIN_TOP))
-		bj_mapInitialCameraBounds = GetCurrentCameraBoundsMapRectBJ();//set bj_mapInitialCameraBounds = GetCurrentCameraBoundsMapRectBJ()
-	}//endfunction
-	//
-	private void InitSummonableCaps() {//function InitSummonableCaps takes nothing returns nothing
-		int index;//local integer index
-		index = 0;//set index = 0
-		while (true) {//loop
-			//
-			//
-			//
-			if ((!GetPlayerTechResearched(Player(index), 'Rhrt', true))) {//if (not GetPlayerTechResearched(Player(index), 'Rhrt', true)) then
-				SetPlayerTechMaxAllowed(Player(index), 'hrtt', 0);//call SetPlayerTechMaxAllowed(Player(index), 'hrtt', 0)
+		//
+		//
+		private void SetDNCSoundsDawn() {//function SetDNCSoundsDawn takes nothing returns nothing
+			if (bj_useDawnDuskSounds) {//if bj_useDawnDuskSounds then
+				StartSound(bj_dawnSound);//call StartSound(bj_dawnSound)
 			}//endif
-			//
-			if ((!GetPlayerTechResearched(Player(index), 'Robk', true))) {//if (not GetPlayerTechResearched(Player(index), 'Robk', true)) then
-				SetPlayerTechMaxAllowed(Player(index), 'otbk', 0);//call SetPlayerTechMaxAllowed(Player(index), 'otbk', 0)
-			}//endif
-			//
-			SetPlayerTechMaxAllowed(Player(index), 'uske', bj_MAX_SKELETONS);//call SetPlayerTechMaxAllowed(Player(index), 'uske', bj_MAX_SKELETONS)
-			index = index + 1;//set index = index + 1
-			if (index == bj_MAX_PLAYERS) { break; }//exitwhen index == bj_MAX_PLAYERS
-		}//endloop
-	}//endfunction
-	//
-	//
-	//
-	private void UpdateStockAvailability() {//function UpdateStockAvailability takes item whichItem returns nothing
-		itemtype iType = GetItemType(whichItem);//local itemtype iType  = GetItemType(whichItem)
-		int iLevel = GetItemLevel(whichItem);//local integer  iLevel = GetItemLevel(whichItem)
+		}//endfunction
 		//
-		if ((iType == ITEM_TYPE_PERMANENT)) {//if (iType == ITEM_TYPE_PERMANENT) then
-			bj_stockAllowedPermanent[iLevel] = true;//set bj_stockAllowedPermanent[iLevel] = true
-		} else if ((iType == ITEM_TYPE_CHARGED)) {//elseif (iType == ITEM_TYPE_CHARGED) then
-			bj_stockAllowedCharged[iLevel] = true;//set bj_stockAllowedCharged[iLevel] = true
-		} else if ((iType == ITEM_TYPE_ARTIFACT)) {//elseif (iType == ITEM_TYPE_ARTIFACT) then
-			bj_stockAllowedArtifact[iLevel] = true;//set bj_stockAllowedArtifact[iLevel] = true
-		} else {//else
+		private void SetDNCSoundsDusk() {//function SetDNCSoundsDusk takes nothing returns nothing
+			if (bj_useDawnDuskSounds) {//if bj_useDawnDuskSounds then
+				StartSound(bj_duskSound);//call StartSound(bj_duskSound)
+			}//endif
+		}//endfunction
+		//
+		private void SetDNCSoundsDay() {//function SetDNCSoundsDay takes nothing returns nothing
+			float ToD = GetTimeOfDay();//local real ToD = GetTimeOfDay()
+			if ((ToD >= bj_TOD_DAWN && ToD < bj_TOD_DUSK) && !bj_dncIsDaytime) {//if (ToD >= bj_TOD_DAWN and ToD < bj_TOD_DUSK) and not bj_dncIsDaytime then
+				bj_dncIsDaytime = true;//set bj_dncIsDaytime = true
+				//
+				StopSound(bj_nightAmbientSound, false, true);//call StopSound(bj_nightAmbientSound, false, true)
+				StartSound(bj_dayAmbientSound);//call StartSound(bj_dayAmbientSound)
+			}//endif
+		}//endfunction
+		//
+		private void SetDNCSoundsNight() {//function SetDNCSoundsNight takes nothing returns nothing
+			float ToD = GetTimeOfDay();//local real ToD = GetTimeOfDay()
+			if ((ToD < bj_TOD_DAWN || ToD >= bj_TOD_DUSK) && bj_dncIsDaytime) {//if (ToD < bj_TOD_DAWN or ToD >= bj_TOD_DUSK) and bj_dncIsDaytime then
+				bj_dncIsDaytime = false;//set bj_dncIsDaytime = false
+				//
+				StopSound(bj_dayAmbientSound, false, true);//call StopSound(bj_dayAmbientSound, false, true)
+				StartSound(bj_nightAmbientSound);//call StartSound(bj_nightAmbientSound)
+			}//endif
+		}//endfunction
+		//
+		private void InitDNCSounds() {//function InitDNCSounds takes nothing returns nothing
 			//
-		}//endif
-	}//endfunction
-	//
-	//
-	//
-	private void UpdateEachStockBuildingEnum() {//function UpdateEachStockBuildingEnum takes nothing returns nothing
-		int iteration = 0;//local integer iteration = 0
-		int pickedItemId;//local integer pickedItemId
-		while (true) {//loop
-			pickedItemId = ChooseRandomItemEx(bj_stockPickedItemType, bj_stockPickedItemLevel);//set pickedItemId = ChooseRandomItemEx(bj_stockPickedItemType, bj_stockPickedItemLevel)
-			if (IsItemIdSellable(pickedItemId)) { break; }//exitwhen IsItemIdSellable(pickedItemId)
+			bj_dawnSound = CreateSoundFromLabel("RoosterSound", false, false, false, 10000, 10000);//set bj_dawnSound = CreateSoundFromLabel("RoosterSound", false, false, false, 10000, 10000)
+			bj_duskSound = CreateSoundFromLabel("WolfSound", false, false, false, 10000, 10000);//set bj_duskSound = CreateSoundFromLabel("WolfSound", false, false, false, 10000, 10000)
+			//
+			bj_dncSoundsDawn = CreateTrigger();//set bj_dncSoundsDawn = CreateTrigger()
+			TriggerRegisterGameStateEvent(bj_dncSoundsDawn, GAME_STATE_TIME_OF_DAY, EQUAL, bj_TOD_DAWN);//call TriggerRegisterGameStateEvent(bj_dncSoundsDawn, GAME_STATE_TIME_OF_DAY, EQUAL, bj_TOD_DAWN)
+			TriggerAddAction(bj_dncSoundsDawn, function SetDNCSoundsDawn);//call TriggerAddAction(bj_dncSoundsDawn, function SetDNCSoundsDawn)
+			bj_dncSoundsDusk = CreateTrigger();//set bj_dncSoundsDusk = CreateTrigger()
+			TriggerRegisterGameStateEvent(bj_dncSoundsDusk, GAME_STATE_TIME_OF_DAY, EQUAL, bj_TOD_DUSK);//call TriggerRegisterGameStateEvent(bj_dncSoundsDusk, GAME_STATE_TIME_OF_DAY, EQUAL, bj_TOD_DUSK)
+			TriggerAddAction(bj_dncSoundsDusk, function SetDNCSoundsDusk);//call TriggerAddAction(bj_dncSoundsDusk, function SetDNCSoundsDusk)
+			//
+			bj_dncSoundsDay = CreateTrigger();//set bj_dncSoundsDay = CreateTrigger()
+			TriggerRegisterGameStateEvent(bj_dncSoundsDay,   GAME_STATE_TIME_OF_DAY, GREATER_THAN_OR_EQUAL, bj_TOD_DAWN);//call TriggerRegisterGameStateEvent(bj_dncSoundsDay,   GAME_STATE_TIME_OF_DAY, GREATER_THAN_OR_EQUAL, bj_TOD_DAWN)
+			TriggerRegisterGameStateEvent(bj_dncSoundsDay,   GAME_STATE_TIME_OF_DAY, LESS_THAN,             bj_TOD_DUSK);//call TriggerRegisterGameStateEvent(bj_dncSoundsDay,   GAME_STATE_TIME_OF_DAY, LESS_THAN,             bj_TOD_DUSK)
+			TriggerAddAction(bj_dncSoundsDay, function SetDNCSoundsDay);//call TriggerAddAction(bj_dncSoundsDay, function SetDNCSoundsDay)
+			bj_dncSoundsNight = CreateTrigger();//set bj_dncSoundsNight = CreateTrigger()
+			TriggerRegisterGameStateEvent(bj_dncSoundsNight, GAME_STATE_TIME_OF_DAY, LESS_THAN,             bj_TOD_DAWN);//call TriggerRegisterGameStateEvent(bj_dncSoundsNight, GAME_STATE_TIME_OF_DAY, LESS_THAN,             bj_TOD_DAWN)
+			TriggerRegisterGameStateEvent(bj_dncSoundsNight, GAME_STATE_TIME_OF_DAY, GREATER_THAN_OR_EQUAL, bj_TOD_DUSK);//call TriggerRegisterGameStateEvent(bj_dncSoundsNight, GAME_STATE_TIME_OF_DAY, GREATER_THAN_OR_EQUAL, bj_TOD_DUSK)
+			TriggerAddAction(bj_dncSoundsNight, function SetDNCSoundsNight);//call TriggerAddAction(bj_dncSoundsNight, function SetDNCSoundsNight)
+		}//endfunction
+		//
+		private void InitBlizzardGlobals() {//function InitBlizzardGlobals takes nothing returns nothing
+			int index;//local integer index
+			int userControlledPlayers;//local integer userControlledPlayers
+			version v;//local version v
+			//
+			filterIssueHauntOrderAtLocBJ = Filter(function IssueHauntOrderAtLocBJFilter);//set filterIssueHauntOrderAtLocBJ = Filter(function IssueHauntOrderAtLocBJFilter)
+			filterEnumDestructablesInCircleBJ = Filter(function EnumDestructablesInCircleBJFilter);//set filterEnumDestructablesInCircleBJ = Filter(function EnumDestructablesInCircleBJFilter)
+			filterGetUnitsInRectOfPlayer = Filter(function GetUnitsInRectOfPlayerFilter);//set filterGetUnitsInRectOfPlayer = Filter(function GetUnitsInRectOfPlayerFilter)
+			filterGetUnitsOfTypeIdAll = Filter(function GetUnitsOfTypeIdAllFilter);//set filterGetUnitsOfTypeIdAll = Filter(function GetUnitsOfTypeIdAllFilter)
+			filterGetUnitsOfPlayerAndTypeId = Filter(function GetUnitsOfPlayerAndTypeIdFilter);//set filterGetUnitsOfPlayerAndTypeId = Filter(function GetUnitsOfPlayerAndTypeIdFilter)
+			filterMeleeTrainedUnitIsHeroBJ = Filter(function MeleeTrainedUnitIsHeroBJFilter);//set filterMeleeTrainedUnitIsHeroBJ = Filter(function MeleeTrainedUnitIsHeroBJFilter)
+			filterLivingPlayerUnitsOfTypeId = Filter(function LivingPlayerUnitsOfTypeIdFilter);//set filterLivingPlayerUnitsOfTypeId = Filter(function LivingPlayerUnitsOfTypeIdFilter)
+			//
+			index = 0;//set index = 0
+			while (true) {//loop
+				if (index == bj_MAX_PLAYER_SLOTS) { break; }//exitwhen index == bj_MAX_PLAYER_SLOTS
+				bj_FORCE_PLAYER[index] = CreateForce();//set bj_FORCE_PLAYER[index] = CreateForce()
+				ForceAddPlayer(bj_FORCE_PLAYER[index], Player(index));//call ForceAddPlayer(bj_FORCE_PLAYER[index], Player(index))
+				index = index + 1;//set index = index + 1
+			}//endloop
+			bj_FORCE_ALL_PLAYERS = CreateForce();//set bj_FORCE_ALL_PLAYERS = CreateForce()
+			ForceEnumPlayers(bj_FORCE_ALL_PLAYERS, null);//call ForceEnumPlayers(bj_FORCE_ALL_PLAYERS, null)
+			//
+			bj_cineModePriorSpeed = GetGameSpeed();//set bj_cineModePriorSpeed = GetGameSpeed()
+			bj_cineModePriorFogSetting = IsFogEnabled();//set bj_cineModePriorFogSetting = IsFogEnabled()
+			bj_cineModePriorMaskSetting = IsFogMaskEnabled();//set bj_cineModePriorMaskSetting = IsFogMaskEnabled()
+			//
+			index = 0;//set index = 0
+			while (true) {//loop
+				if (index >= bj_MAX_QUEUED_TRIGGERS) { break; }//exitwhen index >= bj_MAX_QUEUED_TRIGGERS
+				bj_queuedExecTriggers[index] = null;//set bj_queuedExecTriggers[index] = null
+				bj_queuedExecUseConds[index] = false;//set bj_queuedExecUseConds[index] = false
+				index = index + 1;//set index = index + 1
+			}//endloop
+			//
+			bj_isSinglePlayer = false;//set bj_isSinglePlayer = false
+			userControlledPlayers = 0;//set userControlledPlayers = 0
+			index = 0;//set index = 0
+			while (true) {//loop
+				if (index >= bj_MAX_PLAYERS) { break; }//exitwhen index >= bj_MAX_PLAYERS
+				if ((GetPlayerController(Player(index)) == MAP_CONTROL_USER && GetPlayerSlotState(Player(index)) == PLAYER_SLOT_STATE_PLAYING)) {//if (GetPlayerController(Player(index)) == MAP_CONTROL_USER and GetPlayerSlotState(Player(index)) == PLAYER_SLOT_STATE_PLAYING) then
+					userControlledPlayers = userControlledPlayers + 1;//set userControlledPlayers = userControlledPlayers + 1
+				}//endif
+				index = index + 1;//set index = index + 1
+			}//endloop
+			bj_isSinglePlayer = (userControlledPlayers == 1);//set bj_isSinglePlayer = (userControlledPlayers == 1)
 			//
 			//
-			iteration = iteration + 1;//set iteration = iteration + 1
-			if ((iteration > bj_STOCK_MAX_ITERATIONS)) {//if (iteration > bj_STOCK_MAX_ITERATIONS) then
+			bj_rescueSound = CreateSoundFromLabel("Rescue", false, false, false, 10000, 10000);//set bj_rescueSound = CreateSoundFromLabel("Rescue", false, false, false, 10000, 10000)
+			bj_questDiscoveredSound = CreateSoundFromLabel("QuestNew", false, false, false, 10000, 10000);//set bj_questDiscoveredSound = CreateSoundFromLabel("QuestNew", false, false, false, 10000, 10000)
+			bj_questUpdatedSound = CreateSoundFromLabel("QuestUpdate", false, false, false, 10000, 10000);//set bj_questUpdatedSound = CreateSoundFromLabel("QuestUpdate", false, false, false, 10000, 10000)
+			bj_questCompletedSound = CreateSoundFromLabel("QuestCompleted", false, false, false, 10000, 10000);//set bj_questCompletedSound = CreateSoundFromLabel("QuestCompleted", false, false, false, 10000, 10000)
+			bj_questFailedSound = CreateSoundFromLabel("QuestFailed", false, false, false, 10000, 10000);//set bj_questFailedSound = CreateSoundFromLabel("QuestFailed", false, false, false, 10000, 10000)
+			bj_questHintSound = CreateSoundFromLabel("Hint", false, false, false, 10000, 10000);//set bj_questHintSound = CreateSoundFromLabel("Hint", false, false, false, 10000, 10000)
+			bj_questSecretSound = CreateSoundFromLabel("SecretFound", false, false, false, 10000, 10000);//set bj_questSecretSound = CreateSoundFromLabel("SecretFound", false, false, false, 10000, 10000)
+			bj_questItemAcquiredSound = CreateSoundFromLabel("ItemReward", false, false, false, 10000, 10000);//set bj_questItemAcquiredSound = CreateSoundFromLabel("ItemReward", false, false, false, 10000, 10000)
+			bj_questWarningSound = CreateSoundFromLabel("Warning", false, false, false, 10000, 10000);//set bj_questWarningSound = CreateSoundFromLabel("Warning", false, false, false, 10000, 10000)
+			bj_victoryDialogSound = CreateSoundFromLabel("QuestCompleted", false, false, false, 10000, 10000);//set bj_victoryDialogSound = CreateSoundFromLabel("QuestCompleted", false, false, false, 10000, 10000)
+			bj_defeatDialogSound = CreateSoundFromLabel("QuestFailed", false, false, false, 10000, 10000);//set bj_defeatDialogSound = CreateSoundFromLabel("QuestFailed", false, false, false, 10000, 10000)
+			//
+			DelayedSuspendDecayCreate();//call DelayedSuspendDecayCreate()
+			//
+			v = VersionGet();//set v = VersionGet()
+			if ((v == VERSION_REIGN_OF_CHAOS)) {//if (v == VERSION_REIGN_OF_CHAOS) then
+				bj_MELEE_MAX_TWINKED_HEROES = bj_MELEE_MAX_TWINKED_HEROES_V0;//set bj_MELEE_MAX_TWINKED_HEROES = bj_MELEE_MAX_TWINKED_HEROES_V0
+			} else {//else
+				bj_MELEE_MAX_TWINKED_HEROES = bj_MELEE_MAX_TWINKED_HEROES_V1;//set bj_MELEE_MAX_TWINKED_HEROES = bj_MELEE_MAX_TWINKED_HEROES_V1
+			}//endif
+		}//endfunction
+		//
+		private void InitQueuedTriggers() {//function InitQueuedTriggers takes nothing returns nothing
+			bj_queuedExecTimeout = CreateTrigger();//set bj_queuedExecTimeout = CreateTrigger()
+			TriggerRegisterTimerExpireEvent(bj_queuedExecTimeout, bj_queuedExecTimeoutTimer);//call TriggerRegisterTimerExpireEvent(bj_queuedExecTimeout, bj_queuedExecTimeoutTimer)
+			TriggerAddAction(bj_queuedExecTimeout, function QueuedTriggerDoneBJ);//call TriggerAddAction(bj_queuedExecTimeout, function QueuedTriggerDoneBJ)
+		}//endfunction
+		//
+		private void InitMapRects() {//function InitMapRects takes nothing returns nothing
+			bj_mapInitialPlayableArea = Rect(GetCameraBoundMinX()-GetCameraMargin(CAMERA_MARGIN_LEFT), GetCameraBoundMinY()-GetCameraMargin(CAMERA_MARGIN_BOTTOM), GetCameraBoundMaxX()+GetCameraMargin(CAMERA_MARGIN_RIGHT), GetCameraBoundMaxY()+GetCameraMargin(CAMERA_MARGIN_TOP));//set bj_mapInitialPlayableArea = Rect(GetCameraBoundMinX()-GetCameraMargin(CAMERA_MARGIN_LEFT), GetCameraBoundMinY()-GetCameraMargin(CAMERA_MARGIN_BOTTOM), GetCameraBoundMaxX()+GetCameraMargin(CAMERA_MARGIN_RIGHT), GetCameraBoundMaxY()+GetCameraMargin(CAMERA_MARGIN_TOP))
+			bj_mapInitialCameraBounds = GetCurrentCameraBoundsMapRectBJ();//set bj_mapInitialCameraBounds = GetCurrentCameraBoundsMapRectBJ()
+		}//endfunction
+		//
+		private void InitSummonableCaps() {//function InitSummonableCaps takes nothing returns nothing
+			int index;//local integer index
+			index = 0;//set index = 0
+			while (true) {//loop
+				//
+				//
+				//
+				if ((!GetPlayerTechResearched(Player(index), 'Rhrt', true))) {//if (not GetPlayerTechResearched(Player(index), 'Rhrt', true)) then
+					SetPlayerTechMaxAllowed(Player(index), 'hrtt', 0);//call SetPlayerTechMaxAllowed(Player(index), 'hrtt', 0)
+				}//endif
+				//
+				if ((!GetPlayerTechResearched(Player(index), 'Robk', true))) {//if (not GetPlayerTechResearched(Player(index), 'Robk', true)) then
+					SetPlayerTechMaxAllowed(Player(index), 'otbk', 0);//call SetPlayerTechMaxAllowed(Player(index), 'otbk', 0)
+				}//endif
+				//
+				SetPlayerTechMaxAllowed(Player(index), 'uske', bj_MAX_SKELETONS);//call SetPlayerTechMaxAllowed(Player(index), 'uske', bj_MAX_SKELETONS)
+				index = index + 1;//set index = index + 1
+				if (index == bj_MAX_PLAYERS) { break; }//exitwhen index == bj_MAX_PLAYERS
+			}//endloop
+		}//endfunction
+		//
+		//
+		//
+		private void UpdateStockAvailability(item whichItem) {//function UpdateStockAvailability takes item whichItem returns nothing
+			itemtype iType = GetItemType(whichItem);//local itemtype iType  = GetItemType(whichItem)
+			int iLevel = GetItemLevel(whichItem);//local integer  iLevel = GetItemLevel(whichItem)
+			//
+			if ((iType == ITEM_TYPE_PERMANENT)) {//if (iType == ITEM_TYPE_PERMANENT) then
+				bj_stockAllowedPermanent[iLevel] = true;//set bj_stockAllowedPermanent[iLevel] = true
+			} else if ((iType == ITEM_TYPE_CHARGED)) {//elseif (iType == ITEM_TYPE_CHARGED) then
+				bj_stockAllowedCharged[iLevel] = true;//set bj_stockAllowedCharged[iLevel] = true
+			} else if ((iType == ITEM_TYPE_ARTIFACT)) {//elseif (iType == ITEM_TYPE_ARTIFACT) then
+				bj_stockAllowedArtifact[iLevel] = true;//set bj_stockAllowedArtifact[iLevel] = true
+			} else {//else
+				//
+			}//endif
+		}//endfunction
+		//
+		//
+		//
+		private void UpdateEachStockBuildingEnum() {//function UpdateEachStockBuildingEnum takes nothing returns nothing
+			int iteration = 0;//local integer iteration = 0
+			int pickedItemId;//local integer pickedItemId
+			while (true) {//loop
+				pickedItemId = ChooseRandomItemEx(bj_stockPickedItemType, bj_stockPickedItemLevel);//set pickedItemId = ChooseRandomItemEx(bj_stockPickedItemType, bj_stockPickedItemLevel)
+				if (IsItemIdSellable(pickedItemId)) { break; }//exitwhen IsItemIdSellable(pickedItemId)
+				//
+				//
+				iteration = iteration + 1;//set iteration = iteration + 1
+				if ((iteration > bj_STOCK_MAX_ITERATIONS)) {//if (iteration > bj_STOCK_MAX_ITERATIONS) then
+					return;//return
+				}//endif
+			}//endloop
+			AddItemToStock(GetEnumUnit(), pickedItemId, 1, 1);//call AddItemToStock(GetEnumUnit(), pickedItemId, 1, 1)
+		}//endfunction
+		//
+		private void UpdateEachStockBuilding(itemtype iType, int iLevel) {//function UpdateEachStockBuilding takes itemtype iType, integer iLevel returns nothing
+			group g;//local group g
+			bj_stockPickedItemType = iType;//set bj_stockPickedItemType = iType
+			bj_stockPickedItemLevel = iLevel;//set bj_stockPickedItemLevel = iLevel
+			g = CreateGroup();//set g = CreateGroup()
+			GroupEnumUnitsOfType(g, "marketplace", null);//call GroupEnumUnitsOfType(g, "marketplace", null)
+			ForGroup(g, function UpdateEachStockBuildingEnum);//call ForGroup(g, function UpdateEachStockBuildingEnum)
+			DestroyGroup(g);//call DestroyGroup(g)
+		}//endfunction
+		//
+		//
+		//
+		private void PerformStockUpdates() {//function PerformStockUpdates takes nothing returns nothing
+			int pickedItemId;//local integer  pickedItemId
+			itemtype pickedItemType;//local itemtype pickedItemType
+			int pickedItemLevel = 0;//local integer  pickedItemLevel = 0
+			int allowedCombinations = 0;//local integer  allowedCombinations = 0
+			int iLevel;//local integer  iLevel
+			//
+			iLevel = 1;//set iLevel = 1
+			while (true) {//loop
+				if ((bj_stockAllowedPermanent[iLevel])) {//if (bj_stockAllowedPermanent[iLevel]) then
+					allowedCombinations = allowedCombinations + 1;//set allowedCombinations = allowedCombinations + 1
+					if ((GetRandomInt(1, allowedCombinations) == 1)) {//if (GetRandomInt(1, allowedCombinations) == 1) then
+						pickedItemType = ITEM_TYPE_PERMANENT;//set pickedItemType = ITEM_TYPE_PERMANENT
+						pickedItemLevel = iLevel;//set pickedItemLevel = iLevel
+					}//endif
+				}//endif
+				if ((bj_stockAllowedCharged[iLevel])) {//if (bj_stockAllowedCharged[iLevel]) then
+					allowedCombinations = allowedCombinations + 1;//set allowedCombinations = allowedCombinations + 1
+					if ((GetRandomInt(1, allowedCombinations) == 1)) {//if (GetRandomInt(1, allowedCombinations) == 1) then
+						pickedItemType = ITEM_TYPE_CHARGED;//set pickedItemType = ITEM_TYPE_CHARGED
+						pickedItemLevel = iLevel;//set pickedItemLevel = iLevel
+					}//endif
+				}//endif
+				if ((bj_stockAllowedArtifact[iLevel])) {//if (bj_stockAllowedArtifact[iLevel]) then
+					allowedCombinations = allowedCombinations + 1;//set allowedCombinations = allowedCombinations + 1
+					if ((GetRandomInt(1, allowedCombinations) == 1)) {//if (GetRandomInt(1, allowedCombinations) == 1) then
+						pickedItemType = ITEM_TYPE_ARTIFACT;//set pickedItemType = ITEM_TYPE_ARTIFACT
+						pickedItemLevel = iLevel;//set pickedItemLevel = iLevel
+					}//endif
+				}//endif
+				iLevel = iLevel + 1;//set iLevel = iLevel + 1
+				if (iLevel > bj_MAX_ITEM_LEVEL) { break; }//exitwhen iLevel > bj_MAX_ITEM_LEVEL
+			}//endloop
+			//
+			if ((allowedCombinations == 0)) {//if (allowedCombinations == 0) then
 				return;//return
 			}//endif
-		}//endloop
-		AddItemToStock(GetEnumUnit(), pickedItemId, 1, 1);//call AddItemToStock(GetEnumUnit(), pickedItemId, 1, 1)
-	}//endfunction
-	//
-	private void UpdateEachStockBuilding(itemtype iType, int iLevel) {//function UpdateEachStockBuilding takes itemtype iType, integer iLevel returns nothing
-		group g;//local group g
-		bj_stockPickedItemType = iType;//set bj_stockPickedItemType = iType
-		bj_stockPickedItemLevel = iLevel;//set bj_stockPickedItemLevel = iLevel
-		g = CreateGroup();//set g = CreateGroup()
-		GroupEnumUnitsOfType(g, "marketplace", null);//call GroupEnumUnitsOfType(g, "marketplace", null)
-		ForGroup(g, function UpdateEachStockBuildingEnum);//call ForGroup(g, function UpdateEachStockBuildingEnum)
-		DestroyGroup(g);//call DestroyGroup(g)
-	}//endfunction
-	//
-	//
-	//
-	private void PerformStockUpdates() {//function PerformStockUpdates takes nothing returns nothing
-		int pickedItemId;//local integer  pickedItemId
-		itemtype pickedItemType;//local itemtype pickedItemType
-		int pickedItemLevel = 0;//local integer  pickedItemLevel = 0
-		int allowedCombinations = 0;//local integer  allowedCombinations = 0
-		int iLevel;//local integer  iLevel
+			UpdateEachStockBuilding(pickedItemType, pickedItemLevel);//call UpdateEachStockBuilding(pickedItemType, pickedItemLevel)
+		}//endfunction
 		//
-		iLevel = 1;//set iLevel = 1
-		while (true) {//loop
-			if ((bj_stockAllowedPermanent[iLevel])) {//if (bj_stockAllowedPermanent[iLevel]) then
-				allowedCombinations = allowedCombinations + 1;//set allowedCombinations = allowedCombinations + 1
-				if ((GetRandomInt(1, allowedCombinations) == 1)) {//if (GetRandomInt(1, allowedCombinations) == 1) then
-					pickedItemType = ITEM_TYPE_PERMANENT;//set pickedItemType = ITEM_TYPE_PERMANENT
-					pickedItemLevel = iLevel;//set pickedItemLevel = iLevel
+		//
+		//
+		private void StartStockUpdates() {//function StartStockUpdates takes nothing returns nothing
+			PerformStockUpdates();//call PerformStockUpdates()
+			TimerStart(bj_stockUpdateTimer, bj_STOCK_RESTOCK_INTERVAL, true, function PerformStockUpdates);//call TimerStart(bj_stockUpdateTimer, bj_STOCK_RESTOCK_INTERVAL, true, function PerformStockUpdates)
+		}//endfunction
+		//
+		private void RemovePurchasedItem() {//function RemovePurchasedItem takes nothing returns nothing
+			RemoveItemFromStock(GetSellingUnit(), GetItemTypeId(GetSoldItem()));//call RemoveItemFromStock(GetSellingUnit(), GetItemTypeId(GetSoldItem()))
+		}//endfunction
+		//
+		private void InitNeutralBuildings() {//function InitNeutralBuildings takes nothing returns nothing
+			int iLevel;//local integer iLevel
+			//
+			iLevel = 0;//set iLevel = 0
+			while (true) {//loop
+				bj_stockAllowedPermanent[iLevel] = false;//set bj_stockAllowedPermanent[iLevel] = false
+				bj_stockAllowedCharged[iLevel] = false;//set bj_stockAllowedCharged[iLevel] = false
+				bj_stockAllowedArtifact[iLevel] = false;//set bj_stockAllowedArtifact[iLevel] = false
+				iLevel = iLevel + 1;//set iLevel = iLevel + 1
+				if (iLevel > bj_MAX_ITEM_LEVEL) { break; }//exitwhen iLevel > bj_MAX_ITEM_LEVEL
+			}//endloop
+			//
+			SetAllItemTypeSlots(bj_MAX_STOCK_ITEM_SLOTS);//call SetAllItemTypeSlots(bj_MAX_STOCK_ITEM_SLOTS)
+			SetAllUnitTypeSlots(bj_MAX_STOCK_UNIT_SLOTS);//call SetAllUnitTypeSlots(bj_MAX_STOCK_UNIT_SLOTS)
+			//
+			bj_stockUpdateTimer = CreateTimer();//set bj_stockUpdateTimer = CreateTimer()
+			TimerStart(bj_stockUpdateTimer, bj_STOCK_RESTOCK_INITIAL_DELAY, false, function StartStockUpdates);//call TimerStart(bj_stockUpdateTimer, bj_STOCK_RESTOCK_INITIAL_DELAY, false, function StartStockUpdates)
+			//
+			bj_stockItemPurchased = CreateTrigger();//set bj_stockItemPurchased = CreateTrigger()
+			TriggerRegisterPlayerUnitEvent(bj_stockItemPurchased, Player(PLAYER_NEUTRAL_PASSIVE), EVENT_PLAYER_UNIT_SELL_ITEM, null);//call TriggerRegisterPlayerUnitEvent(bj_stockItemPurchased, Player(PLAYER_NEUTRAL_PASSIVE), EVENT_PLAYER_UNIT_SELL_ITEM, null)
+			TriggerAddAction(bj_stockItemPurchased, function RemovePurchasedItem);//call TriggerAddAction(bj_stockItemPurchased, function RemovePurchasedItem)
+		}//endfunction
+		//
+		private void MarkGameStarted() {//function MarkGameStarted takes nothing returns nothing
+			bj_gameStarted = true;//set bj_gameStarted = true
+			DestroyTimer(bj_gameStartedTimer);//call DestroyTimer(bj_gameStartedTimer)
+		}//endfunction
+		//
+		private void DetectGameStarted() {//function DetectGameStarted takes nothing returns nothing
+			bj_gameStartedTimer = CreateTimer();//set bj_gameStartedTimer = CreateTimer()
+			TimerStart(bj_gameStartedTimer, bj_GAME_STARTED_THRESHOLD, false, function MarkGameStarted);//call TimerStart(bj_gameStartedTimer, bj_GAME_STARTED_THRESHOLD, false, function MarkGameStarted)
+		}//endfunction
+		//
+		private void InitBlizzard() {//function InitBlizzard takes nothing returns nothing
+			//
+			//
+			//
+			ConfigureNeutralVictim();//call ConfigureNeutralVictim()
+			InitBlizzardGlobals();//call InitBlizzardGlobals()
+			InitQueuedTriggers();//call InitQueuedTriggers()
+			InitRescuableBehaviorBJ();//call InitRescuableBehaviorBJ()
+			InitDNCSounds();//call InitDNCSounds()
+			InitMapRects();//call InitMapRects()
+			InitSummonableCaps();//call InitSummonableCaps()
+			InitNeutralBuildings();//call InitNeutralBuildings()
+			DetectGameStarted();//call DetectGameStarted()
+		}//endfunction
+		//
+		//
+		//
+		//
+		//
+		//
+		//
+		//
+		//
+		//
+		//
+		//
+		//
+		//
+		//
+		//
+		//
+		//
+		//
+		private void RandomDistReset() {//function RandomDistReset takes nothing returns nothing
+			bj_randDistCount = 0;//set bj_randDistCount = 0
+		}//endfunction
+		//
+		private void RandomDistAddItem(int inID, int inChance) {//function RandomDistAddItem takes integer inID, integer inChance returns nothing
+			bj_randDistID[bj_randDistCount] = inID;//set bj_randDistID[bj_randDistCount] = inID
+			bj_randDistChance[bj_randDistCount] = inChance;//set bj_randDistChance[bj_randDistCount] = inChance
+			bj_randDistCount = bj_randDistCount + 1;//set bj_randDistCount = bj_randDistCount + 1
+		}//endfunction
+		//
+		private int RandomDistChoose() {//function RandomDistChoose takes nothing returns integer
+			int sum = 0;//local integer sum = 0
+			int chance = 0;//local integer chance = 0
+			int index;//local integer index
+			int foundID = -1;//local integer foundID = -1
+			bool done;//local boolean done
+			//
+			if ((bj_randDistCount == 0)) {//if (bj_randDistCount == 0) then
+				return -1;//return -1
+			}//endif
+			//
+			index = 0;//set index = 0
+			while (true) {//loop
+				sum = sum + bj_randDistChance[index];//set sum = sum + bj_randDistChance[index]
+				index = index + 1;//set index = index + 1
+				if (index == bj_randDistCount) { break; }//exitwhen index == bj_randDistCount
+			}//endloop
+			//
+			chance = GetRandomInt(1, sum);//set chance = GetRandomInt(1, sum)
+			//
+			index = 0;//set index = 0
+			sum = 0;//set sum = 0
+			done = false;//set done = false
+			while (true) {//loop
+				sum = sum + bj_randDistChance[index];//set sum = sum + bj_randDistChance[index]
+				if ((chance <= sum)) {//if (chance <= sum) then
+					foundID = bj_randDistID[index];//set foundID = bj_randDistID[index]
+					done = true;//set done = true
 				}//endif
-			}//endif
-			if ((bj_stockAllowedCharged[iLevel])) {//if (bj_stockAllowedCharged[iLevel]) then
-				allowedCombinations = allowedCombinations + 1;//set allowedCombinations = allowedCombinations + 1
-				if ((GetRandomInt(1, allowedCombinations) == 1)) {//if (GetRandomInt(1, allowedCombinations) == 1) then
-					pickedItemType = ITEM_TYPE_CHARGED;//set pickedItemType = ITEM_TYPE_CHARGED
-					pickedItemLevel = iLevel;//set pickedItemLevel = iLevel
+				index = index + 1;//set index = index + 1
+				if ((index == bj_randDistCount)) {//if (index == bj_randDistCount) then
+					done = true;//set done = true
 				}//endif
+				if (done == true) { break; }//exitwhen done == true
+			}//endloop
+			return foundID;//return foundID
+		}//endfunction
+		//
+		//
+		//
+		//
+		//
+		//
+		//
+		//
+		//
+		//
+		//
+		private item UnitDropItem(int inUnit, int inItemID) {//function UnitDropItem takes unit inUnit, integer inItemID returns item
+			float x;//local real x
+			float y;//local real y
+			float radius = 32;//local real radius = 32
+			float unitX;//local real unitX
+			float unitY;//local real unitY
+			item droppedItem;//local item droppedItem
+			if ((inItemID == -1)) {//if (inItemID == -1) then
+				return null;//return null
 			}//endif
-			if ((bj_stockAllowedArtifact[iLevel])) {//if (bj_stockAllowedArtifact[iLevel]) then
-				allowedCombinations = allowedCombinations + 1;//set allowedCombinations = allowedCombinations + 1
-				if ((GetRandomInt(1, allowedCombinations) == 1)) {//if (GetRandomInt(1, allowedCombinations) == 1) then
-					pickedItemType = ITEM_TYPE_ARTIFACT;//set pickedItemType = ITEM_TYPE_ARTIFACT
-					pickedItemLevel = iLevel;//set pickedItemLevel = iLevel
-				}//endif
+			unitX = GetUnitX(inUnit);//set unitX = GetUnitX(inUnit)
+			unitY = GetUnitY(inUnit);//set unitY = GetUnitY(inUnit)
+			x = GetRandomReal(unitX - radius, unitX + radius);//set x = GetRandomReal(unitX - radius, unitX + radius)
+			y = GetRandomReal(unitY - radius, unitY + radius);//set y = GetRandomReal(unitY - radius, unitY + radius)
+			droppedItem = CreateItem(inItemID, x, y);//set droppedItem = CreateItem(inItemID, x, y)
+			SetItemDropID(droppedItem, GetUnitTypeId(inUnit));//call SetItemDropID(droppedItem, GetUnitTypeId(inUnit))
+			UpdateStockAvailability(droppedItem);//call UpdateStockAvailability(droppedItem)
+			return droppedItem;//return droppedItem
+		}//endfunction
+		//
+		private item WidgetDropItem(widget inWidget, int inItemID) {//function WidgetDropItem takes widget inWidget, integer inItemID returns item
+			float x;//local real x
+			float y;//local real y
+			float radius = 32;//local real radius = 32
+			float widgetX;//local real widgetX
+			float widgetY;//local real widgetY
+			if ((inItemID == -1)) {//if (inItemID == -1) then
+				return null;//return null
 			}//endif
-			iLevel = iLevel + 1;//set iLevel = iLevel + 1
-			if (iLevel > bj_MAX_ITEM_LEVEL) { break; }//exitwhen iLevel > bj_MAX_ITEM_LEVEL
-		}//endloop
-		//
-		if ((allowedCombinations == 0)) {//if (allowedCombinations == 0) then
-			return;//return
-		}//endif
-		UpdateEachStockBuilding(pickedItemType, pickedItemLevel);//call UpdateEachStockBuilding(pickedItemType, pickedItemLevel)
-	}//endfunction
-	//
-	//
-	//
-	private void StartStockUpdates() {//function StartStockUpdates takes nothing returns nothing
-		PerformStockUpdates();//call PerformStockUpdates()
-		TimerStart(bj_stockUpdateTimer, bj_STOCK_RESTOCK_INTERVAL, true, function PerformStockUpdates);//call TimerStart(bj_stockUpdateTimer, bj_STOCK_RESTOCK_INTERVAL, true, function PerformStockUpdates)
-	}//endfunction
-	//
-	private void RemovePurchasedItem() {//function RemovePurchasedItem takes nothing returns nothing
-		RemoveItemFromStock(GetSellingUnit(), GetItemTypeId(GetSoldItem()));//call RemoveItemFromStock(GetSellingUnit(), GetItemTypeId(GetSoldItem()))
-	}//endfunction
-	//
-	private void InitNeutralBuildings() {//function InitNeutralBuildings takes nothing returns nothing
-		int iLevel;//local integer iLevel
-		//
-		iLevel = 0;//set iLevel = 0
-		while (true) {//loop
-			bj_stockAllowedPermanent[iLevel] = false;//set bj_stockAllowedPermanent[iLevel] = false
-			bj_stockAllowedCharged[iLevel] = false;//set bj_stockAllowedCharged[iLevel] = false
-			bj_stockAllowedArtifact[iLevel] = false;//set bj_stockAllowedArtifact[iLevel] = false
-			iLevel = iLevel + 1;//set iLevel = iLevel + 1
-			if (iLevel > bj_MAX_ITEM_LEVEL) { break; }//exitwhen iLevel > bj_MAX_ITEM_LEVEL
-		}//endloop
-		//
-		SetAllItemTypeSlots(bj_MAX_STOCK_ITEM_SLOTS);//call SetAllItemTypeSlots(bj_MAX_STOCK_ITEM_SLOTS)
-		SetAllUnitTypeSlots(bj_MAX_STOCK_UNIT_SLOTS);//call SetAllUnitTypeSlots(bj_MAX_STOCK_UNIT_SLOTS)
-		//
-		bj_stockUpdateTimer = CreateTimer();//set bj_stockUpdateTimer = CreateTimer()
-		TimerStart(bj_stockUpdateTimer, bj_STOCK_RESTOCK_INITIAL_DELAY, false, function StartStockUpdates);//call TimerStart(bj_stockUpdateTimer, bj_STOCK_RESTOCK_INITIAL_DELAY, false, function StartStockUpdates)
-		//
-		bj_stockItemPurchased = CreateTrigger();//set bj_stockItemPurchased = CreateTrigger()
-		TriggerRegisterPlayerUnitEvent(bj_stockItemPurchased, Player(PLAYER_NEUTRAL_PASSIVE), EVENT_PLAYER_UNIT_SELL_ITEM, null);//call TriggerRegisterPlayerUnitEvent(bj_stockItemPurchased, Player(PLAYER_NEUTRAL_PASSIVE), EVENT_PLAYER_UNIT_SELL_ITEM, null)
-		TriggerAddAction(bj_stockItemPurchased, function RemovePurchasedItem);//call TriggerAddAction(bj_stockItemPurchased, function RemovePurchasedItem)
-	}//endfunction
-	//
-	private void MarkGameStarted() {//function MarkGameStarted takes nothing returns nothing
-		bj_gameStarted = true;//set bj_gameStarted = true
-		DestroyTimer(bj_gameStartedTimer);//call DestroyTimer(bj_gameStartedTimer)
-	}//endfunction
-	//
-	private void DetectGameStarted() {//function DetectGameStarted takes nothing returns nothing
-		bj_gameStartedTimer = CreateTimer();//set bj_gameStartedTimer = CreateTimer()
-		TimerStart(bj_gameStartedTimer, bj_GAME_STARTED_THRESHOLD, false, function MarkGameStarted);//call TimerStart(bj_gameStartedTimer, bj_GAME_STARTED_THRESHOLD, false, function MarkGameStarted)
-	}//endfunction
-	//
-	private void InitBlizzard() {//function InitBlizzard takes nothing returns nothing
-		//
-		//
-		//
-		ConfigureNeutralVictim();//call ConfigureNeutralVictim()
-		InitBlizzardGlobals();//call InitBlizzardGlobals()
-		InitQueuedTriggers();//call InitQueuedTriggers()
-		InitRescuableBehaviorBJ();//call InitRescuableBehaviorBJ()
-		InitDNCSounds();//call InitDNCSounds()
-		InitMapRects();//call InitMapRects()
-		InitSummonableCaps();//call InitSummonableCaps()
-		InitNeutralBuildings();//call InitNeutralBuildings()
-		DetectGameStarted();//call DetectGameStarted()
-	}//endfunction
-	//
-	//
-	//
-	//
-	//
-	//
-	//
-	//
-	//
-	//
-	//
-	//
-	//
-	//
-	//
-	//
-	//
-	//
-	//
-	private void RandomDistReset() {//function RandomDistReset takes nothing returns nothing
-		bj_randDistCount = 0;//set bj_randDistCount = 0
-	}//endfunction
-	//
-	private void RandomDistAddItem(int inID, int inChance) {//function RandomDistAddItem takes integer inID, integer inChance returns nothing
-		bj_randDistID[bj_randDistCount] = inID;//set bj_randDistID[bj_randDistCount] = inID
-		bj_randDistChance[bj_randDistCount] = inChance;//set bj_randDistChance[bj_randDistCount] = inChance
-		bj_randDistCount = bj_randDistCount + 1;//set bj_randDistCount = bj_randDistCount + 1
-	}//endfunction
-	//
-	private int RandomDistChoose() {//function RandomDistChoose takes nothing returns integer
-		int sum = 0;//local integer sum = 0
-		int chance = 0;//local integer chance = 0
-		int index;//local integer index
-		int foundID = -1;//local integer foundID = -1
-		bool done;//local boolean done
-		//
-		if ((bj_randDistCount == 0)) {//if (bj_randDistCount == 0) then
-			return -1;//return -1
-		}//endif
-		//
-		index = 0;//set index = 0
-		while (true) {//loop
-			sum = sum + bj_randDistChance[index];//set sum = sum + bj_randDistChance[index]
-			index = index + 1;//set index = index + 1
-			if (index == bj_randDistCount) { break; }//exitwhen index == bj_randDistCount
-		}//endloop
-		//
-		chance = GetRandomInt(1, sum);//set chance = GetRandomInt(1, sum)
-		//
-		index = 0;//set index = 0
-		sum = 0;//set sum = 0
-		done = false;//set done = false
-		while (true) {//loop
-			sum = sum + bj_randDistChance[index];//set sum = sum + bj_randDistChance[index]
-			if ((chance <= sum)) {//if (chance <= sum) then
-				foundID = bj_randDistID[index];//set foundID = bj_randDistID[index]
-				done = true;//set done = true
-			}//endif
-			index = index + 1;//set index = index + 1
-			if ((index == bj_randDistCount)) {//if (index == bj_randDistCount) then
-				done = true;//set done = true
-			}//endif
-			if (done == true) { break; }//exitwhen done == true
-		}//endloop
-		return foundID;//return foundID
-	}//endfunction
-	//
-	//
-	//
-	//
-	//
-	//
-	//
-	//
-	//
-	//
-	//
-	private item UnitDropItem(int inUnit, int inItemID) {//function UnitDropItem takes unit inUnit, integer inItemID returns item
-		real x;//local real x
-		real y;//local real y
-		real radius = 32;//local real radius = 32
-		real unitX;//local real unitX
-		real unitY;//local real unitY
-		item droppedItem;//local item droppedItem
-		if ((inItemID == -1)) {//if (inItemID == -1) then
-			return null;//return null
-		}//endif
-		unitX = GetUnitX(inUnit);//set unitX = GetUnitX(inUnit)
-		unitY = GetUnitY(inUnit);//set unitY = GetUnitY(inUnit)
-		x = GetRandomReal(unitX - radius, unitX + radius);//set x = GetRandomReal(unitX - radius, unitX + radius)
-		y = GetRandomReal(unitY - radius, unitY + radius);//set y = GetRandomReal(unitY - radius, unitY + radius)
-		droppedItem = CreateItem(inItemID, x, y);//set droppedItem = CreateItem(inItemID, x, y)
-		SetItemDropID(droppedItem, GetUnitTypeId(inUnit));//call SetItemDropID(droppedItem, GetUnitTypeId(inUnit))
-		UpdateStockAvailability(droppedItem);//call UpdateStockAvailability(droppedItem)
-		return droppedItem;//return droppedItem
-	}//endfunction
-	//
-	private item WidgetDropItem(widget inWidget, int inItemID) {//function WidgetDropItem takes widget inWidget, integer inItemID returns item
-		real x;//local real x
-		real y;//local real y
-		real radius = 32;//local real radius = 32
-		real widgetX;//local real widgetX
-		real widgetY;//local real widgetY
-		if ((inItemID == -1)) {//if (inItemID == -1) then
-			return null;//return null
-		}//endif
-		widgetX = GetWidgetX(inWidget);//set widgetX = GetWidgetX(inWidget)
-		widgetY = GetWidgetY(inWidget);//set widgetY = GetWidgetY(inWidget)
-		x = GetRandomReal(widgetX - radius, widgetX + radius);//set x = GetRandomReal(widgetX - radius, widgetX + radius)
-		y = GetRandomReal(widgetY - radius, widgetY + radius);//set y = GetRandomReal(widgetY - radius, widgetY + radius)
-		return CreateItem(inItemID, x, y);//return CreateItem(inItemID, x, y)
-	}//endfunction
+			widgetX = GetWidgetX(inWidget);//set widgetX = GetWidgetX(inWidget)
+			widgetY = GetWidgetY(inWidget);//set widgetY = GetWidgetY(inWidget)
+			x = GetRandomReal(widgetX - radius, widgetX + radius);//set x = GetRandomReal(widgetX - radius, widgetX + radius)
+			y = GetRandomReal(widgetY - radius, widgetY + radius);//set y = GetRandomReal(widgetY - radius, widgetY + radius)
+			return CreateItem(inItemID, x, y);//return CreateItem(inItemID, x, y)
+		}//endfunction
 
 	
 	}

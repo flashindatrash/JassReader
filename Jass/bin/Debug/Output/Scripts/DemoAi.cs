@@ -254,7 +254,7 @@ namespace Jass {
 			return SetProduce(afford_qty,unitid);//return SetProduce(afford_qty,unitid)
 		}//endfunction
 		//
-		private bool set_start_peons() {//function set_start_peons takes integer max returns boolean
+		private bool set_start_peons(int max) {//function set_start_peons takes integer max returns boolean
 			int have = GetUnitCount(peon);//local integer have = GetUnitCount(peon)
 			if (have >= max) {//if have >= max then
 				return true;//return true
