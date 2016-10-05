@@ -5,7 +5,7 @@ namespace Jass
 {
 	public class ExitWhen : JassLine, IParser
 	{
-		public const string Pattern = @"^exitwhen\s+(?<expression>" + Eval.Pattern + @")\r?$";
+		public const string Pattern = @"^exitwhen\s*(?<expression>" + Eval.Pattern + @")\r?$";
 
 		private readonly Eval expression = new Eval();
 

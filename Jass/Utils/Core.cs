@@ -14,12 +14,6 @@ namespace Jass
 			Parsers.Add(info);
 		}
 
-		public static Dictionary<string, ClassInfo> ClassAssociation = new Dictionary<string, ClassInfo>();
-
-		public static void RegisterClass(ClassType type, ClassInfo info) {
-			ClassAssociation[type.ToString()] = info;
-		}
-
 	}
 
 }

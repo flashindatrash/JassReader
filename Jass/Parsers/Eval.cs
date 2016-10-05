@@ -21,7 +21,13 @@ namespace Jass
 		{
 			eval = text;
 			eval = eval.Replace(" or ", " || ");
+			eval = eval.Replace(")or ", ") || ");
+			eval = eval.Replace(" or(", " || (");
+			eval = eval.Replace(")or(", ") || (");
 			eval = eval.Replace(" and ", " && ");
+			eval = eval.Replace(")and ", ") && ");
+			eval = eval.Replace("and(", " && (");
+			eval = eval.Replace(")and(", ") && (");
 			eval = eval.Replace("not ", "!");
 		}
 

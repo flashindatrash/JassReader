@@ -5,24 +5,36 @@ using System.Text.RegularExpressions;
 
 namespace Jass
 {
-	public class JassFile
+	public class JassFile : IFile
 	{
 		private const string RegCode = @"\n(?<tabs>[\t]*)\{code\}";
 
-		public string Directory; //директория файла
-		public string Name; //имя класса
-		public string NameWithExtension; //имя с расширением
-		public string FullPath; //полный путь для вывода
 		public string SourcePath; //исходный путь
 		public List<JassLine> Lines = new List<JassLine>();
+
+		virtual public string Name
+		{
+			get { return Path.GetFileName(SourcePath).EachDotUpper(); }
+		}
+
+		virtual public string NameWithExtension
+		{
+			get { return Name + Settings.Extension; } 
+		}
+
+		virtual public string Directory
+		{
+			get { return Path.GetDirectoryName(SourcePath); }
+		}
+
+		virtual public string FullPath
+		{
+			get { return Path.Combine(Directory, NameWithExtension); }
+		}
 
 		public JassFile(string fullname)
 		{
 			SourcePath = fullname;
-			Name = Path.GetFileName(SourcePath).EachDotUpper();
-			NameWithExtension = Name + Settings.Extension;
-			Directory = Path.GetDirectoryName(SourcePath);
-			FullPath = Path.Combine(Directory, NameWithExtension);
 		}
 
 		public void AddLine(JassLine line)
@@ -35,7 +47,7 @@ namespace Jass
 			}
 		}
 
-		public string Format()
+		public override string ToString()
 		{
 			string output = File.Get(Settings.ClassTemplate);
 

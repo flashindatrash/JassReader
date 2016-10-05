@@ -5,11 +5,7 @@ namespace Jass
 {
 	public enum ClassType
 	{
-		nothing,
-		integer,
-		boolean,
-		real,
-		unit
+		nothing
 	}
 
 	public class Class : IParser
@@ -26,19 +22,15 @@ namespace Jass
 		}
 
 		private string name;
-		private ClassInfo info;
 		
 		public void Parse(string text)
 		{
 			name = text;
-			if (Core.ClassAssociation.ContainsKey(name)) {
-				info = Core.ClassAssociation[name];
-			}
 		}
 		
 		public override string ToString()
 		{
-			return info.Name ?? name;
+			return Settings.ClassAssociation(name);
 		}
 	}
 }

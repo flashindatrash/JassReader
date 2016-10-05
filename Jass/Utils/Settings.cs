@@ -19,6 +19,11 @@ namespace Jass
 			get { return ConfigurationManager.AppSettings["class.tpl"]; }
 		}
 
+		public static string ArrayTemplate
+		{
+			get { return ConfigurationManager.AppSettings["array.tpl"]; }
+		}
+
 		public static string Extension
 		{
 			get { return ConfigurationManager.AppSettings["extension"]; }
@@ -29,9 +34,10 @@ namespace Jass
 			get { return ConfigurationManager.AppSettings["debug"]=="true"; }
 		}
 
-		public static string EngineClass
+		public static string ClassAssociation(string name)
 		{
-			get { return ConfigurationManager.AppSettings["engine.class"]; }
+			string association = ConfigurationManager.AppSettings[name];
+			return string.IsNullOrEmpty(association) ? name : association;
 		}
 	}
 }

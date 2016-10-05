@@ -34,7 +34,8 @@ namespace Jass
 
 			bool globalSection = false;
 
-			string[] lines = File.Get(Path.Combine(_directory.ToString(), path)).SplitLines();
+			string content = File.Get(Path.Combine(_directory.ToString(), path));
+			string[] lines = content.SplitLines();
 
 			for (int i = 0; i < lines.Length; i++)
 			{
@@ -106,7 +107,7 @@ namespace Jass
 					file.AddLine(line);
 				}
 				else {
-					Log.Add(string.Format("Unknown line: {0}", text), ConsoleColor.DarkRed);
+					Log.Add(string.Format("Unknown line {0}: {1}", i+1, text), ConsoleColor.DarkRed);
 				}
 			}
 

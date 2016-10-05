@@ -77,7 +77,6 @@
     <Compile Include="Parsers\EndLoop.cs" />
     <Compile Include="Parsers\ExitWhen.cs" />
     <Compile Include="Reader\Interfaces\ISkeep.cs" />
-    <Compile Include="Structures\ClassInfo.cs" />
     <Compile Include="Reader\JassFile.cs" />
     <Compile Include="Structures\LinkInfo.cs" />
     <Compile Include="Reader\JassLine.cs" />
@@ -87,6 +86,8 @@
     <Compile Include="Parsers\Value.cs" />
     <Compile Include="Parsers\Debug.cs" />
     <Compile Include="Parsers\Extends.cs" />
+    <Compile Include="Reader\TemplateFile.cs" />
+    <Compile Include="Reader\Interfaces\IFile.cs" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Reader\Interfaces\" />

@@ -63,10 +63,10 @@ namespace Jass
 		public override string ToString()
 		{
 			return (IsLocal ? "" : IsGlobal ? "public " : "private ") + 
-				(IsConstant ? "const " : IsGlobal ? "static " : "") +
-				(IsArray ? jclass + "[] " : jclass + " ") + 
+				(IsGlobal ? "static " : "") +
+				(IsArray ? "JassArray<" + jclass + "> " : jclass + " ") + 
 				GetName() + 
-				(HasEval ? " = " + eval : "") + ";";
+				(HasEval ? " = " + eval : IsArray ? " = new JassArray<" + jclass + ">()" : "") + ";";
 		}
 
 	}

@@ -5,7 +5,7 @@ namespace Jass
 {
 	public class IfThen : JassLine, IParser, ITabBefore, ITabAfter
 	{
-		public const string Pattern = @"^(?<type>if|elseif)\s*(?<expression>" + Eval.Pattern + @")\s+then\r?$";
+		public const string Pattern = @"^(?<type>if|elseif)\s*(?<expression>" + Eval.Pattern + @")\s*then\r?$";
 
 		private string type;
 		private readonly Eval expression = new Eval();

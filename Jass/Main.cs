@@ -19,13 +19,7 @@ namespace Jass {
 			Core.RegisterParser(new LineInfo(typeof(Set), Set.Pattern));
 			Core.RegisterParser(new LineInfo(typeof(SetArray), SetArray.Pattern));
 			Core.RegisterParser(new LineInfo(typeof(Declaration), Declaration.Pattern));
-
-			//Register Class
-			Core.RegisterClass(ClassType.nothing, new ClassInfo("void"));
-			Core.RegisterClass(ClassType.integer, new ClassInfo("int"));
-			Core.RegisterClass(ClassType.boolean, new ClassInfo("bool"));
-			Core.RegisterClass(ClassType.real, new ClassInfo("float"));
-
+			
 			using (JassWriter writer = new JassWriter())
 			{
 				writer.ClearFolder();
@@ -41,6 +35,8 @@ namespace Jass {
 				{
 					writer.CreateFile(file);
 				}
+
+				writer.CreateFile(new TemplateFile(Settings.ArrayTemplate));
 			}
 		}
 	}

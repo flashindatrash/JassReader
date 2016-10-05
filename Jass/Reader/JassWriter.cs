@@ -17,7 +17,7 @@ namespace Jass
 			_directory.Clear();
 		}
 
-		public void CreateFile(JassFile file)
+		public void CreateFile(IFile file)
 		{
 			string path = Path.Combine(_directory.ToString(), file.FullPath);
 
@@ -34,7 +34,7 @@ namespace Jass
 				// Create the file.
 				using (FileStream fs = System.IO.File.Create(path))
 				{
-					Byte[] info = new UTF8Encoding().GetBytes(file.Format());
+					Byte[] info = new UTF8Encoding().GetBytes(file.ToString());
 					fs.Write(info, 0, info.Length);
 				}
 			}
