@@ -38,6 +38,8 @@ namespace Jass {
 
 				writer.CreateFile(new TemplateFile(Settings.ArrayTemplate));
 			}
+
+			Log.Add("done");
 		}
 	}
 }

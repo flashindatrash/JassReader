@@ -816,7 +816,7 @@ namespace Jass {
 			return oi;//return oi
 		}//endfunction
 		private void li(int oi) {//function li takes integer oi returns nothing
-			if (oi==null ) {//if oi==null then
+			if (oi==null) {//if oi==null then
 				return;//return
 			} else if ((Dh[oi]!=-1)) {//elseif(Dh[oi]!=-1)then
 				return;//return
@@ -1075,10 +1075,10 @@ namespace Jass {
 				if ((u!=null)) {//if(u!=null)then
 					UnitDamageTarget(S[i], u, U[i], true, false, ATTACK_TYPE_MAGIC, DAMAGE_TYPE_COLD, WEAPON_TYPE_WHOKNOWS);//call UnitDamageTarget(S[i],u,U[i],true,false,ATTACK_TYPE_MAGIC,DAMAGE_TYPE_COLD,WEAPON_TYPE_WHOKNOWS)
 					j = CreateUnit(GetOwningPlayer(S[i]),808477991,x,y,.0);//set j=CreateUnit(GetOwningPlayer(S[i]),'e008',x,y,.0)
-					UnitAddAbility(j, 'A043');//call UnitAddAbility(j,'A043')
-					SetUnitAbilityLevel(j, 'A043', V[i]);//call SetUnitAbilityLevel(j,'A043',V[i])
+					UnitAddAbility(j, 875577639);//call UnitAddAbility(j,'A043')
+					SetUnitAbilityLevel(j, 875577639, V[i]);//call SetUnitAbilityLevel(j,'A043',V[i])
 					IssueTargetOrderById(j, $D0102, u);//call IssueTargetOrderById(j,$D0102,u)
-					UnitApplyTimedLife(j, 'BTLF', 1.);//call UnitApplyTimedLife(j,'BTLF',1.)
+					UnitApplyTimedLife(j, 1280590375, 1.);//call UnitApplyTimedLife(j,'BTLF',1.)
 					j = null;//set j=null
 				}//endif
 				T[i] = T[i]-(26.);//set T[i]=T[i]-(26.)
@@ -1325,7 +1325,7 @@ namespace Jass {
 				d4 = 50;//set d4=50
 				TimerStart(Y, .0, false, function wj);//call TimerStart(Y,.0,false,function wj)
 				return;//return
-			} else if (d4==50 ) {//elseif d4==50 then
+			} else if (d4==50) {//elseif d4==50 then
 				j = 0;//set j=0
 				while (true) {//loop
 					if (j>6) { break; }//exitwhen j>6
@@ -1703,19 +1703,19 @@ namespace Jass {
 			DestroyEffect(AddSpecialEffect("mdx\\sfx\\FireTrapUp.mdx", .0, .0));//call DestroyEffect(AddSpecialEffect("mdx\\sfx\\FireTrapUp.mdx",.0,.0))
 			DestroyEffect(AddSpecialEffect("Abilities\\Spells\\Human\\Heal\\HealTarget.mdl", .0, .0));//call DestroyEffect(AddSpecialEffect("Abilities\\Spells\\Human\\Heal\\HealTarget.mdl",.0,.0))
 			DestroyEffect(AddSpecialEffect("Abilities\\Spells\\Undead\\DeathPact\\DeathPactCaster.mdl", .0, .0));//call DestroyEffect(AddSpecialEffect("Abilities\\Spells\\Undead\\DeathPact\\DeathPactCaster.mdl",.0,.0))
-			KillUnit(CreateUnit(Player($D), 'e008', .0, .0, .0));//call KillUnit(CreateUnit(Player($D),'e008',.0,.0,.0))
-			KillUnit(CreateUnit(Player($D), 'h00O', .0, .0, .0));//call KillUnit(CreateUnit(Player($D),'h00O',.0,.0,.0))
-			KillUnit(CreateUnit(Player($D), 'u006', .0, .0, .0));//call KillUnit(CreateUnit(Player($D),'u006',.0,.0,.0))
-			KillUnit(CreateUnit(Player($D), 'h00C', .0, .0, .0));//call KillUnit(CreateUnit(Player($D),'h00C',.0,.0,.0))
-			KillUnit(CreateUnit(Player($D), 'h019', .0, .0, .0));//call KillUnit(CreateUnit(Player($D),'h019',.0,.0,.0))
-			KillUnit(CreateUnit(Player($D), 'h00E', .0, .0, .0));//call KillUnit(CreateUnit(Player($D),'h00E',.0,.0,.0))
-			KillUnit(CreateUnit(Player($D), 'h017', .0, .0, .0));//call KillUnit(CreateUnit(Player($D),'h017',.0,.0,.0))
-			KillUnit(CreateUnit(Player($D), 'h089', .0, .0, .0));//call KillUnit(CreateUnit(Player($D),'h089',.0,.0,.0))
-			KillUnit(CreateUnit(Player($D), 'h00P', .0, .0, .0));//call KillUnit(CreateUnit(Player($D),'h00P',.0,.0,.0))
-			KillUnit(CreateUnit(Player($D), 'h018', .0, .0, .0));//call KillUnit(CreateUnit(Player($D),'h018',.0,.0,.0))
-			KillUnit(CreateUnit(Player($D), 'h06P', .0, .0, .0));//call KillUnit(CreateUnit(Player($D),'h06P',.0,.0,.0))
-			KillUnit(CreateUnit(Player($D), 'h01A', .0, .0, .0));//call KillUnit(CreateUnit(Player($D),'h01A',.0,.0,.0))
-			KillUnit(CreateUnit(Player($D), 'h051', .0, .0, .0));//call KillUnit(CreateUnit(Player($D),'h051',.0,.0,.0))
+			KillUnit(CreateUnit(Player($D), 808477991, .0, .0, .0));//call KillUnit(CreateUnit(Player($D),'e008',.0,.0,.0))
+			KillUnit(CreateUnit(Player($D), 808478759, .0, .0, .0));//call KillUnit(CreateUnit(Player($D),'h00O',.0,.0,.0))
+			KillUnit(CreateUnit(Player($D), 808482087, .0, .0, .0));//call KillUnit(CreateUnit(Player($D),'u006',.0,.0,.0))
+			KillUnit(CreateUnit(Player($D), 808478759, .0, .0, .0));//call KillUnit(CreateUnit(Player($D),'h00C',.0,.0,.0))
+			KillUnit(CreateUnit(Player($D), 825255975, .0, .0, .0));//call KillUnit(CreateUnit(Player($D),'h019',.0,.0,.0))
+			KillUnit(CreateUnit(Player($D), 808478759, .0, .0, .0));//call KillUnit(CreateUnit(Player($D),'h00E',.0,.0,.0))
+			KillUnit(CreateUnit(Player($D), 825255975, .0, .0, .0));//call KillUnit(CreateUnit(Player($D),'h017',.0,.0,.0))
+			KillUnit(CreateUnit(Player($D), 942696487, .0, .0, .0));//call KillUnit(CreateUnit(Player($D),'h089',.0,.0,.0))
+			KillUnit(CreateUnit(Player($D), 808478759, .0, .0, .0));//call KillUnit(CreateUnit(Player($D),'h00P',.0,.0,.0))
+			KillUnit(CreateUnit(Player($D), 825255975, .0, .0, .0));//call KillUnit(CreateUnit(Player($D),'h018',.0,.0,.0))
+			KillUnit(CreateUnit(Player($D), 909142055, .0, .0, .0));//call KillUnit(CreateUnit(Player($D),'h06P',.0,.0,.0))
+			KillUnit(CreateUnit(Player($D), 825255975, .0, .0, .0));//call KillUnit(CreateUnit(Player($D),'h01A',.0,.0,.0))
+			KillUnit(CreateUnit(Player($D), 892364839, .0, .0, .0));//call KillUnit(CreateUnit(Player($D),'h051',.0,.0,.0))
 		}//endfunction
 		private void qk() {//function qk takes nothing returns nothing
 			pk();//call pk()
@@ -1904,7 +1904,7 @@ namespace Jass {
 			wh[oi] = 0;//set wh[oi]=0
 		}//endfunction
 		private void Hk(int oi) {//function Hk takes integer oi returns nothing
-			if (oi==null ) {//if oi==null then
+			if (oi==null) {//if oi==null then
 				return;//return
 			} else if ((rh[oi]!=-1)) {//elseif(rh[oi]!=-1)then
 				return;//return
@@ -1927,13 +1927,13 @@ namespace Jass {
 			JassArray<bool> Kk = new JassArray<bool>();//local boolean array Kk
 			while (true) {//loop
 				if (i>=$C) { break; }//exitwhen i>=$C
-				if (GetPlayerController(Player(i))==MAP_CONTROL_USER && GetPlayerSlotState(Player(i))==PLAYER_SLOT_STATE_PLAYING ) {//if GetPlayerController(Player(i))==MAP_CONTROL_USER and GetPlayerSlotState(Player(i))==PLAYER_SLOT_STATE_PLAYING then
-					if (n<u7 ) {//if n<u7 then
+				if (GetPlayerController(Player(i))==MAP_CONTROL_USER && GetPlayerSlotState(Player(i))==PLAYER_SLOT_STATE_PLAYING) {//if GetPlayerController(Player(i))==MAP_CONTROL_USER and GetPlayerSlotState(Player(i))==PLAYER_SLOT_STATE_PLAYING then
+					if (n<u7) {//if n<u7 then
 						Jk[n] = i;//set Jk[n]=i
 						Kk[i] = true;//set Kk[i]=true
 					} else {//else
 						r = GetRandomInt(0,n);//set r=GetRandomInt(0,n)
-						if (r<u7 ) {//if r<u7 then
+						if (r<u7) {//if r<u7 then
 							Kk[Jk[r]] = false;//set Kk[Jk[r]]=false
 							Jk[r] = i;//set Jk[r]=i
 							Kk[i] = true;//set Kk[i]=true
@@ -1947,12 +1947,12 @@ namespace Jass {
 		}//endfunction
 		private void Lk(string Mk) {//function Lk takes string Mk returns nothing
 			int q;//local integer q
-			if (!s7 ) {//if not s7 then
-				BJDebugMsg("MMD Emit Error: Library not initialized yet.");//call BJDebugMsg("MMD Emit Error: Library not initialized yet.")
+			if (!s7) {//if not s7 then
+				BJDebugMsg("MMD Emit Error: Library !initialized yet.");//call BJDebugMsg("MMD Emit Error: Library not initialized yet.")
 				return;//return
 			}//endif
 			q = Ek(v7,Mk);//set q=Ek(v7,Mk)
-			if (x7==0 ) {//if x7==0 then
+			if (x7==0) {//if x7==0 then
 				x7 = q;//set x7=q
 			} else {//else
 				wh[y7] = q;//set wh[y7]=q
@@ -1986,7 +1986,7 @@ namespace Jass {
 				Hk(q);//call Hk(q)
 				q = x7;//set q=x7
 			}//endloop
-			if (x7==0 ) {//if x7==0 then
+			if (x7==0) {//if x7==0 then
 				y7 = 0;//set y7=0
 			}//endif
 			i = 0;//set i=0
@@ -2022,15 +2022,15 @@ namespace Jass {
 		}//endfunction
 		private void Rk(string Sk, player p, string op, string Pk, int Tk) {//function Rk takes string Sk,player p,string op,string Pk,integer Tk returns nothing
 			int id = GetPlayerId(p);//local integer id=GetPlayerId(p)
-			if (p==null || id<0 || id>=$C ) {//if p==null or id<0 or id>=$C then
+			if (p==null || id<0 || id>=$C) {//if p==null or id<0 or id>=$C then
 				BJDebugMsg("MMD Set Error: Invalid player. Must be P1 to P12.");//call BJDebugMsg("MMD Set Error: Invalid player. Must be P1 to P12.")
 			} else if (Tk!=GetStoredInteger(t7,"types",Sk)) {//elseif Tk!=GetStoredInteger(t7,"types",Sk)then
-				BJDebugMsg("MMD Set Error: Updated value of undefined variable or used value of incorrect type.");//call BJDebugMsg("MMD Set Error: Updated value of undefined variable or used value of incorrect type.")
-			} else if (StringLength(op)==0 ) {//elseif StringLength(op)==0 then
+				BJDebugMsg("MMD Set Error: Updated value of undefined variable || used value of incorrect type.");//call BJDebugMsg("MMD Set Error: Updated value of undefined variable or used value of incorrect type.")
+			} else if (StringLength(op)==0) {//elseif StringLength(op)==0 then
 				BJDebugMsg("MMD Set Error: Unrecognized operation type.");//call BJDebugMsg("MMD Set Error: Unrecognized operation type.")
-			} else if (StringLength(Sk)>50 ) {//elseif StringLength(Sk)>50 then
+			} else if (StringLength(Sk)>50) {//elseif StringLength(Sk)>50 then
 				BJDebugMsg("MMD Set Error: Variable name is too long.");//call BJDebugMsg("MMD Set Error: Variable name is too long.")
-			} else if (StringLength(Sk)==0 ) {//elseif StringLength(Sk)==0 then
+			} else if (StringLength(Sk)==0) {//elseif StringLength(Sk)==0 then
 				BJDebugMsg("MMD Set Error: Variable name is empty.");//call BJDebugMsg("MMD Set Error: Variable name is empty.")
 			} else {//else
 				Lk("VarP "+I2S(id)+" "+Ok(Sk)+" "+op+" "+Pk);//call Lk("VarP "+I2S(id)+" "+Ok(Sk)+" "+op+" "+Pk)
@@ -2039,11 +2039,11 @@ namespace Jass {
 		private void dm(player p, int em) {//function dm takes player p,integer em returns nothing
 			string fm = n7[em];//local string fm=n7[em]
 			int id = GetPlayerId(p);//local integer id=GetPlayerId(p)
-			if (p==null || id<0 || id>=$C ) {//if p==null or id<0 or id>=$C then
+			if (p==null || id<0 || id>=$C) {//if p==null or id<0 or id>=$C then
 				BJDebugMsg("MMD Flag Error: Invalid player. Must be P1 to P12.");//call BJDebugMsg("MMD Flag Error: Invalid player. Must be P1 to P12.")
-			} else if (StringLength(fm)==0 ) {//elseif StringLength(fm)==0 then
+			} else if (StringLength(fm)==0) {//elseif StringLength(fm)==0 then
 				BJDebugMsg("MMD Flag Error: Unrecognized flag type.");//call BJDebugMsg("MMD Flag Error: Unrecognized flag type.")
-			} else if (GetPlayerController(Player(id))==MAP_CONTROL_USER ) {//elseif GetPlayerController(Player(id))==MAP_CONTROL_USER then
+			} else if (GetPlayerController(Player(id))==MAP_CONTROL_USER) {//elseif GetPlayerController(Player(id))==MAP_CONTROL_USER then
 				Lk("FlagP "+I2S(id)+" "+fm);//call Lk("FlagP "+I2S(id)+" "+fm)
 			}//endif
 		}//endfunction
@@ -2051,19 +2051,19 @@ namespace Jass {
 			string km = o7[im];//local string km=o7[im]
 			string mm = q7[hm];//local string mm=q7[hm]
 			string nm = r7[jm];//local string nm=r7[jm]
-			if (km==null ) {//if km==null then
+			if (km==null) {//if km==null then
 				BJDebugMsg("MMD Def Error: Unrecognized goal type.");//call BJDebugMsg("MMD Def Error: Unrecognized goal type.")
-			} else if (mm==null ) {//elseif mm==null then
+			} else if (mm==null) {//elseif mm==null then
 				BJDebugMsg("MMD Def Error: Unrecognized value type.");//call BJDebugMsg("MMD Def Error: Unrecognized value type.")
-			} else if (nm==null ) {//elseif nm==null then
+			} else if (nm==null) {//elseif nm==null then
 				BJDebugMsg("Stats Def Error: Unrecognized suggestion type.");//call BJDebugMsg("Stats Def Error: Unrecognized suggestion type.")
-			} else if (StringLength(Sk)>32 ) {//elseif StringLength(Sk)>32 then
+			} else if (StringLength(Sk)>32) {//elseif StringLength(Sk)>32 then
 				BJDebugMsg("MMD Def Error: Variable name is too long.");//call BJDebugMsg("MMD Def Error: Variable name is too long.")
-			} else if (StringLength(Sk)==0 ) {//elseif StringLength(Sk)==0 then
+			} else if (StringLength(Sk)==0) {//elseif StringLength(Sk)==0 then
 				BJDebugMsg("MMD Def Error: Variable name is empty.");//call BJDebugMsg("MMD Def Error: Variable name is empty.")
-			} else if (hm=='e' && im!='e' ) {//elseif hm=='e' and im!='e' then
+			} else if (hm=='e' && im!='e') {//elseif hm=='e' and im!='e' then
 				BJDebugMsg("MMD Def Error: Strings must have goal type of none.");//call BJDebugMsg("MMD Def Error: Strings must have goal type of none.")
-			} else if (GetStoredInteger(t7,"types",Sk)!=0 ) {//elseif GetStoredInteger(t7,"types",Sk)!=0 then
+			} else if (GetStoredInteger(t7,"types",Sk)!=0) {//elseif GetStoredInteger(t7,"types",Sk)!=0 then
 				BJDebugMsg("MMD Def Error: Value redefined.");//call BJDebugMsg("MMD Def Error: Value redefined.")
 			} else {//else
 				StoreInteger(t7, "types", Sk, hm);//call StoreInteger(t7,"types",Sk,hm)
@@ -2078,7 +2078,7 @@ namespace Jass {
 			i = 0;//set i=0
 			while (true) {//loop
 				if (i>=$C) { break; }//exitwhen i>=$C
-				if (GetPlayerController(Player(i))==MAP_CONTROL_USER && GetPlayerSlotState(Player(i))==PLAYER_SLOT_STATE_PLAYING ) {//if GetPlayerController(Player(i))==MAP_CONTROL_USER and GetPlayerSlotState(Player(i))==PLAYER_SLOT_STATE_PLAYING then
+				if (GetPlayerController(Player(i))==MAP_CONTROL_USER && GetPlayerSlotState(Player(i))==PLAYER_SLOT_STATE_PLAYING) {//if GetPlayerController(Player(i))==MAP_CONTROL_USER and GetPlayerSlotState(Player(i))==PLAYER_SLOT_STATE_PLAYING then
 					Lk("init pid "+I2S(i)+" "+Ok(GetPlayerName(Player(i))));//call Lk("init pid "+I2S(i)+" "+Ok(GetPlayerName(Player(i))))
 				}//endif
 				i = i+1;//set i=i+1
@@ -2225,7 +2225,7 @@ namespace Jass {
 		private void Am(int am) {//function Am takes integer am returns nothing
 			int i = 0;//local integer i=0
 			while (true) {//loop
-				SetPlayerAbilityAvailable(Player(i), G7[am], I7[me[i]*l7+am]and am>K7[i]*9 and am<(K7[i]+1)*9);//call SetPlayerAbilityAvailable(Player(i),G7[am],I7[me[i]*l7+am]and am>K7[i]*9 and am<(K7[i]+1)*9)
+				SetPlayerAbilityAvailable(Player(i), G7[am], I7[me[i]*l7+am]and am>K7[i]*9 && am<(K7[i]+1)*9);//call SetPlayerAbilityAvailable(Player(i),G7[am],I7[me[i]*l7+am]and am>K7[i]*9 and am<(K7[i]+1)*9)
 				i = i+1;//set i=i+1
 				if (i>=$C) { break; }//exitwhen i>=$C
 			}//endloop
@@ -2263,9 +2263,9 @@ namespace Jass {
 				i = i+1;//set i=i+1
 				if (i>=l7) { break; }//exitwhen i>=l7
 			}//endloop
-			UnitAddAbility(u, 'A0DP');//call UnitAddAbility(u,'A0DP')
-			UnitAddAbility(u, 'A0DQ');//call UnitAddAbility(u,'A0DQ')
-			UnitAddAbility(u, 'A0DR');//call UnitAddAbility(u,'A0DR')
+			UnitAddAbility(u, 1144013095);//call UnitAddAbility(u,'A0DP')
+			UnitAddAbility(u, 1144013095);//call UnitAddAbility(u,'A0DQ')
+			UnitAddAbility(u, 1144013095);//call UnitAddAbility(u,'A0DR')
 			SelectUnitForPlayerSingle(u, p);//call SelectUnitForPlayerSingle(u,p)
 			PanCameraToForPlayer(p, GetUnitX(u), GetUnitY(u));//call PanCameraToForPlayer(p,GetUnitX(u),GetUnitY(u))
 		}//endfunction
@@ -2301,12 +2301,12 @@ namespace Jass {
 			int zk = me[dk]*l7;//local integer zk=me[dk]*l7
 			player p = Player(dk);//local player p=Player(dk)
 			while (true) {//loop
-				SetPlayerAbilityAvailable(p, G7[i], I7[zk+i]and i>=Jm and i<to);//call SetPlayerAbilityAvailable(p,G7[i],I7[zk+i]and i>=Jm and i<to)
+				SetPlayerAbilityAvailable(p, G7[i], I7[zk+i]and i>=Jm && i<to);//call SetPlayerAbilityAvailable(p,G7[i],I7[zk+i]and i>=Jm and i<to)
 				i = i+1;//set i=i+1
 				if (i>=l7) { break; }//exitwhen i>=l7
 			}//endloop
-			SetPlayerAbilityAvailable(p, 'A0DP', to<l7);//call SetPlayerAbilityAvailable(p,'A0DP',to<l7)
-			SetPlayerAbilityAvailable(p, 'A0DQ', Jm>0);//call SetPlayerAbilityAvailable(p,'A0DQ',Jm>0)
+			SetPlayerAbilityAvailable(p, 1144013095, to<l7);//call SetPlayerAbilityAvailable(p,'A0DP',to<l7)
+			SetPlayerAbilityAvailable(p, 1144013095, Jm>0);//call SetPlayerAbilityAvailable(p,'A0DQ',Jm>0)
 		}//endfunction
 		private void RaceSelector_Finally() {//function RaceSelector_Finally takes nothing returns nothing
 			DisableTrigger(J7);//call DisableTrigger(J7)
@@ -2920,21 +2920,21 @@ namespace Jass {
 		private void Jn(unit c, unit t) {//function Jn takes unit c,unit t returns nothing
 			lightning Kn;//local lightning Kn
 			float Ln = .0;//local real Ln=.0
-			UnitRemoveAbility(c, 'A0EK');//call UnitRemoveAbility(c,'A0EK')
+			UnitRemoveAbility(c, 1160790311);//call UnitRemoveAbility(c,'A0EK')
 			if ((GetUnitAbilityLevel(t,1160790311)>0)) {//if(GetUnitAbilityLevel(t,'A0EL')>0)then
-				UnitAddAbility(c, 'A0EK');//call UnitAddAbility(c,'A0EK')
+				UnitAddAbility(c, 1160790311);//call UnitAddAbility(c,'A0EK')
 				un(GetOwningPlayer(c), "Target is improved already.");//call un(GetOwningPlayer(c),"Target is improved already.")
 				return;//return
 			}//endif
 			if ((GetUnitState(t,UNIT_STATE_MAX_MANA)<1. || (x4[GetUnitPointValue((t))])>0)) {//if(GetUnitState(t,UNIT_STATE_MAX_MANA)<1. or(x4[GetUnitPointValue((t))])>0)then
-				UnitAddAbility(c, 'A0EK');//call UnitAddAbility(c,'A0EK')
-				un(GetOwningPlayer(c), "Target haven't mana or it's not special building.");//call un(GetOwningPlayer(c),"Target haven't mana or it's not special building.")
+				UnitAddAbility(c, 1160790311);//call UnitAddAbility(c,'A0EK')
+				un(GetOwningPlayer(c), "Target haven't mana || it's !special building.");//call un(GetOwningPlayer(c),"Target haven't mana or it's not special building.")
 				return;//return
 			}//endif
-			UnitAddAbility(t, 'A0EL');//call UnitAddAbility(t,'A0EL')
-			UnitMakeAbilityPermanent(t, true, 'A0EL');//call UnitMakeAbilityPermanent(t,true,'A0EL')
+			UnitAddAbility(t, 1160790311);//call UnitAddAbility(t,'A0EL')
+			UnitMakeAbilityPermanent(t, true, 1160790311);//call UnitMakeAbilityPermanent(t,true,'A0EL')
 			if ((GetUnitAbilityLevel(t,1144013095)>0)) {//if(GetUnitAbilityLevel(t,'A0DS')>0)then
-				SetUnitAbilityLevel(t, 'A0EL', 2);//call SetUnitAbilityLevel(t,'A0EL',2)
+				SetUnitAbilityLevel(t, 1160790311, 2);//call SetUnitAbilityLevel(t,'A0EL',2)
 			}//endif
 			SaveUnitHandle(O9, GetHandleId(t), 26, c);//call SaveUnitHandle(O9,GetHandleId(t),26,c)
 			Kn = AddLightning("DRAM",true,GetUnitX(t),GetUnitY(t),GetUnitX(c),GetUnitY(c));//set Kn=AddLightning("DRAM",true,GetUnitX(t),GetUnitY(t),GetUnitX(c),GetUnitY(c))
@@ -2946,7 +2946,7 @@ namespace Jass {
 			Kn = null;//set Kn=null
 		}//endfunction
 		private void Mn(unit u) {//function Mn takes unit u returns nothing
-			UnitAddAbility(LoadUnitHandle(O9, GetHandleId(u), 26), 'A0EK');//call UnitAddAbility(LoadUnitHandle(O9,GetHandleId(u),26),'A0EK')
+			UnitAddAbility(LoadUnitHandle(O9, GetHandleId(u), 26), 1160790311);//call UnitAddAbility(LoadUnitHandle(O9,GetHandleId(u),26),'A0EK')
 			DestroyLightning(LoadLightningHandle(O9, GetHandleId(u), 25));//call DestroyLightning(LoadLightningHandle(O9,GetHandleId(u),25))
 		}//endfunction
 		private void Nn() {//function Nn takes nothing returns nothing
@@ -2969,7 +2969,7 @@ namespace Jass {
 				UnitAddAbility(c, z8);//call UnitAddAbility(c,z8)
 				IssuePointOrderById(c, $D026F, GetUnitX(bj_groupRandomCurrentPick), GetUnitY(bj_groupRandomCurrentPick));//call IssuePointOrderById(c,$D026F,GetUnitX(bj_groupRandomCurrentPick),GetUnitY(bj_groupRandomCurrentPick))
 			}//endif
-			UnitApplyTimedLife(c, 'BTLF', 10.);//call UnitApplyTimedLife(c,'BTLF',10.)
+			UnitApplyTimedLife(c, 1280590375, 10.);//call UnitApplyTimedLife(c,'BTLF',10.)
 			c = null;//set c=null
 		}//endfunction
 		private bool On() {//function On takes nothing returns boolean
@@ -3018,152 +3018,152 @@ namespace Jass {
 					i = GetRandomInt(0,c8-1);//set i=GetRandomInt(0,c8-1)
 					UnitAddAbility(bj_groupRandomCurrentPick, C8[i]);//call UnitAddAbility(bj_groupRandomCurrentPick,C8[i])
 					if ((i==2)) {//if(i==2)then
-						UnitAddAbility(bj_groupRandomCurrentPick, 'A03Q');//call UnitAddAbility(bj_groupRandomCurrentPick,'A03Q')
+						UnitAddAbility(bj_groupRandomCurrentPick, 858800423);//call UnitAddAbility(bj_groupRandomCurrentPick,'A03Q')
 					}//endif
-					UnitAddAbility(bj_groupRandomCurrentPick, 'A0F4');//call UnitAddAbility(bj_groupRandomCurrentPick,'A0F4')
+					UnitAddAbility(bj_groupRandomCurrentPick, 1177567527);//call UnitAddAbility(bj_groupRandomCurrentPick,'A0F4')
 				}//endif
 			}//endif
 		}//endfunction
 		private bool Qn() {//function Qn takes nothing returns boolean
-			Bj(z4, 'h050', 270., .0, 28.);//call Bj(z4,'h050',270.,.0,28.)
-			Bj(z4, 'h050', 90., .0, -28.);//call Bj(z4,'h050',90.,.0,-28.)
+			Bj(z4, 892364839, 270., .0, 28.);//call Bj(z4,'h050',270.,.0,28.)
+			Bj(z4, 892364839, 90., .0, -28.);//call Bj(z4,'h050',90.,.0,-28.)
 			return false;//return false
 		}//endfunction
 		private bool Rn() {//function Rn takes nothing returns boolean
-			Bj(z4, 'h04Y', 270., .0, 28.);//call Bj(z4,'h04Y',270.,.0,28.)
-			Bj(z4, 'h050', 90., .0, -28.);//call Bj(z4,'h050',90.,.0,-28.)
+			Bj(z4, 875587623, 270., .0, 28.);//call Bj(z4,'h04Y',270.,.0,28.)
+			Bj(z4, 892364839, 90., .0, -28.);//call Bj(z4,'h050',90.,.0,-28.)
 			return false;//return false
 		}//endfunction
 		private bool Sn() {//function Sn takes nothing returns boolean
-			Bj(z4, 'h04Y', 270., .0, 28.);//call Bj(z4,'h04Y',270.,.0,28.)
-			Bj(z4, 'h04Y', 90., .0, -28.);//call Bj(z4,'h04Y',90.,.0,-28.)
+			Bj(z4, 875587623, 270., .0, 28.);//call Bj(z4,'h04Y',270.,.0,28.)
+			Bj(z4, 875587623, 90., .0, -28.);//call Bj(z4,'h04Y',90.,.0,-28.)
 			return false;//return false
 		}//endfunction
 		private bool Tn() {//function Tn takes nothing returns boolean
-			Bj(z4, 'h04Y', 270., .0, 28.);//call Bj(z4,'h04Y',270.,.0,28.)
-			Bj(z4, 'h050', 90., .0, -28.);//call Bj(z4,'h050',90.,.0,-28.)
+			Bj(z4, 875587623, 270., .0, 28.);//call Bj(z4,'h04Y',270.,.0,28.)
+			Bj(z4, 892364839, 90., .0, -28.);//call Bj(z4,'h050',90.,.0,-28.)
 			return false;//return false
 		}//endfunction
 		private bool Un() {//function Un takes nothing returns boolean
-			Bj(z4, 'h04Y', 270., .0, 28.);//call Bj(z4,'h04Y',270.,.0,28.)
-			Bj(z4, 'h04Y', 90., .0, -28.);//call Bj(z4,'h04Y',90.,.0,-28.)
-			Bj(z4, 'h058', 270., .0, .0);//call Bj(z4,'h058',270.,.0,.0)
+			Bj(z4, 875587623, 270., .0, 28.);//call Bj(z4,'h04Y',270.,.0,28.)
+			Bj(z4, 875587623, 90., .0, -28.);//call Bj(z4,'h04Y',90.,.0,-28.)
+			Bj(z4, 892364839, 270., .0, .0);//call Bj(z4,'h058',270.,.0,.0)
 			return false;//return false
 		}//endfunction
 		private bool Vn() {//function Vn takes nothing returns boolean
-			Bj(z4, 'h04Y', 270., .0, 28.);//call Bj(z4,'h04Y',270.,.0,28.)
-			Bj(z4, 'h050', 90., .0, -28.);//call Bj(z4,'h050',90.,.0,-28.)
-			Bj(z4, 'h052', 270., .0, .0);//call Bj(z4,'h052',270.,.0,.0)
+			Bj(z4, 875587623, 270., .0, 28.);//call Bj(z4,'h04Y',270.,.0,28.)
+			Bj(z4, 892364839, 90., .0, -28.);//call Bj(z4,'h050',90.,.0,-28.)
+			Bj(z4, 892364839, 270., .0, .0);//call Bj(z4,'h052',270.,.0,.0)
 			return false;//return false
 		}//endfunction
 		private bool Wn() {//function Wn takes nothing returns boolean
-			Bj(z4, 'h04Y', 270., .0, 28.);//call Bj(z4,'h04Y',270.,.0,28.)
-			Bj(z4, 'h04Y', 90., .0, -28.);//call Bj(z4,'h04Y',90.,.0,-28.)
-			Bj(z4, 'h053', 270., .0, .0);//call Bj(z4,'h053',270.,.0,.0)
+			Bj(z4, 875587623, 270., .0, 28.);//call Bj(z4,'h04Y',270.,.0,28.)
+			Bj(z4, 875587623, 90., .0, -28.);//call Bj(z4,'h04Y',90.,.0,-28.)
+			Bj(z4, 892364839, 270., .0, .0);//call Bj(z4,'h053',270.,.0,.0)
 			return false;//return false
 		}//endfunction
 		private bool Xn() {//function Xn takes nothing returns boolean
-			Bj(z4, 'h04Y', 270., .0, 28.);//call Bj(z4,'h04Y',270.,.0,28.)
-			Bj(z4, 'h050', 90., .0, -28.);//call Bj(z4,'h050',90.,.0,-28.)
-			Bj(z4, 'h05O', 270., .0, .0);//call Bj(z4,'h05O',270.,.0,.0)
+			Bj(z4, 875587623, 270., .0, 28.);//call Bj(z4,'h04Y',270.,.0,28.)
+			Bj(z4, 892364839, 90., .0, -28.);//call Bj(z4,'h050',90.,.0,-28.)
+			Bj(z4, 892364839, 270., .0, .0);//call Bj(z4,'h05O',270.,.0,.0)
 			return false;//return false
 		}//endfunction
 		private bool Yn() {//function Yn takes nothing returns boolean
-			Bj(z4, 'h04Y', 270., .0, 28.);//call Bj(z4,'h04Y',270.,.0,28.)
-			Bj(z4, 'h04Y', 90., .0, -28.);//call Bj(z4,'h04Y',90.,.0,-28.)
-			Bj(z4, 'h057', 270., .0, .0);//call Bj(z4,'h057',270.,.0,.0)
-			Bj(z4, 'h05P', 270., .0, .0);//call Bj(z4,'h05P',270.,.0,.0)
+			Bj(z4, 875587623, 270., .0, 28.);//call Bj(z4,'h04Y',270.,.0,28.)
+			Bj(z4, 875587623, 90., .0, -28.);//call Bj(z4,'h04Y',90.,.0,-28.)
+			Bj(z4, 892364839, 270., .0, .0);//call Bj(z4,'h057',270.,.0,.0)
+			Bj(z4, 892364839, 270., .0, .0);//call Bj(z4,'h05P',270.,.0,.0)
 			return false;//return false
 		}//endfunction
 		private bool Zn() {//function Zn takes nothing returns boolean
-			Bj(z4, 'h050', 270., .0, 28.);//call Bj(z4,'h050',270.,.0,28.)
-			Bj(z4, 'h050', 90., .0, -28.);//call Bj(z4,'h050',90.,.0,-28.)
+			Bj(z4, 892364839, 270., .0, 28.);//call Bj(z4,'h050',270.,.0,28.)
+			Bj(z4, 892364839, 90., .0, -28.);//call Bj(z4,'h050',90.,.0,-28.)
 			return false;//return false
 		}//endfunction
 		private bool do() {//function do takes nothing returns boolean
-			Bj(z4, 'h04Y', 270., .0, 28.);//call Bj(z4,'h04Y',270.,.0,28.)
-			Bj(z4, 'h050', 90., .0, -28.);//call Bj(z4,'h050',90.,.0,-28.)
-			Bj(z4, 'h05K', 90., .0, .0);//call Bj(z4,'h05K',90.,.0,.0)
+			Bj(z4, 875587623, 270., .0, 28.);//call Bj(z4,'h04Y',270.,.0,28.)
+			Bj(z4, 892364839, 90., .0, -28.);//call Bj(z4,'h050',90.,.0,-28.)
+			Bj(z4, 892364839, 90., .0, .0);//call Bj(z4,'h05K',90.,.0,.0)
 			return false;//return false
 		}//endfunction
 		private bool eo() {//function eo takes nothing returns boolean
-			Bj(z4, 'h04Y', 270., .0, 28.);//call Bj(z4,'h04Y',270.,.0,28.)
-			Bj(z4, 'h04Y', 90., .0, -28.);//call Bj(z4,'h04Y',90.,.0,-28.)
-			Bj(z4, 'h05B', 90., .0, .0);//call Bj(z4,'h05B',90.,.0,.0)
+			Bj(z4, 875587623, 270., .0, 28.);//call Bj(z4,'h04Y',270.,.0,28.)
+			Bj(z4, 875587623, 90., .0, -28.);//call Bj(z4,'h04Y',90.,.0,-28.)
+			Bj(z4, 892364839, 90., .0, .0);//call Bj(z4,'h05B',90.,.0,.0)
 			return false;//return false
 		}//endfunction
 		private bool fo() {//function fo takes nothing returns boolean
-			Bj(z4, 'h04Y', 270., .0, 28.);//call Bj(z4,'h04Y',270.,.0,28.)
-			Bj(z4, 'h04Y', 90., .0, -28.);//call Bj(z4,'h04Y',90.,.0,-28.)
-			Bj(z4, 'h05Y', 270., .0, .0);//call Bj(z4,'h05Y',270.,.0,.0)
-			Bj(z4, 'h05Q', 270., .0, .0);//call Bj(z4,'h05Q',270.,.0,.0)
-			Bj(z4, 'h05S', 270., .0, .0);//call Bj(z4,'h05S',270.,.0,.0)
-			Bj(z4, 'h05W', 270., .0, .0);//call Bj(z4,'h05W',270.,.0,.0)
+			Bj(z4, 875587623, 270., .0, 28.);//call Bj(z4,'h04Y',270.,.0,28.)
+			Bj(z4, 875587623, 90., .0, -28.);//call Bj(z4,'h04Y',90.,.0,-28.)
+			Bj(z4, 892364839, 270., .0, .0);//call Bj(z4,'h05Y',270.,.0,.0)
+			Bj(z4, 892364839, 270., .0, .0);//call Bj(z4,'h05Q',270.,.0,.0)
+			Bj(z4, 892364839, 270., .0, .0);//call Bj(z4,'h05S',270.,.0,.0)
+			Bj(z4, 892364839, 270., .0, .0);//call Bj(z4,'h05W',270.,.0,.0)
 			return false;//return false
 		}//endfunction
 		private bool go() {//function go takes nothing returns boolean
-			Bj(z4, 'h065', 300., .0, .0);//call Bj(z4,'h065',300.,.0,.0)
+			Bj(z4, 909142055, 300., .0, .0);//call Bj(z4,'h065',300.,.0,.0)
 			return false;//return false
 		}//endfunction
 		private bool ho() {//function ho takes nothing returns boolean
-			Bj(z4, 'h066', 270., .0, .0);//call Bj(z4,'h066',270.,.0,.0)
+			Bj(z4, 909142055, 270., .0, .0);//call Bj(z4,'h066',270.,.0,.0)
 			return false;//return false
 		}//endfunction
 		private bool io() {//function io takes nothing returns boolean
-			Bj(z4, 'h067', 270., .0, .0);//call Bj(z4,'h067',270.,.0,.0)
+			Bj(z4, 909142055, 270., .0, .0);//call Bj(z4,'h067',270.,.0,.0)
 			return false;//return false
 		}//endfunction
 		private bool jo() {//function jo takes nothing returns boolean
-			Bj(z4, 'h064', 270., .0, .0);//call Bj(z4,'h064',270.,.0,.0)
+			Bj(z4, 909142055, 270., .0, .0);//call Bj(z4,'h064',270.,.0,.0)
 			return false;//return false
 		}//endfunction
 		private void ko() {//function ko takes nothing returns nothing
-			zj('h03Y', 'h02X');//call zj('h03Y','h02X')
+			zj(858810407, 842033191);//call zj('h03Y','h02X')
 			a8[GetUnitPointValueByType('h03Y')] = 4;//set a8[GetUnitPointValueByType('h03Y')]=4
-			zj('h03X', 'h02W');//call zj('h03X','h02W')
+			zj(858810407, 842033191);//call zj('h03X','h02W')
 			a8[GetUnitPointValueByType('h03X')] = 4;//set a8[GetUnitPointValueByType('h03X')]=4
-			zj('h03Z', 'h02Y');//call zj('h03Z','h02Y')
+			zj(858810407, 842033191);//call zj('h03Z','h02Y')
 			a8[GetUnitPointValueByType('h03Z')] = 4;//set a8[GetUnitPointValueByType('h03Z')]=4
-			zj('h040', 'h034');//call zj('h040','h034')
+			zj(875587623, 858810407);//call zj('h040','h034')
 			a8[GetUnitPointValueByType('h040')] = 2;//set a8[GetUnitPointValueByType('h040')]=2
-			zj('h041', 'h03N');//call zj('h041','h03N')
+			zj(875587623, 858810407);//call zj('h041','h03N')
 			a8[GetUnitPointValueByType('h041')] = 2;//set a8[GetUnitPointValueByType('h041')]=2
-			zj('h042', 'h03P');//call zj('h042','h03P')
+			zj(875587623, 858810407);//call zj('h042','h03P')
 			a8[GetUnitPointValueByType('h042')] = 3;//set a8[GetUnitPointValueByType('h042')]=3
-			zj('h044', 'h03R');//call zj('h044','h03R')
+			zj(875587623, 858810407);//call zj('h044','h03R')
 			a8[GetUnitPointValueByType('h044')] = 3;//set a8[GetUnitPointValueByType('h044')]=3
-			zj('h045', 'h02Z');//call zj('h045','h02Z')
+			zj(875587623, 842033191);//call zj('h045','h02Z')
 			a8[GetUnitPointValueByType('h045')] = 1;//set a8[GetUnitPointValueByType('h045')]=1
-			zj('h046', 'u00F');//call zj('h046','u00F')
+			zj(875587623, 808482087);//call zj('h046','u00F')
 			a8[GetUnitPointValueByType('h046')] = 1;//set a8[GetUnitPointValueByType('h046')]=1
-			zj('h04A', 'o00C');//call zj('h04A','o00C')
+			zj(875587623, 808480551);//call zj('h04A','o00C')
 			a8[GetUnitPointValueByType('h04A')] = 5;//set a8[GetUnitPointValueByType('h04A')]=5
-			zj('h04C', 'o00D');//call zj('h04C','o00D')
+			zj(875587623, 808480551);//call zj('h04C','o00D')
 			a8[GetUnitPointValueByType('h04C')] = 5;//set a8[GetUnitPointValueByType('h04C')]=5
-			zj('h04D', 'o00E');//call zj('h04D','o00E')
+			zj(875587623, 808480551);//call zj('h04D','o00E')
 			a8[GetUnitPointValueByType('h04D')] = 5;//set a8[GetUnitPointValueByType('h04D')]=5
-			zj('h04E', 'h03V');//call zj('h04E','h03V')
+			zj(875587623, 858810407);//call zj('h04E','h03V')
 			a8[GetUnitPointValueByType('h04E')] = 1;//set a8[GetUnitPointValueByType('h04E')]=1
-			Fj('h03X', function Qn);//call Fj('h03X',function Qn)
-			Fj('h03Y', function Rn);//call Fj('h03Y',function Rn)
-			Fj('h03Z', function Sn);//call Fj('h03Z',function Sn)
-			Fj('h040', function Tn);//call Fj('h040',function Tn)
-			Fj('h041', function Un);//call Fj('h041',function Un)
-			Fj('h042', function Vn);//call Fj('h042',function Vn)
-			Fj('h044', function Wn);//call Fj('h044',function Wn)
-			Fj('h045', function Xn);//call Fj('h045',function Xn)
-			Fj('h046', function Yn);//call Fj('h046',function Yn)
-			Fj('h04A', function Zn);//call Fj('h04A',function Zn)
-			Fj('h04C', function do);//call Fj('h04C',function do)
-			Fj('h04D', function eo);//call Fj('h04D',function eo)
-			Fj('h04E', function fo);//call Fj('h04E',function fo)
-			Fj('h05Z', function ho);//call Fj('h05Z',function ho)
-			Fj('h060', function go);//call Fj('h060',function go)
-			Fj('h061', function io);//call Fj('h061',function io)
-			Fj('h063', function jo);//call Fj('h063',function jo)
-			lj('h060', function Pn);//call lj('h060',function Pn)
-			lj('h05Z', function Nn);//call lj('h05Z',function Nn)
-			Ij('h061', 700.);//call Ij('h061',700.)
+			Fj(858810407, function Qn);//call Fj('h03X',function Qn)
+			Fj(858810407, function Rn);//call Fj('h03Y',function Rn)
+			Fj(858810407, function Sn);//call Fj('h03Z',function Sn)
+			Fj(875587623, function Tn);//call Fj('h040',function Tn)
+			Fj(875587623, function Un);//call Fj('h041',function Un)
+			Fj(875587623, function Vn);//call Fj('h042',function Vn)
+			Fj(875587623, function Wn);//call Fj('h044',function Wn)
+			Fj(875587623, function Xn);//call Fj('h045',function Xn)
+			Fj(875587623, function Yn);//call Fj('h046',function Yn)
+			Fj(875587623, function Zn);//call Fj('h04A',function Zn)
+			Fj(875587623, function do);//call Fj('h04C',function do)
+			Fj(875587623, function eo);//call Fj('h04D',function eo)
+			Fj(875587623, function fo);//call Fj('h04E',function fo)
+			Fj(892364839, function ho);//call Fj('h05Z',function ho)
+			Fj(909142055, function go);//call Fj('h060',function go)
+			Fj(909142055, function io);//call Fj('h061',function io)
+			Fj(909142055, function jo);//call Fj('h063',function jo)
+			lj(909142055, function Pn);//call lj('h060',function Pn)
+			lj(892364839, function Nn);//call lj('h05Z',function Nn)
+			Ij(909142055, 700.);//call Ij('h061',700.)
 		}//endfunction
 		private void mo() {//function mo takes nothing returns nothing
 			int id;//local integer id
@@ -3239,15 +3239,15 @@ namespace Jass {
 			v4[id] = false;//set v4[id]=false
 		}//endfunction
 		private void Elementals___RegisterUnitCasts() {//function Elementals___RegisterUnitCasts takes nothing returns nothing
-			Lj('h03V', 'A0E1', function ln);//call Lj('h03V','A0E1',function ln)
+			Lj(858810407, 1160790311, function ln);//call Lj('h03V','A0E1',function ln)
 		}//endfunction
 		private void no() {//function no takes nothing returns nothing
 			timer t = GetExpiredTimer();//local timer t=GetExpiredTimer()
 			unit u = LoadUnitHandle(O9,GetHandleId(t),22);//local unit u=LoadUnitHandle(O9,GetHandleId(t),22)
 			unit w = CreateUnit(GetOwningPlayer(u),808477991,GetUnitX(u),GetUnitY(u),.0);//local unit w=CreateUnit(GetOwningPlayer(u),'e008',GetUnitX(u),GetUnitY(u),.0)
-			UnitAddAbility(w, 'A0DA');//call UnitAddAbility(w,'A0DA')
+			UnitAddAbility(w, 1144013095);//call UnitAddAbility(w,'A0DA')
 			IssuePointOrderById(w, $D01F9, GetUnitX(u), GetUnitY(u));//call IssuePointOrderById(w,$D01F9,GetUnitX(u),GetUnitY(u))
-			UnitApplyTimedLife(w, 'BTLF', 60.);//call UnitApplyTimedLife(w,'BTLF',60.)
+			UnitApplyTimedLife(w, 1280590375, 60.);//call UnitApplyTimedLife(w,'BTLF',60.)
 			SaveUnitHandle(O9, GetHandleId(t), 20, w);//call SaveUnitHandle(O9,GetHandleId(t),20,w)
 			t = null;//set t=null
 			u = null;//set u=null
@@ -3258,20 +3258,20 @@ namespace Jass {
 			timer t;//local timer t
 			unit w;//local unit w
 			if ((i<25)) {//if(i<25)then
-				UnitAddAbility(u, 'A0D8');//call UnitAddAbility(u,'A0D8')
+				UnitAddAbility(u, 1144013095);//call UnitAddAbility(u,'A0D8')
 			} else if ((i<50)) {//elseif(i<50)then
-				UnitAddAbility(u, 'A0D9');//call UnitAddAbility(u,'A0D9')
-				UnitAddAbility(u, 'A0EX');//call UnitAddAbility(u,'A0EX')
+				UnitAddAbility(u, 1144013095);//call UnitAddAbility(u,'A0D9')
+				UnitAddAbility(u, 1160790311);//call UnitAddAbility(u,'A0EX')
 			} else if ((i<75)) {//elseif(i<75)then
-				UnitAddAbility(u, 'A03Q');//call UnitAddAbility(u,'A03Q')
-				UnitAddAbility(u, 'A0EV');//call UnitAddAbility(u,'A0EV')
+				UnitAddAbility(u, 858800423);//call UnitAddAbility(u,'A03Q')
+				UnitAddAbility(u, 1160790311);//call UnitAddAbility(u,'A0EV')
 			} else {//else
-				UnitAddAbility(u, 'A0EW');//call UnitAddAbility(u,'A0EW')
+				UnitAddAbility(u, 1160790311);//call UnitAddAbility(u,'A0EW')
 				t = CreateTimer();//set t=CreateTimer()
 				w = CreateUnit(GetOwningPlayer(u),808477991,GetUnitX(u),GetUnitY(u),.0);//set w=CreateUnit(GetOwningPlayer(u),'e008',GetUnitX(u),GetUnitY(u),.0)
-				UnitAddAbility(w, 'A0DA');//call UnitAddAbility(w,'A0DA')
+				UnitAddAbility(w, 1144013095);//call UnitAddAbility(w,'A0DA')
 				IssuePointOrderById(w, $D01F9, GetUnitX(u), GetUnitY(u));//call IssuePointOrderById(w,$D01F9,GetUnitX(u),GetUnitY(u))
-				UnitApplyTimedLife(w, 'BTLF', 60.);//call UnitApplyTimedLife(w,'BTLF',60.)
+				UnitApplyTimedLife(w, 1280590375, 60.);//call UnitApplyTimedLife(w,'BTLF',60.)
 				SaveTimerHandle(O9, GetHandleId(u), 21, t);//call SaveTimerHandle(O9,GetHandleId(u),21,t)
 				SaveUnitHandle(O9, GetHandleId(t), 20, w);//call SaveUnitHandle(O9,GetHandleId(t),20,w)
 				SaveUnitHandle(O9, GetHandleId(t), 22, u);//call SaveUnitHandle(O9,GetHandleId(t),22,u)
@@ -3302,10 +3302,10 @@ namespace Jass {
 			unit u;//local unit u
 			ko();//call ko()
 			mo();//call mo()
-			Lj('h03V', 'A0E1', function ln);//call Lj('h03V','A0E1',function ln)
+			Lj(858810407, 1160790311, function ln);//call Lj('h03V','A0E1',function ln)
 			B8 = Filter(function On);//set B8=Filter(function On)
 			u = CreateUnit(Player($D),808477991,.0,.0,.0);//set u=CreateUnit(Player($D),'e008',.0,.0,.0)
-			UnitAddAbility(u, 'A0DA');//call UnitAddAbility(u,'A0DA')
+			UnitAddAbility(u, 1144013095);//call UnitAddAbility(u,'A0DA')
 			RemoveUnit(u);//call RemoveUnit(u)
 			u = null;//set u=null
 		}//endfunction
@@ -3329,28 +3329,28 @@ namespace Jass {
 					return;//return
 				}//endif
 			}//endif
-			UnitAddAbility(bj_groupRandomCurrentPick, 'A03B');//call UnitAddAbility(bj_groupRandomCurrentPick,'A03B')
-			UnitAddAbility(bj_groupRandomCurrentPick, 'A03A');//call UnitAddAbility(bj_groupRandomCurrentPick,'A03A')
-			UnitAddAbility(bj_groupRandomCurrentPick, 'A03D');//call UnitAddAbility(bj_groupRandomCurrentPick,'A03D')
-			UnitAddAbility(bj_groupRandomCurrentPick, 'A08L');//call UnitAddAbility(bj_groupRandomCurrentPick,'A08L')
+			UnitAddAbility(bj_groupRandomCurrentPick, 858800423);//call UnitAddAbility(bj_groupRandomCurrentPick,'A03B')
+			UnitAddAbility(bj_groupRandomCurrentPick, 858800423);//call UnitAddAbility(bj_groupRandomCurrentPick,'A03A')
+			UnitAddAbility(bj_groupRandomCurrentPick, 858800423);//call UnitAddAbility(bj_groupRandomCurrentPick,'A03D')
+			UnitAddAbility(bj_groupRandomCurrentPick, 942686503);//call UnitAddAbility(bj_groupRandomCurrentPick,'A08L')
 			if ((i==1)) {//if(i==1)then
-				UnitAddAbility(bj_groupRandomCurrentPick, 'A05I');//call UnitAddAbility(bj_groupRandomCurrentPick,'A05I')
-				UnitAddAbility(bj_groupRandomCurrentPick, 'A06W');//call UnitAddAbility(bj_groupRandomCurrentPick,'A06W')
+				UnitAddAbility(bj_groupRandomCurrentPick, 892354855);//call UnitAddAbility(bj_groupRandomCurrentPick,'A05I')
+				UnitAddAbility(bj_groupRandomCurrentPick, 909132071);//call UnitAddAbility(bj_groupRandomCurrentPick,'A06W')
 			} else if ((i==2)) {//elseif(i==2)then
-				UnitAddAbility(bj_groupRandomCurrentPick, 'A08M');//call UnitAddAbility(bj_groupRandomCurrentPick,'A08M')
-				UnitAddAbility(bj_groupRandomCurrentPick, 'A06Y');//call UnitAddAbility(bj_groupRandomCurrentPick,'A06Y')
+				UnitAddAbility(bj_groupRandomCurrentPick, 942686503);//call UnitAddAbility(bj_groupRandomCurrentPick,'A08M')
+				UnitAddAbility(bj_groupRandomCurrentPick, 909132071);//call UnitAddAbility(bj_groupRandomCurrentPick,'A06Y')
 			} else {//else
-				UnitAddAbility(bj_groupRandomCurrentPick, 'A08R');//call UnitAddAbility(bj_groupRandomCurrentPick,'A08R')
-				UnitAddAbility(bj_groupRandomCurrentPick, 'A06X');//call UnitAddAbility(bj_groupRandomCurrentPick,'A06X')
+				UnitAddAbility(bj_groupRandomCurrentPick, 942686503);//call UnitAddAbility(bj_groupRandomCurrentPick,'A08R')
+				UnitAddAbility(bj_groupRandomCurrentPick, 909132071);//call UnitAddAbility(bj_groupRandomCurrentPick,'A06X')
 			}//endif
 			DestroyEffect(AddSpecialEffectTarget("Abilities\\Spells\\Undead\\ReplenishHealth\\ReplenishHealthCasterOverhead.mdl", bj_groupRandomCurrentPick, "overhead"));//call DestroyEffect(AddSpecialEffectTarget("Abilities\\Spells\\Undead\\ReplenishHealth\\ReplenishHealthCasterOverhead.mdl",bj_groupRandomCurrentPick,"overhead"))
 			DestroyEffect(AddSpecialEffect("Abilities\\Spells\\Human\\DispelMagic\\DispelMagicTarget.mdl", GetUnitX(B4), GetUnitY(B4)));//call DestroyEffect(AddSpecialEffect("Abilities\\Spells\\Human\\DispelMagic\\DispelMagicTarget.mdl",GetUnitX(B4),GetUnitY(B4)))
 		}//endfunction
 		private void wo() {//function wo takes nothing returns nothing
 			unit c = CreateUnit(GetOwningPlayer(B4),808477991,GetUnitX(B4),GetUnitY(B4),.0);//local unit c=CreateUnit(GetOwningPlayer(B4),'e008',GetUnitX(B4),GetUnitY(B4),.0)
-			UnitAddAbility(c, 'A031');//call UnitAddAbility(c,'A031')
+			UnitAddAbility(c, 858800423);//call UnitAddAbility(c,'A031')
 			IssueImmediateOrderById(c, $D009F);//call IssueImmediateOrderById(c,$D009F)
-			UnitApplyTimedLife(c, 'BTLF', 1.);//call UnitApplyTimedLife(c,'BTLF',1.)
+			UnitApplyTimedLife(c, 1280590375, 1.);//call UnitApplyTimedLife(c,'BTLF',1.)
 			c = B4;//set c=B4
 			TriggerSleepAction(1.);//call TriggerSleepAction(1.)
 			SetUnitAnimation(c, "stand");//call SetUnitAnimation(c,"stand")
@@ -3367,11 +3367,11 @@ namespace Jass {
 				return;//return
 			}//endif
 			c = CreateUnit(GetOwningPlayer(B4),808477991,GetUnitX(B4),GetUnitY(B4),.0);//set c=CreateUnit(GetOwningPlayer(B4),'e008',GetUnitX(B4),GetUnitY(B4),.0)
-			UnitAddAbility(c, 'A030');//call UnitAddAbility(c,'A030')
+			UnitAddAbility(c, 858800423);//call UnitAddAbility(c,'A030')
 			UnitShareVision(bj_groupRandomCurrentPick, r4, true);//call UnitShareVision(bj_groupRandomCurrentPick,r4,true)
 			IssueTargetOrderById(c, $D02B6, bj_groupRandomCurrentPick);//call IssueTargetOrderById(c,$D02B6,bj_groupRandomCurrentPick)
 			UnitShareVision(bj_groupRandomCurrentPick, r4, false);//call UnitShareVision(bj_groupRandomCurrentPick,r4,false)
-			UnitApplyTimedLife(c, 'BTLF', 30.);//call UnitApplyTimedLife(c,'BTLF',30.)
+			UnitApplyTimedLife(c, 1280590375, 30.);//call UnitApplyTimedLife(c,'BTLF',30.)
 			c = B4;//set c=B4
 			TriggerSleepAction(.5);//call TriggerSleepAction(.5)
 			SetUnitAnimation(c, "attack");//call SetUnitAnimation(c,"attack")
@@ -3381,28 +3381,28 @@ namespace Jass {
 		}//endfunction
 		private void yo() {//function yo takes nothing returns nothing
 			unit c = CreateUnit(GetOwningPlayer(c4),808477991,GetUnitX(c4),GetUnitY(c4),.0);//local unit c=CreateUnit(GetOwningPlayer(c4),'e008',GetUnitX(c4),GetUnitY(c4),.0)
-			UnitAddAbility(c, 'A06H');//call UnitAddAbility(c,'A06H')
+			UnitAddAbility(c, 909132071);//call UnitAddAbility(c,'A06H')
 			IssueTargetOrderById(c, $D008A, D4);//call IssueTargetOrderById(c,$D008A,D4)
-			UnitApplyTimedLife(c, 'BTLF', 2.);//call UnitApplyTimedLife(c,'BTLF',2.)
+			UnitApplyTimedLife(c, 1280590375, 2.);//call UnitApplyTimedLife(c,'BTLF',2.)
 			c = null;//set c=null
 		}//endfunction
 		private void zo() {//function zo takes nothing returns nothing
-			lj('h02R', function vo);//call lj('h02R',function vo)
-			zj('h02P', 'o009');//call zj('h02P','o009')
-			zj('h02K', 'o007');//call zj('h02K','o007')
-			zj('h092', 'o00B');//call zj('h092','o00B')
-			zj('h035', 'o008');//call zj('h035','o008')
-			zj('h036', 'o006');//call zj('h036','o006')
-			lj('h02O', function wo);//call lj('h02O',function wo)
-			lj('h02N', function xo);//call lj('h02N',function xo)
-			zj('h029', 'o002');//call zj('h029','o002')
-			zj('h02U', 'o004');//call zj('h02U','o004')
-			zj('h031', 'o005');//call zj('h031','o005')
-			zj('h02B', 'o003');//call zj('h02B','o003')
-			zj('h02I', 'o001');//call zj('h02I','o001')
-			Ij('o000', 900.);//call Ij('o000',900.)
-			zj('h02H', 'n00V');//call zj('h02H','n00V')
-			zj('h05E', 'n01O');//call zj('h05E','n01O')
+			lj(842033191, function vo);//call lj('h02R',function vo)
+			zj(842033191, 808480551);//call zj('h02P','o009')
+			zj(842033191, 808480551);//call zj('h02K','o007')
+			zj(959473703, 808480551);//call zj('h092','o00B')
+			zj(858810407, 808480551);//call zj('h035','o008')
+			zj(858810407, 808480551);//call zj('h036','o006')
+			lj(842033191, function wo);//call lj('h02O',function wo)
+			lj(842033191, function xo);//call lj('h02N',function xo)
+			zj(842033191, 808480551);//call zj('h029','o002')
+			zj(842033191, 808480551);//call zj('h02U','o004')
+			zj(858810407, 808480551);//call zj('h031','o005')
+			zj(842033191, 808480551);//call zj('h02B','o003')
+			zj(842033191, 808480551);//call zj('h02I','o001')
+			Ij(808480551, 900.);//call Ij('o000',900.)
+			zj(842033191, 808480295);//call zj('h02H','n00V')
+			zj(892364839, 825257511);//call zj('h05E','n01O')
 		}//endfunction
 		private void Ao() {//function Ao takes nothing returns nothing
 			int id;//local integer id
@@ -3473,12 +3473,12 @@ namespace Jass {
 			v4[id] = false;//set v4[id]=false
 		}//endfunction
 		private void Orc___RegisterUnitCasts() {//function Orc___RegisterUnitCasts takes nothing returns nothing
-			Lj('n01O', 'A06I', function yo);//call Lj('n01O','A06I',function yo)
+			Lj(825257511, 909132071, function yo);//call Lj('n01O','A06I',function yo)
 		}//endfunction
 		private void ao() {//function ao takes nothing returns nothing
 			zo();//call zo()
 			Ao();//call Ao()
-			Lj('n01O', 'A06I', function yo);//call Lj('n01O','A06I',function yo)
+			Lj(825257511, 909132071, function yo);//call Lj('n01O','A06I',function yo)
 			E8 = Filter(function uo);//set E8=Filter(function uo)
 		}//endfunction
 		private void SmartGroup___DEBUGstateShow() {//function SmartGroup___DEBUGstateShow takes nothing returns nothing
@@ -3668,7 +3668,7 @@ namespace Jass {
 			L8[i] = null;//set L8[i]=null
 			SetUnitUserData(u, i);//call SetUnitUserData(u,i)
 			if ((GetUnitTypeId(u)==825257511)) {//if(GetUnitTypeId(u)=='n01U')then
-				UnitApplyTimedLife(u, 'BTLF', 'x');//call UnitApplyTimedLife(u,'BTLF','x')
+				UnitApplyTimedLife(u, 1280590375, 'x');//call UnitApplyTimedLife(u,'BTLF','x')
 			}//endif
 		}//endfunction
 		private void No() {//function No takes nothing returns nothing
@@ -3724,7 +3724,7 @@ namespace Jass {
 			timer t = GetExpiredTimer();//local timer t=GetExpiredTimer()
 			int id = LoadInteger(O9,GetHandleId(t),1);//local integer id=LoadInteger(O9,GetHandleId(t),1)
 			if ((GetWidgetLife(U8[id])>.405 && Ro(V8[id]-GetUnitX(U8[id]),W8[id]-GetUnitY(U8[id]))>768.)) {//if(GetWidgetLife(U8[id])>.405 and Ro(V8[id]-GetUnitX(U8[id]),W8[id]-GetUnitY(U8[id]))>768.)then
-				UnitRemoveAbility(U8[id], 'A0BG');//call UnitRemoveAbility(U8[id],'A0BG')
+				UnitRemoveAbility(U8[id], 1110458663);//call UnitRemoveAbility(U8[id],'A0BG')
 			}//endif
 			Y8 = Y8-1;//set Y8=Y8-1
 			X8[id] = X8[Y8];//set X8[id]=X8[Y8]
@@ -3760,7 +3760,7 @@ namespace Jass {
 				Qo(U8[id]);//call Qo(U8[id])
 				TimerStart(t, .7, false, function To);//call TimerStart(t,.7,false,function To)
 			} else {//else
-				UnitRemoveAbility(U8[id], 'A0BG');//call UnitRemoveAbility(U8[id],'A0BG')
+				UnitRemoveAbility(U8[id], 1110458663);//call UnitRemoveAbility(U8[id],'A0BG')
 				Y8 = Y8-1;//set Y8=Y8-1
 				X8[id] = X8[Y8];//set X8[id]=X8[Y8]
 				V8[id] = V8[Y8];//set V8[id]=V8[Y8]
@@ -3772,7 +3772,7 @@ namespace Jass {
 			t = null;//set t=null
 		}//endfunction
 		private void Vo(unit u) {//function Vo takes unit u returns nothing
-			UnitAddAbility(u, 'A0BG');//call UnitAddAbility(u,'A0BG')
+			UnitAddAbility(u, 1110458663);//call UnitAddAbility(u,'A0BG')
 			if ((X8[Y8]==null)) {//if(X8[Y8]==null)then
 				X8[Y8] = CreateTimer();//set X8[Y8]=CreateTimer()
 			}//endif
@@ -3795,7 +3795,7 @@ namespace Jass {
 			unit Yo;//local unit Yo
 			if ((GetUnitAbilityLevel(Ui,1160790311)>0)) {//if(GetUnitAbilityLevel(Ui,'A0EZ')>0)then
 				Yo = GetTriggerUnit();//set Yo=GetTriggerUnit()
-				UnitRemoveAbility(Ui, 'A0EZ');//call UnitRemoveAbility(Ui,'A0EZ')
+				UnitRemoveAbility(Ui, 1160790311);//call UnitRemoveAbility(Ui,'A0EZ')
 				TriggerSleepAction(.0);//call TriggerSleepAction(.0)
 				if ((!IssueTargetOrderById(Ui,$D0279,Yo))) {//if(not IssueTargetOrderById(Ui,$D0279,Yo))then
 					Po(Ui);//call Po(Ui)
@@ -4063,465 +4063,465 @@ namespace Jass {
 			return ((IsUnitType(GetFilterUnit(),UNIT_TYPE_GROUND)) && (IsUnitEnemy(GetFilterUnit(),e9)) && (GetUnitState(GetFilterUnit(),UNIT_STATE_LIFE)>.7))!=null;//return((IsUnitType(GetFilterUnit(),UNIT_TYPE_GROUND))and(IsUnitEnemy(GetFilterUnit(),e9))and(GetUnitState(GetFilterUnit(),UNIT_STATE_LIFE)>.7))!=null
 		}//endfunction
 		private void zq(int oi) {//function zq takes integer oi returns nothing
-			SaveInteger(i9, 'n000', 0, 0);//call SaveInteger(i9,'n000',0,0)
-			SaveInteger(i9, 'h03B', 0, 1);//call SaveInteger(i9,'h03B',0,1)
-			SaveInteger(i9, 'h03C', 0, 1);//call SaveInteger(i9,'h03C',0,1)
-			SaveInteger(i9, 'n01X', 0, 1);//call SaveInteger(i9,'n01X',0,1)
-			SaveInteger(i9, 'n024', 0, 1);//call SaveInteger(i9,'n024',0,1)
-			SaveInteger(i9, 'n01M', 0, 1);//call SaveInteger(i9,'n01M',0,1)
-			SaveInteger(i9, 'z002', 0, 2);//call SaveInteger(i9,'z002',0,2)
-			SaveInteger(i9, 'z003', 0, 2);//call SaveInteger(i9,'z003',0,2)
-			SaveInteger(i9, 'n00B', 0, 2);//call SaveInteger(i9,'n00B',0,2)
-			SaveInteger(i9, 'n01K', 0, 2);//call SaveInteger(i9,'n01K',0,2)
-			SaveInteger(i9, 'u007', 0, 2);//call SaveInteger(i9,'u007',0,2)
-			SaveInteger(i9, 'n00C', 0, 2);//call SaveInteger(i9,'n00C',0,2)
-			SaveInteger(i9, 'n00L', 0, 2);//call SaveInteger(i9,'n00L',0,2)
-			SaveInteger(i9, 'n00M', 0, 2);//call SaveInteger(i9,'n00M',0,2)
-			SaveInteger(i9, 'n00N', 0, 2);//call SaveInteger(i9,'n00N',0,2)
-			SaveInteger(i9, 'n00O', 0, 2);//call SaveInteger(i9,'n00O',0,2)
-			SaveInteger(i9, 'n00P', 0, 2);//call SaveInteger(i9,'n00P',0,2)
-			SaveInteger(i9, 'n00Q', 0, 2);//call SaveInteger(i9,'n00Q',0,2)
-			SaveInteger(i9, 'n00R', 0, 2);//call SaveInteger(i9,'n00R',0,2)
-			SaveInteger(i9, 'n00O', 0, 2);//call SaveInteger(i9,'n00O',0,2)
-			SaveInteger(i9, 'h034', 0, 3);//call SaveInteger(i9,'h034',0,3)
-			SaveInteger(i9, 'h03N', 0, 3);//call SaveInteger(i9,'h03N',0,3)
-			SaveInteger(i9, 'n00E', 0, 3);//call SaveInteger(i9,'n00E',0,3)
-			SaveInteger(i9, 'hfoo', 0, 4);//call SaveInteger(i9,'hfoo',0,4)
-			SaveInteger(i9, 'h03A', 0, 4);//call SaveInteger(i9,'h03A',0,4)
-			SaveInteger(i9, 'h02W', 0, 4);//call SaveInteger(i9,'h02W',0,4)
-			SaveInteger(i9, 'h02X', 0, 4);//call SaveInteger(i9,'h02X',0,4)
-			SaveInteger(i9, 'h02Y', 0, 4);//call SaveInteger(i9,'h02Y',0,4)
-			SaveInteger(i9, 'o002', 0, 4);//call SaveInteger(i9,'o002',0,4)
-			SaveInteger(i9, 'o004', 0, 4);//call SaveInteger(i9,'o004',0,4)
-			SaveInteger(i9, 'o005', 0, 4);//call SaveInteger(i9,'o005',0,4)
-			SaveInteger(i9, 'u002', 0, 4);//call SaveInteger(i9,'u002',0,4)
-			SaveInteger(i9, 'u00B', 0, 4);//call SaveInteger(i9,'u00B',0,4)
-			SaveInteger(i9, 'n01I', 0, 4);//call SaveInteger(i9,'n01I',0,4)
-			SaveInteger(i9, 'n01H', 0, 4);//call SaveInteger(i9,'n01H',0,4)
-			SaveInteger(i9, 'n027', 0, 4);//call SaveInteger(i9,'n027',0,4)
-			SaveInteger(i9, 'n006', 0, 4);//call SaveInteger(i9,'n006',0,4)
-			SaveInteger(i9, 'n00Y', 0, 4);//call SaveInteger(i9,'n00Y',0,4)
-			SaveInteger(i9, 'n017', 0, 4);//call SaveInteger(i9,'n017',0,4)
-			SaveInteger(i9, 'n018', 0, 4);//call SaveInteger(i9,'n018',0,4)
-			SaveInteger(i9, 'n016', 0, 4);//call SaveInteger(i9,'n016',0,4)
-			SaveInteger(i9, 'n029', 0, 4);//call SaveInteger(i9,'n029',0,4)
-			SaveInteger(i9, 'n02B', 0, 4);//call SaveInteger(i9,'n02B',0,4)
-			SaveInteger(i9, 'n009', 0, 4);//call SaveInteger(i9,'n009',0,4)
-			SaveInteger(i9, 'n00Z', 0, 4);//call SaveInteger(i9,'n00Z',0,4)
-			SaveInteger(i9, 'n00I', 0, 4);//call SaveInteger(i9,'n00I',0,4)
-			SaveInteger(i9, 'n00J', 0, 4);//call SaveInteger(i9,'n00J',0,4)
-			SaveInteger(i9, 'n00K', 0, 4);//call SaveInteger(i9,'n00K',0,4)
-			SaveInteger(i9, 'h06U', 0, 4);//call SaveInteger(i9,'h06U',0,4)
-			SaveInteger(i9, 'e00F', 0, 4);//call SaveInteger(i9,'e00F',0,4)
-			SaveInteger(i9, 'o007', 0, 5);//call SaveInteger(i9,'o007',0,5)
-			SaveInteger(i9, 'n01T', 0, 5);//call SaveInteger(i9,'n01T',0,5)
-			SaveInteger(i9, 'h01V', 0, 5);//call SaveInteger(i9,'h01V',0,5)
-			SaveInteger(i9, 'h01U', 0, 5);//call SaveInteger(i9,'h01U',0,5)
-			SaveInteger(i9, 'h05H', 0, 5);//call SaveInteger(i9,'h05H',0,5)
-			SaveInteger(i9, 'n01G', 0, 5);//call SaveInteger(i9,'n01G',0,5)
-			SaveInteger(i9, 'n012', 0, 5);//call SaveInteger(i9,'n012',0,5)
-			SaveInteger(i9, 'n013', 0, 5);//call SaveInteger(i9,'n013',0,5)
-			SaveInteger(i9, 'n00T', 0, 5);//call SaveInteger(i9,'n00T',0,5)
-			SaveInteger(i9, 'n00U', 0, 5);//call SaveInteger(i9,'n00U',0,5)
-			SaveInteger(i9, 'n01N', 0, 5);//call SaveInteger(i9,'n01N',0,5)
-			SaveInteger(i9, 'n01W', 0, 5);//call SaveInteger(i9,'n01W',0,5)
-			SaveInteger(i9, 'n002', 0, 5);//call SaveInteger(i9,'n002',0,5)
-			SaveInteger(i9, 'n00X', 0, 5);//call SaveInteger(i9,'n00X',0,5)
-			SaveInteger(i9, 'e00B', 0, 6);//call SaveInteger(i9,'e00B',0,6)
-			SaveInteger(i9, 'e00A', 0, 6);//call SaveInteger(i9,'e00A',0,6)
-			SaveInteger(i9, 'h034', 1, 0);//call SaveInteger(i9,'h034',1,0)
-			SaveInteger(i9, 'h03N', 1, 0);//call SaveInteger(i9,'h03N',1,0)
-			SaveInteger(i9, 'h01V', 1, 0);//call SaveInteger(i9,'h01V',1,0)
-			SaveInteger(i9, 'h01U', 1, 0);//call SaveInteger(i9,'h01U',1,0)
-			SaveInteger(i9, 'h05H', 1, 0);//call SaveInteger(i9,'h05H',1,0)
-			SaveInteger(i9, 'n00R', 1, 0);//call SaveInteger(i9,'n00R',1,0)
-			SaveInteger(i9, 'o007', 1, 1);//call SaveInteger(i9,'o007',1,1)
-			SaveInteger(i9, 'z002', 1, 1);//call SaveInteger(i9,'z002',1,1)
-			SaveInteger(i9, 'z003', 1, 1);//call SaveInteger(i9,'z003',1,1)
-			SaveInteger(i9, 'u002', 1, 1);//call SaveInteger(i9,'u002',1,1)
-			SaveInteger(i9, 'u00B', 1, 1);//call SaveInteger(i9,'u00B',1,1)
-			SaveInteger(i9, 'n01M', 1, 1);//call SaveInteger(i9,'n01M',1,1)
-			SaveInteger(i9, 'n01C', 1, 1);//call SaveInteger(i9,'n01C',1,1)
-			SaveInteger(i9, 'e00B', 1, 1);//call SaveInteger(i9,'e00B',1,1)
-			SaveInteger(i9, 'e00A', 1, 1);//call SaveInteger(i9,'e00A',1,1)
-			SaveInteger(i9, 'n00N', 1, 1);//call SaveInteger(i9,'n00N',1,1)
-			SaveInteger(i9, 'hfoo', 1, 2);//call SaveInteger(i9,'hfoo',1,2)
-			SaveInteger(i9, 'h03A', 1, 2);//call SaveInteger(i9,'h03A',1,2)
-			SaveInteger(i9, 'h03B', 1, 2);//call SaveInteger(i9,'h03B',1,2)
-			SaveInteger(i9, 'h03C', 1, 2);//call SaveInteger(i9,'h03C',1,2)
-			SaveInteger(i9, 'o002', 1, 2);//call SaveInteger(i9,'o002',1,2)
-			SaveInteger(i9, 'o004', 1, 2);//call SaveInteger(i9,'o004',1,2)
-			SaveInteger(i9, 'o005', 1, 2);//call SaveInteger(i9,'o005',1,2)
-			SaveInteger(i9, 'n01I', 1, 2);//call SaveInteger(i9,'n01I',1,2)
-			SaveInteger(i9, 'n01H', 1, 2);//call SaveInteger(i9,'n01H',1,2)
-			SaveInteger(i9, 'n027', 1, 2);//call SaveInteger(i9,'n027',1,2)
-			SaveInteger(i9, 'n006', 1, 2);//call SaveInteger(i9,'n006',1,2)
-			SaveInteger(i9, 'n00Y', 1, 2);//call SaveInteger(i9,'n00Y',1,2)
-			SaveInteger(i9, 'n00P', 1, 2);//call SaveInteger(i9,'n00P',1,2)
-			SaveInteger(i9, 'n000', 1, 2);//call SaveInteger(i9,'n000',1,2)
-			SaveInteger(i9, 'n002', 1, 2);//call SaveInteger(i9,'n002',1,2)
-			SaveInteger(i9, 'n00X', 1, 2);//call SaveInteger(i9,'n00X',1,2)
-			SaveInteger(i9, 'h06U', 1, 2);//call SaveInteger(i9,'h06U',1,2)
-			SaveInteger(i9, 'n024', 1, 3);//call SaveInteger(i9,'n024',1,3)
-			SaveInteger(i9, 'n00M', 1, 3);//call SaveInteger(i9,'n00M',1,3)
-			SaveInteger(i9, 'h02W', 1, 4);//call SaveInteger(i9,'h02W',1,4)
-			SaveInteger(i9, 'h02X', 1, 4);//call SaveInteger(i9,'h02X',1,4)
-			SaveInteger(i9, 'h02Y', 1, 4);//call SaveInteger(i9,'h02Y',1,4)
-			SaveInteger(i9, 'n01X', 1, 4);//call SaveInteger(i9,'n01X',1,4)
-			SaveInteger(i9, 'n01T', 1, 4);//call SaveInteger(i9,'n01T',1,4)
-			SaveInteger(i9, 'n00B', 1, 4);//call SaveInteger(i9,'n00B',1,4)
-			SaveInteger(i9, 'n01K', 1, 4);//call SaveInteger(i9,'n01K',1,4)
-			SaveInteger(i9, 'u007', 1, 4);//call SaveInteger(i9,'u007',1,4)
-			SaveInteger(i9, 'n01G', 1, 4);//call SaveInteger(i9,'n01G',1,4)
-			SaveInteger(i9, 'n012', 1, 4);//call SaveInteger(i9,'n012',1,4)
-			SaveInteger(i9, 'n013', 1, 4);//call SaveInteger(i9,'n013',1,4)
-			SaveInteger(i9, 'n009', 1, 4);//call SaveInteger(i9,'n009',1,4)
-			SaveInteger(i9, 'n00Z', 1, 4);//call SaveInteger(i9,'n00Z',1,4)
-			SaveInteger(i9, 'n00L', 1, 4);//call SaveInteger(i9,'n00L',1,4)
-			SaveInteger(i9, 'n00O', 1, 4);//call SaveInteger(i9,'n00O',1,4)
-			SaveInteger(i9, 'e00F', 1, 5);//call SaveInteger(i9,'e00F',1,5)
-			SaveInteger(i9, 'n018', 1, 6);//call SaveInteger(i9,'n018',1,6)
-			SaveInteger(i9, 'n016', 1, 6);//call SaveInteger(i9,'n016',1,6)
-			SaveInteger(i9, 'n029', 1, 6);//call SaveInteger(i9,'n029',1,6)
-			SaveInteger(i9, 'n02B', 1, 6);//call SaveInteger(i9,'n02B',1,6)
-			SaveInteger(i9, 'n00T', 1, 6);//call SaveInteger(i9,'n00T',1,6)
-			SaveInteger(i9, 'n00U', 1, 6);//call SaveInteger(i9,'n00U',1,6)
-			SaveInteger(i9, 'n01N', 1, 6);//call SaveInteger(i9,'n01N',1,6)
-			SaveInteger(i9, 'n01W', 1, 6);//call SaveInteger(i9,'n01W',1,6)
-			SaveInteger(i9, 'n00Q', 1, 6);//call SaveInteger(i9,'n00Q',1,6)
-			SaveInteger(i9, 'n00I', 1, 6);//call SaveInteger(i9,'n00I',1,6)
-			SaveInteger(i9, 'n00J', 1, 6);//call SaveInteger(i9,'n00J',1,6)
-			SaveInteger(i9, 'n00K', 1, 6);//call SaveInteger(i9,'n00K',1,6)
+			SaveInteger(i9, 808480295, 0, 0);//call SaveInteger(i9,'n000',0,0)
+			SaveInteger(i9, 858810407, 0, 1);//call SaveInteger(i9,'h03B',0,1)
+			SaveInteger(i9, 858810407, 0, 1);//call SaveInteger(i9,'h03C',0,1)
+			SaveInteger(i9, 825257511, 0, 1);//call SaveInteger(i9,'n01X',0,1)
+			SaveInteger(i9, 842034727, 0, 1);//call SaveInteger(i9,'n024',0,1)
+			SaveInteger(i9, 825257511, 0, 1);//call SaveInteger(i9,'n01M',0,1)
+			SaveInteger(i9, 808483367, 0, 2);//call SaveInteger(i9,'z002',0,2)
+			SaveInteger(i9, 808483367, 0, 2);//call SaveInteger(i9,'z003',0,2)
+			SaveInteger(i9, 808480295, 0, 2);//call SaveInteger(i9,'n00B',0,2)
+			SaveInteger(i9, 825257511, 0, 2);//call SaveInteger(i9,'n01K',0,2)
+			SaveInteger(i9, 808482087, 0, 2);//call SaveInteger(i9,'u007',0,2)
+			SaveInteger(i9, 808480295, 0, 2);//call SaveInteger(i9,'n00C',0,2)
+			SaveInteger(i9, 808480295, 0, 2);//call SaveInteger(i9,'n00L',0,2)
+			SaveInteger(i9, 808480295, 0, 2);//call SaveInteger(i9,'n00M',0,2)
+			SaveInteger(i9, 808480295, 0, 2);//call SaveInteger(i9,'n00N',0,2)
+			SaveInteger(i9, 808480295, 0, 2);//call SaveInteger(i9,'n00O',0,2)
+			SaveInteger(i9, 808480295, 0, 2);//call SaveInteger(i9,'n00P',0,2)
+			SaveInteger(i9, 808480295, 0, 2);//call SaveInteger(i9,'n00Q',0,2)
+			SaveInteger(i9, 808480295, 0, 2);//call SaveInteger(i9,'n00R',0,2)
+			SaveInteger(i9, 808480295, 0, 2);//call SaveInteger(i9,'n00O',0,2)
+			SaveInteger(i9, 858810407, 0, 3);//call SaveInteger(i9,'h034',0,3)
+			SaveInteger(i9, 858810407, 0, 3);//call SaveInteger(i9,'h03N',0,3)
+			SaveInteger(i9, 808480295, 0, 3);//call SaveInteger(i9,'n00E',0,3)
+			SaveInteger(i9, 1868982311, 0, 4);//call SaveInteger(i9,'hfoo',0,4)
+			SaveInteger(i9, 858810407, 0, 4);//call SaveInteger(i9,'h03A',0,4)
+			SaveInteger(i9, 842033191, 0, 4);//call SaveInteger(i9,'h02W',0,4)
+			SaveInteger(i9, 842033191, 0, 4);//call SaveInteger(i9,'h02X',0,4)
+			SaveInteger(i9, 842033191, 0, 4);//call SaveInteger(i9,'h02Y',0,4)
+			SaveInteger(i9, 808480551, 0, 4);//call SaveInteger(i9,'o002',0,4)
+			SaveInteger(i9, 808480551, 0, 4);//call SaveInteger(i9,'o004',0,4)
+			SaveInteger(i9, 808480551, 0, 4);//call SaveInteger(i9,'o005',0,4)
+			SaveInteger(i9, 808482087, 0, 4);//call SaveInteger(i9,'u002',0,4)
+			SaveInteger(i9, 808482087, 0, 4);//call SaveInteger(i9,'u00B',0,4)
+			SaveInteger(i9, 825257511, 0, 4);//call SaveInteger(i9,'n01I',0,4)
+			SaveInteger(i9, 825257511, 0, 4);//call SaveInteger(i9,'n01H',0,4)
+			SaveInteger(i9, 842034727, 0, 4);//call SaveInteger(i9,'n027',0,4)
+			SaveInteger(i9, 808480295, 0, 4);//call SaveInteger(i9,'n006',0,4)
+			SaveInteger(i9, 808480295, 0, 4);//call SaveInteger(i9,'n00Y',0,4)
+			SaveInteger(i9, 825257511, 0, 4);//call SaveInteger(i9,'n017',0,4)
+			SaveInteger(i9, 825257511, 0, 4);//call SaveInteger(i9,'n018',0,4)
+			SaveInteger(i9, 825257511, 0, 4);//call SaveInteger(i9,'n016',0,4)
+			SaveInteger(i9, 842034727, 0, 4);//call SaveInteger(i9,'n029',0,4)
+			SaveInteger(i9, 842034727, 0, 4);//call SaveInteger(i9,'n02B',0,4)
+			SaveInteger(i9, 808480295, 0, 4);//call SaveInteger(i9,'n009',0,4)
+			SaveInteger(i9, 808480295, 0, 4);//call SaveInteger(i9,'n00Z',0,4)
+			SaveInteger(i9, 808480295, 0, 4);//call SaveInteger(i9,'n00I',0,4)
+			SaveInteger(i9, 808480295, 0, 4);//call SaveInteger(i9,'n00J',0,4)
+			SaveInteger(i9, 808480295, 0, 4);//call SaveInteger(i9,'n00K',0,4)
+			SaveInteger(i9, 909142055, 0, 4);//call SaveInteger(i9,'h06U',0,4)
+			SaveInteger(i9, 808477991, 0, 4);//call SaveInteger(i9,'e00F',0,4)
+			SaveInteger(i9, 808480551, 0, 5);//call SaveInteger(i9,'o007',0,5)
+			SaveInteger(i9, 825257511, 0, 5);//call SaveInteger(i9,'n01T',0,5)
+			SaveInteger(i9, 825255975, 0, 5);//call SaveInteger(i9,'h01V',0,5)
+			SaveInteger(i9, 825255975, 0, 5);//call SaveInteger(i9,'h01U',0,5)
+			SaveInteger(i9, 892364839, 0, 5);//call SaveInteger(i9,'h05H',0,5)
+			SaveInteger(i9, 825257511, 0, 5);//call SaveInteger(i9,'n01G',0,5)
+			SaveInteger(i9, 825257511, 0, 5);//call SaveInteger(i9,'n012',0,5)
+			SaveInteger(i9, 825257511, 0, 5);//call SaveInteger(i9,'n013',0,5)
+			SaveInteger(i9, 808480295, 0, 5);//call SaveInteger(i9,'n00T',0,5)
+			SaveInteger(i9, 808480295, 0, 5);//call SaveInteger(i9,'n00U',0,5)
+			SaveInteger(i9, 825257511, 0, 5);//call SaveInteger(i9,'n01N',0,5)
+			SaveInteger(i9, 825257511, 0, 5);//call SaveInteger(i9,'n01W',0,5)
+			SaveInteger(i9, 808480295, 0, 5);//call SaveInteger(i9,'n002',0,5)
+			SaveInteger(i9, 808480295, 0, 5);//call SaveInteger(i9,'n00X',0,5)
+			SaveInteger(i9, 808477991, 0, 6);//call SaveInteger(i9,'e00B',0,6)
+			SaveInteger(i9, 808477991, 0, 6);//call SaveInteger(i9,'e00A',0,6)
+			SaveInteger(i9, 858810407, 1, 0);//call SaveInteger(i9,'h034',1,0)
+			SaveInteger(i9, 858810407, 1, 0);//call SaveInteger(i9,'h03N',1,0)
+			SaveInteger(i9, 825255975, 1, 0);//call SaveInteger(i9,'h01V',1,0)
+			SaveInteger(i9, 825255975, 1, 0);//call SaveInteger(i9,'h01U',1,0)
+			SaveInteger(i9, 892364839, 1, 0);//call SaveInteger(i9,'h05H',1,0)
+			SaveInteger(i9, 808480295, 1, 0);//call SaveInteger(i9,'n00R',1,0)
+			SaveInteger(i9, 808480551, 1, 1);//call SaveInteger(i9,'o007',1,1)
+			SaveInteger(i9, 808483367, 1, 1);//call SaveInteger(i9,'z002',1,1)
+			SaveInteger(i9, 808483367, 1, 1);//call SaveInteger(i9,'z003',1,1)
+			SaveInteger(i9, 808482087, 1, 1);//call SaveInteger(i9,'u002',1,1)
+			SaveInteger(i9, 808482087, 1, 1);//call SaveInteger(i9,'u00B',1,1)
+			SaveInteger(i9, 825257511, 1, 1);//call SaveInteger(i9,'n01M',1,1)
+			SaveInteger(i9, 825257511, 1, 1);//call SaveInteger(i9,'n01C',1,1)
+			SaveInteger(i9, 808477991, 1, 1);//call SaveInteger(i9,'e00B',1,1)
+			SaveInteger(i9, 808477991, 1, 1);//call SaveInteger(i9,'e00A',1,1)
+			SaveInteger(i9, 808480295, 1, 1);//call SaveInteger(i9,'n00N',1,1)
+			SaveInteger(i9, 1868982311, 1, 2);//call SaveInteger(i9,'hfoo',1,2)
+			SaveInteger(i9, 858810407, 1, 2);//call SaveInteger(i9,'h03A',1,2)
+			SaveInteger(i9, 858810407, 1, 2);//call SaveInteger(i9,'h03B',1,2)
+			SaveInteger(i9, 858810407, 1, 2);//call SaveInteger(i9,'h03C',1,2)
+			SaveInteger(i9, 808480551, 1, 2);//call SaveInteger(i9,'o002',1,2)
+			SaveInteger(i9, 808480551, 1, 2);//call SaveInteger(i9,'o004',1,2)
+			SaveInteger(i9, 808480551, 1, 2);//call SaveInteger(i9,'o005',1,2)
+			SaveInteger(i9, 825257511, 1, 2);//call SaveInteger(i9,'n01I',1,2)
+			SaveInteger(i9, 825257511, 1, 2);//call SaveInteger(i9,'n01H',1,2)
+			SaveInteger(i9, 842034727, 1, 2);//call SaveInteger(i9,'n027',1,2)
+			SaveInteger(i9, 808480295, 1, 2);//call SaveInteger(i9,'n006',1,2)
+			SaveInteger(i9, 808480295, 1, 2);//call SaveInteger(i9,'n00Y',1,2)
+			SaveInteger(i9, 808480295, 1, 2);//call SaveInteger(i9,'n00P',1,2)
+			SaveInteger(i9, 808480295, 1, 2);//call SaveInteger(i9,'n000',1,2)
+			SaveInteger(i9, 808480295, 1, 2);//call SaveInteger(i9,'n002',1,2)
+			SaveInteger(i9, 808480295, 1, 2);//call SaveInteger(i9,'n00X',1,2)
+			SaveInteger(i9, 909142055, 1, 2);//call SaveInteger(i9,'h06U',1,2)
+			SaveInteger(i9, 842034727, 1, 3);//call SaveInteger(i9,'n024',1,3)
+			SaveInteger(i9, 808480295, 1, 3);//call SaveInteger(i9,'n00M',1,3)
+			SaveInteger(i9, 842033191, 1, 4);//call SaveInteger(i9,'h02W',1,4)
+			SaveInteger(i9, 842033191, 1, 4);//call SaveInteger(i9,'h02X',1,4)
+			SaveInteger(i9, 842033191, 1, 4);//call SaveInteger(i9,'h02Y',1,4)
+			SaveInteger(i9, 825257511, 1, 4);//call SaveInteger(i9,'n01X',1,4)
+			SaveInteger(i9, 825257511, 1, 4);//call SaveInteger(i9,'n01T',1,4)
+			SaveInteger(i9, 808480295, 1, 4);//call SaveInteger(i9,'n00B',1,4)
+			SaveInteger(i9, 825257511, 1, 4);//call SaveInteger(i9,'n01K',1,4)
+			SaveInteger(i9, 808482087, 1, 4);//call SaveInteger(i9,'u007',1,4)
+			SaveInteger(i9, 825257511, 1, 4);//call SaveInteger(i9,'n01G',1,4)
+			SaveInteger(i9, 825257511, 1, 4);//call SaveInteger(i9,'n012',1,4)
+			SaveInteger(i9, 825257511, 1, 4);//call SaveInteger(i9,'n013',1,4)
+			SaveInteger(i9, 808480295, 1, 4);//call SaveInteger(i9,'n009',1,4)
+			SaveInteger(i9, 808480295, 1, 4);//call SaveInteger(i9,'n00Z',1,4)
+			SaveInteger(i9, 808480295, 1, 4);//call SaveInteger(i9,'n00L',1,4)
+			SaveInteger(i9, 808480295, 1, 4);//call SaveInteger(i9,'n00O',1,4)
+			SaveInteger(i9, 808477991, 1, 5);//call SaveInteger(i9,'e00F',1,5)
+			SaveInteger(i9, 825257511, 1, 6);//call SaveInteger(i9,'n018',1,6)
+			SaveInteger(i9, 825257511, 1, 6);//call SaveInteger(i9,'n016',1,6)
+			SaveInteger(i9, 842034727, 1, 6);//call SaveInteger(i9,'n029',1,6)
+			SaveInteger(i9, 842034727, 1, 6);//call SaveInteger(i9,'n02B',1,6)
+			SaveInteger(i9, 808480295, 1, 6);//call SaveInteger(i9,'n00T',1,6)
+			SaveInteger(i9, 808480295, 1, 6);//call SaveInteger(i9,'n00U',1,6)
+			SaveInteger(i9, 825257511, 1, 6);//call SaveInteger(i9,'n01N',1,6)
+			SaveInteger(i9, 825257511, 1, 6);//call SaveInteger(i9,'n01W',1,6)
+			SaveInteger(i9, 808480295, 1, 6);//call SaveInteger(i9,'n00Q',1,6)
+			SaveInteger(i9, 808480295, 1, 6);//call SaveInteger(i9,'n00I',1,6)
+			SaveInteger(i9, 808480295, 1, 6);//call SaveInteger(i9,'n00J',1,6)
+			SaveInteger(i9, 808480295, 1, 6);//call SaveInteger(i9,'n00K',1,6)
 		}//endfunction
 		private void Aq(int oi, unit u) {//function Aq takes integer oi,unit u returns nothing
 			GroupEnumUnitsInRange(h9, GetUnitX(u), GetUnitY(u), 700., Condition(function wp));//call GroupEnumUnitsInRange(h9,GetUnitX(u),GetUnitY(u),700.,Condition(function wp))
-			if (FirstOfGroup(h9)!=null ) {//if FirstOfGroup(h9)!=null then
+			if (FirstOfGroup(h9)!=null) {//if FirstOfGroup(h9)!=null then
 				IssueTargetOrderById(u, $D000F, FirstOfGroup(h9));//call IssueTargetOrderById(u,$D000F,FirstOfGroup(h9))
 				return;//return
 			}//endif
 			GroupEnumUnitsInRange(h9, GetUnitX(u), GetUnitY(u), 700., Condition(function xp));//call GroupEnumUnitsInRange(h9,GetUnitX(u),GetUnitY(u),700.,Condition(function xp))
-			if (FirstOfGroup(h9)!=null ) {//if FirstOfGroup(h9)!=null then
+			if (FirstOfGroup(h9)!=null) {//if FirstOfGroup(h9)!=null then
 				IssueTargetOrderById(u, $D000F, FirstOfGroup(h9));//call IssueTargetOrderById(u,$D000F,FirstOfGroup(h9))
 				return;//return
 			}//endif
 			GroupEnumUnitsInRange(h9, GetUnitX(u), GetUnitY(u), 700., Condition(function yp));//call GroupEnumUnitsInRange(h9,GetUnitX(u),GetUnitY(u),700.,Condition(function yp))
-			if (FirstOfGroup(h9)!=null ) {//if FirstOfGroup(h9)!=null then
+			if (FirstOfGroup(h9)!=null) {//if FirstOfGroup(h9)!=null then
 				IssueTargetOrderById(u, $D000F, FirstOfGroup(h9));//call IssueTargetOrderById(u,$D000F,FirstOfGroup(h9))
 				return;//return
 			}//endif
 			GroupEnumUnitsInRange(h9, GetUnitX(u), GetUnitY(u), 700., Condition(function zp));//call GroupEnumUnitsInRange(h9,GetUnitX(u),GetUnitY(u),700.,Condition(function zp))
-			if (FirstOfGroup(h9)!=null ) {//if FirstOfGroup(h9)!=null then
+			if (FirstOfGroup(h9)!=null) {//if FirstOfGroup(h9)!=null then
 				IssueTargetOrderById(u, $D000F, FirstOfGroup(h9));//call IssueTargetOrderById(u,$D000F,FirstOfGroup(h9))
 				return;//return
 			}//endif
 			GroupEnumUnitsInRange(h9, GetUnitX(u), GetUnitY(u), 700., Condition(function Ap));//call GroupEnumUnitsInRange(h9,GetUnitX(u),GetUnitY(u),700.,Condition(function Ap))
-			if (FirstOfGroup(h9)!=null ) {//if FirstOfGroup(h9)!=null then
+			if (FirstOfGroup(h9)!=null) {//if FirstOfGroup(h9)!=null then
 				IssueTargetOrderById(u, $D000F, FirstOfGroup(h9));//call IssueTargetOrderById(u,$D000F,FirstOfGroup(h9))
 				return;//return
 			}//endif
 			GroupEnumUnitsInRange(h9, GetUnitX(u), GetUnitY(u), 700., Condition(function ap));//call GroupEnumUnitsInRange(h9,GetUnitX(u),GetUnitY(u),700.,Condition(function ap))
-			if (FirstOfGroup(h9)!=null ) {//if FirstOfGroup(h9)!=null then
+			if (FirstOfGroup(h9)!=null) {//if FirstOfGroup(h9)!=null then
 				IssueTargetOrderById(u, $D000F, FirstOfGroup(h9));//call IssueTargetOrderById(u,$D000F,FirstOfGroup(h9))
 				return;//return
 			}//endif
 		}//endfunction
 		private void aq(int oi, unit u) {//function aq takes integer oi,unit u returns nothing
 			GroupEnumUnitsInRange(h9, GetUnitX(u), GetUnitY(u), 700., Condition(function wp));//call GroupEnumUnitsInRange(h9,GetUnitX(u),GetUnitY(u),700.,Condition(function wp))
-			if (FirstOfGroup(h9)!=null ) {//if FirstOfGroup(h9)!=null then
+			if (FirstOfGroup(h9)!=null) {//if FirstOfGroup(h9)!=null then
 				IssueTargetOrderById(u, $D000F, FirstOfGroup(h9));//call IssueTargetOrderById(u,$D000F,FirstOfGroup(h9))
 				return;//return
 			}//endif
 			GroupEnumUnitsInRange(h9, GetUnitX(u), GetUnitY(u), 700., Condition(function xp));//call GroupEnumUnitsInRange(h9,GetUnitX(u),GetUnitY(u),700.,Condition(function xp))
-			if (FirstOfGroup(h9)!=null ) {//if FirstOfGroup(h9)!=null then
+			if (FirstOfGroup(h9)!=null) {//if FirstOfGroup(h9)!=null then
 				IssueTargetOrderById(u, $D000F, FirstOfGroup(h9));//call IssueTargetOrderById(u,$D000F,FirstOfGroup(h9))
 				return;//return
 			}//endif
 			GroupEnumUnitsInRange(h9, GetUnitX(u), GetUnitY(u), 700., Condition(function yp));//call GroupEnumUnitsInRange(h9,GetUnitX(u),GetUnitY(u),700.,Condition(function yp))
-			if (FirstOfGroup(h9)!=null ) {//if FirstOfGroup(h9)!=null then
+			if (FirstOfGroup(h9)!=null) {//if FirstOfGroup(h9)!=null then
 				IssueTargetOrderById(u, $D000F, FirstOfGroup(h9));//call IssueTargetOrderById(u,$D000F,FirstOfGroup(h9))
 				return;//return
 			}//endif
 			GroupEnumUnitsInRange(h9, GetUnitX(u), GetUnitY(u), 700., Condition(function zp));//call GroupEnumUnitsInRange(h9,GetUnitX(u),GetUnitY(u),700.,Condition(function zp))
-			if (FirstOfGroup(h9)!=null ) {//if FirstOfGroup(h9)!=null then
+			if (FirstOfGroup(h9)!=null) {//if FirstOfGroup(h9)!=null then
 				IssueTargetOrderById(u, $D000F, FirstOfGroup(h9));//call IssueTargetOrderById(u,$D000F,FirstOfGroup(h9))
 				return;//return
 			}//endif
 			GroupEnumUnitsInRange(h9, GetUnitX(u), GetUnitY(u), 700., Condition(function Ap));//call GroupEnumUnitsInRange(h9,GetUnitX(u),GetUnitY(u),700.,Condition(function Ap))
-			if (FirstOfGroup(h9)!=null ) {//if FirstOfGroup(h9)!=null then
+			if (FirstOfGroup(h9)!=null) {//if FirstOfGroup(h9)!=null then
 				IssueTargetOrderById(u, $D000F, FirstOfGroup(h9));//call IssueTargetOrderById(u,$D000F,FirstOfGroup(h9))
 				return;//return
 			}//endif
 			GroupEnumUnitsInRange(h9, GetUnitX(u), GetUnitY(u), 700., Condition(function ap));//call GroupEnumUnitsInRange(h9,GetUnitX(u),GetUnitY(u),700.,Condition(function ap))
-			if (FirstOfGroup(h9)!=null ) {//if FirstOfGroup(h9)!=null then
+			if (FirstOfGroup(h9)!=null) {//if FirstOfGroup(h9)!=null then
 				IssueTargetOrderById(u, $D000F, FirstOfGroup(h9));//call IssueTargetOrderById(u,$D000F,FirstOfGroup(h9))
 				return;//return
 			}//endif
 		}//endfunction
 		private void Bq(int oi, unit u) {//function Bq takes integer oi,unit u returns nothing
 			GroupEnumUnitsInRange(h9, GetUnitX(u), GetUnitY(u), 700., Condition(function Bp));//call GroupEnumUnitsInRange(h9,GetUnitX(u),GetUnitY(u),700.,Condition(function Bp))
-			if (FirstOfGroup(h9)!=null ) {//if FirstOfGroup(h9)!=null then
+			if (FirstOfGroup(h9)!=null) {//if FirstOfGroup(h9)!=null then
 				IssueTargetOrderById(u, $D000F, FirstOfGroup(h9));//call IssueTargetOrderById(u,$D000F,FirstOfGroup(h9))
 				return;//return
 			}//endif
 			GroupEnumUnitsInRange(h9, GetUnitX(u), GetUnitY(u), 700., Condition(function bp));//call GroupEnumUnitsInRange(h9,GetUnitX(u),GetUnitY(u),700.,Condition(function bp))
-			if (FirstOfGroup(h9)!=null ) {//if FirstOfGroup(h9)!=null then
+			if (FirstOfGroup(h9)!=null) {//if FirstOfGroup(h9)!=null then
 				IssueTargetOrderById(u, $D000F, FirstOfGroup(h9));//call IssueTargetOrderById(u,$D000F,FirstOfGroup(h9))
 				return;//return
 			}//endif
 			GroupEnumUnitsInRange(h9, GetUnitX(u), GetUnitY(u), 700., Condition(function Cp));//call GroupEnumUnitsInRange(h9,GetUnitX(u),GetUnitY(u),700.,Condition(function Cp))
-			if (FirstOfGroup(h9)!=null ) {//if FirstOfGroup(h9)!=null then
+			if (FirstOfGroup(h9)!=null) {//if FirstOfGroup(h9)!=null then
 				IssueTargetOrderById(u, $D000F, FirstOfGroup(h9));//call IssueTargetOrderById(u,$D000F,FirstOfGroup(h9))
 				return;//return
 			}//endif
 			GroupEnumUnitsInRange(h9, GetUnitX(u), GetUnitY(u), 700., Condition(function cp));//call GroupEnumUnitsInRange(h9,GetUnitX(u),GetUnitY(u),700.,Condition(function cp))
-			if (FirstOfGroup(h9)!=null ) {//if FirstOfGroup(h9)!=null then
+			if (FirstOfGroup(h9)!=null) {//if FirstOfGroup(h9)!=null then
 				IssueTargetOrderById(u, $D000F, FirstOfGroup(h9));//call IssueTargetOrderById(u,$D000F,FirstOfGroup(h9))
 				return;//return
 			}//endif
 			GroupEnumUnitsInRange(h9, GetUnitX(u), GetUnitY(u), 700., Condition(function Dp));//call GroupEnumUnitsInRange(h9,GetUnitX(u),GetUnitY(u),700.,Condition(function Dp))
-			if (FirstOfGroup(h9)!=null ) {//if FirstOfGroup(h9)!=null then
+			if (FirstOfGroup(h9)!=null) {//if FirstOfGroup(h9)!=null then
 				IssueTargetOrderById(u, $D000F, FirstOfGroup(h9));//call IssueTargetOrderById(u,$D000F,FirstOfGroup(h9))
 				return;//return
 			}//endif
 			GroupEnumUnitsInRange(h9, GetUnitX(u), GetUnitY(u), 700., Condition(function Ep));//call GroupEnumUnitsInRange(h9,GetUnitX(u),GetUnitY(u),700.,Condition(function Ep))
-			if (FirstOfGroup(h9)!=null ) {//if FirstOfGroup(h9)!=null then
+			if (FirstOfGroup(h9)!=null) {//if FirstOfGroup(h9)!=null then
 				IssueTargetOrderById(u, $D000F, FirstOfGroup(h9));//call IssueTargetOrderById(u,$D000F,FirstOfGroup(h9))
 				return;//return
 			}//endif
 			GroupEnumUnitsInRange(h9, GetUnitX(u), GetUnitY(u), 700., Condition(function Fp));//call GroupEnumUnitsInRange(h9,GetUnitX(u),GetUnitY(u),700.,Condition(function Fp))
-			if (FirstOfGroup(h9)!=null ) {//if FirstOfGroup(h9)!=null then
+			if (FirstOfGroup(h9)!=null) {//if FirstOfGroup(h9)!=null then
 				IssueTargetOrderById(u, $D000F, FirstOfGroup(h9));//call IssueTargetOrderById(u,$D000F,FirstOfGroup(h9))
 				return;//return
 			}//endif
 			GroupEnumUnitsInRange(h9, GetUnitX(u), GetUnitY(u), 700., Condition(function Gp));//call GroupEnumUnitsInRange(h9,GetUnitX(u),GetUnitY(u),700.,Condition(function Gp))
-			if (FirstOfGroup(h9)!=null ) {//if FirstOfGroup(h9)!=null then
+			if (FirstOfGroup(h9)!=null) {//if FirstOfGroup(h9)!=null then
 				IssueTargetOrderById(u, $D000F, FirstOfGroup(h9));//call IssueTargetOrderById(u,$D000F,FirstOfGroup(h9))
 				return;//return
 			}//endif
 			GroupEnumUnitsInRange(h9, GetUnitX(u), GetUnitY(u), 700., Condition(function Hp));//call GroupEnumUnitsInRange(h9,GetUnitX(u),GetUnitY(u),700.,Condition(function Hp))
-			if (FirstOfGroup(h9)!=null ) {//if FirstOfGroup(h9)!=null then
+			if (FirstOfGroup(h9)!=null) {//if FirstOfGroup(h9)!=null then
 				IssueTargetOrderById(u, $D000F, FirstOfGroup(h9));//call IssueTargetOrderById(u,$D000F,FirstOfGroup(h9))
 				return;//return
 			}//endif
 			GroupEnumUnitsInRange(h9, GetUnitX(u), GetUnitY(u), 700., Condition(function Ip));//call GroupEnumUnitsInRange(h9,GetUnitX(u),GetUnitY(u),700.,Condition(function Ip))
-			if (FirstOfGroup(h9)!=null ) {//if FirstOfGroup(h9)!=null then
+			if (FirstOfGroup(h9)!=null) {//if FirstOfGroup(h9)!=null then
 				IssueTargetOrderById(u, $D000F, FirstOfGroup(h9));//call IssueTargetOrderById(u,$D000F,FirstOfGroup(h9))
 				return;//return
 			}//endif
 		}//endfunction
 		private void bq(int oi, unit u) {//function bq takes integer oi,unit u returns nothing
 			GroupEnumUnitsInRange(h9, GetUnitX(u), GetUnitY(u), 700., Condition(function lp));//call GroupEnumUnitsInRange(h9,GetUnitX(u),GetUnitY(u),700.,Condition(function lp))
-			if (FirstOfGroup(h9)!=null ) {//if FirstOfGroup(h9)!=null then
+			if (FirstOfGroup(h9)!=null) {//if FirstOfGroup(h9)!=null then
 				IssueTargetOrderById(u, $D000F, FirstOfGroup(h9));//call IssueTargetOrderById(u,$D000F,FirstOfGroup(h9))
 				return;//return
 			}//endif
 			GroupEnumUnitsInRange(h9, GetUnitX(u), GetUnitY(u), 700., Condition(function Jp));//call GroupEnumUnitsInRange(h9,GetUnitX(u),GetUnitY(u),700.,Condition(function Jp))
-			if (FirstOfGroup(h9)!=null ) {//if FirstOfGroup(h9)!=null then
+			if (FirstOfGroup(h9)!=null) {//if FirstOfGroup(h9)!=null then
 				IssueTargetOrderById(u, $D000F, FirstOfGroup(h9));//call IssueTargetOrderById(u,$D000F,FirstOfGroup(h9))
 				return;//return
 			}//endif
 			GroupEnumUnitsInRange(h9, GetUnitX(u), GetUnitY(u), 700., Condition(function Kp));//call GroupEnumUnitsInRange(h9,GetUnitX(u),GetUnitY(u),700.,Condition(function Kp))
-			if (FirstOfGroup(h9)!=null ) {//if FirstOfGroup(h9)!=null then
+			if (FirstOfGroup(h9)!=null) {//if FirstOfGroup(h9)!=null then
 				IssueTargetOrderById(u, $D000F, FirstOfGroup(h9));//call IssueTargetOrderById(u,$D000F,FirstOfGroup(h9))
 				return;//return
 			}//endif
 			GroupEnumUnitsInRange(h9, GetUnitX(u), GetUnitY(u), 700., Condition(function Lp));//call GroupEnumUnitsInRange(h9,GetUnitX(u),GetUnitY(u),700.,Condition(function Lp))
-			if (FirstOfGroup(h9)!=null ) {//if FirstOfGroup(h9)!=null then
+			if (FirstOfGroup(h9)!=null) {//if FirstOfGroup(h9)!=null then
 				IssueTargetOrderById(u, $D000F, FirstOfGroup(h9));//call IssueTargetOrderById(u,$D000F,FirstOfGroup(h9))
 				return;//return
 			}//endif
 			GroupEnumUnitsInRange(h9, GetUnitX(u), GetUnitY(u), 700., Condition(function Mp));//call GroupEnumUnitsInRange(h9,GetUnitX(u),GetUnitY(u),700.,Condition(function Mp))
-			if (FirstOfGroup(h9)!=null ) {//if FirstOfGroup(h9)!=null then
+			if (FirstOfGroup(h9)!=null) {//if FirstOfGroup(h9)!=null then
 				IssueTargetOrderById(u, $D000F, FirstOfGroup(h9));//call IssueTargetOrderById(u,$D000F,FirstOfGroup(h9))
 				return;//return
 			}//endif
 			GroupEnumUnitsInRange(h9, GetUnitX(u), GetUnitY(u), 700., Condition(function Np));//call GroupEnumUnitsInRange(h9,GetUnitX(u),GetUnitY(u),700.,Condition(function Np))
-			if (FirstOfGroup(h9)!=null ) {//if FirstOfGroup(h9)!=null then
+			if (FirstOfGroup(h9)!=null) {//if FirstOfGroup(h9)!=null then
 				IssueTargetOrderById(u, $D000F, FirstOfGroup(h9));//call IssueTargetOrderById(u,$D000F,FirstOfGroup(h9))
 				return;//return
 			}//endif
 			GroupEnumUnitsInRange(h9, GetUnitX(u), GetUnitY(u), 700., Condition(function Op));//call GroupEnumUnitsInRange(h9,GetUnitX(u),GetUnitY(u),700.,Condition(function Op))
-			if (FirstOfGroup(h9)!=null ) {//if FirstOfGroup(h9)!=null then
+			if (FirstOfGroup(h9)!=null) {//if FirstOfGroup(h9)!=null then
 				IssueTargetOrderById(u, $D000F, FirstOfGroup(h9));//call IssueTargetOrderById(u,$D000F,FirstOfGroup(h9))
 				return;//return
 			}//endif
 			GroupEnumUnitsInRange(h9, GetUnitX(u), GetUnitY(u), 700., Condition(function Pp));//call GroupEnumUnitsInRange(h9,GetUnitX(u),GetUnitY(u),700.,Condition(function Pp))
-			if (FirstOfGroup(h9)!=null ) {//if FirstOfGroup(h9)!=null then
+			if (FirstOfGroup(h9)!=null) {//if FirstOfGroup(h9)!=null then
 				IssueTargetOrderById(u, $D000F, FirstOfGroup(h9));//call IssueTargetOrderById(u,$D000F,FirstOfGroup(h9))
 				return;//return
 			}//endif
 			GroupEnumUnitsInRange(h9, GetUnitX(u), GetUnitY(u), 700., Condition(function Qp));//call GroupEnumUnitsInRange(h9,GetUnitX(u),GetUnitY(u),700.,Condition(function Qp))
-			if (FirstOfGroup(h9)!=null ) {//if FirstOfGroup(h9)!=null then
+			if (FirstOfGroup(h9)!=null) {//if FirstOfGroup(h9)!=null then
 				IssueTargetOrderById(u, $D000F, FirstOfGroup(h9));//call IssueTargetOrderById(u,$D000F,FirstOfGroup(h9))
 				return;//return
 			}//endif
 			GroupEnumUnitsInRange(h9, GetUnitX(u), GetUnitY(u), 700., Condition(function Rp));//call GroupEnumUnitsInRange(h9,GetUnitX(u),GetUnitY(u),700.,Condition(function Rp))
-			if (FirstOfGroup(h9)!=null ) {//if FirstOfGroup(h9)!=null then
+			if (FirstOfGroup(h9)!=null) {//if FirstOfGroup(h9)!=null then
 				IssueTargetOrderById(u, $D000F, FirstOfGroup(h9));//call IssueTargetOrderById(u,$D000F,FirstOfGroup(h9))
 				return;//return
 			}//endif
 			GroupEnumUnitsInRange(h9, GetUnitX(u), GetUnitY(u), 700., Condition(function Sp));//call GroupEnumUnitsInRange(h9,GetUnitX(u),GetUnitY(u),700.,Condition(function Sp))
-			if (FirstOfGroup(h9)!=null ) {//if FirstOfGroup(h9)!=null then
+			if (FirstOfGroup(h9)!=null) {//if FirstOfGroup(h9)!=null then
 				IssueTargetOrderById(u, $D000F, FirstOfGroup(h9));//call IssueTargetOrderById(u,$D000F,FirstOfGroup(h9))
 				return;//return
 			}//endif
 			GroupEnumUnitsInRange(h9, GetUnitX(u), GetUnitY(u), 700., Condition(function Tp));//call GroupEnumUnitsInRange(h9,GetUnitX(u),GetUnitY(u),700.,Condition(function Tp))
-			if (FirstOfGroup(h9)!=null ) {//if FirstOfGroup(h9)!=null then
+			if (FirstOfGroup(h9)!=null) {//if FirstOfGroup(h9)!=null then
 				IssueTargetOrderById(u, $D000F, FirstOfGroup(h9));//call IssueTargetOrderById(u,$D000F,FirstOfGroup(h9))
 				return;//return
 			}//endif
 		}//endfunction
 		private void Cq(int oi, unit u) {//function Cq takes integer oi,unit u returns nothing
 			GroupEnumUnitsInRange(h9, GetUnitX(u), GetUnitY(u), 700., Condition(function Up));//call GroupEnumUnitsInRange(h9,GetUnitX(u),GetUnitY(u),700.,Condition(function Up))
-			if (FirstOfGroup(h9)!=null ) {//if FirstOfGroup(h9)!=null then
+			if (FirstOfGroup(h9)!=null) {//if FirstOfGroup(h9)!=null then
 				IssueTargetOrderById(u, $D000F, FirstOfGroup(h9));//call IssueTargetOrderById(u,$D000F,FirstOfGroup(h9))
 				return;//return
 			}//endif
 			GroupEnumUnitsInRange(h9, GetUnitX(u), GetUnitY(u), 700., Condition(function Vp));//call GroupEnumUnitsInRange(h9,GetUnitX(u),GetUnitY(u),700.,Condition(function Vp))
-			if (FirstOfGroup(h9)!=null ) {//if FirstOfGroup(h9)!=null then
+			if (FirstOfGroup(h9)!=null) {//if FirstOfGroup(h9)!=null then
 				IssueTargetOrderById(u, $D000F, FirstOfGroup(h9));//call IssueTargetOrderById(u,$D000F,FirstOfGroup(h9))
 				return;//return
 			}//endif
 			GroupEnumUnitsInRange(h9, GetUnitX(u), GetUnitY(u), 700., Condition(function Wp));//call GroupEnumUnitsInRange(h9,GetUnitX(u),GetUnitY(u),700.,Condition(function Wp))
-			if (FirstOfGroup(h9)!=null ) {//if FirstOfGroup(h9)!=null then
+			if (FirstOfGroup(h9)!=null) {//if FirstOfGroup(h9)!=null then
 				IssueTargetOrderById(u, $D000F, FirstOfGroup(h9));//call IssueTargetOrderById(u,$D000F,FirstOfGroup(h9))
 				return;//return
 			}//endif
 			GroupEnumUnitsInRange(h9, GetUnitX(u), GetUnitY(u), 700., Condition(function Xp));//call GroupEnumUnitsInRange(h9,GetUnitX(u),GetUnitY(u),700.,Condition(function Xp))
-			if (FirstOfGroup(h9)!=null ) {//if FirstOfGroup(h9)!=null then
+			if (FirstOfGroup(h9)!=null) {//if FirstOfGroup(h9)!=null then
 				IssueTargetOrderById(u, $D000F, FirstOfGroup(h9));//call IssueTargetOrderById(u,$D000F,FirstOfGroup(h9))
 				return;//return
 			}//endif
 			GroupEnumUnitsInRange(h9, GetUnitX(u), GetUnitY(u), 700., Condition(function Yp));//call GroupEnumUnitsInRange(h9,GetUnitX(u),GetUnitY(u),700.,Condition(function Yp))
-			if (FirstOfGroup(h9)!=null ) {//if FirstOfGroup(h9)!=null then
+			if (FirstOfGroup(h9)!=null) {//if FirstOfGroup(h9)!=null then
 				IssueTargetOrderById(u, $D000F, FirstOfGroup(h9));//call IssueTargetOrderById(u,$D000F,FirstOfGroup(h9))
 				return;//return
 			}//endif
 			GroupEnumUnitsInRange(h9, GetUnitX(u), GetUnitY(u), 700., Condition(function Zp));//call GroupEnumUnitsInRange(h9,GetUnitX(u),GetUnitY(u),700.,Condition(function Zp))
-			if (FirstOfGroup(h9)!=null ) {//if FirstOfGroup(h9)!=null then
+			if (FirstOfGroup(h9)!=null) {//if FirstOfGroup(h9)!=null then
 				IssueTargetOrderById(u, $D000F, FirstOfGroup(h9));//call IssueTargetOrderById(u,$D000F,FirstOfGroup(h9))
 				return;//return
 			}//endif
 			GroupEnumUnitsInRange(h9, GetUnitX(u), GetUnitY(u), 700., Condition(function dq));//call GroupEnumUnitsInRange(h9,GetUnitX(u),GetUnitY(u),700.,Condition(function dq))
-			if (FirstOfGroup(h9)!=null ) {//if FirstOfGroup(h9)!=null then
+			if (FirstOfGroup(h9)!=null) {//if FirstOfGroup(h9)!=null then
 				IssueTargetOrderById(u, $D000F, FirstOfGroup(h9));//call IssueTargetOrderById(u,$D000F,FirstOfGroup(h9))
 				return;//return
 			}//endif
 			GroupEnumUnitsInRange(h9, GetUnitX(u), GetUnitY(u), 700., Condition(function eq));//call GroupEnumUnitsInRange(h9,GetUnitX(u),GetUnitY(u),700.,Condition(function eq))
-			if (FirstOfGroup(h9)!=null ) {//if FirstOfGroup(h9)!=null then
+			if (FirstOfGroup(h9)!=null) {//if FirstOfGroup(h9)!=null then
 				IssueTargetOrderById(u, $D000F, FirstOfGroup(h9));//call IssueTargetOrderById(u,$D000F,FirstOfGroup(h9))
 				return;//return
 			}//endif
 			GroupEnumUnitsInRange(h9, GetUnitX(u), GetUnitY(u), 700., Condition(function fq));//call GroupEnumUnitsInRange(h9,GetUnitX(u),GetUnitY(u),700.,Condition(function fq))
-			if (FirstOfGroup(h9)!=null ) {//if FirstOfGroup(h9)!=null then
+			if (FirstOfGroup(h9)!=null) {//if FirstOfGroup(h9)!=null then
 				IssueTargetOrderById(u, $D000F, FirstOfGroup(h9));//call IssueTargetOrderById(u,$D000F,FirstOfGroup(h9))
 				return;//return
 			}//endif
 			GroupEnumUnitsInRange(h9, GetUnitX(u), GetUnitY(u), 700., Condition(function gq));//call GroupEnumUnitsInRange(h9,GetUnitX(u),GetUnitY(u),700.,Condition(function gq))
-			if (FirstOfGroup(h9)!=null ) {//if FirstOfGroup(h9)!=null then
+			if (FirstOfGroup(h9)!=null) {//if FirstOfGroup(h9)!=null then
 				IssueTargetOrderById(u, $D000F, FirstOfGroup(h9));//call IssueTargetOrderById(u,$D000F,FirstOfGroup(h9))
 				return;//return
 			}//endif
 			GroupEnumUnitsInRange(h9, GetUnitX(u), GetUnitY(u), 700., Condition(function hq));//call GroupEnumUnitsInRange(h9,GetUnitX(u),GetUnitY(u),700.,Condition(function hq))
-			if (FirstOfGroup(h9)!=null ) {//if FirstOfGroup(h9)!=null then
+			if (FirstOfGroup(h9)!=null) {//if FirstOfGroup(h9)!=null then
 				IssueTargetOrderById(u, $D000F, FirstOfGroup(h9));//call IssueTargetOrderById(u,$D000F,FirstOfGroup(h9))
 				return;//return
 			}//endif
 			GroupEnumUnitsInRange(h9, GetUnitX(u), GetUnitY(u), 700., Condition(function iq));//call GroupEnumUnitsInRange(h9,GetUnitX(u),GetUnitY(u),700.,Condition(function iq))
-			if (FirstOfGroup(h9)!=null ) {//if FirstOfGroup(h9)!=null then
+			if (FirstOfGroup(h9)!=null) {//if FirstOfGroup(h9)!=null then
 				IssueTargetOrderById(u, $D000F, FirstOfGroup(h9));//call IssueTargetOrderById(u,$D000F,FirstOfGroup(h9))
 				return;//return
 			}//endif
 		}//endfunction
 		private void cq(int oi, unit u) {//function cq takes integer oi,unit u returns nothing
 			GroupEnumUnitsInRange(h9, GetUnitX(u), GetUnitY(u), 700., Condition(function jq));//call GroupEnumUnitsInRange(h9,GetUnitX(u),GetUnitY(u),700.,Condition(function jq))
-			if (FirstOfGroup(h9)!=null ) {//if FirstOfGroup(h9)!=null then
+			if (FirstOfGroup(h9)!=null) {//if FirstOfGroup(h9)!=null then
 				IssueTargetOrderById(u, $D000F, FirstOfGroup(h9));//call IssueTargetOrderById(u,$D000F,FirstOfGroup(h9))
 				return;//return
 			}//endif
 			GroupEnumUnitsInRange(h9, GetUnitX(u), GetUnitY(u), 700., Condition(function kq));//call GroupEnumUnitsInRange(h9,GetUnitX(u),GetUnitY(u),700.,Condition(function kq))
-			if (FirstOfGroup(h9)!=null ) {//if FirstOfGroup(h9)!=null then
+			if (FirstOfGroup(h9)!=null) {//if FirstOfGroup(h9)!=null then
 				IssueTargetOrderById(u, $D000F, FirstOfGroup(h9));//call IssueTargetOrderById(u,$D000F,FirstOfGroup(h9))
 				return;//return
 			}//endif
 			GroupEnumUnitsInRange(h9, GetUnitX(u), GetUnitY(u), 700., Condition(function mq));//call GroupEnumUnitsInRange(h9,GetUnitX(u),GetUnitY(u),700.,Condition(function mq))
-			if (FirstOfGroup(h9)!=null ) {//if FirstOfGroup(h9)!=null then
+			if (FirstOfGroup(h9)!=null) {//if FirstOfGroup(h9)!=null then
 				IssueTargetOrderById(u, $D000F, FirstOfGroup(h9));//call IssueTargetOrderById(u,$D000F,FirstOfGroup(h9))
 				return;//return
 			}//endif
 			GroupEnumUnitsInRange(h9, GetUnitX(u), GetUnitY(u), 700., Condition(function nq));//call GroupEnumUnitsInRange(h9,GetUnitX(u),GetUnitY(u),700.,Condition(function nq))
-			if (FirstOfGroup(h9)!=null ) {//if FirstOfGroup(h9)!=null then
+			if (FirstOfGroup(h9)!=null) {//if FirstOfGroup(h9)!=null then
 				IssueTargetOrderById(u, $D000F, FirstOfGroup(h9));//call IssueTargetOrderById(u,$D000F,FirstOfGroup(h9))
 				return;//return
 			}//endif
 			GroupEnumUnitsInRange(h9, GetUnitX(u), GetUnitY(u), 700., Condition(function oq));//call GroupEnumUnitsInRange(h9,GetUnitX(u),GetUnitY(u),700.,Condition(function oq))
-			if (FirstOfGroup(h9)!=null ) {//if FirstOfGroup(h9)!=null then
+			if (FirstOfGroup(h9)!=null) {//if FirstOfGroup(h9)!=null then
 				IssueTargetOrderById(u, $D000F, FirstOfGroup(h9));//call IssueTargetOrderById(u,$D000F,FirstOfGroup(h9))
 				return;//return
 			}//endif
 			GroupEnumUnitsInRange(h9, GetUnitX(u), GetUnitY(u), 700., Condition(function qq));//call GroupEnumUnitsInRange(h9,GetUnitX(u),GetUnitY(u),700.,Condition(function qq))
-			if (FirstOfGroup(h9)!=null ) {//if FirstOfGroup(h9)!=null then
+			if (FirstOfGroup(h9)!=null) {//if FirstOfGroup(h9)!=null then
 				IssueTargetOrderById(u, $D000F, FirstOfGroup(h9));//call IssueTargetOrderById(u,$D000F,FirstOfGroup(h9))
 				return;//return
 			}//endif
 			GroupEnumUnitsInRange(h9, GetUnitX(u), GetUnitY(u), 700., Condition(function rq));//call GroupEnumUnitsInRange(h9,GetUnitX(u),GetUnitY(u),700.,Condition(function rq))
-			if (FirstOfGroup(h9)!=null ) {//if FirstOfGroup(h9)!=null then
+			if (FirstOfGroup(h9)!=null) {//if FirstOfGroup(h9)!=null then
 				IssueTargetOrderById(u, $D000F, FirstOfGroup(h9));//call IssueTargetOrderById(u,$D000F,FirstOfGroup(h9))
 				return;//return
 			}//endif
 			GroupEnumUnitsInRange(h9, GetUnitX(u), GetUnitY(u), 700., Condition(function sq));//call GroupEnumUnitsInRange(h9,GetUnitX(u),GetUnitY(u),700.,Condition(function sq))
-			if (FirstOfGroup(h9)!=null ) {//if FirstOfGroup(h9)!=null then
+			if (FirstOfGroup(h9)!=null) {//if FirstOfGroup(h9)!=null then
 				IssueTargetOrderById(u, $D000F, FirstOfGroup(h9));//call IssueTargetOrderById(u,$D000F,FirstOfGroup(h9))
 				return;//return
 			}//endif
 			GroupEnumUnitsInRange(h9, GetUnitX(u), GetUnitY(u), 700., Condition(function tq));//call GroupEnumUnitsInRange(h9,GetUnitX(u),GetUnitY(u),700.,Condition(function tq))
-			if (FirstOfGroup(h9)!=null ) {//if FirstOfGroup(h9)!=null then
+			if (FirstOfGroup(h9)!=null) {//if FirstOfGroup(h9)!=null then
 				IssueTargetOrderById(u, $D000F, FirstOfGroup(h9));//call IssueTargetOrderById(u,$D000F,FirstOfGroup(h9))
 				return;//return
 			}//endif
 			GroupEnumUnitsInRange(h9, GetUnitX(u), GetUnitY(u), 700., Condition(function uq));//call GroupEnumUnitsInRange(h9,GetUnitX(u),GetUnitY(u),700.,Condition(function uq))
-			if (FirstOfGroup(h9)!=null ) {//if FirstOfGroup(h9)!=null then
+			if (FirstOfGroup(h9)!=null) {//if FirstOfGroup(h9)!=null then
 				IssueTargetOrderById(u, $D000F, FirstOfGroup(h9));//call IssueTargetOrderById(u,$D000F,FirstOfGroup(h9))
 				return;//return
 			}//endif
 			GroupEnumUnitsInRange(h9, GetUnitX(u), GetUnitY(u), 700., Condition(function vq));//call GroupEnumUnitsInRange(h9,GetUnitX(u),GetUnitY(u),700.,Condition(function vq))
-			if (FirstOfGroup(h9)!=null ) {//if FirstOfGroup(h9)!=null then
+			if (FirstOfGroup(h9)!=null) {//if FirstOfGroup(h9)!=null then
 				IssueTargetOrderById(u, $D000F, FirstOfGroup(h9));//call IssueTargetOrderById(u,$D000F,FirstOfGroup(h9))
 				return;//return
 			}//endif
 			GroupEnumUnitsInRange(h9, GetUnitX(u), GetUnitY(u), 700., Condition(function wq));//call GroupEnumUnitsInRange(h9,GetUnitX(u),GetUnitY(u),700.,Condition(function wq))
-			if (FirstOfGroup(h9)!=null ) {//if FirstOfGroup(h9)!=null then
+			if (FirstOfGroup(h9)!=null) {//if FirstOfGroup(h9)!=null then
 				IssueTargetOrderById(u, $D000F, FirstOfGroup(h9));//call IssueTargetOrderById(u,$D000F,FirstOfGroup(h9))
 				return;//return
 			}//endif
 		}//endfunction
 		private void Dq(int oi, unit u) {//function Dq takes integer oi,unit u returns nothing
 			GroupEnumUnitsInRange(h9, GetUnitX(u), GetUnitY(u), 700., Condition(function xq));//call GroupEnumUnitsInRange(h9,GetUnitX(u),GetUnitY(u),700.,Condition(function xq))
-			if (FirstOfGroup(h9)!=null ) {//if FirstOfGroup(h9)!=null then
+			if (FirstOfGroup(h9)!=null) {//if FirstOfGroup(h9)!=null then
 				IssueTargetOrderById(u, $D000F, FirstOfGroup(h9));//call IssueTargetOrderById(u,$D000F,FirstOfGroup(h9))
 				return;//return
 			}//endif
 			GroupEnumUnitsInRange(h9, GetUnitX(u), GetUnitY(u), 700., Condition(function yq));//call GroupEnumUnitsInRange(h9,GetUnitX(u),GetUnitY(u),700.,Condition(function yq))
-			if (FirstOfGroup(h9)!=null ) {//if FirstOfGroup(h9)!=null then
+			if (FirstOfGroup(h9)!=null) {//if FirstOfGroup(h9)!=null then
 				IssueTargetOrderById(u, $D000F, FirstOfGroup(h9));//call IssueTargetOrderById(u,$D000F,FirstOfGroup(h9))
 				return;//return
 			}//endif
 		}//endfunction
 		private void Eq(int oi, unit u) {//function Eq takes integer oi,unit u returns nothing
 			int id = LoadInteger(i9,GetUnitTypeId(u),0);//local integer id=LoadInteger(i9,GetUnitTypeId(u),0)
-			if (id==1 ) {//if id==1 then
+			if (id==1) {//if id==1 then
 				Aq(oi, u);//call Aq(oi,u)
-			} else if (id==2 ) {//elseif id==2 then
+			} else if (id==2) {//elseif id==2 then
 				aq(oi, u);//call aq(oi,u)
-			} else if (id==3 ) {//elseif id==3 then
+			} else if (id==3) {//elseif id==3 then
 				Bq(oi, u);//call Bq(oi,u)
-			} else if (id==4 ) {//elseif id==4 then
+			} else if (id==4) {//elseif id==4 then
 				bq(oi, u);//call bq(oi,u)
-			} else if (id==5 ) {//elseif id==5 then
+			} else if (id==5) {//elseif id==5 then
 				Cq(oi, u);//call Cq(oi,u)
-			} else if (id==6 ) {//elseif id==6 then
+			} else if (id==6) {//elseif id==6 then
 				cq(oi, u);//call cq(oi,u)
-			} else if (id==0 ) {//elseif id==0 then
+			} else if (id==0) {//elseif id==0 then
 				Dq(oi, u);//call Dq(oi,u)
 			}//endif
 		}//endfunction
@@ -4637,317 +4637,317 @@ namespace Jass {
 			return ((GetUnitState(GetFilterUnit(),UNIT_STATE_LIFE)>.7) && (IsUnitEnemy(GetFilterUnit(),e9)) && (LoadInteger(i9,GetUnitTypeId(GetFilterUnit()),1)==2) && (IsUnitType(GetFilterUnit(),UNIT_TYPE_FLYING)))!=null;//return((GetUnitState(GetFilterUnit(),UNIT_STATE_LIFE)>.7)and(IsUnitEnemy(GetFilterUnit(),e9))and(LoadInteger(i9,GetUnitTypeId(GetFilterUnit()),1)==2)and(IsUnitType(GetFilterUnit(),UNIT_TYPE_FLYING)))!=null
 		}//endfunction
 		private void qr(int oi) {//function qr takes integer oi returns nothing
-			SaveInteger(i9, 'n05C', 0, 0);//call SaveInteger(i9,'n05C',0,0)
-			SaveInteger(i9, 'o00C', 0, 0);//call SaveInteger(i9,'o00C',0,0)
-			SaveInteger(i9, 'o00D', 0, 0);//call SaveInteger(i9,'o00D',0,0)
-			SaveInteger(i9, 'o00E', 0, 0);//call SaveInteger(i9,'o00E',0,0)
-			SaveInteger(i9, 'h05C', 0, 0);//call SaveInteger(i9,'h05C',0,0)
-			SaveInteger(i9, 'h06Q', 0, 0);//call SaveInteger(i9,'h06Q',0,0)
-			SaveInteger(i9, 'h06R', 0, 0);//call SaveInteger(i9,'h06R',0,0)
-			SaveInteger(i9, 'h02Z', 0, 2);//call SaveInteger(i9,'h02Z',0,2)
-			SaveInteger(i9, 'h030', 0, 2);//call SaveInteger(i9,'h030',0,2)
-			SaveInteger(i9, 'h04I', 0, 2);//call SaveInteger(i9,'h04I',0,2)
-			SaveInteger(i9, 'e007', 0, 2);//call SaveInteger(i9,'e007',0,2)
-			SaveInteger(i9, 'e00J', 0, 2);//call SaveInteger(i9,'e00J',0,2)
-			SaveInteger(i9, 'h00W', 0, 2);//call SaveInteger(i9,'h00W',0,2)
-			SaveInteger(i9, 'n014', 0, 2);//call SaveInteger(i9,'n014',0,2)
-			SaveInteger(i9, 'h010', 0, 2);//call SaveInteger(i9,'h010',0,2)
-			SaveInteger(i9, 'e00C', 0, 2);//call SaveInteger(i9,'e00C',0,2)
-			SaveInteger(i9, 'n001', 0, 2);//call SaveInteger(i9,'n001',0,2)
-			SaveInteger(i9, 'n02A', 0, 2);//call SaveInteger(i9,'n02A',0,2)
-			SaveInteger(i9, 'n01R', 0, 2);//call SaveInteger(i9,'n01R',0,2)
-			SaveInteger(i9, 'n01P', 0, 2);//call SaveInteger(i9,'n01P',0,2)
-			SaveInteger(i9, 'n01Q', 0, 2);//call SaveInteger(i9,'n01Q',0,2)
-			SaveInteger(i9, 'n00S', 0, 2);//call SaveInteger(i9,'n00S',0,2)
-			SaveInteger(i9, 'hmtm', 0, 3);//call SaveInteger(i9,'hmtm',0,3)
-			SaveInteger(i9, 'o001', 0, 3);//call SaveInteger(i9,'o001',0,3)
-			SaveInteger(i9, 'n01F', 0, 3);//call SaveInteger(i9,'n01F',0,3)
-			SaveInteger(i9, 'n01E', 0, 3);//call SaveInteger(i9,'n01E',0,3)
-			SaveInteger(i9, 'e005', 0, 3);//call SaveInteger(i9,'e005',0,3)
-			SaveInteger(i9, 'e002', 0, 3);//call SaveInteger(i9,'e002',0,3)
-			SaveInteger(i9, 'n007', 0, 3);//call SaveInteger(i9,'n007',0,3)
-			SaveInteger(i9, 'n00V', 0, 4);//call SaveInteger(i9,'n00V',0,4)
-			SaveInteger(i9, 'n01O', 0, 4);//call SaveInteger(i9,'n01O',0,4)
-			SaveInteger(i9, 'h06S', 0, 4);//call SaveInteger(i9,'h06S',0,4)
-			SaveInteger(i9, 'h098', 0, 4);//call SaveInteger(i9,'h098',0,4)
-			SaveInteger(i9, 'n00A', 0, 4);//call SaveInteger(i9,'n00A',0,4)
-			SaveInteger(i9, 'z000', 0, 4);//call SaveInteger(i9,'z000',0,4)
-			SaveInteger(i9, 'n004', 0, 4);//call SaveInteger(i9,'n004',0,4)
-			SaveInteger(i9, 'u000', 0, 4);//call SaveInteger(i9,'u000',0,4)
-			SaveInteger(i9, 'h06T', 0, 4);//call SaveInteger(i9,'h06T',0,4)
-			SaveInteger(i9, 'hrif', 0, 5);//call SaveInteger(i9,'hrif',0,5)
-			SaveInteger(i9, 'h0A2', 0, 5);//call SaveInteger(i9,'h0A2',0,5)
-			SaveInteger(i9, 'o00D', 0, 5);//call SaveInteger(i9,'o00D',0,5)
-			SaveInteger(i9, 'o00E', 0, 5);//call SaveInteger(i9,'o00E',0,5)
-			SaveInteger(i9, 'o006', 0, 5);//call SaveInteger(i9,'o006',0,5)
-			SaveInteger(i9, 'o008', 0, 5);//call SaveInteger(i9,'o008',0,5)
-			SaveInteger(i9, 'o00B', 0, 5);//call SaveInteger(i9,'o00B',0,5)
-			SaveInteger(i9, 'o009', 0, 5);//call SaveInteger(i9,'o009',0,5)
-			SaveInteger(i9, 'n00D', 0, 5);//call SaveInteger(i9,'n00D',0,5)
-			SaveInteger(i9, 'n01L', 0, 5);//call SaveInteger(i9,'n01L',0,5)
-			SaveInteger(i9, 'e001', 0, 5);//call SaveInteger(i9,'e001',0,5)
-			SaveInteger(i9, 'e003', 0, 5);//call SaveInteger(i9,'e003',0,5)
-			SaveInteger(i9, 'e004', 0, 5);//call SaveInteger(i9,'e004',0,5)
-			SaveInteger(i9, 'n022', 0, 5);//call SaveInteger(i9,'n022',0,5)
-			SaveInteger(i9, 'n023', 0, 5);//call SaveInteger(i9,'n023',0,5)
-			SaveInteger(i9, 'n01Y', 0, 5);//call SaveInteger(i9,'n01Y',0,5)
-			SaveInteger(i9, 'n011', 0, 5);//call SaveInteger(i9,'n011',0,5)
-			SaveInteger(i9, 'e006', 0, 5);//call SaveInteger(i9,'e006',0,5)
-			SaveInteger(i9, 'e009', 0, 5);//call SaveInteger(i9,'e009',0,5)
-			SaveInteger(i9, 'e00C', 0, 5);//call SaveInteger(i9,'e00C',0,5)
-			SaveInteger(i9, 'h016', 0, 6);//call SaveInteger(i9,'h016',0,6)
-			SaveInteger(i9, 'o003', 0, 6);//call SaveInteger(i9,'o003',0,6)
-			SaveInteger(i9, 'u005', 0, 6);//call SaveInteger(i9,'u005',0,6)
-			SaveInteger(i9, 'u009', 0, 6);//call SaveInteger(i9,'u009',0,6)
-			SaveInteger(i9, 'u00D', 0, 6);//call SaveInteger(i9,'u00D',0,6)
-			SaveInteger(i9, 'u001', 0, 6);//call SaveInteger(i9,'u001',0,6)
-			SaveInteger(i9, 'u00A', 0, 6);//call SaveInteger(i9,'u00A',0,6)
-			SaveInteger(i9, 'u003', 0, 6);//call SaveInteger(i9,'u003',0,6)
-			SaveInteger(i9, 'n01B', 0, 6);//call SaveInteger(i9,'n01B',0,6)
-			SaveInteger(i9, 'n01D', 0, 6);//call SaveInteger(i9,'n01D',0,6)
-			SaveInteger(i9, 'n019', 0, 6);//call SaveInteger(i9,'n019',0,6)
-			SaveInteger(i9, 'n01A', 0, 6);//call SaveInteger(i9,'n01A',0,6)
-			SaveInteger(i9, 'e000', 0, 6);//call SaveInteger(i9,'e000',0,6)
-			SaveInteger(i9, 'h07B', 0, 6);//call SaveInteger(i9,'h07B',0,6)
-			SaveInteger(i9, 'h00U', 0, 6);//call SaveInteger(i9,'h00U',0,6)
-			SaveInteger(i9, 'n015', 0, 6);//call SaveInteger(i9,'n015',0,6)
-			SaveInteger(i9, 'o00A', 0, 6);//call SaveInteger(i9,'o00A',0,6)
-			SaveInteger(i9, 'n026', 0, 6);//call SaveInteger(i9,'n026',0,6)
-			SaveInteger(i9, 'n028', 0, 6);//call SaveInteger(i9,'n028',0,6)
-			SaveInteger(i9, 'n008', 0, 6);//call SaveInteger(i9,'n008',0,6)
-			SaveInteger(i9, 'n00H', 0, 6);//call SaveInteger(i9,'n00H',0,6)
-			SaveInteger(i9, 'o006', 1, 1);//call SaveInteger(i9,'o006',1,1)
-			SaveInteger(i9, 'o008', 1, 1);//call SaveInteger(i9,'o008',1,1)
-			SaveInteger(i9, 'o00B', 1, 1);//call SaveInteger(i9,'o00B',1,1)
-			SaveInteger(i9, 'u000', 1, 1);//call SaveInteger(i9,'u000',1,1)
-			SaveInteger(i9, 'u00A', 1, 1);//call SaveInteger(i9,'u00A',1,1)
-			SaveInteger(i9, 'u003', 1, 1);//call SaveInteger(i9,'u003',1,1)
-			SaveInteger(i9, 'n00D', 1, 1);//call SaveInteger(i9,'n00D',1,1)
-			SaveInteger(i9, 'n01L', 1, 1);//call SaveInteger(i9,'n01L',1,1)
-			SaveInteger(i9, 'n019', 1, 1);//call SaveInteger(i9,'n019',1,1)
-			SaveInteger(i9, 'n01A', 1, 1);//call SaveInteger(i9,'n01A',1,1)
-			SaveInteger(i9, 'e001', 1, 1);//call SaveInteger(i9,'e001',1,1)
-			SaveInteger(i9, 'e003', 1, 1);//call SaveInteger(i9,'e003',1,1)
-			SaveInteger(i9, 'e004', 1, 1);//call SaveInteger(i9,'e004',1,1)
-			SaveInteger(i9, 'e000', 1, 1);//call SaveInteger(i9,'e000',1,1)
-			SaveInteger(i9, 'n015', 1, 1);//call SaveInteger(i9,'n015',1,1)
-			SaveInteger(i9, 'o00A', 1, 1);//call SaveInteger(i9,'o00A',1,1)
-			SaveInteger(i9, 'n026', 1, 1);//call SaveInteger(i9,'n026',1,1)
-			SaveInteger(i9, 'n028', 1, 1);//call SaveInteger(i9,'n028',1,1)
-			SaveInteger(i9, 'n00A', 1, 1);//call SaveInteger(i9,'n00A',1,1)
-			SaveInteger(i9, 'z000', 1, 1);//call SaveInteger(i9,'z000',1,1)
-			SaveInteger(i9, 'n008', 1, 1);//call SaveInteger(i9,'n008',1,1)
-			SaveInteger(i9, 'n00H', 1, 1);//call SaveInteger(i9,'n00H',1,1)
-			SaveInteger(i9, 'h03P', 1, 2);//call SaveInteger(i9,'h03P',1,2)
-			SaveInteger(i9, 'h03R', 1, 2);//call SaveInteger(i9,'h03R',1,2)
-			SaveInteger(i9, 'h02Z', 1, 2);//call SaveInteger(i9,'h02Z',1,2)
-			SaveInteger(i9, 'h030', 1, 2);//call SaveInteger(i9,'h030',1,2)
-			SaveInteger(i9, 'h099', 1, 2);//call SaveInteger(i9,'h099',1,2)
-			SaveInteger(i9, 'h06S', 1, 2);//call SaveInteger(i9,'h06S',1,2)
-			SaveInteger(i9, 'h06T', 1, 2);//call SaveInteger(i9,'h06T',1,2)
-			SaveInteger(i9, 'h098', 1, 2);//call SaveInteger(i9,'h098',1,2)
-			SaveInteger(i9, 'n01E', 1, 2);//call SaveInteger(i9,'n01E',1,2)
-			SaveInteger(i9, 'n01F', 1, 2);//call SaveInteger(i9,'n01F',1,2)
-			SaveInteger(i9, 'e005', 1, 2);//call SaveInteger(i9,'e005',1,2)
-			SaveInteger(i9, 'e002', 1, 2);//call SaveInteger(i9,'e002',1,2)
-			SaveInteger(i9, 'n007', 1, 2);//call SaveInteger(i9,'n007',1,2)
-			SaveInteger(i9, 'n01Y', 1, 2);//call SaveInteger(i9,'n01Y',1,2)
-			SaveInteger(i9, 'hrif', 1, 4);//call SaveInteger(i9,'hrif',1,4)
-			SaveInteger(i9, 'h02A', 1, 4);//call SaveInteger(i9,'h02A',1,4)
-			SaveInteger(i9, 'h05C', 1, 4);//call SaveInteger(i9,'h05C',1,4)
-			SaveInteger(i9, 'h016', 1, 4);//call SaveInteger(i9,'h016',1,4)
-			SaveInteger(i9, 'o00C', 1, 4);//call SaveInteger(i9,'o00C',1,4)
-			SaveInteger(i9, 'o00D', 1, 4);//call SaveInteger(i9,'o00D',1,4)
-			SaveInteger(i9, 'o00E', 1, 4);//call SaveInteger(i9,'o00E',1,4)
-			SaveInteger(i9, 'o001', 1, 4);//call SaveInteger(i9,'o001',1,4)
-			SaveInteger(i9, 'n00V', 1, 4);//call SaveInteger(i9,'n00V',1,4)
-			SaveInteger(i9, 'n01O', 1, 4);//call SaveInteger(i9,'n01O',1,4)
-			SaveInteger(i9, 'h04I', 1, 4);//call SaveInteger(i9,'h04I',1,4)
-			SaveInteger(i9, 'n01B', 1, 4);//call SaveInteger(i9,'n01B',1,4)
-			SaveInteger(i9, 'n01D', 1, 4);//call SaveInteger(i9,'n01D',1,4)
-			SaveInteger(i9, 'h00U', 1, 4);//call SaveInteger(i9,'h00U',1,4)
-			SaveInteger(i9, 'e006', 1, 4);//call SaveInteger(i9,'e006',1,4)
-			SaveInteger(i9, 'e009', 1, 4);//call SaveInteger(i9,'e009',1,4)
-			SaveInteger(i9, 'e00C', 1, 4);//call SaveInteger(i9,'e00C',1,4)
-			SaveInteger(i9, 'n01P', 1, 4);//call SaveInteger(i9,'n01P',1,4)
-			SaveInteger(i9, 'n01Q', 1, 4);//call SaveInteger(i9,'n01Q',1,4)
-			SaveInteger(i9, 'n01R', 1, 4);//call SaveInteger(i9,'n01R',1,4)
-			SaveInteger(i9, 'n004', 1, 4);//call SaveInteger(i9,'n004',1,4)
-			SaveInteger(i9, 'hmtm', 1, 6);//call SaveInteger(i9,'hmtm',1,6)
-			SaveInteger(i9, 'n005', 1, 6);//call SaveInteger(i9,'n005',1,6)
-			SaveInteger(i9, 'o009', 1, 6);//call SaveInteger(i9,'o009',1,6)
-			SaveInteger(i9, 'o003', 1, 6);//call SaveInteger(i9,'o003',1,6)
-			SaveInteger(i9, 'u005', 1, 6);//call SaveInteger(i9,'u005',1,6)
-			SaveInteger(i9, 'u009', 1, 6);//call SaveInteger(i9,'u009',1,6)
-			SaveInteger(i9, 'u00D', 1, 6);//call SaveInteger(i9,'u00D',1,6)
-			SaveInteger(i9, 'e007', 1, 6);//call SaveInteger(i9,'e007',1,6)
-			SaveInteger(i9, 'e00J', 1, 6);//call SaveInteger(i9,'e00J',1,6)
-			SaveInteger(i9, 'h07B', 1, 6);//call SaveInteger(i9,'h07B',1,6)
-			SaveInteger(i9, 'h00W', 1, 6);//call SaveInteger(i9,'h00W',1,6)
-			SaveInteger(i9, 'n022', 1, 6);//call SaveInteger(i9,'n022',1,6)
-			SaveInteger(i9, 'n023', 1, 6);//call SaveInteger(i9,'n023',1,6)
-			SaveInteger(i9, 'n014', 1, 6);//call SaveInteger(i9,'n014',1,6)
-			SaveInteger(i9, 'n00S', 1, 6);//call SaveInteger(i9,'n00S',1,6)
+			SaveInteger(i9, 892366375, 0, 0);//call SaveInteger(i9,'n05C',0,0)
+			SaveInteger(i9, 808480551, 0, 0);//call SaveInteger(i9,'o00C',0,0)
+			SaveInteger(i9, 808480551, 0, 0);//call SaveInteger(i9,'o00D',0,0)
+			SaveInteger(i9, 808480551, 0, 0);//call SaveInteger(i9,'o00E',0,0)
+			SaveInteger(i9, 892364839, 0, 0);//call SaveInteger(i9,'h05C',0,0)
+			SaveInteger(i9, 909142055, 0, 0);//call SaveInteger(i9,'h06Q',0,0)
+			SaveInteger(i9, 909142055, 0, 0);//call SaveInteger(i9,'h06R',0,0)
+			SaveInteger(i9, 842033191, 0, 2);//call SaveInteger(i9,'h02Z',0,2)
+			SaveInteger(i9, 858810407, 0, 2);//call SaveInteger(i9,'h030',0,2)
+			SaveInteger(i9, 875587623, 0, 2);//call SaveInteger(i9,'h04I',0,2)
+			SaveInteger(i9, 808477991, 0, 2);//call SaveInteger(i9,'e007',0,2)
+			SaveInteger(i9, 808477991, 0, 2);//call SaveInteger(i9,'e00J',0,2)
+			SaveInteger(i9, 808478759, 0, 2);//call SaveInteger(i9,'h00W',0,2)
+			SaveInteger(i9, 825257511, 0, 2);//call SaveInteger(i9,'n014',0,2)
+			SaveInteger(i9, 825255975, 0, 2);//call SaveInteger(i9,'h010',0,2)
+			SaveInteger(i9, 808477991, 0, 2);//call SaveInteger(i9,'e00C',0,2)
+			SaveInteger(i9, 808480295, 0, 2);//call SaveInteger(i9,'n001',0,2)
+			SaveInteger(i9, 842034727, 0, 2);//call SaveInteger(i9,'n02A',0,2)
+			SaveInteger(i9, 825257511, 0, 2);//call SaveInteger(i9,'n01R',0,2)
+			SaveInteger(i9, 825257511, 0, 2);//call SaveInteger(i9,'n01P',0,2)
+			SaveInteger(i9, 825257511, 0, 2);//call SaveInteger(i9,'n01Q',0,2)
+			SaveInteger(i9, 808480295, 0, 2);//call SaveInteger(i9,'n00S',0,2)
+			SaveInteger(i9, 1953327143, 0, 3);//call SaveInteger(i9,'hmtm',0,3)
+			SaveInteger(i9, 808480551, 0, 3);//call SaveInteger(i9,'o001',0,3)
+			SaveInteger(i9, 825257511, 0, 3);//call SaveInteger(i9,'n01F',0,3)
+			SaveInteger(i9, 825257511, 0, 3);//call SaveInteger(i9,'n01E',0,3)
+			SaveInteger(i9, 808477991, 0, 3);//call SaveInteger(i9,'e005',0,3)
+			SaveInteger(i9, 808477991, 0, 3);//call SaveInteger(i9,'e002',0,3)
+			SaveInteger(i9, 808480295, 0, 3);//call SaveInteger(i9,'n007',0,3)
+			SaveInteger(i9, 808480295, 0, 4);//call SaveInteger(i9,'n00V',0,4)
+			SaveInteger(i9, 825257511, 0, 4);//call SaveInteger(i9,'n01O',0,4)
+			SaveInteger(i9, 909142055, 0, 4);//call SaveInteger(i9,'h06S',0,4)
+			SaveInteger(i9, 959473703, 0, 4);//call SaveInteger(i9,'h098',0,4)
+			SaveInteger(i9, 808480295, 0, 4);//call SaveInteger(i9,'n00A',0,4)
+			SaveInteger(i9, 808483367, 0, 4);//call SaveInteger(i9,'z000',0,4)
+			SaveInteger(i9, 808480295, 0, 4);//call SaveInteger(i9,'n004',0,4)
+			SaveInteger(i9, 808482087, 0, 4);//call SaveInteger(i9,'u000',0,4)
+			SaveInteger(i9, 909142055, 0, 4);//call SaveInteger(i9,'h06T',0,4)
+			SaveInteger(i9, 1769105447, 0, 5);//call SaveInteger(i9,'hrif',0,5)
+			SaveInteger(i9, 1093691431, 0, 5);//call SaveInteger(i9,'h0A2',0,5)
+			SaveInteger(i9, 808480551, 0, 5);//call SaveInteger(i9,'o00D',0,5)
+			SaveInteger(i9, 808480551, 0, 5);//call SaveInteger(i9,'o00E',0,5)
+			SaveInteger(i9, 808480551, 0, 5);//call SaveInteger(i9,'o006',0,5)
+			SaveInteger(i9, 808480551, 0, 5);//call SaveInteger(i9,'o008',0,5)
+			SaveInteger(i9, 808480551, 0, 5);//call SaveInteger(i9,'o00B',0,5)
+			SaveInteger(i9, 808480551, 0, 5);//call SaveInteger(i9,'o009',0,5)
+			SaveInteger(i9, 808480295, 0, 5);//call SaveInteger(i9,'n00D',0,5)
+			SaveInteger(i9, 825257511, 0, 5);//call SaveInteger(i9,'n01L',0,5)
+			SaveInteger(i9, 808477991, 0, 5);//call SaveInteger(i9,'e001',0,5)
+			SaveInteger(i9, 808477991, 0, 5);//call SaveInteger(i9,'e003',0,5)
+			SaveInteger(i9, 808477991, 0, 5);//call SaveInteger(i9,'e004',0,5)
+			SaveInteger(i9, 842034727, 0, 5);//call SaveInteger(i9,'n022',0,5)
+			SaveInteger(i9, 842034727, 0, 5);//call SaveInteger(i9,'n023',0,5)
+			SaveInteger(i9, 825257511, 0, 5);//call SaveInteger(i9,'n01Y',0,5)
+			SaveInteger(i9, 825257511, 0, 5);//call SaveInteger(i9,'n011',0,5)
+			SaveInteger(i9, 808477991, 0, 5);//call SaveInteger(i9,'e006',0,5)
+			SaveInteger(i9, 808477991, 0, 5);//call SaveInteger(i9,'e009',0,5)
+			SaveInteger(i9, 808477991, 0, 5);//call SaveInteger(i9,'e00C',0,5)
+			SaveInteger(i9, 825255975, 0, 6);//call SaveInteger(i9,'h016',0,6)
+			SaveInteger(i9, 808480551, 0, 6);//call SaveInteger(i9,'o003',0,6)
+			SaveInteger(i9, 808482087, 0, 6);//call SaveInteger(i9,'u005',0,6)
+			SaveInteger(i9, 808482087, 0, 6);//call SaveInteger(i9,'u009',0,6)
+			SaveInteger(i9, 808482087, 0, 6);//call SaveInteger(i9,'u00D',0,6)
+			SaveInteger(i9, 808482087, 0, 6);//call SaveInteger(i9,'u001',0,6)
+			SaveInteger(i9, 808482087, 0, 6);//call SaveInteger(i9,'u00A',0,6)
+			SaveInteger(i9, 808482087, 0, 6);//call SaveInteger(i9,'u003',0,6)
+			SaveInteger(i9, 825257511, 0, 6);//call SaveInteger(i9,'n01B',0,6)
+			SaveInteger(i9, 825257511, 0, 6);//call SaveInteger(i9,'n01D',0,6)
+			SaveInteger(i9, 825257511, 0, 6);//call SaveInteger(i9,'n019',0,6)
+			SaveInteger(i9, 825257511, 0, 6);//call SaveInteger(i9,'n01A',0,6)
+			SaveInteger(i9, 808477991, 0, 6);//call SaveInteger(i9,'e000',0,6)
+			SaveInteger(i9, 925919271, 0, 6);//call SaveInteger(i9,'h07B',0,6)
+			SaveInteger(i9, 808478759, 0, 6);//call SaveInteger(i9,'h00U',0,6)
+			SaveInteger(i9, 825257511, 0, 6);//call SaveInteger(i9,'n015',0,6)
+			SaveInteger(i9, 808480551, 0, 6);//call SaveInteger(i9,'o00A',0,6)
+			SaveInteger(i9, 842034727, 0, 6);//call SaveInteger(i9,'n026',0,6)
+			SaveInteger(i9, 842034727, 0, 6);//call SaveInteger(i9,'n028',0,6)
+			SaveInteger(i9, 808480295, 0, 6);//call SaveInteger(i9,'n008',0,6)
+			SaveInteger(i9, 808480295, 0, 6);//call SaveInteger(i9,'n00H',0,6)
+			SaveInteger(i9, 808480551, 1, 1);//call SaveInteger(i9,'o006',1,1)
+			SaveInteger(i9, 808480551, 1, 1);//call SaveInteger(i9,'o008',1,1)
+			SaveInteger(i9, 808480551, 1, 1);//call SaveInteger(i9,'o00B',1,1)
+			SaveInteger(i9, 808482087, 1, 1);//call SaveInteger(i9,'u000',1,1)
+			SaveInteger(i9, 808482087, 1, 1);//call SaveInteger(i9,'u00A',1,1)
+			SaveInteger(i9, 808482087, 1, 1);//call SaveInteger(i9,'u003',1,1)
+			SaveInteger(i9, 808480295, 1, 1);//call SaveInteger(i9,'n00D',1,1)
+			SaveInteger(i9, 825257511, 1, 1);//call SaveInteger(i9,'n01L',1,1)
+			SaveInteger(i9, 825257511, 1, 1);//call SaveInteger(i9,'n019',1,1)
+			SaveInteger(i9, 825257511, 1, 1);//call SaveInteger(i9,'n01A',1,1)
+			SaveInteger(i9, 808477991, 1, 1);//call SaveInteger(i9,'e001',1,1)
+			SaveInteger(i9, 808477991, 1, 1);//call SaveInteger(i9,'e003',1,1)
+			SaveInteger(i9, 808477991, 1, 1);//call SaveInteger(i9,'e004',1,1)
+			SaveInteger(i9, 808477991, 1, 1);//call SaveInteger(i9,'e000',1,1)
+			SaveInteger(i9, 825257511, 1, 1);//call SaveInteger(i9,'n015',1,1)
+			SaveInteger(i9, 808480551, 1, 1);//call SaveInteger(i9,'o00A',1,1)
+			SaveInteger(i9, 842034727, 1, 1);//call SaveInteger(i9,'n026',1,1)
+			SaveInteger(i9, 842034727, 1, 1);//call SaveInteger(i9,'n028',1,1)
+			SaveInteger(i9, 808480295, 1, 1);//call SaveInteger(i9,'n00A',1,1)
+			SaveInteger(i9, 808483367, 1, 1);//call SaveInteger(i9,'z000',1,1)
+			SaveInteger(i9, 808480295, 1, 1);//call SaveInteger(i9,'n008',1,1)
+			SaveInteger(i9, 808480295, 1, 1);//call SaveInteger(i9,'n00H',1,1)
+			SaveInteger(i9, 858810407, 1, 2);//call SaveInteger(i9,'h03P',1,2)
+			SaveInteger(i9, 858810407, 1, 2);//call SaveInteger(i9,'h03R',1,2)
+			SaveInteger(i9, 842033191, 1, 2);//call SaveInteger(i9,'h02Z',1,2)
+			SaveInteger(i9, 858810407, 1, 2);//call SaveInteger(i9,'h030',1,2)
+			SaveInteger(i9, 959473703, 1, 2);//call SaveInteger(i9,'h099',1,2)
+			SaveInteger(i9, 909142055, 1, 2);//call SaveInteger(i9,'h06S',1,2)
+			SaveInteger(i9, 909142055, 1, 2);//call SaveInteger(i9,'h06T',1,2)
+			SaveInteger(i9, 959473703, 1, 2);//call SaveInteger(i9,'h098',1,2)
+			SaveInteger(i9, 825257511, 1, 2);//call SaveInteger(i9,'n01E',1,2)
+			SaveInteger(i9, 825257511, 1, 2);//call SaveInteger(i9,'n01F',1,2)
+			SaveInteger(i9, 808477991, 1, 2);//call SaveInteger(i9,'e005',1,2)
+			SaveInteger(i9, 808477991, 1, 2);//call SaveInteger(i9,'e002',1,2)
+			SaveInteger(i9, 808480295, 1, 2);//call SaveInteger(i9,'n007',1,2)
+			SaveInteger(i9, 825257511, 1, 2);//call SaveInteger(i9,'n01Y',1,2)
+			SaveInteger(i9, 1769105447, 1, 4);//call SaveInteger(i9,'hrif',1,4)
+			SaveInteger(i9, 842033191, 1, 4);//call SaveInteger(i9,'h02A',1,4)
+			SaveInteger(i9, 892364839, 1, 4);//call SaveInteger(i9,'h05C',1,4)
+			SaveInteger(i9, 825255975, 1, 4);//call SaveInteger(i9,'h016',1,4)
+			SaveInteger(i9, 808480551, 1, 4);//call SaveInteger(i9,'o00C',1,4)
+			SaveInteger(i9, 808480551, 1, 4);//call SaveInteger(i9,'o00D',1,4)
+			SaveInteger(i9, 808480551, 1, 4);//call SaveInteger(i9,'o00E',1,4)
+			SaveInteger(i9, 808480551, 1, 4);//call SaveInteger(i9,'o001',1,4)
+			SaveInteger(i9, 808480295, 1, 4);//call SaveInteger(i9,'n00V',1,4)
+			SaveInteger(i9, 825257511, 1, 4);//call SaveInteger(i9,'n01O',1,4)
+			SaveInteger(i9, 875587623, 1, 4);//call SaveInteger(i9,'h04I',1,4)
+			SaveInteger(i9, 825257511, 1, 4);//call SaveInteger(i9,'n01B',1,4)
+			SaveInteger(i9, 825257511, 1, 4);//call SaveInteger(i9,'n01D',1,4)
+			SaveInteger(i9, 808478759, 1, 4);//call SaveInteger(i9,'h00U',1,4)
+			SaveInteger(i9, 808477991, 1, 4);//call SaveInteger(i9,'e006',1,4)
+			SaveInteger(i9, 808477991, 1, 4);//call SaveInteger(i9,'e009',1,4)
+			SaveInteger(i9, 808477991, 1, 4);//call SaveInteger(i9,'e00C',1,4)
+			SaveInteger(i9, 825257511, 1, 4);//call SaveInteger(i9,'n01P',1,4)
+			SaveInteger(i9, 825257511, 1, 4);//call SaveInteger(i9,'n01Q',1,4)
+			SaveInteger(i9, 825257511, 1, 4);//call SaveInteger(i9,'n01R',1,4)
+			SaveInteger(i9, 808480295, 1, 4);//call SaveInteger(i9,'n004',1,4)
+			SaveInteger(i9, 1953327143, 1, 6);//call SaveInteger(i9,'hmtm',1,6)
+			SaveInteger(i9, 808480295, 1, 6);//call SaveInteger(i9,'n005',1,6)
+			SaveInteger(i9, 808480551, 1, 6);//call SaveInteger(i9,'o009',1,6)
+			SaveInteger(i9, 808480551, 1, 6);//call SaveInteger(i9,'o003',1,6)
+			SaveInteger(i9, 808482087, 1, 6);//call SaveInteger(i9,'u005',1,6)
+			SaveInteger(i9, 808482087, 1, 6);//call SaveInteger(i9,'u009',1,6)
+			SaveInteger(i9, 808482087, 1, 6);//call SaveInteger(i9,'u00D',1,6)
+			SaveInteger(i9, 808477991, 1, 6);//call SaveInteger(i9,'e007',1,6)
+			SaveInteger(i9, 808477991, 1, 6);//call SaveInteger(i9,'e00J',1,6)
+			SaveInteger(i9, 925919271, 1, 6);//call SaveInteger(i9,'h07B',1,6)
+			SaveInteger(i9, 808478759, 1, 6);//call SaveInteger(i9,'h00W',1,6)
+			SaveInteger(i9, 842034727, 1, 6);//call SaveInteger(i9,'n022',1,6)
+			SaveInteger(i9, 842034727, 1, 6);//call SaveInteger(i9,'n023',1,6)
+			SaveInteger(i9, 825257511, 1, 6);//call SaveInteger(i9,'n014',1,6)
+			SaveInteger(i9, 808480295, 1, 6);//call SaveInteger(i9,'n00S',1,6)
 		}//endfunction
 		private void rr(int oi, unit u) {//function rr takes integer oi,unit u returns nothing
 			GroupEnumUnitsInRange(h9, GetUnitX(u), GetUnitY(u), 700., Condition(function Fq));//call GroupEnumUnitsInRange(h9,GetUnitX(u),GetUnitY(u),700.,Condition(function Fq))
-			if (FirstOfGroup(h9)!=null ) {//if FirstOfGroup(h9)!=null then
+			if (FirstOfGroup(h9)!=null) {//if FirstOfGroup(h9)!=null then
 				IssueTargetOrderById(u, $D000F, FirstOfGroup(h9));//call IssueTargetOrderById(u,$D000F,FirstOfGroup(h9))
 				return;//return
 			}//endif
 			GroupEnumUnitsInRange(h9, GetUnitX(u), GetUnitY(u), 700., Condition(function Gq));//call GroupEnumUnitsInRange(h9,GetUnitX(u),GetUnitY(u),700.,Condition(function Gq))
-			if (FirstOfGroup(h9)!=null ) {//if FirstOfGroup(h9)!=null then
+			if (FirstOfGroup(h9)!=null) {//if FirstOfGroup(h9)!=null then
 				IssueTargetOrderById(u, $D000F, FirstOfGroup(h9));//call IssueTargetOrderById(u,$D000F,FirstOfGroup(h9))
 				return;//return
 			}//endif
 			GroupEnumUnitsInRange(h9, GetUnitX(u), GetUnitY(u), 700., Condition(function Hq));//call GroupEnumUnitsInRange(h9,GetUnitX(u),GetUnitY(u),700.,Condition(function Hq))
-			if (FirstOfGroup(h9)!=null ) {//if FirstOfGroup(h9)!=null then
+			if (FirstOfGroup(h9)!=null) {//if FirstOfGroup(h9)!=null then
 				IssueTargetOrderById(u, $D000F, FirstOfGroup(h9));//call IssueTargetOrderById(u,$D000F,FirstOfGroup(h9))
 				return;//return
 			}//endif
 			GroupEnumUnitsInRange(h9, GetUnitX(u), GetUnitY(u), 700., Condition(function Iq));//call GroupEnumUnitsInRange(h9,GetUnitX(u),GetUnitY(u),700.,Condition(function Iq))
-			if (FirstOfGroup(h9)!=null ) {//if FirstOfGroup(h9)!=null then
+			if (FirstOfGroup(h9)!=null) {//if FirstOfGroup(h9)!=null then
 				IssueTargetOrderById(u, $D000F, FirstOfGroup(h9));//call IssueTargetOrderById(u,$D000F,FirstOfGroup(h9))
 				return;//return
 			}//endif
 		}//endfunction
 		private void sr(int oi, unit u) {//function sr takes integer oi,unit u returns nothing
 			GroupEnumUnitsInRange(h9, GetUnitX(u), GetUnitY(u), 700., Condition(function lq));//call GroupEnumUnitsInRange(h9,GetUnitX(u),GetUnitY(u),700.,Condition(function lq))
-			if (FirstOfGroup(h9)!=null ) {//if FirstOfGroup(h9)!=null then
+			if (FirstOfGroup(h9)!=null) {//if FirstOfGroup(h9)!=null then
 				IssueTargetOrderById(u, $D000F, FirstOfGroup(h9));//call IssueTargetOrderById(u,$D000F,FirstOfGroup(h9))
 				return;//return
 			}//endif
 			GroupEnumUnitsInRange(h9, GetUnitX(u), GetUnitY(u), 700., Condition(function Jq));//call GroupEnumUnitsInRange(h9,GetUnitX(u),GetUnitY(u),700.,Condition(function Jq))
-			if (FirstOfGroup(h9)!=null ) {//if FirstOfGroup(h9)!=null then
+			if (FirstOfGroup(h9)!=null) {//if FirstOfGroup(h9)!=null then
 				IssueTargetOrderById(u, $D000F, FirstOfGroup(h9));//call IssueTargetOrderById(u,$D000F,FirstOfGroup(h9))
 				return;//return
 			}//endif
 			GroupEnumUnitsInRange(h9, GetUnitX(u), GetUnitY(u), 700., Condition(function Kq));//call GroupEnumUnitsInRange(h9,GetUnitX(u),GetUnitY(u),700.,Condition(function Kq))
-			if (FirstOfGroup(h9)!=null ) {//if FirstOfGroup(h9)!=null then
+			if (FirstOfGroup(h9)!=null) {//if FirstOfGroup(h9)!=null then
 				IssueTargetOrderById(u, $D000F, FirstOfGroup(h9));//call IssueTargetOrderById(u,$D000F,FirstOfGroup(h9))
 				return;//return
 			}//endif
 		}//endfunction
 		private void tr(int oi, unit u) {//function tr takes integer oi,unit u returns nothing
 			GroupEnumUnitsInRange(h9, GetUnitX(u), GetUnitY(u), 700., Condition(function Lq));//call GroupEnumUnitsInRange(h9,GetUnitX(u),GetUnitY(u),700.,Condition(function Lq))
-			if (FirstOfGroup(h9)!=null ) {//if FirstOfGroup(h9)!=null then
+			if (FirstOfGroup(h9)!=null) {//if FirstOfGroup(h9)!=null then
 				IssueTargetOrderById(u, $D000F, FirstOfGroup(h9));//call IssueTargetOrderById(u,$D000F,FirstOfGroup(h9))
 				return;//return
 			}//endif
 			GroupEnumUnitsInRange(h9, GetUnitX(u), GetUnitY(u), 700., Condition(function Mq));//call GroupEnumUnitsInRange(h9,GetUnitX(u),GetUnitY(u),700.,Condition(function Mq))
-			if (FirstOfGroup(h9)!=null ) {//if FirstOfGroup(h9)!=null then
+			if (FirstOfGroup(h9)!=null) {//if FirstOfGroup(h9)!=null then
 				IssueTargetOrderById(u, $D000F, FirstOfGroup(h9));//call IssueTargetOrderById(u,$D000F,FirstOfGroup(h9))
 				return;//return
 			}//endif
 			GroupEnumUnitsInRange(h9, GetUnitX(u), GetUnitY(u), 700., Condition(function Nq));//call GroupEnumUnitsInRange(h9,GetUnitX(u),GetUnitY(u),700.,Condition(function Nq))
-			if (FirstOfGroup(h9)!=null ) {//if FirstOfGroup(h9)!=null then
+			if (FirstOfGroup(h9)!=null) {//if FirstOfGroup(h9)!=null then
 				IssueTargetOrderById(u, $D000F, FirstOfGroup(h9));//call IssueTargetOrderById(u,$D000F,FirstOfGroup(h9))
 				return;//return
 			}//endif
 			GroupEnumUnitsInRange(h9, GetUnitX(u), GetUnitY(u), 700., Condition(function Oq));//call GroupEnumUnitsInRange(h9,GetUnitX(u),GetUnitY(u),700.,Condition(function Oq))
-			if (FirstOfGroup(h9)!=null ) {//if FirstOfGroup(h9)!=null then
+			if (FirstOfGroup(h9)!=null) {//if FirstOfGroup(h9)!=null then
 				IssueTargetOrderById(u, $D000F, FirstOfGroup(h9));//call IssueTargetOrderById(u,$D000F,FirstOfGroup(h9))
 				return;//return
 			}//endif
 			GroupEnumUnitsInRange(h9, GetUnitX(u), GetUnitY(u), 700., Condition(function Pq));//call GroupEnumUnitsInRange(h9,GetUnitX(u),GetUnitY(u),700.,Condition(function Pq))
-			if (FirstOfGroup(h9)!=null ) {//if FirstOfGroup(h9)!=null then
+			if (FirstOfGroup(h9)!=null) {//if FirstOfGroup(h9)!=null then
 				IssueTargetOrderById(u, $D000F, FirstOfGroup(h9));//call IssueTargetOrderById(u,$D000F,FirstOfGroup(h9))
 				return;//return
 			}//endif
 			GroupEnumUnitsInRange(h9, GetUnitX(u), GetUnitY(u), 700., Condition(function Qq));//call GroupEnumUnitsInRange(h9,GetUnitX(u),GetUnitY(u),700.,Condition(function Qq))
-			if (FirstOfGroup(h9)!=null ) {//if FirstOfGroup(h9)!=null then
+			if (FirstOfGroup(h9)!=null) {//if FirstOfGroup(h9)!=null then
 				IssueTargetOrderById(u, $D000F, FirstOfGroup(h9));//call IssueTargetOrderById(u,$D000F,FirstOfGroup(h9))
 				return;//return
 			}//endif
 			GroupEnumUnitsInRange(h9, GetUnitX(u), GetUnitY(u), 700., Condition(function Rq));//call GroupEnumUnitsInRange(h9,GetUnitX(u),GetUnitY(u),700.,Condition(function Rq))
-			if (FirstOfGroup(h9)!=null ) {//if FirstOfGroup(h9)!=null then
+			if (FirstOfGroup(h9)!=null) {//if FirstOfGroup(h9)!=null then
 				IssueTargetOrderById(u, $D000F, FirstOfGroup(h9));//call IssueTargetOrderById(u,$D000F,FirstOfGroup(h9))
 				return;//return
 			}//endif
 			GroupEnumUnitsInRange(h9, GetUnitX(u), GetUnitY(u), 700., Condition(function Sq));//call GroupEnumUnitsInRange(h9,GetUnitX(u),GetUnitY(u),700.,Condition(function Sq))
-			if (FirstOfGroup(h9)!=null ) {//if FirstOfGroup(h9)!=null then
+			if (FirstOfGroup(h9)!=null) {//if FirstOfGroup(h9)!=null then
 				IssueTargetOrderById(u, $D000F, FirstOfGroup(h9));//call IssueTargetOrderById(u,$D000F,FirstOfGroup(h9))
 				return;//return
 			}//endif
 			GroupEnumUnitsInRange(h9, GetUnitX(u), GetUnitY(u), 700., Condition(function Tq));//call GroupEnumUnitsInRange(h9,GetUnitX(u),GetUnitY(u),700.,Condition(function Tq))
-			if (FirstOfGroup(h9)!=null ) {//if FirstOfGroup(h9)!=null then
+			if (FirstOfGroup(h9)!=null) {//if FirstOfGroup(h9)!=null then
 				IssueTargetOrderById(u, $D000F, FirstOfGroup(h9));//call IssueTargetOrderById(u,$D000F,FirstOfGroup(h9))
 				return;//return
 			}//endif
 			GroupEnumUnitsInRange(h9, GetUnitX(u), GetUnitY(u), 700., Condition(function Uq));//call GroupEnumUnitsInRange(h9,GetUnitX(u),GetUnitY(u),700.,Condition(function Uq))
-			if (FirstOfGroup(h9)!=null ) {//if FirstOfGroup(h9)!=null then
+			if (FirstOfGroup(h9)!=null) {//if FirstOfGroup(h9)!=null then
 				IssueTargetOrderById(u, $D000F, FirstOfGroup(h9));//call IssueTargetOrderById(u,$D000F,FirstOfGroup(h9))
 				return;//return
 			}//endif
 			GroupEnumUnitsInRange(h9, GetUnitX(u), GetUnitY(u), 700., Condition(function Vq));//call GroupEnumUnitsInRange(h9,GetUnitX(u),GetUnitY(u),700.,Condition(function Vq))
-			if (FirstOfGroup(h9)!=null ) {//if FirstOfGroup(h9)!=null then
+			if (FirstOfGroup(h9)!=null) {//if FirstOfGroup(h9)!=null then
 				IssueTargetOrderById(u, $D000F, FirstOfGroup(h9));//call IssueTargetOrderById(u,$D000F,FirstOfGroup(h9))
 				return;//return
 			}//endif
 			GroupEnumUnitsInRange(h9, GetUnitX(u), GetUnitY(u), 700., Condition(function Wq));//call GroupEnumUnitsInRange(h9,GetUnitX(u),GetUnitY(u),700.,Condition(function Wq))
-			if (FirstOfGroup(h9)!=null ) {//if FirstOfGroup(h9)!=null then
+			if (FirstOfGroup(h9)!=null) {//if FirstOfGroup(h9)!=null then
 				IssueTargetOrderById(u, $D000F, FirstOfGroup(h9));//call IssueTargetOrderById(u,$D000F,FirstOfGroup(h9))
 				return;//return
 			}//endif
 		}//endfunction
 		private void ur(int oi, unit u) {//function ur takes integer oi,unit u returns nothing
 			GroupEnumUnitsInRange(h9, GetUnitX(u), GetUnitY(u), 700., Condition(function Xq));//call GroupEnumUnitsInRange(h9,GetUnitX(u),GetUnitY(u),700.,Condition(function Xq))
-			if (FirstOfGroup(h9)!=null ) {//if FirstOfGroup(h9)!=null then
+			if (FirstOfGroup(h9)!=null) {//if FirstOfGroup(h9)!=null then
 				IssueTargetOrderById(u, $D000F, FirstOfGroup(h9));//call IssueTargetOrderById(u,$D000F,FirstOfGroup(h9))
 				return;//return
 			}//endif
 			GroupEnumUnitsInRange(h9, GetUnitX(u), GetUnitY(u), 700., Condition(function Yq));//call GroupEnumUnitsInRange(h9,GetUnitX(u),GetUnitY(u),700.,Condition(function Yq))
-			if (FirstOfGroup(h9)!=null ) {//if FirstOfGroup(h9)!=null then
+			if (FirstOfGroup(h9)!=null) {//if FirstOfGroup(h9)!=null then
 				IssueTargetOrderById(u, $D000F, FirstOfGroup(h9));//call IssueTargetOrderById(u,$D000F,FirstOfGroup(h9))
 				return;//return
 			}//endif
 			GroupEnumUnitsInRange(h9, GetUnitX(u), GetUnitY(u), 700., Condition(function Zq));//call GroupEnumUnitsInRange(h9,GetUnitX(u),GetUnitY(u),700.,Condition(function Zq))
-			if (FirstOfGroup(h9)!=null ) {//if FirstOfGroup(h9)!=null then
+			if (FirstOfGroup(h9)!=null) {//if FirstOfGroup(h9)!=null then
 				IssueTargetOrderById(u, $D000F, FirstOfGroup(h9));//call IssueTargetOrderById(u,$D000F,FirstOfGroup(h9))
 				return;//return
 			}//endif
 			GroupEnumUnitsInRange(h9, GetUnitX(u), GetUnitY(u), 700., Condition(function dr));//call GroupEnumUnitsInRange(h9,GetUnitX(u),GetUnitY(u),700.,Condition(function dr))
-			if (FirstOfGroup(h9)!=null ) {//if FirstOfGroup(h9)!=null then
+			if (FirstOfGroup(h9)!=null) {//if FirstOfGroup(h9)!=null then
 				IssueTargetOrderById(u, $D000F, FirstOfGroup(h9));//call IssueTargetOrderById(u,$D000F,FirstOfGroup(h9))
 				return;//return
 			}//endif
 			GroupEnumUnitsInRange(h9, GetUnitX(u), GetUnitY(u), 700., Condition(function er));//call GroupEnumUnitsInRange(h9,GetUnitX(u),GetUnitY(u),700.,Condition(function er))
-			if (FirstOfGroup(h9)!=null ) {//if FirstOfGroup(h9)!=null then
+			if (FirstOfGroup(h9)!=null) {//if FirstOfGroup(h9)!=null then
 				IssueTargetOrderById(u, $D000F, FirstOfGroup(h9));//call IssueTargetOrderById(u,$D000F,FirstOfGroup(h9))
 				return;//return
 			}//endif
 			GroupEnumUnitsInRange(h9, GetUnitX(u), GetUnitY(u), 700., Condition(function fr));//call GroupEnumUnitsInRange(h9,GetUnitX(u),GetUnitY(u),700.,Condition(function fr))
-			if (FirstOfGroup(h9)!=null ) {//if FirstOfGroup(h9)!=null then
+			if (FirstOfGroup(h9)!=null) {//if FirstOfGroup(h9)!=null then
 				IssueTargetOrderById(u, $D000F, FirstOfGroup(h9));//call IssueTargetOrderById(u,$D000F,FirstOfGroup(h9))
 				return;//return
 			}//endif
 			GroupEnumUnitsInRange(h9, GetUnitX(u), GetUnitY(u), 700., Condition(function gr));//call GroupEnumUnitsInRange(h9,GetUnitX(u),GetUnitY(u),700.,Condition(function gr))
-			if (FirstOfGroup(h9)!=null ) {//if FirstOfGroup(h9)!=null then
+			if (FirstOfGroup(h9)!=null) {//if FirstOfGroup(h9)!=null then
 				IssueTargetOrderById(u, $D000F, FirstOfGroup(h9));//call IssueTargetOrderById(u,$D000F,FirstOfGroup(h9))
 				return;//return
 			}//endif
 			GroupEnumUnitsInRange(h9, GetUnitX(u), GetUnitY(u), 700., Condition(function hr));//call GroupEnumUnitsInRange(h9,GetUnitX(u),GetUnitY(u),700.,Condition(function hr))
-			if (FirstOfGroup(h9)!=null ) {//if FirstOfGroup(h9)!=null then
+			if (FirstOfGroup(h9)!=null) {//if FirstOfGroup(h9)!=null then
 				IssueTargetOrderById(u, $D000F, FirstOfGroup(h9));//call IssueTargetOrderById(u,$D000F,FirstOfGroup(h9))
 				return;//return
 			}//endif
 			GroupEnumUnitsInRange(h9, GetUnitX(u), GetUnitY(u), 700., Condition(function ir));//call GroupEnumUnitsInRange(h9,GetUnitX(u),GetUnitY(u),700.,Condition(function ir))
-			if (FirstOfGroup(h9)!=null ) {//if FirstOfGroup(h9)!=null then
+			if (FirstOfGroup(h9)!=null) {//if FirstOfGroup(h9)!=null then
 				IssueTargetOrderById(u, $D000F, FirstOfGroup(h9));//call IssueTargetOrderById(u,$D000F,FirstOfGroup(h9))
 				return;//return
 			}//endif
 			GroupEnumUnitsInRange(h9, GetUnitX(u), GetUnitY(u), 700., Condition(function jr));//call GroupEnumUnitsInRange(h9,GetUnitX(u),GetUnitY(u),700.,Condition(function jr))
-			if (FirstOfGroup(h9)!=null ) {//if FirstOfGroup(h9)!=null then
+			if (FirstOfGroup(h9)!=null) {//if FirstOfGroup(h9)!=null then
 				IssueTargetOrderById(u, $D000F, FirstOfGroup(h9));//call IssueTargetOrderById(u,$D000F,FirstOfGroup(h9))
 				return;//return
 			}//endif
 			GroupEnumUnitsInRange(h9, GetUnitX(u), GetUnitY(u), 700., Condition(function kr));//call GroupEnumUnitsInRange(h9,GetUnitX(u),GetUnitY(u),700.,Condition(function kr))
-			if (FirstOfGroup(h9)!=null ) {//if FirstOfGroup(h9)!=null then
+			if (FirstOfGroup(h9)!=null) {//if FirstOfGroup(h9)!=null then
 				IssueTargetOrderById(u, $D000F, FirstOfGroup(h9));//call IssueTargetOrderById(u,$D000F,FirstOfGroup(h9))
 				return;//return
 			}//endif
 			GroupEnumUnitsInRange(h9, GetUnitX(u), GetUnitY(u), 700., Condition(function mr));//call GroupEnumUnitsInRange(h9,GetUnitX(u),GetUnitY(u),700.,Condition(function mr))
-			if (FirstOfGroup(h9)!=null ) {//if FirstOfGroup(h9)!=null then
+			if (FirstOfGroup(h9)!=null) {//if FirstOfGroup(h9)!=null then
 				IssueTargetOrderById(u, $D000F, FirstOfGroup(h9));//call IssueTargetOrderById(u,$D000F,FirstOfGroup(h9))
 				return;//return
 			}//endif
@@ -5000,25 +5000,25 @@ namespace Jass {
 		}//endfunction
 		private void wr(int oi, unit u) {//function wr takes integer oi,unit u returns nothing
 			GroupEnumUnitsInRange(h9, GetUnitX(u), GetUnitY(u), 700., Condition(function nr));//call GroupEnumUnitsInRange(h9,GetUnitX(u),GetUnitY(u),700.,Condition(function nr))
-			if (FirstOfGroup(h9)!=null ) {//if FirstOfGroup(h9)!=null then
+			if (FirstOfGroup(h9)!=null) {//if FirstOfGroup(h9)!=null then
 				IssueTargetOrderById(u, $D000F, FirstOfGroup(h9));//call IssueTargetOrderById(u,$D000F,FirstOfGroup(h9))
 				return;//return
 			}//endif
 		}//endfunction
 		private void xr(int oi, unit u) {//function xr takes integer oi,unit u returns nothing
 			int id = LoadInteger(i9,GetUnitTypeId(u),0);//local integer id=LoadInteger(i9,GetUnitTypeId(u),0)
-			if (id==1 ) {//if id==1 then
-			} else if (id==2 ) {//elseif id==2 then
+			if (id==1) {//if id==1 then
+			} else if (id==2) {//elseif id==2 then
 				rr(oi, u);//call rr(oi,u)
-			} else if (id==3 ) {//elseif id==3 then
+			} else if (id==3) {//elseif id==3 then
 				sr(oi, u);//call sr(oi,u)
-			} else if (id==4 ) {//elseif id==4 then
+			} else if (id==4) {//elseif id==4 then
 				tr(oi, u);//call tr(oi,u)
-			} else if (id==5 ) {//elseif id==5 then
+			} else if (id==5) {//elseif id==5 then
 				ur(oi, u);//call ur(oi,u)
-			} else if (id==6 ) {//elseif id==6 then
+			} else if (id==6) {//elseif id==6 then
 				vr(oi, u);//call vr(oi,u)
-			} else if (id==0 ) {//elseif id==0 then
+			} else if (id==0) {//elseif id==0 then
 				wr(oi, u);//call wr(oi,u)
 			}//endif
 		}//endfunction
@@ -5118,14 +5118,14 @@ namespace Jass {
 		private void Er(unit u) {//function Er takes unit u returns nothing
 			int i = GetUnitAbilityLevel(u,959463719);//local integer i=GetUnitAbilityLevel(u,'A09L')
 			if ((i==2)) {//if(i==2)then
-				SetUnitAbilityLevel(u, 'A09L', 1);//call SetUnitAbilityLevel(u,'A09L',1)
+				SetUnitAbilityLevel(u, 959463719, 1);//call SetUnitAbilityLevel(u,'A09L',1)
 				SetUnitState(u, UNIT_STATE_MANA, GetUnitState(u, UNIT_STATE_MANA)+100.);//call SetUnitState(u,UNIT_STATE_MANA,GetUnitState(u,UNIT_STATE_MANA)+100.)
-				UnitAddAbility(u, 'A09M');//call UnitAddAbility(u,'A09M')
-				SetUnitAbilityLevel(u, 'A09M', 3);//call SetUnitAbilityLevel(u,'A09M',3)
-				UnitRemoveAbility(u, 'A09M');//call UnitRemoveAbility(u,'A09M')
+				UnitAddAbility(u, 959463719);//call UnitAddAbility(u,'A09M')
+				SetUnitAbilityLevel(u, 959463719, 3);//call SetUnitAbilityLevel(u,'A09M',3)
+				UnitRemoveAbility(u, 959463719);//call UnitRemoveAbility(u,'A09M')
 				SetUnitState(u, UNIT_STATE_LIFE, GetWidgetLife(u)+200.);//call SetUnitState(u,UNIT_STATE_LIFE,GetWidgetLife(u)+200.)
 			} else {//else
-				UnitRemoveAbility(u, 'A09L');//call UnitRemoveAbility(u,'A09L')
+				UnitRemoveAbility(u, 959463719);//call UnitRemoveAbility(u,'A09L')
 			}//endif
 			DestroyEffect(AddSpecialEffectTarget("Abilities\\Spells\\Items\\AIvi\\AIviTarget.mdl", u, "origin"));//call DestroyEffect(AddSpecialEffectTarget("Abilities\\Spells\\Items\\AIvi\\AIviTarget.mdl",u,"origin"))
 		}//endfunction
@@ -5134,9 +5134,9 @@ namespace Jass {
 			if ((i>=6)) {//if(i>=6)then
 				return;//return
 			}//endif
-			SetUnitAbilityLevel(u, 'A09C', i);//call SetUnitAbilityLevel(u,'A09C',i)
-			SetUnitAbilityLevel(u, 'A09B', i);//call SetUnitAbilityLevel(u,'A09B',i)
-			SetUnitAbilityLevel(u, 'A00J', i);//call SetUnitAbilityLevel(u,'A00J',i)
+			SetUnitAbilityLevel(u, 959463719, i);//call SetUnitAbilityLevel(u,'A09C',i)
+			SetUnitAbilityLevel(u, 959463719, i);//call SetUnitAbilityLevel(u,'A09B',i)
+			SetUnitAbilityLevel(u, 808468775, i);//call SetUnitAbilityLevel(u,'A00J',i)
 			DestroyEffect(AddSpecialEffectTarget("Abilities\\Spells\\Human\\Avatar\\AvatarCaster.mdl", u, "origin"));//call DestroyEffect(AddSpecialEffectTarget("Abilities\\Spells\\Human\\Avatar\\AvatarCaster.mdl",u,"origin"))
 		}//endfunction
 		private bool Gr(unit u) {//function Gr takes unit u returns boolean
@@ -5217,22 +5217,22 @@ namespace Jass {
 			bool Ur = GetUnitAbilityLevel(Tr,825246247)>0;//local boolean Ur=GetUnitAbilityLevel(Tr,'B01K')>0
 			if ((GetUnitAbilityLevel(u,1144013095)>0)) {//if(GetUnitAbilityLevel(u,'A0DZ')>0)then
 				IssueImmediateOrderById(u, $D02BB);//call IssueImmediateOrderById(u,$D02BB)
-				UnitApplyTimedLife(u, 'BTLF', 1.);//call UnitApplyTimedLife(u,'BTLF',1.)
+				UnitApplyTimedLife(u, 1280590375, 1.);//call UnitApplyTimedLife(u,'BTLF',1.)
 				u = GetSummonedUnit();//set u=GetSummonedUnit()
 				if ((u==null)) {//if(u==null)then
 					return;//return
 				}//endif
 			}//endif
 			if ((Ur)) {//if(Ur)then
-				UnitAddAbility(u, 'A09M');//call UnitAddAbility(u,'A09M')
-				SetUnitAbilityLevel(u, 'A09M', 3);//call SetUnitAbilityLevel(u,'A09M',3)
-				UnitRemoveAbility(u, 'A09M');//call UnitRemoveAbility(u,'A09M')
-				UnitAddAbility(u, 'A09Q');//call UnitAddAbility(u,'A09Q')
-				UnitAddAbility(u, 'A09R');//call UnitAddAbility(u,'A09R')
+				UnitAddAbility(u, 959463719);//call UnitAddAbility(u,'A09M')
+				SetUnitAbilityLevel(u, 959463719, 3);//call SetUnitAbilityLevel(u,'A09M',3)
+				UnitRemoveAbility(u, 959463719);//call UnitRemoveAbility(u,'A09M')
+				UnitAddAbility(u, 959463719);//call UnitAddAbility(u,'A09Q')
+				UnitAddAbility(u, 959463719);//call UnitAddAbility(u,'A09R')
 			}//endif
 			if ((GetUnitAbilityLevel(Tr,1160790311)>0 && GetRandomInt(0,99)<30)) {//if(GetUnitAbilityLevel(Tr,'A0EL')>0 and GetRandomInt(0,99)<30)then
-				UnitAddAbility(u, 'A0EZ');//call UnitAddAbility(u,'A0EZ')
-				UnitAddAbility(u, 'A0C5');//call UnitAddAbility(u,'A0C5')
+				UnitAddAbility(u, 1160790311);//call UnitAddAbility(u,'A0EZ')
+				UnitAddAbility(u, 1127235879);//call UnitAddAbility(u,'A0C5')
 			}//endif
 			Vo(u);//call Vo(u)
 			Rd[dk] = Rd[dk]+1;//set Rd[dk]=Rd[dk]+1
@@ -5259,14 +5259,14 @@ namespace Jass {
 			if ((GetUnitAbilityLevel(u,1144013095)>0)) {//if(GetUnitAbilityLevel(u,'A0DZ')>0)then
 				ShowUnit(u, false);//call ShowUnit(u,false)
 				IssueImmediateOrderById(u, $D02BB);//call IssueImmediateOrderById(u,$D02BB)
-				UnitApplyTimedLife(u, 'BTLF', 1.);//call UnitApplyTimedLife(u,'BTLF',1.)
+				UnitApplyTimedLife(u, 1280590375, 1.);//call UnitApplyTimedLife(u,'BTLF',1.)
 			}//endif
 			if ((Ur)) {//if(Ur)then
-				UnitAddAbility(u, 'A09M');//call UnitAddAbility(u,'A09M')
-				SetUnitAbilityLevel(u, 'A09M', 3);//call SetUnitAbilityLevel(u,'A09M',3)
-				UnitRemoveAbility(u, 'A09M');//call UnitRemoveAbility(u,'A09M')
-				UnitAddAbility(u, 'A09Q');//call UnitAddAbility(u,'A09Q')
-				UnitAddAbility(u, 'A09R');//call UnitAddAbility(u,'A09R')
+				UnitAddAbility(u, 959463719);//call UnitAddAbility(u,'A09M')
+				SetUnitAbilityLevel(u, 959463719, 3);//call SetUnitAbilityLevel(u,'A09M',3)
+				UnitRemoveAbility(u, 959463719);//call UnitRemoveAbility(u,'A09M')
+				UnitAddAbility(u, 959463719);//call UnitAddAbility(u,'A09Q')
+				UnitAddAbility(u, 959463719);//call UnitAddAbility(u,'A09R')
 			}//endif
 			Vo(u);//call Vo(u)
 			Rd[dk] = Rd[dk]+1;//set Rd[dk]=Rd[dk]+1
@@ -5374,7 +5374,7 @@ namespace Jass {
 				y8 = 1144013095;//set y8='A0D0'
 				z8 = 1160790311;//set z8='A0E3'
 			} else {//else
-				DisplayTextToForce(bj_FORCE_ALL_PLAYERS, "|cffC6FF00No Artillery|r has been chosen. You cannot build structures that attack enemy structures.");//call DisplayTextToForce(bj_FORCE_ALL_PLAYERS,"|cffC6FF00No Artillery|r has been chosen. You cannot build structures that attack enemy structures.")
+				DisplayTextToForce(bj_FORCE_ALL_PLAYERS, "|cffC6FF00No Artillery|r has been chosen. You can!build structures that attack enemy structures.");//call DisplayTextToForce(bj_FORCE_ALL_PLAYERS,"|cffC6FF00No Artillery|r has been chosen. You cannot build structures that attack enemy structures.")
 				df = 842034727;//set df='n021'
 				zf = 942686503;//set zf='A08T'
 				We = 892354855;//set We='A05H'
@@ -5387,9 +5387,9 @@ namespace Jass {
 			bj_forLoopAIndexEnd = $B;//set bj_forLoopAIndexEnd=$B
 			while (true) {//loop
 				if (bj_forLoopAIndex>bj_forLoopAIndexEnd) { break; }//exitwhen bj_forLoopAIndex>bj_forLoopAIndexEnd
-				SetPlayerUnitAvailableBJ('h001', fl, Player(bj_forLoopAIndex));//call SetPlayerUnitAvailableBJ('h001',fl,Player(bj_forLoopAIndex))
-				SetPlayerUnitAvailableBJ('h048', fl, Player(bj_forLoopAIndex));//call SetPlayerUnitAvailableBJ('h048',fl,Player(bj_forLoopAIndex))
-				SetPlayerUnitAvailableBJ('h01E', fl, Player(bj_forLoopAIndex));//call SetPlayerUnitAvailableBJ('h01E',fl,Player(bj_forLoopAIndex))
+				SetPlayerUnitAvailableBJ(808478759, fl, Player(bj_forLoopAIndex));//call SetPlayerUnitAvailableBJ('h001',fl,Player(bj_forLoopAIndex))
+				SetPlayerUnitAvailableBJ(875587623, fl, Player(bj_forLoopAIndex));//call SetPlayerUnitAvailableBJ('h048',fl,Player(bj_forLoopAIndex))
+				SetPlayerUnitAvailableBJ(825255975, fl, Player(bj_forLoopAIndex));//call SetPlayerUnitAvailableBJ('h01E',fl,Player(bj_forLoopAIndex))
 				bj_forLoopAIndex = bj_forLoopAIndex+1;//set bj_forLoopAIndex=bj_forLoopAIndex+1
 			}//endloop
 		}//endfunction
@@ -5434,13 +5434,13 @@ namespace Jass {
 			if ((fl)) {//if(fl)then
 				DisplayTextToForce(bj_FORCE_ALL_PLAYERS, "|cffC6FF00No Treasure Box|r mode has been disabled.");//call DisplayTextToForce(bj_FORCE_ALL_PLAYERS,"|cffC6FF00No Treasure Box|r mode has been disabled.")
 			} else {//else
-				DisplayTextToForce(bj_FORCE_ALL_PLAYERS, "|cffC6FF00No Treasure Box|r has been chosen. You cannot build Treasure Boxes.");//call DisplayTextToForce(bj_FORCE_ALL_PLAYERS,"|cffC6FF00No Treasure Box|r has been chosen. You cannot build Treasure Boxes.")
+				DisplayTextToForce(bj_FORCE_ALL_PLAYERS, "|cffC6FF00No Treasure Box|r has been chosen. You can!build Treasure Boxes.");//call DisplayTextToForce(bj_FORCE_ALL_PLAYERS,"|cffC6FF00No Treasure Box|r has been chosen. You cannot build Treasure Boxes.")
 			}//endif
 			bj_forLoopAIndex = 0;//set bj_forLoopAIndex=0
 			bj_forLoopAIndexEnd = $B;//set bj_forLoopAIndexEnd=$B
 			while (true) {//loop
 				if (bj_forLoopAIndex>bj_forLoopAIndexEnd) { break; }//exitwhen bj_forLoopAIndex>bj_forLoopAIndexEnd
-				SetPlayerUnitAvailableBJ('h008', fl, Player(bj_forLoopAIndex));//call SetPlayerUnitAvailableBJ('h008',fl,Player(bj_forLoopAIndex))
+				SetPlayerUnitAvailableBJ(808478759, fl, Player(bj_forLoopAIndex));//call SetPlayerUnitAvailableBJ('h008',fl,Player(bj_forLoopAIndex))
 				bj_forLoopAIndex = bj_forLoopAIndex+1;//set bj_forLoopAIndex=bj_forLoopAIndex+1
 			}//endloop
 		}//endfunction
@@ -5464,22 +5464,22 @@ namespace Jass {
 			if ((fl)) {//if(fl)then
 				DisplayTextToForce(bj_FORCE_ALL_PLAYERS, "|cffC6FF00No Specials|r mode has been disabled.");//call DisplayTextToForce(bj_FORCE_ALL_PLAYERS,"|cffC6FF00No Specials|r mode has been disabled.")
 			} else {//else
-				DisplayTextToForce(bj_FORCE_ALL_PLAYERS, "|cffC6FF00No Specials|r has been chosen. You can't build special buildings except towers and Treasure Boxes.");//call DisplayTextToForce(bj_FORCE_ALL_PLAYERS,"|cffC6FF00No Specials|r has been chosen. You can't build special buildings except towers and Treasure Boxes.")
+				DisplayTextToForce(bj_FORCE_ALL_PLAYERS, "|cffC6FF00No Specials|r has been chosen. You can't build special buildings except towers && Treasure Boxes.");//call DisplayTextToForce(bj_FORCE_ALL_PLAYERS,"|cffC6FF00No Specials|r has been chosen. You can't build special buildings except towers and Treasure Boxes.")
 			}//endif
 			bj_forLoopAIndex = 0;//set bj_forLoopAIndex=0
 			bj_forLoopAIndexEnd = $B;//set bj_forLoopAIndexEnd=$B
 			while (true) {//loop
 				if (bj_forLoopAIndex>bj_forLoopAIndexEnd) { break; }//exitwhen bj_forLoopAIndex>bj_forLoopAIndexEnd
-				SetPlayerUnitAvailableBJ('h01P', fl, Player(bj_forLoopAIndex));//call SetPlayerUnitAvailableBJ('h01P',fl,Player(bj_forLoopAIndex))
-				SetPlayerUnitAvailableBJ('h056', fl, Player(bj_forLoopAIndex));//call SetPlayerUnitAvailableBJ('h056',fl,Player(bj_forLoopAIndex))
-				SetPlayerUnitAvailableBJ('h014', fl, Player(bj_forLoopAIndex));//call SetPlayerUnitAvailableBJ('h014',fl,Player(bj_forLoopAIndex))
-				SetPlayerUnitAvailableBJ('h03Q', fl, Player(bj_forLoopAIndex));//call SetPlayerUnitAvailableBJ('h03Q',fl,Player(bj_forLoopAIndex))
-				SetPlayerUnitAvailableBJ('h01O', fl, Player(bj_forLoopAIndex));//call SetPlayerUnitAvailableBJ('h01O',fl,Player(bj_forLoopAIndex))
-				SetPlayerUnitAvailableBJ('o000', fl, Player(bj_forLoopAIndex));//call SetPlayerUnitAvailableBJ('o000',fl,Player(bj_forLoopAIndex))
-				SetPlayerUnitAvailableBJ('h006', fl, Player(bj_forLoopAIndex));//call SetPlayerUnitAvailableBJ('h006',fl,Player(bj_forLoopAIndex))
-				SetPlayerUnitAvailableBJ('n01J', fl, Player(bj_forLoopAIndex));//call SetPlayerUnitAvailableBJ('n01J',fl,Player(bj_forLoopAIndex))
-				SetPlayerUnitAvailableBJ('h073', fl, Player(bj_forLoopAIndex));//call SetPlayerUnitAvailableBJ('h073',fl,Player(bj_forLoopAIndex))
-				SetPlayerUnitAvailableBJ('h05L', fl, Player(bj_forLoopAIndex));//call SetPlayerUnitAvailableBJ('h05L',fl,Player(bj_forLoopAIndex))
+				SetPlayerUnitAvailableBJ(825255975, fl, Player(bj_forLoopAIndex));//call SetPlayerUnitAvailableBJ('h01P',fl,Player(bj_forLoopAIndex))
+				SetPlayerUnitAvailableBJ(892364839, fl, Player(bj_forLoopAIndex));//call SetPlayerUnitAvailableBJ('h056',fl,Player(bj_forLoopAIndex))
+				SetPlayerUnitAvailableBJ(825255975, fl, Player(bj_forLoopAIndex));//call SetPlayerUnitAvailableBJ('h014',fl,Player(bj_forLoopAIndex))
+				SetPlayerUnitAvailableBJ(858810407, fl, Player(bj_forLoopAIndex));//call SetPlayerUnitAvailableBJ('h03Q',fl,Player(bj_forLoopAIndex))
+				SetPlayerUnitAvailableBJ(825255975, fl, Player(bj_forLoopAIndex));//call SetPlayerUnitAvailableBJ('h01O',fl,Player(bj_forLoopAIndex))
+				SetPlayerUnitAvailableBJ(808480551, fl, Player(bj_forLoopAIndex));//call SetPlayerUnitAvailableBJ('o000',fl,Player(bj_forLoopAIndex))
+				SetPlayerUnitAvailableBJ(808478759, fl, Player(bj_forLoopAIndex));//call SetPlayerUnitAvailableBJ('h006',fl,Player(bj_forLoopAIndex))
+				SetPlayerUnitAvailableBJ(825257511, fl, Player(bj_forLoopAIndex));//call SetPlayerUnitAvailableBJ('n01J',fl,Player(bj_forLoopAIndex))
+				SetPlayerUnitAvailableBJ(925919271, fl, Player(bj_forLoopAIndex));//call SetPlayerUnitAvailableBJ('h073',fl,Player(bj_forLoopAIndex))
+				SetPlayerUnitAvailableBJ(892364839, fl, Player(bj_forLoopAIndex));//call SetPlayerUnitAvailableBJ('h05L',fl,Player(bj_forLoopAIndex))
 				bj_forLoopAIndex = bj_forLoopAIndex+1;//set bj_forLoopAIndex=bj_forLoopAIndex+1
 			}//endloop
 		}//endfunction
@@ -5603,7 +5603,7 @@ namespace Jass {
 		}//endfunction
 		private void Ds(int zs) {//function Ds takes integer zs returns nothing
 			if ((zs<1 || zs>5)) {//if(zs<1 or zs>5)then
-				DisplayTextToPlayer(Player(0), .0, .0, "|cffFF0000Wrong number of players per player! Must be between 2 and 4!|r");//call DisplayTextToPlayer(Player(0),.0,.0,"|cffFF0000Wrong number of players per player! Must be between 2 and 4!|r")
+				DisplayTextToPlayer(Player(0), .0, .0, "|cffFF0000Wrong number of players per player! Must be between 2 && 4!|r");//call DisplayTextToPlayer(Player(0),.0,.0,"|cffFF0000Wrong number of players per player! Must be between 2 and 4!|r")
 				return;//return
 			}//endif
 			Dd = 0;//set Dd=0
@@ -5636,7 +5636,7 @@ namespace Jass {
 			if ((IAbsBJ(yj)>5)) {//if(IAbsBJ(yj)>5)then
 				cd = yj;//set cd=yj
 				if ((yj>0)) {//if(yj>0)then
-					DisplayTextToForce(bj_FORCE_ALL_PLAYERS, "|cffC6FF00Round time limit for win|r has been activated. Round will automatically end after "+I2S(IAbsBJ(yj))+" minutes and owner of first building will win.");//call DisplayTextToForce(bj_FORCE_ALL_PLAYERS,"|cffC6FF00Round time limit for win|r has been activated. Round will automatically end after "+I2S(IAbsBJ(yj))+" minutes and owner of first building will win.")
+					DisplayTextToForce(bj_FORCE_ALL_PLAYERS, "|cffC6FF00Round time limit for win|r has been activated. Round will automatically end after "+I2S(IAbsBJ(yj))+" minutes && owner of first building will win.");//call DisplayTextToForce(bj_FORCE_ALL_PLAYERS,"|cffC6FF00Round time limit for win|r has been activated. Round will automatically end after "+I2S(IAbsBJ(yj))+" minutes and owner of first building will win.")
 				} else {//else
 					DisplayTextToForce(bj_FORCE_ALL_PLAYERS, "|cffC6FF00Round time limit for draw|r has been activated. Round will automatically end after "+I2S(IAbsBJ(yj))+" minutes with draw result.");//call DisplayTextToForce(bj_FORCE_ALL_PLAYERS,"|cffC6FF00Round time limit for draw|r has been activated. Round will automatically end after "+I2S(IAbsBJ(yj))+" minutes with draw result.")
 				}//endif
@@ -5893,56 +5893,56 @@ namespace Jass {
 			Jd[1] = CreateGroup();//set Jd[1]=CreateGroup()
 			i = 0;//set i=0
 			while (true) {//loop
-				GroupAddUnit(P9, CreateUnit(p, 'h00L', -192., 3392., 270.));//call GroupAddUnit(P9,CreateUnit(p,'h00L',-192.,3392.,270.))
+				GroupAddUnit(P9, CreateUnit(p, 808478759, -192., 3392., 270.));//call GroupAddUnit(P9,CreateUnit(p,'h00L',-192.,3392.,270.))
 				i = i+1;//set i=i+1
 				if (i>33) { break; }//exitwhen i>33
 			}//endloop
 			p = Player($F);//set p=Player($F)
-			CreateUnit(p, 'h00L', -192., 3392., 270.);//call CreateUnit(p,'h00L',-192.,3392.,270.)
-			CreateUnit(p, 'nshp', 320., 1856., 270.);//call CreateUnit(p,'nshp',320.,1856.,270.)
-			SetUnitColor(CreateUnit(p, 'nmrk', -256., -2816., 270.), ConvertPlayerColor(0));//call SetUnitColor(CreateUnit(p,'nmrk',-256.,-2816.,270.),ConvertPlayerColor(0))
-			CreateUnit(p, 'nder', -4735.4, 3246.1, 109.526);//call CreateUnit(p,'nder',-4735.4,3246.1,109.526)
-			CreateUnit(p, 'nfro', -1091.1, 2532.8, 224.842);//call CreateUnit(p,'nfro',-1091.1,2532.8,224.842)
-			CreateUnit(p, 'nfro', -1750.8, 3170.3, 12.503);//call CreateUnit(p,'nfro',-1750.8,3170.3,12.503)
-			CreateUnit(p, 'nfro', -4208.5, -3103.9, 62.844);//call CreateUnit(p,'nfro',-4208.5,-3103.9,62.844)
-			CreateUnit(p, 'nrac', 3575.1, -3410.6, 28.565);//call CreateUnit(p,'nrac',3575.1,-3410.6,28.565)
-			CreateUnit(p, 'nrac', 215.3, -2989.1, 39.991);//call CreateUnit(p,'nrac',215.3,-2989.1,39.991)
-			CreateUnit(p, 'nder', -734.9, -2927.2, 354.77);//call CreateUnit(p,'nder',-734.9,-2927.2,354.77)
-			CreateUnit(p, 'nder', -778.4, 3161.3, 100.297);//call CreateUnit(p,'nder',-778.4,3161.3,100.297)
-			CreateUnit(p, 'nder', 486.3, 3092.6, 147.507);//call CreateUnit(p,'nder',486.3,3092.6,147.507)
-			CreateUnit(p, 'nder', 2097.6, 2634.9, 173.293);//call CreateUnit(p,'nder',2097.6,2634.9,173.293)
-			CreateUnit(p, 'necr', 2734.8, 2968., 320.909);//call CreateUnit(p,'necr',2734.8,2968.,320.909)
-			CreateUnit(p, 'necr', -601.3, 1917.2, 359.418);//call CreateUnit(p,'necr',-601.3,1917.2,359.418)
-			CreateUnit(p, 'necr', -2505.3, 3205.6, 108.405);//call CreateUnit(p,'necr',-2505.3,3205.6,108.405)
-			CreateUnit(p, 'necr', -2553.8, 3097.9, 314.669);//call CreateUnit(p,'necr',-2553.8,3097.9,314.669)
-			CreateUnit(p, 'nfro', 4466.5, 3139.7, 42.463);//call CreateUnit(p,'nfro',4466.5,3139.7,42.463)
-			CreateUnit(p, 'nfro', 539.6, 2646.5, 108.054);//call CreateUnit(p,'nfro',539.6,2646.5,108.054)
-			CreateUnit(p, 'necr', -5469.2, 2773.2, 240.63);//call CreateUnit(p,'necr',-5469.2,2773.2,240.63)
-			CreateUnit(p, 'nrac', -3882.6, 3455.9, 171.348);//call CreateUnit(p,'nrac',-3882.6,3455.9,171.348)
-			CreateUnit(p, 'necr', -2951.9, 3480.5, 75.248);//call CreateUnit(p,'necr',-2951.9,3480.5,75.248)
-			CreateUnit(p, 'nder', -1995.2, 3031.8, 320.569);//call CreateUnit(p,'nder',-1995.2,3031.8,320.569)
-			CreateUnit(p, 'nder', -4755.9, -3285.9, 96.265);//call CreateUnit(p,'nder',-4755.9,-3285.9,96.265)
-			CreateUnit(p, 'necr', -2813.4, -3182.2, 270.799);//call CreateUnit(p,'necr',-2813.4,-3182.2,270.799)
-			CreateUnit(p, 'nrac', -2009.7, -3134.2, 263.79);//call CreateUnit(p,'nrac',-2009.7,-3134.2,263.79)
-			CreateUnit(p, 'nder', 5212.3, -3150.6, 44.199);//call CreateUnit(p,'nder',5212.3,-3150.6,44.199)
-			CreateUnit(p, 'nfro', 4753.5, -3152.8, 349.596);//call CreateUnit(p,'nfro',4753.5,-3152.8,349.596)
-			CreateUnit(p, 'nrac', -10.6, 3013.2, 169.052);//call CreateUnit(p,'nrac',-10.6,3013.2,169.052)
-			CreateUnit(p, 'ndwm', 1689.8, -2774.7, 192.19);//call CreateUnit(p,'ndwm',1689.8,-2774.7,192.19)
-			CreateUnit(p, 'ndog', -3610.9, -3243.8, 118.216);//call CreateUnit(p,'ndog',-3610.9,-3243.8,118.216)
-			CreateUnit(p, 'ndog', 1334.7, 2849.5, 136.344);//call CreateUnit(p,'ndog',1334.7,2849.5,136.344)
-			CreateUnit(p, 'ndog', 3868.8, 3221.9, 302.375);//call CreateUnit(p,'ndog',3868.8,3221.9,302.375)
-			CreateUnit(p, 'nshe', -5537.3, 3457.1, 52.22);//call CreateUnit(p,'nshe',-5537.3,3457.1,52.22)
-			CreateUnit(p, 'nsno', 824.5, 3262.9, 175.677);//call CreateUnit(p,'nsno',824.5,3262.9,175.677)
-			CreateUnit(p, 'nsno', 202.1, -2945.4, 216.679);//call CreateUnit(p,'nsno',202.1,-2945.4,216.679)
-			CreateUnit(p, 'npnw', 745.5, 2441.4, 238.74);//call CreateUnit(p,'npnw',745.5,2441.4,238.74)
-			CreateUnit(p, 'npnw', -1503.3, 3397.6, 70.468);//call CreateUnit(p,'npnw',-1503.3,3397.6,70.468)
-			CreateUnit(p, 'nhmc', -1045.4, 2540.1, 279.314);//call CreateUnit(p,'nhmc',-1045.4,2540.1,279.314)
-			CreateUnit(p, 'nskk', -1729., 3470.5, 317.767);//call CreateUnit(p,'nskk',-1729.,3470.5,317.767)
-			CreateUnit(p, 'nskk', -2433.4, 2555.1, 311.109);//call CreateUnit(p,'nskk',-2433.4,2555.1,311.109)
-			CreateUnit(p, 'nskk', 3859.9, -3350.3, 329.995);//call CreateUnit(p,'nskk',3859.9,-3350.3,329.995)
-			CreateUnit(p, 'ncrb', 4721.1, -3370.7, 285.192);//call CreateUnit(p,'ncrb',4721.1,-3370.7,285.192)
-			CreateUnit(p, 'nalb', 4473.6, -3164.3, 324.601);//call CreateUnit(p,'nalb',4473.6,-3164.3,324.601)
-			CreateUnit(p, 'nhmc', 4158.9, -3098.4, 273.93);//call CreateUnit(p,'nhmc',4158.9,-3098.4,273.93)
+			CreateUnit(p, 808478759, -192., 3392., 270.);//call CreateUnit(p,'h00L',-192.,3392.,270.)
+			CreateUnit(p, 1752395303, 320., 1856., 270.);//call CreateUnit(p,'nshp',320.,1856.,270.)
+			SetUnitColor(CreateUnit(p, 1919774247, -256., -2816., 270.), ConvertPlayerColor(0));//call SetUnitColor(CreateUnit(p,'nmrk',-256.,-2816.,270.),ConvertPlayerColor(0))
+			CreateUnit(p, 1701080615, -4735.4, 3246.1, 109.526);//call CreateUnit(p,'nder',-4735.4,3246.1,109.526)
+			CreateUnit(p, 1919315495, -1091.1, 2532.8, 224.842);//call CreateUnit(p,'nfro',-1091.1,2532.8,224.842)
+			CreateUnit(p, 1919315495, -1750.8, 3170.3, 12.503);//call CreateUnit(p,'nfro',-1750.8,3170.3,12.503)
+			CreateUnit(p, 1919315495, -4208.5, -3103.9, 62.844);//call CreateUnit(p,'nfro',-4208.5,-3103.9,62.844)
+			CreateUnit(p, 1634889255, 3575.1, -3410.6, 28.565);//call CreateUnit(p,'nrac',3575.1,-3410.6,28.565)
+			CreateUnit(p, 1634889255, 215.3, -2989.1, 39.991);//call CreateUnit(p,'nrac',215.3,-2989.1,39.991)
+			CreateUnit(p, 1701080615, -734.9, -2927.2, 354.77);//call CreateUnit(p,'nder',-734.9,-2927.2,354.77)
+			CreateUnit(p, 1701080615, -778.4, 3161.3, 100.297);//call CreateUnit(p,'nder',-778.4,3161.3,100.297)
+			CreateUnit(p, 1701080615, 486.3, 3092.6, 147.507);//call CreateUnit(p,'nder',486.3,3092.6,147.507)
+			CreateUnit(p, 1701080615, 2097.6, 2634.9, 173.293);//call CreateUnit(p,'nder',2097.6,2634.9,173.293)
+			CreateUnit(p, 1667591719, 2734.8, 2968., 320.909);//call CreateUnit(p,'necr',2734.8,2968.,320.909)
+			CreateUnit(p, 1667591719, -601.3, 1917.2, 359.418);//call CreateUnit(p,'necr',-601.3,1917.2,359.418)
+			CreateUnit(p, 1667591719, -2505.3, 3205.6, 108.405);//call CreateUnit(p,'necr',-2505.3,3205.6,108.405)
+			CreateUnit(p, 1667591719, -2553.8, 3097.9, 314.669);//call CreateUnit(p,'necr',-2553.8,3097.9,314.669)
+			CreateUnit(p, 1919315495, 4466.5, 3139.7, 42.463);//call CreateUnit(p,'nfro',4466.5,3139.7,42.463)
+			CreateUnit(p, 1919315495, 539.6, 2646.5, 108.054);//call CreateUnit(p,'nfro',539.6,2646.5,108.054)
+			CreateUnit(p, 1667591719, -5469.2, 2773.2, 240.63);//call CreateUnit(p,'necr',-5469.2,2773.2,240.63)
+			CreateUnit(p, 1634889255, -3882.6, 3455.9, 171.348);//call CreateUnit(p,'nrac',-3882.6,3455.9,171.348)
+			CreateUnit(p, 1667591719, -2951.9, 3480.5, 75.248);//call CreateUnit(p,'necr',-2951.9,3480.5,75.248)
+			CreateUnit(p, 1701080615, -1995.2, 3031.8, 320.569);//call CreateUnit(p,'nder',-1995.2,3031.8,320.569)
+			CreateUnit(p, 1701080615, -4755.9, -3285.9, 96.265);//call CreateUnit(p,'nder',-4755.9,-3285.9,96.265)
+			CreateUnit(p, 1667591719, -2813.4, -3182.2, 270.799);//call CreateUnit(p,'necr',-2813.4,-3182.2,270.799)
+			CreateUnit(p, 1634889255, -2009.7, -3134.2, 263.79);//call CreateUnit(p,'nrac',-2009.7,-3134.2,263.79)
+			CreateUnit(p, 1701080615, 5212.3, -3150.6, 44.199);//call CreateUnit(p,'nder',5212.3,-3150.6,44.199)
+			CreateUnit(p, 1919315495, 4753.5, -3152.8, 349.596);//call CreateUnit(p,'nfro',4753.5,-3152.8,349.596)
+			CreateUnit(p, 1634889255, -10.6, 3013.2, 169.052);//call CreateUnit(p,'nrac',-10.6,3013.2,169.052)
+			CreateUnit(p, 2003070503, 1689.8, -2774.7, 192.19);//call CreateUnit(p,'ndwm',1689.8,-2774.7,192.19)
+			CreateUnit(p, 1868852775, -3610.9, -3243.8, 118.216);//call CreateUnit(p,'ndog',-3610.9,-3243.8,118.216)
+			CreateUnit(p, 1868852775, 1334.7, 2849.5, 136.344);//call CreateUnit(p,'ndog',1334.7,2849.5,136.344)
+			CreateUnit(p, 1868852775, 3868.8, 3221.9, 302.375);//call CreateUnit(p,'ndog',3868.8,3221.9,302.375)
+			CreateUnit(p, 1752395303, -5537.3, 3457.1, 52.22);//call CreateUnit(p,'nshe',-5537.3,3457.1,52.22)
+			CreateUnit(p, 1853058599, 824.5, 3262.9, 175.677);//call CreateUnit(p,'nsno',824.5,3262.9,175.677)
+			CreateUnit(p, 1853058599, 202.1, -2945.4, 216.679);//call CreateUnit(p,'nsno',202.1,-2945.4,216.679)
+			CreateUnit(p, 1852861991, 745.5, 2441.4, 238.74);//call CreateUnit(p,'npnw',745.5,2441.4,238.74)
+			CreateUnit(p, 1852861991, -1503.3, 3397.6, 70.468);//call CreateUnit(p,'npnw',-1503.3,3397.6,70.468)
+			CreateUnit(p, 1835560487, -1045.4, 2540.1, 279.314);//call CreateUnit(p,'nhmc',-1045.4,2540.1,279.314)
+			CreateUnit(p, 1802726951, -1729., 3470.5, 317.767);//call CreateUnit(p,'nskk',-1729.,3470.5,317.767)
+			CreateUnit(p, 1802726951, -2433.4, 2555.1, 311.109);//call CreateUnit(p,'nskk',-2433.4,2555.1,311.109)
+			CreateUnit(p, 1802726951, 3859.9, -3350.3, 329.995);//call CreateUnit(p,'nskk',3859.9,-3350.3,329.995)
+			CreateUnit(p, 1919118887, 4721.1, -3370.7, 285.192);//call CreateUnit(p,'ncrb',4721.1,-3370.7,285.192)
+			CreateUnit(p, 1818324519, 4473.6, -3164.3, 324.601);//call CreateUnit(p,'nalb',4473.6,-3164.3,324.601)
+			CreateUnit(p, 1835560487, 4158.9, -3098.4, 273.93);//call CreateUnit(p,'nhmc',4158.9,-3098.4,273.93)
 			Is();//call Is()
 			bj_forLoopAIndex = 0;//set bj_forLoopAIndex=0
 			bj_forLoopAIndexEnd = $B;//set bj_forLoopAIndexEnd=$B
@@ -5956,10 +5956,10 @@ namespace Jass {
 			SetMapFlag(MAP_LOCK_RESOURCE_TRADING, true);//call SetMapFlag(MAP_LOCK_RESOURCE_TRADING,true)
 			FogMaskEnable(false);//call FogMaskEnable(false)
 			FogEnable(false);//call FogEnable(false)
-			CreateQuestBJ(0, "Game Modes", "Gamemodes are entered by the red player in the first 20 seconds of game time.A gamemode consists of a dash followed by two characters and a number:The first character determines the race distribution.|cffFFFF00p :|r pick race|cffFFFF00d :|r draft race|cffFFFF00r :|r random race|cffFFFF00m :|r mirror mode (random)The second character determines how long races are kept:|cffFFFF00g :|r The race is determined in round one and then |cffFFFF80kept for the whole game|r|cffFFFF00r :|r The race is determined before |cffFFFF80EACH round|rThe 3rd character is a number between |cffFFFF001|r and |cffFFFF006|r determining the number of wins for overall victory|cffFFFF00Examples:|r-|cffFF0000r|cff00FF00r|cffFFFF002|r would start a |cffFF0000RANDOM|r race |cff00FF00EACH ROUND|r game with |cffFFFF002 wins|r for overall victory-|cffFF0000p|cff00FF00g|cffFFFF004|r would start a |cffFF0000PICK|r race |cff00FF00ONCE FOR WHOLE GAME|r game with |cffFFFF004 wins|r for overall victory", "ReplaceableTextures\\CommandButtons\\BTNPickUpItem.blp");//call CreateQuestBJ(0,"Game Modes","Gamemodes are entered by the red player in the first 20 seconds of game time.A gamemode consists of a dash followed by two characters and a number:The first character determines the race distribution.|cffFFFF00p :|r pick race|cffFFFF00d :|r draft race|cffFFFF00r :|r random race|cffFFFF00m :|r mirror mode (random)The second character determines how long races are kept:|cffFFFF00g :|r The race is determined in round one and then |cffFFFF80kept for the whole game|r|cffFFFF00r :|r The race is determined before |cffFFFF80EACH round|rThe 3rd character is a number between |cffFFFF001|r and |cffFFFF006|r determining the number of wins for overall victory|cffFFFF00Examples:|r-|cffFF0000r|cff00FF00r|cffFFFF002|r would start a |cffFF0000RANDOM|r race |cff00FF00EACH ROUND|r game with |cffFFFF002 wins|r for overall victory-|cffFF0000p|cff00FF00g|cffFFFF004|r would start a |cffFF0000PICK|r race |cff00FF00ONCE FOR WHOLE GAME|r game with |cffFFFF004 wins|r for overall victory","ReplaceableTextures\\CommandButtons\\BTNPickUpItem.blp")
+			CreateQuestBJ(0, "Game Modes", "Gamemodes are entered by the red player in the first 20 seconds of game time.A gamemode consists of a dash followed by two characters && a number:The first character determines the race distribution.|cffFFFF00p :|r pick race|cffFFFF00d :|r draft race|cffFFFF00r :|r random race|cffFFFF00m :|r mirror mode (random)The second character determines how long races are kept:|cffFFFF00g :|r The race is determined in round one && then |cffFFFF80kept for the whole game|r|cffFFFF00r :|r The race is determined before |cffFFFF80EACH round|rThe 3rd character is a number between |cffFFFF001|r && |cffFFFF006|r determining the number of wins for overall victory|cffFFFF00Examples:|r-|cffFF0000r|cff00FF00r|cffFFFF002|r would start a |cffFF0000RANDOM|r race |cff00FF00EACH ROUND|r game with |cffFFFF002 wins|r for overall victory-|cffFF0000p|cff00FF00g|cffFFFF004|r would start a |cffFF0000PICK|r race |cff00FF00ONCE FOR WHOLE GAME|r game with |cffFFFF004 wins|r for overall victory", "ReplaceableTextures\\CommandButtons\\BTNPickUpItem.blp");//call CreateQuestBJ(0,"Game Modes","Gamemodes are entered by the red player in the first 20 seconds of game time.A gamemode consists of a dash followed by two characters and a number:The first character determines the race distribution.|cffFFFF00p :|r pick race|cffFFFF00d :|r draft race|cffFFFF00r :|r random race|cffFFFF00m :|r mirror mode (random)The second character determines how long races are kept:|cffFFFF00g :|r The race is determined in round one and then |cffFFFF80kept for the whole game|r|cffFFFF00r :|r The race is determined before |cffFFFF80EACH round|rThe 3rd character is a number between |cffFFFF001|r and |cffFFFF006|r determining the number of wins for overall victory|cffFFFF00Examples:|r-|cffFF0000r|cff00FF00r|cffFFFF002|r would start a |cffFF0000RANDOM|r race |cff00FF00EACH ROUND|r game with |cffFFFF002 wins|r for overall victory-|cffFF0000p|cff00FF00g|cffFFFF004|r would start a |cffFF0000PICK|r race |cff00FF00ONCE FOR WHOLE GAME|r game with |cffFFFF004 wins|r for overall victory","ReplaceableTextures\\CommandButtons\\BTNPickUpItem.blp")
 			CreateQuestBJ(0, "Modifications", "TRIGSTR_005", "ReplaceableTextures\\CommandButtons\\BTNSpy.blp");//call CreateQuestBJ(0,"Modifications","TRIGSTR_005","ReplaceableTextures\\CommandButtons\\BTNSpy.blp")
 			CreateQuestBJ(0, "Other Commands", "TRIGSTR_006", "ReplaceableTextures\\CommandButtons\\BTNAuraOfDarkness.blp");//call CreateQuestBJ(0,"Other Commands","TRIGSTR_006","ReplaceableTextures\\CommandButtons\\BTNAuraOfDarkness.blp")
-			CreateQuestBJ(2, "First Match?", "|cffFFFF80This is your very first match of Castle Fight?|rWell, no problem, this game is very easy (even if playing with real good strategy can be very difficult). Just pick a worker and start building. Listen to your teammates, you will learn fast.Read the basic hints in this questlog and when you have played a couple of games and want even more information and tactics about this game, visit |cffFFFF80castle-fight.net.ru|r for a detailed documentation.|cffFF0000Note that the game has more than one round, so please don't leave if your castle is about to fall. Another round may come after this one and you ruin the game by leaving after round 1.|rGood luck and have fun!", "ReplaceableTextures\\CommandButtons\\BTNSelectHeroOff.blp");//call CreateQuestBJ(2,"First Match?","|cffFFFF80This is your very first match of Castle Fight?|rWell, no problem, this game is very easy (even if playing with real good strategy can be very difficult). Just pick a worker and start building. Listen to your teammates, you will learn fast.Read the basic hints in this questlog and when you have played a couple of games and want even more information and tactics about this game, visit |cffFFFF80castle-fight.net.ru|r for a detailed documentation.|cffFF0000Note that the game has more than one round, so please don't leave if your castle is about to fall. Another round may come after this one and you ruin the game by leaving after round 1.|rGood luck and have fun!","ReplaceableTextures\\CommandButtons\\BTNSelectHeroOff.blp")
+			CreateQuestBJ(2, "First Match?", "|cffFFFF80This is your very first match of Castle Fight?|rWell, no problem, this game is very easy (even if playing with real good strategy can be very difficult). Just pick a worker && start building. Listen to your teammates, you will learn fast.Read the basic hints in this questlog && when you have played a couple of games && want even more information && tactics about this game, visit |cffFFFF80castle-fight.net.ru|r for a detailed documentation.|cffFF0000Note that the game has more than one round, so please don't leave if your castle is about to fall. Another round may come after this one && you ruin the game by leaving after round 1.|rGood luck && have fun!", "ReplaceableTextures\\CommandButtons\\BTNSelectHeroOff.blp");//call CreateQuestBJ(2,"First Match?","|cffFFFF80This is your very first match of Castle Fight?|rWell, no problem, this game is very easy (even if playing with real good strategy can be very difficult). Just pick a worker and start building. Listen to your teammates, you will learn fast.Read the basic hints in this questlog and when you have played a couple of games and want even more information and tactics about this game, visit |cffFFFF80castle-fight.net.ru|r for a detailed documentation.|cffFF0000Note that the game has more than one round, so please don't leave if your castle is about to fall. Another round may come after this one and you ruin the game by leaving after round 1.|rGood luck and have fun!","ReplaceableTextures\\CommandButtons\\BTNSelectHeroOff.blp")
 			CreateQuestBJ(2, "Basic Hints", "TRIGSTR_010", "ReplaceableTextures\\CommandButtons\\BTNMilitia.blp");//call CreateQuestBJ(2,"Basic Hints","TRIGSTR_010","ReplaceableTextures\\CommandButtons\\BTNMilitia.blp")
 			CreateQuestBJ(2, "About", "TRIGSTR_011", "ReplaceableTextures\\CommandButtons\\BTNTomeOfRetraining.blp");//call CreateQuestBJ(2,"About","TRIGSTR_011","ReplaceableTextures\\CommandButtons\\BTNTomeOfRetraining.blp")
 		}//endfunction
@@ -6512,8 +6512,8 @@ namespace Jass {
 			Ot = mt(808478759,0,0,0);//set Ot=mt('h009',0,0,0)
 			Pt = mt(808478759,0,0,0);//set Pt=mt('h007',0,0,0)
 			Qt = mt(825255975,0,0,0);//set Qt=mt('h01C',0,0,0)
-			wt(Je, 2, mt('h01I', 'h026', 0, 0));//call wt(Je,2,mt('h01I','h026',0,0))
-			wt(Je, 2, mt('h01D', 'h03G', 0, 0));//call wt(Je,2,mt('h01D','h03G',0,0))
+			wt(Je, 2, mt(825255975, 842033191, 0, 0));//call wt(Je,2,mt('h01I','h026',0,0))
+			wt(Je, 2, mt(825255975, 858810407, 0, 0));//call wt(Je,2,mt('h01D','h03G',0,0))
 			wt(Je, 3, Qt);//call wt(Je,3,Qt)
 			wt(Je, 6, Nt);//call wt(Je,6,Nt)
 			wt(Je, 6, Ot);//call wt(Je,6,Ot)
@@ -6554,9 +6554,9 @@ namespace Jass {
 			ve[i] = 2;//set ve[i]=2
 			xe[i] = 2;//set xe[i]=2
 			ye[i] = 0;//set ye[i]=0
-			Ct(Je, 0, mt('h01M', 'h01W', 'h01X', 0));//call Ct(Je,0,mt('h01M','h01W','h01X',0))
-			Ct(Je, 3, mt('h01E', 0, 0, 0));//call Ct(Je,3,mt('h01E',0,0,0))
-			Ct(Je, 2, mt('h01F', 0, 0, 0));//call Ct(Je,2,mt('h01F',0,0,0))
+			Ct(Je, 0, mt(825255975, 825255975, 825255975, 0));//call Ct(Je,0,mt('h01M','h01W','h01X',0))
+			Ct(Je, 3, mt(825255975, 0, 0, 0));//call Ct(Je,3,mt('h01E',0,0,0))
+			Ct(Je, 2, mt(825255975, 0, 0, 0));//call Ct(Je,2,mt('h01F',0,0,0))
 			bt(Je);//call bt(Je)
 			Le = pi();//set Le=pi()
 			Rt = mt(808478759,858810407,0,0);//set Rt=mt('h000','h039',0,0)
@@ -6569,11 +6569,11 @@ namespace Jass {
 			wt(Le, 2, Tt);//call wt(Le,2,Tt)
 			wt(Le, 3, Tt);//call wt(Le,3,Tt)
 			wt(Le, 3, Ut);//call wt(Le,3,Ut)
-			wt(Le, 4, mt('h003', 'h0A1', 0, 0));//call wt(Le,4,mt('h003','h0A1',0,0))
-			wt(Le, 5, mt('h004', 0, 0, 0));//call wt(Le,5,mt('h004',0,0,0))
+			wt(Le, 4, mt(808478759, 1093691431, 0, 0));//call wt(Le,4,mt('h003','h0A1',0,0))
+			wt(Le, 5, mt(808478759, 0, 0, 0));//call wt(Le,5,mt('h004',0,0,0))
 			wt(Le, 5, Ut);//call wt(Le,5,Ut)
 			wt(Le, 6, Tt);//call wt(Le,6,Tt)
-			wt(Le, 6, mt('h00K', 0, 0, 0));//call wt(Le,6,mt('h00K',0,0,0))
+			wt(Le, 6, mt(808478759, 0, 0, 0));//call wt(Le,6,mt('h00K',0,0,0))
 			i = GetUnitPointValueByType(808478759);//set i=GetUnitPointValueByType('h000')
 			ve[i] = 3;//set ve[i]=3
 			xe[i] = 2;//set xe[i]=2
@@ -6614,16 +6614,16 @@ namespace Jass {
 			ve[i] = 5;//set ve[i]=5
 			xe[i] = 6;//set xe[i]=6
 			ye[i] = 1;//set ye[i]=1
-			Ct(Le, 0, mt('h05G', 0, 0, 0));//call Ct(Le,0,mt('h05G',0,0,0))
-			Ct(Le, 1, mt('h001', 0, 0, 0));//call Ct(Le,1,mt('h001',0,0,0))
+			Ct(Le, 0, mt(892364839, 0, 0, 0));//call Ct(Le,0,mt('h05G',0,0,0))
+			Ct(Le, 1, mt(808478759, 0, 0, 0));//call Ct(Le,1,mt('h001',0,0,0))
 			bt(Le);//call bt(Le)
 			Ke = pi();//set Ke=pi()
 			Vt = mt(875587623,875587623,0,0);//set Vt=mt('h04L','h04N',0,0)
 			Wt = mt(875587623,875587623,0,0);//set Wt=mt('h04O','h04M',0,0)
 			Xt = mt(875587623,875587623,0,0);//set Xt=mt('h04Q','h04P',0,0)
 			Yt = mt(875587623,0,0,0);//set Yt=mt('h04U',0,0,0)
-			wt(Ke, 1, mt('h04S', 0, 0, 0));//call wt(Ke,1,mt('h04S',0,0,0))
-			wt(Ke, 2, mt('h04V', 'h04W', 0, 0));//call wt(Ke,2,mt('h04V','h04W',0,0))
+			wt(Ke, 1, mt(875587623, 0, 0, 0));//call wt(Ke,1,mt('h04S',0,0,0))
+			wt(Ke, 2, mt(875587623, 875587623, 0, 0));//call wt(Ke,2,mt('h04V','h04W',0,0))
 			wt(Ke, 3, Vt);//call wt(Ke,3,Vt)
 			wt(Ke, 3, Wt);//call wt(Ke,3,Wt)
 			wt(Ke, 3, Xt);//call wt(Ke,3,Xt)
@@ -6676,20 +6676,20 @@ namespace Jass {
 			ve[i] = 2;//set ve[i]=2
 			xe[i] = 6;//set xe[i]=6
 			ye[i] = 1;//set ye[i]=1
-			Ct(Ke, 0, mt('h04T', 0, 0, 0));//call Ct(Ke,0,mt('h04T',0,0,0))
-			Ct(Ke, 0, mt('h04V', 'h04W', 'h09Y', 0));//call Ct(Ke,0,mt('h04V','h04W','h09Y',0))
-			Ct(Ke, 2, mt('h04K', 0, 0, 0));//call Ct(Ke,2,mt('h04K',0,0,0))
-			Ct(Ke, 2, mt('h04R', 0, 0, 0));//call Ct(Ke,2,mt('h04R',0,0,0))
+			Ct(Ke, 0, mt(875587623, 0, 0, 0));//call Ct(Ke,0,mt('h04T',0,0,0))
+			Ct(Ke, 0, mt(875587623, 875587623, 959473703, 0));//call Ct(Ke,0,mt('h04V','h04W','h09Y',0))
+			Ct(Ke, 2, mt(875587623, 0, 0, 0));//call Ct(Ke,2,mt('h04K',0,0,0))
+			Ct(Ke, 2, mt(875587623, 0, 0, 0));//call Ct(Ke,2,mt('h04R',0,0,0))
 			bt(Ke);//call bt(Ke)
 			Me = pi();//set Me=pi()
 			Zt = mt(842033191,842033191,858810407,0);//set Zt=mt('h029','h02U','h031',0)
 			du = mt(842033191,892364839,0,0);//set du=mt('h02H','h05E',0,0)
 			eu = mt(842033191,0,0,0);//set eu=mt('h02I',0,0,0)
 			fu = mt(842033191,0,0,0);//set fu=mt('h02B',0,0,0)
-			wt(Me, 1, mt('h02K', 'h092', 0, 0));//call wt(Me,1,mt('h02K','h092',0,0))
-			wt(Me, 1, mt('h02K', 'h035', 0, 0));//call wt(Me,1,mt('h02K','h035',0,0))
-			wt(Me, 1, mt('h02K', 'h036', 0, 0));//call wt(Me,1,mt('h02K','h036',0,0))
-			wt(Me, 1, mt('h02P', 0, 0, 0));//call wt(Me,1,mt('h02P',0,0,0))
+			wt(Me, 1, mt(842033191, 959473703, 0, 0));//call wt(Me,1,mt('h02K','h092',0,0))
+			wt(Me, 1, mt(842033191, 858810407, 0, 0));//call wt(Me,1,mt('h02K','h035',0,0))
+			wt(Me, 1, mt(842033191, 858810407, 0, 0));//call wt(Me,1,mt('h02K','h036',0,0))
+			wt(Me, 1, mt(842033191, 0, 0, 0));//call wt(Me,1,mt('h02P',0,0,0))
 			wt(Me, 2, Zt);//call wt(Me,2,Zt)
 			wt(Me, 2, du);//call wt(Me,2,du)
 			wt(Me, 3, Zt);//call wt(Me,3,Zt)
@@ -6746,9 +6746,9 @@ namespace Jass {
 			ve[i] = 2;//set ve[i]=2
 			xe[i] = 5;//set xe[i]=5
 			ye[i] = 0;//set ye[i]=0
-			Ct(Me, 0, mt('h02O', 0, 0, 0));//call Ct(Me,0,mt('h02O',0,0,0))
-			Ct(Me, 2, mt('h02R', 0, 0, 0));//call Ct(Me,2,mt('h02R',0,0,0))
-			Ct(Me, 2, mt('h02N', 0, 0, 0));//call Ct(Me,2,mt('h02N',0,0,0))
+			Ct(Me, 0, mt(842033191, 0, 0, 0));//call Ct(Me,0,mt('h02O',0,0,0))
+			Ct(Me, 2, mt(842033191, 0, 0, 0));//call Ct(Me,2,mt('h02R',0,0,0))
+			Ct(Me, 2, mt(842033191, 0, 0, 0));//call Ct(Me,2,mt('h02N',0,0,0))
 			bt(Me);//call bt(Me)
 			Ne = pi();//set Ne=pi()
 			gu = mt(808478759,858810407,0,0);//set gu=mt('h00F','h032',0,0)
@@ -6763,7 +6763,7 @@ namespace Jass {
 			wt(Ne, 3, gu);//call wt(Ne,3,gu)
 			wt(Ne, 3, hu);//call wt(Ne,3,hu)
 			wt(Ne, 3, iu);//call wt(Ne,3,iu)
-			wt(Ne, 3, mt('h01Y', 0, 0, 0));//call wt(Ne,3,mt('h01Y',0,0,0))
+			wt(Ne, 3, mt(825255975, 0, 0, 0));//call wt(Ne,3,mt('h01Y',0,0,0))
 			wt(Ne, 4, ku);//call wt(Ne,4,ku)
 			wt(Ne, 4, iu);//call wt(Ne,4,iu)
 			wt(Ne, 4, ju);//call wt(Ne,4,ju)
@@ -6810,20 +6810,20 @@ namespace Jass {
 			ve[i] = 2;//set ve[i]=2
 			xe[i] = 6;//set xe[i]=6
 			ye[i] = 1;//set ye[i]=1
-			Ct(Ne, 0, mt('h00J', 'h05F', 0, 0));//call Ct(Ne,0,mt('h00J','h05F',0,0))
-			Ct(Ne, 0, mt('h00N', 0, 0, 0));//call Ct(Ne,0,mt('h00N',0,0,0))
-			Ct(Ne, 2, mt('h00I', 0, 0, 0));//call Ct(Ne,2,mt('h00I',0,0,0))
-			Ct(Ne, 2, mt('h00M', 0, 0, 0));//call Ct(Ne,2,mt('h00M',0,0,0))
+			Ct(Ne, 0, mt(808478759, 892364839, 0, 0));//call Ct(Ne,0,mt('h00J','h05F',0,0))
+			Ct(Ne, 0, mt(808478759, 0, 0, 0));//call Ct(Ne,0,mt('h00N',0,0,0))
+			Ct(Ne, 2, mt(808478759, 0, 0, 0));//call Ct(Ne,2,mt('h00I',0,0,0))
+			Ct(Ne, 2, mt(808478759, 0, 0, 0));//call Ct(Ne,2,mt('h00M',0,0,0))
 			bt(Ne);//call bt(Ne)
 			Oe = pi();//set Oe=pi()
 			mu = mt(858810407,0,0,0);//set mu=mt('h03S',0,0,0)
 			nu = mt(858810407,0,0,0);//set nu=mt('h03I',0,0,0)
-			wt(Oe, 1, mt('h03U', 0, 0, 0));//call wt(Oe,1,mt('h03U',0,0,0))
-			wt(Oe, 1, mt('h03T', 'h043', 0, 0));//call wt(Oe,1,mt('h03T','h043',0,0))
-			wt(Oe, 2, mt('h049', 'h04F', 'h03W', 0));//call wt(Oe,2,mt('h049','h04F','h03W',0))
+			wt(Oe, 1, mt(858810407, 0, 0, 0));//call wt(Oe,1,mt('h03U',0,0,0))
+			wt(Oe, 1, mt(858810407, 875587623, 0, 0));//call wt(Oe,1,mt('h03T','h043',0,0))
+			wt(Oe, 2, mt(875587623, 875587623, 858810407, 0));//call wt(Oe,2,mt('h049','h04F','h03W',0))
 			wt(Oe, 2, mu);//call wt(Oe,2,mu)
 			wt(Oe, 2, nu);//call wt(Oe,2,nu)
-			wt(Oe, 3, mt('h03K', 'h03J', 0, 0));//call wt(Oe,3,mt('h03K','h03J',0,0))
+			wt(Oe, 3, mt(858810407, 858810407, 0, 0));//call wt(Oe,3,mt('h03K','h03J',0,0))
 			wt(Oe, 3, mu);//call wt(Oe,3,mu)
 			wt(Oe, 3, nu);//call wt(Oe,3,nu)
 			wt(Oe, 4, mu);//call wt(Oe,4,mu)
@@ -6872,15 +6872,15 @@ namespace Jass {
 			ve[i] = 5;//set ve[i]=5
 			xe[i] = 6;//set xe[i]=6
 			ye[i] = 1;//set ye[i]=1
-			Ct(Oe, 0, mt('h03O', 0, 0, 0));//call Ct(Oe,0,mt('h03O',0,0,0))
-			Ct(Oe, 1, mt('h048', 'h03L', 0, 0));//call Ct(Oe,1,mt('h048','h03L',0,0))
-			Ct(Oe, 2, mt('h047', 0, 0, 0));//call Ct(Oe,2,mt('h047',0,0,0))
+			Ct(Oe, 0, mt(858810407, 0, 0, 0));//call Ct(Oe,0,mt('h03O',0,0,0))
+			Ct(Oe, 1, mt(875587623, 858810407, 0, 0));//call Ct(Oe,1,mt('h048','h03L',0,0))
+			Ct(Oe, 2, mt(875587623, 0, 0, 0));//call Ct(Oe,2,mt('h047',0,0,0))
 			bt(Oe);//call bt(Oe)
 			Re = pi();//set Re=pi()
 			ou = mt(825255975,892364839,0,0);//set ou=mt('h01P','h056',0,0)
 			pu = mt(825255975,875587623,0,0);//set pu=mt('h01K','h04B',0,0)
 			qu = mt(825255975,0,0,0);//set qu=mt('h01S',0,0,0)
-			wt(Re, 1, mt('h01N', 'h054', 0, 0));//call wt(Re,1,mt('h01N','h054',0,0))
+			wt(Re, 1, mt(825255975, 892364839, 0, 0));//call wt(Re,1,mt('h01N','h054',0,0))
 			wt(Re, 1, ou);//call wt(Re,1,ou)
 			wt(Re, 1, pu);//call wt(Re,1,pu)
 			wt(Re, 1, qu);//call wt(Re,1,qu)
@@ -6888,14 +6888,14 @@ namespace Jass {
 			wt(Re, 2, pu);//call wt(Re,2,pu)
 			wt(Re, 2, qu);//call wt(Re,2,qu)
 			wt(Re, 3, pu);//call wt(Re,3,pu)
-			wt(Re, 3, mt('h01L', 0, 0, 0));//call wt(Re,3,mt('h01L',0,0,0))
+			wt(Re, 3, mt(825255975, 0, 0, 0));//call wt(Re,3,mt('h01L',0,0,0))
 			wt(Re, 3, qu);//call wt(Re,3,qu)
 			wt(Re, 4, ou);//call wt(Re,4,ou)
 			wt(Re, 4, pu);//call wt(Re,4,pu)
 			wt(Re, 5, pu);//call wt(Re,5,pu)
-			wt(Re, 5, mt('h01T', 0, 0, 0));//call wt(Re,5,mt('h01T',0,0,0))
+			wt(Re, 5, mt(825255975, 0, 0, 0));//call wt(Re,5,mt('h01T',0,0,0))
 			wt(Re, 5, qu);//call wt(Re,5,qu)
-			wt(Re, 6, mt('h01R', 'h04Z', 'h03M', 0));//call wt(Re,6,mt('h01R','h04Z','h03M',0))
+			wt(Re, 6, mt(825255975, 875587623, 858810407, 0));//call wt(Re,6,mt('h01R','h04Z','h03M',0))
 			i = GetUnitPointValueByType(825255975);//set i=GetUnitPointValueByType('h01P')
 			ve[i] = 1;//set ve[i]=1
 			xe[i] = 6;//set xe[i]=6
@@ -6948,21 +6948,21 @@ namespace Jass {
 			ve[i] = 2;//set ve[i]=2
 			xe[i] = 6;//set xe[i]=6
 			ye[i] = 0;//set ye[i]=0
-			Ct(Re, 0, mt('h01K', 'h04B', 'h055', 0));//call Ct(Re,0,mt('h01K','h04B','h055',0))
-			Ct(Re, 0, mt('h01Q', 0, 0, 0));//call Ct(Re,0,mt('h01Q',0,0,0))
-			Ct(Re, 2, mt('h00A', 0, 0, 0));//call Ct(Re,2,mt('h00A',0,0,0))
+			Ct(Re, 0, mt(825255975, 875587623, 892364839, 0));//call Ct(Re,0,mt('h01K','h04B','h055',0))
+			Ct(Re, 0, mt(825255975, 0, 0, 0));//call Ct(Re,0,mt('h01Q',0,0,0))
+			Ct(Re, 2, mt(808478759, 0, 0, 0));//call Ct(Re,2,mt('h00A',0,0,0))
 			bt(Re);//call bt(Re)
 			Pe = pi();//set Pe=pi()
 			ru = mt(808478759,858810407,0,0);//set ru=mt('h00S','h03D',0,0)
 			wt(Pe, 1, ru);//call wt(Pe,1,ru)
-			wt(Pe, 1, mt('h07M', 'h07L', 0, 0));//call wt(Pe,1,mt('h07M','h07L',0,0))
+			wt(Pe, 1, mt(925919271, 925919271, 0, 0));//call wt(Pe,1,mt('h07M','h07L',0,0))
 			wt(Pe, 2, ru);//call wt(Pe,2,ru)
-			wt(Pe, 3, mt('h07O', 'h07N', 0, 0));//call wt(Pe,3,mt('h07O','h07N',0,0))
-			wt(Pe, 3, mt('h00B', 0, 0, 0));//call wt(Pe,3,mt('h00B',0,0,0))
+			wt(Pe, 3, mt(925919271, 925919271, 0, 0));//call wt(Pe,3,mt('h07O','h07N',0,0))
+			wt(Pe, 3, mt(808478759, 0, 0, 0));//call wt(Pe,3,mt('h00B',0,0,0))
 			wt(Pe, 4, ru);//call wt(Pe,4,ru)
 			wt(Pe, 5, ru);//call wt(Pe,5,ru)
-			wt(Pe, 5, mt('h011', 0, 0, 0));//call wt(Pe,5,mt('h011',0,0,0))
-			wt(Pe, 6, mt('h088', 'h07D', 0, 0));//call wt(Pe,6,mt('h088','h07D',0,0))
+			wt(Pe, 5, mt(825255975, 0, 0, 0));//call wt(Pe,5,mt('h011',0,0,0))
+			wt(Pe, 6, mt(942696487, 925919271, 0, 0));//call wt(Pe,6,mt('h088','h07D',0,0))
 			i = GetUnitPointValueByType(808478759);//set i=GetUnitPointValueByType('h00S')
 			ve[i] = 1;//set ve[i]=1
 			xe[i] = 1;//set xe[i]=1
@@ -7007,10 +7007,10 @@ namespace Jass {
 			ve[i] = 5;//set ve[i]=5
 			xe[i] = 6;//set xe[i]=6
 			ye[i] = 1;//set ye[i]=1
-			Ct(Pe, 0, mt('h00S', 'h03D', 'h03E', 0));//call Ct(Pe,0,mt('h00S','h03D','h03E',0))
-			Ct(Pe, 3, mt('h07I', 0, 0, 0));//call Ct(Pe,3,mt('h07I',0,0,0))
-			Ct(Pe, 2, mt('h07H', 0, 0, 0));//call Ct(Pe,2,mt('h07H',0,0,0))
-			Ct(Pe, 2, mt('h08P', 0, 0, 0));//call Ct(Pe,2,mt('h08P',0,0,0))
+			Ct(Pe, 0, mt(808478759, 858810407, 858810407, 0));//call Ct(Pe,0,mt('h00S','h03D','h03E',0))
+			Ct(Pe, 3, mt(925919271, 0, 0, 0));//call Ct(Pe,3,mt('h07I',0,0,0))
+			Ct(Pe, 2, mt(925919271, 0, 0, 0));//call Ct(Pe,2,mt('h07H',0,0,0))
+			Ct(Pe, 2, mt(942696487, 0, 0, 0));//call Ct(Pe,2,mt('h08P',0,0,0))
 			bt(Pe);//call bt(Pe)
 			Qe = pi();//set Qe=pi()
 			su = mt(942696487,942696487,0,0);//set su=mt('h08X','h08Y',0,0)
@@ -7025,7 +7025,7 @@ namespace Jass {
 			wt(Qe, 3, vu);//call wt(Qe,3,vu)
 			wt(Qe, 4, su);//call wt(Qe,4,su)
 			wt(Qe, 4, tu);//call wt(Qe,4,tu)
-			wt(Qe, 5, mt('h070', 0, 0, 0));//call wt(Qe,5,mt('h070',0,0,0))
+			wt(Qe, 5, mt(925919271, 0, 0, 0));//call wt(Qe,5,mt('h070',0,0,0))
 			wt(Qe, 5, wu);//call wt(Qe,5,wu)
 			wt(Qe, 6, su);//call wt(Qe,6,su)
 			wt(Qe, 6, uu);//call wt(Qe,6,uu)
@@ -7066,17 +7066,17 @@ namespace Jass {
 			ve[i] = 2;//set ve[i]=2
 			xe[i] = 5;//set xe[i]=5
 			ye[i] = 0;//set ye[i]=0
-			Ct(Qe, 0, mt('h09X', 'h00X', 0, 0));//call Ct(Qe,0,mt('h09X','h00X',0,0))
-			Ct(Qe, 0, mt('h059', 0, 0, 0));//call Ct(Qe,0,mt('h059',0,0,0))
-			Ct(Qe, 2, mt('h00Z', 0, 0, 0));//call Ct(Qe,2,mt('h00Z',0,0,0))
-			Ct(Qe, 2, mt('h005', 0, 0, 0));//call Ct(Qe,2,mt('h005',0,0,0))
+			Ct(Qe, 0, mt(959473703, 808478759, 0, 0));//call Ct(Qe,0,mt('h09X','h00X',0,0))
+			Ct(Qe, 0, mt(892364839, 0, 0, 0));//call Ct(Qe,0,mt('h059',0,0,0))
+			Ct(Qe, 2, mt(808478759, 0, 0, 0));//call Ct(Qe,2,mt('h00Z',0,0,0))
+			Ct(Qe, 2, mt(808478759, 0, 0, 0));//call Ct(Qe,2,mt('h005',0,0,0))
 			bt(Qe);//call bt(Qe)
 			Se = pi();//set Se=pi()
 			xu = mt(892364839,959473703,0,0);//set xu=mt('h05X','h09I',0,0)
 			yu = mt(892364839,959473703,0,0);//set yu=mt('h05X','h09B',0,0)
 			zu = mt(892364839,959473703,0,0);//set zu=mt('h05X','h09J',0,0)
 			Au = mt(892364839,959473703,0,0);//set Au=mt('h05T','h09P',0,0)
-			wt(Se, 1, mt('h05U', 0, 0, 0));//call wt(Se,1,mt('h05U',0,0,0))
+			wt(Se, 1, mt(892364839, 0, 0, 0));//call wt(Se,1,mt('h05U',0,0,0))
 			wt(Se, 1, xu);//call wt(Se,1,xu)
 			wt(Se, 1, Au);//call wt(Se,1,Au)
 			wt(Se, 2, yu);//call wt(Se,2,yu)
@@ -7085,14 +7085,14 @@ namespace Jass {
 			wt(Se, 3, xu);//call wt(Se,3,xu)
 			wt(Se, 3, yu);//call wt(Se,3,yu)
 			wt(Se, 3, zu);//call wt(Se,3,zu)
-			wt(Se, 3, mt('h05M', 0, 0, 0));//call wt(Se,3,mt('h05M',0,0,0))
-			wt(Se, 4, mt('h05X', 'h09B', 'h09H', 0));//call wt(Se,4,mt('h05X','h09B','h09H',0))
-			wt(Se, 4, mt('h05J', 'h09L', 0, 0));//call wt(Se,4,mt('h05J','h09L',0,0))
+			wt(Se, 3, mt(892364839, 0, 0, 0));//call wt(Se,3,mt('h05M',0,0,0))
+			wt(Se, 4, mt(892364839, 959473703, 959473703, 0));//call wt(Se,4,mt('h05X','h09B','h09H',0))
+			wt(Se, 4, mt(892364839, 959473703, 0, 0));//call wt(Se,4,mt('h05J','h09L',0,0))
 			wt(Se, 5, xu);//call wt(Se,5,xu)
 			wt(Se, 5, yu);//call wt(Se,5,yu)
 			wt(Se, 5, Au);//call wt(Se,5,Au)
 			wt(Se, 6, xu);//call wt(Se,6,xu)
-			wt(Se, 6, mt('h05V', 0, 0, 0));//call wt(Se,6,mt('h05V',0,0,0))
+			wt(Se, 6, mt(892364839, 0, 0, 0));//call wt(Se,6,mt('h05V',0,0,0))
 			wt(Se, 6, Au);//call wt(Se,6,Au)
 			i = GetUnitPointValueByType(892364839);//set i=GetUnitPointValueByType('h05X')
 			ve[i] = 3;//set ve[i]=3
@@ -7146,9 +7146,9 @@ namespace Jass {
 			ve[i] = 6;//set ve[i]=6
 			xe[i] = 6;//set xe[i]=6
 			ye[i] = 0;//set ye[i]=0
-			Ct(Se, 0, mt('h05V', 'h097', 0, 0));//call Ct(Se,0,mt('h05V','h097',0,0))
-			Ct(Se, 2, mt('h06J', 'h05R', 0, 0));//call Ct(Se,2,mt('h06J','h05R',0,0))
-			Ct(Se, 2, mt('h069', 0, 0, 0));//call Ct(Se,2,mt('h069',0,0,0))
+			Ct(Se, 0, mt(892364839, 959473703, 0, 0));//call Ct(Se,0,mt('h05V','h097',0,0))
+			Ct(Se, 2, mt(909142055, 892364839, 0, 0));//call Ct(Se,2,mt('h06J','h05R',0,0))
+			Ct(Se, 2, mt(909142055, 0, 0, 0));//call Ct(Se,2,mt('h069',0,0,0))
 			bt(Se);//call bt(Se)
 			Te = pi();//set Te=pi()
 			au = mt(808478759,808478759,808478759,0);//set au=mt('h002','h00Q','h00R',0)
@@ -7158,7 +7158,7 @@ namespace Jass {
 			cu = mt(842033191,0,0,0);//set cu=mt('h027',0,0,0)
 			wt(Te, 1, au);//call wt(Te,1,au)
 			wt(Te, 1, Cu);//call wt(Te,1,Cu)
-			wt(Te, 2, mt('h023', 'h024', 0, 0));//call wt(Te,2,mt('h023','h024',0,0))
+			wt(Te, 2, mt(842033191, 842033191, 0, 0));//call wt(Te,2,mt('h023','h024',0,0))
 			wt(Te, 2, Bu);//call wt(Te,2,Bu)
 			wt(Te, 3, bu);//call wt(Te,3,bu)
 			wt(Te, 4, bu);//call wt(Te,4,bu)
@@ -7216,10 +7216,10 @@ namespace Jass {
 			ve[i] = 5;//set ve[i]=5
 			xe[i] = 2;//set xe[i]=2
 			ye[i] = 0;//set ye[i]=0
-			Ct(Te, 0, mt('h013', 'h01H', 'h01J', 0));//call Ct(Te,0,mt('h013','h01H','h01J',0))
-			Ct(Te, 0, mt('h02D', 0, 0, 0));//call Ct(Te,0,mt('h02D',0,0,0))
-			Ct(Te, 2, mt('h02C', 0, 0, 0));//call Ct(Te,2,mt('h02C',0,0,0))
-			Ct(Te, 2, mt('h02A', 0, 0, 0));//call Ct(Te,2,mt('h02A',0,0,0))
+			Ct(Te, 0, mt(825255975, 825255975, 825255975, 0));//call Ct(Te,0,mt('h013','h01H','h01J',0))
+			Ct(Te, 0, mt(842033191, 0, 0, 0));//call Ct(Te,0,mt('h02D',0,0,0))
+			Ct(Te, 2, mt(842033191, 0, 0, 0));//call Ct(Te,2,mt('h02C',0,0,0))
+			Ct(Te, 2, mt(842033191, 0, 0, 0));//call Ct(Te,2,mt('h02A',0,0,0))
 			bt(Te);//call bt(Te)
 			Ue = pi();//set Ue=pi()
 			Du = mt(875587623,875587623,0,0);//set Du=mt('h045','h046',0,0)
@@ -7231,7 +7231,7 @@ namespace Jass {
 			wt(Ue, 1, Gu);//call wt(Ue,1,Gu)
 			wt(Ue, 2, Fu);//call wt(Ue,2,Fu)
 			wt(Ue, 3, Gu);//call wt(Ue,3,Gu)
-			wt(Ue, 4, mt('h04A', 'h04C', 'h04D', 0));//call wt(Ue,4,mt('h04A','h04C','h04D',0))
+			wt(Ue, 4, mt(875587623, 875587623, 875587623, 0));//call wt(Ue,4,mt('h04A','h04C','h04D',0))
 			wt(Ue, 4, Du);//call wt(Ue,4,Du)
 			wt(Ue, 5, Eu);//call wt(Ue,5,Eu)
 			wt(Ue, 6, Du);//call wt(Ue,6,Du)
@@ -7287,10 +7287,10 @@ namespace Jass {
 			ve[i] = 3;//set ve[i]=3
 			xe[i] = 3;//set xe[i]=3
 			ye[i] = 1;//set ye[i]=1
-			Ct(Ue, 0, mt('h045', 'h046', 'h04E', 0));//call Ct(Ue,0,mt('h045','h046','h04E',0))
-			Ct(Ue, 0, mt('h063', 0, 0, 0));//call Ct(Ue,0,mt('h063',0,0,0))
-			Ct(Ue, 2, mt('h060', 0, 0, 0));//call Ct(Ue,2,mt('h060',0,0,0))
-			Ct(Ue, 2, mt('h05Z', 0, 0, 0));//call Ct(Ue,2,mt('h05Z',0,0,0))
+			Ct(Ue, 0, mt(875587623, 875587623, 875587623, 0));//call Ct(Ue,0,mt('h045','h046','h04E',0))
+			Ct(Ue, 0, mt(909142055, 0, 0, 0));//call Ct(Ue,0,mt('h063',0,0,0))
+			Ct(Ue, 2, mt(909142055, 0, 0, 0));//call Ct(Ue,2,mt('h060',0,0,0))
+			Ct(Ue, 2, mt(892364839, 0, 0, 0));//call Ct(Ue,2,mt('h05Z',0,0,0))
 			bt(Ue);//call bt(Ue)
 			Ge = true;//set Ge=true
 		}//endfunction
@@ -7324,16 +7324,16 @@ namespace Jass {
 				UnitDamageTarget(B4, bj_groupRandomCurrentPick, 500., true, false, ATTACK_TYPE_NORMAL, DAMAGE_TYPE_DEATH, WEAPON_TYPE_WHOKNOWS);//call UnitDamageTarget(B4,bj_groupRandomCurrentPick,500.,true,false,ATTACK_TYPE_NORMAL,DAMAGE_TYPE_DEATH,WEAPON_TYPE_WHOKNOWS)
 			} else if ((i==3)) {//elseif(i==3)then
 				DestroyEffect(AddSpecialEffectTarget("Abilities\\Spells\\Human\\Avatar\\AvatarCaster.mdl", bj_groupRandomCurrentPick, "origin"));//call DestroyEffect(AddSpecialEffectTarget("Abilities\\Spells\\Human\\Avatar\\AvatarCaster.mdl",bj_groupRandomCurrentPick,"origin"))
-				UnitAddAbility(bj_groupRandomCurrentPick, 'A06T');//call UnitAddAbility(bj_groupRandomCurrentPick,'A06T')
-				UnitAddAbility(bj_groupRandomCurrentPick, 'A06U');//call UnitAddAbility(bj_groupRandomCurrentPick,'A06U')
+				UnitAddAbility(bj_groupRandomCurrentPick, 909132071);//call UnitAddAbility(bj_groupRandomCurrentPick,'A06T')
+				UnitAddAbility(bj_groupRandomCurrentPick, 909132071);//call UnitAddAbility(bj_groupRandomCurrentPick,'A06U')
 				SetUnitState(bj_groupRandomCurrentPick, UNIT_STATE_LIFE, GetUnitState(bj_groupRandomCurrentPick, UNIT_STATE_MAX_LIFE));//call SetUnitState(bj_groupRandomCurrentPick,UNIT_STATE_LIFE,GetUnitState(bj_groupRandomCurrentPick,UNIT_STATE_MAX_LIFE))
 			} else if ((i==4)) {//elseif(i==4)then
 				c = CreateUnit(r4,808477991,GetUnitX(bj_groupRandomCurrentPick),GetUnitY(bj_groupRandomCurrentPick),.0);//set c=CreateUnit(r4,'e008',GetUnitX(bj_groupRandomCurrentPick),GetUnitY(bj_groupRandomCurrentPick),.0)
-				UnitAddAbility(c, 'A018');//call UnitAddAbility(c,'A018')
+				UnitAddAbility(c, 825245991);//call UnitAddAbility(c,'A018')
 				UnitShareVision(bj_groupRandomCurrentPick, r4, true);//call UnitShareVision(bj_groupRandomCurrentPick,r4,true)
 				IssueTargetOrderById(c, $D0216, bj_groupRandomCurrentPick);//call IssueTargetOrderById(c,$D0216,bj_groupRandomCurrentPick)
 				UnitShareVision(bj_groupRandomCurrentPick, r4, false);//call UnitShareVision(bj_groupRandomCurrentPick,r4,false)
-				UnitApplyTimedLife(c, 'BTLF', 1.);//call UnitApplyTimedLife(c,'BTLF',1.)
+				UnitApplyTimedLife(c, 1280590375, 1.);//call UnitApplyTimedLife(c,'BTLF',1.)
 				c = bj_groupRandomCurrentPick;//set c=bj_groupRandomCurrentPick
 				TriggerSleepAction(1.);//call TriggerSleepAction(1.)
 				Po(c);//call Po(c)
@@ -7346,11 +7346,11 @@ namespace Jass {
 				c = null;//set c=null
 			} else if ((i==5)) {//elseif(i==5)then
 				c = CreateUnit(r4,808477991,GetUnitX(bj_groupRandomCurrentPick),GetUnitY(bj_groupRandomCurrentPick),.0);//set c=CreateUnit(r4,'e008',GetUnitX(bj_groupRandomCurrentPick),GetUnitY(bj_groupRandomCurrentPick),.0)
-				UnitAddAbility(c, 'A06S');//call UnitAddAbility(c,'A06S')
+				UnitAddAbility(c, 909132071);//call UnitAddAbility(c,'A06S')
 				UnitShareVision(bj_groupRandomCurrentPick, r4, true);//call UnitShareVision(bj_groupRandomCurrentPick,r4,true)
 				IssueTargetOrderById(c, $D007F, bj_groupRandomCurrentPick);//call IssueTargetOrderById(c,$D007F,bj_groupRandomCurrentPick)
 				UnitShareVision(bj_groupRandomCurrentPick, r4, false);//call UnitShareVision(bj_groupRandomCurrentPick,r4,false)
-				UnitApplyTimedLife(c, 'BTLF', 2.);//call UnitApplyTimedLife(c,'BTLF',2.)
+				UnitApplyTimedLife(c, 1280590375, 2.);//call UnitApplyTimedLife(c,'BTLF',2.)
 				c = null;//set c=null
 			} else if ((i==6)) {//elseif(i==6)then
 				i = GetPlayerId(r4);//set i=GetPlayerId(r4)
@@ -7359,7 +7359,7 @@ namespace Jass {
 				x = GetUnitX(bj_groupRandomCurrentPick);//set x=GetUnitX(bj_groupRandomCurrentPick)
 				y = GetUnitY(bj_groupRandomCurrentPick);//set y=GetUnitY(bj_groupRandomCurrentPick)
 				DestroyEffect(AddSpecialEffect("Abilities\\Spells\\Orc\\FeralSpirit\\feralspiritdone.mdl", x, y));//call DestroyEffect(AddSpecialEffect("Abilities\\Spells\\Orc\\FeralSpirit\\feralspiritdone.mdl",x,y))
-				Po(CreateUnit(r4, 'n01S', x, y, GetUnitFacing(bj_groupRandomCurrentPick)));//call Po(CreateUnit(r4,'n01S',x,y,GetUnitFacing(bj_groupRandomCurrentPick)))
+				Po(CreateUnit(r4, 825257511, x, y, GetUnitFacing(bj_groupRandomCurrentPick)));//call Po(CreateUnit(r4,'n01S',x,y,GetUnitFacing(bj_groupRandomCurrentPick)))
 				RemoveUnit(bj_groupRandomCurrentPick);//call RemoveUnit(bj_groupRandomCurrentPick)
 			}//endif
 		}//endfunction
@@ -7412,7 +7412,7 @@ namespace Jass {
 			c = CreateUnit(r4,808477991,x,y,.0);//set c=CreateUnit(r4,'e008',x,y,.0)
 			UnitAddAbility(c, We);//call UnitAddAbility(c,We)
 			IssuePointOrderById(c, $D0208, x, y);//call IssuePointOrderById(c,$D0208,x,y)
-			UnitApplyTimedLife(c, 'BTLF', 6.);//call UnitApplyTimedLife(c,'BTLF',6.)
+			UnitApplyTimedLife(c, 1280590375, 6.);//call UnitApplyTimedLife(c,'BTLF',6.)
 			c = null;//set c=null
 		}//endfunction
 		private bool Lu() {//function Lu takes nothing returns boolean
@@ -7447,34 +7447,34 @@ namespace Jass {
 			}//endif
 			DestroyEffect(AddSpecialEffectTarget("Abilities\\Spells\\NightElf\\BattleRoar\\RoarCaster.mdl", c4, "origin"));//call DestroyEffect(AddSpecialEffectTarget("Abilities\\Spells\\NightElf\\BattleRoar\\RoarCaster.mdl",c4,"origin"))
 			c = CreateUnit(GetOwningPlayer(c4),808477991,GetUnitX(c4),GetUnitY(c4),.0);//set c=CreateUnit(GetOwningPlayer(c4),'e008',GetUnitX(c4),GetUnitY(c4),.0)
-			UnitAddAbility(c, 'A03R');//call UnitAddAbility(c,'A03R')
+			UnitAddAbility(c, 858800423);//call UnitAddAbility(c,'A03R')
 			IssueImmediateOrderById(c, $D00C4);//call IssueImmediateOrderById(c,$D00C4)
-			UnitApplyTimedLife(c, 'BTLF', 1.);//call UnitApplyTimedLife(c,'BTLF',1.)
+			UnitApplyTimedLife(c, 1280590375, 1.);//call UnitApplyTimedLife(c,'BTLF',1.)
 			c = null;//set c=null
 		}//endfunction
 		private bool Ou() {//function Ou takes nothing returns boolean
-			Bj(z4, 'h094', 74., 38.5, 28.);//call Bj(z4,'h094',74.,38.5,28.)
-			Bj(z4, 'h093', 160., -42., -18.75);//call Bj(z4,'h093',160.,-42.,-18.75)
-			Bj(z4, 'h093', 250., 3.75, -55.5);//call Bj(z4,'h093',250.,3.75,-55.5)
-			Bj(z4, 'h08Z', 220., 43., 27.5);//call Bj(z4,'h08Z',220.,43.,27.5)
+			Bj(z4, 959473703, 74., 38.5, 28.);//call Bj(z4,'h094',74.,38.5,28.)
+			Bj(z4, 959473703, 160., -42., -18.75);//call Bj(z4,'h093',160.,-42.,-18.75)
+			Bj(z4, 959473703, 250., 3.75, -55.5);//call Bj(z4,'h093',250.,3.75,-55.5)
+			Bj(z4, 942696487, 220., 43., 27.5);//call Bj(z4,'h08Z',220.,43.,27.5)
 			return false;//return false
 		}//endfunction
 		private void Pu() {//function Pu takes nothing returns nothing
-			lj('h05I', function Hu);//call lj('h05I',function Hu)
-			zj('h025', 'n00L');//call zj('h025','n00L')
-			lj('h01M', function Ju);//call lj('h01M',function Ju)
-			lj('h01W', function Ju);//call lj('h01W',function Ju)
-			lj('h01X', function Ju);//call lj('h01X',function Ju)
-			zj('h01I', 'n00A');//call zj('h01I','n00A')
-			zj('h026', 'z000');//call zj('h026','z000')
-			lj('h01F', function Ku);//call lj('h01F',function Ku)
-			lj('h01E', function Mu);//call lj('h01E',function Mu)
-			zj('h01C', 'n008');//call zj('h01C','n008')
-			zj('h01D', 'n009');//call zj('h01D','n009')
-			zj('h03G', 'n00Z');//call zj('h03G','n00Z')
-			Fj('h03G', function Ou);//call Fj('h03G',function Ou)
-			zj('h009', 'n001');//call zj('h009','n001')
-			zj('h007', 'n000');//call zj('h007','n000')
+			lj(892364839, function Hu);//call lj('h05I',function Hu)
+			zj(842033191, 808480295);//call zj('h025','n00L')
+			lj(825255975, function Ju);//call lj('h01M',function Ju)
+			lj(825255975, function Ju);//call lj('h01W',function Ju)
+			lj(825255975, function Ju);//call lj('h01X',function Ju)
+			zj(825255975, 808480295);//call zj('h01I','n00A')
+			zj(842033191, 808483367);//call zj('h026','z000')
+			lj(825255975, function Ku);//call lj('h01F',function Ku)
+			lj(825255975, function Mu);//call lj('h01E',function Mu)
+			zj(825255975, 808480295);//call zj('h01C','n008')
+			zj(825255975, 808480295);//call zj('h01D','n009')
+			zj(858810407, 808480295);//call zj('h03G','n00Z')
+			Fj(858810407, function Ou);//call Fj('h03G',function Ou)
+			zj(808478759, 808480295);//call zj('h009','n001')
+			zj(808478759, 808480295);//call zj('h007','n000')
 		}//endfunction
 		private void Qu() {//function Qu takes nothing returns nothing
 			int id;//local integer id
@@ -7536,7 +7536,7 @@ namespace Jass {
 			v4[id] = false;//set v4[id]=false
 		}//endfunction
 		private void Chaos___RegisterUnitCasts() {//function Chaos___RegisterUnitCasts takes nothing returns nothing
-			Lj('n00Z', 'A03S', function Nu);//call Lj('n00Z','A03S',function Nu)
+			Lj(808480295, 858800423, function Nu);//call Lj('n00Z','A03S',function Nu)
 		}//endfunction
 		private unit Ru(unit u, int aj) {//function Ru takes unit u,integer aj returns unit
 			unit n;//local unit n
@@ -7565,58 +7565,58 @@ namespace Jass {
 			}//endif
 			i = GetRandomInt(0,99);//set i=GetRandomInt(0,99)
 			if ((i<20)) {//if(i<20)then
-				UnitAddAbility(u, 'A009');//call UnitAddAbility(u,'A009')
+				UnitAddAbility(u, 808468775);//call UnitAddAbility(u,'A009')
 			} else if ((i<55)) {//elseif(i<55)then
-				UnitAddAbility(u, 'A01F');//call UnitAddAbility(u,'A01F')
+				UnitAddAbility(u, 825245991);//call UnitAddAbility(u,'A01F')
 			}//endif
 			i = GetRandomInt(0,99);//set i=GetRandomInt(0,99)
 			if ((i<18)) {//if(i<18)then
-				UnitAddAbility(u, 'A02B');//call UnitAddAbility(u,'A02B')
+				UnitAddAbility(u, 842023207);//call UnitAddAbility(u,'A02B')
 			} else if ((i<30)) {//elseif(i<30)then
-				UnitAddAbility(u, 'A01B');//call UnitAddAbility(u,'A01B')
+				UnitAddAbility(u, 825245991);//call UnitAddAbility(u,'A01B')
 			} else if ((i<33)) {//elseif(i<33)then
-				UnitAddAbility(u, 'A00Z');//call UnitAddAbility(u,'A00Z')
+				UnitAddAbility(u, 808468775);//call UnitAddAbility(u,'A00Z')
 			} else if ((i<43)) {//elseif(i<43)then
-				UnitAddAbility(u, 'A07L');//call UnitAddAbility(u,'A07L')
+				UnitAddAbility(u, 925909287);//call UnitAddAbility(u,'A07L')
 			}//endif
 			i = GetRandomInt(0,99);//set i=GetRandomInt(0,99)
 			if ((i<$A)) {//if(i<$A)then
-				UnitAddAbility(u, 'A00U');//call UnitAddAbility(u,'A00U')
+				UnitAddAbility(u, 808468775);//call UnitAddAbility(u,'A00U')
 			} else if ((i<32)) {//elseif(i<32)then
-				UnitAddAbility(u, 'A00T');//call UnitAddAbility(u,'A00T')
+				UnitAddAbility(u, 808468775);//call UnitAddAbility(u,'A00T')
 			} else if ((i<35)) {//elseif(i<35)then
-				UnitAddAbility(u, 'A05J');//call UnitAddAbility(u,'A05J')
+				UnitAddAbility(u, 892354855);//call UnitAddAbility(u,'A05J')
 			}//endif
 			i = GetRandomInt(0,99);//set i=GetRandomInt(0,99)
 			if ((i<25)) {//if(i<25)then
-				UnitAddAbility(u, 'A01A');//call UnitAddAbility(u,'A01A')
+				UnitAddAbility(u, 825245991);//call UnitAddAbility(u,'A01A')
 			}//endif
 			i = GetRandomInt(0,99);//set i=GetRandomInt(0,99)
 			if ((i<$F)) {//if(i<$F)then
-				UnitAddAbility(u, 'A00V');//call UnitAddAbility(u,'A00V')
+				UnitAddAbility(u, 808468775);//call UnitAddAbility(u,'A00V')
 			} else if ((i<40)) {//elseif(i<40)then
-				UnitAddAbility(u, 'A00D');//call UnitAddAbility(u,'A00D')
+				UnitAddAbility(u, 808468775);//call UnitAddAbility(u,'A00D')
 			}//endif
 			i = GetRandomInt(0,99);//set i=GetRandomInt(0,99)
 			if ((i<8)) {//if(i<8)then
-				UnitAddAbility(u, 'A01U');//call UnitAddAbility(u,'A01U')
+				UnitAddAbility(u, 825245991);//call UnitAddAbility(u,'A01U')
 			} else if ((i<16)) {//elseif(i<16)then
-				UnitAddAbility(u, 'A010');//call UnitAddAbility(u,'A010')
+				UnitAddAbility(u, 825245991);//call UnitAddAbility(u,'A010')
 			} else if ((i<24)) {//elseif(i<24)then
-				UnitAddAbility(u, 'A01P');//call UnitAddAbility(u,'A01P')
+				UnitAddAbility(u, 825245991);//call UnitAddAbility(u,'A01P')
 			} else if ((i<34)) {//elseif(i<34)then
-				UnitAddAbility(u, 'A006');//call UnitAddAbility(u,'A006')
+				UnitAddAbility(u, 808468775);//call UnitAddAbility(u,'A006')
 			} else if ((i<44)) {//elseif(i<44)then
-				UnitAddAbility(u, 'A01R');//call UnitAddAbility(u,'A01R')
+				UnitAddAbility(u, 825245991);//call UnitAddAbility(u,'A01R')
 			} else if ((i<47)) {//elseif(i<47)then
-				UnitAddAbility(u, 'A012');//call UnitAddAbility(u,'A012')
+				UnitAddAbility(u, 825245991);//call UnitAddAbility(u,'A012')
 			}//endif
 			return u;//return u
 		}//endfunction
 		private void Tu() {//function Tu takes nothing returns nothing
 			Pu();//call Pu()
 			Qu();//call Qu()
-			Lj('n00Z', 'A03S', function Nu);//call Lj('n00Z','A03S',function Nu)
+			Lj(808480295, 858800423, function Nu);//call Lj('n00Z','A03S',function Nu)
 			Ye = Filter(function Iu);//set Ye=Filter(function Iu)
 			Ze = Filter(function Lu);//set Ze=Filter(function Lu)
 		}//endfunction
@@ -7637,7 +7637,7 @@ namespace Jass {
 			y = GetUnitY(bj_groupRandomCurrentPick);//set y=GetUnitY(bj_groupRandomCurrentPick)
 			while (true) {//loop
 				an = 60.*I2R(i);//set an=60.*I2R(i)
-				UnitApplyTimedLife(CreateUnit(r4, df, x+64.*Cos(an*bj_DEGTORAD), y+64.*Sin(an*bj_DEGTORAD), 360.-an), 'BTLF', 9.);//call UnitApplyTimedLife(CreateUnit(r4,df,x+64.*Cos(an*bj_DEGTORAD),y+64.*Sin(an*bj_DEGTORAD),360.-an),'BTLF',9.)
+				UnitApplyTimedLife(CreateUnit(r4, df, x+64.*Cos(an*bj_DEGTORAD), y+64.*Sin(an*bj_DEGTORAD), 360.-an), 1280590375, 9.);//call UnitApplyTimedLife(CreateUnit(r4,df,x+64.*Cos(an*bj_DEGTORAD),y+64.*Sin(an*bj_DEGTORAD),360.-an),'BTLF',9.)
 				i = i+1;//set i=i+1
 				if (i>=6) { break; }//exitwhen i>=6
 			}//endloop
@@ -7665,9 +7665,9 @@ namespace Jass {
 			unit c;//local unit c
 			while (true) {//loop
 				c = CreateUnit(p,808477991,x,y,an);//set c=CreateUnit(p,'e008',x,y,an)
-				UnitAddAbility(c, 'A0AF');//call UnitAddAbility(c,'A0AF')
+				UnitAddAbility(c, 1093681447);//call UnitAddAbility(c,'A0AF')
 				IssuePointOrderById(c, $D024B, x+10.*Cos(an*bj_DEGTORAD), y+10.*Sin(an*bj_DEGTORAD));//call IssuePointOrderById(c,$D024B,x+10.*Cos(an*bj_DEGTORAD),y+10.*Sin(an*bj_DEGTORAD))
-				UnitApplyTimedLife(c, 'BTLF', 2.);//call UnitApplyTimedLife(c,'BTLF',2.)
+				UnitApplyTimedLife(c, 1280590375, 2.);//call UnitApplyTimedLife(c,'BTLF',2.)
 				an = an+(10.);//set an=an+(10.)
 				i = i+1;//set i=i+1
 				if (i>3) { break; }//exitwhen i>3
@@ -7675,11 +7675,11 @@ namespace Jass {
 			c = null;//set c=null
 		}//endfunction
 		private bool Xu() {//function Xu takes nothing returns boolean
-			Bj(z4, 'h04J', 191., .0, .0);//call Bj(z4,'h04J',191.,.0,.0)
+			Bj(z4, 875587623, 191., .0, .0);//call Bj(z4,'h04J',191.,.0,.0)
 			return false;//return false
 		}//endfunction
 		private bool Yu() {//function Yu takes nothing returns boolean
-			Bj(z4, 'h09Z', 270., .0, .0);//call Bj(z4,'h09Z',270.,.0,.0)
+			Bj(z4, 959473703, 270., .0, .0);//call Bj(z4,'h09Z',270.,.0,.0)
 			return false;//return false
 		}//endfunction
 		private bool Zu() {//function Zu takes nothing returns boolean
@@ -7687,28 +7687,28 @@ namespace Jass {
 			return false;//return false
 		}//endfunction
 		private bool dv() {//function dv takes nothing returns boolean
-			Bj(z4, 'h08I', .0, .0, .0);//call Bj(z4,'h08I',.0,.0,.0)
+			Bj(z4, 942696487, .0, .0, .0);//call Bj(z4,'h08I',.0,.0,.0)
 			return false;//return false
 		}//endfunction
 		private void ev() {//function ev takes nothing returns nothing
-			Ij('n01J', 800.);//call Ij('n01J',800.)
-			zj('h04V', 'n01I');//call zj('h04V','n01I')
-			zj('h04W', 'n01H');//call zj('h04W','n01H')
-			zj('h09Y', 'n027');//call zj('h09Y','n027')
-			Fj('h09Y', function Yu);//call Fj('h09Y',function Yu)
-			zj('h04U', 'h04I');//call zj('h04U','h04I')
-			Fj('h04U', function Xu);//call Fj('h04U',function Xu)
-			zj('h04S', 'n01G');//call zj('h04S','n01G')
-			lj('h04R', function Uu);//call lj('h04R',function Uu)
-			zj('h04Q', 'n01F');//call zj('h04Q','n01F')
-			zj('h04P', 'n01E');//call zj('h04P','n01E')
-			zj('h04O', 'n01D');//call zj('h04O','n01D')
-			zj('h04M', 'n01B');//call zj('h04M','n01B')
-			Fj('h04M', function Zu);//call Fj('h04M',function Zu)
-			zj('h04L', 'n019');//call zj('h04L','n019')
-			zj('h04N', 'n01A');//call zj('h04N','n01A')
-			lj('h04K', function Vu);//call lj('h04K',function Vu)
-			Fj('h04K', function dv);//call Fj('h04K',function dv)
+			Ij(825257511, 800.);//call Ij('n01J',800.)
+			zj(875587623, 825257511);//call zj('h04V','n01I')
+			zj(875587623, 825257511);//call zj('h04W','n01H')
+			zj(959473703, 842034727);//call zj('h09Y','n027')
+			Fj(959473703, function Yu);//call Fj('h09Y',function Yu)
+			zj(875587623, 875587623);//call zj('h04U','h04I')
+			Fj(875587623, function Xu);//call Fj('h04U',function Xu)
+			zj(875587623, 825257511);//call zj('h04S','n01G')
+			lj(875587623, function Uu);//call lj('h04R',function Uu)
+			zj(875587623, 825257511);//call zj('h04Q','n01F')
+			zj(875587623, 825257511);//call zj('h04P','n01E')
+			zj(875587623, 825257511);//call zj('h04O','n01D')
+			zj(875587623, 825257511);//call zj('h04M','n01B')
+			Fj(875587623, function Zu);//call Fj('h04M',function Zu)
+			zj(875587623, 825257511);//call zj('h04L','n019')
+			zj(875587623, 825257511);//call zj('h04N','n01A')
+			lj(875587623, function Vu);//call lj('h04K',function Vu)
+			Fj(875587623, function dv);//call Fj('h04K',function dv)
 		}//endfunction
 		private void fv() {//function fv takes nothing returns nothing
 			int id;//local integer id
@@ -7776,12 +7776,12 @@ namespace Jass {
 			v4[id] = false;//set v4[id]=false
 		}//endfunction
 		private void Corrupted___RegisterUnitCasts() {//function Corrupted___RegisterUnitCasts takes nothing returns nothing
-			Lj('n027', 'A0AE', function Wu);//call Lj('n027','A0AE',function Wu)
+			Lj(842034727, 1093681447, function Wu);//call Lj('n027','A0AE',function Wu)
 		}//endfunction
 		private void gv() {//function gv takes nothing returns nothing
 			ev();//call ev()
 			fv();//call fv()
-			Lj('n027', 'A0AE', function Wu);//call Lj('n027','A0AE',function Wu)
+			Lj(842034727, 1093681447, function Wu);//call Lj('n027','A0AE',function Wu)
 		}//endfunction
 		private bool hv() {//function hv takes nothing returns boolean
 			unit u = GetFilterUnit();//local unit u=GetFilterUnit()
@@ -7805,9 +7805,9 @@ namespace Jass {
 				if (i>4 || t==null) { break; }//exitwhen i>4 or t==null
 				GroupRemoveUnit(q4, t);//call GroupRemoveUnit(q4,t)
 				c = CreateUnit(GetOwningPlayer(c4),808477991,x,y,.0);//set c=CreateUnit(GetOwningPlayer(c4),'e008',x,y,.0)
-				UnitAddAbility(c, 'A08U');//call UnitAddAbility(c,'A08U')
+				UnitAddAbility(c, 942686503);//call UnitAddAbility(c,'A08U')
 				IssueTargetOrderById(c, $D007F, t);//call IssueTargetOrderById(c,$D007F,t)
-				UnitApplyTimedLife(c, 'BTLF', 3.);//call UnitApplyTimedLife(c,'BTLF',3.)
+				UnitApplyTimedLife(c, 1280590375, 3.);//call UnitApplyTimedLife(c,'BTLF',3.)
 			}//endloop
 			t = null;//set t=null
 			c = null;//set c=null
@@ -7823,11 +7823,11 @@ namespace Jass {
 				return;//return
 			}//endif
 			c = CreateUnit(r4,808477991,GetUnitX(bj_groupRandomCurrentPick),GetUnitY(bj_groupRandomCurrentPick),.0);//set c=CreateUnit(r4,'e008',GetUnitX(bj_groupRandomCurrentPick),GetUnitY(bj_groupRandomCurrentPick),.0)
-			UnitAddAbility(c, 'A018');//call UnitAddAbility(c,'A018')
+			UnitAddAbility(c, 825245991);//call UnitAddAbility(c,'A018')
 			UnitShareVision(bj_groupRandomCurrentPick, r4, true);//call UnitShareVision(bj_groupRandomCurrentPick,r4,true)
 			IssueTargetOrderById(c, $D0216, bj_groupRandomCurrentPick);//call IssueTargetOrderById(c,$D0216,bj_groupRandomCurrentPick)
 			UnitShareVision(bj_groupRandomCurrentPick, r4, false);//call UnitShareVision(bj_groupRandomCurrentPick,r4,false)
-			UnitApplyTimedLife(c, 'BTLF', 1.);//call UnitApplyTimedLife(c,'BTLF',1.)
+			UnitApplyTimedLife(c, 1280590375, 1.);//call UnitApplyTimedLife(c,'BTLF',1.)
 			c = bj_groupRandomCurrentPick;//set c=bj_groupRandomCurrentPick
 			TriggerSleepAction(1.);//call TriggerSleepAction(1.)
 			Po(c);//call Po(c)
@@ -7841,9 +7841,9 @@ namespace Jass {
 		}//endfunction
 		private void kv() {//function kv takes nothing returns nothing
 			unit c = CreateUnit(GetOwningPlayer(c4),808477991,GetUnitX(c4),GetUnitY(c4),.0);//local unit c=CreateUnit(GetOwningPlayer(c4),'e008',GetUnitX(c4),GetUnitY(c4),.0)
-			UnitAddAbility(c, 'A0A8');//call UnitAddAbility(c,'A0A8')
+			UnitAddAbility(c, 1093681447);//call UnitAddAbility(c,'A0A8')
 			IssueTargetOrderById(c, $D0215, D4);//call IssueTargetOrderById(c,$D0215,D4)
-			UnitApplyTimedLife(c, 'BTLF', 2.);//call UnitApplyTimedLife(c,'BTLF',2.)
+			UnitApplyTimedLife(c, 1280590375, 2.);//call UnitApplyTimedLife(c,'BTLF',2.)
 			c = c4;//set c=c4
 			TriggerSleepAction(.8);//call TriggerSleepAction(.8)
 			Po(c);//call Po(c)
@@ -7851,9 +7851,9 @@ namespace Jass {
 		}//endfunction
 		private void mv() {//function mv takes nothing returns nothing
 			unit c = CreateUnit(GetOwningPlayer(c4),808477991,GetUnitX(c4),GetUnitY(c4),.0);//local unit c=CreateUnit(GetOwningPlayer(c4),'e008',GetUnitX(c4),GetUnitY(c4),.0)
-			UnitAddAbility(c, 'A00Y');//call UnitAddAbility(c,'A00Y')
+			UnitAddAbility(c, 808468775);//call UnitAddAbility(c,'A00Y')
 			IssueTargetOrderById(c, $D0215, D4);//call IssueTargetOrderById(c,$D0215,D4)
-			UnitApplyTimedLife(c, 'BTLF', 2.);//call UnitApplyTimedLife(c,'BTLF',2.)
+			UnitApplyTimedLife(c, 1280590375, 2.);//call UnitApplyTimedLife(c,'BTLF',2.)
 			c = c4;//set c=c4
 			TriggerSleepAction(.8);//call TriggerSleepAction(.8)
 			Po(c);//call Po(c)
@@ -7861,31 +7861,31 @@ namespace Jass {
 		}//endfunction
 		private bool nv() {//function nv takes nothing returns boolean
 			SetUnitVertexColor(z4, $FF, $FF, $FF, 0);//call SetUnitVertexColor(z4,$FF,$FF,$FF,0)
-			Bj(z4, 'h08Z', 250., 46., 33.5);//call Bj(z4,'h08Z',250.,46.,33.5)
-			Bj(z4, 'h090', 270., -17., 18.);//call Bj(z4,'h090',270.,-17.,18.)
+			Bj(z4, 942696487, 250., 46., 33.5);//call Bj(z4,'h08Z',250.,46.,33.5)
+			Bj(z4, 959473703, 270., -17., 18.);//call Bj(z4,'h090',270.,-17.,18.)
 			return false;//return false
 		}//endfunction
 		private bool ov() {//function ov takes nothing returns boolean
 			SetUnitVertexColor(z4, $FF, $FF, $FF, 0);//call SetUnitVertexColor(z4,$FF,$FF,$FF,0)
-			Bj(z4, 'h08Z', 250., 46., 33.5);//call Bj(z4,'h08Z',250.,46.,33.5)
-			Bj(z4, 'h091', 270., -17., 18.);//call Bj(z4,'h091',270.,-17.,18.)
-			Bj(z4, 'h08Z', 350., -22., -40.);//call Bj(z4,'h08Z',350.,-22.,-40.)
+			Bj(z4, 942696487, 250., 46., 33.5);//call Bj(z4,'h08Z',250.,46.,33.5)
+			Bj(z4, 959473703, 270., -17., 18.);//call Bj(z4,'h091',270.,-17.,18.)
+			Bj(z4, 942696487, 350., -22., -40.);//call Bj(z4,'h08Z',350.,-22.,-40.)
 			return false;//return false
 		}//endfunction
 		private void pv() {//function pv takes nothing returns nothing
-			lj('h00Z', function jv);//call lj('h00Z',function jv)
-			Ij('h014', 675.);//call Ij('h014',675.)
-			zj('h09X', 'h07B');//call zj('h09X','h07B')
-			zj('h00X', 'h00W');//call zj('h00X','h00W')
-			zj('h00V', 'h00U');//call zj('h00V','h00U')
-			zj('h00T', 'n006');//call zj('h00T','n006')
-			zj('h03F', 'n00Y');//call zj('h03F','n00Y')
-			zj('h08X', 'n022');//call zj('h08X','n022')
-			Fj('h08X', function nv);//call Fj('h08X',function nv)
-			zj('h08Y', 'n023');//call zj('h08Y','n023')
-			Fj('h08Y', function ov);//call Fj('h08Y',function ov)
-			zj('h070', 'e005');//call zj('h070','e005')
-			zj('h06Y', 'n01Y');//call zj('h06Y','n01Y')
+			lj(808478759, function jv);//call lj('h00Z',function jv)
+			Ij(825255975, 675.);//call Ij('h014',675.)
+			zj(959473703, 925919271);//call zj('h09X','h07B')
+			zj(808478759, 808478759);//call zj('h00X','h00W')
+			zj(808478759, 808478759);//call zj('h00V','h00U')
+			zj(808478759, 808480295);//call zj('h00T','n006')
+			zj(858810407, 808480295);//call zj('h03F','n00Y')
+			zj(942696487, 842034727);//call zj('h08X','n022')
+			Fj(942696487, function nv);//call Fj('h08X',function nv)
+			zj(942696487, 842034727);//call zj('h08Y','n023')
+			Fj(942696487, function ov);//call Fj('h08Y',function ov)
+			zj(925919271, 808477991);//call zj('h070','e005')
+			zj(909142055, 825257511);//call zj('h06Y','n01Y')
 		}//endfunction
 		private void qv() {//function qv takes nothing returns nothing
 			int id;//local integer id
@@ -7944,9 +7944,9 @@ namespace Jass {
 			v4[id] = false;//set v4[id]=false
 		}//endfunction
 		private void rv() {//function rv takes nothing returns nothing
-			Lj('n01Y', 'A08V', function iv);//call Lj('n01Y','A08V',function iv)
-			Lj('h07B', 'A0A7', function kv);//call Lj('h07B','A0A7',function kv)
-			Lj('h00W', 'A00X', function mv);//call Lj('h00W','A00X',function mv)
+			Lj(825257511, 942686503, function iv);//call Lj('n01Y','A08V',function iv)
+			Lj(925919271, 1093681447, function kv);//call Lj('h07B','A0A7',function kv)
+			Lj(808478759, 808468775, function mv);//call Lj('h00W','A00X',function mv)
 		}//endfunction
 		private void sv(player p) {//function sv takes player p returns nothing
 			int id = me[GetPlayerId(p)];//local integer id=me[GetPlayerId(p)]
@@ -7965,9 +7965,9 @@ namespace Jass {
 		private void vv() {//function vv takes nothing returns nothing
 			unit u = GetEnumUnit();//local unit u=GetEnumUnit()
 			unit c = CreateUnit(r4,808477991,GetUnitX(u),GetUnitY(u),.0);//local unit c=CreateUnit(r4,'e008',GetUnitX(u),GetUnitY(u),.0)
-			UnitAddAbility(c, 'A016');//call UnitAddAbility(c,'A016')
+			UnitAddAbility(c, 825245991);//call UnitAddAbility(c,'A016')
 			IssueTargetOrderById(c, $D0085, u);//call IssueTargetOrderById(c,$D0085,u)
-			UnitApplyTimedLife(c, 'BTLF', 1.);//call UnitApplyTimedLife(c,'BTLF',1.)
+			UnitApplyTimedLife(c, 1280590375, 1.);//call UnitApplyTimedLife(c,'BTLF',1.)
 			c = null;//set c=null
 			u = null;//set u=null
 		}//endfunction
@@ -7995,7 +7995,7 @@ namespace Jass {
 		private void zv() {//function zv takes nothing returns nothing
 			unit u = c4;//local unit u=c4
 			IssueTargetOrderById(u, $D0062, D4);//call IssueTargetOrderById(u,$D0062,D4)
-			UnitAddAbility(D4, 'A03L');//call UnitAddAbility(D4,'A03L')
+			UnitAddAbility(D4, 858800423);//call UnitAddAbility(D4,'A03L')
 			TriggerSleepAction(1.);//call TriggerSleepAction(1.)
 			r4 = GetOwningPlayer(u);//set r4=GetOwningPlayer(u)
 			GroupEnumUnitsInRange(q4, GetUnitX(u), GetUnitY(u), 900., hf);//call GroupEnumUnitsInRange(q4,GetUnitX(u),GetUnitY(u),900.,hf)
@@ -8008,12 +8008,12 @@ namespace Jass {
 		}//endfunction
 		private void Av() {//function Av takes nothing returns nothing
 			unit u = CreateUnit(GetOwningPlayer(c4),808477991,GetUnitX(c4),GetUnitY(c4),.0);//local unit u=CreateUnit(GetOwningPlayer(c4),'e008',GetUnitX(c4),GetUnitY(c4),.0)
-			UnitAddAbility(u, 'A00I');//call UnitAddAbility(u,'A00I')
+			UnitAddAbility(u, 808468775);//call UnitAddAbility(u,'A00I')
 			IssueImmediateOrderById(u, $D022E);//call IssueImmediateOrderById(u,$D022E)
-			UnitApplyTimedLife(u, 'BTLF', 1.);//call UnitApplyTimedLife(u,'BTLF',1.)
+			UnitApplyTimedLife(u, 1280590375, 1.);//call UnitApplyTimedLife(u,'BTLF',1.)
 			u = c4;//set u=c4
-			UnitRemoveAbility(u, 'A00F');//call UnitRemoveAbility(u,'A00F')
-			UnitAddAbility(u, 'A07I');//call UnitAddAbility(u,'A07I')
+			UnitRemoveAbility(u, 808468775);//call UnitRemoveAbility(u,'A00F')
+			UnitAddAbility(u, 925909287);//call UnitAddAbility(u,'A07I')
 			TriggerSleepAction(.3);//call TriggerSleepAction(.3)
 			br(u);//call br(u)
 			TriggerSleepAction(5.);//call TriggerSleepAction(5.)
@@ -8021,9 +8021,9 @@ namespace Jass {
 				IssueImmediateOrderById(u, $D0019);//call IssueImmediateOrderById(u,$D0019)
 				TriggerSleepAction(6.6);//call TriggerSleepAction(6.6)
 				if ((GetUnitAbilityLevel(u,808468775)<=0)) {//if(GetUnitAbilityLevel(u,'A00F')<=0)then
-					UnitAddAbility(u, 'A00F');//call UnitAddAbility(u,'A00F')
-					UnitRemoveAbility(u, 'A07I');//call UnitRemoveAbility(u,'A07I')
-					UnitAddAbility(u, 'A0EZ');//call UnitAddAbility(u,'A0EZ')
+					UnitAddAbility(u, 808468775);//call UnitAddAbility(u,'A00F')
+					UnitRemoveAbility(u, 925909287);//call UnitRemoveAbility(u,'A07I')
+					UnitAddAbility(u, 1160790311);//call UnitAddAbility(u,'A0EZ')
 					Po(u);//call Po(u)
 				}//endif
 			}//endif
@@ -8031,27 +8031,27 @@ namespace Jass {
 		}//endfunction
 		private bool av() {//function av takes nothing returns boolean
 			SetUnitVertexColor(z4, $FF, $FF, $FF, 0);//call SetUnitVertexColor(z4,$FF,$FF,$FF,0)
-			Bj(z4, 'h0A0', 170., 31.25, -43.);//call Bj(z4,'h0A0',170.,31.25,-43.)
-			Bj(z4, 'h0A0', 80., -38., -40.25);//call Bj(z4,'h0A0',80.,-38.,-40.25)
-			Bj(z4, 'h0A0', 350., -30.25, 30.);//call Bj(z4,'h0A0',350.,-30.25,30.)
-			Bj(z4, 'h08Z', 220., 43., 27.5);//call Bj(z4,'h08Z',220.,43.,27.5)
+			Bj(z4, 1093691431, 170., 31.25, -43.);//call Bj(z4,'h0A0',170.,31.25,-43.)
+			Bj(z4, 1093691431, 80., -38., -40.25);//call Bj(z4,'h0A0',80.,-38.,-40.25)
+			Bj(z4, 1093691431, 350., -30.25, 30.);//call Bj(z4,'h0A0',350.,-30.25,30.)
+			Bj(z4, 942696487, 220., 43., 27.5);//call Bj(z4,'h08Z',220.,43.,27.5)
 			return false;//return false
 		}//endfunction
 		private void Bv() {//function Bv takes nothing returns nothing
-			zj('h000', 'hfoo');//call zj('h000','hfoo')
-			zj('h039', 'h03A');//call zj('h039','h03A')
-			zj('h003', 'hrif');//call zj('h003','hrif')
-			zj('h0A1', 'h05C');//call zj('h0A1','h05C')
-			Fj('h0A1', function av);//call Fj('h0A1',function av)
-			zj('h05D', 'h0A2');//call zj('h05D','h0A2')
-			zj('h004', 'hmtm');//call zj('h004','hmtm')
-			Ij('h006', 950.);//call Ij('h006',950.)
-			zj('h00K', 'n005');//call zj('h00K','n005')
-			Ij('h010', 500.);//call Ij('h010',500.)
-			lj('h010', function wv);//call lj('h010',function wv)
-			zj('h015', 'h016');//call zj('h015','h016')
-			zj('h037', 'h03B');//call zj('h037','h03B')
-			zj('h038', 'h03C');//call zj('h038','h03C')
+			zj(808478759, 1868982311);//call zj('h000','hfoo')
+			zj(858810407, 858810407);//call zj('h039','h03A')
+			zj(808478759, 1769105447);//call zj('h003','hrif')
+			zj(1093691431, 892364839);//call zj('h0A1','h05C')
+			Fj(1093691431, function av);//call Fj('h0A1',function av)
+			zj(892364839, 1093691431);//call zj('h05D','h0A2')
+			zj(808478759, 1953327143);//call zj('h004','hmtm')
+			Ij(808478759, 950.);//call Ij('h006',950.)
+			zj(808478759, 808480295);//call zj('h00K','n005')
+			Ij(825255975, 500.);//call Ij('h010',500.)
+			lj(825255975, function wv);//call lj('h010',function wv)
+			zj(825255975, 825255975);//call zj('h015','h016')
+			zj(858810407, 858810407);//call zj('h037','h03B')
+			zj(858810407, 858810407);//call zj('h038','h03C')
 		}//endfunction
 		private void bv() {//function bv takes nothing returns nothing
 			int id;//local integer id
@@ -8114,9 +8114,9 @@ namespace Jass {
 			v4[id] = false;//set v4[id]=false
 		}//endfunction
 		private void Cv() {//function Cv takes nothing returns nothing
-			Lj('h03B', 'A03K', function xv);//call Lj('h03B','A03K',function xv)
-			Lj('h03C', 'A03K', function zv);//call Lj('h03C','A03K',function zv)
-			Lj('n005', 'A00K', function Av);//call Lj('n005','A00K',function Av)
+			Lj(858810407, 858800423, function xv);//call Lj('h03B','A03K',function xv)
+			Lj(858810407, 858800423, function zv);//call Lj('h03C','A03K',function zv)
+			Lj(808480295, 808468775, function Av);//call Lj('n005','A00K',function Av)
 		}//endfunction
 		private void cv(unit u) {//function cv takes unit u returns nothing
 			rect r = Ld[me[GetPlayerId(GetOwningPlayer(u))]];//local rect r=Ld[me[GetPlayerId(GetOwningPlayer(u))]]
@@ -8450,7 +8450,7 @@ namespace Jass {
 				Pj("SE:MC:SA "+GetUnitName(B4)+" ->"+GetUnitName(bj_groupRandomCurrentPick));//call Pj("SE:MC:SA "+GetUnitName(B4)+" ->"+GetUnitName(bj_groupRandomCurrentPick))
 				Rj();//call Rj()
 			}//endif
-			UnitAddAbility(bj_groupRandomCurrentPick, 'A09L');//call UnitAddAbility(bj_groupRandomCurrentPick,'A09L')
+			UnitAddAbility(bj_groupRandomCurrentPick, 959463719);//call UnitAddAbility(bj_groupRandomCurrentPick,'A09L')
 			u = B4;//set u=B4
 			SetUnitAnimation(u, "death");//call SetUnitAnimation(u,"death")
 			TriggerSleepAction(.3);//call TriggerSleepAction(.3)
@@ -8475,13 +8475,13 @@ namespace Jass {
 					return;//return
 				}//endif
 			} else {//else
-				UnitAddAbility(bj_groupRandomCurrentPick, 'A09L');//call UnitAddAbility(bj_groupRandomCurrentPick,'A09L')
+				UnitAddAbility(bj_groupRandomCurrentPick, 959463719);//call UnitAddAbility(bj_groupRandomCurrentPick,'A09L')
 			}//endif
 			if ((yd)) {//if(yd)then
 				Pj("SE:MC:SA2 "+GetUnitName(B4)+" ->"+GetUnitName(bj_groupRandomCurrentPick));//call Pj("SE:MC:SA2 "+GetUnitName(B4)+" ->"+GetUnitName(bj_groupRandomCurrentPick))
 				Rj();//call Rj()
 			}//endif
-			SetUnitAbilityLevel(bj_groupRandomCurrentPick, 'A09L', 2);//call SetUnitAbilityLevel(bj_groupRandomCurrentPick,'A09L',2)
+			SetUnitAbilityLevel(bj_groupRandomCurrentPick, 959463719, 2);//call SetUnitAbilityLevel(bj_groupRandomCurrentPick,'A09L',2)
 			u = B4;//set u=B4
 			SetUnitAnimation(u, "death");//call SetUnitAnimation(u,"death")
 			TriggerSleepAction(.3);//call TriggerSleepAction(.3)
@@ -8501,14 +8501,14 @@ namespace Jass {
 				Rj();//call Rj()
 			}//endif
 			IssuePointOrderById(c, $D0010, x, y);//call IssuePointOrderById(c,$D0010,x,y)
-			UnitApplyTimedLife(c, 'BTLF', 3.);//call UnitApplyTimedLife(c,'BTLF',3.)
+			UnitApplyTimedLife(c, 1280590375, 3.);//call UnitApplyTimedLife(c,'BTLF',3.)
 			sx = sx-(x);//set sx=sx-(x)
 			sy = sy-(y);//set sy=sy-(y)
 			TriggerSleepAction(SquareRoot(sx*sx+sy*sy)/ 700.);//call TriggerSleepAction(SquareRoot(sx*sx+sy*sy)/ 700.)
 			c = CreateUnit(p,808477991,x,y,.0);//set c=CreateUnit(p,'e008',x,y,.0)
-			UnitAddAbility(c, 'A09E');//call UnitAddAbility(c,'A09E')
+			UnitAddAbility(c, 959463719);//call UnitAddAbility(c,'A09E')
 			IssueImmediateOrderById(c, $D0080);//call IssueImmediateOrderById(c,$D0080)
-			UnitApplyTimedLife(c, 'BTLF', 3.);//call UnitApplyTimedLife(c,'BTLF',3.)
+			UnitApplyTimedLife(c, 1280590375, 3.);//call UnitApplyTimedLife(c,'BTLF',3.)
 			r4 = p;//set r4=p
 			GroupEnumUnitsInRange(q4, x, y, 300., x9);//call GroupEnumUnitsInRange(q4,x,y,300.,x9)
 			while (true) {//loop
@@ -8539,9 +8539,9 @@ namespace Jass {
 			}//endif
 			y = sy+r*Sin(y);//set y=sy+r*Sin(y)
 			IssuePointOrderById(c, $D0010, x, y);//call IssuePointOrderById(c,$D0010,x,y)
-			UnitApplyTimedLife(c, 'BTLF', 3.);//call UnitApplyTimedLife(c,'BTLF',3.)
+			UnitApplyTimedLife(c, 1280590375, 3.);//call UnitApplyTimedLife(c,'BTLF',3.)
 			TriggerSleepAction(r/ 700.);//call TriggerSleepAction(r/ 700.)
-			CreateUnit(p, 'n025', x, y, .0);//call CreateUnit(p,'n025',x,y,.0)
+			CreateUnit(p, 842034727, x, y, .0);//call CreateUnit(p,'n025',x,y,.0)
 			c = null;//set c=null
 		}//endfunction
 		private bool kw() {//function kw takes nothing returns boolean
@@ -8552,8 +8552,8 @@ namespace Jass {
 		}//endfunction
 		private void mw() {//function mw takes nothing returns nothing
 			unit u = GetEnumUnit();//local unit u=GetEnumUnit()
-			UnitRemoveAbility(u, 'Bfrz');//call UnitRemoveAbility(u,'Bfrz')
-			UnitRemoveAbility(u, 'B00M');//call UnitRemoveAbility(u,'B00M')
+			UnitRemoveAbility(u, 1919304231);//call UnitRemoveAbility(u,'Bfrz')
+			UnitRemoveAbility(u, 808469031);//call UnitRemoveAbility(u,'B00M')
 			DestroyEffect(AddSpecialEffect("Abilities\\Spells\\Orc\\MirrorImage\\MirrorImageDeathCaster.mdl", GetUnitX(u), GetUnitY(u)));//call DestroyEffect(AddSpecialEffect("Abilities\\Spells\\Orc\\MirrorImage\\MirrorImageDeathCaster.mdl",GetUnitX(u),GetUnitY(u)))
 			u = null;//set u=null
 		}//endfunction
@@ -8567,94 +8567,94 @@ namespace Jass {
 			ForGroup(rf, function nw);//call ForGroup(rf,function nw)
 		}//endfunction
 		private bool pw() {//function pw takes nothing returns boolean
-			Bj(z4, 'h09V', 270., .0, .0);//call Bj(z4,'h09V',270.,.0,.0)
-			Bj(z4, 'h09U', 90., 20., .0);//call Bj(z4,'h09U',90.,20.,.0)
-			Bj(z4, 'h09U', .0, .0, -20.);//call Bj(z4,'h09U',.0,.0,-20.)
-			Bj(z4, 'h09U', 270., -20., .0);//call Bj(z4,'h09U',270.,-20.,.0)
-			Bj(z4, 'h09U', 180., .0, 20.);//call Bj(z4,'h09U',180.,.0,20.)
+			Bj(z4, 959473703, 270., .0, .0);//call Bj(z4,'h09V',270.,.0,.0)
+			Bj(z4, 959473703, 90., 20., .0);//call Bj(z4,'h09U',90.,20.,.0)
+			Bj(z4, 959473703, .0, .0, -20.);//call Bj(z4,'h09U',.0,.0,-20.)
+			Bj(z4, 959473703, 270., -20., .0);//call Bj(z4,'h09U',270.,-20.,.0)
+			Bj(z4, 959473703, 180., .0, 20.);//call Bj(z4,'h09U',180.,.0,20.)
 			return false;//return false
 		}//endfunction
 		private bool qw() {//function qw takes nothing returns boolean
-			Bj(z4, 'h09R', 300., 3.5, 65.25);//call Bj(z4,'h09R',300.,3.5,65.25)
-			Bj(z4, 'h09R', 70., -16.5, -51.);//call Bj(z4,'h09R',70.,-16.5,-51.)
-			Bj(z4, 'h09N', 238., 36., 53.);//call Bj(z4,'h09N',238.,36.,53.)
-			Bj(z4, 'h09O', 314., -38., -39.5);//call Bj(z4,'h09O',314.,-38.,-39.5)
+			Bj(z4, 959473703, 300., 3.5, 65.25);//call Bj(z4,'h09R',300.,3.5,65.25)
+			Bj(z4, 959473703, 70., -16.5, -51.);//call Bj(z4,'h09R',70.,-16.5,-51.)
+			Bj(z4, 959473703, 238., 36., 53.);//call Bj(z4,'h09N',238.,36.,53.)
+			Bj(z4, 959473703, 314., -38., -39.5);//call Bj(z4,'h09O',314.,-38.,-39.5)
 			return false;//return false
 		}//endfunction
 		private bool rw() {//function rw takes nothing returns boolean
-			Bj(z4, 'h09O', 279., -45.5, 24.75);//call Bj(z4,'h09O',279.,-45.5,24.75)
-			Bj(z4, 'h09N', 300., 31., -32.25);//call Bj(z4,'h09N',300.,31.,-32.25)
+			Bj(z4, 959473703, 279., -45.5, 24.75);//call Bj(z4,'h09O',279.,-45.5,24.75)
+			Bj(z4, 959473703, 300., 31., -32.25);//call Bj(z4,'h09N',300.,31.,-32.25)
 			return false;//return false
 		}//endfunction
 		private bool sw() {//function sw takes nothing returns boolean
-			Bj(z4, 'h09K', 238., .0, .0);//call Bj(z4,'h09K',238.,.0,.0)
+			Bj(z4, 959473703, 238., .0, .0);//call Bj(z4,'h09K',238.,.0,.0)
 			return false;//return false
 		}//endfunction
 		private bool tw() {//function tw takes nothing returns boolean
-			Bj(z4, 'h09F', 2., 36.25, 41.);//call Bj(z4,'h09F',2.,36.25,41.)
-			Bj(z4, 'h09F', 2., 33.25, -33.5);//call Bj(z4,'h09F',2.,33.25,-33.5)
-			Bj(z4, 'h09F', 2., -46.25, 10.75);//call Bj(z4,'h09F',2.,-46.25,10.75)
-			Bj(z4, 'h09A', 45., -5.25, 17.);//call Bj(z4,'h09A',45.,-5.25,17.)
+			Bj(z4, 959473703, 2., 36.25, 41.);//call Bj(z4,'h09F',2.,36.25,41.)
+			Bj(z4, 959473703, 2., 33.25, -33.5);//call Bj(z4,'h09F',2.,33.25,-33.5)
+			Bj(z4, 959473703, 2., -46.25, 10.75);//call Bj(z4,'h09F',2.,-46.25,10.75)
+			Bj(z4, 959473703, 45., -5.25, 17.);//call Bj(z4,'h09A',45.,-5.25,17.)
 			return false;//return false
 		}//endfunction
 		private bool uw() {//function uw takes nothing returns boolean
-			Bj(z4, 'h09D', 225., 35., -29.75);//call Bj(z4,'h09D',225.,35.,-29.75)
-			Bj(z4, 'h09D', 45., 20., 22.5);//call Bj(z4,'h09D',45.,20.,22.5)
-			Bj(z4, 'h09D', 225., -31., 26.25);//call Bj(z4,'h09D',225.,-31.,26.25)
-			Bj(z4, 'h09G', 23., -25.25, -36.);//call Bj(z4,'h09G',23.,-25.25,-36.)
+			Bj(z4, 959473703, 225., 35., -29.75);//call Bj(z4,'h09D',225.,35.,-29.75)
+			Bj(z4, 959473703, 45., 20., 22.5);//call Bj(z4,'h09D',45.,20.,22.5)
+			Bj(z4, 959473703, 225., -31., 26.25);//call Bj(z4,'h09D',225.,-31.,26.25)
+			Bj(z4, 959473703, 23., -25.25, -36.);//call Bj(z4,'h09G',23.,-25.25,-36.)
 			return false;//return false
 		}//endfunction
 		private bool vw() {//function vw takes nothing returns boolean
-			Bj(z4, 'h09C', 33., 36.25, 36.5);//call Bj(z4,'h09C',33.,36.25,36.5)
-			Bj(z4, 'h09C', 13., 21., -47.5);//call Bj(z4,'h09C',13.,21.,-47.5)
-			Bj(z4, 'h09C', 319., -46.25, 11.75);//call Bj(z4,'h09C',319.,-46.25,11.75)
+			Bj(z4, 959473703, 33., 36.25, 36.5);//call Bj(z4,'h09C',33.,36.25,36.5)
+			Bj(z4, 959473703, 13., 21., -47.5);//call Bj(z4,'h09C',13.,21.,-47.5)
+			Bj(z4, 959473703, 319., -46.25, 11.75);//call Bj(z4,'h09C',319.,-46.25,11.75)
 			return false;//return false
 		}//endfunction
 		private bool ww() {//function ww takes nothing returns boolean
-			Bj(z4, 'h09C', 33., 36.25, 36.5);//call Bj(z4,'h09C',33.,36.25,36.5)
-			Bj(z4, 'h09C', 13., 21., -47.5);//call Bj(z4,'h09C',13.,21.,-47.5)
-			Bj(z4, 'h09C', 319., -46.25, 11.75);//call Bj(z4,'h09C',319.,-46.25,11.75)
-			Bj(z4, 'h09E', 348., -6.5, 9.);//call Bj(z4,'h09E',348.,-6.5,9.)
+			Bj(z4, 959473703, 33., 36.25, 36.5);//call Bj(z4,'h09C',33.,36.25,36.5)
+			Bj(z4, 959473703, 13., 21., -47.5);//call Bj(z4,'h09C',13.,21.,-47.5)
+			Bj(z4, 959473703, 319., -46.25, 11.75);//call Bj(z4,'h09C',319.,-46.25,11.75)
+			Bj(z4, 959473703, 348., -6.5, 9.);//call Bj(z4,'h09E',348.,-6.5,9.)
 			return false;//return false
 		}//endfunction
 		private bool xw() {//function xw takes nothing returns boolean
-			Bj(z4, 'h09K', 45., .0, .0);//call Bj(z4,'h09K',45.,.0,.0)
+			Bj(z4, 959473703, 45., .0, .0);//call Bj(z4,'h09K',45.,.0,.0)
 			return false;//return false
 		}//endfunction
 		private bool yw() {//function yw takes nothing returns boolean
-			Bj(z4, 'h096', 180., -45.75, 21.75);//call Bj(z4,'h096',180.,-45.75,21.75)
-			Bj(z4, 'h096', 110., 9., -62.5);//call Bj(z4,'h096',110.,9.,-62.5)
+			Bj(z4, 959473703, 180., -45.75, 21.75);//call Bj(z4,'h096',180.,-45.75,21.75)
+			Bj(z4, 959473703, 110., 9., -62.5);//call Bj(z4,'h096',110.,9.,-62.5)
 			return false;//return false
 		}//endfunction
 		private void zw() {//function zw takes nothing returns nothing
-			Fj('h09T', function pw);//call Fj('h09T',function pw)
-			Ij('h09T', 180.);//call Ij('h09T',180.)
-			zj('h069', 'n01U');//call zj('h069','n01U')
-			Fj('h069', function qw);//call Fj('h069',function qw)
-			lj('h06J', function fw);//call lj('h06J',function fw)
-			lj('h05R', function hw);//call lj('h05R',function hw)
-			zj('h05T', 'z002');//call zj('h05T','z002')
-			zj('h09P', 'z003');//call zj('h09P','z003')
-			Fj('h09P', function rw);//call Fj('h09P',function rw)
-			zj('h05U', 'n01T');//call zj('h05U','n01T')
-			zj('h05M', 'n01V');//call zj('h05M','n01V')
-			zj('h05J', 'h06Q');//call zj('h05J','h06Q')
-			zj('h09L', 'h06R');//call zj('h09L','h06R')
-			Fj('h09L', function sw);//call Fj('h09L',function sw)
-			zj('h05V', 'n01X');//call zj('h05V','n01X')
-			zj('h097', 'n024');//call zj('h097','n024')
-			Fj('h097', function yw);//call Fj('h097',function yw)
-			zj('h05X', 'h06T');//call zj('h05X','h06T')
-			zj('h09J', 'h06U');//call zj('h09J','h06U')
-			Fj('h09J', function tw);//call Fj('h09J',function tw)
-			zj('h09I', 'h099');//call zj('h09I','h099')
-			Fj('h09I', function uw);//call Fj('h09I',function uw)
-			zj('h09B', 'h06S');//call zj('h09B','h06S')
-			Fj('h09B', function vw);//call Fj('h09B',function vw)
-			zj('h09H', 'h098');//call zj('h09H','h098')
-			Fj('h09H', function ww);//call Fj('h09H',function ww)
-			Ij('h05L', 600.);//call Ij('h05L',600.)
-			Fj('h05L', function xw);//call Fj('h05L',function xw)
+			Fj(959473703, function pw);//call Fj('h09T',function pw)
+			Ij(959473703, 180.);//call Ij('h09T',180.)
+			zj(909142055, 825257511);//call zj('h069','n01U')
+			Fj(909142055, function qw);//call Fj('h069',function qw)
+			lj(909142055, function fw);//call lj('h06J',function fw)
+			lj(892364839, function hw);//call lj('h05R',function hw)
+			zj(892364839, 808483367);//call zj('h05T','z002')
+			zj(959473703, 808483367);//call zj('h09P','z003')
+			Fj(959473703, function rw);//call Fj('h09P',function rw)
+			zj(892364839, 825257511);//call zj('h05U','n01T')
+			zj(892364839, 825257511);//call zj('h05M','n01V')
+			zj(892364839, 909142055);//call zj('h05J','h06Q')
+			zj(959473703, 909142055);//call zj('h09L','h06R')
+			Fj(959473703, function sw);//call Fj('h09L',function sw)
+			zj(892364839, 825257511);//call zj('h05V','n01X')
+			zj(959473703, 842034727);//call zj('h097','n024')
+			Fj(959473703, function yw);//call Fj('h097',function yw)
+			zj(892364839, 909142055);//call zj('h05X','h06T')
+			zj(959473703, 909142055);//call zj('h09J','h06U')
+			Fj(959473703, function tw);//call Fj('h09J',function tw)
+			zj(959473703, 959473703);//call zj('h09I','h099')
+			Fj(959473703, function uw);//call Fj('h09I',function uw)
+			zj(959473703, 909142055);//call zj('h09B','h06S')
+			Fj(959473703, function vw);//call Fj('h09B',function vw)
+			zj(959473703, 959473703);//call zj('h09H','h098')
+			Fj(959473703, function ww);//call Fj('h09H',function ww)
+			Ij(892364839, 600.);//call Ij('h05L',600.)
+			Fj(892364839, function xw);//call Fj('h05L',function xw)
 		}//endfunction
 		private void Aw() {//function Aw takes nothing returns nothing
 			int id;//local integer id
@@ -8732,8 +8732,8 @@ namespace Jass {
 			v4[id] = false;//set v4[id]=false
 		}//endfunction
 		private void aw() {//function aw takes nothing returns nothing
-			Lj('z003', 'A09D', function iw);//call Lj('z003','A09D',function iw)
-			Lj('h06U', 'A095', function jw);//call Lj('h06U','A095',function jw)
+			Lj(808483367, 959463719, function iw);//call Lj('z003','A09D',function iw)
+			Lj(909142055, 959463719, function jw);//call Lj('h06U','A095',function jw)
 		}//endfunction
 		private void Bw() {//function Bw takes nothing returns nothing
 			zw();//call zw()
@@ -8755,11 +8755,11 @@ namespace Jass {
 				return;//return
 			}//endif
 			c = CreateUnit(GetOwningPlayer(B4),808477991,GetUnitX(B4),GetUnitY(B4),.0);//set c=CreateUnit(GetOwningPlayer(B4),'e008',GetUnitX(B4),GetUnitY(B4),.0)
-			UnitAddAbility(c, 'A00P');//call UnitAddAbility(c,'A00P')
+			UnitAddAbility(c, 808468775);//call UnitAddAbility(c,'A00P')
 			UnitShareVision(bj_groupRandomCurrentPick, r4, true);//call UnitShareVision(bj_groupRandomCurrentPick,r4,true)
 			IssueTargetOrderById(c, $D00FA, bj_groupRandomCurrentPick);//call IssueTargetOrderById(c,$D00FA,bj_groupRandomCurrentPick)
 			UnitShareVision(bj_groupRandomCurrentPick, r4, false);//call UnitShareVision(bj_groupRandomCurrentPick,r4,false)
-			UnitApplyTimedLife(c, 'BTLF', 20.);//call UnitApplyTimedLife(c,'BTLF',20.)
+			UnitApplyTimedLife(c, 1280590375, 20.);//call UnitApplyTimedLife(c,'BTLF',20.)
 			c = null;//set c=null
 		}//endfunction
 		private void Cw() {//function Cw takes nothing returns nothing
@@ -8773,11 +8773,11 @@ namespace Jass {
 				return;//return
 			}//endif
 			c = CreateUnit(GetOwningPlayer(B4),808477991,GetUnitX(B4),GetUnitY(B4),.0);//set c=CreateUnit(GetOwningPlayer(B4),'e008',GetUnitX(B4),GetUnitY(B4),.0)
-			UnitAddAbility(c, 'A00N');//call UnitAddAbility(c,'A00N')
+			UnitAddAbility(c, 808468775);//call UnitAddAbility(c,'A00N')
 			UnitShareVision(bj_groupRandomCurrentPick, r4, true);//call UnitShareVision(bj_groupRandomCurrentPick,r4,true)
 			IssueTargetOrderById(c, $D0265, bj_groupRandomCurrentPick);//call IssueTargetOrderById(c,$D0265,bj_groupRandomCurrentPick)
 			UnitShareVision(bj_groupRandomCurrentPick, r4, false);//call UnitShareVision(bj_groupRandomCurrentPick,r4,false)
-			UnitApplyTimedLife(c, 'BTLF', 1.);//call UnitApplyTimedLife(c,'BTLF',1.)
+			UnitApplyTimedLife(c, 1280590375, 1.);//call UnitApplyTimedLife(c,'BTLF',1.)
 			c = null;//set c=null
 		}//endfunction
 		private void cw() {//function cw takes nothing returns nothing
@@ -8791,16 +8791,16 @@ namespace Jass {
 				return;//return
 			}//endif
 			c = CreateUnit(r4,808477991,GetUnitX(bj_groupRandomCurrentPick),GetUnitY(bj_groupRandomCurrentPick),.0);//set c=CreateUnit(r4,'e008',GetUnitX(bj_groupRandomCurrentPick),GetUnitY(bj_groupRandomCurrentPick),.0)
-			UnitAddAbility(c, 'A00B');//call UnitAddAbility(c,'A00B')
+			UnitAddAbility(c, 808468775);//call UnitAddAbility(c,'A00B')
 			IssueImmediateOrderById(c, $D0080);//call IssueImmediateOrderById(c,$D0080)
-			UnitApplyTimedLife(c, 'BTLF', 1.);//call UnitApplyTimedLife(c,'BTLF',1.)
+			UnitApplyTimedLife(c, 1280590375, 1.);//call UnitApplyTimedLife(c,'BTLF',1.)
 			c = null;//set c=null
 		}//endfunction
 		private void Dw() {//function Dw takes nothing returns nothing
 			unit c = CreateUnit(GetOwningPlayer(c4),808477991,GetUnitX(c4),GetUnitY(c4),.0);//local unit c=CreateUnit(GetOwningPlayer(c4),'e008',GetUnitX(c4),GetUnitY(c4),.0)
-			UnitAddAbility(c, 'A02T');//call UnitAddAbility(c,'A02T')
+			UnitAddAbility(c, 842023207);//call UnitAddAbility(c,'A02T')
 			IssueTargetOrderById(c, $D008F, D4);//call IssueTargetOrderById(c,$D008F,D4)
-			UnitApplyTimedLife(c, 'BTLF', 2.);//call UnitApplyTimedLife(c,'BTLF',2.)
+			UnitApplyTimedLife(c, 1280590375, 2.);//call UnitApplyTimedLife(c,'BTLF',2.)
 			c = c4;//set c=c4
 			TriggerSleepAction(1.);//call TriggerSleepAction(1.)
 			if ((IssueImmediateOrderById(c,$D009E))) {//if(IssueImmediateOrderById(c,$D009E))then
@@ -8810,20 +8810,20 @@ namespace Jass {
 			c = null;//set c=null
 		}//endfunction
 		private void Ew() {//function Ew takes nothing returns nothing
-			zj('h01Z', 'n00S');//call zj('h01Z','n00S')
-			lj('h00N', function bw);//call lj('h00N',function bw)
-			lj('h00M', function Cw);//call lj('h00M',function Cw)
-			zj('h00J', 'n004');//call zj('h00J','n004')
-			zj('h05F', 'n01P');//call zj('h05F','n01P')
-			zj('h01B', 'n007');//call zj('h01B','n007')
-			lj('h00I', function cw);//call lj('h00I',function cw)
-			zj('h020', 'n00I');//call zj('h020','n00I')
-			zj('h021', 'n00J');//call zj('h021','n00J')
-			zj('h022', 'n00K');//call zj('h022','n00K')
-			Ij('h00G', 700.);//call Ij('h00G',700.)
-			zj('h01Y', 'n00H');//call zj('h01Y','n00H')
-			zj('h00F', 'n002');//call zj('h00F','n002')
-			zj('h032', 'n00X');//call zj('h032','n00X')
+			zj(825255975, 808480295);//call zj('h01Z','n00S')
+			lj(808478759, function bw);//call lj('h00N',function bw)
+			lj(808478759, function Cw);//call lj('h00M',function Cw)
+			zj(808478759, 808480295);//call zj('h00J','n004')
+			zj(892364839, 825257511);//call zj('h05F','n01P')
+			zj(825255975, 808480295);//call zj('h01B','n007')
+			lj(808478759, function cw);//call lj('h00I',function cw)
+			zj(842033191, 808480295);//call zj('h020','n00I')
+			zj(842033191, 808480295);//call zj('h021','n00J')
+			zj(842033191, 808480295);//call zj('h022','n00K')
+			Ij(808478759, 700.);//call Ij('h00G',700.)
+			zj(825255975, 808480295);//call zj('h01Y','n00H')
+			zj(808478759, 808480295);//call zj('h00F','n002')
+			zj(858810407, 808480295);//call zj('h032','n00X')
 		}//endfunction
 		private void Fw() {//function Fw takes nothing returns nothing
 			int id;//local integer id
@@ -8886,12 +8886,12 @@ namespace Jass {
 			v4[id] = false;//set v4[id]=false
 		}//endfunction
 		private void Naga___RegisterUnitCasts() {//function Naga___RegisterUnitCasts takes nothing returns nothing
-			Lj('n00S', 'A02U', function Dw);//call Lj('n00S','A02U',function Dw)
+			Lj(808480295, 842023207, function Dw);//call Lj('n00S','A02U',function Dw)
 		}//endfunction
 		private void Gw() {//function Gw takes nothing returns nothing
 			Ew();//call Ew()
 			Fw();//call Fw()
-			Lj('n00S', 'A02U', function Dw);//call Lj('n00S','A02U',function Dw)
+			Lj(808480295, 842023207, function Dw);//call Lj('n00S','A02U',function Dw)
 		}//endfunction
 		private bool Hw() {//function Hw takes nothing returns boolean
 			unit u = GetFilterUnit();//local unit u=GetFilterUnit()
@@ -8941,7 +8941,7 @@ namespace Jass {
 						an = 72.*I2R(i);//set an=72.*I2R(i)
 						x2 = x+112.*Cos(an*bj_DEGTORAD);//set x2=x+112.*Cos(an*bj_DEGTORAD)
 						y2 = y+112.*Sin(an*bj_DEGTORAD);//set y2=y+112.*Sin(an*bj_DEGTORAD)
-						UnitApplyTimedLife(CreateUnit(p, 'e00D', x2, y2, an), 'B021', 20.);//call UnitApplyTimedLife(CreateUnit(p,'e00D',x2,y2,an),'B021',20.)
+						UnitApplyTimedLife(CreateUnit(p, 808477991, x2, y2, an), 842023463, 20.);//call UnitApplyTimedLife(CreateUnit(p,'e00D',x2,y2,an),'B021',20.)
 						DestroyEffect(AddSpecialEffect("Objects\\Spawnmodels\\NightElf\\EntBirthTarget\\EntBirthTarget.mdl", x2, y2));//call DestroyEffect(AddSpecialEffect("Objects\\Spawnmodels\\NightElf\\EntBirthTarget\\EntBirthTarget.mdl",x2,y2))
 					}//endif
 					i = i+1;//set i=i+1
@@ -8968,9 +8968,9 @@ namespace Jass {
 		}//endfunction
 		private void Jw() {//function Jw takes nothing returns nothing
 			unit c = CreateUnit(GetOwningPlayer(c4),808477991,GetUnitX(c4),GetUnitY(c4),.0);//local unit c=CreateUnit(GetOwningPlayer(c4),'e008',GetUnitX(c4),GetUnitY(c4),.0)
-			UnitAddAbility(c, 'A0AW');//call UnitAddAbility(c,'A0AW')
+			UnitAddAbility(c, 1093681447);//call UnitAddAbility(c,'A0AW')
 			IssueTargetOrderById(c, $D00C0, D4);//call IssueTargetOrderById(c,$D00C0,D4)
-			UnitApplyTimedLife(c, 'BTLF', 2.);//call UnitApplyTimedLife(c,'BTLF',2.)
+			UnitApplyTimedLife(c, 1280590375, 2.);//call UnitApplyTimedLife(c,'BTLF',2.)
 			c = c4;//set c=c4
 			TriggerSleepAction(.8);//call TriggerSleepAction(.8)
 			Po(c);//call Po(c)
@@ -8978,9 +8978,9 @@ namespace Jass {
 		}//endfunction
 		private void Kw() {//function Kw takes nothing returns nothing
 			unit c = CreateUnit(GetOwningPlayer(c4),808477991,GetUnitX(c4),GetUnitY(c4),.0);//local unit c=CreateUnit(GetOwningPlayer(c4),'e008',GetUnitX(c4),GetUnitY(c4),.0)
-			UnitAddAbility(c, 'A0AW');//call UnitAddAbility(c,'A0AW')
+			UnitAddAbility(c, 1093681447);//call UnitAddAbility(c,'A0AW')
 			IssueTargetOrderById(c, $D00C0, D4);//call IssueTargetOrderById(c,$D00C0,D4)
-			UnitApplyTimedLife(c, 'BTLF', 2.);//call UnitApplyTimedLife(c,'BTLF',2.)
+			UnitApplyTimedLife(c, 1280590375, 2.);//call UnitApplyTimedLife(c,'BTLF',2.)
 			c = c4;//set c=c4
 			TriggerSleepAction(.8);//call TriggerSleepAction(.8)
 			Po(c);//call Po(c)
@@ -9002,7 +9002,7 @@ namespace Jass {
 		}//endfunction
 		private void Nw() {//function Nw takes nothing returns nothing
 			unit u = c4;//local unit u=c4
-			UnitAddAbility(D4, 'AId2');//call UnitAddAbility(D4,'AId2')
+			UnitAddAbility(D4, 1682522407);//call UnitAddAbility(D4,'AId2')
 			DestroyEffect(AddSpecialEffectTarget("mdx\\sfx\\sin2.mdx", D4, "overhead"));//call DestroyEffect(AddSpecialEffectTarget("mdx\\sfx\\sin2.mdx",D4,"overhead"))
 			TriggerSleepAction(.6);//call TriggerSleepAction(.6)
 			Po(u);//call Po(u)
@@ -9010,7 +9010,7 @@ namespace Jass {
 		}//endfunction
 		private void Ow() {//function Ow takes nothing returns nothing
 			unit u = c4;//local unit u=c4
-			UnitAddAbility(D4, 'AId3');//call UnitAddAbility(D4,'AId3')
+			UnitAddAbility(D4, 1682522407);//call UnitAddAbility(D4,'AId3')
 			DestroyEffect(AddSpecialEffectTarget("mdx\\sfx\\sin2.mdx", D4, "overhead"));//call DestroyEffect(AddSpecialEffectTarget("mdx\\sfx\\sin2.mdx",D4,"overhead"))
 			TriggerSleepAction(.6);//call TriggerSleepAction(.6)
 			if ((IssueImmediateOrderById(u,$D009E))) {//if(IssueImmediateOrderById(u,$D009E))then
@@ -9043,8 +9043,8 @@ namespace Jass {
 			DestroyGroup(g);//call DestroyGroup(g)
 			g = null;//set g=null
 			u = CreateUnit(r4,808477991,GetUnitX(w),GetUnitY(w),.0);//set u=CreateUnit(r4,'e008',GetUnitX(w),GetUnitY(w),.0)
-			UnitAddAbility(u, 'A0ES');//call UnitAddAbility(u,'A0ES')
-			UnitApplyTimedLife(u, 'BTLF', 8.);//call UnitApplyTimedLife(u,'BTLF',8.)
+			UnitAddAbility(u, 1160790311);//call UnitAddAbility(u,'A0ES')
+			UnitApplyTimedLife(u, 1280590375, 8.);//call UnitApplyTimedLife(u,'BTLF',8.)
 			u = null;//set u=null
 		}//endfunction
 		private void Rw() {//function Rw takes nothing returns nothing
@@ -9055,11 +9055,11 @@ namespace Jass {
 			unit u;//local unit u
 			while (true) {//loop
 				u = rm(sm+j);//set u=rm(sm+j)
-				UnitRemoveAbility(u, 'Awha');//call UnitRemoveAbility(u,'Awha')
+				UnitRemoveAbility(u, 1752645927);//call UnitRemoveAbility(u,'Awha')
 				SetUnitOwner(u, p, false);//call SetUnitOwner(u,p,false)
 				UnitAddType(u, UNIT_TYPE_SAPPER);//call UnitAddType(u,UNIT_TYPE_SAPPER)
 				Po(u);//call Po(u)
-				UnitApplyTimedLife(u, 'BTLF', 42.);//call UnitApplyTimedLife(u,'BTLF',42.)
+				UnitApplyTimedLife(u, 1280590375, 42.);//call UnitApplyTimedLife(u,'BTLF',42.)
 				j = j+1;//set j=j+1
 				if ((j>1)) {//if(j>1)then
 					j = 0;//set j=0
@@ -9081,11 +9081,11 @@ namespace Jass {
 				return;//return
 			}//endif
 			c = CreateUnit(r4,808477991,GetUnitX(bj_groupRandomCurrentPick),GetUnitY(bj_groupRandomCurrentPick),.0);//set c=CreateUnit(r4,'e008',GetUnitX(bj_groupRandomCurrentPick),GetUnitY(bj_groupRandomCurrentPick),.0)
-			UnitAddAbility(c, 'A0BL');//call UnitAddAbility(c,'A0BL')
+			UnitAddAbility(c, 1110458663);//call UnitAddAbility(c,'A0BL')
 			UnitShareVision(bj_groupRandomCurrentPick, r4, true);//call UnitShareVision(bj_groupRandomCurrentPick,r4,true)
 			IssueTargetOrderById(c, $D0206, bj_groupRandomCurrentPick);//call IssueTargetOrderById(c,$D0206,bj_groupRandomCurrentPick)
 			UnitShareVision(bj_groupRandomCurrentPick, r4, false);//call UnitShareVision(bj_groupRandomCurrentPick,r4,false)
-			UnitApplyTimedLife(c, 'BTLF', 1.);//call UnitApplyTimedLife(c,'BTLF',1.)
+			UnitApplyTimedLife(c, 1280590375, 1.);//call UnitApplyTimedLife(c,'BTLF',1.)
 			c = null;//set c=null
 		}//endfunction
 		private void Tw() {//function Tw takes nothing returns nothing
@@ -9101,69 +9101,69 @@ namespace Jass {
 			c = CreateUnit(r4,808477991,GetUnitX(bj_groupRandomCurrentPick),GetUnitY(bj_groupRandomCurrentPick),.0);//set c=CreateUnit(r4,'e008',GetUnitX(bj_groupRandomCurrentPick),GetUnitY(bj_groupRandomCurrentPick),.0)
 			UnitAddAbility(c, vf);//call UnitAddAbility(c,vf)
 			IssuePointOrderById(c, $D0275, GetUnitX(bj_groupRandomCurrentPick), GetUnitY(bj_groupRandomCurrentPick));//call IssuePointOrderById(c,$D0275,GetUnitX(bj_groupRandomCurrentPick),GetUnitY(bj_groupRandomCurrentPick))
-			UnitApplyTimedLife(c, 'BTLF', 5.);//call UnitApplyTimedLife(c,'BTLF',5.)
+			UnitApplyTimedLife(c, 1280590375, 5.);//call UnitApplyTimedLife(c,'BTLF',5.)
 			c = null;//set c=null
 		}//endfunction
 		private bool Uw() {//function Uw takes nothing returns boolean
-			Bj(z4, 'h02J', 270., .0, .0);//call Bj(z4,'h02J',270.,.0,.0)
+			Bj(z4, 842033191, 270., .0, .0);//call Bj(z4,'h02J',270.,.0,.0)
 			return false;//return false
 		}//endfunction
 		private bool Vw() {//function Vw takes nothing returns boolean
-			Bj(z4, 'h02J', 270., .0, .0);//call Bj(z4,'h02J',270.,.0,.0)
-			Bj(z4, 'h02E', 270., .0, .0);//call Bj(z4,'h02E',270.,.0,.0)
+			Bj(z4, 842033191, 270., .0, .0);//call Bj(z4,'h02J',270.,.0,.0)
+			Bj(z4, 842033191, 270., .0, .0);//call Bj(z4,'h02E',270.,.0,.0)
 			return false;//return false
 		}//endfunction
 		private bool Ww() {//function Ww takes nothing returns boolean
-			Bj(z4, 'h02J', 270., .0, .0);//call Bj(z4,'h02J',270.,.0,.0)
-			Bj(z4, 'h02E', 270., .0, .0);//call Bj(z4,'h02E',270.,.0,.0)
-			Bj(z4, 'h02F', 270., -25., -25.);//call Bj(z4,'h02F',270.,-25.,-25.)
+			Bj(z4, 842033191, 270., .0, .0);//call Bj(z4,'h02J',270.,.0,.0)
+			Bj(z4, 842033191, 270., .0, .0);//call Bj(z4,'h02E',270.,.0,.0)
+			Bj(z4, 842033191, 270., -25., -25.);//call Bj(z4,'h02F',270.,-25.,-25.)
 			return false;//return false
 		}//endfunction
 		private bool Xw() {//function Xw takes nothing returns boolean
-			Bj(z4, 'h02J', 270., .0, .0);//call Bj(z4,'h02J',270.,.0,.0)
-			Bj(z4, 'h02E', 270., .0, .0);//call Bj(z4,'h02E',270.,.0,.0)
-			Bj(z4, 'h02F', 270., -35., -40.);//call Bj(z4,'h02F',270.,-35.,-40.)
-			Bj(z4, 'h02G', 211., -35., 35.);//call Bj(z4,'h02G',211.,-35.,35.)
+			Bj(z4, 842033191, 270., .0, .0);//call Bj(z4,'h02J',270.,.0,.0)
+			Bj(z4, 842033191, 270., .0, .0);//call Bj(z4,'h02E',270.,.0,.0)
+			Bj(z4, 842033191, 270., -35., -40.);//call Bj(z4,'h02F',270.,-35.,-40.)
+			Bj(z4, 842033191, 211., -35., 35.);//call Bj(z4,'h02G',211.,-35.,35.)
 			return false;//return false
 		}//endfunction
 		private bool Yw() {//function Yw takes nothing returns boolean
-			Bj(z4, 'h02Q', 270., -35., 30.);//call Bj(z4,'h02Q',270.,-35.,30.)
+			Bj(z4, 842033191, 270., -35., 30.);//call Bj(z4,'h02Q',270.,-35.,30.)
 			return false;//return false
 		}//endfunction
 		private bool Zw() {//function Zw takes nothing returns boolean
-			Bj(z4, 'h02L', 270., .0, .0);//call Bj(z4,'h02L',270.,.0,.0)
-			Bj(z4, 'h02M', 270., 25, 20.);//call Bj(z4,'h02M',270.,25,20.)
+			Bj(z4, 842033191, 270., .0, .0);//call Bj(z4,'h02L',270.,.0,.0)
+			Bj(z4, 842033191, 270., 25, 20.);//call Bj(z4,'h02M',270.,25,20.)
 			return false;//return false
 		}//endfunction
 		private bool dx() {//function dx takes nothing returns boolean
-			Bj(z4, 'h02T', 49., -40., 20.);//call Bj(z4,'h02T',49.,-40.,20.)
+			Bj(z4, 842033191, 49., -40., 20.);//call Bj(z4,'h02T',49.,-40.,20.)
 			return false;//return false
 		}//endfunction
 		private void ex() {//function ex takes nothing returns nothing
-			zj('n02C', 'n00T');//call zj('n02C','n00T')
-			Fj('n02C', function Uw);//call Fj('n02C',function Uw)
-			zj('h002', 'n00U');//call zj('h002','n00U')
-			Fj('h002', function Vw);//call Fj('h002',function Vw)
-			zj('h00Q', 'n01N');//call zj('h00Q','n01N')
-			Fj('h00Q', function Ww);//call Fj('h00Q',function Ww)
-			zj('h00R', 'n01W');//call zj('h00R','n01W')
-			Fj('h00R', function Xw);//call Fj('h00R',function Xw)
-			zj('h00Y', 'n026');//call zj('h00Y','n026')
-			zj('h012', 'n028');//call zj('h012','n028')
-			Fj('h012', function Yw);//call Fj('h012',function Yw)
-			zj('h013', 'e006');//call zj('h013','e006')
-			zj('h01H', 'e009');//call zj('h01H','e009')
-			zj('h01J', 'e00C');//call zj('h01J','e00C')
-			zj('h023', 'n029');//call zj('h023','n029')
-			zj('h024', 'n02B');//call zj('h024','n02B')
-			Fj('h024', function Zw);//call Fj('h024',function Zw)
-			zj('h027', 'n02A');//call zj('h027','n02A')
-			zj('h028', 'e00F');//call zj('h028','e00F')
-			Fj('h028', function dx);//call Fj('h028',function dx)
-			Ij('n02D', 700.);//call Ij('n02D',700.)
-			lj('h02D', function Rw);//call lj('h02D',function Rw)
-			lj('h02C', function Sw);//call lj('h02C',function Sw)
-			lj('h02A', function Tw);//call lj('h02A',function Tw)
+			zj(842034727, 808480295);//call zj('n02C','n00T')
+			Fj(842034727, function Uw);//call Fj('n02C',function Uw)
+			zj(808478759, 808480295);//call zj('h002','n00U')
+			Fj(808478759, function Vw);//call Fj('h002',function Vw)
+			zj(808478759, 825257511);//call zj('h00Q','n01N')
+			Fj(808478759, function Ww);//call Fj('h00Q',function Ww)
+			zj(808478759, 825257511);//call zj('h00R','n01W')
+			Fj(808478759, function Xw);//call Fj('h00R',function Xw)
+			zj(808478759, 842034727);//call zj('h00Y','n026')
+			zj(825255975, 842034727);//call zj('h012','n028')
+			Fj(825255975, function Yw);//call Fj('h012',function Yw)
+			zj(825255975, 808477991);//call zj('h013','e006')
+			zj(825255975, 808477991);//call zj('h01H','e009')
+			zj(825255975, 808477991);//call zj('h01J','e00C')
+			zj(842033191, 842034727);//call zj('h023','n029')
+			zj(842033191, 842034727);//call zj('h024','n02B')
+			Fj(842033191, function Zw);//call Fj('h024',function Zw)
+			zj(842033191, 842034727);//call zj('h027','n02A')
+			zj(842033191, 808477991);//call zj('h028','e00F')
+			Fj(842033191, function dx);//call Fj('h028',function dx)
+			Ij(842034727, 700.);//call Ij('n02D',700.)
+			lj(842033191, function Rw);//call lj('h02D',function Rw)
+			lj(842033191, function Sw);//call lj('h02C',function Sw)
+			lj(842033191, function Tw);//call lj('h02A',function Tw)
 		}//endfunction
 		private void fx() {//function fx takes nothing returns nothing
 			int id;//local integer id
@@ -9233,13 +9233,13 @@ namespace Jass {
 			v4[id] = false;//set v4[id]=false
 		}//endfunction
 		private void gx() {//function gx takes nothing returns nothing
-			Lj('n026', 'A0C0', function Jw);//call Lj('n026','A0C0',function Jw)
-			Lj('n028', 'A0C1', function Kw);//call Lj('n028','A0C1',function Kw)
-			Lj('e006', 'A004', function Nw);//call Lj('e006','A004',function Nw)
-			Lj('e009', 'A0BT', function Ow);//call Lj('e009','A0BT',function Ow)
-			Lj('e00C', 'A0BX', function Iw);//call Lj('e00C','A0BX',function Iw)
-			Lj('n01W', 'A0AV', function Pw);//call Lj('n01W','A0AV',function Pw)
-			Lj('e00F', 'A0BJ', function Lw);//call Lj('e00F','A0BJ',function Lw)
+			Lj(842034727, 1127235879, function Jw);//call Lj('n026','A0C0',function Jw)
+			Lj(842034727, 1127235879, function Kw);//call Lj('n028','A0C1',function Kw)
+			Lj(808477991, 808468775, function Nw);//call Lj('e006','A004',function Nw)
+			Lj(808477991, 1110458663, function Ow);//call Lj('e009','A0BT',function Ow)
+			Lj(808477991, 1110458663, function Iw);//call Lj('e00C','A0BX',function Iw)
+			Lj(825257511, 1093681447, function Pw);//call Lj('n01W','A0AV',function Pw)
+			Lj(808477991, 1110458663, function Lw);//call Lj('e00F','A0BJ',function Lw)
 		}//endfunction
 		private void hx(unit u) {//function hx takes unit u returns nothing
 			float x = GetUnitX(u);//local real x=GetUnitX(u)
@@ -9255,34 +9255,34 @@ namespace Jass {
 			d = null;//set d=null
 		}//endfunction
 		private void ix(unit u) {//function ix takes unit u returns nothing
-			UnitRemoveAbility(u, 'A0C4');//call UnitRemoveAbility(u,'A0C4')
+			UnitRemoveAbility(u, 1127235879);//call UnitRemoveAbility(u,'A0C4')
 			SetUnitMoveSpeed(u, 370.);//call SetUnitMoveSpeed(u,370.)
 			br(u);//call br(u)
 			TriggerSleepAction(5.);//call TriggerSleepAction(5.)
 			SetUnitMoveSpeed(u, 270.);//call SetUnitMoveSpeed(u,270.)
 			UnitRemoveBuffs(u, true, true);//call UnitRemoveBuffs(u,true,true)
 			IssueImmediateOrderById(u, $D0019);//call IssueImmediateOrderById(u,$D0019)
-			UnitAddAbility(u, 'Asla');//call UnitAddAbility(u,'Asla')
-			UnitAddAbility(u, 'A0C7');//call UnitAddAbility(u,'A0C7')
-			UnitAddAbility(u, 'A0C8');//call UnitAddAbility(u,'A0C8')
+			UnitAddAbility(u, 1819492647);//call UnitAddAbility(u,'Asla')
+			UnitAddAbility(u, 1127235879);//call UnitAddAbility(u,'A0C7')
+			UnitAddAbility(u, 1127235879);//call UnitAddAbility(u,'A0C8')
 			TriggerSleepAction(10.);//call TriggerSleepAction(10.)
-			UnitRemoveAbility(u, 'Asla');//call UnitRemoveAbility(u,'Asla')
-			UnitRemoveAbility(u, 'A0C7');//call UnitRemoveAbility(u,'A0C7')
+			UnitRemoveAbility(u, 1819492647);//call UnitRemoveAbility(u,'Asla')
+			UnitRemoveAbility(u, 1127235879);//call UnitRemoveAbility(u,'A0C7')
 			Po(u);//call Po(u)
 		}//endfunction
 		private void jx(unit u) {//function jx takes unit u returns nothing
-			UnitRemoveAbility(u, 'A0C4');//call UnitRemoveAbility(u,'A0C4')
+			UnitRemoveAbility(u, 1127235879);//call UnitRemoveAbility(u,'A0C4')
 			SetUnitMoveSpeed(u, 370.);//call SetUnitMoveSpeed(u,370.)
 			br(u);//call br(u)
 			TriggerSleepAction(5.);//call TriggerSleepAction(5.)
 			SetUnitMoveSpeed(u, 270.);//call SetUnitMoveSpeed(u,270.)
 			UnitRemoveBuffs(u, true, true);//call UnitRemoveBuffs(u,true,true)
 			IssueImmediateOrderById(u, $D0019);//call IssueImmediateOrderById(u,$D0019)
-			UnitAddAbility(u, 'Asla');//call UnitAddAbility(u,'Asla')
-			UnitAddAbility(u, 'A0C6');//call UnitAddAbility(u,'A0C6')
+			UnitAddAbility(u, 1819492647);//call UnitAddAbility(u,'Asla')
+			UnitAddAbility(u, 1127235879);//call UnitAddAbility(u,'A0C6')
 			TriggerSleepAction(10.);//call TriggerSleepAction(10.)
-			UnitRemoveAbility(u, 'Asla');//call UnitRemoveAbility(u,'Asla')
-			UnitRemoveAbility(u, 'A0C6');//call UnitRemoveAbility(u,'A0C6')
+			UnitRemoveAbility(u, 1819492647);//call UnitRemoveAbility(u,'Asla')
+			UnitRemoveAbility(u, 1127235879);//call UnitRemoveAbility(u,'A0C6')
 			Po(u);//call Po(u)
 		}//endfunction
 		private void kx() {//function kx takes nothing returns nothing
@@ -9311,9 +9311,9 @@ namespace Jass {
 				return;//return
 			}//endif
 			DestroyEffect(AddSpecialEffectTarget("Abilities\\Spells\\Human\\ControlMagic\\ControlMagicTarget.mdl", bj_groupRandomCurrentPick, "overhead"));//call DestroyEffect(AddSpecialEffectTarget("Abilities\\Spells\\Human\\ControlMagic\\ControlMagicTarget.mdl",bj_groupRandomCurrentPick,"overhead"))
-			UnitAddAbility(bj_groupRandomCurrentPick, 'A08C');//call UnitAddAbility(bj_groupRandomCurrentPick,'A08C')
-			UnitAddAbility(bj_groupRandomCurrentPick, 'A08D');//call UnitAddAbility(bj_groupRandomCurrentPick,'A08D')
-			UnitAddAbility(bj_groupRandomCurrentPick, 'A08F');//call UnitAddAbility(bj_groupRandomCurrentPick,'A08F')
+			UnitAddAbility(bj_groupRandomCurrentPick, 942686503);//call UnitAddAbility(bj_groupRandomCurrentPick,'A08C')
+			UnitAddAbility(bj_groupRandomCurrentPick, 942686503);//call UnitAddAbility(bj_groupRandomCurrentPick,'A08D')
+			UnitAddAbility(bj_groupRandomCurrentPick, 942686503);//call UnitAddAbility(bj_groupRandomCurrentPick,'A08F')
 		}//endfunction
 		private void px() {//function px takes nothing returns nothing
 			unit u = GetTriggerUnit();//local unit u=GetTriggerUnit()
@@ -9332,9 +9332,9 @@ namespace Jass {
 				y = GetUnitY(u);//set y=GetUnitY(u)
 				DestroyEffect(AddSpecialEffect("Abilities\\Spells\\Items\\AIda\\AIdaCaster.mdl", x, y));//call DestroyEffect(AddSpecialEffect("Abilities\\Spells\\Items\\AIda\\AIdaCaster.mdl",x,y))
 				u = CreateUnit(p,808477991,x,y,.0);//set u=CreateUnit(p,'e008',x,y,.0)
-				UnitAddAbility(u, 'A08A');//call UnitAddAbility(u,'A08A')
+				UnitAddAbility(u, 942686503);//call UnitAddAbility(u,'A08A')
 				IssueImmediateOrderById(u, $D012D);//call IssueImmediateOrderById(u,$D012D)
-				UnitApplyTimedLife(u, 'BTLF', 1.);//call UnitApplyTimedLife(u,'BTLF',1.)
+				UnitApplyTimedLife(u, 1280590375, 1.);//call UnitApplyTimedLife(u,'BTLF',1.)
 				Bf[id] = Bf[id]-1;//set Bf[id]=Bf[id]-1
 				if ((Bf[0]<=0 && Bf[1]<=0)) {//if(Bf[0]<=0 and Bf[1]<=0)then
 					DisableTrigger(bf);//call DisableTrigger(bf)
@@ -9376,7 +9376,7 @@ namespace Jass {
 			c = CreateUnit(r4,808477991,x,y,.0);//set c=CreateUnit(r4,'e008',x,y,.0)
 			UnitAddAbility(c, zf);//call UnitAddAbility(c,zf)
 			IssueImmediateOrderById(c, $D00D7);//call IssueImmediateOrderById(c,$D00D7)
-			UnitApplyTimedLife(c, 'BTLF', 11.);//call UnitApplyTimedLife(c,'BTLF',11.)
+			UnitApplyTimedLife(c, 1280590375, 11.);//call UnitApplyTimedLife(c,'BTLF',11.)
 			c = null;//set c=null
 			TriggerSleepAction(8.);//call TriggerSleepAction(8.)
 			if ((fl)) {//if(fl)then
@@ -9388,9 +9388,9 @@ namespace Jass {
 		}//endfunction
 		private void ux() {//function ux takes nothing returns nothing
 			unit c = CreateUnit(GetOwningPlayer(c4),808477991,GetUnitX(D4),GetUnitY(D4),.0);//local unit c=CreateUnit(GetOwningPlayer(c4),'e008',GetUnitX(D4),GetUnitY(D4),.0)
-			UnitAddAbility(c, 'A07A');//call UnitAddAbility(c,'A07A')
+			UnitAddAbility(c, 925909287);//call UnitAddAbility(c,'A07A')
 			IssueTargetOrderById(c, $D00CB, D4);//call IssueTargetOrderById(c,$D00CB,D4)
-			UnitApplyTimedLife(c, 'BTLF', 6.);//call UnitApplyTimedLife(c,'BTLF',6.)
+			UnitApplyTimedLife(c, 1280590375, 6.);//call UnitApplyTimedLife(c,'BTLF',6.)
 			c = null;//set c=null
 		}//endfunction
 		private bool vx() {//function vx takes nothing returns boolean
@@ -9421,11 +9421,11 @@ namespace Jass {
 				bj_forLoopAIndex = bj_forLoopAIndex-1;//set bj_forLoopAIndex=bj_forLoopAIndex-1
 				GroupRemoveUnit(Af, t);//call GroupRemoveUnit(Af,t)
 				c = CreateUnit(r4,808477991,x,y,.0);//set c=CreateUnit(r4,'e008',x,y,.0)
-				UnitAddAbility(c, 'A07Q');//call UnitAddAbility(c,'A07Q')
+				UnitAddAbility(c, 925909287);//call UnitAddAbility(c,'A07Q')
 				UnitShareVision(t, r4, true);//call UnitShareVision(t,r4,true)
 				IssueTargetOrderById(c, $D00CB, t);//call IssueTargetOrderById(c,$D00CB,t)
 				UnitShareVision(t, r4, false);//call UnitShareVision(t,r4,false)
-				UnitApplyTimedLife(c, 'BTLF', 11.);//call UnitApplyTimedLife(c,'BTLF',11.)
+				UnitApplyTimedLife(c, 1280590375, 11.);//call UnitApplyTimedLife(c,'BTLF',11.)
 			}//endloop
 			if ((bj_forLoopAIndex>0)) {//if(bj_forLoopAIndex>0)then
 				while (true) {//loop
@@ -9434,11 +9434,11 @@ namespace Jass {
 					bj_forLoopAIndex = bj_forLoopAIndex-1;//set bj_forLoopAIndex=bj_forLoopAIndex-1
 					GroupRemoveUnit(q4, t);//call GroupRemoveUnit(q4,t)
 					c = CreateUnit(r4,808477991,x,y,.0);//set c=CreateUnit(r4,'e008',x,y,.0)
-					UnitAddAbility(c, 'A07Q');//call UnitAddAbility(c,'A07Q')
+					UnitAddAbility(c, 925909287);//call UnitAddAbility(c,'A07Q')
 					UnitShareVision(t, r4, true);//call UnitShareVision(t,r4,true)
 					IssueTargetOrderById(c, $D00CB, t);//call IssueTargetOrderById(c,$D00CB,t)
 					UnitShareVision(t, r4, false);//call UnitShareVision(t,r4,false)
-					UnitApplyTimedLife(c, 'BTLF', 11.);//call UnitApplyTimedLife(c,'BTLF',11.)
+					UnitApplyTimedLife(c, 1280590375, 11.);//call UnitApplyTimedLife(c,'BTLF',11.)
 				}//endloop
 			}//endif
 			t = null;//set t=null
@@ -9451,71 +9451,71 @@ namespace Jass {
 			u = null;//set u=null
 		}//endfunction
 		private bool yx() {//function yx takes nothing returns boolean
-			Bj(z4, 'h08L', 32., 12., -11.5);//call Bj(z4,'h08L',32.,12.,-11.5)
+			Bj(z4, 942696487, 32., 12., -11.5);//call Bj(z4,'h08L',32.,12.,-11.5)
 			return false;//return false
 		}//endfunction
 		private bool zx() {//function zx takes nothing returns boolean
-			Bj(z4, 'h08D', 116., -3., -10.5);//call Bj(z4,'h08D',116.,-3.,-10.5)
-			Bj(z4, 'h08N', 323., 20., 5.75);//call Bj(z4,'h08N',323.,20.,5.75)
+			Bj(z4, 942696487, 116., -3., -10.5);//call Bj(z4,'h08D',116.,-3.,-10.5)
+			Bj(z4, 942696487, 323., 20., 5.75);//call Bj(z4,'h08N',323.,20.,5.75)
 			return false;//return false
 		}//endfunction
 		private bool Ax() {//function Ax takes nothing returns boolean
-			Bj(z4, 'h08A', .0, .0, .0);//call Bj(z4,'h08A',.0,.0,.0)
+			Bj(z4, 942696487, .0, .0, .0);//call Bj(z4,'h08A',.0,.0,.0)
 			return false;//return false
 		}//endfunction
 		private bool ax() {//function ax takes nothing returns boolean
-			Bj(z4, 'h08K', .0, .0, .0);//call Bj(z4,'h08K',.0,.0,.0)
+			Bj(z4, 942696487, .0, .0, .0);//call Bj(z4,'h08K',.0,.0,.0)
 			return false;//return false
 		}//endfunction
 		private bool Bx() {//function Bx takes nothing returns boolean
-			Bj(z4, 'h08K', .0, .0, .0);//call Bj(z4,'h08K',.0,.0,.0)
-			Bj(z4, 'h08S', .0, .0, .0);//call Bj(z4,'h08S',.0,.0,.0)
+			Bj(z4, 942696487, .0, .0, .0);//call Bj(z4,'h08K',.0,.0,.0)
+			Bj(z4, 942696487, .0, .0, .0);//call Bj(z4,'h08S',.0,.0,.0)
 			return false;//return false
 		}//endfunction
 		private bool bx() {//function bx takes nothing returns boolean
-			Bj(z4, 'h08N', 226., 37.75, -41.5);//call Bj(z4,'h08N',226.,37.75,-41.5)
+			Bj(z4, 942696487, 226., 37.75, -41.5);//call Bj(z4,'h08N',226.,37.75,-41.5)
 			return false;//return false
 		}//endfunction
 		private bool Cx() {//function Cx takes nothing returns boolean
-			Bj(z4, 'h08O', 318, 43.5, -41.75);//call Bj(z4,'h08O',318,43.5,-41.75)
-			Bj(z4, 'h08N', $E2, -38.25, 40.25);//call Bj(z4,'h08N',$E2,-38.25,40.25)
+			Bj(z4, 942696487, 318, 43.5, -41.75);//call Bj(z4,'h08O',318,43.5,-41.75)
+			Bj(z4, 942696487, $E2, -38.25, 40.25);//call Bj(z4,'h08N',$E2,-38.25,40.25)
 			return false;//return false
 		}//endfunction
 		private bool cx() {//function cx takes nothing returns boolean
-			Bj(z4, 'h08K', .0, 15., .0);//call Bj(z4,'h08K',.0,15.,.0)
-			Bj(z4, 'h08R', .0, .0, .0);//call Bj(z4,'h08R',.0,.0,.0)
+			Bj(z4, 942696487, .0, 15., .0);//call Bj(z4,'h08K',.0,15.,.0)
+			Bj(z4, 942696487, .0, .0, .0);//call Bj(z4,'h08R',.0,.0,.0)
 			return false;//return false
 		}//endfunction
 		private bool Dx() {//function Dx takes nothing returns boolean
-			Bj(z4, 'h08M', .0, .0, .0);//call Bj(z4,'h08M',.0,.0,.0)
-			Bj(z4, 'h08Q', .0, .0, .0);//call Bj(z4,'h08Q',.0,.0,.0)
+			Bj(z4, 942696487, .0, .0, .0);//call Bj(z4,'h08M',.0,.0,.0)
+			Bj(z4, 942696487, .0, .0, .0);//call Bj(z4,'h08Q',.0,.0,.0)
 			return false;//return false
 		}//endfunction
 		private void Ex() {//function Ex takes nothing returns nothing
-			lj('h07H', function ox);//call lj('h07H',function ox)
-			Fj('h07H', function yx);//call Fj('h07H',function yx)
-			lj('h08P', function qx);//call lj('h08P',function qx)
-			Fj('h08P', function zx);//call Fj('h08P',function zx)
-			Ij('h073', 850.);//call Ij('h073',850.)
-			lj('h07I', function rx);//call lj('h07I',function rx)
-			Fj('h07I', function Ax);//call Fj('h07I',function Ax)
-			zj('h088', 'e007');//call zj('h088','e007')
-			Fj('h088', function ax);//call Fj('h088',function ax)
-			zj('h07D', 'e00J');//call zj('h07D','e00J')
-			Fj('h07D', function Bx);//call Fj('h07D',function Bx)
-			zj('h07M', 'n01Z');//call zj('h07M','n01Z')
-			Fj('h07M', function bx);//call Fj('h07M',function bx)
-			zj('h07L', 'n020');//call zj('h07L','n020')
-			Fj('h07L', function Cx);//call Fj('h07L',function Cx)
-			zj('h07O', 'e00B');//call zj('h07O','e00B')
-			Fj('h07O', function cx);//call Fj('h07O',function cx)
-			zj('h07N', 'e00A');//call zj('h07N','e00A')
-			Fj('h07N', function Dx);//call Fj('h07N',function Dx)
-			zj('h011', 'e002');//call zj('h011','e002')
-			zj('h00S', 'e001');//call zj('h00S','e001')
-			zj('h03D', 'e003');//call zj('h03D','e003')
-			zj('h03E', 'e004');//call zj('h03E','e004')
-			zj('h00B', 'e000');//call zj('h00B','e000')
+			lj(925919271, function ox);//call lj('h07H',function ox)
+			Fj(925919271, function yx);//call Fj('h07H',function yx)
+			lj(942696487, function qx);//call lj('h08P',function qx)
+			Fj(942696487, function zx);//call Fj('h08P',function zx)
+			Ij(925919271, 850.);//call Ij('h073',850.)
+			lj(925919271, function rx);//call lj('h07I',function rx)
+			Fj(925919271, function Ax);//call Fj('h07I',function Ax)
+			zj(942696487, 808477991);//call zj('h088','e007')
+			Fj(942696487, function ax);//call Fj('h088',function ax)
+			zj(925919271, 808477991);//call zj('h07D','e00J')
+			Fj(925919271, function Bx);//call Fj('h07D',function Bx)
+			zj(925919271, 825257511);//call zj('h07M','n01Z')
+			Fj(925919271, function bx);//call Fj('h07M',function bx)
+			zj(925919271, 842034727);//call zj('h07L','n020')
+			Fj(925919271, function Cx);//call Fj('h07L',function Cx)
+			zj(925919271, 808477991);//call zj('h07O','e00B')
+			Fj(925919271, function cx);//call Fj('h07O',function cx)
+			zj(925919271, 808477991);//call zj('h07N','e00A')
+			Fj(925919271, function Dx);//call Fj('h07N',function Dx)
+			zj(825255975, 808477991);//call zj('h011','e002')
+			zj(808478759, 808477991);//call zj('h00S','e001')
+			zj(858810407, 808477991);//call zj('h03D','e003')
+			zj(858810407, 808477991);//call zj('h03E','e004')
+			zj(808478759, 808477991);//call zj('h00B','e000')
 		}//endfunction
 		private void Fx() {//function Fx takes nothing returns nothing
 			int id;//local integer id
@@ -9586,9 +9586,9 @@ namespace Jass {
 			v4[id] = false;//set v4[id]=false
 		}//endfunction
 		private void Gx() {//function Gx takes nothing returns nothing
-			Lj('e007', 'A07P', function ux);//call Lj('e007','A07P',function ux)
-			Lj('e00J', 'A07R', function wx);//call Lj('e00J','A07R',function wx)
-			Lj('e000', 'A0CG', function xx);//call Lj('e000','A0CG',function xx)
+			Lj(808477991, 925909287, function ux);//call Lj('e007','A07P',function ux)
+			Lj(808477991, 925909287, function wx);//call Lj('e00J','A07R',function wx)
+			Lj(808477991, 1127235879, function xx);//call Lj('e000','A0CG',function xx)
 		}//endfunction
 		private void Hx() {//function Hx takes nothing returns nothing
 			Ex();//call Ex()
@@ -9617,11 +9617,11 @@ namespace Jass {
 				return;//return
 			}//endif
 			c = CreateUnit(r4,808477991,GetUnitX(B4),GetUnitY(B4),.0);//set c=CreateUnit(r4,'e008',GetUnitX(B4),GetUnitY(B4),.0)
-			UnitAddAbility(c, 'A0AK');//call UnitAddAbility(c,'A0AK')
+			UnitAddAbility(c, 1093681447);//call UnitAddAbility(c,'A0AK')
 			UnitShareVision(bj_groupRandomCurrentPick, r4, true);//call UnitShareVision(bj_groupRandomCurrentPick,r4,true)
 			IssueTargetOrderById(c, $D007F, bj_groupRandomCurrentPick);//call IssueTargetOrderById(c,$D007F,bj_groupRandomCurrentPick)
 			UnitShareVision(bj_groupRandomCurrentPick, r4, false);//call UnitShareVision(bj_groupRandomCurrentPick,r4,false)
-			UnitApplyTimedLife(c, 'BTLF', 10.);//call UnitApplyTimedLife(c,'BTLF',10.)
+			UnitApplyTimedLife(c, 1280590375, 10.);//call UnitApplyTimedLife(c,'BTLF',10.)
 			c = null;//set c=null
 		}//endfunction
 		private bool Jx() {//function Jx takes nothing returns boolean
@@ -9647,7 +9647,7 @@ namespace Jass {
 			y = GetUnitY(B4);//set y=GetUnitY(B4)
 			DestroyEffect(AddSpecialEffect("Objects\\Spawnmodels\\Naga\\NagaDeath\\NagaDeath.mdl", x, y));//call DestroyEffect(AddSpecialEffect("Objects\\Spawnmodels\\Naga\\NagaDeath\\NagaDeath.mdl",x,y))
 			c = CreateUnit(r4,875587623,x,y,.0);//set c=CreateUnit(r4,'h04G',x,y,.0)
-			UnitApplyTimedLife(c, 'BTLF', 20.);//call UnitApplyTimedLife(c,'BTLF',20.)
+			UnitApplyTimedLife(c, 1280590375, 20.);//call UnitApplyTimedLife(c,'BTLF',20.)
 			if ((U9)) {//if(U9)then
 				IssueTargetOrderById(c, $D000F, bj_groupRandomCurrentPick);//call IssueTargetOrderById(c,$D000F,bj_groupRandomCurrentPick)
 			} else {//else
@@ -9677,7 +9677,7 @@ namespace Jass {
 			y = GetUnitY(B4);//set y=GetUnitY(B4)
 			DestroyEffect(AddSpecialEffect("Objects\\Spawnmodels\\Naga\\NagaDeath\\NagaDeath.mdl", x, y));//call DestroyEffect(AddSpecialEffect("Objects\\Spawnmodels\\Naga\\NagaDeath\\NagaDeath.mdl",x,y))
 			c = CreateUnit(r4,875587623,x,y,.0);//set c=CreateUnit(r4,'h04H',x,y,.0)
-			UnitApplyTimedLife(c, 'BTLF', 20.);//call UnitApplyTimedLife(c,'BTLF',20.)
+			UnitApplyTimedLife(c, 1280590375, 20.);//call UnitApplyTimedLife(c,'BTLF',20.)
 			if ((U9)) {//if(U9)then
 				IssueTargetOrderById(c, $D000F, bj_groupRandomCurrentPick);//call IssueTargetOrderById(c,$D000F,bj_groupRandomCurrentPick)
 			} else {//else
@@ -9726,24 +9726,24 @@ namespace Jass {
 						if ((bj_groupRandomCurrentPick!=null)) {//if(bj_groupRandomCurrentPick!=null)then
 							if ((IsUnitType(bj_groupRandomCurrentPick,UNIT_TYPE_FLYING))) {//if(IsUnitType(bj_groupRandomCurrentPick,UNIT_TYPE_FLYING))then
 								c = CreateUnit(GetOwningPlayer(B4),808477991,GetUnitX(bj_groupRandomCurrentPick),GetUnitY(bj_groupRandomCurrentPick),.0);//set c=CreateUnit(GetOwningPlayer(B4),'e008',GetUnitX(bj_groupRandomCurrentPick),GetUnitY(bj_groupRandomCurrentPick),.0)
-								UnitAddAbility(c, 'A082');//call UnitAddAbility(c,'A082')
+								UnitAddAbility(c, 942686503);//call UnitAddAbility(c,'A082')
 								UnitShareVision(bj_groupRandomCurrentPick, r4, true);//call UnitShareVision(bj_groupRandomCurrentPick,r4,true)
 								IssueTargetOrderById(c, $D007F, bj_groupRandomCurrentPick);//call IssueTargetOrderById(c,$D007F,bj_groupRandomCurrentPick)
 								UnitShareVision(bj_groupRandomCurrentPick, r4, false);//call UnitShareVision(bj_groupRandomCurrentPick,r4,false)
-								UnitApplyTimedLife(c, 'BTLF', 2.);//call UnitApplyTimedLife(c,'BTLF',2.)
+								UnitApplyTimedLife(c, 1280590375, 2.);//call UnitApplyTimedLife(c,'BTLF',2.)
 							} else {//else
 								c = CreateUnit(GetOwningPlayer(B4),808477991,GetUnitX(bj_groupRandomCurrentPick),GetUnitY(bj_groupRandomCurrentPick),.0);//set c=CreateUnit(GetOwningPlayer(B4),'e008',GetUnitX(bj_groupRandomCurrentPick),GetUnitY(bj_groupRandomCurrentPick),.0)
-								UnitAddAbility(c, 'A083');//call UnitAddAbility(c,'A083')
+								UnitAddAbility(c, 942686503);//call UnitAddAbility(c,'A083')
 								UnitShareVision(bj_groupRandomCurrentPick, r4, true);//call UnitShareVision(bj_groupRandomCurrentPick,r4,true)
 								IssueTargetOrderById(c, $D007F, bj_groupRandomCurrentPick);//call IssueTargetOrderById(c,$D007F,bj_groupRandomCurrentPick)
 								UnitShareVision(bj_groupRandomCurrentPick, r4, false);//call UnitShareVision(bj_groupRandomCurrentPick,r4,false)
-								UnitApplyTimedLife(c, 'BTLF', 2.);//call UnitApplyTimedLife(c,'BTLF',2.)
+								UnitApplyTimedLife(c, 1280590375, 2.);//call UnitApplyTimedLife(c,'BTLF',2.)
 								c = CreateUnit(GetOwningPlayer(B4),808477991,GetUnitX(bj_groupRandomCurrentPick),GetUnitY(bj_groupRandomCurrentPick),.0);//set c=CreateUnit(GetOwningPlayer(B4),'e008',GetUnitX(bj_groupRandomCurrentPick),GetUnitY(bj_groupRandomCurrentPick),.0)
-								UnitAddAbility(c, 'A04H');//call UnitAddAbility(c,'A04H')
+								UnitAddAbility(c, 875577639);//call UnitAddAbility(c,'A04H')
 								UnitShareVision(bj_groupRandomCurrentPick, r4, true);//call UnitShareVision(bj_groupRandomCurrentPick,r4,true)
 								IssueTargetOrderById(c, $D00CB, bj_groupRandomCurrentPick);//call IssueTargetOrderById(c,$D00CB,bj_groupRandomCurrentPick)
 								UnitShareVision(bj_groupRandomCurrentPick, r4, false);//call UnitShareVision(bj_groupRandomCurrentPick,r4,false)
-								UnitApplyTimedLife(c, 'BTLF', 16.);//call UnitApplyTimedLife(c,'BTLF',16.)
+								UnitApplyTimedLife(c, 1280590375, 16.);//call UnitApplyTimedLife(c,'BTLF',16.)
 							}//endif
 						}//endif
 					}//endif
@@ -9771,8 +9771,8 @@ namespace Jass {
 			while (true) {//loop
 				c = CreateUnit(p,942696487,x,y,ModuloReal(an+GetRandomReal(-55.,55.)+360.,360.));//set c=CreateUnit(p,'h08U',x,y,ModuloReal(an+GetRandomReal(-55.,55.)+360.,360.))
 				if ((md)) {//if(md)then
-					UnitRemoveAbility(c, 'A080');//call UnitRemoveAbility(c,'A080')
-					UnitAddAbility(c, 'A084');//call UnitAddAbility(c,'A084')
+					UnitRemoveAbility(c, 942686503);//call UnitRemoveAbility(c,'A080')
+					UnitAddAbility(c, 942686503);//call UnitAddAbility(c,'A084')
 				}//endif
 				Ff[Gf] = c;//set Ff[Gf]=c
 				Gf = Gf+1;//set Gf=Gf+1
@@ -9793,42 +9793,42 @@ namespace Jass {
 		}//endfunction
 		private void Px() {//function Px takes nothing returns nothing
 			unit c = CreateUnit(GetOwningPlayer(c4),808477991,GetUnitX(c4),GetUnitY(c4),.0);//local unit c=CreateUnit(GetOwningPlayer(c4),'e008',GetUnitX(c4),GetUnitY(c4),.0)
-			UnitAddAbility(c, 'A05D');//call UnitAddAbility(c,'A05D')
+			UnitAddAbility(c, 892354855);//call UnitAddAbility(c,'A05D')
 			IssueImmediateOrderById(c, $D009F);//call IssueImmediateOrderById(c,$D009F)
-			UnitApplyTimedLife(c, 'BTLF', 1.);//call UnitApplyTimedLife(c,'BTLF',1.)
+			UnitApplyTimedLife(c, 1280590375, 1.);//call UnitApplyTimedLife(c,'BTLF',1.)
 			c = null;//set c=null
 		}//endfunction
 		private void Qx() {//function Qx takes nothing returns nothing
 			unit c = CreateUnit(GetOwningPlayer(c4),808477991,GetUnitX(c4),GetUnitY(c4),.0);//local unit c=CreateUnit(GetOwningPlayer(c4),'e008',GetUnitX(c4),GetUnitY(c4),.0)
-			UnitAddAbility(c, 'A043');//call UnitAddAbility(c,'A043')
+			UnitAddAbility(c, 875577639);//call UnitAddAbility(c,'A043')
 			IssueTargetOrderById(c, $D0102, D4);//call IssueTargetOrderById(c,$D0102,D4)
-			UnitApplyTimedLife(c, 'BTLF', 1.);//call UnitApplyTimedLife(c,'BTLF',1.)
+			UnitApplyTimedLife(c, 1280590375, 1.);//call UnitApplyTimedLife(c,'BTLF',1.)
 			c = null;//set c=null
 		}//endfunction
 		private void Rx() {//function Rx takes nothing returns nothing
 			unit c = CreateUnit(GetOwningPlayer(c4),808477991,GetUnitX(c4),GetUnitY(c4),.0);//local unit c=CreateUnit(GetOwningPlayer(c4),'e008',GetUnitX(c4),GetUnitY(c4),.0)
-			UnitAddAbility(c, 'A05B');//call UnitAddAbility(c,'A05B')
+			UnitAddAbility(c, 892354855);//call UnitAddAbility(c,'A05B')
 			IssueImmediateOrderById(c, $D026C);//call IssueImmediateOrderById(c,$D026C)
-			UnitApplyTimedLife(c, 'BTLF', 1.);//call UnitApplyTimedLife(c,'BTLF',1.)
+			UnitApplyTimedLife(c, 1280590375, 1.);//call UnitApplyTimedLife(c,'BTLF',1.)
 			c = null;//set c=null
 		}//endfunction
 		private void Sx() {//function Sx takes nothing returns nothing
-			lj('h047', function lx);//call lj('h047',function lx)
-			lj('h048', function Kx);//call lj('h048',function Kx)
-			lj('h03L', function Lx);//call lj('h03L',function Lx)
-			lj('h03O', function Nx);//call lj('h03O',function Nx)
-			zj('h049', 'n017');//call zj('h049','n017')
-			zj('h04F', 'n018');//call zj('h04F','n018')
-			zj('h03W', 'n016');//call zj('h03W','n016')
-			zj('h03T', 'n012');//call zj('h03T','n012')
-			zj('h043', 'n013');//call zj('h043','n013')
-			zj('h03S', 'n014');//call zj('h03S','n014')
-			Fj('h03S', function Ox);//call Fj('h03S',function Ox)
-			zj('h03K', 'n015');//call zj('h03K','n015')
-			zj('h03J', 'o00A');//call zj('h03J','o00A')
-			Ij('h03Q', 750.);//call Ij('h03Q',750.)
-			zj('h03U', 'n011');//call zj('h03U','n011')
-			zj('h03I', 'n010');//call zj('h03I','n010')
+			lj(875587623, function lx);//call lj('h047',function lx)
+			lj(875587623, function Kx);//call lj('h048',function Kx)
+			lj(858810407, function Lx);//call lj('h03L',function Lx)
+			lj(858810407, function Nx);//call lj('h03O',function Nx)
+			zj(875587623, 825257511);//call zj('h049','n017')
+			zj(875587623, 825257511);//call zj('h04F','n018')
+			zj(858810407, 825257511);//call zj('h03W','n016')
+			zj(858810407, 825257511);//call zj('h03T','n012')
+			zj(875587623, 825257511);//call zj('h043','n013')
+			zj(858810407, 825257511);//call zj('h03S','n014')
+			Fj(858810407, function Ox);//call Fj('h03S',function Ox)
+			zj(858810407, 825257511);//call zj('h03K','n015')
+			zj(858810407, 808480551);//call zj('h03J','o00A')
+			Ij(858810407, 750.);//call Ij('h03Q',750.)
+			zj(858810407, 825257511);//call zj('h03U','n011')
+			zj(858810407, 825257511);//call zj('h03I','n010')
 		}//endfunction
 		private void Tx() {//function Tx takes nothing returns nothing
 			int id;//local integer id
@@ -9894,9 +9894,9 @@ namespace Jass {
 			v4[id] = false;//set v4[id]=false
 		}//endfunction
 		private void Ux() {//function Ux takes nothing returns nothing
-			Lj('n016', 'A05E', function Px);//call Lj('n016','A05E',function Px)
-			Lj('n013', 'A05C', function Rx);//call Lj('n013','A05C',function Rx)
-			Lj('n014', 'A044', function Qx);//call Lj('n014','A044',function Qx)
+			Lj(825257511, 892354855, function Px);//call Lj('n016','A05E',function Px)
+			Lj(825257511, 892354855, function Rx);//call Lj('n013','A05C',function Rx)
+			Lj(825257511, 875577639, function Qx);//call Lj('n014','A044',function Qx)
 		}//endfunction
 		private void Vx() {//function Vx takes nothing returns nothing
 			Sx();//call Sx()
@@ -9978,21 +9978,21 @@ namespace Jass {
 			u = null;//set u=null
 		}//endfunction
 		private void dy() {//function dy takes nothing returns nothing
-			zj('h01K', 'u005');//call zj('h01K','u005')
-			zj('h04B', 'u009');//call zj('h04B','u009')
-			zj('h055', 'u00D');//call zj('h055','u00D')
-			Ij('h01O', 800.);//call Ij('h01O',800.)
-			zj('h01T', 'n00E');//call zj('h01T','n00E')
-			lj('h01P', function Xx);//call lj('h01P',function Xx)
-			lj('h056', function Yx);//call lj('h056',function Yx)
-			zj('h01N', 'h01U');//call zj('h01N','h01U')
-			zj('h054', 'h05H');//call zj('h054','h05H')
-			zj('h01L', 'u001');//call zj('h01L','u001')
-			zj('h01S', 'u000');//call zj('h01S','u000')
-			lj('h00A', function Zx);//call lj('h00A',function Zx)
-			zj('h01R', 'n00B');//call zj('h01R','n00B')
-			zj('h04Z', 'n01K');//call zj('h04Z','n01K')
-			zj('h03M', 'u007');//call zj('h03M','u007')
+			zj(825255975, 808482087);//call zj('h01K','u005')
+			zj(875587623, 808482087);//call zj('h04B','u009')
+			zj(892364839, 808482087);//call zj('h055','u00D')
+			Ij(825255975, 800.);//call Ij('h01O',800.)
+			zj(825255975, 808480295);//call zj('h01T','n00E')
+			lj(825255975, function Xx);//call lj('h01P',function Xx)
+			lj(892364839, function Yx);//call lj('h056',function Yx)
+			zj(825255975, 825255975);//call zj('h01N','h01U')
+			zj(892364839, 892364839);//call zj('h054','h05H')
+			zj(825255975, 808482087);//call zj('h01L','u001')
+			zj(825255975, 808482087);//call zj('h01S','u000')
+			lj(808478759, function Zx);//call lj('h00A',function Zx)
+			zj(825255975, 808480295);//call zj('h01R','n00B')
+			zj(875587623, 825257511);//call zj('h04Z','n01K')
+			zj(858810407, 808482087);//call zj('h03M','u007')
 		}//endfunction
 		private void ey() {//function ey takes nothing returns nothing
 			int id;//local integer id
@@ -10079,8 +10079,8 @@ namespace Jass {
 					aj = GetRandomInt(3,6);//set aj=GetRandomInt(3,6)
 				}//endif
 				Po(ReplaceUnitBJ(u, Mf[aj], 2));//call Po(ReplaceUnitBJ(u,Mf[aj],2))
-				UnitAddAbility(bj_lastReplacedUnit, 'A088');//call UnitAddAbility(bj_lastReplacedUnit,'A088')
-				UnitAddAbility(bj_lastReplacedUnit, 'A089');//call UnitAddAbility(bj_lastReplacedUnit,'A089')
+				UnitAddAbility(bj_lastReplacedUnit, 942686503);//call UnitAddAbility(bj_lastReplacedUnit,'A088')
+				UnitAddAbility(bj_lastReplacedUnit, 942686503);//call UnitAddAbility(bj_lastReplacedUnit,'A089')
 			}//endif
 			u = null;//set u=null
 		}//endfunction
@@ -10111,9 +10111,9 @@ namespace Jass {
 		}//endfunction
 		private void jy(unit u, float x, float y) {//function jy takes unit u,real x,real y returns nothing
 			unit c = CreateUnit(GetOwningPlayer(u),808477991,x,y,.0);//local unit c=CreateUnit(GetOwningPlayer(u),'e008',x,y,.0)
-			UnitAddAbility(c, 'A086');//call UnitAddAbility(c,'A086')
+			UnitAddAbility(c, 942686503);//call UnitAddAbility(c,'A086')
 			IssuePointOrderById(c, $D00FD, x, y);//call IssuePointOrderById(c,$D00FD,x,y)
-			UnitApplyTimedLife(c, 'BTLF', 6.);//call UnitApplyTimedLife(c,'BTLF',6.)
+			UnitApplyTimedLife(c, 1280590375, 6.);//call UnitApplyTimedLife(c,'BTLF',6.)
 			c = null;//set c=null
 		}//endfunction
 		private void ky(unit u, unit v) {//function ky takes unit u,unit v returns nothing
@@ -10133,9 +10133,9 @@ namespace Jass {
 			unit c;//local unit c
 			if ((GetRandomInt(0,99)<$F)) {//if(GetRandomInt(0,99)<$F)then
 				c = CreateUnit(GetOwningPlayer(u),808477991,GetUnitX(u),GetUnitY(u),.0);//set c=CreateUnit(GetOwningPlayer(u),'e008',GetUnitX(u),GetUnitY(u),.0)
-				UnitAddAbility(c, 'A09T');//call UnitAddAbility(c,'A09T')
+				UnitAddAbility(c, 959463719);//call UnitAddAbility(c,'A09T')
 				IssueTargetOrderById(c, $D0097, v);//call IssueTargetOrderById(c,$D0097,v)
-				UnitApplyTimedLife(c, 'BTLF', 4.);//call UnitApplyTimedLife(c,'BTLF',4.)
+				UnitApplyTimedLife(c, 1280590375, 4.);//call UnitApplyTimedLife(c,'BTLF',4.)
 				c = null;//set c=null
 			}//endif
 		}//endfunction
@@ -10143,31 +10143,31 @@ namespace Jass {
 			unit c;//local unit c
 			if ((GetRandomInt(0,99)<40)) {//if(GetRandomInt(0,99)<40)then
 				c = CreateUnit(GetOwningPlayer(u),808477991,GetUnitX(u),GetUnitY(u),.0);//set c=CreateUnit(GetOwningPlayer(u),'e008',GetUnitX(u),GetUnitY(u),.0)
-				UnitAddAbility(c, 'A0DC');//call UnitAddAbility(c,'A0DC')
+				UnitAddAbility(c, 1144013095);//call UnitAddAbility(c,'A0DC')
 				IssueTargetOrderById(c, $D011C, v);//call IssueTargetOrderById(c,$D011C,v)
-				UnitApplyTimedLife(c, 'BTLF', 4.);//call UnitApplyTimedLife(c,'BTLF',4.)
+				UnitApplyTimedLife(c, 1280590375, 4.);//call UnitApplyTimedLife(c,'BTLF',4.)
 				c = null;//set c=null
 			}//endif
 		}//endfunction
 		private void py(unit v) {//function py takes unit v returns nothing
 			int i = GetUnitAbilityLevel(v,1127235879);//local integer i=GetUnitAbilityLevel(v,'A0C9')
 			if ((i<=0)) {//if(i<=0)then
-				UnitAddAbility(v, 'A0C9');//call UnitAddAbility(v,'A0C9')
+				UnitAddAbility(v, 1127235879);//call UnitAddAbility(v,'A0C9')
 			} else if ((i<3)) {//elseif(i<3)then
-				SetUnitAbilityLevel(v, 'A0C9', i+1);//call SetUnitAbilityLevel(v,'A0C9',i+1)
+				SetUnitAbilityLevel(v, 1127235879, i+1);//call SetUnitAbilityLevel(v,'A0C9',i+1)
 			}//endif
 		}//endfunction
 		private void qy(unit v) {//function qy takes unit v returns nothing
 			unit u;//local unit u
 			if ((GetRandomInt(0,99)<$F)) {//if(GetRandomInt(0,99)<$F)then
 				u = CreateUnit(GetOwningPlayer(v),808477991,GetUnitX(v),GetUnitY(v),.0);//set u=CreateUnit(GetOwningPlayer(v),'e008',GetUnitX(v),GetUnitY(v),.0)
-				UnitAddAbility(u, 'A0B7');//call UnitAddAbility(u,'A0B7')
+				UnitAddAbility(u, 1110458663);//call UnitAddAbility(u,'A0B7')
 				IssueTargetOrderById(u, $D0062, v);//call IssueTargetOrderById(u,$D0062,v)
-				UnitApplyTimedLife(u, 'BTLF', 2.);//call UnitApplyTimedLife(u,'BTLF',2.)
+				UnitApplyTimedLife(u, 1280590375, 2.);//call UnitApplyTimedLife(u,'BTLF',2.)
 				u = CreateUnit(GetOwningPlayer(v),808477991,GetUnitX(v),GetUnitY(v),.0);//set u=CreateUnit(GetOwningPlayer(v),'e008',GetUnitX(v),GetUnitY(v),.0)
-				UnitAddAbility(u, 'A0B5');//call UnitAddAbility(u,'A0B5')
+				UnitAddAbility(u, 1110458663);//call UnitAddAbility(u,'A0B5')
 				IssueTargetOrderById(u, $D0085, v);//call IssueTargetOrderById(u,$D0085,v)
-				UnitApplyTimedLife(u, 'BTLF', 2.);//call UnitApplyTimedLife(u,'BTLF',2.)
+				UnitApplyTimedLife(u, 1280590375, 2.);//call UnitApplyTimedLife(u,'BTLF',2.)
 				u = null;//set u=null
 			}//endif
 		}//endfunction
@@ -10175,13 +10175,13 @@ namespace Jass {
 			unit u;//local unit u
 			if ((GetRandomInt(0,99)<20)) {//if(GetRandomInt(0,99)<20)then
 				u = CreateUnit(GetOwningPlayer(v),808477991,GetUnitX(v),GetUnitY(v),.0);//set u=CreateUnit(GetOwningPlayer(v),'e008',GetUnitX(v),GetUnitY(v),.0)
-				UnitAddAbility(u, 'A0B8');//call UnitAddAbility(u,'A0B8')
+				UnitAddAbility(u, 1110458663);//call UnitAddAbility(u,'A0B8')
 				IssueTargetOrderById(u, $D0062, v);//call IssueTargetOrderById(u,$D0062,v)
-				UnitApplyTimedLife(u, 'BTLF', 2.);//call UnitApplyTimedLife(u,'BTLF',2.)
+				UnitApplyTimedLife(u, 1280590375, 2.);//call UnitApplyTimedLife(u,'BTLF',2.)
 				u = CreateUnit(GetOwningPlayer(v),808477991,GetUnitX(v),GetUnitY(v),.0);//set u=CreateUnit(GetOwningPlayer(v),'e008',GetUnitX(v),GetUnitY(v),.0)
-				UnitAddAbility(u, 'A0B6');//call UnitAddAbility(u,'A0B6')
+				UnitAddAbility(u, 1110458663);//call UnitAddAbility(u,'A0B6')
 				IssueTargetOrderById(u, $D0085, v);//call IssueTargetOrderById(u,$D0085,v)
-				UnitApplyTimedLife(u, 'BTLF', 2.);//call UnitApplyTimedLife(u,'BTLF',2.)
+				UnitApplyTimedLife(u, 1280590375, 2.);//call UnitApplyTimedLife(u,'BTLF',2.)
 				u = null;//set u=null
 			}//endif
 		}//endfunction
@@ -10215,10 +10215,10 @@ namespace Jass {
 			unit c;//local unit c
 			if ((IsUnitType(s,UNIT_TYPE_MELEE_ATTACKER) && GetRandomInt(0,99)<=$F*zy)) {//if(IsUnitType(s,UNIT_TYPE_MELEE_ATTACKER)and GetRandomInt(0,99)<=$F*zy)then
 				c = CreateUnit(GetOwningPlayer(u),808477991,GetUnitX(u),GetUnitY(u),.0);//set c=CreateUnit(GetOwningPlayer(u),'e008',GetUnitX(u),GetUnitY(u),.0)
-				UnitAddAbility(c, 'A0D5');//call UnitAddAbility(c,'A0D5')
-				SetUnitAbilityLevel(c, 'A0D5', zy);//call SetUnitAbilityLevel(c,'A0D5',zy)
+				UnitAddAbility(c, 1144013095);//call UnitAddAbility(c,'A0D5')
+				SetUnitAbilityLevel(c, 1144013095, zy);//call SetUnitAbilityLevel(c,'A0D5',zy)
 				IssueTargetOrderById(c, $D007F, s);//call IssueTargetOrderById(c,$D007F,s)
-				UnitApplyTimedLife(c, 'BTLF', 4.);//call UnitApplyTimedLife(c,'BTLF',4.)
+				UnitApplyTimedLife(c, 1280590375, 4.);//call UnitApplyTimedLife(c,'BTLF',4.)
 				c = null;//set c=null
 			}//endif
 		}//endfunction
@@ -10230,9 +10230,9 @@ namespace Jass {
 		private void ay(unit u, float d) {//function ay takes unit u,real d returns nothing
 			float mp = GetUnitState(u,UNIT_STATE_MANA)+d;//local real mp=GetUnitState(u,UNIT_STATE_MANA)+d
 			if ((mp>=680.)) {//if(mp>=680.)then
-				UnitRemoveAbility(u, 'A0C5');//call UnitRemoveAbility(u,'A0C5')
+				UnitRemoveAbility(u, 1127235879);//call UnitRemoveAbility(u,'A0C5')
 				SetUnitMoveSpeed(u, 450.);//call SetUnitMoveSpeed(u,450.)
-				UnitAddAbility(u, 'A0EN');//call UnitAddAbility(u,'A0EN')
+				UnitAddAbility(u, 1160790311);//call UnitAddAbility(u,'A0EN')
 				IssueImmediateOrderById(u, $D0049);//call IssueImmediateOrderById(u,$D0049)
 			} else {//else
 				SetUnitState(u, UNIT_STATE_MANA, mp);//call SetUnitState(u,UNIT_STATE_MANA,mp)
@@ -10243,7 +10243,7 @@ namespace Jass {
 			if ((r<128. && r>.405)) {//if(r<128. and r>.405)then
 				DestroyEffect(AddSpecialEffectTarget("Abilities\\Spells\\Undead\\DeathPact\\DeathPactCaster.mdl", u, "origin"));//call DestroyEffect(AddSpecialEffectTarget("Abilities\\Spells\\Undead\\DeathPact\\DeathPactCaster.mdl",u,"origin"))
 				SetWidgetLife(u, 5000.);//call SetWidgetLife(u,5000.)
-				UnitRemoveAbility(u, 'A0EZ');//call UnitRemoveAbility(u,'A0EZ')
+				UnitRemoveAbility(u, 1160790311);//call UnitRemoveAbility(u,'A0EZ')
 			}//endif
 		}//endfunction
 		private bool by() {//function by takes nothing returns boolean
@@ -10266,7 +10266,7 @@ namespace Jass {
 				GroupRemoveUnit(q4, j);//call GroupRemoveUnit(q4,j)
 				UnitDamageTarget(u, j, cy, true, false, ATTACK_TYPE_CHAOS, DAMAGE_TYPE_UNKNOWN, WEAPON_TYPE_WHOKNOWS);//call UnitDamageTarget(u,j,cy,true,false,ATTACK_TYPE_CHAOS,DAMAGE_TYPE_UNKNOWN,WEAPON_TYPE_WHOKNOWS)
 			}//endloop
-			UnitApplyTimedLife(u, 'BTLF', 1.);//call UnitApplyTimedLife(u,'BTLF',1.)
+			UnitApplyTimedLife(u, 1280590375, 1.);//call UnitApplyTimedLife(u,'BTLF',1.)
 			u = null;//set u=null
 		}//endfunction
 		private bool Fy() {//function Fy takes nothing returns boolean
@@ -10287,7 +10287,7 @@ namespace Jass {
 				} else if ((Gy==842034727)) {//elseif(Gy=='n02A')then
 					py(u);//call py(u)
 				} else if ((Gy==842034727)) {//elseif(Gy=='n02B')then
-					UnitRemoveAbility(s, 'A0C8');//call UnitRemoveAbility(s,'A0C8')
+					UnitRemoveAbility(s, 1127235879);//call UnitRemoveAbility(s,'A0C8')
 				} else if ((Gy==808477991)) {//elseif(Gy=='e006')then
 					uy(u);//call uy(u)
 				} else if ((Gy==808477991)) {//elseif(Gy=='e009')then
@@ -10309,16 +10309,16 @@ namespace Jass {
 					if ((GetUnitAbilityLevel(u,1127235879)>0 && GetWidgetLife(u)<255.)) {//if(GetUnitAbilityLevel(u,'A0C4')>0 and GetWidgetLife(u)<255.)then
 						jx(u);//call jx(u)
 					} else {//else
-						UnitRemoveAbility(u, 'Asla');//call UnitRemoveAbility(u,'Asla')
-						UnitRemoveAbility(u, 'A0C6');//call UnitRemoveAbility(u,'A0C6')
+						UnitRemoveAbility(u, 1819492647);//call UnitRemoveAbility(u,'Asla')
+						UnitRemoveAbility(u, 1127235879);//call UnitRemoveAbility(u,'A0C6')
 					}//endif
 				} else if ((Gy==842034727)) {//elseif(Gy=='n02B')then
 					ry(u);//call ry(u)
 					if ((GetUnitAbilityLevel(u,1127235879)>0 && GetWidgetLife(u)<255.)) {//if(GetUnitAbilityLevel(u,'A0C4')>0 and GetWidgetLife(u)<255.)then
 						ix(u);//call ix(u)
 					} else {//else
-						UnitRemoveAbility(u, 'Asla');//call UnitRemoveAbility(u,'Asla')
-						UnitRemoveAbility(u, 'A0C7');//call UnitRemoveAbility(u,'A0C7')
+						UnitRemoveAbility(u, 1819492647);//call UnitRemoveAbility(u,'Asla')
+						UnitRemoveAbility(u, 1127235879);//call UnitRemoveAbility(u,'A0C7')
 					}//endif
 				} else if ((GetUnitAbilityLevel(u,1144013095)>0)) {//elseif(GetUnitAbilityLevel(u,'A0DX')>0)then
 					yy(s, u);//call yy(s,u)
@@ -10709,7 +10709,7 @@ namespace Jass {
 				p = Player(i);//set p=Player(i)
 				if ((GetPlayerSlotState(p)==PLAYER_SLOT_STATE_PLAYING && GetPlayerController(p)==MAP_CONTROL_USER && !qe[i])) {//if(GetPlayerSlotState(p)==PLAYER_SLOT_STATE_PLAYING and GetPlayerController(p)==MAP_CONTROL_USER and not qe[i])then
 					if ((M9-Vf[i]>4)) {//if(M9-Vf[i]>4)then
-						DisplayTextToPlayer(Player(i), .0, .0, "|cffCA0000WARNING|r: You did not move your worker for 5 minutes. AI will take control in 60 seconds!");//call DisplayTextToPlayer(Player(i),.0,.0,"|cffCA0000WARNING|r: You did not move your worker for 5 minutes. AI will take control in 60 seconds!")
+						DisplayTextToPlayer(Player(i), .0, .0, "|cffCA0000WARNING|r: You did !move your worker for 5 minutes. AI will take control in 60 seconds!");//call DisplayTextToPlayer(Player(i),.0,.0,"|cffCA0000WARNING|r: You did not move your worker for 5 minutes. AI will take control in 60 seconds!")
 						if ((M9-Vf[i]>5)) {//if(M9-Vf[i]>5)then
 							Kt(i);//call Kt(i)
 						}//endif
@@ -11048,7 +11048,7 @@ namespace Jass {
 		private void az() {//function az takes nothing returns nothing
 			pg = -1;//set pg=-1
 			TimerDialogDisplay(og, false);//call TimerDialogDisplay(og,false)
-			DisplayTextToForce(bj_FORCE_ALL_PLAYERS, "Time is up and not all players have agreed. Extra rounds declined!");//call DisplayTextToForce(bj_FORCE_ALL_PLAYERS,"Time is up and not all players have agreed. Extra rounds declined!")
+			DisplayTextToForce(bj_FORCE_ALL_PLAYERS, "Time is up && !all players have agreed. Extra rounds declined!");//call DisplayTextToForce(bj_FORCE_ALL_PLAYERS,"Time is up and not all players have agreed. Extra rounds declined!")
 		}//endfunction
 		private void Bz(int dk) {//function Bz takes integer dk returns nothing
 			if ((pg==-1)) {//if(pg==-1)then
@@ -11075,7 +11075,7 @@ namespace Jass {
 		private void bz(int ws) {//function bz takes integer ws returns nothing
 			int i = 0;//local integer i=0
 			if ((ws<1 || ws>3)) {//if(ws<1 or ws>3)then
-				DisplayTextToPlayer(Player(0), .0, .0, "Invalid number of rounds, must be between 1 and 3");//call DisplayTextToPlayer(Player(0),.0,.0,"Invalid number of rounds, must be between 1 and 3")
+				DisplayTextToPlayer(Player(0), .0, .0, "Invalid number of rounds, must be between 1 && 3");//call DisplayTextToPlayer(Player(0),.0,.0,"Invalid number of rounds, must be between 1 and 3")
 				return;//return
 			}//endif
 			pg = ws;//set pg=ws
@@ -11240,7 +11240,7 @@ namespace Jass {
 			} else if ((SubString(s,0,4)=="ice2")) {//elseif(SubString(s,0,4)=="ice2")then
 				xj(2);//call xj(2)
 			} else {//else
-				DisplayTextToPlayer(Player(0), .0, .0, "Sorry, but landscape [|c00ff0000"+s+"|r] not found.");//call DisplayTextToPlayer(Player(0),.0,.0,"Sorry, but landscape [|c00ff0000"+s+"|r] not found.")
+				DisplayTextToPlayer(Player(0), .0, .0, "Sorry, but landscape [|c00ff0000"+s+"|r] !found.");//call DisplayTextToPlayer(Player(0),.0,.0,"Sorry, but landscape [|c00ff0000"+s+"|r] not found.")
 			}//endif
 		}//endfunction
 		private void Ez() {//function Ez takes nothing returns nothing
@@ -11347,17 +11347,17 @@ namespace Jass {
 			string ZC;//local string ZC
 			float i = $C0;//local real i=$C0
 			float Nz;//local real Nz
-			if (ed>0 ) {//if ed>0 then
+			if (ed>0) {//if ed>0 then
 				return;//return
 			}//endif
-			if (YC=="u" || YC=="t" ) {//if YC=="u" or YC=="t" then
+			if (YC=="u" || YC=="t") {//if YC=="u" or YC=="t" then
 				zC = -1;//set zC=-1
-			} else if (YC=="d" || YC=="b" ) {//elseif YC=="d" or YC=="b" then
+			} else if (YC=="d" || YC=="b") {//elseif YC=="d" or YC=="b" then
 				zC = 1;//set zC=1
 			} else {//else
 				zC = (GetRandomInt(0,1)*2)-1;//set zC=(GetRandomInt(0,1)*2)-1
 			}//endif
-			if (zC==1 ) {//if zC==1 then
+			if (zC==1) {//if zC==1 then
 				ed = 2;//set ed=2
 				ZC = "bottom";//set ZC="bottom"
 			} else {//else
@@ -11367,8 +11367,8 @@ namespace Jass {
 			Nz = GetRectMaxY(bj_mapInitialPlayableArea);//set Nz=GetRectMaxY(bj_mapInitialPlayableArea)
 			while (true) {//loop
 				if (i>Nz) { break; }//exitwhen i>Nz
-				CreateDestructable('YTfc', $5C0, i*zC, 270, 1, 0);//call CreateDestructable('YTfc',$5C0,i*zC,270,1,0)
-				CreateDestructable('YTfc', -$5C0, i*zC, 270, 1, 0);//call CreateDestructable('YTfc',-$5C0,i*zC,270,1,0)
+				CreateDestructable(1716803879, $5C0, i*zC, 270, 1, 0);//call CreateDestructable('YTfc',$5C0,i*zC,270,1,0)
+				CreateDestructable(1716803879, -$5C0, i*zC, 270, 1, 0);//call CreateDestructable('YTfc',-$5C0,i*zC,270,1,0)
 				i = i+$80;//set i=i+$80
 			}//endloop
 			i = -$5F0;//set i=-$5F0
@@ -11378,10 +11378,10 @@ namespace Jass {
 				SetTerrainPathable(i, 272*zC, PATHING_TYPE_FLYABILITY, false);//call SetTerrainPathable(i,272*zC,PATHING_TYPE_FLYABILITY,false)
 				i = i+32;//set i=i+32
 			}//endloop
-			CreateDestructable('B004', $5C0, 640*zC, 270, 1.1, 0);//call CreateDestructable('B004',$5C0,640*zC,270,1.1,0)
-			CreateDestructable('B004', -$5C0, 640*zC, 270, 1.1, 0);//call CreateDestructable('B004',-$5C0,640*zC,270,1.1,0)
-			CreateDestructable('B004', $5C0, 960*zC, 270, 1.1, 0);//call CreateDestructable('B004',$5C0,960*zC,270,1.1,0)
-			CreateDestructable('B004', -$5C0, 960*zC, 270, 1.1, 0);//call CreateDestructable('B004',-$5C0,960*zC,270,1.1,0)
+			CreateDestructable(808469031, $5C0, 640*zC, 270, 1.1, 0);//call CreateDestructable('B004',$5C0,640*zC,270,1.1,0)
+			CreateDestructable(808469031, -$5C0, 640*zC, 270, 1.1, 0);//call CreateDestructable('B004',-$5C0,640*zC,270,1.1,0)
+			CreateDestructable(808469031, $5C0, 960*zC, 270, 1.1, 0);//call CreateDestructable('B004',$5C0,960*zC,270,1.1,0)
+			CreateDestructable(808469031, -$5C0, 960*zC, 270, 1.1, 0);//call CreateDestructable('B004',-$5C0,960*zC,270,1.1,0)
 			DisplayTextToForce(bj_FORCE_ALL_PLAYERS, "|cffC6FF00Single Lane|r has been chosen. Units are only able to walk/fly over the |cffFFFF00"+ZC+" lane|r.");//call DisplayTextToForce(bj_FORCE_ALL_PLAYERS,"|cffC6FF00Single Lane|r has been chosen. Units are only able to walk/fly over the |cffFFFF00"+ZC+" lane|r.")
 		}//endfunction
 		private void Oz(int p, int Pk) {//function Oz takes integer p,integer Pk returns nothing
@@ -11552,7 +11552,7 @@ namespace Jass {
 			} else if ((SubString(s,1,6)=="agree")) {//elseif(SubString(s,1,6)=="agree")then
 				Bz(tk);//call Bz(tk)
 			} else {//else
-				DisplayTextToPlayer(Player(tk), .0, .0, "Sorry, but command [|c00ff0000"+SubString(s, 1, StringLength(s))+"|r] coudn't be executed. You are not allowed to perform it in current time or you have mistake in syntax.");//call DisplayTextToPlayer(Player(tk),.0,.0,"Sorry, but command [|c00ff0000"+SubString(s,1,StringLength(s))+"|r] coudn't be executed. You are not allowed to perform it in current time or you have mistake in syntax.")
+				DisplayTextToPlayer(Player(tk), .0, .0, "Sorry, but command [|c00ff0000"+SubString(s, 1, StringLength(s))+"|r] coudn't be executed. You are !allowed to perform it in current time || you have mistake in syntax.");//call DisplayTextToPlayer(Player(tk),.0,.0,"Sorry, but command [|c00ff0000"+SubString(s,1,StringLength(s))+"|r] coudn't be executed. You are not allowed to perform it in current time or you have mistake in syntax.")
 			}//endif
 		}//endfunction
 		private bool Vz() {//function Vz takes nothing returns boolean
@@ -11571,9 +11571,9 @@ namespace Jass {
 			Rj();//call Rj()
 			while (true) {//loop
 				ch = SubString(s,i,i+1);//set ch=SubString(s,i,i+1)
-				if (ch=="-" ) {//if ch=="-" then
-					if (Yz!=i ) {//if Yz!=i then
-						if (Zz>0 ) {//if Zz>0 then
+				if (ch=="-") {//if ch=="-" then
+					if (Yz!=i) {//if Yz!=i then
+						if (Zz>0) {//if Zz>0 then
 							Sz(SubString(s, Yz, Zz)+SubString(Xz, Zz, i), id);//call Sz(SubString(s,Yz,Zz)+SubString(Xz,Zz,i),id)
 						} else {//else
 							Sz(SubString(s, Yz, i), id);//call Sz(SubString(s,Yz,i),id)
@@ -11581,13 +11581,13 @@ namespace Jass {
 					}//endif
 					Yz = i;//set Yz=i
 					Zz = 0;//set Zz=0
-				} else if (Zz==0 && ch==" " ) {//elseif Zz==0 and ch==" " then
+				} else if (Zz==0 && ch==" ") {//elseif Zz==0 and ch==" " then
 					Zz = i;//set Zz=i
 				}//endif
 				i = i+1;//set i=i+1
 				if (i>=dA) { break; }//exitwhen i>=dA
 			}//endloop
-			if (Zz>0 ) {//if Zz>0 then
+			if (Zz>0) {//if Zz>0 then
 				Sz(SubString(s, Yz, Zz)+SubString(Xz, Zz, i), id);//call Sz(SubString(s,Yz,Zz)+SubString(Xz,Zz,i),id)
 			} else {//else
 				Sz(SubString(s, Yz, i), id);//call Sz(SubString(s,Yz,i),id)
@@ -11661,8 +11661,8 @@ namespace Jass {
 			SetUnitY(oe[0], GetLocationY(Id[1]));//call SetUnitY(oe[0],GetLocationY(Id[1]))
 			SetUnitColor(oe[0], PLAYER_COLOR_RED);//call SetUnitColor(oe[0],PLAYER_COLOR_RED)
 			if ((!qd)) {//if(not qd)then
-				UnitRemoveAbility(oe[0], 'Aall');//call UnitRemoveAbility(oe[0],'Aall')
-				UnitRemoveAbility(oe[0], 'Apit');//call UnitRemoveAbility(oe[0],'Apit')
+				UnitRemoveAbility(oe[0], 1818312999);//call UnitRemoveAbility(oe[0],'Aall')
+				UnitRemoveAbility(oe[0], 1768964391);//call UnitRemoveAbility(oe[0],'Apit')
 			}//endif
 			TriggerRegisterDeathEvent(hg, oe[0]);//call TriggerRegisterDeathEvent(hg,oe[0])
 			oe[1] = CreateUnitAtLoc(pr,1633904679,Id[0],270.);//set oe[1]=CreateUnitAtLoc(pr,'hcas',Id[0],270.)
@@ -11670,8 +11670,8 @@ namespace Jass {
 			SetUnitY(oe[1], GetLocationY(Id[0]));//call SetUnitY(oe[1],GetLocationY(Id[0]))
 			SetUnitColor(oe[1], PLAYER_COLOR_GREEN);//call SetUnitColor(oe[1],PLAYER_COLOR_GREEN)
 			if ((!qd)) {//if(not qd)then
-				UnitRemoveAbility(oe[1], 'Aall');//call UnitRemoveAbility(oe[1],'Aall')
-				UnitRemoveAbility(oe[1], 'Apit');//call UnitRemoveAbility(oe[1],'Apit')
+				UnitRemoveAbility(oe[1], 1818312999);//call UnitRemoveAbility(oe[1],'Aall')
+				UnitRemoveAbility(oe[1], 1768964391);//call UnitRemoveAbility(oe[1],'Apit')
 			}//endif
 			TriggerRegisterDeathEvent(ig, oe[1]);//call TriggerRegisterDeathEvent(ig,oe[1])
 			TriggerAddAction(hg, function xz);//call TriggerAddAction(hg,function xz)
@@ -11733,8 +11733,8 @@ namespace Jass {
 					}//endif
 					u = CreateUnitAtLoc(Player(i),Pd[i],Qd[i],180.*me[i]);//set u=CreateUnitAtLoc(Player(i),Pd[i],Qd[i],180.*me[i])
 					if ((!sd)) {//if(not sd)then
-						UnitRemoveAbility(u, 'A005');//call UnitRemoveAbility(u,'A005')
-						UnitRemoveAbility(u, 'A06E');//call UnitRemoveAbility(u,'A06E')
+						UnitRemoveAbility(u, 808468775);//call UnitRemoveAbility(u,'A005')
+						UnitRemoveAbility(u, 909132071);//call UnitRemoveAbility(u,'A06E')
 					} else {//else
 						Md[me[i]] = Md[me[i]]+1;//set Md[me[i]]=Md[me[i]]+1
 						Zr(H9[i], me[i]*6+1, "V");//call Zr(H9[i],me[i]*6+1,"V")
@@ -11748,7 +11748,7 @@ namespace Jass {
 						SetPlayerState(Player(i), PLAYER_STATE_RESOURCE_FOOD_CAP, 0);//call SetPlayerState(Player(i),PLAYER_STATE_RESOURCE_FOOD_CAP,0)
 					}//endif
 					if ((E9[i]!=null)) {//if(E9[i]!=null)then
-						UnitAddAbility(u, 'A0A5');//call UnitAddAbility(u,'A0A5')
+						UnitAddAbility(u, 1093681447);//call UnitAddAbility(u,'A0A5')
 					}//endif
 					Js(i);//call Js(i)
 				} else {//else
@@ -12253,7 +12253,7 @@ namespace Jass {
 					GroupEnumUnitsOfPlayer(q4, p, b9);//call GroupEnumUnitsOfPlayer(q4,p,b9)
 					u = FirstOfGroup(q4);//set u=FirstOfGroup(q4)
 					if ((u!=null && GetUnitAbilityLevel(u,1093681447)<=0)) {//if(u!=null and GetUnitAbilityLevel(u,'A0A5')<=0)then
-						UnitAddAbility(u, 'A0A5');//call UnitAddAbility(u,'A0A5')
+						UnitAddAbility(u, 1093681447);//call UnitAddAbility(u,'A0A5')
 					}//endif
 				}//endif
 				i = i+1;//set i=i+1
@@ -12345,14 +12345,14 @@ namespace Jass {
 				mk = GetPlayerId(p);//set mk=GetPlayerId(p)
 				fe[mk] = fe[mk]+(600);//set fe[mk]=fe[mk]+(600)
 				u = CreateUnitAtLoc(p,808477991,R9,.0);//set u=CreateUnitAtLoc(p,'e008',R9,.0)
-				UnitAddAbility(u, 'A06D');//call UnitAddAbility(u,'A06D')
-				UnitApplyTimedLife(u, 'BTLF', 29.);//call UnitApplyTimedLife(u,'BTLF',29.)
+				UnitAddAbility(u, 909132071);//call UnitAddAbility(u,'A06D')
+				UnitApplyTimedLife(u, 1280590375, 29.);//call UnitApplyTimedLife(u,'BTLF',29.)
 			} else if ((bj==808470823)) {//elseif(bj=='I007')then
 				mk = GetPlayerId(p);//set mk=GetPlayerId(p)
 				fe[mk] = fe[mk]+($578);//set fe[mk]=fe[mk]+($578)
 				u = CreateUnitAtLoc(p,808477991,R9,.0);//set u=CreateUnitAtLoc(p,'e008',R9,.0)
-				UnitAddAbility(u, 'A06C');//call UnitAddAbility(u,'A06C')
-				UnitApplyTimedLife(u, 'BTLF', 29.);//call UnitApplyTimedLife(u,'BTLF',29.)
+				UnitAddAbility(u, 909132071);//call UnitAddAbility(u,'A06C')
+				UnitApplyTimedLife(u, 1280590375, 29.);//call UnitApplyTimedLife(u,'BTLF',29.)
 			} else if ((bj==808470823)) {//elseif(bj=='I001')then
 				mk = GetPlayerId(p);//set mk=GetPlayerId(p)
 				fe[mk] = fe[mk]+($96);//set fe[mk]=fe[mk]+($96)
@@ -12387,7 +12387,7 @@ namespace Jass {
 				p = GetOwningPlayer(u);//set p=GetOwningPlayer(u)
 				PingMinimapForPlayer(p, GetUnitX(u), GetUnitY(u), 1.);//call PingMinimapForPlayer(p,GetUnitX(u),GetUnitY(u),1.)
 				SetUnitPositionLoc(u, Qd[GetPlayerId(p)]);//call SetUnitPositionLoc(u,Qd[GetPlayerId(p)])
-				DisplayTextToPlayer(p, .0, .0, "|cffFF0000Your worker may not leave your castle!|r");//call DisplayTextToPlayer(p,.0,.0,"|cffFF0000Your worker may not leave your castle!|r")
+				DisplayTextToPlayer(p, .0, .0, "|cffFF0000Your worker may !leave your castle!|r");//call DisplayTextToPlayer(p,.0,.0,"|cffFF0000Your worker may not leave your castle!|r")
 			}//endif
 			u = null;//set u=null
 			return false;//return false
@@ -12431,8 +12431,8 @@ namespace Jass {
 				} else if ((aj==842033191)) {//elseif(aj=='h02D')then
 					TimerStart(A7, 4., true, function qm);//call TimerStart(A7,4.,true,function qm)
 				} else if ((aj==808478759)) {//elseif(aj=='h00G')then
-					UnitAddAbility(u, 'A008');//call UnitAddAbility(u,'A008')
-					UnitAddAbility(u, 'A007');//call UnitAddAbility(u,'A007')
+					UnitAddAbility(u, 808468775);//call UnitAddAbility(u,'A008')
+					UnitAddAbility(u, 808468775);//call UnitAddAbility(u,'A007')
 				} else if ((aj==909142055)) {//elseif(aj=='h061')then
 					oo(u);//call oo(u)
 				} else if ((aj==892364839 || aj==858810407 || aj==825255975 || aj==825255975 || aj==892364839)) {//elseif(aj=='h056' or aj=='h03L' or aj=='h01W' or aj=='h01X' or aj=='h05R')then
@@ -12443,12 +12443,12 @@ namespace Jass {
 					TriggerSleepAction(45.);//call TriggerSleepAction(45.)
 					IssueTargetOrderById(u, $D0279, GroupPickRandomUnit(P9));//call IssueTargetOrderById(u,$D0279,GroupPickRandomUnit(P9))
 				} else if ((aj==959473703)) {//elseif(aj=='h09T')then
-					UnitAddAbility(u, 'A09S');//call UnitAddAbility(u,'A09S')
-					UnitAddAbility(u, 'A09P');//call UnitAddAbility(u,'A09P')
-					UnitAddAbility(u, 'A09V');//call UnitAddAbility(u,'A09V')
+					UnitAddAbility(u, 959463719);//call UnitAddAbility(u,'A09S')
+					UnitAddAbility(u, 959463719);//call UnitAddAbility(u,'A09P')
+					UnitAddAbility(u, 959463719);//call UnitAddAbility(u,'A09V')
 					GroupAddUnit(rf, u);//call GroupAddUnit(rf,u)
 				} else if ((aj==825255975)) {//elseif(aj=='h01O')then
-					UnitAddAbility(u, 'A01V');//call UnitAddAbility(u,'A01V')
+					UnitAddAbility(u, 825245991);//call UnitAddAbility(u,'A01V')
 				} else if ((aj==808478759)) {//elseif(aj=='h008')then
 					aj = GetPlayerId(p);//set aj=GetPlayerId(p)
 					ge[aj] = ge[aj]+1;//set ge[aj]=ge[aj]+1
@@ -12521,10 +12521,10 @@ namespace Jass {
 						} else if ((t==808477991)) {//elseif(t=='e00A')then
 							SetUnitLifePercentBJ(k, GetUnitLifePercent(k)+20.);//call SetUnitLifePercentBJ(k,GetUnitLifePercent(k)+20.)
 						} else if ((t==825255975 && GetUnitAbilityLevel(u,942686503)<=0  && (!IsUnitType(u,UNIT_TYPE_MECHANICAL)) && (!IsUnitType(u,UNIT_TYPE_UNDEAD)))) {//elseif(t=='h01U' and GetUnitAbilityLevel(u,'A08H')<=0 and(not IsUnitType(u,UNIT_TYPE_MECHANICAL))and(not IsUnitType(u,UNIT_TYPE_UNDEAD)))then
-							hy(k, u, 'h01V');//call hy(k,u,'h01V')
+							hy(k, u, 825255975);//call hy(k,u,'h01V')
 							u = null;//set u=null
 						} else if ((t==892364839 && GetUnitAbilityLevel(u,942686503)<=0  && (!IsUnitType(u,UNIT_TYPE_MECHANICAL)) && (!IsUnitType(u,UNIT_TYPE_UNDEAD)))) {//elseif(t=='h05H' and GetUnitAbilityLevel(u,'A08H')<=0 and(not IsUnitType(u,UNIT_TYPE_MECHANICAL))and(not IsUnitType(u,UNIT_TYPE_UNDEAD)))then
-							hy(k, u, 'h01U');//call hy(k,u,'h01U')
+							hy(k, u, 825255975);//call hy(k,u,'h01U')
 							u = null;//set u=null
 						} else if ((GetUnitAbilityLevel(u,925909287)>=1)) {//elseif(GetUnitAbilityLevel(u,'A07M')>=1)then
 							Lo(u);//call Lo(u)
@@ -12595,8 +12595,8 @@ namespace Jass {
 			bool ia;//local boolean ia
 			int dk;//local integer dk
 			SetUnitVertexColor(c, 0, 0, 0, 0);//call SetUnitVertexColor(c,0,0,0,0)
-			UnitRemoveAbility(u, 'A005');//call UnitRemoveAbility(u,'A005')
-			UnitRemoveAbility(u, 'A06E');//call UnitRemoveAbility(u,'A06E')
+			UnitRemoveAbility(u, 808468775);//call UnitRemoveAbility(u,'A005')
+			UnitRemoveAbility(u, 909132071);//call UnitRemoveAbility(u,'A06E')
 			DestroyEffect(AddSpecialEffectTarget("Abilities\\Spells\\Items\\TomeOfRetraining\\TomeOfRetrainingCaster.mdl", u, "origin"));//call DestroyEffect(AddSpecialEffectTarget("Abilities\\Spells\\Items\\TomeOfRetraining\\TomeOfRetrainingCaster.mdl",u,"origin"))
 			DestroyEffect(AddSpecialEffectTarget("Units\\NightElf\\Wisp\\WispExplode.mdl", c, "origin"));//call DestroyEffect(AddSpecialEffectTarget("Units\\NightElf\\Wisp\\WispExplode.mdl",c,"origin"))
 			DestroyEffect(AddSpecialEffectTarget("Units\\NightElf\\Wisp\\WispExplode.mdl", c, "origin"));//call DestroyEffect(AddSpecialEffectTarget("Units\\NightElf\\Wisp\\WispExplode.mdl",c,"origin"))
@@ -12639,16 +12639,16 @@ namespace Jass {
 			} else if ((Dj==1)) {//elseif(Dj==1)then
 				DisplayTextToForce(bj_FORCE_ALL_PLAYERS, pe[dk]+" wasted his Rescue Strike, killing only one unit!");//call DisplayTextToForce(bj_FORCE_ALL_PLAYERS,pe[dk]+" wasted his Rescue Strike, killing only one unit!")
 			} else if ((Dj<5)) {//elseif(Dj<5)then
-				DisplayTextToForce(bj_FORCE_ALL_PLAYERS, pe[dk]+" wasted his Rescue Strike, dealing only |cffFFFF00"+I2S(Wd[dk])+"|r damage and killing only |cffFFFF00"+I2S(Dj)+"|r units!");//call DisplayTextToForce(bj_FORCE_ALL_PLAYERS,pe[dk]+" wasted his Rescue Strike, dealing only |cffFFFF00"+I2S(Wd[dk])+"|r damage and killing only |cffFFFF00"+I2S(Dj)+"|r units!")
+				DisplayTextToForce(bj_FORCE_ALL_PLAYERS, pe[dk]+" wasted his Rescue Strike, dealing only |cffFFFF00"+I2S(Wd[dk])+"|r damage && killing only |cffFFFF00"+I2S(Dj)+"|r units!");//call DisplayTextToForce(bj_FORCE_ALL_PLAYERS,pe[dk]+" wasted his Rescue Strike, dealing only |cffFFFF00"+I2S(Wd[dk])+"|r damage and killing only |cffFFFF00"+I2S(Dj)+"|r units!")
 			} else {//else
 				DisplayTextToForce(bj_FORCE_ALL_PLAYERS, pe[dk]+" dealt |cffFFFF00"+I2S(Wd[dk])+"|r damage with his Rescue Strike, killing |cffFFFF00"+I2S(Dj)+"|r units!");//call DisplayTextToForce(bj_FORCE_ALL_PLAYERS,pe[dk]+" dealt |cffFFFF00"+I2S(Wd[dk])+"|r damage with his Rescue Strike, killing |cffFFFF00"+I2S(Dj)+"|r units!")
 			}//endif
 		}//endfunction
 		private void ja(unit u, float tx, float ty) {//function ja takes unit u,real tx,real ty returns nothing
 			unit c = CreateUnit(GetOwningPlayer(u),808477991,tx,ty,.0);//local unit c=CreateUnit(GetOwningPlayer(u),'e008',tx,ty,.0)
-			UnitAddAbility(c, 'A02G');//call UnitAddAbility(c,'A02G')
+			UnitAddAbility(c, 842023207);//call UnitAddAbility(c,'A02G')
 			IssueImmediateOrderById(c, $D012D);//call IssueImmediateOrderById(c,$D012D)
-			UnitApplyTimedLife(c, 'BTLF', 1.);//call UnitApplyTimedLife(c,'BTLF',1.)
+			UnitApplyTimedLife(c, 1280590375, 1.);//call UnitApplyTimedLife(c,'BTLF',1.)
 			c = null;//set c=null
 		}//endfunction
 		private void ka(unit u, int ma) {//function ka takes unit u,integer ma returns nothing
@@ -12690,7 +12690,7 @@ namespace Jass {
 			} else if ((oa==942686503)) {//elseif(oa=='A08Y')then
 				ja(u, GetSpellTargetX(), GetSpellTargetY());//call ja(u,GetSpellTargetX(),GetSpellTargetY())
 			} else if ((oa>=1094863143 && oa<=1094863143)) {//elseif(oa>='IBA0' and oa<='IBA8')then
-				ka(u, oa-'IBA0');//call ka(u,oa-'IBA0')
+				ka(u, oa-1094863143);//call ka(u,oa-'IBA0')
 			} else {//else
 				Nj(u, oa, GetSpellTargetUnit());//call Nj(u,oa,GetSpellTargetUnit())
 			}//endif

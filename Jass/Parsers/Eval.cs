@@ -19,7 +19,7 @@ namespace Jass
 
 		public void Parse(string text)
 		{
-			eval = text;
+			eval = text.Trim();
 			eval = eval.Replace(" or ", " || ");
 			eval = eval.Replace(")or ", ") || ");
 			eval = eval.Replace(" or(", " || (");
@@ -37,6 +37,11 @@ namespace Jass
 
 		public override string ToString()
 		{
+			if (LinkStorage.Globals.ContainsKey(eval))
+			{
+				LinkInfo link = LinkStorage.Globals[eval];
+				return link.File.Name + "." + eval;
+			}
 			return eval;
 		}
 	}

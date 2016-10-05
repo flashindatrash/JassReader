@@ -83,12 +83,13 @@
     <Compile Include="Reader\Interfaces\IName.cs" />
     <Compile Include="Reader\LinkStorage.cs" />
     <Compile Include="Reader\JassDirectory.cs" />
-    <Compile Include="Parsers\Value.cs" />
     <Compile Include="Parsers\Debug.cs" />
     <Compile Include="Parsers\Extends.cs" />
     <Compile Include="Reader\TemplateFile.cs" />
     <Compile Include="Reader\Interfaces\IFile.cs" />
     <Compile Include="Parsers\Id.cs" />
+    <Compile Include="Data\JassArray.cs" />
+    <Compile Include="Data\DataArray.cs" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Reader\Interfaces\" />

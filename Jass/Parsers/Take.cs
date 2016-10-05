@@ -10,11 +10,6 @@ namespace Jass
 		private readonly Class jclass = new Class();
 		private readonly Name name = new Name();
 
-		public Take(string text)
-		{
-			Parse(text);
-		}
-
 		public void Parse(string text)
 		{
 			Match match = Regex.Match(text.Trim(), Pattern);
