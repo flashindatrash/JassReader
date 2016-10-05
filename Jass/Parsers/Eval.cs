@@ -29,6 +29,10 @@ namespace Jass
 			eval = eval.Replace("and(", " && (");
 			eval = eval.Replace(")and(", ") && (");
 			eval = eval.Replace("not ", "!");
+			eval = Regex.Replace(eval, Id.Pattern, delegate (Match match)
+			{
+				return match.ToString().ToInt().ToString();
+			});
 		}
 
 		public override string ToString()

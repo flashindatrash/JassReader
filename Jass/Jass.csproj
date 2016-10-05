@@ -88,6 +88,7 @@
     <Compile Include="Parsers\Extends.cs" />
     <Compile Include="Reader\TemplateFile.cs" />
     <Compile Include="Reader\Interfaces\IFile.cs" />
+    <Compile Include="Parsers\Id.cs" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Reader\Interfaces\" />

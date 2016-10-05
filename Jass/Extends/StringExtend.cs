@@ -1,9 +1,17 @@
 ﻿using System;
 using System.Text.RegularExpressions;
+using System.Text;
+
 namespace Jass
 {
 	public static class StringExtend
 	{
+		public static int ToInt(this string str)
+		{
+			byte[] bytes = Encoding.Default.GetBytes(str);
+			return BitConverter.ToInt32(bytes, 0);
+		}
+
 		public static string[] SplitLines(this string str)
 		{
 			return Regex.Split(str, "[\r\n]", RegexOptions.IgnorePatternWhitespace);

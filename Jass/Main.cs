@@ -19,7 +19,7 @@ namespace Jass {
 			Core.RegisterParser(new LineInfo(typeof(Set), Set.Pattern));
 			Core.RegisterParser(new LineInfo(typeof(SetArray), SetArray.Pattern));
 			Core.RegisterParser(new LineInfo(typeof(Declaration), Declaration.Pattern));
-			
+
 			using (JassWriter writer = new JassWriter())
 			{
 				writer.ClearFolder();
