@@ -29,7 +29,7 @@ namespace Jass
 			eval = eval.Replace("and(", " && (");
 			eval = eval.Replace(")and(", ") && (");
 			eval = eval.Replace("not ", "!");
-			eval = Regex.Replace(eval, Id.Pattern, delegate (Match match)
+			eval = Regex.Replace(eval, Integer.Pattern, delegate (Match match)
 			{
 				return match.ToString().ToInt().ToString();
 			});
@@ -39,7 +39,7 @@ namespace Jass
 		{
 			if (LinkStorage.Globals.ContainsKey(eval))
 			{
-				LinkInfo link = LinkStorage.Globals[eval];
+				Link link = LinkStorage.Globals[eval];
 				return link.File.Name + "." + eval;
 			}
 			return eval;

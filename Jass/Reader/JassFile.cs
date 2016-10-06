@@ -43,7 +43,7 @@ namespace Jass
 
 			if (line is IName)
 			{
-				LinkStorage.Add(new LinkInfo(this, line));
+				LinkStorage.Add(new Link(this, line));
 			}
 		}
 

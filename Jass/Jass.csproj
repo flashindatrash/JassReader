@@ -84,11 +84,12 @@
     <Compile Include="Parsers\Extends.cs" />
     <Compile Include="Reader\TemplateFile.cs" />
     <Compile Include="Reader\Interfaces\IFile.cs" />
-    <Compile Include="Parsers\Id.cs" />
-    <Compile Include="Data\JassArray.cs" />
-    <Compile Include="Data\DataArray.cs" />
+    <Compile Include="Types\JassArray.cs" />
+    <Compile Include="Types\DataArray.cs" />
     <Compile Include="Reader\Pattern.cs" />
     <Compile Include="Reader\Link.cs" />
+    <Compile Include="Types\Integer.cs" />
+    <Compile Include="Types\Real.cs" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Reader\Interfaces\" />

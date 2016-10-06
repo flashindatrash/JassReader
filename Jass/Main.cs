@@ -20,6 +20,10 @@ namespace Jass {
 			Pattern.RegisterParser(new Pattern(typeof(SetArray), SetArray.Pattern));
 			Pattern.RegisterParser(new Pattern(typeof(Declaration), Declaration.Pattern));
 
+			//Register types
+			Pattern.RegisterType(new Pattern(typeof(Integer), Integer.Pattern));
+			Pattern.RegisterType(new Pattern(typeof(Real), Real.Pattern));
+
 			using (JassWriter writer = new JassWriter())
 			{
 				writer.ClearFolder();
