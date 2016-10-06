@@ -65,14 +65,10 @@ namespace Jass
 				}
 				else
 				{
-					foreach (LineInfo parser in Core.Parsers)
-					{
-						if (Regex.IsMatch(text, parser.pattern))
-						{
-							line = (JassLine)Activator.CreateInstance(parser.type);
-							((IParser)line).Parse(text);
-							break;
-						}
+					Pattern pattern = Pattern.GetParser(text);
+					if (pattern!=null) {
+						line = (JassLine)Activator.CreateInstance(pattern.type);
+						((IParser)line).Parse(text);
 					}
 				}
 

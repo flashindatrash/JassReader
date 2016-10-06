@@ -1,7 +1,7 @@
 ﻿using System;
 namespace Jass
 {
-	public struct LinkInfo
+	public class Link
 	{
 		/*
 		 * Ссылка состоит из линии и файла к которой она принадлежит
@@ -41,7 +41,7 @@ namespace Jass
 			}
 		}
 
-		public LinkInfo(JassFile File, JassLine Line)
+		public Link(JassFile File, JassLine Line)
 		{
 			this.File = File;
 			this.Line = Line;

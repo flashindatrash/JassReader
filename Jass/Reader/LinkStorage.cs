@@ -6,10 +6,10 @@ namespace Jass
 	public static class LinkStorage
 	{
 
-		public static Dictionary<string, LinkInfo> Globals = new Dictionary<string, LinkInfo>();
-		public static Dictionary<string, LinkInfo> Native = new Dictionary<string, LinkInfo>();
+		public static Dictionary<string, Link> Globals = new Dictionary<string, Link>();
+		public static Dictionary<string, Link> Native = new Dictionary<string, Link>();
 
-		public static void Add(LinkInfo link)
+		public static void Add(Link link)
 		{
 			if (!link.HasName) return;
 

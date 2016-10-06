@@ -2,23 +2,23 @@ namespace Jass {
 	class MainClass {
 		public static void Main (string[] args) {
 			//Register Parser
-			Core.RegisterParser(new LineInfo(typeof(Debug), Debug.Pattern));
-			Core.RegisterParser(new LineInfo(typeof(Extends), Extends.Pattern));
-			Core.RegisterParser(new LineInfo(typeof(Globals), Globals.Pattern));
-			Core.RegisterParser(new LineInfo(typeof(EndGlobals), EndGlobals.Pattern));
-			Core.RegisterParser(new LineInfo(typeof(Function), Function.Pattern));
-			Core.RegisterParser(new LineInfo(typeof(Call), Call.Pattern));
-			Core.RegisterParser(new LineInfo(typeof(EndFunction), EndFunction.Pattern));
-			Core.RegisterParser(new LineInfo(typeof(EndIf), EndIf.Pattern));
-			Core.RegisterParser(new LineInfo(typeof(IfThen), IfThen.Pattern));
-			Core.RegisterParser(new LineInfo(typeof(Else), Else.Pattern));
-			Core.RegisterParser(new LineInfo(typeof(Return), Return.Pattern));
-			Core.RegisterParser(new LineInfo(typeof(Loop), Loop.Pattern));
-			Core.RegisterParser(new LineInfo(typeof(EndLoop), EndLoop.Pattern));
-			Core.RegisterParser(new LineInfo(typeof(ExitWhen), ExitWhen.Pattern));
-			Core.RegisterParser(new LineInfo(typeof(Set), Set.Pattern));
-			Core.RegisterParser(new LineInfo(typeof(SetArray), SetArray.Pattern));
-			Core.RegisterParser(new LineInfo(typeof(Declaration), Declaration.Pattern));
+			Pattern.RegisterParser(new Pattern(typeof(Debug), Debug.Pattern));
+			Pattern.RegisterParser(new Pattern(typeof(Extends), Extends.Pattern));
+			Pattern.RegisterParser(new Pattern(typeof(Globals), Globals.Pattern));
+			Pattern.RegisterParser(new Pattern(typeof(EndGlobals), EndGlobals.Pattern));
+			Pattern.RegisterParser(new Pattern(typeof(Function), Function.Pattern));
+			Pattern.RegisterParser(new Pattern(typeof(Call), Call.Pattern));
+			Pattern.RegisterParser(new Pattern(typeof(EndFunction), EndFunction.Pattern));
+			Pattern.RegisterParser(new Pattern(typeof(EndIf), EndIf.Pattern));
+			Pattern.RegisterParser(new Pattern(typeof(IfThen), IfThen.Pattern));
+			Pattern.RegisterParser(new Pattern(typeof(Else), Else.Pattern));
+			Pattern.RegisterParser(new Pattern(typeof(Return), Return.Pattern));
+			Pattern.RegisterParser(new Pattern(typeof(Loop), Loop.Pattern));
+			Pattern.RegisterParser(new Pattern(typeof(EndLoop), EndLoop.Pattern));
+			Pattern.RegisterParser(new Pattern(typeof(ExitWhen), ExitWhen.Pattern));
+			Pattern.RegisterParser(new Pattern(typeof(Set), Set.Pattern));
+			Pattern.RegisterParser(new Pattern(typeof(SetArray), SetArray.Pattern));
+			Pattern.RegisterParser(new Pattern(typeof(Declaration), Declaration.Pattern));
 
 			using (JassWriter writer = new JassWriter())
 			{

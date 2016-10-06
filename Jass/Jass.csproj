@@ -44,8 +44,6 @@
     <Compile Include="Reader\JassException.cs" />
     <Compile Include="Extends\StringExtend.cs" />
     <Compile Include="Utils\Log.cs" />
-    <Compile Include="Utils\Core.cs" />
-    <Compile Include="Structures\LineInfo.cs" />
     <Compile Include="Parsers\Call.cs" />
     <Compile Include="Parsers\Function.cs" />
     <Compile Include="Parsers\EndFunction.cs" />
@@ -78,7 +76,6 @@
     <Compile Include="Parsers\ExitWhen.cs" />
     <Compile Include="Reader\Interfaces\ISkeep.cs" />
     <Compile Include="Reader\JassFile.cs" />
-    <Compile Include="Structures\LinkInfo.cs" />
     <Compile Include="Reader\JassLine.cs" />
     <Compile Include="Reader\Interfaces\IName.cs" />
     <Compile Include="Reader\LinkStorage.cs" />
@@ -90,6 +87,8 @@
     <Compile Include="Parsers\Id.cs" />
     <Compile Include="Data\JassArray.cs" />
     <Compile Include="Data\DataArray.cs" />
+    <Compile Include="Reader\Pattern.cs" />
+    <Compile Include="Reader\Link.cs" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Reader\Interfaces\" />
